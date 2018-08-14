@@ -28,6 +28,35 @@ Required version of Node.js is 4.8.7 or higher.
 From the command line:
 
 	npm install asposecellscloud --save
+	
+### Sample usage
+
+The examples below show how your application have to initiate and convert "xlsx file to "pdf" using asposecellscloud library:
+``` js
+const {CellsSaveAsApi, CellsSaveAs_PostDocumentSaveAsRequest, PdfSaveOptions} = require("asposecellscloud");
+
+const AppSid = "your clientId";
+const AppKey = "your clientSecret";
+
+const cellsSaveAsApi = new CellsSaveAsApi(AppSid, AppKey);
+const filename = "Book1.xlsx";
+var req = new CellsSaveAs_PostDocumentSaveAsRequest();
+req.name = filename;
+var saveOptions = new PdfSaveOptions();
+saveOptions.onePagePerSheet = true;
+saveOptions.saveFormat = "pdf"
+req.saveOptions = saveOptions;
+req.newfilename = "newbook.pdf";
+req.isAutoFitRows = true;
+req.isAutoFitColumns = true;
+req.folder = "Temp";
+        
+cellsSaveAsApi.cellsSaveAsPostDocumentSaveAs(req)
+    .then((result) => {
+    console.log(result.body.code);
+    });
+
+```
 
 ## Contact Us
 Your feedback is very important to us. Please feel free to contact us using our [Support Forums](https://forum.aspose.cloud/c/cells).

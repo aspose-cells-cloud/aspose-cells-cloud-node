@@ -13,11 +13,8 @@
         "declaration": true,
         "lib": ["es5", "es6", "scripthost"],
         "outDir": "dist",
-        "rootDir": "./"
     },
     "include": [
-        "src/**/*",
-        "test/**/*",
-        "bdd/**/*.ts"
+        "src/**/*.ts"
     ]    
 }
