@@ -52,8 +52,10 @@ req.isAutoFitColumns = true;
 req.folder = "Temp";
         
 cellsSaveAsApi.cellsSaveAsPostDocumentSaveAs(req)
-    .then((result) => {
-    console.log(result.body.code);
+    .then((result) => {    
+        console.log(result.body.code);    
+    }).catch(function(err) {
+        console.log(err);
     });
 
 ```
