@@ -12,7 +12,8 @@
                 "${file}",
                 "--no-timeouts"
             ],
-            "internalConsoleOptions": "openOnSessionStart"
+            "internalConsoleOptions": "openOnSessionStart",
+            "cwd": "${workspaceFolder}/test"
         }
     ]
 }

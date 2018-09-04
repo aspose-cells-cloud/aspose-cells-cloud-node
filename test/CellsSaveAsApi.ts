@@ -90,5 +90,39 @@ describe('CellsSaveAsApi', function() {
           });
       });
     });
+
+    describe('cellsSaveAsPostDocumentSaveAsPDFDropBox', function() {
+      it('should call cellsSaveAsPostDocumentSaveAsPDF on DropBox successfully', function() {
+        const storageApi = BaseTest.initializeStorageApi();
+        const cellsSaveAsApi = BaseTest.initializeCellsSaveAsApi();
+        const filename = "Book1.xlsx";
+        const storage = "DropBox";
+        return new Promise((resolve) => {
+          storageApi.PutCreate("Temp/" + filename, null, storage, localPath + filename, (responseMessage) => {
+            expect(responseMessage.status).to.equal("OK");
+            resolve();
+          });
+        })
+          .then(() => {
+            var req = new model.CellsSaveAs_PostDocumentSaveAsRequest();
+            req.name = filename;
+            var saveOptions = new model.PdfSaveOptions();
+            saveOptions.onePagePerSheet = true;
+            saveOptions.saveFormat = "pdf"
+            req.saveOptions = saveOptions;
+            req.newfilename = "newbook.pdf";
+            req.isAutoFitRows = true;
+            req.isAutoFitColumns = true;
+            req.folder = "Temp";
+            req.storage = storage;
+            
+            return cellsSaveAsApi.cellsSaveAsPostDocumentSaveAs(req)
+              .then((result) => {
+                expect(result.body.code).to.equal(200);
+                expect(result.response.statusCode).to.equal(200);
+              });
+          });
+      });
+    });
   });
 });

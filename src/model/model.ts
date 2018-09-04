@@ -13992,6 +13992,11 @@ export class Cells_DeleteWorksheetColumnsRequest {
      * The workbook folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<Cells_DeleteWorksheetColumnsRequest>) {        
         Object.assign(this, init);
@@ -14021,6 +14026,11 @@ export class Cells_DeleteWorksheetRowRequest {
      * The document folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<Cells_DeleteWorksheetRowRequest>) {        
         Object.assign(this, init);
@@ -14060,6 +14070,11 @@ export class Cells_DeleteWorksheetRowsRequest {
      * The document folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<Cells_DeleteWorksheetRowsRequest>) {        
         Object.assign(this, init);
@@ -14089,6 +14104,11 @@ export class Cells_GetWorksheetCellRequest {
      * Document's folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<Cells_GetWorksheetCellRequest>) {        
         Object.assign(this, init);
@@ -14118,6 +14138,11 @@ export class Cells_GetWorksheetCellStyleRequest {
      * Document's folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<Cells_GetWorksheetCellStyleRequest>) {        
         Object.assign(this, init);
@@ -14152,6 +14177,11 @@ export class Cells_GetWorksheetCellsRequest {
      * Document's folder name.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<Cells_GetWorksheetCellsRequest>) {        
         Object.assign(this, init);
@@ -14181,6 +14211,11 @@ export class Cells_GetWorksheetColumnRequest {
      * The workbook folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<Cells_GetWorksheetColumnRequest>) {        
         Object.assign(this, init);
@@ -14205,6 +14240,11 @@ export class Cells_GetWorksheetColumnsRequest {
      * The workdook folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<Cells_GetWorksheetColumnsRequest>) {        
         Object.assign(this, init);
@@ -14234,6 +14274,11 @@ export class Cells_GetWorksheetRowRequest {
      * The workbook folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<Cells_GetWorksheetRowRequest>) {        
         Object.assign(this, init);
@@ -14258,6 +14303,11 @@ export class Cells_GetWorksheetRowsRequest {
      * The workdook folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<Cells_GetWorksheetRowsRequest>) {        
         Object.assign(this, init);
@@ -14292,6 +14342,11 @@ export class Cells_PostCellCalculateRequest {
      * Gets or sets folder
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<Cells_PostCellCalculateRequest>) {        
         Object.assign(this, init);
@@ -14326,6 +14381,11 @@ export class Cells_PostCellCharactersRequest {
      * Gets or sets folder
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<Cells_PostCellCharactersRequest>) {        
         Object.assign(this, init);
@@ -14375,6 +14435,11 @@ export class Cells_PostClearContentsRequest {
      * The workbook folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<Cells_PostClearContentsRequest>) {        
         Object.assign(this, init);
@@ -14424,6 +14489,11 @@ export class Cells_PostClearFormatsRequest {
      * The workbook folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<Cells_PostClearFormatsRequest>) {        
         Object.assign(this, init);
@@ -14458,6 +14528,11 @@ export class Cells_PostColumnStyleRequest {
      * The workbook folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<Cells_PostColumnStyleRequest>) {        
         Object.assign(this, init);
@@ -14507,6 +14582,11 @@ export class Cells_PostCopyCellIntoCellRequest {
      * Folder name
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<Cells_PostCopyCellIntoCellRequest>) {        
         Object.assign(this, init);
@@ -14551,6 +14631,11 @@ export class Cells_PostCopyWorksheetColumnsRequest {
      * The document folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<Cells_PostCopyWorksheetColumnsRequest>) {        
         Object.assign(this, init);
@@ -14595,6 +14680,11 @@ export class Cells_PostCopyWorksheetRowsRequest {
      * The document folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<Cells_PostCopyWorksheetRowsRequest>) {        
         Object.assign(this, init);
@@ -14634,6 +14724,11 @@ export class Cells_PostGroupWorksheetColumnsRequest {
      * The document folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<Cells_PostGroupWorksheetColumnsRequest>) {        
         Object.assign(this, init);
@@ -14673,6 +14768,11 @@ export class Cells_PostGroupWorksheetRowsRequest {
      * The document folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<Cells_PostGroupWorksheetRowsRequest>) {        
         Object.assign(this, init);
@@ -14707,6 +14807,11 @@ export class Cells_PostHideWorksheetColumnsRequest {
      * The document folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<Cells_PostHideWorksheetColumnsRequest>) {        
         Object.assign(this, init);
@@ -14741,6 +14846,11 @@ export class Cells_PostHideWorksheetRowsRequest {
      * The document folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<Cells_PostHideWorksheetRowsRequest>) {        
         Object.assign(this, init);
@@ -14775,6 +14885,11 @@ export class Cells_PostRowStyleRequest {
      * The document folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<Cells_PostRowStyleRequest>) {        
         Object.assign(this, init);
@@ -14804,6 +14919,11 @@ export class Cells_PostSetCellHtmlStringRequest {
      * The workbook folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<Cells_PostSetCellHtmlStringRequest>) {        
         Object.assign(this, init);
@@ -14843,6 +14963,11 @@ export class Cells_PostSetCellRangeValueRequest {
      * Folder name
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<Cells_PostSetCellRangeValueRequest>) {        
         Object.assign(this, init);
@@ -14877,6 +15002,11 @@ export class Cells_PostSetWorksheetColumnWidthRequest {
      * The workbook folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<Cells_PostSetWorksheetColumnWidthRequest>) {        
         Object.assign(this, init);
@@ -14911,6 +15041,11 @@ export class Cells_PostUngroupWorksheetColumnsRequest {
      * The document folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<Cells_PostUngroupWorksheetColumnsRequest>) {        
         Object.assign(this, init);
@@ -14950,6 +15085,11 @@ export class Cells_PostUngroupWorksheetRowsRequest {
      * The document folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<Cells_PostUngroupWorksheetRowsRequest>) {        
         Object.assign(this, init);
@@ -14989,6 +15129,11 @@ export class Cells_PostUnhideWorksheetColumnsRequest {
      * The document folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<Cells_PostUnhideWorksheetColumnsRequest>) {        
         Object.assign(this, init);
@@ -15028,6 +15173,11 @@ export class Cells_PostUnhideWorksheetRowsRequest {
      * The document folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<Cells_PostUnhideWorksheetRowsRequest>) {        
         Object.assign(this, init);
@@ -15062,6 +15212,11 @@ export class Cells_PostUpdateWorksheetCellStyleRequest {
      * The workbook folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<Cells_PostUpdateWorksheetCellStyleRequest>) {        
         Object.assign(this, init);
@@ -15096,6 +15251,11 @@ export class Cells_PostUpdateWorksheetRangeStyleRequest {
      * The workbook folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<Cells_PostUpdateWorksheetRangeStyleRequest>) {        
         Object.assign(this, init);
@@ -15130,6 +15290,11 @@ export class Cells_PostUpdateWorksheetRowRequest {
      * The document folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<Cells_PostUpdateWorksheetRowRequest>) {        
         Object.assign(this, init);
@@ -15174,6 +15339,11 @@ export class Cells_PostWorksheetCellSetValueRequest {
      * The document folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<Cells_PostWorksheetCellSetValueRequest>) {        
         Object.assign(this, init);
@@ -15218,6 +15388,11 @@ export class Cells_PostWorksheetMergeRequest {
      * The workbook folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<Cells_PostWorksheetMergeRequest>) {        
         Object.assign(this, init);
@@ -15262,6 +15437,11 @@ export class Cells_PostWorksheetUnmergeRequest {
      * The workbook folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<Cells_PostWorksheetUnmergeRequest>) {        
         Object.assign(this, init);
@@ -15301,6 +15481,11 @@ export class Cells_PutInsertWorksheetColumnsRequest {
      * The workbook folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<Cells_PutInsertWorksheetColumnsRequest>) {        
         Object.assign(this, init);
@@ -15330,6 +15515,11 @@ export class Cells_PutInsertWorksheetRowRequest {
      * The document folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<Cells_PutInsertWorksheetRowRequest>) {        
         Object.assign(this, init);
@@ -15369,6 +15559,11 @@ export class Cells_PutInsertWorksheetRowsRequest {
      * The document folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<Cells_PutInsertWorksheetRowsRequest>) {        
         Object.assign(this, init);
@@ -15433,6 +15628,11 @@ export class CellsAutoFilter_DeleteWorksheetDateFilterRequest {
      * Gets or sets folder
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsAutoFilter_DeleteWorksheetDateFilterRequest>) {        
         Object.assign(this, init);
@@ -15467,6 +15667,11 @@ export class CellsAutoFilter_DeleteWorksheetFilterRequest {
      * Gets or sets folder
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsAutoFilter_DeleteWorksheetFilterRequest>) {        
         Object.assign(this, init);
@@ -15491,6 +15696,11 @@ export class CellsAutoFilter_GetWorksheetAutoFilterRequest {
      * Gets or sets folder
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsAutoFilter_GetWorksheetAutoFilterRequest>) {        
         Object.assign(this, init);
@@ -15515,6 +15725,11 @@ export class CellsAutoFilter_PostWorksheetAutoFilterRefreshRequest {
      * Gets or sets folder
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsAutoFilter_PostWorksheetAutoFilterRefreshRequest>) {        
         Object.assign(this, init);
@@ -15544,6 +15759,11 @@ export class CellsAutoFilter_PostWorksheetMatchBlanksRequest {
      * Gets or sets folder
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsAutoFilter_PostWorksheetMatchBlanksRequest>) {        
         Object.assign(this, init);
@@ -15573,6 +15793,11 @@ export class CellsAutoFilter_PostWorksheetMatchNonBlanksRequest {
      * Gets or sets folder
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsAutoFilter_PostWorksheetMatchNonBlanksRequest>) {        
         Object.assign(this, init);
@@ -15622,6 +15847,11 @@ export class CellsAutoFilter_PutWorksheetColorFilterRequest {
      * Gets or sets folder
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsAutoFilter_PutWorksheetColorFilterRequest>) {        
         Object.assign(this, init);
@@ -15691,6 +15921,11 @@ export class CellsAutoFilter_PutWorksheetCustomFilterRequest {
      * Gets or sets folder
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsAutoFilter_PutWorksheetCustomFilterRequest>) {        
         Object.assign(this, init);
@@ -15770,6 +16005,11 @@ export class CellsAutoFilter_PutWorksheetDateFilterRequest {
      * Gets or sets folder
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsAutoFilter_PutWorksheetDateFilterRequest>) {        
         Object.assign(this, init);
@@ -15819,6 +16059,11 @@ export class CellsAutoFilter_PutWorksheetDynamicFilterRequest {
      * Gets or sets folder
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsAutoFilter_PutWorksheetDynamicFilterRequest>) {        
         Object.assign(this, init);
@@ -15868,6 +16113,11 @@ export class CellsAutoFilter_PutWorksheetFilterRequest {
      * Gets or sets folder
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsAutoFilter_PutWorksheetFilterRequest>) {        
         Object.assign(this, init);
@@ -15927,6 +16177,11 @@ export class CellsAutoFilter_PutWorksheetFilterTop10Request {
      * Gets or sets folder
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsAutoFilter_PutWorksheetFilterTop10Request>) {        
         Object.assign(this, init);
@@ -15981,6 +16236,11 @@ export class CellsAutoFilter_PutWorksheetIconFilterRequest {
      * Gets or sets folder
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsAutoFilter_PutWorksheetIconFilterRequest>) {        
         Object.assign(this, init);
@@ -16010,6 +16270,11 @@ export class CellsAutoshapes_GetWorksheetAutoshapeRequest {
      * The document folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsAutoshapes_GetWorksheetAutoshapeRequest>) {        
         Object.assign(this, init);
@@ -16034,6 +16299,11 @@ export class CellsAutoshapes_GetWorksheetAutoshapesRequest {
      * Document's folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsAutoshapes_GetWorksheetAutoshapesRequest>) {        
         Object.assign(this, init);
@@ -16063,6 +16333,11 @@ export class CellsChartArea_GetChartAreaRequest {
      * Workbook folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsChartArea_GetChartAreaRequest>) {        
         Object.assign(this, init);
@@ -16092,6 +16367,11 @@ export class CellsChartArea_GetChartAreaBorderRequest {
      * Workbook folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsChartArea_GetChartAreaBorderRequest>) {        
         Object.assign(this, init);
@@ -16121,6 +16401,11 @@ export class CellsChartArea_GetChartAreaFillFormatRequest {
      * Workbook folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsChartArea_GetChartAreaFillFormatRequest>) {        
         Object.assign(this, init);
@@ -16150,6 +16435,11 @@ export class CellsCharts_DeleteWorksheetChartLegendRequest {
      * The workbook folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsCharts_DeleteWorksheetChartLegendRequest>) {        
         Object.assign(this, init);
@@ -16179,6 +16469,11 @@ export class CellsCharts_DeleteWorksheetChartTitleRequest {
      * The workbook folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsCharts_DeleteWorksheetChartTitleRequest>) {        
         Object.assign(this, init);
@@ -16203,6 +16498,11 @@ export class CellsCharts_DeleteWorksheetClearChartsRequest {
      * The workbook folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsCharts_DeleteWorksheetClearChartsRequest>) {        
         Object.assign(this, init);
@@ -16232,6 +16532,11 @@ export class CellsCharts_DeleteWorksheetDeleteChartRequest {
      * The workbook folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsCharts_DeleteWorksheetDeleteChartRequest>) {        
         Object.assign(this, init);
@@ -16266,6 +16571,11 @@ export class CellsCharts_GetWorksheetChartRequest {
      * The document folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsCharts_GetWorksheetChartRequest>) {        
         Object.assign(this, init);
@@ -16295,6 +16605,11 @@ export class CellsCharts_GetWorksheetChartLegendRequest {
      * The workbook folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsCharts_GetWorksheetChartLegendRequest>) {        
         Object.assign(this, init);
@@ -16324,6 +16639,11 @@ export class CellsCharts_GetWorksheetChartTitleRequest {
      * The workbook folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsCharts_GetWorksheetChartTitleRequest>) {        
         Object.assign(this, init);
@@ -16348,6 +16668,11 @@ export class CellsCharts_GetWorksheetChartsRequest {
      * Document's folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsCharts_GetWorksheetChartsRequest>) {        
         Object.assign(this, init);
@@ -16382,6 +16707,11 @@ export class CellsCharts_PostWorksheetChartRequest {
      * Gets or sets folder
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsCharts_PostWorksheetChartRequest>) {        
         Object.assign(this, init);
@@ -16416,6 +16746,11 @@ export class CellsCharts_PostWorksheetChartLegendRequest {
      * The workbook folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsCharts_PostWorksheetChartLegendRequest>) {        
         Object.assign(this, init);
@@ -16450,6 +16785,11 @@ export class CellsCharts_PostWorksheetChartTitleRequest {
      * The workbook folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsCharts_PostWorksheetChartTitleRequest>) {        
         Object.assign(this, init);
@@ -16524,6 +16864,11 @@ export class CellsCharts_PutWorksheetAddChartRequest {
      * The workbook folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsCharts_PutWorksheetAddChartRequest>) {        
         Object.assign(this, init);
@@ -16553,6 +16898,11 @@ export class CellsCharts_PutWorksheetChartLegendRequest {
      * The workbook folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsCharts_PutWorksheetChartLegendRequest>) {        
         Object.assign(this, init);
@@ -16587,6 +16937,11 @@ export class CellsCharts_PutWorksheetChartTitleRequest {
      * The workbook folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsCharts_PutWorksheetChartTitleRequest>) {        
         Object.assign(this, init);
@@ -16616,6 +16971,11 @@ export class CellsConditionalFormattings_DeleteWorksheetConditionalFormattingReq
      * Gets or sets folder
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsConditionalFormattings_DeleteWorksheetConditionalFormattingRequest>) {        
         Object.assign(this, init);
@@ -16660,6 +17020,11 @@ export class CellsConditionalFormattings_DeleteWorksheetConditionalFormattingAre
      * Gets or sets folder
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsConditionalFormattings_DeleteWorksheetConditionalFormattingAreaRequest>) {        
         Object.assign(this, init);
@@ -16684,6 +17049,11 @@ export class CellsConditionalFormattings_DeleteWorksheetConditionalFormattingsRe
      * Gets or sets folder
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsConditionalFormattings_DeleteWorksheetConditionalFormattingsRequest>) {        
         Object.assign(this, init);
@@ -16713,6 +17083,11 @@ export class CellsConditionalFormattings_GetWorksheetConditionalFormattingReques
      * Gets or sets folder
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsConditionalFormattings_GetWorksheetConditionalFormattingRequest>) {        
         Object.assign(this, init);
@@ -16737,6 +17112,11 @@ export class CellsConditionalFormattings_GetWorksheetConditionalFormattingsReque
      * Gets or sets folder
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsConditionalFormattings_GetWorksheetConditionalFormattingsRequest>) {        
         Object.assign(this, init);
@@ -16771,6 +17151,11 @@ export class CellsConditionalFormattings_PutWorksheetConditionalFormattingReques
      * Gets or sets folder
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsConditionalFormattings_PutWorksheetConditionalFormattingRequest>) {        
         Object.assign(this, init);
@@ -16825,6 +17210,11 @@ export class CellsConditionalFormattings_PutWorksheetFormatConditionRequest {
      * Gets or sets folder
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsConditionalFormattings_PutWorksheetFormatConditionRequest>) {        
         Object.assign(this, init);
@@ -16859,6 +17249,11 @@ export class CellsConditionalFormattings_PutWorksheetFormatConditionAreaRequest 
      * Gets or sets folder
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsConditionalFormattings_PutWorksheetFormatConditionAreaRequest>) {        
         Object.assign(this, init);
@@ -16908,6 +17303,11 @@ export class CellsConditionalFormattings_PutWorksheetFormatConditionConditionReq
      * Gets or sets folder
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsConditionalFormattings_PutWorksheetFormatConditionConditionRequest>) {        
         Object.assign(this, init);
@@ -16937,6 +17337,11 @@ export class CellsHypelinks_DeleteWorksheetHyperlinkRequest {
      * The document folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsHypelinks_DeleteWorksheetHyperlinkRequest>) {        
         Object.assign(this, init);
@@ -16961,6 +17366,11 @@ export class CellsHypelinks_DeleteWorksheetHyperlinksRequest {
      * The document folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsHypelinks_DeleteWorksheetHyperlinksRequest>) {        
         Object.assign(this, init);
@@ -16990,6 +17400,11 @@ export class CellsHypelinks_GetWorksheetHyperlinkRequest {
      * The document folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsHypelinks_GetWorksheetHyperlinkRequest>) {        
         Object.assign(this, init);
@@ -17014,6 +17429,11 @@ export class CellsHypelinks_GetWorksheetHyperlinksRequest {
      * Document's folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsHypelinks_GetWorksheetHyperlinksRequest>) {        
         Object.assign(this, init);
@@ -17048,6 +17468,11 @@ export class CellsHypelinks_PostWorksheetHyperlinkRequest {
      * The document folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsHypelinks_PostWorksheetHyperlinkRequest>) {        
         Object.assign(this, init);
@@ -17097,6 +17522,11 @@ export class CellsHypelinks_PutWorksheetHyperlinkRequest {
      * The document folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsHypelinks_PutWorksheetHyperlinkRequest>) {        
         Object.assign(this, init);
@@ -17126,6 +17556,11 @@ export class CellsListObjects_DeleteWorksheetListObjectRequest {
      * Document's folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsListObjects_DeleteWorksheetListObjectRequest>) {        
         Object.assign(this, init);
@@ -17150,6 +17585,11 @@ export class CellsListObjects_DeleteWorksheetListObjectsRequest {
      * Document's folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsListObjects_DeleteWorksheetListObjectsRequest>) {        
         Object.assign(this, init);
@@ -17179,6 +17619,11 @@ export class CellsListObjects_GetWorksheetListObjectRequest {
      * Document's folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsListObjects_GetWorksheetListObjectRequest>) {        
         Object.assign(this, init);
@@ -17203,6 +17648,11 @@ export class CellsListObjects_GetWorksheetListObjectsRequest {
      * Document's folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsListObjects_GetWorksheetListObjectsRequest>) {        
         Object.assign(this, init);
@@ -17237,6 +17687,11 @@ export class CellsListObjects_PostWorksheetListObjectRequest {
      * Document's folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsListObjects_PostWorksheetListObjectRequest>) {        
         Object.assign(this, init);
@@ -17266,6 +17721,11 @@ export class CellsListObjects_PostWorksheetListObjectConvertToRangeRequest {
      * Gets or sets folder
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsListObjects_PostWorksheetListObjectConvertToRangeRequest>) {        
         Object.assign(this, init);
@@ -17300,6 +17760,11 @@ export class CellsListObjects_PostWorksheetListObjectSortTableRequest {
      * Gets or sets folder
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsListObjects_PostWorksheetListObjectSortTableRequest>) {        
         Object.assign(this, init);
@@ -17339,6 +17804,11 @@ export class CellsListObjects_PostWorksheetListObjectSummarizeWithPivotTableRequ
      * Gets or sets folder
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsListObjects_PostWorksheetListObjectSummarizeWithPivotTableRequest>) {        
         Object.assign(this, init);
@@ -17385,6 +17855,11 @@ export class CellsListObjects_PutWorksheetListObjectRequest {
     public folder: string;
 
     /**
+     * storage name.
+     */
+    public storage: string;
+
+    /**
      * Whether the range has headers.
      */
     public hasHeaders: boolean;
@@ -17417,6 +17892,11 @@ export class CellsOleObjects_DeleteWorksheetOleObjectRequest {
      * The workbook folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsOleObjects_DeleteWorksheetOleObjectRequest>) {        
         Object.assign(this, init);
@@ -17441,6 +17921,11 @@ export class CellsOleObjects_DeleteWorksheetOleObjectsRequest {
      * The workbook folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsOleObjects_DeleteWorksheetOleObjectsRequest>) {        
         Object.assign(this, init);
@@ -17470,6 +17955,11 @@ export class CellsOleObjects_GetWorksheetOleObjectRequest {
      * The document folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsOleObjects_GetWorksheetOleObjectRequest>) {        
         Object.assign(this, init);
@@ -17494,6 +17984,11 @@ export class CellsOleObjects_GetWorksheetOleObjectsRequest {
      * Document's folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsOleObjects_GetWorksheetOleObjectsRequest>) {        
         Object.assign(this, init);
@@ -17528,6 +18023,11 @@ export class CellsOleObjects_PostUpdateWorksheetOleObjectRequest {
      * The workbook folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsOleObjects_PostUpdateWorksheetOleObjectRequest>) {        
         Object.assign(this, init);
@@ -17587,6 +18087,11 @@ export class CellsOleObjects_PutWorksheetOleObjectRequest {
      * The workbook folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsOleObjects_PutWorksheetOleObjectRequest>) {        
         Object.assign(this, init);
@@ -17616,6 +18121,11 @@ export class CellsPageBreaks_DeleteHorizontalPageBreakRequest {
      * Gets or sets folder
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsPageBreaks_DeleteHorizontalPageBreakRequest>) {        
         Object.assign(this, init);
@@ -17645,6 +18155,11 @@ export class CellsPageBreaks_DeleteHorizontalPageBreaksRequest {
      * Gets or sets folder
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsPageBreaks_DeleteHorizontalPageBreaksRequest>) {        
         Object.assign(this, init);
@@ -17674,6 +18189,11 @@ export class CellsPageBreaks_DeleteVerticalPageBreakRequest {
      * Gets or sets folder
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsPageBreaks_DeleteVerticalPageBreakRequest>) {        
         Object.assign(this, init);
@@ -17703,6 +18223,11 @@ export class CellsPageBreaks_DeleteVerticalPageBreaksRequest {
      * Gets or sets folder
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsPageBreaks_DeleteVerticalPageBreaksRequest>) {        
         Object.assign(this, init);
@@ -17732,6 +18257,11 @@ export class CellsPageBreaks_GetHorizontalPageBreakRequest {
      * Gets or sets folder
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsPageBreaks_GetHorizontalPageBreakRequest>) {        
         Object.assign(this, init);
@@ -17756,6 +18286,11 @@ export class CellsPageBreaks_GetHorizontalPageBreaksRequest {
      * Gets or sets folder
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsPageBreaks_GetHorizontalPageBreaksRequest>) {        
         Object.assign(this, init);
@@ -17785,6 +18320,11 @@ export class CellsPageBreaks_GetVerticalPageBreakRequest {
      * Gets or sets folder
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsPageBreaks_GetVerticalPageBreakRequest>) {        
         Object.assign(this, init);
@@ -17809,6 +18349,11 @@ export class CellsPageBreaks_GetVerticalPageBreaksRequest {
      * Gets or sets folder
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsPageBreaks_GetVerticalPageBreaksRequest>) {        
         Object.assign(this, init);
@@ -17858,6 +18403,11 @@ export class CellsPageBreaks_PutHorizontalPageBreakRequest {
      * Gets or sets folder
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsPageBreaks_PutHorizontalPageBreakRequest>) {        
         Object.assign(this, init);
@@ -17907,6 +18457,11 @@ export class CellsPageBreaks_PutVerticalPageBreakRequest {
      * Gets or sets folder
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsPageBreaks_PutVerticalPageBreakRequest>) {        
         Object.assign(this, init);
@@ -17931,6 +18486,11 @@ export class CellsPageSetup_DeleteHeaderFooterRequest {
      * Gets or sets folder
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsPageSetup_DeleteHeaderFooterRequest>) {        
         Object.assign(this, init);
@@ -17955,6 +18515,11 @@ export class CellsPageSetup_GetFooterRequest {
      * Gets or sets folder
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsPageSetup_GetFooterRequest>) {        
         Object.assign(this, init);
@@ -17979,6 +18544,11 @@ export class CellsPageSetup_GetHeaderRequest {
      * Gets or sets folder
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsPageSetup_GetHeaderRequest>) {        
         Object.assign(this, init);
@@ -18003,6 +18573,11 @@ export class CellsPageSetup_GetPageSetupRequest {
      * Gets or sets folder
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsPageSetup_GetPageSetupRequest>) {        
         Object.assign(this, init);
@@ -18042,6 +18617,11 @@ export class CellsPageSetup_PostFooterRequest {
      * Gets or sets folder
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsPageSetup_PostFooterRequest>) {        
         Object.assign(this, init);
@@ -18081,6 +18661,11 @@ export class CellsPageSetup_PostHeaderRequest {
      * Gets or sets folder
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsPageSetup_PostHeaderRequest>) {        
         Object.assign(this, init);
@@ -18110,6 +18695,11 @@ export class CellsPageSetup_PostPageSetupRequest {
      * Gets or sets folder
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsPageSetup_PostPageSetupRequest>) {        
         Object.assign(this, init);
@@ -18139,6 +18729,11 @@ export class CellsPictures_DeleteWorksheetPictureRequest {
      * The workbook folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsPictures_DeleteWorksheetPictureRequest>) {        
         Object.assign(this, init);
@@ -18163,6 +18758,11 @@ export class CellsPictures_DeleteWorksheetPicturesRequest {
      * The document folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsPictures_DeleteWorksheetPicturesRequest>) {        
         Object.assign(this, init);
@@ -18192,6 +18792,11 @@ export class CellsPictures_GetWorksheetPictureRequest {
      * The document folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsPictures_GetWorksheetPictureRequest>) {        
         Object.assign(this, init);
@@ -18216,6 +18821,11 @@ export class CellsPictures_GetWorksheetPicturesRequest {
      * Document's folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsPictures_GetWorksheetPicturesRequest>) {        
         Object.assign(this, init);
@@ -18250,6 +18860,11 @@ export class CellsPictures_PostWorksheetPictureRequest {
      * The document folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsPictures_PostWorksheetPictureRequest>) {        
         Object.assign(this, init);
@@ -18304,6 +18919,11 @@ export class CellsPictures_PutWorksheetAddPictureRequest {
      * The workbook folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsPictures_PutWorksheetAddPictureRequest>) {        
         Object.assign(this, init);
@@ -18343,6 +18963,11 @@ export class CellsPivotTables_DeletePivotTableFieldRequest {
      * Document's folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsPivotTables_DeletePivotTableFieldRequest>) {        
         Object.assign(this, init);
@@ -18372,6 +18997,11 @@ export class CellsPivotTables_DeleteWorksheetPivotTableRequest {
      * Document's folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsPivotTables_DeleteWorksheetPivotTableRequest>) {        
         Object.assign(this, init);
@@ -18411,6 +19041,11 @@ export class CellsPivotTables_DeleteWorksheetPivotTableFilterRequest {
      * Gets or sets folder
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsPivotTables_DeleteWorksheetPivotTableFilterRequest>) {        
         Object.assign(this, init);
@@ -18445,6 +19080,11 @@ export class CellsPivotTables_DeleteWorksheetPivotTableFiltersRequest {
      * Gets or sets folder
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsPivotTables_DeleteWorksheetPivotTableFiltersRequest>) {        
         Object.assign(this, init);
@@ -18469,6 +19109,11 @@ export class CellsPivotTables_DeleteWorksheetPivotTablesRequest {
      * Document's folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsPivotTables_DeleteWorksheetPivotTablesRequest>) {        
         Object.assign(this, init);
@@ -18508,6 +19153,11 @@ export class CellsPivotTables_GetPivotTableFieldRequest {
      * Document's folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsPivotTables_GetPivotTableFieldRequest>) {        
         Object.assign(this, init);
@@ -18537,6 +19187,11 @@ export class CellsPivotTables_GetWorksheetPivotTableRequest {
      * Document's folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsPivotTables_GetWorksheetPivotTableRequest>) {        
         Object.assign(this, init);
@@ -18571,6 +19226,11 @@ export class CellsPivotTables_GetWorksheetPivotTableFilterRequest {
      * Gets or sets folder
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsPivotTables_GetWorksheetPivotTableFilterRequest>) {        
         Object.assign(this, init);
@@ -18600,6 +19260,11 @@ export class CellsPivotTables_GetWorksheetPivotTableFiltersRequest {
      * Gets or sets folder
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsPivotTables_GetWorksheetPivotTableFiltersRequest>) {        
         Object.assign(this, init);
@@ -18624,6 +19289,11 @@ export class CellsPivotTables_GetWorksheetPivotTablesRequest {
      * Document's folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsPivotTables_GetWorksheetPivotTablesRequest>) {        
         Object.assign(this, init);
@@ -18673,6 +19343,11 @@ export class CellsPivotTables_PostPivotTableCellStyleRequest {
      * Document's folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsPivotTables_PostPivotTableCellStyleRequest>) {        
         Object.assign(this, init);
@@ -18727,6 +19402,11 @@ export class CellsPivotTables_PostPivotTableFieldHideItemRequest {
      * Gets or sets folder
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsPivotTables_PostPivotTableFieldHideItemRequest>) {        
         Object.assign(this, init);
@@ -18771,6 +19451,11 @@ export class CellsPivotTables_PostPivotTableFieldMoveToRequest {
      * Gets or sets folder
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsPivotTables_PostPivotTableFieldMoveToRequest>) {        
         Object.assign(this, init);
@@ -18810,6 +19495,11 @@ export class CellsPivotTables_PostPivotTableStyleRequest {
      * Document's folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsPivotTables_PostPivotTableStyleRequest>) {        
         Object.assign(this, init);
@@ -18839,6 +19529,11 @@ export class CellsPivotTables_PostWorksheetPivotTableCalculateRequest {
      * Document's folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsPivotTables_PostWorksheetPivotTableCalculateRequest>) {        
         Object.assign(this, init);
@@ -18883,6 +19578,11 @@ export class CellsPivotTables_PostWorksheetPivotTableMoveRequest {
      * Gets or sets folder
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsPivotTables_PostWorksheetPivotTableMoveRequest>) {        
         Object.assign(this, init);
@@ -18927,6 +19627,11 @@ export class CellsPivotTables_PutPivotTableFieldRequest {
      * Document's folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsPivotTables_PutPivotTableFieldRequest>) {        
         Object.assign(this, init);
@@ -18956,6 +19661,11 @@ export class CellsPivotTables_PutWorksheetPivotTableRequest {
      * Document's folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
 
     /**
      * The data for the new PivotTable cache.
@@ -19015,6 +19725,11 @@ export class CellsPivotTables_PutWorksheetPivotTableFilterRequest {
      * Gets or sets folder
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsPivotTables_PutWorksheetPivotTableFilterRequest>) {        
         Object.assign(this, init);
@@ -19034,6 +19749,11 @@ export class CellsProperties_DeleteDocumentPropertiesRequest {
      * The document folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsProperties_DeleteDocumentPropertiesRequest>) {        
         Object.assign(this, init);
@@ -19058,6 +19778,11 @@ export class CellsProperties_DeleteDocumentPropertyRequest {
      * The document folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsProperties_DeleteDocumentPropertyRequest>) {        
         Object.assign(this, init);
@@ -19077,6 +19802,11 @@ export class CellsProperties_GetDocumentPropertiesRequest {
      * The document folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsProperties_GetDocumentPropertiesRequest>) {        
         Object.assign(this, init);
@@ -19101,6 +19831,11 @@ export class CellsProperties_GetDocumentPropertyRequest {
      * The document folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsProperties_GetDocumentPropertyRequest>) {        
         Object.assign(this, init);
@@ -19130,6 +19865,11 @@ export class CellsProperties_PutDocumentPropertyRequest {
      * The document folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsProperties_PutDocumentPropertyRequest>) {        
         Object.assign(this, init);
@@ -19179,6 +19919,11 @@ export class CellsRanges_GetWorksheetCellsRangeValueRequest {
      * Workbook folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsRanges_GetWorksheetCellsRangeValueRequest>) {        
         Object.assign(this, init);
@@ -19213,6 +19958,11 @@ export class CellsRanges_PostWorksheetCellsRangeColumnWidthRequest {
      * Gets or sets folder
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsRanges_PostWorksheetCellsRangeColumnWidthRequest>) {        
         Object.assign(this, init);
@@ -19242,6 +19992,11 @@ export class CellsRanges_PostWorksheetCellsRangeMergeRequest {
      * Workbook folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsRanges_PostWorksheetCellsRangeMergeRequest>) {        
         Object.assign(this, init);
@@ -19281,6 +20036,11 @@ export class CellsRanges_PostWorksheetCellsRangeMoveToRequest {
      * Workbook folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsRanges_PostWorksheetCellsRangeMoveToRequest>) {        
         Object.assign(this, init);
@@ -19310,6 +20070,11 @@ export class CellsRanges_PostWorksheetCellsRangeOutlineBorderRequest {
      * Workbook folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsRanges_PostWorksheetCellsRangeOutlineBorderRequest>) {        
         Object.assign(this, init);
@@ -19344,6 +20109,11 @@ export class CellsRanges_PostWorksheetCellsRangeRowHeightRequest {
      * Gets or sets folder
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsRanges_PostWorksheetCellsRangeRowHeightRequest>) {        
         Object.assign(this, init);
@@ -19373,6 +20143,11 @@ export class CellsRanges_PostWorksheetCellsRangeStyleRequest {
      * Workbook folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsRanges_PostWorksheetCellsRangeStyleRequest>) {        
         Object.assign(this, init);
@@ -19402,6 +20177,11 @@ export class CellsRanges_PostWorksheetCellsRangeUnmergeRequest {
      * Workbook folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsRanges_PostWorksheetCellsRangeUnmergeRequest>) {        
         Object.assign(this, init);
@@ -19446,6 +20226,11 @@ export class CellsRanges_PostWorksheetCellsRangeValueRequest {
      * Workbook folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsRanges_PostWorksheetCellsRangeValueRequest>) {        
         Object.assign(this, init);
@@ -19475,6 +20260,11 @@ export class CellsRanges_PostWorksheetCellsRangesRequest {
      * Workbook folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsRanges_PostWorksheetCellsRangesRequest>) {        
         Object.assign(this, init);
@@ -19514,6 +20304,11 @@ export class CellsSaveAs_PostDocumentSaveAsRequest {
      * The document folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsSaveAs_PostDocumentSaveAsRequest>) {        
         Object.assign(this, init);
@@ -19543,6 +20338,11 @@ export class CellsShapes_DeleteWorksheetShapeRequest {
      * Document's folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsShapes_DeleteWorksheetShapeRequest>) {        
         Object.assign(this, init);
@@ -19567,6 +20367,11 @@ export class CellsShapes_DeleteWorksheetShapesRequest {
      * Document's folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsShapes_DeleteWorksheetShapesRequest>) {        
         Object.assign(this, init);
@@ -19596,6 +20401,11 @@ export class CellsShapes_GetWorksheetShapeRequest {
      * Document's folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsShapes_GetWorksheetShapeRequest>) {        
         Object.assign(this, init);
@@ -19620,6 +20430,11 @@ export class CellsShapes_GetWorksheetShapesRequest {
      * Document's folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsShapes_GetWorksheetShapesRequest>) {        
         Object.assign(this, init);
@@ -19654,6 +20469,11 @@ export class CellsShapes_PostWorksheetShapeRequest {
      * Document's folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsShapes_PostWorksheetShapeRequest>) {        
         Object.assign(this, init);
@@ -19713,6 +20533,11 @@ export class CellsShapes_PutWorksheetShapeRequest {
      * Document's folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsShapes_PutWorksheetShapeRequest>) {        
         Object.assign(this, init);
@@ -19751,6 +20576,11 @@ export class CellsWorkbook_DeleteDecryptDocumentRequest {
      * The document folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsWorkbook_DeleteDecryptDocumentRequest>) {        
         Object.assign(this, init);
@@ -19770,6 +20600,11 @@ export class CellsWorkbook_DeleteDocumentUnprotectFromChangesRequest {
      * Document's folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsWorkbook_DeleteDocumentUnprotectFromChangesRequest>) {        
         Object.assign(this, init);
@@ -19794,6 +20629,11 @@ export class CellsWorkbook_DeleteUnprotectDocumentRequest {
      * The document folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsWorkbook_DeleteUnprotectDocumentRequest>) {        
         Object.assign(this, init);
@@ -19818,6 +20658,11 @@ export class CellsWorkbook_DeleteWorkbookNameRequest {
      * The workbook folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsWorkbook_DeleteWorkbookNameRequest>) {        
         Object.assign(this, init);
@@ -19837,6 +20682,11 @@ export class CellsWorkbook_DeleteWorkbookNamesRequest {
      * The workbook folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsWorkbook_DeleteWorkbookNamesRequest>) {        
         Object.assign(this, init);
@@ -19866,6 +20716,11 @@ export class CellsWorkbook_GetWorkbookRequest {
      * The document folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsWorkbook_GetWorkbookRequest>) {        
         Object.assign(this, init);
@@ -19885,6 +20740,11 @@ export class CellsWorkbook_GetWorkbookDefaultStyleRequest {
      * The document's folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsWorkbook_GetWorkbookDefaultStyleRequest>) {        
         Object.assign(this, init);
@@ -19909,6 +20769,11 @@ export class CellsWorkbook_GetWorkbookNameRequest {
      * The workbook folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsWorkbook_GetWorkbookNameRequest>) {        
         Object.assign(this, init);
@@ -19933,6 +20798,11 @@ export class CellsWorkbook_GetWorkbookNameValueRequest {
      * The workbook folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsWorkbook_GetWorkbookNameValueRequest>) {        
         Object.assign(this, init);
@@ -19952,6 +20822,11 @@ export class CellsWorkbook_GetWorkbookNamesRequest {
      * The workbook folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsWorkbook_GetWorkbookNamesRequest>) {        
         Object.assign(this, init);
@@ -19971,6 +20846,11 @@ export class CellsWorkbook_GetWorkbookSettingsRequest {
      * Document's folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsWorkbook_GetWorkbookSettingsRequest>) {        
         Object.assign(this, init);
@@ -19990,6 +20870,11 @@ export class CellsWorkbook_GetWorkbookTextItemsRequest {
      * The workbook folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsWorkbook_GetWorkbookTextItemsRequest>) {        
         Object.assign(this, init);
@@ -20029,6 +20914,11 @@ export class CellsWorkbook_PostAutofitWorkbookRowsRequest {
      * Document's folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsWorkbook_PostAutofitWorkbookRowsRequest>) {        
         Object.assign(this, init);
@@ -20053,6 +20943,11 @@ export class CellsWorkbook_PostEncryptDocumentRequest {
      * The document folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsWorkbook_PostEncryptDocumentRequest>) {        
         Object.assign(this, init);
@@ -20077,6 +20972,11 @@ export class CellsWorkbook_PostImportDataRequest {
      * Gets or sets folder
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsWorkbook_PostImportDataRequest>) {        
         Object.assign(this, init);
@@ -20101,6 +21001,11 @@ export class CellsWorkbook_PostProtectDocumentRequest {
      * The document folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsWorkbook_PostProtectDocumentRequest>) {        
         Object.assign(this, init);
@@ -20130,6 +21035,11 @@ export class CellsWorkbook_PostWorkbookCalculateFormulaRequest {
      * Document's folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsWorkbook_PostWorkbookCalculateFormulaRequest>) {        
         Object.assign(this, init);
@@ -20154,6 +21064,11 @@ export class CellsWorkbook_PostWorkbookGetSmartMarkerResultRequest {
      * The workbook folder full path.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
 
     /**
      * Path to save result
@@ -20183,6 +21098,11 @@ export class CellsWorkbook_PostWorkbookSettingsRequest {
      * Document's folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsWorkbook_PostWorkbookSettingsRequest>) {        
         Object.assign(this, init);
@@ -20227,6 +21147,11 @@ export class CellsWorkbook_PostWorkbookSplitRequest {
      * The workbook folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsWorkbook_PostWorkbookSplitRequest>) {        
         Object.assign(this, init);
@@ -20251,6 +21176,11 @@ export class CellsWorkbook_PostWorkbooksMergeRequest {
      * Source workbook folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsWorkbook_PostWorkbooksMergeRequest>) {        
         Object.assign(this, init);
@@ -20280,6 +21210,11 @@ export class CellsWorkbook_PostWorkbooksTextReplaceRequest {
      * Document's folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsWorkbook_PostWorkbooksTextReplaceRequest>) {        
         Object.assign(this, init);
@@ -20304,6 +21239,11 @@ export class CellsWorkbook_PostWorkbooksTextSearchRequest {
      * Document's folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsWorkbook_PostWorkbooksTextSearchRequest>) {        
         Object.assign(this, init);
@@ -20352,6 +21292,11 @@ export class CellsWorkbook_PutDocumentProtectFromChangesRequest {
      * Document's folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsWorkbook_PutDocumentProtectFromChangesRequest>) {        
         Object.assign(this, init);
@@ -20381,6 +21326,11 @@ export class CellsWorkbook_PutWorkbookCreateRequest {
      * The new document folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsWorkbook_PutWorkbookCreateRequest>) {        
         Object.assign(this, init);
@@ -20410,6 +21360,11 @@ export class CellsWorksheetValidations_DeleteWorksheetValidationRequest {
      * Document's folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsWorksheetValidations_DeleteWorksheetValidationRequest>) {        
         Object.assign(this, init);
@@ -20439,6 +21394,11 @@ export class CellsWorksheetValidations_GetWorksheetValidationRequest {
      * Document's folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsWorksheetValidations_GetWorksheetValidationRequest>) {        
         Object.assign(this, init);
@@ -20463,6 +21423,11 @@ export class CellsWorksheetValidations_GetWorksheetValidationsRequest {
      * Document folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsWorksheetValidations_GetWorksheetValidationsRequest>) {        
         Object.assign(this, init);
@@ -20497,6 +21462,11 @@ export class CellsWorksheetValidations_PostWorksheetValidationRequest {
      * Document's folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsWorksheetValidations_PostWorksheetValidationRequest>) {        
         Object.assign(this, init);
@@ -20526,6 +21496,11 @@ export class CellsWorksheetValidations_PutWorksheetValidationRequest {
      * Document's folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsWorksheetValidations_PutWorksheetValidationRequest>) {        
         Object.assign(this, init);
@@ -20555,6 +21530,11 @@ export class CellsWorksheets_DeleteUnprotectWorksheetRequest {
      * Document folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsWorksheets_DeleteUnprotectWorksheetRequest>) {        
         Object.assign(this, init);
@@ -20579,6 +21559,11 @@ export class CellsWorksheets_DeleteWorksheetRequest {
      * Document's folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsWorksheets_DeleteWorksheetRequest>) {        
         Object.assign(this, init);
@@ -20603,6 +21588,11 @@ export class CellsWorksheets_DeleteWorksheetBackgroundRequest {
      * Gets or sets folder
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsWorksheets_DeleteWorksheetBackgroundRequest>) {        
         Object.assign(this, init);
@@ -20632,6 +21622,11 @@ export class CellsWorksheets_DeleteWorksheetCommentRequest {
      * The document folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsWorksheets_DeleteWorksheetCommentRequest>) {        
         Object.assign(this, init);
@@ -20656,6 +21651,11 @@ export class CellsWorksheets_DeleteWorksheetCommentsRequest {
      * Gets or sets folder
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsWorksheets_DeleteWorksheetCommentsRequest>) {        
         Object.assign(this, init);
@@ -20700,6 +21700,11 @@ export class CellsWorksheets_DeleteWorksheetFreezePanesRequest {
      * Gets or sets folder
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsWorksheets_DeleteWorksheetFreezePanesRequest>) {        
         Object.assign(this, init);
@@ -20719,6 +21724,11 @@ export class CellsWorksheets_GetNamedRangesRequest {
      * Document folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsWorksheets_GetNamedRangesRequest>) {        
         Object.assign(this, init);
@@ -20758,6 +21768,11 @@ export class CellsWorksheets_GetWorksheetRequest {
      * The document folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsWorksheets_GetWorksheetRequest>) {        
         Object.assign(this, init);
@@ -20787,6 +21802,11 @@ export class CellsWorksheets_GetWorksheetCalculateFormulaRequest {
      * Document's folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsWorksheets_GetWorksheetCalculateFormulaRequest>) {        
         Object.assign(this, init);
@@ -20816,6 +21836,11 @@ export class CellsWorksheets_GetWorksheetCommentRequest {
      * The document folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsWorksheets_GetWorksheetCommentRequest>) {        
         Object.assign(this, init);
@@ -20840,6 +21865,11 @@ export class CellsWorksheets_GetWorksheetCommentsRequest {
      * The document folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsWorksheets_GetWorksheetCommentsRequest>) {        
         Object.assign(this, init);
@@ -20869,6 +21899,11 @@ export class CellsWorksheets_GetWorksheetMergedCellRequest {
      * Document folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsWorksheets_GetWorksheetMergedCellRequest>) {        
         Object.assign(this, init);
@@ -20893,6 +21928,11 @@ export class CellsWorksheets_GetWorksheetMergedCellsRequest {
      * Document folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsWorksheets_GetWorksheetMergedCellsRequest>) {        
         Object.assign(this, init);
@@ -20917,6 +21957,11 @@ export class CellsWorksheets_GetWorksheetTextItemsRequest {
      * The workbook's folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsWorksheets_GetWorksheetTextItemsRequest>) {        
         Object.assign(this, init);
@@ -20936,6 +21981,11 @@ export class CellsWorksheets_GetWorksheetsRequest {
      * Document folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsWorksheets_GetWorksheetsRequest>) {        
         Object.assign(this, init);
@@ -20985,6 +22035,11 @@ export class CellsWorksheets_PostAutofitWorksheetColumnsRequest {
      * Gets or sets folder
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsWorksheets_PostAutofitWorksheetColumnsRequest>) {        
         Object.assign(this, init);
@@ -21029,6 +22084,11 @@ export class CellsWorksheets_PostAutofitWorksheetRowRequest {
      * Gets or sets folder
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsWorksheets_PostAutofitWorksheetRowRequest>) {        
         Object.assign(this, init);
@@ -21073,6 +22133,11 @@ export class CellsWorksheets_PostAutofitWorksheetRowsRequest {
      * Document's folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsWorksheets_PostAutofitWorksheetRowsRequest>) {        
         Object.assign(this, init);
@@ -21117,6 +22182,11 @@ export class CellsWorksheets_PostCopyWorksheetRequest {
      * Gets or sets folder
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsWorksheets_PostCopyWorksheetRequest>) {        
         Object.assign(this, init);
@@ -21146,6 +22216,11 @@ export class CellsWorksheets_PostMoveWorksheetRequest {
      * The document folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsWorksheets_PostMoveWorksheetRequest>) {        
         Object.assign(this, init);
@@ -21175,6 +22250,11 @@ export class CellsWorksheets_PostRenameWorksheetRequest {
      * Gets or sets folder
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsWorksheets_PostRenameWorksheetRequest>) {        
         Object.assign(this, init);
@@ -21204,6 +22284,11 @@ export class CellsWorksheets_PostUpdateWorksheetPropertyRequest {
      * Gets or sets folder
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsWorksheets_PostUpdateWorksheetPropertyRequest>) {        
         Object.assign(this, init);
@@ -21233,6 +22318,11 @@ export class CellsWorksheets_PostUpdateWorksheetZoomRequest {
      * Gets or sets folder
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsWorksheets_PostUpdateWorksheetZoomRequest>) {        
         Object.assign(this, init);
@@ -21267,6 +22357,11 @@ export class CellsWorksheets_PostWorksheetCommentRequest {
      * The document folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsWorksheets_PostWorksheetCommentRequest>) {        
         Object.assign(this, init);
@@ -21301,6 +22396,11 @@ export class CellsWorksheets_PostWorksheetRangeSortRequest {
      * The workbook folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsWorksheets_PostWorksheetRangeSortRequest>) {        
         Object.assign(this, init);
@@ -21330,6 +22430,11 @@ export class CellsWorksheets_PostWorksheetTextSearchRequest {
      * Document's folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsWorksheets_PostWorksheetTextSearchRequest>) {        
         Object.assign(this, init);
@@ -21364,6 +22469,11 @@ export class CellsWorksheets_PostWorsheetTextReplaceRequest {
      * Document's folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsWorksheets_PostWorsheetTextReplaceRequest>) {        
         Object.assign(this, init);
@@ -21398,6 +22508,11 @@ export class CellsWorksheets_PutAddNewWorksheetRequest {
      * Document folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsWorksheets_PutAddNewWorksheetRequest>) {        
         Object.assign(this, init);
@@ -21427,6 +22542,11 @@ export class CellsWorksheets_PutChangeVisibilityWorksheetRequest {
      * The document folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsWorksheets_PutChangeVisibilityWorksheetRequest>) {        
         Object.assign(this, init);
@@ -21456,6 +22576,11 @@ export class CellsWorksheets_PutProtectWorksheetRequest {
      * Document folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsWorksheets_PutProtectWorksheetRequest>) {        
         Object.assign(this, init);
@@ -21485,6 +22610,11 @@ export class CellsWorksheets_PutWorksheetBackgroundRequest {
      * Gets or sets folder
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsWorksheets_PutWorksheetBackgroundRequest>) {        
         Object.assign(this, init);
@@ -21519,6 +22649,11 @@ export class CellsWorksheets_PutWorksheetCommentRequest {
      * The document folder.
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsWorksheets_PutWorksheetCommentRequest>) {        
         Object.assign(this, init);
@@ -21563,6 +22698,11 @@ export class CellsWorksheets_PutWorksheetFreezePanesRequest {
      * Gets or sets folder
      */
     public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
     
     public constructor(init?: Partial<CellsWorksheets_PutWorksheetFreezePanesRequest>) {        
         Object.assign(this, init);

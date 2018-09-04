@@ -1083,8 +1083,8 @@ describe('CellsApi', function() {
                   expect(result.body.code).to.equal(200);
                   expect(result.response.statusCode).to.equal(200);
 
-                  req.value = "1";
-                  req.type = "Date";
+                  req.value = "2018/10/09";
+                  req.type = "DateTime";
                   req.formula = "=Now()";
                   return cellsApi.cellsPostWorksheetCellSetValue(req)
                     .then((result) => {

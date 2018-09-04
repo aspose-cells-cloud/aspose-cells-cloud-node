@@ -94,6 +94,7 @@ export class CellsApi {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "columns", requestObj.columns);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "updateReference", requestObj.updateReference);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "DELETE",
             qs: queryParameters,
@@ -137,6 +138,7 @@ export class CellsApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "DELETE",
             qs: queryParameters,
@@ -182,6 +184,7 @@ export class CellsApi {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "totalRows", requestObj.totalRows);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "updateReference", requestObj.updateReference);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "DELETE",
             qs: queryParameters,
@@ -225,6 +228,7 @@ export class CellsApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "GET",
             qs: queryParameters,
@@ -233,7 +237,7 @@ export class CellsApi {
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
-        const result =  ObjectSerializer.deserialize(response.body, "Buffer");
+        const result =  ObjectSerializer.deserialize(response.body, "any");
         return Promise.resolve({body: result, response});
     }
 
@@ -268,6 +272,7 @@ export class CellsApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "GET",
             qs: queryParameters,
@@ -307,6 +312,7 @@ export class CellsApi {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "offest", requestObj.offest);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "count", requestObj.count);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "GET",
             qs: queryParameters,
@@ -350,6 +356,7 @@ export class CellsApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "GET",
             qs: queryParameters,
@@ -387,6 +394,7 @@ export class CellsApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "GET",
             qs: queryParameters,
@@ -430,6 +438,7 @@ export class CellsApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "GET",
             qs: queryParameters,
@@ -467,6 +476,7 @@ export class CellsApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "GET",
             qs: queryParameters,
@@ -510,6 +520,7 @@ export class CellsApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -554,6 +565,7 @@ export class CellsApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -597,6 +609,7 @@ export class CellsApi {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "endRow", requestObj.endRow);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "endColumn", requestObj.endColumn);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -639,6 +652,7 @@ export class CellsApi {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "endRow", requestObj.endRow);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "endColumn", requestObj.endColumn);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -682,6 +696,7 @@ export class CellsApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -735,6 +750,7 @@ export class CellsApi {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "row", requestObj.row);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "column", requestObj.column);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -791,6 +807,7 @@ export class CellsApi {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "columnNumber", requestObj.columnNumber);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "worksheet", requestObj.worksheet);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -847,6 +864,7 @@ export class CellsApi {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "rowNumber", requestObj.rowNumber);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "worksheet", requestObj.worksheet);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -897,6 +915,7 @@ export class CellsApi {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "lastIndex", requestObj.lastIndex);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "hide", requestObj.hide);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -947,6 +966,7 @@ export class CellsApi {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "lastIndex", requestObj.lastIndex);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "hide", requestObj.hide);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -996,6 +1016,7 @@ export class CellsApi {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "startColumn", requestObj.startColumn);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "totalColumns", requestObj.totalColumns);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -1045,6 +1066,7 @@ export class CellsApi {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "startrow", requestObj.startrow);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "totalRows", requestObj.totalRows);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -1088,6 +1110,7 @@ export class CellsApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -1132,6 +1155,7 @@ export class CellsApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -1187,6 +1211,7 @@ export class CellsApi {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "value", requestObj.value);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "type", requestObj.type);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -1236,6 +1261,7 @@ export class CellsApi {
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "width", requestObj.width);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -1285,6 +1311,7 @@ export class CellsApi {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "firstIndex", requestObj.firstIndex);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "lastIndex", requestObj.lastIndex);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -1335,6 +1362,7 @@ export class CellsApi {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "lastIndex", requestObj.lastIndex);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "isAll", requestObj.isAll);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -1385,6 +1413,7 @@ export class CellsApi {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "totalColumns", requestObj.totalColumns);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "width", requestObj.width);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -1435,6 +1464,7 @@ export class CellsApi {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "totalRows", requestObj.totalRows);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "height", requestObj.height);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -1478,6 +1508,7 @@ export class CellsApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -1522,6 +1553,7 @@ export class CellsApi {
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "range", requestObj.range);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -1567,6 +1599,7 @@ export class CellsApi {
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "height", requestObj.height);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -1613,6 +1646,7 @@ export class CellsApi {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "type", requestObj.type);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "formula", requestObj.formula);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -1674,6 +1708,7 @@ export class CellsApi {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "totalRows", requestObj.totalRows);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "totalColumns", requestObj.totalColumns);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -1735,6 +1770,7 @@ export class CellsApi {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "totalRows", requestObj.totalRows);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "totalColumns", requestObj.totalColumns);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -1785,6 +1821,7 @@ export class CellsApi {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "columns", requestObj.columns);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "updateReference", requestObj.updateReference);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "PUT",
             qs: queryParameters,
@@ -1828,6 +1865,7 @@ export class CellsApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "PUT",
             qs: queryParameters,
@@ -1873,6 +1911,7 @@ export class CellsApi {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "totalRows", requestObj.totalRows);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "updateReference", requestObj.updateReference);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "PUT",
             qs: queryParameters,
@@ -1948,6 +1987,7 @@ export class CellsAutoFilterApi {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "minute", requestObj.minute);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "second", requestObj.second);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "DELETE",
             qs: queryParameters,
@@ -1992,6 +2032,7 @@ export class CellsAutoFilterApi {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fieldIndex", requestObj.fieldIndex);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "criteria", requestObj.criteria);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "DELETE",
             qs: queryParameters,
@@ -2029,6 +2070,7 @@ export class CellsAutoFilterApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "GET",
             qs: queryParameters,
@@ -2066,6 +2108,7 @@ export class CellsAutoFilterApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -2109,6 +2152,7 @@ export class CellsAutoFilterApi {
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fieldIndex", requestObj.fieldIndex);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -2152,6 +2196,7 @@ export class CellsAutoFilterApi {
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fieldIndex", requestObj.fieldIndex);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -2203,6 +2248,7 @@ export class CellsAutoFilterApi {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "matchBlanks", requestObj.matchBlanks);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "refresh", requestObj.refresh);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "PUT",
             qs: queryParameters,
@@ -2270,6 +2316,7 @@ export class CellsAutoFilterApi {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "matchBlanks", requestObj.matchBlanks);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "refresh", requestObj.refresh);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "PUT",
             qs: queryParameters,
@@ -2333,6 +2380,7 @@ export class CellsAutoFilterApi {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "matchBlanks", requestObj.matchBlanks);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "refresh", requestObj.refresh);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "PUT",
             qs: queryParameters,
@@ -2390,6 +2438,7 @@ export class CellsAutoFilterApi {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "matchBlanks", requestObj.matchBlanks);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "refresh", requestObj.refresh);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "PUT",
             qs: queryParameters,
@@ -2447,6 +2496,7 @@ export class CellsAutoFilterApi {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "matchBlanks", requestObj.matchBlanks);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "refresh", requestObj.refresh);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "PUT",
             qs: queryParameters,
@@ -2516,6 +2566,7 @@ export class CellsAutoFilterApi {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "matchBlanks", requestObj.matchBlanks);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "refresh", requestObj.refresh);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "PUT",
             qs: queryParameters,
@@ -2579,6 +2630,7 @@ export class CellsAutoFilterApi {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "matchBlanks", requestObj.matchBlanks);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "refresh", requestObj.refresh);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "PUT",
             qs: queryParameters,
@@ -2642,6 +2694,7 @@ export class CellsAutoshapesApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "GET",
             qs: queryParameters,
@@ -2679,6 +2732,7 @@ export class CellsAutoshapesApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "GET",
             qs: queryParameters,
@@ -2742,6 +2796,7 @@ export class CellsChartAreaApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "GET",
             qs: queryParameters,
@@ -2785,6 +2840,7 @@ export class CellsChartAreaApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "GET",
             qs: queryParameters,
@@ -2828,6 +2884,7 @@ export class CellsChartAreaApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "GET",
             qs: queryParameters,
@@ -2891,6 +2948,7 @@ export class CellsChartsApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "DELETE",
             qs: queryParameters,
@@ -2934,6 +2992,7 @@ export class CellsChartsApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "DELETE",
             qs: queryParameters,
@@ -2971,6 +3030,7 @@ export class CellsChartsApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "DELETE",
             qs: queryParameters,
@@ -3014,6 +3074,7 @@ export class CellsChartsApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "DELETE",
             qs: queryParameters,
@@ -3058,6 +3119,7 @@ export class CellsChartsApi {
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "format", requestObj.format);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "GET",
             qs: queryParameters,
@@ -3101,6 +3163,7 @@ export class CellsChartsApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "GET",
             qs: queryParameters,
@@ -3144,6 +3207,7 @@ export class CellsChartsApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "GET",
             qs: queryParameters,
@@ -3181,6 +3245,7 @@ export class CellsChartsApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "GET",
             qs: queryParameters,
@@ -3224,6 +3289,7 @@ export class CellsChartsApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -3268,6 +3334,7 @@ export class CellsChartsApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -3312,6 +3379,7 @@ export class CellsChartsApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -3365,6 +3433,7 @@ export class CellsChartsApi {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "isAutoGetSerialName", requestObj.isAutoGetSerialName);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "title", requestObj.title);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "PUT",
             qs: queryParameters,
@@ -3408,6 +3477,7 @@ export class CellsChartsApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "PUT",
             qs: queryParameters,
@@ -3451,6 +3521,7 @@ export class CellsChartsApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "PUT",
             qs: queryParameters,
@@ -3515,6 +3586,7 @@ export class CellsConditionalFormattingsApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "DELETE",
             qs: queryParameters,
@@ -3576,6 +3648,7 @@ export class CellsConditionalFormattingsApi {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "totalRows", requestObj.totalRows);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "totalColumns", requestObj.totalColumns);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "DELETE",
             qs: queryParameters,
@@ -3613,6 +3686,7 @@ export class CellsConditionalFormattingsApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "DELETE",
             qs: queryParameters,
@@ -3656,6 +3730,7 @@ export class CellsConditionalFormattingsApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "GET",
             qs: queryParameters,
@@ -3693,6 +3768,7 @@ export class CellsConditionalFormattingsApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "GET",
             qs: queryParameters,
@@ -3736,6 +3812,7 @@ export class CellsConditionalFormattingsApi {
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "cellArea", requestObj.cellArea);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "PUT",
             qs: queryParameters,
@@ -3810,6 +3887,7 @@ export class CellsConditionalFormattingsApi {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "formula1", requestObj.formula1);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "formula2", requestObj.formula2);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "PUT",
             qs: queryParameters,
@@ -3859,6 +3937,7 @@ export class CellsConditionalFormattingsApi {
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "cellArea", requestObj.cellArea);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "PUT",
             qs: queryParameters,
@@ -3926,6 +4005,7 @@ export class CellsConditionalFormattingsApi {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "formula1", requestObj.formula1);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "formula2", requestObj.formula2);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "PUT",
             qs: queryParameters,
@@ -3989,6 +4069,7 @@ export class CellsHypelinksApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "DELETE",
             qs: queryParameters,
@@ -4026,6 +4107,7 @@ export class CellsHypelinksApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "DELETE",
             qs: queryParameters,
@@ -4069,6 +4151,7 @@ export class CellsHypelinksApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "GET",
             qs: queryParameters,
@@ -4106,6 +4189,7 @@ export class CellsHypelinksApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "GET",
             qs: queryParameters,
@@ -4149,6 +4233,7 @@ export class CellsHypelinksApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -4217,6 +4302,7 @@ export class CellsHypelinksApi {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "totalColumns", requestObj.totalColumns);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "address", requestObj.address);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "PUT",
             qs: queryParameters,
@@ -4280,6 +4366,7 @@ export class CellsListObjectsApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "DELETE",
             qs: queryParameters,
@@ -4317,6 +4404,7 @@ export class CellsListObjectsApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "DELETE",
             qs: queryParameters,
@@ -4360,6 +4448,7 @@ export class CellsListObjectsApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "GET",
             qs: queryParameters,
@@ -4397,6 +4486,7 @@ export class CellsListObjectsApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "GET",
             qs: queryParameters,
@@ -4440,6 +4530,7 @@ export class CellsListObjectsApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -4484,6 +4575,7 @@ export class CellsListObjectsApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -4527,6 +4619,7 @@ export class CellsListObjectsApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -4577,6 +4670,7 @@ export class CellsListObjectsApi {
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "destsheetName", requestObj.destsheetName);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -4639,6 +4733,7 @@ export class CellsListObjectsApi {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "endRow", requestObj.endRow);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "endColumn", requestObj.endColumn);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "hasHeaders", requestObj.hasHeaders);
         const requestOptions: request.Options = {
             method: "PUT",
@@ -4703,6 +4798,7 @@ export class CellsOleObjectsApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "DELETE",
             qs: queryParameters,
@@ -4740,6 +4836,7 @@ export class CellsOleObjectsApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "DELETE",
             qs: queryParameters,
@@ -4783,6 +4880,7 @@ export class CellsOleObjectsApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "GET",
             qs: queryParameters,
@@ -4820,6 +4918,7 @@ export class CellsOleObjectsApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "GET",
             qs: queryParameters,
@@ -4863,6 +4962,7 @@ export class CellsOleObjectsApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -4907,6 +5007,7 @@ export class CellsOleObjectsApi {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "oleFile", requestObj.oleFile);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "imageFile", requestObj.imageFile);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "PUT",
             qs: queryParameters,
@@ -4971,6 +5072,7 @@ export class CellsPageBreaksApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "DELETE",
             qs: queryParameters,
@@ -5009,6 +5111,7 @@ export class CellsPageBreaksApi {
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "row", requestObj.row);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "DELETE",
             qs: queryParameters,
@@ -5052,6 +5155,7 @@ export class CellsPageBreaksApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "DELETE",
             qs: queryParameters,
@@ -5090,6 +5194,7 @@ export class CellsPageBreaksApi {
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "column", requestObj.column);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "DELETE",
             qs: queryParameters,
@@ -5133,6 +5238,7 @@ export class CellsPageBreaksApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "GET",
             qs: queryParameters,
@@ -5170,6 +5276,7 @@ export class CellsPageBreaksApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "GET",
             qs: queryParameters,
@@ -5213,6 +5320,7 @@ export class CellsPageBreaksApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "GET",
             qs: queryParameters,
@@ -5250,6 +5358,7 @@ export class CellsPageBreaksApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "GET",
             qs: queryParameters,
@@ -5292,6 +5401,7 @@ export class CellsPageBreaksApi {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "startColumn", requestObj.startColumn);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "endColumn", requestObj.endColumn);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "PUT",
             qs: queryParameters,
@@ -5334,6 +5444,7 @@ export class CellsPageBreaksApi {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "startRow", requestObj.startRow);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "endRow", requestObj.endRow);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "PUT",
             qs: queryParameters,
@@ -5391,6 +5502,7 @@ export class CellsPageSetupApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "DELETE",
             qs: queryParameters,
@@ -5428,6 +5540,7 @@ export class CellsPageSetupApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "GET",
             qs: queryParameters,
@@ -5465,6 +5578,7 @@ export class CellsPageSetupApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "GET",
             qs: queryParameters,
@@ -5502,6 +5616,7 @@ export class CellsPageSetupApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "GET",
             qs: queryParameters,
@@ -5557,6 +5672,7 @@ export class CellsPageSetupApi {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "script", requestObj.script);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "isFirstPage", requestObj.isFirstPage);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -5612,6 +5728,7 @@ export class CellsPageSetupApi {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "script", requestObj.script);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "isFirstPage", requestObj.isFirstPage);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -5649,6 +5766,7 @@ export class CellsPageSetupApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -5713,6 +5831,7 @@ export class CellsPicturesApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "DELETE",
             qs: queryParameters,
@@ -5750,6 +5869,7 @@ export class CellsPicturesApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "DELETE",
             qs: queryParameters,
@@ -5793,6 +5913,7 @@ export class CellsPicturesApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "GET",
             qs: queryParameters,
@@ -5830,6 +5951,7 @@ export class CellsPicturesApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "GET",
             qs: queryParameters,
@@ -5873,6 +5995,7 @@ export class CellsPicturesApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -5916,6 +6039,7 @@ export class CellsPicturesApi {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "lowerRightColumn", requestObj.lowerRightColumn);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "picturePath", requestObj.picturePath);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "PUT",
             qs: queryParameters,
@@ -5986,6 +6110,7 @@ export class CellsPivotTablesApi {
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "pivotFieldType", requestObj.pivotFieldType);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "DELETE",
             qs: queryParameters,
@@ -6030,6 +6155,7 @@ export class CellsPivotTablesApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "DELETE",
             qs: queryParameters,
@@ -6080,6 +6206,7 @@ export class CellsPivotTablesApi {
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "needReCalculate", requestObj.needReCalculate);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "DELETE",
             qs: queryParameters,
@@ -6124,6 +6251,7 @@ export class CellsPivotTablesApi {
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "needReCalculate", requestObj.needReCalculate);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "DELETE",
             qs: queryParameters,
@@ -6161,6 +6289,7 @@ export class CellsPivotTablesApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "DELETE",
             qs: queryParameters,
@@ -6216,6 +6345,7 @@ export class CellsPivotTablesApi {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "pivotFieldIndex", requestObj.pivotFieldIndex);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "pivotFieldType", requestObj.pivotFieldType);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "GET",
             qs: queryParameters,
@@ -6259,6 +6389,7 @@ export class CellsPivotTablesApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "GET",
             qs: queryParameters,
@@ -6308,6 +6439,7 @@ export class CellsPivotTablesApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "GET",
             qs: queryParameters,
@@ -6351,6 +6483,7 @@ export class CellsPivotTablesApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "GET",
             qs: queryParameters,
@@ -6388,6 +6521,7 @@ export class CellsPivotTablesApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "GET",
             qs: queryParameters,
@@ -6444,6 +6578,7 @@ export class CellsPivotTablesApi {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "row", requestObj.row);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "needReCalculate", requestObj.needReCalculate);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -6513,6 +6648,7 @@ export class CellsPivotTablesApi {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "isHide", requestObj.isHide);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "needReCalculate", requestObj.needReCalculate);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -6574,6 +6710,7 @@ export class CellsPivotTablesApi {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "from", requestObj.from);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "to", requestObj.to);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -6618,6 +6755,7 @@ export class CellsPivotTablesApi {
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "needReCalculate", requestObj.needReCalculate);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -6662,6 +6800,7 @@ export class CellsPivotTablesApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -6708,6 +6847,7 @@ export class CellsPivotTablesApi {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "column", requestObj.column);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "destCellName", requestObj.destCellName);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -6758,6 +6898,7 @@ export class CellsPivotTablesApi {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "pivotFieldType", requestObj.pivotFieldType);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "needReCalculate", requestObj.needReCalculate);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "PUT",
             qs: queryParameters,
@@ -6796,6 +6937,7 @@ export class CellsPivotTablesApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "sourceData", requestObj.sourceData);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "destCellName", requestObj.destCellName);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "tableName", requestObj.tableName);
@@ -6845,6 +6987,7 @@ export class CellsPivotTablesApi {
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "needReCalculate", requestObj.needReCalculate);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "PUT",
             qs: queryParameters,
@@ -6897,6 +7040,7 @@ export class CellsPropertiesApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "DELETE",
             qs: queryParameters,
@@ -6934,6 +7078,7 @@ export class CellsPropertiesApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "DELETE",
             qs: queryParameters,
@@ -6965,6 +7110,7 @@ export class CellsPropertiesApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "GET",
             qs: queryParameters,
@@ -7002,6 +7148,7 @@ export class CellsPropertiesApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "GET",
             qs: queryParameters,
@@ -7039,6 +7186,7 @@ export class CellsPropertiesApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "PUT",
             qs: queryParameters,
@@ -7102,6 +7250,7 @@ export class CellsRangesApi {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "rowCount", requestObj.rowCount);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "columnCount", requestObj.columnCount);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "GET",
             qs: queryParameters,
@@ -7145,6 +7294,7 @@ export class CellsRangesApi {
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "value", requestObj.value);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -7183,6 +7333,7 @@ export class CellsRangesApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -7233,6 +7384,7 @@ export class CellsRangesApi {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "destRow", requestObj.destRow);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "destColumn", requestObj.destColumn);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -7271,6 +7423,7 @@ export class CellsRangesApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -7315,6 +7468,7 @@ export class CellsRangesApi {
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "value", requestObj.value);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -7353,6 +7507,7 @@ export class CellsRangesApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -7391,6 +7546,7 @@ export class CellsRangesApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -7437,6 +7593,7 @@ export class CellsRangesApi {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "isConverted", requestObj.isConverted);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "setStyle", requestObj.setStyle);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -7475,6 +7632,7 @@ export class CellsRangesApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -7530,6 +7688,7 @@ export class CellsSaveAsApi {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "isAutoFitRows", requestObj.isAutoFitRows);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "isAutoFitColumns", requestObj.isAutoFitColumns);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -7594,6 +7753,7 @@ export class CellsShapesApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "DELETE",
             qs: queryParameters,
@@ -7631,6 +7791,7 @@ export class CellsShapesApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "DELETE",
             qs: queryParameters,
@@ -7674,6 +7835,7 @@ export class CellsShapesApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "GET",
             qs: queryParameters,
@@ -7711,6 +7873,7 @@ export class CellsShapesApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "GET",
             qs: queryParameters,
@@ -7754,6 +7917,7 @@ export class CellsShapesApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -7834,6 +7998,7 @@ export class CellsShapesApi {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "width", requestObj.width);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "height", requestObj.height);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "PUT",
             qs: queryParameters,
@@ -7892,7 +8057,7 @@ export class CellsTaskApi {
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
-        const result =  ObjectSerializer.deserialize(response.body, "Buffer");
+        const result =  ObjectSerializer.deserialize(response.body, "any");
         return Promise.resolve({body: result, response});
     }
 
@@ -7935,6 +8100,7 @@ export class CellsWorkbookApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "DELETE",
             qs: queryParameters,
@@ -7967,6 +8133,7 @@ export class CellsWorkbookApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "DELETE",
             qs: queryParameters,
@@ -7998,6 +8165,7 @@ export class CellsWorkbookApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "DELETE",
             qs: queryParameters,
@@ -8036,6 +8204,7 @@ export class CellsWorkbookApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "DELETE",
             qs: queryParameters,
@@ -8067,6 +8236,7 @@ export class CellsWorkbookApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "DELETE",
             qs: queryParameters,
@@ -8100,6 +8270,7 @@ export class CellsWorkbookApi {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", requestObj.password);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "isAutoFit", requestObj.isAutoFit);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "GET",
             qs: queryParameters,
@@ -8131,6 +8302,7 @@ export class CellsWorkbookApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "GET",
             qs: queryParameters,
@@ -8168,6 +8340,7 @@ export class CellsWorkbookApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "GET",
             qs: queryParameters,
@@ -8205,6 +8378,7 @@ export class CellsWorkbookApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "GET",
             qs: queryParameters,
@@ -8236,6 +8410,7 @@ export class CellsWorkbookApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "GET",
             qs: queryParameters,
@@ -8267,6 +8442,7 @@ export class CellsWorkbookApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "GET",
             qs: queryParameters,
@@ -8298,6 +8474,7 @@ export class CellsWorkbookApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "GET",
             qs: queryParameters,
@@ -8332,6 +8509,7 @@ export class CellsWorkbookApi {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "endRow", requestObj.endRow);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "onlyAuto", requestObj.onlyAuto);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -8364,6 +8542,7 @@ export class CellsWorkbookApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -8401,6 +8580,7 @@ export class CellsWorkbookApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -8433,6 +8613,7 @@ export class CellsWorkbookApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -8466,6 +8647,7 @@ export class CellsWorkbookApi {
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "ignoreError", requestObj.ignoreError);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -8499,6 +8681,7 @@ export class CellsWorkbookApi {
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "xmlFile", requestObj.xmlFile);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", requestObj.outPath);
         const requestOptions: request.Options = {
             method: "POST",
@@ -8531,6 +8714,7 @@ export class CellsWorkbookApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -8568,6 +8752,7 @@ export class CellsWorkbookApi {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "horizontalResolution", requestObj.horizontalResolution);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "verticalResolution", requestObj.verticalResolution);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -8605,6 +8790,7 @@ export class CellsWorkbookApi {
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "mergeWith", requestObj.mergeWith);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -8648,6 +8834,7 @@ export class CellsWorkbookApi {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "oldValue", requestObj.oldValue);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "newValue", requestObj.newValue);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -8685,6 +8872,7 @@ export class CellsWorkbookApi {
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "text", requestObj.text);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -8743,6 +8931,7 @@ export class CellsWorkbookApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "PUT",
             qs: queryParameters,
@@ -8777,6 +8966,7 @@ export class CellsWorkbookApi {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "templateFile", requestObj.templateFile);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "dataFile", requestObj.dataFile);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "PUT",
             qs: queryParameters,
@@ -8840,6 +9030,7 @@ export class CellsWorksheetValidationsApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "DELETE",
             qs: queryParameters,
@@ -8883,6 +9074,7 @@ export class CellsWorksheetValidationsApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "GET",
             qs: queryParameters,
@@ -8920,6 +9112,7 @@ export class CellsWorksheetValidationsApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "GET",
             qs: queryParameters,
@@ -8963,6 +9156,7 @@ export class CellsWorksheetValidationsApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -9002,6 +9196,7 @@ export class CellsWorksheetValidationsApi {
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "range", requestObj.range);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "PUT",
             qs: queryParameters,
@@ -9059,6 +9254,7 @@ export class CellsWorksheetsApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "DELETE",
             qs: queryParameters,
@@ -9097,6 +9293,7 @@ export class CellsWorksheetsApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "DELETE",
             qs: queryParameters,
@@ -9134,6 +9331,7 @@ export class CellsWorksheetsApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "DELETE",
             qs: queryParameters,
@@ -9177,6 +9375,7 @@ export class CellsWorksheetsApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "DELETE",
             qs: queryParameters,
@@ -9214,6 +9413,7 @@ export class CellsWorksheetsApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "DELETE",
             qs: queryParameters,
@@ -9275,6 +9475,7 @@ export class CellsWorksheetsApi {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "freezedRows", requestObj.freezedRows);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "freezedColumns", requestObj.freezedColumns);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "DELETE",
             qs: queryParameters,
@@ -9306,6 +9507,7 @@ export class CellsWorksheetsApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "GET",
             qs: queryParameters,
@@ -9346,6 +9548,7 @@ export class CellsWorksheetsApi {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "verticalResolution", requestObj.verticalResolution);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "horizontalResolution", requestObj.horizontalResolution);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "GET",
             qs: queryParameters,
@@ -9389,6 +9592,7 @@ export class CellsWorksheetsApi {
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "formula", requestObj.formula);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "GET",
             qs: queryParameters,
@@ -9432,6 +9636,7 @@ export class CellsWorksheetsApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "GET",
             qs: queryParameters,
@@ -9469,6 +9674,7 @@ export class CellsWorksheetsApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "GET",
             qs: queryParameters,
@@ -9512,6 +9718,7 @@ export class CellsWorksheetsApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "GET",
             qs: queryParameters,
@@ -9549,6 +9756,7 @@ export class CellsWorksheetsApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "GET",
             qs: queryParameters,
@@ -9586,6 +9794,7 @@ export class CellsWorksheetsApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "GET",
             qs: queryParameters,
@@ -9617,6 +9826,7 @@ export class CellsWorksheetsApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "GET",
             qs: queryParameters,
@@ -9668,6 +9878,7 @@ export class CellsWorksheetsApi {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "firstRow", requestObj.firstRow);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "lastRow", requestObj.lastRow);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -9724,6 +9935,7 @@ export class CellsWorksheetsApi {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "firstColumn", requestObj.firstColumn);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "lastColumn", requestObj.lastColumn);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -9765,6 +9977,7 @@ export class CellsWorksheetsApi {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "endRow", requestObj.endRow);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "onlyAuto", requestObj.onlyAuto);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -9811,6 +10024,7 @@ export class CellsWorksheetsApi {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "sourceWorkbook", requestObj.sourceWorkbook);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "sourceFolder", requestObj.sourceFolder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -9849,6 +10063,7 @@ export class CellsWorksheetsApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -9893,6 +10108,7 @@ export class CellsWorksheetsApi {
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "newname", requestObj.newname);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -9930,6 +10146,7 @@ export class CellsWorksheetsApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -9974,6 +10191,7 @@ export class CellsWorksheetsApi {
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "value", requestObj.value);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -10017,6 +10235,7 @@ export class CellsWorksheetsApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -10061,6 +10280,7 @@ export class CellsWorksheetsApi {
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "cellArea", requestObj.cellArea);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -10105,6 +10325,7 @@ export class CellsWorksheetsApi {
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "text", requestObj.text);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -10154,6 +10375,7 @@ export class CellsWorksheetsApi {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "oldValue", requestObj.oldValue);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "newValue", requestObj.newValue);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -10193,6 +10415,7 @@ export class CellsWorksheetsApi {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "position", requestObj.position);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "sheettype", requestObj.sheettype);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "PUT",
             qs: queryParameters,
@@ -10236,6 +10459,7 @@ export class CellsWorksheetsApi {
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "isVisible", requestObj.isVisible);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "PUT",
             qs: queryParameters,
@@ -10273,6 +10497,7 @@ export class CellsWorksheetsApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "PUT",
             qs: queryParameters,
@@ -10316,6 +10541,7 @@ export class CellsWorksheetsApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "PUT",
             qs: queryParameters,
@@ -10360,6 +10586,7 @@ export class CellsWorksheetsApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "PUT",
             qs: queryParameters,
@@ -10422,6 +10649,7 @@ export class CellsWorksheetsApi {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "freezedRows", requestObj.freezedRows);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "freezedColumns", requestObj.freezedColumns);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "PUT",
             qs: queryParameters,
