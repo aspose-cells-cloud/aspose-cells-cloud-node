@@ -187,6 +187,32 @@ describe('CellsWorkbookApi', function() {
         });
     });
   });
+  describe('cellsWorkbookGetWorkbookFormat', function() {
+    it('should call cellsWorkbookGetWorkbookFormat successfully', function() {
+      const storageApi = BaseTest.initializeStorageApi();
+      const cellsWorkbookApi = BaseTest.initializeCellsWorkbookApi();
+      const filename = "Book1.xlsx";
+      return new Promise((resolve) => {
+        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
+          expect(responseMessage.status).to.equal("OK");
+          resolve();
+        });
+      })
+        .then(() => {
+          var req = new model.CellsWorkbook_GetWorkbookRequest();
+          req.name = filename;
+          req.password = null;
+          req.isAutoFit = true;
+          req.folder = "Temp";
+          req.format = "xlsx";
+          
+          return cellsWorkbookApi.cellsWorkbookGetWorkbook(req)
+            .then((result) => {
+              expect(result.response.statusCode).to.equal(200);
+            });
+        });
+    });
+  });
   describe('cellsWorkbookGetWorkbookDefaultStyle', function() {
     it('should call cellsWorkbookGetWorkbookDefaultStyle successfully', function() {
       const storageApi = BaseTest.initializeStorageApi();
@@ -649,9 +675,7 @@ describe('CellsWorkbookApi', function() {
         .then(() => {
           var req = new model.CellsWorkbook_PutConvertWorkbookRequest();
           req.format = "xlsx";
-          req.password = null;
-          req.outPath = null;
-          
+
           return cellsWorkbookApi.cellsWorkbookPutConvertWorkbook(req)
             .then((result) => {
               expect(result.response.statusCode).to.equal(200);

@@ -108,6 +108,32 @@ describe('CellsOleObjectsApi', function() {
         });
     });
   });
+  describe('cellsOleObjectsGetWorksheetOleObjectFormat', function() {
+    it('should call cellsOleObjectsGetWorksheetOleObjectFormat successfully', function() {
+      const storageApi = BaseTest.initializeStorageApi();
+      const cellsOleObjectsApi = BaseTest.initializeCellsOleObjectsApi();
+      const filename = "Book1.xlsx";
+      return new Promise((resolve) => {
+        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
+          expect(responseMessage.status).to.equal("OK");
+          resolve();
+        });
+      })
+        .then(() => {
+          var req = new model.CellsOleObjects_GetWorksheetOleObjectRequest();
+          req.name = filename;
+          req.sheetName = "Sheet6";
+          req.objectNumber = 0;
+          req.folder = "Temp";
+          req.format = "png";
+          
+          return cellsOleObjectsApi.cellsOleObjectsGetWorksheetOleObject(req)
+            .then((result) => {
+              expect(result.response.statusCode).to.equal(200);
+            });
+        });
+    });
+  });
   describe('cellsOleObjectsGetWorksheetOleObjects', function() {
     it('should call cellsOleObjectsGetWorksheetOleObjects successfully', function() {
       const storageApi = BaseTest.initializeStorageApi();

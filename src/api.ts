@@ -2693,6 +2693,7 @@ export class CellsAutoshapesApi {
             throw new Error('Required parameter "requestObj.autoshapeNumber" was null or undefined when calling cellsAutoshapesGetWorksheetAutoshape.');
         }
         
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "format", requestObj.format);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
@@ -4879,6 +4880,7 @@ export class CellsOleObjectsApi {
             throw new Error('Required parameter "requestObj.objectNumber" was null or undefined when calling cellsOleObjectsGetWorksheetOleObject.');
         }
         
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "format", requestObj.format);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
@@ -5891,10 +5893,10 @@ export class CellsPicturesApi {
             throw new Error('Required parameter "requestObj" was null or undefined when calling cellsPicturesGetWorksheetPicture.');
         }
 
-        let localVarPath = this.configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/pictures/{pictureNumber}"
+        let localVarPath = this.configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/pictures/{pictureIndex}"
             .replace("{" + "name" + "}", String(requestObj.name))
             .replace("{" + "sheetName" + "}", String(requestObj.sheetName))
-            .replace("{" + "pictureNumber" + "}", String(requestObj.pictureNumber));
+            .replace("{" + "pictureIndex" + "}", String(requestObj.pictureIndex));
         const queryParameters: any = {};
 
         // verify required parameter 'requestObj.name' is not null or undefined
@@ -5907,11 +5909,12 @@ export class CellsPicturesApi {
             throw new Error('Required parameter "requestObj.sheetName" was null or undefined when calling cellsPicturesGetWorksheetPicture.');
         }
 
-        // verify required parameter 'requestObj.pictureNumber' is not null or undefined
-        if (requestObj.pictureNumber === null || requestObj.pictureNumber === undefined) {
-            throw new Error('Required parameter "requestObj.pictureNumber" was null or undefined when calling cellsPicturesGetWorksheetPicture.');
+        // verify required parameter 'requestObj.pictureIndex' is not null or undefined
+        if (requestObj.pictureIndex === null || requestObj.pictureIndex === undefined) {
+            throw new Error('Required parameter "requestObj.pictureIndex" was null or undefined when calling cellsPicturesGetWorksheetPicture.');
         }
         
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "format", requestObj.format);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
@@ -8268,9 +8271,12 @@ export class CellsWorkbookApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", requestObj.password);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "format", requestObj.format);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "isAutoFit", requestObj.isAutoFit);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "onlySaveTable", requestObj.onlySaveTable);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", requestObj.outPath);
         const requestOptions: request.Options = {
             method: "GET",
             qs: queryParameters,

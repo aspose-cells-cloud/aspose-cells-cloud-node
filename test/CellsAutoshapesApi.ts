@@ -57,6 +57,32 @@ describe('CellsAutoshapesApi', function() {
         });
     });
   });
+  describe('cellsAutoshapesGetWorksheetAutoshapeFormat', function() {
+    it('should call cellsAutoshapesGetWorksheetAutoshapeFormat successfully', function() {
+      const storageApi = BaseTest.initializeStorageApi();
+      const cellsAutoshapesApi = BaseTest.initializeCellsAutoshapesApi();
+      const filename = "myDocument.xlsx";
+      return new Promise((resolve) => {
+        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
+          expect(responseMessage.status).to.equal("OK");
+          resolve();
+        });
+      })
+        .then(() => {
+          var req = new model.CellsAutoshapes_GetWorksheetAutoshapeRequest();
+          req.name = filename;
+          req.sheetName = "Sheet2";
+          req.autoshapeNumber = 4;
+          req.folder = "Temp";
+          req.format = "png";
+          
+          return cellsAutoshapesApi.cellsAutoshapesGetWorksheetAutoshape(req)
+            .then((result) => {
+              expect(result.response.statusCode).to.equal(200);
+            });
+        });
+    });
+  });
   describe('cellsAutoshapesGetWorksheetAutoshapes', function() {
     it('should call cellsAutoshapesGetWorksheetAutoshapes successfully', function() {
       const storageApi = BaseTest.initializeStorageApi();

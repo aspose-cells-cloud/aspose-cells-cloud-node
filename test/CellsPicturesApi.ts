@@ -98,8 +98,34 @@ describe('CellsPicturesApi', function() {
           var req = new model.CellsPictures_GetWorksheetPictureRequest();
           req.name = filename;
           req.sheetName = "Sheet6";
-          req.pictureNumber = 0;
+          req.pictureIndex = 0;
           req.folder = "Temp";
+          
+          return cellsPicturesApi.cellsPicturesGetWorksheetPicture(req)
+            .then((result) => {
+              expect(result.response.statusCode).to.equal(200);
+            });
+        });
+    });
+  });
+  describe('cellsPicturesGetWorksheetPictureFormat', function() {
+    it('should call cellsPicturesGetWorksheetPictureFormat successfully', function() {
+      const storageApi = BaseTest.initializeStorageApi();
+      const cellsPicturesApi = BaseTest.initializeCellsPicturesApi();
+      const filename = "Book1.xlsx";
+      return new Promise((resolve) => {
+        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
+          expect(responseMessage.status).to.equal("OK");
+          resolve();
+        });
+      })
+        .then(() => {
+          var req = new model.CellsPictures_GetWorksheetPictureRequest();
+          req.name = filename;
+          req.sheetName = "Sheet6";
+          req.pictureIndex = 0;
+          req.folder = "Temp";
+          req.format = "png";
           
           return cellsPicturesApi.cellsPicturesGetWorksheetPicture(req)
             .then((result) => {

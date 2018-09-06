@@ -5546,6 +5546,33 @@ export class AutoFilterResponse extends SaaSposeResponse {
     }        
 }
 
+export class AutoShapeResponse extends SaaSposeResponse {
+
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "autoShape",
+            baseName: "AutoShape",
+            type: "AutoShape",
+        }    ];
+
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return super.getAttributeTypeMap().concat(AutoShapeResponse.attributeTypeMap);
+    }
+
+    public autoShape: AutoShape;
+    
+    public constructor(init?: Partial<AutoShapeResponse>) {
+        super(init);
+        Object.assign(this, init);
+    }        
+}
+
 export class AutoShapes {
 
     /**
@@ -12689,6 +12716,271 @@ export class XpsSaveOptions extends SaveOptions {
     }        
 }
 
+export class AutoShape {
+
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "alternativeText",
+            baseName: "AlternativeText",
+            type: "string",
+        },        
+        {
+            name: "bottom",
+            baseName: "Bottom",
+            type: "number",
+        },        
+        {
+            name: "top",
+            baseName: "Top",
+            type: "number",
+        },        
+        {
+            name: "width",
+            baseName: "Width",
+            type: "number",
+        },        
+        {
+            name: "htmlText",
+            baseName: "HtmlText",
+            type: "string",
+        },        
+        {
+            name: "textVerticalAlignment",
+            baseName: "TextVerticalAlignment",
+            type: "string",
+        },        
+        {
+            name: "autoShapeType",
+            baseName: "AutoShapeType",
+            type: "string",
+        },        
+        {
+            name: "isPrintable",
+            baseName: "IsPrintable",
+            type: "boolean",
+        },        
+        {
+            name: "upperLeftColumn",
+            baseName: "UpperLeftColumn",
+            type: "number",
+        },        
+        {
+            name: "isLockAspectRatio",
+            baseName: "IsLockAspectRatio",
+            type: "boolean",
+        },        
+        {
+            name: "isGroup",
+            baseName: "IsGroup",
+            type: "boolean",
+        },        
+        {
+            name: "rotationAngle",
+            baseName: "RotationAngle",
+            type: "number",
+        },        
+        {
+            name: "zOrderPosition",
+            baseName: "ZOrderPosition",
+            type: "number",
+        },        
+        {
+            name: "textHorizontalOverflow",
+            baseName: "TextHorizontalOverflow",
+            type: "string",
+        },        
+        {
+            name: "msoDrawingType",
+            baseName: "MsoDrawingType",
+            type: "string",
+        },        
+        {
+            name: "textOrientationType",
+            baseName: "TextOrientationType",
+            type: "string",
+        },        
+        {
+            name: "placement",
+            baseName: "Placement",
+            type: "string",
+        },        
+        {
+            name: "name",
+            baseName: "Name",
+            type: "string",
+        },        
+        {
+            name: "isWordArt",
+            baseName: "IsWordArt",
+            type: "boolean",
+        },        
+        {
+            name: "linkedCell",
+            baseName: "LinkedCell",
+            type: "string",
+        },        
+        {
+            name: "upperLeftRow",
+            baseName: "UpperLeftRow",
+            type: "number",
+        },        
+        {
+            name: "isLocked",
+            baseName: "IsLocked",
+            type: "boolean",
+        },        
+        {
+            name: "lowerRightRow",
+            baseName: "LowerRightRow",
+            type: "number",
+        },        
+        {
+            name: "isTextWrapped",
+            baseName: "IsTextWrapped",
+            type: "boolean",
+        },        
+        {
+            name: "y",
+            baseName: "Y",
+            type: "number",
+        },        
+        {
+            name: "x",
+            baseName: "X",
+            type: "number",
+        },        
+        {
+            name: "isHidden",
+            baseName: "IsHidden",
+            type: "boolean",
+        },        
+        {
+            name: "left",
+            baseName: "Left",
+            type: "number",
+        },        
+        {
+            name: "right",
+            baseName: "Right",
+            type: "number",
+        },        
+        {
+            name: "text",
+            baseName: "Text",
+            type: "string",
+        },        
+        {
+            name: "lowerRightColumn",
+            baseName: "LowerRightColumn",
+            type: "number",
+        },        
+        {
+            name: "height",
+            baseName: "Height",
+            type: "number",
+        },        
+        {
+            name: "textHorizontalAlignment",
+            baseName: "TextHorizontalAlignment",
+            type: "string",
+        },        
+        {
+            name: "textVerticalOverflow",
+            baseName: "TextVerticalOverflow",
+            type: "string",
+        },        
+        {
+            name: "link",
+            baseName: "link",
+            type: "Link",
+        }    ];
+
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return AutoShape.attributeTypeMap;
+    }
+
+    public alternativeText: string;
+    
+    public bottom: number;
+    
+    public top: number;
+    
+    public width: number;
+    
+    public htmlText: string;
+    
+    public textVerticalAlignment: string;
+    
+    public autoShapeType: string;
+    
+    public isPrintable: boolean;
+    
+    public upperLeftColumn: number;
+    
+    public isLockAspectRatio: boolean;
+    
+    public isGroup: boolean;
+    
+    public rotationAngle: number;
+    
+    public zOrderPosition: number;
+    
+    public textHorizontalOverflow: string;
+    
+    public msoDrawingType: string;
+    
+    public textOrientationType: string;
+    
+    public placement: string;
+    
+    public name: string;
+    
+    public isWordArt: boolean;
+    
+    public linkedCell: string;
+    
+    public upperLeftRow: number;
+    
+    public isLocked: boolean;
+    
+    public lowerRightRow: number;
+    
+    public isTextWrapped: boolean;
+    
+    public y: number;
+    
+    public x: number;
+    
+    public isHidden: boolean;
+    
+    public left: number;
+    
+    public right: number;
+    
+    public text: string;
+    
+    public lowerRightColumn: number;
+    
+    public height: number;
+    
+    public textHorizontalAlignment: string;
+    
+    public textVerticalOverflow: string;
+    
+    public link: Link;
+    
+    public constructor(init?: Partial<AutoShape>) {
+        
+        Object.assign(this, init);
+    }        
+}
+
 export class ChartArea {
 
     /**
@@ -13818,6 +14110,7 @@ const typeMap = {
             WorksheetMovingRequest,
             AutoFilter,
             AutoFilterResponse,
+            AutoShapeResponse,
             AutoShapes,
             AutoShapesResponse,
             Cell,
@@ -13950,6 +14243,7 @@ const typeMap = {
             XlsSaveOptions,
             XlsbSaveOptions,
             XpsSaveOptions,
+            AutoShape,
             ChartArea,
             Legend,
             OleObject,
@@ -16267,6 +16561,11 @@ export class CellsAutoshapes_GetWorksheetAutoshapeRequest {
     public autoshapeNumber: number;
 
     /**
+     * Exported format.
+     */
+    public format: string;
+
+    /**
      * The document folder.
      */
     public folder: string;
@@ -17952,6 +18251,11 @@ export class CellsOleObjects_GetWorksheetOleObjectRequest {
     public objectNumber: number;
 
     /**
+     * The exported object format.
+     */
+    public format: string;
+
+    /**
      * The document folder.
      */
     public folder: string;
@@ -18784,9 +19088,14 @@ export class CellsPictures_GetWorksheetPictureRequest {
     public sheetName: string;
 
     /**
-     * The picture number.
+     * The picture index.
      */
-    public pictureNumber: number;
+    public pictureIndex: number;
+
+    /**
+     * The exported object format.
+     */
+    public format: string;
 
     /**
      * The document folder.
@@ -20708,9 +21017,19 @@ export class CellsWorkbook_GetWorkbookRequest {
     public password: string;
 
     /**
+     * The exported file format.
+     */
+    public format: string;
+
+    /**
      * Set document rows to be autofit.
      */
     public isAutoFit: boolean;
+
+    /**
+     * Only save table data.
+     */
+    public onlySaveTable: boolean;
 
     /**
      * The document folder.
@@ -20721,6 +21040,11 @@ export class CellsWorkbook_GetWorkbookRequest {
      * storage name.
      */
     public storage: string;
+
+    /**
+     * The document output folder.
+     */
+    public outPath: string;
     
     public constructor(init?: Partial<CellsWorkbook_GetWorkbookRequest>) {        
         Object.assign(this, init);
