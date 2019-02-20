@@ -201,6 +201,50 @@ export class CellsApi {
      * Read cell data by cell's name.
      * @param requestObj contains request parameters
      */
+    public async cellsGetCellHtmlString(requestObj: model.Cells_GetCellHtmlStringRequest): Promise<{response: http.ClientResponse, body: Buffer}> {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling cellsGetCellHtmlString.');
+        }
+
+        let localVarPath = this.configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/cells/{cellName}/htmlstring"
+            .replace("{" + "name" + "}", String(requestObj.name))
+            .replace("{" + "sheetName" + "}", String(requestObj.sheetName))
+            .replace("{" + "cellName" + "}", String(requestObj.cellName));
+        const queryParameters: any = {};
+
+        // verify required parameter 'requestObj.name' is not null or undefined
+        if (requestObj.name === null || requestObj.name === undefined) {
+            throw new Error('Required parameter "requestObj.name" was null or undefined when calling cellsGetCellHtmlString.');
+        }
+
+        // verify required parameter 'requestObj.sheetName' is not null or undefined
+        if (requestObj.sheetName === null || requestObj.sheetName === undefined) {
+            throw new Error('Required parameter "requestObj.sheetName" was null or undefined when calling cellsGetCellHtmlString.');
+        }
+
+        // verify required parameter 'requestObj.cellName' is not null or undefined
+        if (requestObj.cellName === null || requestObj.cellName === undefined) {
+            throw new Error('Required parameter "requestObj.cellName" was null or undefined when calling cellsGetCellHtmlString.');
+        }
+        
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
+        const requestOptions: request.Options = {
+            method: "GET",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "any");
+        return Promise.resolve({body: result, response});
+    }
+
+    /**
+     * Read cell data by cell's name.
+     * @param requestObj contains request parameters
+     */
     public async cellsGetWorksheetCell(requestObj: model.Cells_GetWorksheetCellRequest): Promise<{response: http.ClientResponse, body: Buffer}> {
         if (requestObj === null || requestObj === undefined) {
             throw new Error('Required parameter "requestObj" was null or undefined when calling cellsGetWorksheetCell.');

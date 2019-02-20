@@ -7664,6 +7664,110 @@ export class HorizontalPageBreaksResponse extends SaaSposeResponse {
     }        
 }
 
+export class HtmlSaveOptions extends SaveOptions {
+
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "attachedFilesDirectory",
+            baseName: "AttachedFilesDirectory",
+            type: "string",
+        },        
+        {
+            name: "attachedFilesUrlPrefix",
+            baseName: "AttachedFilesUrlPrefix",
+            type: "string",
+        },        
+        {
+            name: "encoding",
+            baseName: "Encoding",
+            type: "string",
+        },        
+        {
+            name: "exportActiveWorksheetOnly",
+            baseName: "ExportActiveWorksheetOnly",
+            type: "boolean",
+        },        
+        {
+            name: "exportChartImageFormat",
+            baseName: "ExportChartImageFormat",
+            type: "string",
+        },        
+        {
+            name: "exportImagesAsBase64",
+            baseName: "ExportImagesAsBase64",
+            type: "boolean",
+        },        
+        {
+            name: "hiddenColDisplayType",
+            baseName: "HiddenColDisplayType",
+            type: "string",
+        },        
+        {
+            name: "hiddenRowDisplayType",
+            baseName: "HiddenRowDisplayType",
+            type: "string",
+        },        
+        {
+            name: "htmlCrossStringType",
+            baseName: "HtmlCrossStringType",
+            type: "string",
+        },        
+        {
+            name: "isExpImageToTempDir",
+            baseName: "IsExpImageToTempDir",
+            type: "boolean",
+        },        
+        {
+            name: "pageTitle",
+            baseName: "PageTitle",
+            type: "string",
+        },        
+        {
+            name: "parseHtmlTagInCell",
+            baseName: "ParseHtmlTagInCell",
+            type: "boolean",
+        }    ];
+
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return super.getAttributeTypeMap().concat(HtmlSaveOptions.attributeTypeMap);
+    }
+
+    public attachedFilesDirectory: string;
+    
+    public attachedFilesUrlPrefix: string;
+    
+    public encoding: string;
+    
+    public exportActiveWorksheetOnly: boolean;
+    
+    public exportChartImageFormat: string;
+    
+    public exportImagesAsBase64: boolean;
+    
+    public hiddenColDisplayType: string;
+    
+    public hiddenRowDisplayType: string;
+    
+    public htmlCrossStringType: string;
+    
+    public isExpImageToTempDir: boolean;
+    
+    public pageTitle: string;
+    
+    public parseHtmlTagInCell: boolean;
+    
+    public constructor(init?: Partial<HtmlSaveOptions>) {
+        super(init);
+        Object.assign(this, init);
+    }        
+}
+
 export class Hyperlink {
 
     /**
@@ -8672,6 +8776,110 @@ export class ListObjectsResponse extends SaaSposeResponse {
     public listObjects: ListObjects;
     
     public constructor(init?: Partial<ListObjectsResponse>) {
+        super(init);
+        Object.assign(this, init);
+    }        
+}
+
+export class MHtmlSaveOptions extends SaveOptions {
+
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "attachedFilesDirectory",
+            baseName: "AttachedFilesDirectory",
+            type: "string",
+        },        
+        {
+            name: "attachedFilesUrlPrefix",
+            baseName: "AttachedFilesUrlPrefix",
+            type: "string",
+        },        
+        {
+            name: "encoding",
+            baseName: "Encoding",
+            type: "string",
+        },        
+        {
+            name: "exportActiveWorksheetOnly",
+            baseName: "ExportActiveWorksheetOnly",
+            type: "boolean",
+        },        
+        {
+            name: "exportChartImageFormat",
+            baseName: "ExportChartImageFormat",
+            type: "string",
+        },        
+        {
+            name: "exportImagesAsBase64",
+            baseName: "ExportImagesAsBase64",
+            type: "boolean",
+        },        
+        {
+            name: "hiddenColDisplayType",
+            baseName: "HiddenColDisplayType",
+            type: "string",
+        },        
+        {
+            name: "hiddenRowDisplayType",
+            baseName: "HiddenRowDisplayType",
+            type: "string",
+        },        
+        {
+            name: "htmlCrossStringType",
+            baseName: "HtmlCrossStringType",
+            type: "string",
+        },        
+        {
+            name: "isExpImageToTempDir",
+            baseName: "IsExpImageToTempDir",
+            type: "boolean",
+        },        
+        {
+            name: "pageTitle",
+            baseName: "PageTitle",
+            type: "string",
+        },        
+        {
+            name: "parseHtmlTagInCell",
+            baseName: "ParseHtmlTagInCell",
+            type: "boolean",
+        }    ];
+
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return super.getAttributeTypeMap().concat(MHtmlSaveOptions.attributeTypeMap);
+    }
+
+    public attachedFilesDirectory: string;
+    
+    public attachedFilesUrlPrefix: string;
+    
+    public encoding: string;
+    
+    public exportActiveWorksheetOnly: boolean;
+    
+    public exportChartImageFormat: string;
+    
+    public exportImagesAsBase64: boolean;
+    
+    public hiddenColDisplayType: string;
+    
+    public hiddenRowDisplayType: string;
+    
+    public htmlCrossStringType: string;
+    
+    public isExpImageToTempDir: boolean;
+    
+    public pageTitle: string;
+    
+    public parseHtmlTagInCell: boolean;
+    
+    public constructor(init?: Partial<MHtmlSaveOptions>) {
         super(init);
         Object.assign(this, init);
     }        
@@ -14147,6 +14355,7 @@ const typeMap = {
             HorizontalPageBreakResponse,
             HorizontalPageBreaks,
             HorizontalPageBreaksResponse,
+            HtmlSaveOptions,
             Hyperlink,
             HyperlinkResponse,
             Hyperlinks,
@@ -14166,6 +14375,7 @@ const typeMap = {
             ListObjectResponse,
             ListObjects,
             ListObjectsResponse,
+            MHtmlSaveOptions,
             MergedCell,
             MergedCellResponse,
             MergedCells,
@@ -14371,6 +14581,40 @@ export class Cells_DeleteWorksheetRowsRequest {
     public storage: string;
     
     public constructor(init?: Partial<Cells_DeleteWorksheetRowsRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
+ * Request model for Cells_GetCellHtmlString operation.
+ */
+export class Cells_GetCellHtmlStringRequest {
+    /**
+     * Document name.
+     */
+    public name: string;
+
+    /**
+     * Worksheet name.
+     */
+    public sheetName: string;
+
+    /**
+     * The cell's  name.
+     */
+    public cellName: string;
+
+    /**
+     * Document's folder.
+     */
+    public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
+    
+    public constructor(init?: Partial<Cells_GetCellHtmlStringRequest>) {        
         Object.assign(this, init);
     } 
 }

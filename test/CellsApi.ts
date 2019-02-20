@@ -754,6 +754,31 @@ describe('CellsApi', function() {
         });
     });
   });
+  describe('cellsGetCellHtmlString', function() {
+    it('should call cellsGetCellHtmlString successfully', function() {
+      const storageApi = BaseTest.initializeStorageApi();
+      const cellsApi = BaseTest.initializeCellsApi();
+      const filename = "Book1.xlsx";
+      return new Promise((resolve) => {
+        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
+          expect(responseMessage.status).to.equal("OK");
+          resolve();
+        });
+      })
+        .then(() => {
+          var req = new model.Cells_PostSetCellHtmlStringRequest();
+          req.name = filename;
+          req.sheetName = "Sheet1";
+          req.cellName = "A1";
+          req.folder = "Temp";
+
+          return cellsApi.cellsGetCellHtmlString(req)
+            .then((result) => {
+              expect(result.response.statusCode).to.equal(200);
+            });
+        });
+    });
+  });  
   describe('cellsPostSetCellHtmlString', function() {
     it('should call cellsPostSetCellHtmlString successfully', function() {
       const storageApi = BaseTest.initializeStorageApi();
