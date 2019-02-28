@@ -87,7 +87,7 @@ async function invokeApiMethodInternal(requestOptions: request.Options, confgura
     }
 
     requestOptions.headers["x-aspose-client"] = "nodejs sdk";
-    requestOptions.headers["x-aspose-client-version"] = "18.3";
+    requestOptions.headers["x-aspose-client-version"] = "19.2.1";
 
     const auth = confguration.authentication;
     if (!notApplyAuthToRequest) {
@@ -111,7 +111,7 @@ async function invokeApiMethodInternal(requestOptions: request.Options, confgura
                             bodyContent = JSON.parse(bodyContent.toString("utf8"));
                         }
 
-                        const result = ObjectSerializer.deserialize(bodyContent, "WordsApiErrorResponse");
+                        const result = ObjectSerializer.deserialize(bodyContent, "CellsApiErrorResponse");
                         reject({ message: result.message, code: response.statusCode });
                     } catch (error) {
                         reject({ message: "Error while parse server error: " + error });

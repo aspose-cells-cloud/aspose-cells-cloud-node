@@ -29,7 +29,7 @@ import * as model from "../src/model/model";
 import * as BaseTest from "./baseTest";
 
 const localPath = "../TestData/";
-
+var fs = require('fs');
 describe('CellsWorkbookApi', function() {
   this.timeout(20000);
   describe('cellsWorkbookDeleteDecryptDocument', function() {
@@ -673,12 +673,14 @@ describe('CellsWorkbookApi', function() {
         });
       })
         .then(() => {
-          var req = new model.CellsWorkbook_PutConvertWorkbookRequest();
-          req.format = "xlsx";
+          var req = new model.CellsWorkbook_PutConvertWorkbookRequest({
+            workbook : fs.readFileSync(localPath  + filename),
+            format : "pdf",
+          });
 
           return cellsWorkbookApi.cellsWorkbookPutConvertWorkbook(req)
             .then((result) => {
-              expect(result.response.statusCode).to.equal(200);
+              expect(result.body.toString().length).to.greaterThan(0);
             });
         });
     });

@@ -21823,6 +21823,11 @@ export class CellsWorkbook_PostWorkbooksTextSearchRequest {
  */
 export class CellsWorkbook_PutConvertWorkbookRequest {
     /**
+     * Gets or sets workbook
+     */
+    public workbook: string;
+
+    /**
      * The format to convert.
      */
     public format: string;

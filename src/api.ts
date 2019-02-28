@@ -8946,17 +8946,27 @@ export class CellsWorkbookApi {
 
         let localVarPath = this.configuration.getApiBaseUrl() + "/cells/convert";
         const queryParameters: any = {};
+        const formParams: any = {};
+
+        // verify required parameter 'requestObj.workbook' is not null or undefined
+        if (requestObj.workbook === null || requestObj.workbook === undefined) {
+            throw new Error('Required parameter "requestObj.workbook" was null or undefined when calling cellsWorkbookPutConvertWorkbook.');
+        }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "format", requestObj.format);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", requestObj.password);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", requestObj.outPath);
+        if (requestObj.workbook !== undefined) {
+            formParams.workbook = requestObj.workbook;
+        }
+
         const requestOptions: request.Options = {
             method: "PUT",
             qs: queryParameters,
             uri: localVarPath,
-            json: true,
+            json: false,
+            body:  ObjectSerializer.deserialize( requestObj.workbook, "string"),
         };
-
         const response = await invokeApiMethod(requestOptions, this.configuration);
         const result =  ObjectSerializer.deserialize(response.body, "Buffer");
         return Promise.resolve({body: result, response});
