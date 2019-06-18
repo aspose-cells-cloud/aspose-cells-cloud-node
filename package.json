@@ -1,6 +1,6 @@
 {
   "name": "asposecellscloud",
-  "version": "19.6",
+  "version": "19.6.0",
   "description": "Aspose.Cells Cloud SDK for Node.js",
   "keywords": [
     "Aspose",
@@ -14,8 +14,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/aspose-cells-cloud/aspose-cells-cloud-node.git"
+    "url": "https://github.com/aspose-cells-cloud/aspose-cells-cloud-node.git"
   },
+  "readmeFilename": "README.md",
   "main": "dist/api.js",
   "types": "dist/api.d.ts",
   "scripts": {
@@ -26,8 +27,7 @@
     "gulp": "gulp"
   },
   "dependencies": {
-    "@types/request": "2.47.0",
-    "http": "0.0.0",
+    "@types/request": "^2.47.0",
     "request": "^2.85.0",
     "request-debug": "^0.2.0"
   },
@@ -52,12 +52,5 @@
     "ts-node": "^4.0.2",
     "tslint": "^5.8.0",
     "typescript": "^2.7.1"
-  },
-  "bugs": {
-    "url": "https://github.com/aspose-cells-cloud/aspose-cells-cloud-node/issues"
-  },
-  "homepage": "https://github.com/aspose-cells-cloud/aspose-cells-cloud-node#readme",
-  "directories": {
-    "test": "test"
   }
 }
