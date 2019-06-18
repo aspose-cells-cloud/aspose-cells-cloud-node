@@ -33,7 +33,7 @@ import * as model from "./model/model";
 export * from "./model/model";
 
 /**
- * Library for communicating with the Aspose.Words Cloud API
+ * Library for communicating with the Aspose.Cells Cloud API
  */
 export class CellsApi {
     /**
@@ -1970,7 +1970,7 @@ export class CellsApi {
 
 }
 /**
- * Library for communicating with the Aspose.Words Cloud API
+ * Library for communicating with the Aspose.Cells Cloud API
  */
 export class CellsAutoFilterApi {
     /**
@@ -2689,7 +2689,7 @@ export class CellsAutoFilterApi {
 
 }
 /**
- * Library for communicating with the Aspose.Words Cloud API
+ * Library for communicating with the Aspose.Cells Cloud API
  */
 export class CellsAutoshapesApi {
     /**
@@ -2792,7 +2792,7 @@ export class CellsAutoshapesApi {
 
 }
 /**
- * Library for communicating with the Aspose.Words Cloud API
+ * Library for communicating with the Aspose.Cells Cloud API
  */
 export class CellsChartAreaApi {
     /**
@@ -2944,7 +2944,7 @@ export class CellsChartAreaApi {
 
 }
 /**
- * Library for communicating with the Aspose.Words Cloud API
+ * Library for communicating with the Aspose.Cells Cloud API
  */
 export class CellsChartsApi {
     /**
@@ -3582,7 +3582,7 @@ export class CellsChartsApi {
 
 }
 /**
- * Library for communicating with the Aspose.Words Cloud API
+ * Library for communicating with the Aspose.Cells Cloud API
  */
 export class CellsConditionalFormattingsApi {
     /**
@@ -4065,7 +4065,7 @@ export class CellsConditionalFormattingsApi {
 
 }
 /**
- * Library for communicating with the Aspose.Words Cloud API
+ * Library for communicating with the Aspose.Cells Cloud API
  */
 export class CellsHypelinksApi {
     /**
@@ -4362,7 +4362,7 @@ export class CellsHypelinksApi {
 
 }
 /**
- * Library for communicating with the Aspose.Words Cloud API
+ * Library for communicating with the Aspose.Cells Cloud API
  */
 export class CellsListObjectsApi {
     /**
@@ -4794,7 +4794,7 @@ export class CellsListObjectsApi {
 
 }
 /**
- * Library for communicating with the Aspose.Words Cloud API
+ * Library for communicating with the Aspose.Cells Cloud API
  */
 export class CellsOleObjectsApi {
     /**
@@ -5069,7 +5069,7 @@ export class CellsOleObjectsApi {
 
 }
 /**
- * Library for communicating with the Aspose.Words Cloud API
+ * Library for communicating with the Aspose.Cells Cloud API
  */
 export class CellsPageBreaksApi {
     /**
@@ -5505,7 +5505,7 @@ export class CellsPageBreaksApi {
 
 }
 /**
- * Library for communicating with the Aspose.Words Cloud API
+ * Library for communicating with the Aspose.Cells Cloud API
  */
 export class CellsPageSetupApi {
     /**
@@ -5828,7 +5828,7 @@ export class CellsPageSetupApi {
 
 }
 /**
- * Library for communicating with the Aspose.Words Cloud API
+ * Library for communicating with the Aspose.Cells Cloud API
  */
 export class CellsPicturesApi {
     /**
@@ -6102,7 +6102,7 @@ export class CellsPicturesApi {
 
 }
 /**
- * Library for communicating with the Aspose.Words Cloud API
+ * Library for communicating with the Aspose.Cells Cloud API
  */
 export class CellsPivotTablesApi {
     /**
@@ -7050,7 +7050,7 @@ export class CellsPivotTablesApi {
 
 }
 /**
- * Library for communicating with the Aspose.Words Cloud API
+ * Library for communicating with the Aspose.Cells Cloud API
  */
 export class CellsPropertiesApi {
     /**
@@ -7249,7 +7249,7 @@ export class CellsPropertiesApi {
 
 }
 /**
- * Library for communicating with the Aspose.Words Cloud API
+ * Library for communicating with the Aspose.Cells Cloud API
  */
 export class CellsRangesApi {
     /**
@@ -7695,7 +7695,7 @@ export class CellsRangesApi {
 
 }
 /**
- * Library for communicating with the Aspose.Words Cloud API
+ * Library for communicating with the Aspose.Cells Cloud API
  */
 export class CellsSaveAsApi {
     /**
@@ -7751,7 +7751,7 @@ export class CellsSaveAsApi {
 
 }
 /**
- * Library for communicating with the Aspose.Words Cloud API
+ * Library for communicating with the Aspose.Cells Cloud API
  */
 export class CellsShapesApi {
     /**
@@ -8060,7 +8060,7 @@ export class CellsShapesApi {
 
 }
 /**
- * Library for communicating with the Aspose.Words Cloud API
+ * Library for communicating with the Aspose.Cells Cloud API
  */
 export class CellsTaskApi {
     /**
@@ -8110,7 +8110,7 @@ export class CellsTaskApi {
 
 }
 /**
- * Library for communicating with the Aspose.Words Cloud API
+ * Library for communicating with the Aspose.Cells Cloud API
  */
 export class CellsWorkbookApi {
     /**
@@ -9041,7 +9041,7 @@ export class CellsWorkbookApi {
 
 }
 /**
- * Library for communicating with the Aspose.Words Cloud API
+ * Library for communicating with the Aspose.Cells Cloud API
  */
 export class CellsWorksheetValidationsApi {
     /**
@@ -9271,7 +9271,7 @@ export class CellsWorksheetValidationsApi {
 
 }
 /**
- * Library for communicating with the Aspose.Words Cloud API
+ * Library for communicating with the Aspose.Cells Cloud API
  */
 export class CellsWorksheetsApi {
     /**
@@ -10724,7 +10724,7 @@ export class CellsWorksheetsApi {
 
 }
 /**
- * Library for communicating with the Aspose.Words Cloud API
+ * Library for communicating with the Aspose.Cells Cloud API
  */
 export class OAuthApi {
     /**

@@ -204,7 +204,7 @@ describe('CellsWorkbookApi', function() {
           req.password = null;
           req.isAutoFit = true;
           req.folder = "Temp";
-          req.format = "xlsx";
+          req.format = "md";
           
           return cellsWorkbookApi.cellsWorkbookGetWorkbook(req)
             .then((result) => {
