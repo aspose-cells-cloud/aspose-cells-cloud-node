@@ -8885,6 +8885,47 @@ export class MHtmlSaveOptions extends SaveOptions {
     }        
 }
 
+export class MarkdownSaveOptions extends SaveOptions {
+
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "encoding",
+            baseName: "Encoding",
+            type: "string",
+        },        
+        {
+            name: "formatStrategy",
+            baseName: "FormatStrategy",
+            type: "string",
+        },        
+        {
+            name: "lineSeparator",
+            baseName: "LineSeparator",
+            type: "string",
+        }    ];
+
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return super.getAttributeTypeMap().concat(MarkdownSaveOptions.attributeTypeMap);
+    }
+
+    public encoding: string;
+    
+    public formatStrategy: string;
+    
+    public lineSeparator: string;
+    
+    public constructor(init?: Partial<MarkdownSaveOptions>) {
+        super(init);
+        Object.assign(this, init);
+    }        
+}
+
 export class MergedCell {
 
     /**
@@ -14376,6 +14417,7 @@ const typeMap = {
             ListObjects,
             ListObjectsResponse,
             MHtmlSaveOptions,
+            MarkdownSaveOptions,
             MergedCell,
             MergedCellResponse,
             MergedCells,

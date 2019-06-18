@@ -59,6 +59,36 @@ describe('CellsSaveAsApi', function() {
         });
     });
 
+    describe('cellsSaveAsPostDocumentSaveAsMD', function() {
+      it('should call cellsSaveAsPostDocumentSaveAsMD successfully', function() {
+        const storageApi = BaseTest.initializeStorageApi();
+        const cellsSaveAsApi = BaseTest.initializeCellsSaveAsApi();
+        const filename = "Book1.xlsx";
+        return new Promise((resolve) => {
+          storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
+            expect(responseMessage.status).to.equal("OK");
+            resolve();
+          });
+        })
+          .then(() => {
+            var req = new model.CellsSaveAs_PostDocumentSaveAsRequest();
+            req.name = filename;
+            var saveOptions = null;
+            req.saveOptions = saveOptions;
+            req.newfilename = "newbook.pdf.md";
+            req.isAutoFitRows = true;
+            req.isAutoFitColumns = true;
+            req.folder = "Temp";
+            
+            return cellsSaveAsApi.cellsSaveAsPostDocumentSaveAs(req)
+              .then((result) => {
+                expect(result.body.code).to.equal(200);
+                expect(result.response.statusCode).to.equal(200);
+              });
+          });
+      });
+    });
+
     describe('cellsSaveAsPostDocumentSaveAsPDF', function() {
       it('should call cellsSaveAsPostDocumentSaveAsPDF successfully', function() {
         const storageApi = BaseTest.initializeStorageApi();
