@@ -29,20 +29,21 @@ import * as model from "../src/model/model";
 import * as BaseTest from "./baseTest";
 
 const localPath = "../TestData/";
-
+var fs = require('fs');
+var path = require('path');
+var assert = require('assert');
 describe('CellsTaskApi', function() {
   this.timeout(20000);
   describe('cellsTaskPostRunTask', function() {
     it('should call cellsTaskPostRunTask successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsTaskApi = BaseTest.initializeCellsTaskApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsTask_PostRunTaskRequest();
           var taskData = new model.TaskData();
@@ -62,7 +63,7 @@ describe('CellsTaskApi', function() {
           taskData.tasks.push(task1);
           req.taskData = taskData;
 
-          return cellsTaskApi.cellsTaskPostRunTask(req)
+          return cellsApi.cellsTaskPostRunTask(req)
             .then((result) => {
               expect(result.response.statusCode).to.equal(200);
             });

@@ -29,20 +29,22 @@ import * as model from "../src/model/model";
 import * as BaseTest from "./baseTest";
 
 const localPath = "../TestData/";
+var fs = require('fs');
+var path = require('path');
+var assert = require('assert');
 
 describe('CellsPageBreaksApi', function() {
   this.timeout(20000);
   describe('cellsPageBreaksDeleteHorizontalPageBreak', function() {
     it('should call cellsPageBreaksDeleteHorizontalPageBreak successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsPageBreaksApi = BaseTest.initializeCellsPageBreaksApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsPageBreaks_DeleteHorizontalPageBreakRequest();
           req.name = filename;
@@ -50,7 +52,7 @@ describe('CellsPageBreaksApi', function() {
           req.index = 0;
           req.folder = "Temp";
           
-          return cellsPageBreaksApi.cellsPageBreaksDeleteHorizontalPageBreak(req)
+          return cellsApi.cellsPageBreaksDeleteHorizontalPageBreak(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -60,15 +62,14 @@ describe('CellsPageBreaksApi', function() {
   });
   describe('cellsPageBreaksDeleteHorizontalPageBreaks', function() {
     it('should call cellsPageBreaksDeleteHorizontalPageBreaks successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsPageBreaksApi = BaseTest.initializeCellsPageBreaksApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsPageBreaks_DeleteHorizontalPageBreaksRequest();
           req.name = filename;
@@ -76,7 +77,7 @@ describe('CellsPageBreaksApi', function() {
           req.row = 1;
           req.folder = "Temp";
           
-          return cellsPageBreaksApi.cellsPageBreaksDeleteHorizontalPageBreaks(req)
+          return cellsApi.cellsPageBreaksDeleteHorizontalPageBreaks(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -86,15 +87,14 @@ describe('CellsPageBreaksApi', function() {
   });
   describe('cellsPageBreaksDeleteVerticalPageBreak', function() {
     it('should call cellsPageBreaksDeleteVerticalPageBreak successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsPageBreaksApi = BaseTest.initializeCellsPageBreaksApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsPageBreaks_DeleteVerticalPageBreakRequest();
           req.name = filename;
@@ -102,7 +102,7 @@ describe('CellsPageBreaksApi', function() {
           req.index = 0;
           req.folder = "Temp";
           
-          return cellsPageBreaksApi.cellsPageBreaksDeleteVerticalPageBreak(req)
+          return cellsApi.cellsPageBreaksDeleteVerticalPageBreak(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -112,15 +112,14 @@ describe('CellsPageBreaksApi', function() {
   });
   describe('cellsPageBreaksDeleteVerticalPageBreaks', function() {
     it('should call cellsPageBreaksDeleteVerticalPageBreaks successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsPageBreaksApi = BaseTest.initializeCellsPageBreaksApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsPageBreaks_DeleteVerticalPageBreaksRequest();
           req.name = filename;
@@ -128,7 +127,7 @@ describe('CellsPageBreaksApi', function() {
           req.column = 1;
           req.folder = "Temp";
           
-          return cellsPageBreaksApi.cellsPageBreaksDeleteVerticalPageBreaks(req)
+          return cellsApi.cellsPageBreaksDeleteVerticalPageBreaks(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -138,15 +137,14 @@ describe('CellsPageBreaksApi', function() {
   });
   describe('cellsPageBreaksGetHorizontalPageBreak', function() {
     it('should call cellsPageBreaksGetHorizontalPageBreak successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsPageBreaksApi = BaseTest.initializeCellsPageBreaksApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsPageBreaks_GetHorizontalPageBreakRequest();
           req.name = filename;
@@ -154,7 +152,7 @@ describe('CellsPageBreaksApi', function() {
           req.index = 0;
           req.folder = "Temp";
           
-          return cellsPageBreaksApi.cellsPageBreaksGetHorizontalPageBreak(req)
+          return cellsApi.cellsPageBreaksGetHorizontalPageBreak(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -164,22 +162,21 @@ describe('CellsPageBreaksApi', function() {
   });
   describe('cellsPageBreaksGetHorizontalPageBreaks', function() {
     it('should call cellsPageBreaksGetHorizontalPageBreaks successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsPageBreaksApi = BaseTest.initializeCellsPageBreaksApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsPageBreaks_GetHorizontalPageBreaksRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
           req.folder = "Temp";
           
-          return cellsPageBreaksApi.cellsPageBreaksGetHorizontalPageBreaks(req)
+          return cellsApi.cellsPageBreaksGetHorizontalPageBreaks(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -189,15 +186,14 @@ describe('CellsPageBreaksApi', function() {
   });
   describe('cellsPageBreaksGetVerticalPageBreak', function() {
     it('should call cellsPageBreaksGetVerticalPageBreak successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsPageBreaksApi = BaseTest.initializeCellsPageBreaksApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsPageBreaks_GetVerticalPageBreakRequest();
           req.name = filename;
@@ -205,7 +201,7 @@ describe('CellsPageBreaksApi', function() {
           req.index = 0;
           req.folder = "Temp";
           
-          return cellsPageBreaksApi.cellsPageBreaksGetVerticalPageBreak(req)
+          return cellsApi.cellsPageBreaksGetVerticalPageBreak(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -215,22 +211,21 @@ describe('CellsPageBreaksApi', function() {
   });
   describe('cellsPageBreaksGetVerticalPageBreaks', function() {
     it('should call cellsPageBreaksGetVerticalPageBreaks successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsPageBreaksApi = BaseTest.initializeCellsPageBreaksApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsPageBreaks_GetVerticalPageBreaksRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
           req.folder = "Temp";
           
-          return cellsPageBreaksApi.cellsPageBreaksGetVerticalPageBreaks(req)
+          return cellsApi.cellsPageBreaksGetVerticalPageBreaks(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -240,15 +235,14 @@ describe('CellsPageBreaksApi', function() {
   });
   describe('cellsPageBreaksPutHorizontalPageBreak', function() {
     it('should call cellsPageBreaksPutHorizontalPageBreak successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsPageBreaksApi = BaseTest.initializeCellsPageBreaksApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsPageBreaks_PutHorizontalPageBreakRequest();
           req.name = filename;
@@ -260,7 +254,7 @@ describe('CellsPageBreaksApi', function() {
           req.endColumn = 1;
           req.folder = "Temp";
           
-          return cellsPageBreaksApi.cellsPageBreaksPutHorizontalPageBreak(req)
+          return cellsApi.cellsPageBreaksPutHorizontalPageBreak(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -270,15 +264,14 @@ describe('CellsPageBreaksApi', function() {
   });
   describe('cellsPageBreaksPutVerticalPageBreak', function() {
     it('should call cellsPageBreaksPutVerticalPageBreak successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsPageBreaksApi = BaseTest.initializeCellsPageBreaksApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsPageBreaks_PutVerticalPageBreakRequest();
           req.name = filename;
@@ -290,7 +283,7 @@ describe('CellsPageBreaksApi', function() {
           req.endRow = 1;
           req.folder = "Temp";
           
-          return cellsPageBreaksApi.cellsPageBreaksPutVerticalPageBreak(req)
+          return cellsApi.cellsPageBreaksPutVerticalPageBreak(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);

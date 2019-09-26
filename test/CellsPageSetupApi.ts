@@ -29,27 +29,29 @@ import * as model from "../src/model/model";
 import * as BaseTest from "./baseTest";
 
 const localPath = "../TestData/";
+var fs = require('fs');
+var path = require('path');
+var assert = require('assert');
 
 describe('CellsPageSetupApi', function() {
   this.timeout(20000);
   describe('cellsPageSetupDeleteHeaderFooter', function() {
     it('should call cellsPageSetupDeleteHeaderFooter successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsPageSetupApi = BaseTest.initializeCellsPageSetupApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsPageSetup_DeleteHeaderFooterRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
           req.folder = "Temp";
           
-          return cellsPageSetupApi.cellsPageSetupDeleteHeaderFooter(req)
+          return cellsApi.cellsPageSetupDeleteHeaderFooter(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -59,22 +61,21 @@ describe('CellsPageSetupApi', function() {
   });
   describe('cellsPageSetupGetFooter', function() {
     it('should call cellsPageSetupGetFooter successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsPageSetupApi = BaseTest.initializeCellsPageSetupApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsPageSetup_GetFooterRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
           req.folder = "Temp";
           
-          return cellsPageSetupApi.cellsPageSetupGetFooter(req)
+          return cellsApi.cellsPageSetupGetFooter(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -84,22 +85,21 @@ describe('CellsPageSetupApi', function() {
   });
   describe('cellsPageSetupGetHeader', function() {
     it('should call cellsPageSetupGetHeader successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsPageSetupApi = BaseTest.initializeCellsPageSetupApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsPageSetup_GetHeaderRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
           req.folder = "Temp";
           
-          return cellsPageSetupApi.cellsPageSetupGetHeader(req)
+          return cellsApi.cellsPageSetupGetHeader(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -109,22 +109,21 @@ describe('CellsPageSetupApi', function() {
   });
   describe('cellsPageSetupGetPageSetup', function() {
     it('should call cellsPageSetupGetPageSetup successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsPageSetupApi = BaseTest.initializeCellsPageSetupApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsPageSetup_GetPageSetupRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
           req.folder = "Temp";
           
-          return cellsPageSetupApi.cellsPageSetupGetPageSetup(req)
+          return cellsApi.cellsPageSetupGetPageSetup(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -134,15 +133,14 @@ describe('CellsPageSetupApi', function() {
   });
   describe('cellsPageSetupPostFooter', function() {
     it('should call cellsPageSetupPostFooter successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsPageSetupApi = BaseTest.initializeCellsPageSetupApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsPageSetup_PostFooterRequest();
           req.name = filename;
@@ -152,7 +150,7 @@ describe('CellsPageSetupApi', function() {
           req.isFirstPage = true;
           req.folder = "Temp";
           
-          return cellsPageSetupApi.cellsPageSetupPostFooter(req)
+          return cellsApi.cellsPageSetupPostFooter(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -162,15 +160,14 @@ describe('CellsPageSetupApi', function() {
   });
   describe('cellsPageSetupPostHeader', function() {
     it('should call cellsPageSetupPostHeader successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsPageSetupApi = BaseTest.initializeCellsPageSetupApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsPageSetup_PostHeaderRequest();
           req.name = filename;
@@ -180,7 +177,7 @@ describe('CellsPageSetupApi', function() {
           req.isFirstPage = false;
           req.folder = "Temp";
           
-          return cellsPageSetupApi.cellsPageSetupPostHeader(req)
+          return cellsApi.cellsPageSetupPostHeader(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -190,15 +187,14 @@ describe('CellsPageSetupApi', function() {
   });
   describe('cellsPageSetupPostPageSetup', function() {
     it('should call cellsPageSetupPostPageSetup successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsPageSetupApi = BaseTest.initializeCellsPageSetupApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsPageSetup_PostPageSetupRequest();
           req.name = filename;
@@ -207,7 +203,7 @@ describe('CellsPageSetupApi', function() {
           req.pageSetup.blackAndWhite = true;
           req.folder = "Temp";
           
-          return cellsPageSetupApi.cellsPageSetupPostPageSetup(req)
+          return cellsApi.cellsPageSetupPostPageSetup(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);

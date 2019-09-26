@@ -29,20 +29,22 @@ import * as model from "../src/model/model";
 import * as BaseTest from "./baseTest";
 
 const localPath = "../TestData/";
+var fs = require('fs');
+var path = require('path');
+var assert = require('assert');
 
 describe('CellsWorksheetValidationsApi', function() {
   this.timeout(20000);
   describe('cellsWorksheetValidationsDeleteWorksheetValidation', function() {
     it('should call cellsWorksheetValidationsDeleteWorksheetValidation successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsWorksheetValidationsApi = BaseTest.initializeCellsWorksheetValidationsApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsWorksheetValidations_DeleteWorksheetValidationRequest();
           req.name = filename;
@@ -50,7 +52,7 @@ describe('CellsWorksheetValidationsApi', function() {
           req.validationIndex = 0;
           req.folder = "Temp";
           
-          return cellsWorksheetValidationsApi.cellsWorksheetValidationsDeleteWorksheetValidation(req)
+          return cellsApi.cellsWorksheetValidationsDeleteWorksheetValidation(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -60,15 +62,14 @@ describe('CellsWorksheetValidationsApi', function() {
   });
   describe('cellsWorksheetValidationsGetWorksheetValidation', function() {
     it('should call cellsWorksheetValidationsGetWorksheetValidation successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsWorksheetValidationsApi = BaseTest.initializeCellsWorksheetValidationsApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsWorksheetValidations_GetWorksheetValidationRequest();
           req.name = filename;
@@ -76,7 +77,7 @@ describe('CellsWorksheetValidationsApi', function() {
           req.validationIndex = 0;
           req.folder = "Temp";
           
-          return cellsWorksheetValidationsApi.cellsWorksheetValidationsGetWorksheetValidation(req)
+          return cellsApi.cellsWorksheetValidationsGetWorksheetValidation(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -86,22 +87,21 @@ describe('CellsWorksheetValidationsApi', function() {
   });
   describe('cellsWorksheetValidationsGetWorksheetValidations', function() {
     it('should call cellsWorksheetValidationsGetWorksheetValidations successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsWorksheetValidationsApi = BaseTest.initializeCellsWorksheetValidationsApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsWorksheetValidations_GetWorksheetValidationsRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
           req.folder = "Temp";
           
-          return cellsWorksheetValidationsApi.cellsWorksheetValidationsGetWorksheetValidations(req)
+          return cellsApi.cellsWorksheetValidationsGetWorksheetValidations(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -111,15 +111,14 @@ describe('CellsWorksheetValidationsApi', function() {
   });
   describe('cellsWorksheetValidationsPostWorksheetValidation', function() {
     it('should call cellsWorksheetValidationsPostWorksheetValidation successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsWorksheetValidationsApi = BaseTest.initializeCellsWorksheetValidationsApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsWorksheetValidations_PostWorksheetValidationRequest();
           req.name = filename;
@@ -139,7 +138,7 @@ describe('CellsWorksheetValidationsApi', function() {
           validation.ignoreBlank = true;
           req.validation = validation;
           
-          return cellsWorksheetValidationsApi.cellsWorksheetValidationsPostWorksheetValidation(req)
+          return cellsApi.cellsWorksheetValidationsPostWorksheetValidation(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -149,15 +148,14 @@ describe('CellsWorksheetValidationsApi', function() {
   });
   describe('cellsWorksheetValidationsPutWorksheetValidation', function() {
     it('should call cellsWorksheetValidationsPutWorksheetValidation successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsWorksheetValidationsApi = BaseTest.initializeCellsWorksheetValidationsApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsWorksheetValidations_PutWorksheetValidationRequest();
           req.name = filename;
@@ -165,7 +163,7 @@ describe('CellsWorksheetValidationsApi', function() {
           req.range = "A1:C10";
           req.folder = "Temp";
           
-          return cellsWorksheetValidationsApi.cellsWorksheetValidationsPutWorksheetValidation(req)
+          return cellsApi.cellsWorksheetValidationsPutWorksheetValidation(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);

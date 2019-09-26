@@ -27,30 +27,31 @@ import "mocha";
 
 import * as model from "../src/model/model";
 import * as BaseTest from "./baseTest";
-
+var fs = require('fs');
+var path = require('path');
+var assert = require('assert');
 const localPath = "../TestData/";
 
 describe('CellsHypelinksApi', function() {
   this.timeout(20000);
   describe('cellsHypelinksDeleteWorksheetHyperlink', function() {
     it('should call cellsHypelinksDeleteWorksheetHyperlink successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsHypelinksApi = BaseTest.initializeCellsHypelinksApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsHypelinks_DeleteWorksheetHyperlinkRequest();
-          req.name = filename;
+          req.name ="Book1.xlsx";
           req.sheetName = "Sheet1";
           req.hyperlinkIndex = 0;
           req.folder = "Temp";
           
-          return cellsHypelinksApi.cellsHypelinksDeleteWorksheetHyperlink(req)
+          return cellsApi.cellsHypelinksDeleteWorksheetHyperlink(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -60,22 +61,21 @@ describe('CellsHypelinksApi', function() {
   });
   describe('cellsHypelinksDeleteWorksheetHyperlinks', function() {
     it('should call cellsHypelinksDeleteWorksheetHyperlinks successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsHypelinksApi = BaseTest.initializeCellsHypelinksApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsHypelinks_DeleteWorksheetHyperlinksRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
           req.folder = "Temp";
           
-          return cellsHypelinksApi.cellsHypelinksDeleteWorksheetHyperlinks(req)
+          return cellsApi.cellsHypelinksDeleteWorksheetHyperlinks(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -85,15 +85,14 @@ describe('CellsHypelinksApi', function() {
   });
   describe('cellsHypelinksGetWorksheetHyperlink', function() {
     it('should call cellsHypelinksGetWorksheetHyperlink successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsHypelinksApi = BaseTest.initializeCellsHypelinksApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsHypelinks_GetWorksheetHyperlinkRequest();
           req.name = filename;
@@ -101,7 +100,7 @@ describe('CellsHypelinksApi', function() {
           req.hyperlinkIndex = 0;
           req.folder = "Temp";
           
-          return cellsHypelinksApi.cellsHypelinksGetWorksheetHyperlink(req)
+          return cellsApi.cellsHypelinksGetWorksheetHyperlink(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -111,22 +110,21 @@ describe('CellsHypelinksApi', function() {
   });
   describe('cellsHypelinksGetWorksheetHyperlinks', function() {
     it('should call cellsHypelinksGetWorksheetHyperlinks successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsHypelinksApi = BaseTest.initializeCellsHypelinksApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsHypelinks_GetWorksheetHyperlinksRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
           req.folder = "Temp";
           
-          return cellsHypelinksApi.cellsHypelinksGetWorksheetHyperlinks(req)
+          return cellsApi.cellsHypelinksGetWorksheetHyperlinks(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -136,15 +134,14 @@ describe('CellsHypelinksApi', function() {
   });
   describe('cellsHypelinksPostWorksheetHyperlink', function() {
     it('should call cellsHypelinksPostWorksheetHyperlink successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsHypelinksApi = BaseTest.initializeCellsHypelinksApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsHypelinks_PostWorksheetHyperlinkRequest();
           req.name = filename;
@@ -155,7 +152,7 @@ describe('CellsHypelinksApi', function() {
           req.hyperlink = hyperlink;
           req.folder = "Temp";
           
-          return cellsHypelinksApi.cellsHypelinksPostWorksheetHyperlink(req)
+          return cellsApi.cellsHypelinksPostWorksheetHyperlink(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -165,15 +162,14 @@ describe('CellsHypelinksApi', function() {
   });
   describe('cellsHypelinksPutWorksheetHyperlink', function() {
     it('should call cellsHypelinksPutWorksheetHyperlink successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsHypelinksApi = BaseTest.initializeCellsHypelinksApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsHypelinks_PutWorksheetHyperlinkRequest();
           req.name = filename;
@@ -185,7 +181,7 @@ describe('CellsHypelinksApi', function() {
           req.address = "http://wwww.aspose.com";
           req.folder = "Temp";
           
-          return cellsHypelinksApi.cellsHypelinksPutWorksheetHyperlink(req)
+          return cellsApi.cellsHypelinksPutWorksheetHyperlink(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);

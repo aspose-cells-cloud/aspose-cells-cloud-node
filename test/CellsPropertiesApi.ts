@@ -29,26 +29,28 @@ import * as model from "../src/model/model";
 import * as BaseTest from "./baseTest";
 
 const localPath = "../TestData/";
+var fs = require('fs');
+var path = require('path');
+var assert = require('assert');
 
 describe('CellsPropertiesApi', function() {
   this.timeout(20000);
   describe('cellsPropertiesDeleteDocumentProperties', function() {
     it('should call cellsPropertiesDeleteDocumentProperties successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsPropertiesApi = BaseTest.initializeCellsPropertiesApi();
-      const filename = "Book1.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      const cellsApi = BaseTest.initializeCellsApi();
+      const filename = "TestCase.xlsx";
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsProperties_DeleteDocumentPropertiesRequest();
           req.name = filename;
           req.folder = "Temp";
           
-          return cellsPropertiesApi.cellsPropertiesDeleteDocumentProperties(req)
+          return cellsApi.cellsPropertiesDeleteDocumentProperties(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -58,22 +60,21 @@ describe('CellsPropertiesApi', function() {
   });
   describe('cellsPropertiesDeleteDocumentProperty', function() {
     it('should call cellsPropertiesDeleteDocumentProperty successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsPropertiesApi = BaseTest.initializeCellsPropertiesApi();
-      const filename = "Book1.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      const cellsApi = BaseTest.initializeCellsApi();
+      const filename = "TestCase.xlsx";
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsProperties_DeleteDocumentPropertyRequest();
           req.name = filename;
           req.propertyName = "Author";
           req.folder = "Temp";
           
-          return cellsPropertiesApi.cellsPropertiesDeleteDocumentProperty(req)
+          return cellsApi.cellsPropertiesDeleteDocumentProperty(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -83,21 +84,20 @@ describe('CellsPropertiesApi', function() {
   });
   describe('cellsPropertiesGetDocumentProperties', function() {
     it('should call cellsPropertiesGetDocumentProperties successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsPropertiesApi = BaseTest.initializeCellsPropertiesApi();
-      const filename = "Book1.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      const cellsApi = BaseTest.initializeCellsApi();
+      const filename = "TestCase.xlsx";
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsProperties_GetDocumentPropertiesRequest();
           req.name = filename;
           req.folder = "Temp";
           
-          return cellsPropertiesApi.cellsPropertiesGetDocumentProperties(req)
+          return cellsApi.cellsPropertiesGetDocumentProperties(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -107,22 +107,21 @@ describe('CellsPropertiesApi', function() {
   });
   describe('cellsPropertiesGetDocumentProperty', function() {
     it('should call cellsPropertiesGetDocumentProperty successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsPropertiesApi = BaseTest.initializeCellsPropertiesApi();
-      const filename = "Book1.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      const cellsApi = BaseTest.initializeCellsApi();
+      const filename = "TestCase.xlsx";
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsProperties_GetDocumentPropertyRequest();
           req.name = filename;
           req.propertyName = "Author";
           req.folder = "Temp";
           
-          return cellsPropertiesApi.cellsPropertiesGetDocumentProperty(req)
+          return cellsApi.cellsPropertiesGetDocumentProperty(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -132,15 +131,14 @@ describe('CellsPropertiesApi', function() {
   });
   describe('cellsPropertiesPutDocumentProperty', function() {
     it('should call cellsPropertiesPutDocumentProperty successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsPropertiesApi = BaseTest.initializeCellsPropertiesApi();
-      const filename = "Book1.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      const cellsApi = BaseTest.initializeCellsApi();
+      const filename = "TestCase.xlsx";
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsProperties_PutDocumentPropertyRequest();
           req.name = filename;
@@ -151,7 +149,7 @@ describe('CellsPropertiesApi', function() {
           req.property = property;
           req.folder = "Temp";
           
-          return cellsPropertiesApi.cellsPropertiesPutDocumentProperty(req)
+          return cellsApi.cellsPropertiesPutDocumentProperty(req)
             .then((result) => {
               expect(result.body.code).to.equal(201);
               expect(result.response.statusCode).to.equal(200);

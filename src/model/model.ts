@@ -446,6 +446,40 @@ export class CellValue {
     }        
 }
 
+export class CellsCloudResponse {
+
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "status",
+            baseName: "Status",
+            type: "string",
+        },        
+        {
+            name: "code",
+            baseName: "Code",
+            type: "number",
+        }    ];
+
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return CellsCloudResponse.attributeTypeMap;
+    }
+
+    public status: string;
+    
+    public code: number;
+    
+    public constructor(init?: Partial<CellsCloudResponse>) {
+        
+        Object.assign(this, init);
+    }        
+}
+
 export class CellsColor {
 
     /**
@@ -501,6 +535,69 @@ export class CellsColor {
     }        
 }
 
+/**
+ * Error
+ */
+export class CellsError {
+
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "code",
+            baseName: "Code",
+            type: "string",
+        },        
+        {
+            name: "message",
+            baseName: "Message",
+            type: "string",
+        },        
+        {
+            name: "description",
+            baseName: "Description",
+            type: "string",
+        },        
+        {
+            name: "innerError",
+            baseName: "InnerError",
+            type: "ErrorDetails",
+        }    ];
+
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return CellsError.attributeTypeMap;
+    }
+
+    /**
+     * Code             
+     */
+    public code: string;
+    
+    /**
+     * Message             
+     */
+    public message: string;
+    
+    /**
+     * Description             
+     */
+    public description: string;
+    
+    /**
+     * Inner Error             
+     */
+    public innerError: ErrorDetails;
+    
+    public constructor(init?: Partial<CellsError>) {
+        
+        Object.assign(this, init);
+    }        
+}
+
 export class Color {
 
     /**
@@ -508,22 +605,22 @@ export class Color {
      */
     public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            name: "a",
+            name: "A",
             baseName: "A",
             type: "number",
         },        
         {
-            name: "b",
+            name: "B",
             baseName: "B",
             type: "number",
         },        
         {
-            name: "r",
+            name: "R",
             baseName: "R",
             type: "number",
         },        
         {
-            name: "g",
+            name: "G",
             baseName: "G",
             type: "number",
         }    ];
@@ -535,13 +632,13 @@ export class Color {
         return Color.attributeTypeMap;
     }
 
-    public a: number;
+    public A: number;
     
-    public b: number;
+    public B: number;
     
-    public r: number;
+    public R: number;
     
-    public g: number;
+    public G: number;
     
     public constructor(init?: Partial<Color>) {
         
@@ -793,6 +890,11 @@ export class ConditionalFormattingValue {
             name: "type",
             baseName: "Type",
             type: "string",
+        },        
+        {
+            name: "value",
+            baseName: "Value",
+            type: "any",
         }    ];
 
     /**
@@ -811,6 +913,11 @@ export class ConditionalFormattingValue {
      * Get or set the type of this conditional formatting value object.  Setting      the type to FormatConditionValueType.Min or FormatConditionValueType.Max      will auto set \"Value\" to null.  
      */
     public type: string;
+    
+    /**
+     * Get or set the value of this conditional formatting value object.  It should     be used in conjunction with Type.
+     */
+    public value: any;
     
     public constructor(init?: Partial<ConditionalFormattingValue>) {
         
@@ -977,6 +1084,11 @@ export class CustomFilter {
             name: "filterOperatorType",
             baseName: "FilterOperatorType",
             type: "string",
+        },        
+        {
+            name: "criteria",
+            baseName: "Criteria",
+            type: "any",
         }    ];
 
     /**
@@ -987,6 +1099,8 @@ export class CustomFilter {
     }
 
     public filterOperatorType: string;
+    
+    public criteria: any;
     
     public constructor(init?: Partial<CustomFilter>) {
         
@@ -1266,6 +1380,49 @@ export class DataSorter {
     }        
 }
 
+/**
+ * Class for disc space information.
+ */
+export class DiscUsage {
+
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "usedSize",
+            baseName: "UsedSize",
+            type: "number",
+        },        
+        {
+            name: "totalSize",
+            baseName: "TotalSize",
+            type: "number",
+        }    ];
+
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return DiscUsage.attributeTypeMap;
+    }
+
+    /**
+     * Application used disc space.
+     */
+    public usedSize: number;
+    
+    /**
+     * Total disc space.
+     */
+    public totalSize: number;
+    
+    public constructor(init?: Partial<DiscUsage>) {
+        
+        Object.assign(this, init);
+    }        
+}
+
 export class DynamicFilter {
 
     /**
@@ -1276,6 +1433,16 @@ export class DynamicFilter {
             name: "dynamicFilterType",
             baseName: "DynamicFilterType",
             type: "string",
+        },        
+        {
+            name: "maxValue",
+            baseName: "MaxValue",
+            type: "any",
+        },        
+        {
+            name: "value",
+            baseName: "Value",
+            type: "any",
         }    ];
 
     /**
@@ -1287,7 +1454,54 @@ export class DynamicFilter {
 
     public dynamicFilterType: string;
     
+    public maxValue: any;
+    
+    public value: any;
+    
     public constructor(init?: Partial<DynamicFilter>) {
+        
+        Object.assign(this, init);
+    }        
+}
+
+/**
+ * The error details
+ */
+export class ErrorDetails {
+
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "requestId",
+            baseName: "RequestId",
+            type: "string",
+        },        
+        {
+            name: "date",
+            baseName: "Date",
+            type: "Date",
+        }    ];
+
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return ErrorDetails.attributeTypeMap;
+    }
+
+    /**
+     * The request id
+     */
+    public requestId: string;
+    
+    /**
+     * Date
+     */
+    public date: Date;
+    
+    public constructor(init?: Partial<ErrorDetails>) {
         
         Object.assign(this, init);
     }        
@@ -1322,6 +1536,115 @@ export class FileSource {
     public fileSourceType: string;
     
     public constructor(init?: Partial<FileSource>) {
+        
+        Object.assign(this, init);
+    }        
+}
+
+/**
+ * File versions FileVersion.
+ */
+export class FileVersions {
+
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "value",
+            baseName: "Value",
+            type: "Array<FileVersion>",
+        }    ];
+
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return FileVersions.attributeTypeMap;
+    }
+
+    /**
+     * File versions FileVersion.
+     */
+    public value: Array<FileVersion>;
+    
+    public constructor(init?: Partial<FileVersions>) {
+        
+        Object.assign(this, init);
+    }        
+}
+
+/**
+ * Files list
+ */
+export class FilesList {
+
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "value",
+            baseName: "Value",
+            type: "Array<StorageFile>",
+        }    ];
+
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return FilesList.attributeTypeMap;
+    }
+
+    /**
+     * Files and folders contained by folder StorageFile.
+     */
+    public value: Array<StorageFile>;
+    
+    public constructor(init?: Partial<FilesList>) {
+        
+        Object.assign(this, init);
+    }        
+}
+
+/**
+ * File upload result
+ */
+export class FilesUploadResult {
+
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "uploaded",
+            baseName: "Uploaded",
+            type: "Array<string>",
+        },        
+        {
+            name: "errors",
+            baseName: "Errors",
+            type: "Array<CellsError>",
+        }    ];
+
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return FilesUploadResult.attributeTypeMap;
+    }
+
+    /**
+     * List of uploaded file names
+     */
+    public uploaded: Array<string>;
+    
+    /**
+     * List of errors.
+     */
+    public errors: Array<CellsError>;
+    
+    public constructor(init?: Partial<FilesUploadResult>) {
         
         Object.assign(this, init);
     }        
@@ -2298,6 +2621,49 @@ export class NegativeBarFormat {
     }        
 }
 
+/**
+ * Object exists
+ */
+export class ObjectExist {
+
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "exists",
+            baseName: "Exists",
+            type: "boolean",
+        },        
+        {
+            name: "isFolder",
+            baseName: "IsFolder",
+            type: "boolean",
+        }    ];
+
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return ObjectExist.attributeTypeMap;
+    }
+
+    /**
+     * Indicates that the file or folder exists.
+     */
+    public exists: boolean;
+    
+    /**
+     * True if it is a folder, false if it is a file.
+     */
+    public isFolder: boolean;
+    
+    public constructor(init?: Partial<ObjectExist>) {
+        
+        Object.assign(this, init);
+    }        
+}
+
 export class OperateObject {
 
     /**
@@ -2861,7 +3227,7 @@ export class PivotField {
             type: "boolean",
         },        
         {
-            name: "function",
+            name: "_function",
             baseName: "Function",
             type: "string",
         },        
@@ -3030,7 +3396,7 @@ export class PivotField {
     
     public showCompact: boolean;
     
-    public function: string;
+    public _function: string;
     
     public isMultipleItemSelectionAllowed: boolean;
     
@@ -3225,6 +3591,11 @@ export class PivotItem {
             name: "name",
             baseName: "Name",
             type: "string",
+        },        
+        {
+            name: "value",
+            baseName: "Value",
+            type: "any",
         }    ];
 
     /**
@@ -3245,6 +3616,11 @@ export class PivotItem {
      * Gets the name
      */
     public name: string;
+    
+    /**
+     * Gets the value of the specified item.
+     */
+    public value: any;
     
     public constructor(init?: Partial<PivotItem>) {
         
@@ -3719,40 +4095,6 @@ export class ResultDestination {
     }        
 }
 
-export class SaaSposeResponse {
-
-    /**
-     * Attribute type map
-     */
-    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
-        {
-            name: "status",
-            baseName: "Status",
-            type: "string",
-        },        
-        {
-            name: "code",
-            baseName: "Code",
-            type: "number",
-        }    ];
-
-    /**
-     * Returns attribute type map
-     */
-    public static getAttributeTypeMap() {
-        return SaaSposeResponse.attributeTypeMap;
-    }
-
-    public status: string;
-    
-    public code: number;
-    
-    public constructor(init?: Partial<SaaSposeResponse>) {
-        
-        Object.assign(this, init);
-    }        
-}
-
 export class SaveOptions {
 
     /**
@@ -4089,6 +4431,112 @@ export class SplitResult {
     public documents: Array<SplitResultDocument>;
     
     public constructor(init?: Partial<SplitResult>) {
+        
+        Object.assign(this, init);
+    }        
+}
+
+/**
+ * Storage exists
+ */
+export class StorageExist {
+
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "exists",
+            baseName: "Exists",
+            type: "boolean",
+        }    ];
+
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return StorageExist.attributeTypeMap;
+    }
+
+    /**
+     * Shows that the storage exists.             
+     */
+    public exists: boolean;
+    
+    public constructor(init?: Partial<StorageExist>) {
+        
+        Object.assign(this, init);
+    }        
+}
+
+/**
+ * File or folder information
+ */
+export class StorageFile {
+
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "name",
+            baseName: "Name",
+            type: "string",
+        },        
+        {
+            name: "isFolder",
+            baseName: "IsFolder",
+            type: "boolean",
+        },        
+        {
+            name: "modifiedDate",
+            baseName: "ModifiedDate",
+            type: "Date",
+        },        
+        {
+            name: "size",
+            baseName: "Size",
+            type: "number",
+        },        
+        {
+            name: "path",
+            baseName: "Path",
+            type: "string",
+        }    ];
+
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return StorageFile.attributeTypeMap;
+    }
+
+    /**
+     * File or folder name.
+     */
+    public name: string;
+    
+    /**
+     * True if it is a folder.
+     */
+    public isFolder: boolean;
+    
+    /**
+     * File or folder last modified DateTime.
+     */
+    public modifiedDate: Date;
+    
+    /**
+     * File or folder size.
+     */
+    public size: number;
+    
+    /**
+     * File or folder path.
+     */
+    public path: string;
+    
+    public constructor(init?: Partial<StorageFile>) {
         
         Object.assign(this, init);
     }        
@@ -5519,7 +5967,7 @@ export class AutoFilter {
     }        
 }
 
-export class AutoFilterResponse extends SaaSposeResponse {
+export class AutoFilterResponse extends CellsCloudResponse {
 
     /**
      * Attribute type map
@@ -5546,7 +5994,7 @@ export class AutoFilterResponse extends SaaSposeResponse {
     }        
 }
 
-export class AutoShapeResponse extends SaaSposeResponse {
+export class AutoShapeResponse extends CellsCloudResponse {
 
     /**
      * Attribute type map
@@ -5607,7 +6055,7 @@ export class AutoShapes {
     }        
 }
 
-export class AutoShapesResponse extends SaaSposeResponse {
+export class AutoShapesResponse extends CellsCloudResponse {
 
     /**
      * Attribute type map
@@ -5818,7 +6266,7 @@ export class Cell {
     }        
 }
 
-export class CellResponse extends SaaSposeResponse {
+export class CellResponse extends CellsCloudResponse {
 
     /**
      * Attribute type map
@@ -5951,7 +6399,7 @@ export class CellsDocumentProperties {
     }        
 }
 
-export class CellsDocumentPropertiesResponse extends SaaSposeResponse {
+export class CellsDocumentPropertiesResponse extends CellsCloudResponse {
 
     /**
      * Attribute type map
@@ -6026,7 +6474,7 @@ export class CellsDocumentProperty {
     }        
 }
 
-export class CellsDocumentPropertyResponse extends SaaSposeResponse {
+export class CellsDocumentPropertyResponse extends CellsCloudResponse {
 
     /**
      * Attribute type map
@@ -6094,7 +6542,7 @@ export class CellsObjectOperateTaskParameter extends TaskParameter {
     }        
 }
 
-export class CellsResponse extends SaaSposeResponse {
+export class CellsResponse extends CellsCloudResponse {
 
     /**
      * Attribute type map
@@ -6572,7 +7020,7 @@ export class Chart {
     }        
 }
 
-export class ChartAreaResponse extends SaaSposeResponse {
+export class ChartAreaResponse extends CellsCloudResponse {
 
     /**
      * Attribute type map
@@ -6651,12 +7099,12 @@ export class ChartFrame {
             type: "boolean",
         },        
         {
-            name: "y",
+            name: "Y",
             baseName: "Y",
             type: "number",
         },        
         {
-            name: "x",
+            name: "X",
             baseName: "X",
             type: "number",
         },        
@@ -6701,9 +7149,9 @@ export class ChartFrame {
     
     public isAutomaticSize: boolean;
     
-    public y: number;
+    public Y: number;
     
-    public x: number;
+    public X: number;
     
     public shadow: boolean;
     
@@ -6834,7 +7282,7 @@ export class Charts {
     }        
 }
 
-export class ChartsResponse extends SaaSposeResponse {
+export class ChartsResponse extends CellsCloudResponse {
 
     /**
      * Attribute type map
@@ -6923,7 +7371,7 @@ export class Column {
     }        
 }
 
-export class ColumnResponse extends SaaSposeResponse {
+export class ColumnResponse extends CellsCloudResponse {
 
     /**
      * Attribute type map
@@ -6998,7 +7446,7 @@ export class Columns {
     }        
 }
 
-export class ColumnsResponse extends SaaSposeResponse {
+export class ColumnsResponse extends CellsCloudResponse {
 
     /**
      * Attribute type map
@@ -7129,7 +7577,7 @@ export class Comment {
     }        
 }
 
-export class CommentResponse extends SaaSposeResponse {
+export class CommentResponse extends CellsCloudResponse {
 
     /**
      * Attribute type map
@@ -7190,7 +7638,7 @@ export class Comments {
     }        
 }
 
-export class CommentsResponse extends SaaSposeResponse {
+export class CommentsResponse extends CellsCloudResponse {
 
     /**
      * Attribute type map
@@ -7258,7 +7706,7 @@ export class ConditionalFormatting {
     }        
 }
 
-export class ConditionalFormattingResponse extends SaaSposeResponse {
+export class ConditionalFormattingResponse extends CellsCloudResponse {
 
     /**
      * Attribute type map
@@ -7326,7 +7774,7 @@ export class ConditionalFormattings {
     }        
 }
 
-export class ConditionalFormattingsResponse extends SaaSposeResponse {
+export class ConditionalFormattingsResponse extends CellsCloudResponse {
 
     /**
      * Attribute type map
@@ -7415,7 +7863,50 @@ export class DifSaveOptions extends SaveOptions {
     }        
 }
 
-export class FillFormatResponse extends SaaSposeResponse {
+/**
+ * File Version
+ */
+export class FileVersion extends StorageFile {
+
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "versionId",
+            baseName: "VersionId",
+            type: "string",
+        },        
+        {
+            name: "isLatest",
+            baseName: "IsLatest",
+            type: "boolean",
+        }    ];
+
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return super.getAttributeTypeMap().concat(FileVersion.attributeTypeMap);
+    }
+
+    /**
+     * File Version ID.
+     */
+    public versionId: string;
+    
+    /**
+     * Specifies whether the file is (true) or is not (false) the latest version of an file.
+     */
+    public isLatest: boolean;
+    
+    public constructor(init?: Partial<FileVersion>) {
+        super(init);
+        Object.assign(this, init);
+    }        
+}
+
+export class FillFormatResponse extends CellsCloudResponse {
 
     /**
      * Attribute type map
@@ -7576,7 +8067,7 @@ export class FormatCondition {
     }        
 }
 
-export class HorizontalPageBreakResponse extends SaaSposeResponse {
+export class HorizontalPageBreakResponse extends CellsCloudResponse {
 
     /**
      * Attribute type map
@@ -7637,7 +8128,7 @@ export class HorizontalPageBreaks {
     }        
 }
 
-export class HorizontalPageBreaksResponse extends SaaSposeResponse {
+export class HorizontalPageBreaksResponse extends CellsCloudResponse {
 
     /**
      * Attribute type map
@@ -7823,7 +8314,7 @@ export class Hyperlink {
     }        
 }
 
-export class HyperlinkResponse extends SaaSposeResponse {
+export class HyperlinkResponse extends CellsCloudResponse {
 
     /**
      * Attribute type map
@@ -7891,7 +8382,7 @@ export class Hyperlinks {
     }        
 }
 
-export class HyperlinksResponse extends SaaSposeResponse {
+export class HyperlinksResponse extends CellsCloudResponse {
 
     /**
      * Attribute type map
@@ -8296,7 +8787,7 @@ export class ImportStringArrayOption extends ImportOption {
     }        
 }
 
-export class LegendResponse extends SaaSposeResponse {
+export class LegendResponse extends CellsCloudResponse {
 
     /**
      * Attribute type map
@@ -8462,7 +8953,7 @@ export class LineFormat {
     }        
 }
 
-export class LineResponse extends SaaSposeResponse {
+export class LineResponse extends CellsCloudResponse {
 
     /**
      * Attribute type map
@@ -8693,7 +9184,7 @@ export class ListObjectOperateParameter extends OperateParameter {
     }        
 }
 
-export class ListObjectResponse extends SaaSposeResponse {
+export class ListObjectResponse extends CellsCloudResponse {
 
     /**
      * Attribute type map
@@ -8754,7 +9245,7 @@ export class ListObjects {
     }        
 }
 
-export class ListObjectsResponse extends SaaSposeResponse {
+export class ListObjectsResponse extends CellsCloudResponse {
 
     /**
      * Attribute type map
@@ -8981,7 +9472,7 @@ export class MergedCell {
     }        
 }
 
-export class MergedCellResponse extends SaaSposeResponse {
+export class MergedCellResponse extends CellsCloudResponse {
 
     /**
      * Attribute type map
@@ -9049,7 +9540,7 @@ export class MergedCells {
     }        
 }
 
-export class MergedCellsResponse extends SaaSposeResponse {
+export class MergedCellsResponse extends CellsCloudResponse {
 
     /**
      * Attribute type map
@@ -9152,7 +9643,7 @@ export class Name {
     }        
 }
 
-export class NameResponse extends SaaSposeResponse {
+export class NameResponse extends CellsCloudResponse {
 
     /**
      * Attribute type map
@@ -9220,7 +9711,7 @@ export class Names {
     }        
 }
 
-export class NamesResponse extends SaaSposeResponse {
+export class NamesResponse extends CellsCloudResponse {
 
     /**
      * Attribute type map
@@ -9268,7 +9759,7 @@ export class OdsSaveOptions extends SaveOptions {
     }        
 }
 
-export class OleObjectResponse extends SaaSposeResponse {
+export class OleObjectResponse extends CellsCloudResponse {
 
     /**
      * Attribute type map
@@ -9329,7 +9820,7 @@ export class OleObjects {
     }        
 }
 
-export class OleObjectsResponse extends SaaSposeResponse {
+export class OleObjectsResponse extends CellsCloudResponse {
 
     /**
      * Attribute type map
@@ -9445,7 +9936,7 @@ export class PageBreakOperateParameter extends OperateParameter {
     }        
 }
 
-export class PageSectionsResponse extends SaaSposeResponse {
+export class PageSectionsResponse extends CellsCloudResponse {
 
     /**
      * Attribute type map
@@ -9869,7 +10360,7 @@ export class PageSetupOperateParameter extends OperateParameter {
     }        
 }
 
-export class PageSetupResponse extends SaaSposeResponse {
+export class PageSetupResponse extends CellsCloudResponse {
 
     /**
      * Attribute type map
@@ -9986,7 +10477,7 @@ export class PdfSaveOptions extends SaveOptions {
     }        
 }
 
-export class PictureResponse extends SaaSposeResponse {
+export class PictureResponse extends CellsCloudResponse {
 
     /**
      * Attribute type map
@@ -10047,7 +10538,7 @@ export class Pictures {
     }        
 }
 
-export class PicturesResponse extends SaaSposeResponse {
+export class PicturesResponse extends CellsCloudResponse {
 
     /**
      * Attribute type map
@@ -10074,7 +10565,7 @@ export class PicturesResponse extends SaaSposeResponse {
     }        
 }
 
-export class PivotFieldResponse extends SaaSposeResponse {
+export class PivotFieldResponse extends CellsCloudResponse {
 
     /**
      * Attribute type map
@@ -10101,7 +10592,7 @@ export class PivotFieldResponse extends SaaSposeResponse {
     }        
 }
 
-export class PivotFilterResponse extends SaaSposeResponse {
+export class PivotFilterResponse extends CellsCloudResponse {
 
     /**
      * Attribute type map
@@ -10128,7 +10619,7 @@ export class PivotFilterResponse extends SaaSposeResponse {
     }        
 }
 
-export class PivotFiltersResponse extends SaaSposeResponse {
+export class PivotFiltersResponse extends CellsCloudResponse {
 
     /**
      * Attribute type map
@@ -10734,7 +11225,7 @@ export class PivotTableOperateParameter extends OperateParameter {
     }        
 }
 
-export class PivotTableResponse extends SaaSposeResponse {
+export class PivotTableResponse extends CellsCloudResponse {
 
     /**
      * Attribute type map
@@ -10795,7 +11286,7 @@ export class PivotTables {
     }        
 }
 
-export class PivotTablesResponse extends SaaSposeResponse {
+export class PivotTablesResponse extends CellsCloudResponse {
 
     /**
      * Attribute type map
@@ -10822,7 +11313,7 @@ export class PivotTablesResponse extends SaaSposeResponse {
     }        
 }
 
-export class RangeValueResponse extends SaaSposeResponse {
+export class RangeValueResponse extends CellsCloudResponse {
 
     /**
      * Attribute type map
@@ -10849,7 +11340,7 @@ export class RangeValueResponse extends SaaSposeResponse {
     }        
 }
 
-export class RangesResponse extends SaaSposeResponse {
+export class RangesResponse extends CellsCloudResponse {
 
     /**
      * Attribute type map
@@ -10952,7 +11443,7 @@ export class Row {
     }        
 }
 
-export class RowResponse extends SaaSposeResponse {
+export class RowResponse extends CellsCloudResponse {
 
     /**
      * Attribute type map
@@ -11027,7 +11518,7 @@ export class Rows {
     }        
 }
 
-export class RowsResponse extends SaaSposeResponse {
+export class RowsResponse extends CellsCloudResponse {
 
     /**
      * Attribute type map
@@ -11054,7 +11545,7 @@ export class RowsResponse extends SaaSposeResponse {
     }        
 }
 
-export class SaveResponse extends SaaSposeResponse {
+export class SaveResponse extends CellsCloudResponse {
 
     /**
      * Attribute type map
@@ -11247,12 +11738,12 @@ export class Shape {
             type: "boolean",
         },        
         {
-            name: "y",
+            name: "Y",
             baseName: "Y",
             type: "number",
         },        
         {
-            name: "x",
+            name: "X",
             baseName: "X",
             type: "number",
         },        
@@ -11354,9 +11845,9 @@ export class Shape {
     
     public isTextWrapped: boolean;
     
-    public y: number;
+    public Y: number;
     
-    public x: number;
+    public X: number;
     
     public isHidden: boolean;
     
@@ -11407,7 +11898,7 @@ export class ShapeOperateParameter extends OperateParameter {
     }        
 }
 
-export class ShapeResponse extends SaaSposeResponse {
+export class ShapeResponse extends CellsCloudResponse {
 
     /**
      * Attribute type map
@@ -11468,7 +11959,7 @@ export class Shapes {
     }        
 }
 
-export class ShapesResponse extends SaaSposeResponse {
+export class ShapesResponse extends CellsCloudResponse {
 
     /**
      * Attribute type map
@@ -11495,7 +11986,7 @@ export class ShapesResponse extends SaaSposeResponse {
     }        
 }
 
-export class SingleValueResponse extends SaaSposeResponse {
+export class SingleValueResponse extends CellsCloudResponse {
 
     /**
      * Attribute type map
@@ -11597,7 +12088,7 @@ export class SplitResultDocument {
     }        
 }
 
-export class SplitResultResponse extends SaaSposeResponse {
+export class SplitResultResponse extends CellsCloudResponse {
 
     /**
      * Attribute type map
@@ -11918,7 +12409,7 @@ export class Style {
     }        
 }
 
-export class StyleResponse extends SaaSposeResponse {
+export class StyleResponse extends CellsCloudResponse {
 
     /**
      * Attribute type map
@@ -12040,7 +12531,7 @@ export class TextItems {
     }        
 }
 
-export class TextItemsResponse extends SaaSposeResponse {
+export class TextItemsResponse extends CellsCloudResponse {
 
     /**
      * Attribute type map
@@ -12199,7 +12690,7 @@ export class TextOptions {
     }        
 }
 
-export class TitleResponse extends SaaSposeResponse {
+export class TitleResponse extends CellsCloudResponse {
 
     /**
      * Attribute type map
@@ -12461,7 +12952,7 @@ export class Validation {
     }        
 }
 
-export class ValidationResponse extends SaaSposeResponse {
+export class ValidationResponse extends CellsCloudResponse {
 
     /**
      * Attribute type map
@@ -12529,7 +13020,7 @@ export class Validations {
     }        
 }
 
-export class ValidationsResponse extends SaaSposeResponse {
+export class ValidationsResponse extends CellsCloudResponse {
 
     /**
      * Attribute type map
@@ -12556,7 +13047,7 @@ export class ValidationsResponse extends SaaSposeResponse {
     }        
 }
 
-export class VerticalPageBreakResponse extends SaaSposeResponse {
+export class VerticalPageBreakResponse extends CellsCloudResponse {
 
     /**
      * Attribute type map
@@ -12617,7 +13108,7 @@ export class VerticalPageBreaks {
     }        
 }
 
-export class VerticalPageBreaksResponse extends SaaSposeResponse {
+export class VerticalPageBreaksResponse extends CellsCloudResponse {
 
     /**
      * Attribute type map
@@ -12665,7 +13156,7 @@ export class WorkbookOperateParameter extends OperateParameter {
     }        
 }
 
-export class WorkbookReplaceResponse extends SaaSposeResponse {
+export class WorkbookReplaceResponse extends CellsCloudResponse {
 
     /**
      * Attribute type map
@@ -12699,7 +13190,7 @@ export class WorkbookReplaceResponse extends SaaSposeResponse {
     }        
 }
 
-export class WorkbookResponse extends SaaSposeResponse {
+export class WorkbookResponse extends CellsCloudResponse {
 
     /**
      * Attribute type map
@@ -12753,7 +13244,7 @@ export class WorkbookSettingsOperateParameter extends OperateParameter {
     }        
 }
 
-export class WorkbookSettingsResponse extends SaaSposeResponse {
+export class WorkbookSettingsResponse extends CellsCloudResponse {
 
     /**
      * Attribute type map
@@ -12780,7 +13271,7 @@ export class WorkbookSettingsResponse extends SaaSposeResponse {
     }        
 }
 
-export class WorksheetReplaceResponse extends SaaSposeResponse {
+export class WorksheetReplaceResponse extends CellsCloudResponse {
 
     /**
      * Attribute type map
@@ -12814,7 +13305,7 @@ export class WorksheetReplaceResponse extends SaaSposeResponse {
     }        
 }
 
-export class WorksheetResponse extends SaaSposeResponse {
+export class WorksheetResponse extends CellsCloudResponse {
 
     /**
      * Attribute type map
@@ -12875,7 +13366,7 @@ export class Worksheets {
     }        
 }
 
-export class WorksheetsResponse extends SaaSposeResponse {
+export class WorksheetsResponse extends CellsCloudResponse {
 
     /**
      * Attribute type map
@@ -13092,12 +13583,12 @@ export class AutoShape {
             type: "boolean",
         },        
         {
-            name: "y",
+            name: "Y",
             baseName: "Y",
             type: "number",
         },        
         {
-            name: "x",
+            name: "X",
             baseName: "X",
             type: "number",
         },        
@@ -13202,9 +13693,9 @@ export class AutoShape {
     
     public isTextWrapped: boolean;
     
-    public y: number;
+    public Y: number;
     
-    public x: number;
+    public X: number;
     
     public isHidden: boolean;
     
@@ -13277,12 +13768,12 @@ export class ChartArea {
             type: "boolean",
         },        
         {
-            name: "y",
+            name: "Y",
             baseName: "Y",
             type: "number",
         },        
         {
-            name: "x",
+            name: "X",
             baseName: "X",
             type: "number",
         },        
@@ -13330,9 +13821,9 @@ export class ChartArea {
     
     public isAutomaticSize: boolean;
     
-    public y: number;
+    public Y: number;
     
-    public x: number;
+    public X: number;
     
     public shadow: boolean;
     
@@ -13395,12 +13886,12 @@ export class Legend {
             type: "boolean",
         },        
         {
-            name: "y",
+            name: "Y",
             baseName: "Y",
             type: "number",
         },        
         {
-            name: "x",
+            name: "X",
             baseName: "X",
             type: "number",
         },        
@@ -13458,9 +13949,9 @@ export class Legend {
     
     public isAutomaticSize: boolean;
     
-    public y: number;
+    public Y: number;
     
-    public x: number;
+    public X: number;
     
     public shadow: boolean;
     
@@ -13607,12 +14098,12 @@ export class OleObject {
             type: "boolean",
         },        
         {
-            name: "y",
+            name: "Y",
             baseName: "Y",
             type: "number",
         },        
         {
-            name: "x",
+            name: "X",
             baseName: "X",
             type: "number",
         },        
@@ -13752,9 +14243,9 @@ export class OleObject {
     
     public isTextWrapped: boolean;
     
-    public y: number;
+    public Y: number;
     
-    public x: number;
+    public X: number;
     
     public isHidden: boolean;
     
@@ -13921,12 +14412,12 @@ export class Picture {
             type: "boolean",
         },        
         {
-            name: "y",
+            name: "Y",
             baseName: "Y",
             type: "number",
         },        
         {
-            name: "x",
+            name: "X",
             baseName: "X",
             type: "number",
         },        
@@ -14061,9 +14552,9 @@ export class Picture {
     
     public isTextWrapped: boolean;
     
-    public y: number;
+    public Y: number;
     
-    public x: number;
+    public X: number;
     
     public isHidden: boolean;
     
@@ -14148,12 +14639,12 @@ export class Title {
             type: "boolean",
         },        
         {
-            name: "y",
+            name: "Y",
             baseName: "Y",
             type: "number",
         },        
         {
-            name: "x",
+            name: "X",
             baseName: "X",
             type: "number",
         },        
@@ -14236,9 +14727,9 @@ export class Title {
     
     public isAutomaticSize: boolean;
     
-    public y: number;
+    public Y: number;
     
-    public x: number;
+    public X: number;
     
     public shadow: boolean;
     
@@ -14280,7 +14771,9 @@ const typeMap = {
             CalculationOptions,
             CellArea,
             CellValue,
+            CellsCloudResponse,
             CellsColor,
+            CellsError,
             Color,
             ColorFilter,
             ColorFilterRequest,
@@ -14294,8 +14787,13 @@ const typeMap = {
             DataBar,
             DataBarBorder,
             DataSorter,
+            DiscUsage,
             DynamicFilter,
+            ErrorDetails,
             FileSource,
+            FileVersions,
+            FilesList,
+            FilesUploadResult,
             FillFormat,
             FilterColumn,
             Font,
@@ -14313,6 +14811,7 @@ const typeMap = {
             MultipleFilter,
             MultipleFilters,
             NegativeBarFormat,
+            ObjectExist,
             OperateObject,
             OperateObjectPosition,
             OperateParameter,
@@ -14333,7 +14832,6 @@ const typeMap = {
             RangeSetStyleRequest,
             Ranges,
             ResultDestination,
-            SaaSposeResponse,
             SaveOptions,
             SaveResult,
             ShadowEffect,
@@ -14341,6 +14839,8 @@ const typeMap = {
             SolidFill,
             SortKey,
             SplitResult,
+            StorageExist,
+            StorageFile,
             TaskData,
             TaskDescription,
             TaskParameter,
@@ -14391,6 +14891,7 @@ const typeMap = {
             ConditionalFormattingsResponse,
             ConvertTaskParameter,
             DifSaveOptions,
+            FileVersion,
             FillFormatResponse,
             FormatCondition,
             HorizontalPageBreakResponse,
@@ -14504,1651 +15005,6 @@ const typeMap = {
 };
 
 export {enumsMap, typeMap};
-
-/**
- * Request model for Cells_DeleteWorksheetColumns operation.
- */
-export class Cells_DeleteWorksheetColumnsRequest {
-    /**
-     * The workbook name.
-     */
-    public name: string;
-
-    /**
-     * The worksheet name.
-     */
-    public sheetName: string;
-
-    /**
-     * The column index.
-     */
-    public columnIndex: number;
-
-    /**
-     * The columns.
-     */
-    public columns: number;
-
-    /**
-     * The update reference.
-     */
-    public updateReference: boolean;
-
-    /**
-     * The workbook folder.
-     */
-    public folder: string;
-
-    /**
-     * storage name.
-     */
-    public storage: string;
-    
-    public constructor(init?: Partial<Cells_DeleteWorksheetColumnsRequest>) {        
-        Object.assign(this, init);
-    } 
-}
-
-/**
- * Request model for Cells_DeleteWorksheetRow operation.
- */
-export class Cells_DeleteWorksheetRowRequest {
-    /**
-     * The workbook name.
-     */
-    public name: string;
-
-    /**
-     * The worksheet bame.
-     */
-    public sheetName: string;
-
-    /**
-     * The row index.
-     */
-    public rowIndex: number;
-
-    /**
-     * The document folder.
-     */
-    public folder: string;
-
-    /**
-     * storage name.
-     */
-    public storage: string;
-    
-    public constructor(init?: Partial<Cells_DeleteWorksheetRowRequest>) {        
-        Object.assign(this, init);
-    } 
-}
-
-/**
- * Request model for Cells_DeleteWorksheetRows operation.
- */
-export class Cells_DeleteWorksheetRowsRequest {
-    /**
-     * The workbook name.
-     */
-    public name: string;
-
-    /**
-     * The worksheet bame.
-     */
-    public sheetName: string;
-
-    /**
-     * The begin row index to be operated.
-     */
-    public startrow: number;
-
-    /**
-     * Number of rows to be operated.
-     */
-    public totalRows: number;
-
-    /**
-     * Indicates if update references in other worksheets.
-     */
-    public updateReference: boolean;
-
-    /**
-     * The document folder.
-     */
-    public folder: string;
-
-    /**
-     * storage name.
-     */
-    public storage: string;
-    
-    public constructor(init?: Partial<Cells_DeleteWorksheetRowsRequest>) {        
-        Object.assign(this, init);
-    } 
-}
-
-/**
- * Request model for Cells_GetCellHtmlString operation.
- */
-export class Cells_GetCellHtmlStringRequest {
-    /**
-     * Document name.
-     */
-    public name: string;
-
-    /**
-     * Worksheet name.
-     */
-    public sheetName: string;
-
-    /**
-     * The cell's  name.
-     */
-    public cellName: string;
-
-    /**
-     * Document's folder.
-     */
-    public folder: string;
-
-    /**
-     * storage name.
-     */
-    public storage: string;
-    
-    public constructor(init?: Partial<Cells_GetCellHtmlStringRequest>) {        
-        Object.assign(this, init);
-    } 
-}
-
-/**
- * Request model for Cells_GetWorksheetCell operation.
- */
-export class Cells_GetWorksheetCellRequest {
-    /**
-     * Document name.
-     */
-    public name: string;
-
-    /**
-     * Worksheet name.
-     */
-    public sheetName: string;
-
-    /**
-     * The cell's or method name. (Method name like firstcell, endcell etc.)
-     */
-    public cellOrMethodName: string;
-
-    /**
-     * Document's folder.
-     */
-    public folder: string;
-
-    /**
-     * storage name.
-     */
-    public storage: string;
-    
-    public constructor(init?: Partial<Cells_GetWorksheetCellRequest>) {        
-        Object.assign(this, init);
-    } 
-}
-
-/**
- * Request model for Cells_GetWorksheetCellStyle operation.
- */
-export class Cells_GetWorksheetCellStyleRequest {
-    /**
-     * Document name.
-     */
-    public name: string;
-
-    /**
-     * Worksheet name.
-     */
-    public sheetName: string;
-
-    /**
-     * Cell's name.
-     */
-    public cellName: string;
-
-    /**
-     * Document's folder.
-     */
-    public folder: string;
-
-    /**
-     * storage name.
-     */
-    public storage: string;
-    
-    public constructor(init?: Partial<Cells_GetWorksheetCellStyleRequest>) {        
-        Object.assign(this, init);
-    } 
-}
-
-/**
- * Request model for Cells_GetWorksheetCells operation.
- */
-export class Cells_GetWorksheetCellsRequest {
-    /**
-     * Document name.
-     */
-    public name: string;
-
-    /**
-     * Worksheet name.
-     */
-    public sheetName: string;
-
-    /**
-     * Begginig offset.
-     */
-    public offest: number;
-
-    /**
-     * Maximum amount of cells in the response.
-     */
-    public count: number;
-
-    /**
-     * Document's folder name.
-     */
-    public folder: string;
-
-    /**
-     * storage name.
-     */
-    public storage: string;
-    
-    public constructor(init?: Partial<Cells_GetWorksheetCellsRequest>) {        
-        Object.assign(this, init);
-    } 
-}
-
-/**
- * Request model for Cells_GetWorksheetColumn operation.
- */
-export class Cells_GetWorksheetColumnRequest {
-    /**
-     * The workbook name.
-     */
-    public name: string;
-
-    /**
-     * The worksheet name.
-     */
-    public sheetName: string;
-
-    /**
-     * The column index.
-     */
-    public columnIndex: number;
-
-    /**
-     * The workbook folder.
-     */
-    public folder: string;
-
-    /**
-     * storage name.
-     */
-    public storage: string;
-    
-    public constructor(init?: Partial<Cells_GetWorksheetColumnRequest>) {        
-        Object.assign(this, init);
-    } 
-}
-
-/**
- * Request model for Cells_GetWorksheetColumns operation.
- */
-export class Cells_GetWorksheetColumnsRequest {
-    /**
-     * The workbook name.
-     */
-    public name: string;
-
-    /**
-     * The worksheet name.
-     */
-    public sheetName: string;
-
-    /**
-     * The workdook folder.
-     */
-    public folder: string;
-
-    /**
-     * storage name.
-     */
-    public storage: string;
-    
-    public constructor(init?: Partial<Cells_GetWorksheetColumnsRequest>) {        
-        Object.assign(this, init);
-    } 
-}
-
-/**
- * Request model for Cells_GetWorksheetRow operation.
- */
-export class Cells_GetWorksheetRowRequest {
-    /**
-     * The workbook name.
-     */
-    public name: string;
-
-    /**
-     * The worksheet name.
-     */
-    public sheetName: string;
-
-    /**
-     * The row index.
-     */
-    public rowIndex: number;
-
-    /**
-     * The workbook folder.
-     */
-    public folder: string;
-
-    /**
-     * storage name.
-     */
-    public storage: string;
-    
-    public constructor(init?: Partial<Cells_GetWorksheetRowRequest>) {        
-        Object.assign(this, init);
-    } 
-}
-
-/**
- * Request model for Cells_GetWorksheetRows operation.
- */
-export class Cells_GetWorksheetRowsRequest {
-    /**
-     * The workbook name.
-     */
-    public name: string;
-
-    /**
-     * The worksheet name.
-     */
-    public sheetName: string;
-
-    /**
-     * The workdook folder.
-     */
-    public folder: string;
-
-    /**
-     * storage name.
-     */
-    public storage: string;
-    
-    public constructor(init?: Partial<Cells_GetWorksheetRowsRequest>) {        
-        Object.assign(this, init);
-    } 
-}
-
-/**
- * Request model for Cells_PostCellCalculate operation.
- */
-export class Cells_PostCellCalculateRequest {
-    /**
-     * Gets or sets name
-     */
-    public name: string;
-
-    /**
-     * Gets or sets sheetName
-     */
-    public sheetName: string;
-
-    /**
-     * Gets or sets cellName
-     */
-    public cellName: string;
-
-    /**
-     * Gets or sets options
-     */
-    public options: CalculationOptions;
-
-    /**
-     * Gets or sets folder
-     */
-    public folder: string;
-
-    /**
-     * storage name.
-     */
-    public storage: string;
-    
-    public constructor(init?: Partial<Cells_PostCellCalculateRequest>) {        
-        Object.assign(this, init);
-    } 
-}
-
-/**
- * Request model for Cells_PostCellCharacters operation.
- */
-export class Cells_PostCellCharactersRequest {
-    /**
-     * Gets or sets name
-     */
-    public name: string;
-
-    /**
-     * Gets or sets sheetName
-     */
-    public sheetName: string;
-
-    /**
-     * Gets or sets cellName
-     */
-    public cellName: string;
-
-    /**
-     * Gets or sets options
-     */
-    public options: Array<FontSetting>;
-
-    /**
-     * Gets or sets folder
-     */
-    public folder: string;
-
-    /**
-     * storage name.
-     */
-    public storage: string;
-    
-    public constructor(init?: Partial<Cells_PostCellCharactersRequest>) {        
-        Object.assign(this, init);
-    } 
-}
-
-/**
- * Request model for Cells_PostClearContents operation.
- */
-export class Cells_PostClearContentsRequest {
-    /**
-     * Workbook name.
-     */
-    public name: string;
-
-    /**
-     * Worksheet name.
-     */
-    public sheetName: string;
-
-    /**
-     * The range.
-     */
-    public range: string;
-
-    /**
-     * The start row.
-     */
-    public startRow: number;
-
-    /**
-     * The start column.
-     */
-    public startColumn: number;
-
-    /**
-     * The end row.
-     */
-    public endRow: number;
-
-    /**
-     * The end column.
-     */
-    public endColumn: number;
-
-    /**
-     * The workbook folder.
-     */
-    public folder: string;
-
-    /**
-     * storage name.
-     */
-    public storage: string;
-    
-    public constructor(init?: Partial<Cells_PostClearContentsRequest>) {        
-        Object.assign(this, init);
-    } 
-}
-
-/**
- * Request model for Cells_PostClearFormats operation.
- */
-export class Cells_PostClearFormatsRequest {
-    /**
-     * Workbook name.
-     */
-    public name: string;
-
-    /**
-     * Worksheet name.
-     */
-    public sheetName: string;
-
-    /**
-     * The range.
-     */
-    public range: string;
-
-    /**
-     * The start row.
-     */
-    public startRow: number;
-
-    /**
-     * The start column.
-     */
-    public startColumn: number;
-
-    /**
-     * The end row.
-     */
-    public endRow: number;
-
-    /**
-     * The end column.
-     */
-    public endColumn: number;
-
-    /**
-     * The workbook folder.
-     */
-    public folder: string;
-
-    /**
-     * storage name.
-     */
-    public storage: string;
-    
-    public constructor(init?: Partial<Cells_PostClearFormatsRequest>) {        
-        Object.assign(this, init);
-    } 
-}
-
-/**
- * Request model for Cells_PostColumnStyle operation.
- */
-export class Cells_PostColumnStyleRequest {
-    /**
-     * The workbook name.
-     */
-    public name: string;
-
-    /**
-     * The worksheet name.
-     */
-    public sheetName: string;
-
-    /**
-     * The column index.
-     */
-    public columnIndex: number;
-
-    /**
-     * Style dto
-     */
-    public style: Style;
-
-    /**
-     * The workbook folder.
-     */
-    public folder: string;
-
-    /**
-     * storage name.
-     */
-    public storage: string;
-    
-    public constructor(init?: Partial<Cells_PostColumnStyleRequest>) {        
-        Object.assign(this, init);
-    } 
-}
-
-/**
- * Request model for Cells_PostCopyCellIntoCell operation.
- */
-export class Cells_PostCopyCellIntoCellRequest {
-    /**
-     * Workbook name.
-     */
-    public name: string;
-
-    /**
-     * Destination cell name
-     */
-    public destCellName: string;
-
-    /**
-     * Destination worksheet name.
-     */
-    public sheetName: string;
-
-    /**
-     * Source worksheet name.
-     */
-    public worksheet: string;
-
-    /**
-     * Source cell name
-     */
-    public cellname: string;
-
-    /**
-     * Source row
-     */
-    public row: number;
-
-    /**
-     * Source column
-     */
-    public column: number;
-
-    /**
-     * Folder name
-     */
-    public folder: string;
-
-    /**
-     * storage name.
-     */
-    public storage: string;
-    
-    public constructor(init?: Partial<Cells_PostCopyCellIntoCellRequest>) {        
-        Object.assign(this, init);
-    } 
-}
-
-/**
- * Request model for Cells_PostCopyWorksheetColumns operation.
- */
-export class Cells_PostCopyWorksheetColumnsRequest {
-    /**
-     * The workbook name.
-     */
-    public name: string;
-
-    /**
-     * The worksheet name.
-     */
-    public sheetName: string;
-
-    /**
-     * Source column index
-     */
-    public sourceColumnIndex: number;
-
-    /**
-     * Destination column index
-     */
-    public destinationColumnIndex: number;
-
-    /**
-     * The copied column number
-     */
-    public columnNumber: number;
-
-    /**
-     * The Worksheet
-     */
-    public worksheet: string;
-
-    /**
-     * The document folder.
-     */
-    public folder: string;
-
-    /**
-     * storage name.
-     */
-    public storage: string;
-    
-    public constructor(init?: Partial<Cells_PostCopyWorksheetColumnsRequest>) {        
-        Object.assign(this, init);
-    } 
-}
-
-/**
- * Request model for Cells_PostCopyWorksheetRows operation.
- */
-export class Cells_PostCopyWorksheetRowsRequest {
-    /**
-     * The workbook name.
-     */
-    public name: string;
-
-    /**
-     * The worksheet name.
-     */
-    public sheetName: string;
-
-    /**
-     * Source row index
-     */
-    public sourceRowIndex: number;
-
-    /**
-     * Destination row index
-     */
-    public destinationRowIndex: number;
-
-    /**
-     * The copied row number
-     */
-    public rowNumber: number;
-
-    /**
-     * worksheet
-     */
-    public worksheet: string;
-
-    /**
-     * The document folder.
-     */
-    public folder: string;
-
-    /**
-     * storage name.
-     */
-    public storage: string;
-    
-    public constructor(init?: Partial<Cells_PostCopyWorksheetRowsRequest>) {        
-        Object.assign(this, init);
-    } 
-}
-
-/**
- * Request model for Cells_PostGroupWorksheetColumns operation.
- */
-export class Cells_PostGroupWorksheetColumnsRequest {
-    /**
-     * The workbook name.
-     */
-    public name: string;
-
-    /**
-     * The worksheet name.
-     */
-    public sheetName: string;
-
-    /**
-     * The first column index to be operated.
-     */
-    public firstIndex: number;
-
-    /**
-     * The last column index to be operated.
-     */
-    public lastIndex: number;
-
-    /**
-     * columns visible state
-     */
-    public hide: boolean;
-
-    /**
-     * The document folder.
-     */
-    public folder: string;
-
-    /**
-     * storage name.
-     */
-    public storage: string;
-    
-    public constructor(init?: Partial<Cells_PostGroupWorksheetColumnsRequest>) {        
-        Object.assign(this, init);
-    } 
-}
-
-/**
- * Request model for Cells_PostGroupWorksheetRows operation.
- */
-export class Cells_PostGroupWorksheetRowsRequest {
-    /**
-     * The workbook name.
-     */
-    public name: string;
-
-    /**
-     * The worksheet name.
-     */
-    public sheetName: string;
-
-    /**
-     * The first row index to be operated.
-     */
-    public firstIndex: number;
-
-    /**
-     * The last row index to be operated.
-     */
-    public lastIndex: number;
-
-    /**
-     * rows visible state
-     */
-    public hide: boolean;
-
-    /**
-     * The document folder.
-     */
-    public folder: string;
-
-    /**
-     * storage name.
-     */
-    public storage: string;
-    
-    public constructor(init?: Partial<Cells_PostGroupWorksheetRowsRequest>) {        
-        Object.assign(this, init);
-    } 
-}
-
-/**
- * Request model for Cells_PostHideWorksheetColumns operation.
- */
-export class Cells_PostHideWorksheetColumnsRequest {
-    /**
-     * The workbook name.
-     */
-    public name: string;
-
-    /**
-     * The worksheet name.
-     */
-    public sheetName: string;
-
-    /**
-     * The begin column index to be operated.
-     */
-    public startColumn: number;
-
-    /**
-     * Number of columns to be operated.
-     */
-    public totalColumns: number;
-
-    /**
-     * The document folder.
-     */
-    public folder: string;
-
-    /**
-     * storage name.
-     */
-    public storage: string;
-    
-    public constructor(init?: Partial<Cells_PostHideWorksheetColumnsRequest>) {        
-        Object.assign(this, init);
-    } 
-}
-
-/**
- * Request model for Cells_PostHideWorksheetRows operation.
- */
-export class Cells_PostHideWorksheetRowsRequest {
-    /**
-     * The workbook name.
-     */
-    public name: string;
-
-    /**
-     * The worksheet name.
-     */
-    public sheetName: string;
-
-    /**
-     * The begin row index to be operated.
-     */
-    public startrow: number;
-
-    /**
-     * Number of rows to be operated.
-     */
-    public totalRows: number;
-
-    /**
-     * The document folder.
-     */
-    public folder: string;
-
-    /**
-     * storage name.
-     */
-    public storage: string;
-    
-    public constructor(init?: Partial<Cells_PostHideWorksheetRowsRequest>) {        
-        Object.assign(this, init);
-    } 
-}
-
-/**
- * Request model for Cells_PostRowStyle operation.
- */
-export class Cells_PostRowStyleRequest {
-    /**
-     * The workbook name.
-     */
-    public name: string;
-
-    /**
-     * The worksheet name.
-     */
-    public sheetName: string;
-
-    /**
-     * The row index.
-     */
-    public rowIndex: number;
-
-    /**
-     * Style dto
-     */
-    public style: Style;
-
-    /**
-     * The document folder.
-     */
-    public folder: string;
-
-    /**
-     * storage name.
-     */
-    public storage: string;
-    
-    public constructor(init?: Partial<Cells_PostRowStyleRequest>) {        
-        Object.assign(this, init);
-    } 
-}
-
-/**
- * Request model for Cells_PostSetCellHtmlString operation.
- */
-export class Cells_PostSetCellHtmlStringRequest {
-    /**
-     * Workbook name.
-     */
-    public name: string;
-
-    /**
-     * Worksheet name.
-     */
-    public sheetName: string;
-
-    /**
-     * The cell name.
-     */
-    public cellName: string;
-
-    /**
-     * The workbook folder.
-     */
-    public folder: string;
-
-    /**
-     * storage name.
-     */
-    public storage: string;
-    
-    public constructor(init?: Partial<Cells_PostSetCellHtmlStringRequest>) {        
-        Object.assign(this, init);
-    } 
-}
-
-/**
- * Request model for Cells_PostSetCellRangeValue operation.
- */
-export class Cells_PostSetCellRangeValueRequest {
-    /**
-     * Workbook name.
-     */
-    public name: string;
-
-    /**
-     * Worksheet name.
-     */
-    public sheetName: string;
-
-    /**
-     * Cell area (like \"A1:C2\")
-     */
-    public cellarea: string;
-
-    /**
-     * Range value
-     */
-    public value: string;
-
-    /**
-     * Value data type (like \"int\")
-     */
-    public type: string;
-
-    /**
-     * Folder name
-     */
-    public folder: string;
-
-    /**
-     * storage name.
-     */
-    public storage: string;
-    
-    public constructor(init?: Partial<Cells_PostSetCellRangeValueRequest>) {        
-        Object.assign(this, init);
-    } 
-}
-
-/**
- * Request model for Cells_PostSetWorksheetColumnWidth operation.
- */
-export class Cells_PostSetWorksheetColumnWidthRequest {
-    /**
-     * The workbook name.
-     */
-    public name: string;
-
-    /**
-     * The worksheet name.
-     */
-    public sheetName: string;
-
-    /**
-     * The column index.
-     */
-    public columnIndex: number;
-
-    /**
-     * The width.
-     */
-    public width: number;
-
-    /**
-     * The workbook folder.
-     */
-    public folder: string;
-
-    /**
-     * storage name.
-     */
-    public storage: string;
-    
-    public constructor(init?: Partial<Cells_PostSetWorksheetColumnWidthRequest>) {        
-        Object.assign(this, init);
-    } 
-}
-
-/**
- * Request model for Cells_PostUngroupWorksheetColumns operation.
- */
-export class Cells_PostUngroupWorksheetColumnsRequest {
-    /**
-     * The workbook name.
-     */
-    public name: string;
-
-    /**
-     * The worksheet name.
-     */
-    public sheetName: string;
-
-    /**
-     * The first column index to be operated.
-     */
-    public firstIndex: number;
-
-    /**
-     * The last column index to be operated.
-     */
-    public lastIndex: number;
-
-    /**
-     * The document folder.
-     */
-    public folder: string;
-
-    /**
-     * storage name.
-     */
-    public storage: string;
-    
-    public constructor(init?: Partial<Cells_PostUngroupWorksheetColumnsRequest>) {        
-        Object.assign(this, init);
-    } 
-}
-
-/**
- * Request model for Cells_PostUngroupWorksheetRows operation.
- */
-export class Cells_PostUngroupWorksheetRowsRequest {
-    /**
-     * The workbook name.
-     */
-    public name: string;
-
-    /**
-     * The worksheet name.
-     */
-    public sheetName: string;
-
-    /**
-     * The first row index to be operated.
-     */
-    public firstIndex: number;
-
-    /**
-     * The last row index to be operated.
-     */
-    public lastIndex: number;
-
-    /**
-     * Is all row to be operated
-     */
-    public isAll: boolean;
-
-    /**
-     * The document folder.
-     */
-    public folder: string;
-
-    /**
-     * storage name.
-     */
-    public storage: string;
-    
-    public constructor(init?: Partial<Cells_PostUngroupWorksheetRowsRequest>) {        
-        Object.assign(this, init);
-    } 
-}
-
-/**
- * Request model for Cells_PostUnhideWorksheetColumns operation.
- */
-export class Cells_PostUnhideWorksheetColumnsRequest {
-    /**
-     * The workbook name.
-     */
-    public name: string;
-
-    /**
-     * The worksheet name.
-     */
-    public sheetName: string;
-
-    /**
-     * The begin column index to be operated.
-     */
-    public startcolumn: number;
-
-    /**
-     * Number of columns to be operated.
-     */
-    public totalColumns: number;
-
-    /**
-     * The new column width.
-     */
-    public width: number;
-
-    /**
-     * The document folder.
-     */
-    public folder: string;
-
-    /**
-     * storage name.
-     */
-    public storage: string;
-    
-    public constructor(init?: Partial<Cells_PostUnhideWorksheetColumnsRequest>) {        
-        Object.assign(this, init);
-    } 
-}
-
-/**
- * Request model for Cells_PostUnhideWorksheetRows operation.
- */
-export class Cells_PostUnhideWorksheetRowsRequest {
-    /**
-     * The workbook name.
-     */
-    public name: string;
-
-    /**
-     * The worksheet name.
-     */
-    public sheetName: string;
-
-    /**
-     * The begin row index to be operated.
-     */
-    public startrow: number;
-
-    /**
-     * Number of rows to be operated.
-     */
-    public totalRows: number;
-
-    /**
-     * The new row height.
-     */
-    public height: number;
-
-    /**
-     * The document folder.
-     */
-    public folder: string;
-
-    /**
-     * storage name.
-     */
-    public storage: string;
-    
-    public constructor(init?: Partial<Cells_PostUnhideWorksheetRowsRequest>) {        
-        Object.assign(this, init);
-    } 
-}
-
-/**
- * Request model for Cells_PostUpdateWorksheetCellStyle operation.
- */
-export class Cells_PostUpdateWorksheetCellStyleRequest {
-    /**
-     * Workbook name.
-     */
-    public name: string;
-
-    /**
-     * Worksheet name.
-     */
-    public sheetName: string;
-
-    /**
-     * The cell name.
-     */
-    public cellName: string;
-
-    /**
-     * with update style settings.
-     */
-    public style: Style;
-
-    /**
-     * The workbook folder.
-     */
-    public folder: string;
-
-    /**
-     * storage name.
-     */
-    public storage: string;
-    
-    public constructor(init?: Partial<Cells_PostUpdateWorksheetCellStyleRequest>) {        
-        Object.assign(this, init);
-    } 
-}
-
-/**
- * Request model for Cells_PostUpdateWorksheetRangeStyle operation.
- */
-export class Cells_PostUpdateWorksheetRangeStyleRequest {
-    /**
-     * Workbook name.
-     */
-    public name: string;
-
-    /**
-     * Worksheet name.
-     */
-    public sheetName: string;
-
-    /**
-     * The range.
-     */
-    public range: string;
-
-    /**
-     * with update style settings.
-     */
-    public style: Style;
-
-    /**
-     * The workbook folder.
-     */
-    public folder: string;
-
-    /**
-     * storage name.
-     */
-    public storage: string;
-    
-    public constructor(init?: Partial<Cells_PostUpdateWorksheetRangeStyleRequest>) {        
-        Object.assign(this, init);
-    } 
-}
-
-/**
- * Request model for Cells_PostUpdateWorksheetRow operation.
- */
-export class Cells_PostUpdateWorksheetRowRequest {
-    /**
-     * The workbook name.
-     */
-    public name: string;
-
-    /**
-     * The worksheet name.
-     */
-    public sheetName: string;
-
-    /**
-     * The row index.
-     */
-    public rowIndex: number;
-
-    /**
-     * The new row height.
-     */
-    public height: number;
-
-    /**
-     * The document folder.
-     */
-    public folder: string;
-
-    /**
-     * storage name.
-     */
-    public storage: string;
-    
-    public constructor(init?: Partial<Cells_PostUpdateWorksheetRowRequest>) {        
-        Object.assign(this, init);
-    } 
-}
-
-/**
- * Request model for Cells_PostWorksheetCellSetValue operation.
- */
-export class Cells_PostWorksheetCellSetValueRequest {
-    /**
-     * The document name.
-     */
-    public name: string;
-
-    /**
-     * The worksheet name.
-     */
-    public sheetName: string;
-
-    /**
-     * The cell name.
-     */
-    public cellName: string;
-
-    /**
-     * The cell value.
-     */
-    public value: string;
-
-    /**
-     * The value type.
-     */
-    public type: string;
-
-    /**
-     * Formula for cell
-     */
-    public formula: string;
-
-    /**
-     * The document folder.
-     */
-    public folder: string;
-
-    /**
-     * storage name.
-     */
-    public storage: string;
-    
-    public constructor(init?: Partial<Cells_PostWorksheetCellSetValueRequest>) {        
-        Object.assign(this, init);
-    } 
-}
-
-/**
- * Request model for Cells_PostWorksheetMerge operation.
- */
-export class Cells_PostWorksheetMergeRequest {
-    /**
-     * The workbook name.
-     */
-    public name: string;
-
-    /**
-     * The worksheet name.
-     */
-    public sheetName: string;
-
-    /**
-     * The start row.
-     */
-    public startRow: number;
-
-    /**
-     * The start column.
-     */
-    public startColumn: number;
-
-    /**
-     * The total rows
-     */
-    public totalRows: number;
-
-    /**
-     * The total columns.
-     */
-    public totalColumns: number;
-
-    /**
-     * The workbook folder.
-     */
-    public folder: string;
-
-    /**
-     * storage name.
-     */
-    public storage: string;
-    
-    public constructor(init?: Partial<Cells_PostWorksheetMergeRequest>) {        
-        Object.assign(this, init);
-    } 
-}
-
-/**
- * Request model for Cells_PostWorksheetUnmerge operation.
- */
-export class Cells_PostWorksheetUnmergeRequest {
-    /**
-     * The workbook name.
-     */
-    public name: string;
-
-    /**
-     * The worksheet name.
-     */
-    public sheetName: string;
-
-    /**
-     * The start row.
-     */
-    public startRow: number;
-
-    /**
-     * The start column.
-     */
-    public startColumn: number;
-
-    /**
-     * The total rows
-     */
-    public totalRows: number;
-
-    /**
-     * The total columns.
-     */
-    public totalColumns: number;
-
-    /**
-     * The workbook folder.
-     */
-    public folder: string;
-
-    /**
-     * storage name.
-     */
-    public storage: string;
-    
-    public constructor(init?: Partial<Cells_PostWorksheetUnmergeRequest>) {        
-        Object.assign(this, init);
-    } 
-}
-
-/**
- * Request model for Cells_PutInsertWorksheetColumns operation.
- */
-export class Cells_PutInsertWorksheetColumnsRequest {
-    /**
-     * The workbook name.
-     */
-    public name: string;
-
-    /**
-     * The worksheet name.
-     */
-    public sheetName: string;
-
-    /**
-     * The column index.
-     */
-    public columnIndex: number;
-
-    /**
-     * The columns.
-     */
-    public columns: number;
-
-    /**
-     * The update reference.
-     */
-    public updateReference: boolean;
-
-    /**
-     * The workbook folder.
-     */
-    public folder: string;
-
-    /**
-     * storage name.
-     */
-    public storage: string;
-    
-    public constructor(init?: Partial<Cells_PutInsertWorksheetColumnsRequest>) {        
-        Object.assign(this, init);
-    } 
-}
-
-/**
- * Request model for Cells_PutInsertWorksheetRow operation.
- */
-export class Cells_PutInsertWorksheetRowRequest {
-    /**
-     * The workbook name.
-     */
-    public name: string;
-
-    /**
-     * The worksheet name.
-     */
-    public sheetName: string;
-
-    /**
-     * The new row index.
-     */
-    public rowIndex: number;
-
-    /**
-     * The document folder.
-     */
-    public folder: string;
-
-    /**
-     * storage name.
-     */
-    public storage: string;
-    
-    public constructor(init?: Partial<Cells_PutInsertWorksheetRowRequest>) {        
-        Object.assign(this, init);
-    } 
-}
-
-/**
- * Request model for Cells_PutInsertWorksheetRows operation.
- */
-export class Cells_PutInsertWorksheetRowsRequest {
-    /**
-     * The workbook name.
-     */
-    public name: string;
-
-    /**
-     * The worksheet name.
-     */
-    public sheetName: string;
-
-    /**
-     * The begin row index to be operated.
-     */
-    public startrow: number;
-
-    /**
-     * Number of rows to be operated.
-     */
-    public totalRows: number;
-
-    /**
-     * Indicates if update references in other worksheets.
-     */
-    public updateReference: boolean;
-
-    /**
-     * The document folder.
-     */
-    public folder: string;
-
-    /**
-     * storage name.
-     */
-    public storage: string;
-    
-    public constructor(init?: Partial<Cells_PutInsertWorksheetRowsRequest>) {        
-        Object.assign(this, init);
-    } 
-}
 
 /**
  * Request model for CellsAutoFilter_DeleteWorksheetDateFilter operation.
@@ -17900,6 +16756,395 @@ export class CellsConditionalFormattings_PutWorksheetFormatConditionConditionReq
 }
 
 /**
+ * Request model for Cells_DeleteWorksheetColumns operation.
+ */
+export class Cells_DeleteWorksheetColumnsRequest {
+    /**
+     * The workbook name.
+     */
+    public name: string;
+
+    /**
+     * The worksheet name.
+     */
+    public sheetName: string;
+
+    /**
+     * The column index.
+     */
+    public columnIndex: number;
+
+    /**
+     * The columns.
+     */
+    public columns: number;
+
+    /**
+     * The update reference.
+     */
+    public updateReference: boolean;
+
+    /**
+     * The workbook folder.
+     */
+    public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
+    
+    public constructor(init?: Partial<Cells_DeleteWorksheetColumnsRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
+ * Request model for Cells_DeleteWorksheetRow operation.
+ */
+export class Cells_DeleteWorksheetRowRequest {
+    /**
+     * The workbook name.
+     */
+    public name: string;
+
+    /**
+     * The worksheet bame.
+     */
+    public sheetName: string;
+
+    /**
+     * The row index.
+     */
+    public rowIndex: number;
+
+    /**
+     * The document folder.
+     */
+    public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
+    
+    public constructor(init?: Partial<Cells_DeleteWorksheetRowRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
+ * Request model for Cells_DeleteWorksheetRows operation.
+ */
+export class Cells_DeleteWorksheetRowsRequest {
+    /**
+     * The workbook name.
+     */
+    public name: string;
+
+    /**
+     * The worksheet bame.
+     */
+    public sheetName: string;
+
+    /**
+     * The begin row index to be operated.
+     */
+    public startrow: number;
+
+    /**
+     * Number of rows to be operated.
+     */
+    public totalRows: number;
+
+    /**
+     * Indicates if update references in other worksheets.
+     */
+    public updateReference: boolean;
+
+    /**
+     * The document folder.
+     */
+    public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
+    
+    public constructor(init?: Partial<Cells_DeleteWorksheetRowsRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
+ * Request model for Cells_GetCellHtmlString operation.
+ */
+export class Cells_GetCellHtmlStringRequest {
+    /**
+     * Document name.
+     */
+    public name: string;
+
+    /**
+     * Worksheet name.
+     */
+    public sheetName: string;
+
+    /**
+     * The cell's  name.
+     */
+    public cellName: string;
+
+    /**
+     * Document's folder.
+     */
+    public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
+    
+    public constructor(init?: Partial<Cells_GetCellHtmlStringRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
+ * Request model for Cells_GetWorksheetCell operation.
+ */
+export class Cells_GetWorksheetCellRequest {
+    /**
+     * Document name.
+     */
+    public name: string;
+
+    /**
+     * Worksheet name.
+     */
+    public sheetName: string;
+
+    /**
+     * The cell's or method name. (Method name like firstcell, endcell etc.)
+     */
+    public cellOrMethodName: string;
+
+    /**
+     * Document's folder.
+     */
+    public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
+    
+    public constructor(init?: Partial<Cells_GetWorksheetCellRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
+ * Request model for Cells_GetWorksheetCellStyle operation.
+ */
+export class Cells_GetWorksheetCellStyleRequest {
+    /**
+     * Document name.
+     */
+    public name: string;
+
+    /**
+     * Worksheet name.
+     */
+    public sheetName: string;
+
+    /**
+     * Cell's name.
+     */
+    public cellName: string;
+
+    /**
+     * Document's folder.
+     */
+    public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
+    
+    public constructor(init?: Partial<Cells_GetWorksheetCellStyleRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
+ * Request model for Cells_GetWorksheetCells operation.
+ */
+export class Cells_GetWorksheetCellsRequest {
+    /**
+     * Document name.
+     */
+    public name: string;
+
+    /**
+     * Worksheet name.
+     */
+    public sheetName: string;
+
+    /**
+     * Begginig offset.
+     */
+    public offest: number;
+
+    /**
+     * Maximum amount of cells in the response.
+     */
+    public count: number;
+
+    /**
+     * Document's folder name.
+     */
+    public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
+    
+    public constructor(init?: Partial<Cells_GetWorksheetCellsRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
+ * Request model for Cells_GetWorksheetColumn operation.
+ */
+export class Cells_GetWorksheetColumnRequest {
+    /**
+     * The workbook name.
+     */
+    public name: string;
+
+    /**
+     * The worksheet name.
+     */
+    public sheetName: string;
+
+    /**
+     * The column index.
+     */
+    public columnIndex: number;
+
+    /**
+     * The workbook folder.
+     */
+    public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
+    
+    public constructor(init?: Partial<Cells_GetWorksheetColumnRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
+ * Request model for Cells_GetWorksheetColumns operation.
+ */
+export class Cells_GetWorksheetColumnsRequest {
+    /**
+     * The workbook name.
+     */
+    public name: string;
+
+    /**
+     * The worksheet name.
+     */
+    public sheetName: string;
+
+    /**
+     * The workdook folder.
+     */
+    public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
+    
+    public constructor(init?: Partial<Cells_GetWorksheetColumnsRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
+ * Request model for Cells_GetWorksheetRow operation.
+ */
+export class Cells_GetWorksheetRowRequest {
+    /**
+     * The workbook name.
+     */
+    public name: string;
+
+    /**
+     * The worksheet name.
+     */
+    public sheetName: string;
+
+    /**
+     * The row index.
+     */
+    public rowIndex: number;
+
+    /**
+     * The workbook folder.
+     */
+    public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
+    
+    public constructor(init?: Partial<Cells_GetWorksheetRowRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
+ * Request model for Cells_GetWorksheetRows operation.
+ */
+export class Cells_GetWorksheetRowsRequest {
+    /**
+     * The workbook name.
+     */
+    public name: string;
+
+    /**
+     * The worksheet name.
+     */
+    public sheetName: string;
+
+    /**
+     * The workdook folder.
+     */
+    public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
+    
+    public constructor(init?: Partial<Cells_GetWorksheetRowsRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
  * Request model for CellsHypelinks_DeleteWorksheetHyperlink operation.
  */
 export class CellsHypelinks_DeleteWorksheetHyperlinkRequest {
@@ -18435,6 +17680,16 @@ export class CellsListObjects_PutWorksheetListObjectRequest {
     public endColumn: number;
 
     /**
+     * Whether the range has headers.
+     */
+    public hasHeaders: boolean;
+
+    /**
+     * List Object
+     */
+    public listObject: ListObject;
+
+    /**
      * Document's folder.
      */
     public folder: string;
@@ -18443,11 +17698,6 @@ export class CellsListObjects_PutWorksheetListObjectRequest {
      * storage name.
      */
     public storage: string;
-
-    /**
-     * Whether the range has headers.
-     */
-    public hasHeaders: boolean;
     
     public constructor(init?: Partial<CellsListObjects_PutWorksheetListObjectRequest>) {        
         Object.assign(this, init);
@@ -20332,6 +19582,1140 @@ export class CellsPivotTables_PutWorksheetPivotTableFilterRequest {
 }
 
 /**
+ * Request model for Cells_PostCellCalculate operation.
+ */
+export class Cells_PostCellCalculateRequest {
+    /**
+     * Gets or sets name
+     */
+    public name: string;
+
+    /**
+     * Gets or sets sheetName
+     */
+    public sheetName: string;
+
+    /**
+     * Gets or sets cellName
+     */
+    public cellName: string;
+
+    /**
+     * Gets or sets options
+     */
+    public options: CalculationOptions;
+
+    /**
+     * Gets or sets folder
+     */
+    public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
+    
+    public constructor(init?: Partial<Cells_PostCellCalculateRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
+ * Request model for Cells_PostCellCharacters operation.
+ */
+export class Cells_PostCellCharactersRequest {
+    /**
+     * Gets or sets name
+     */
+    public name: string;
+
+    /**
+     * Gets or sets sheetName
+     */
+    public sheetName: string;
+
+    /**
+     * Gets or sets cellName
+     */
+    public cellName: string;
+
+    /**
+     * Gets or sets options
+     */
+    public options: Array<FontSetting>;
+
+    /**
+     * Gets or sets folder
+     */
+    public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
+    
+    public constructor(init?: Partial<Cells_PostCellCharactersRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
+ * Request model for Cells_PostClearContents operation.
+ */
+export class Cells_PostClearContentsRequest {
+    /**
+     * Workbook name.
+     */
+    public name: string;
+
+    /**
+     * Worksheet name.
+     */
+    public sheetName: string;
+
+    /**
+     * The range.
+     */
+    public range: string;
+
+    /**
+     * The start row.
+     */
+    public startRow: number;
+
+    /**
+     * The start column.
+     */
+    public startColumn: number;
+
+    /**
+     * The end row.
+     */
+    public endRow: number;
+
+    /**
+     * The end column.
+     */
+    public endColumn: number;
+
+    /**
+     * The workbook folder.
+     */
+    public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
+    
+    public constructor(init?: Partial<Cells_PostClearContentsRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
+ * Request model for Cells_PostClearFormats operation.
+ */
+export class Cells_PostClearFormatsRequest {
+    /**
+     * Workbook name.
+     */
+    public name: string;
+
+    /**
+     * Worksheet name.
+     */
+    public sheetName: string;
+
+    /**
+     * The range.
+     */
+    public range: string;
+
+    /**
+     * The start row.
+     */
+    public startRow: number;
+
+    /**
+     * The start column.
+     */
+    public startColumn: number;
+
+    /**
+     * The end row.
+     */
+    public endRow: number;
+
+    /**
+     * The end column.
+     */
+    public endColumn: number;
+
+    /**
+     * The workbook folder.
+     */
+    public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
+    
+    public constructor(init?: Partial<Cells_PostClearFormatsRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
+ * Request model for Cells_PostColumnStyle operation.
+ */
+export class Cells_PostColumnStyleRequest {
+    /**
+     * The workbook name.
+     */
+    public name: string;
+
+    /**
+     * The worksheet name.
+     */
+    public sheetName: string;
+
+    /**
+     * The column index.
+     */
+    public columnIndex: number;
+
+    /**
+     * Style dto
+     */
+    public style: Style;
+
+    /**
+     * The workbook folder.
+     */
+    public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
+    
+    public constructor(init?: Partial<Cells_PostColumnStyleRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
+ * Request model for Cells_PostCopyCellIntoCell operation.
+ */
+export class Cells_PostCopyCellIntoCellRequest {
+    /**
+     * Workbook name.
+     */
+    public name: string;
+
+    /**
+     * Destination cell name
+     */
+    public destCellName: string;
+
+    /**
+     * Destination worksheet name.
+     */
+    public sheetName: string;
+
+    /**
+     * Source worksheet name.
+     */
+    public worksheet: string;
+
+    /**
+     * Source cell name
+     */
+    public cellname: string;
+
+    /**
+     * Source row
+     */
+    public row: number;
+
+    /**
+     * Source column
+     */
+    public column: number;
+
+    /**
+     * Folder name
+     */
+    public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
+    
+    public constructor(init?: Partial<Cells_PostCopyCellIntoCellRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
+ * Request model for Cells_PostCopyWorksheetColumns operation.
+ */
+export class Cells_PostCopyWorksheetColumnsRequest {
+    /**
+     * The workbook name.
+     */
+    public name: string;
+
+    /**
+     * The worksheet name.
+     */
+    public sheetName: string;
+
+    /**
+     * Source column index
+     */
+    public sourceColumnIndex: number;
+
+    /**
+     * Destination column index
+     */
+    public destinationColumnIndex: number;
+
+    /**
+     * The copied column number
+     */
+    public columnNumber: number;
+
+    /**
+     * The Worksheet
+     */
+    public worksheet: string;
+
+    /**
+     * The document folder.
+     */
+    public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
+    
+    public constructor(init?: Partial<Cells_PostCopyWorksheetColumnsRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
+ * Request model for Cells_PostCopyWorksheetRows operation.
+ */
+export class Cells_PostCopyWorksheetRowsRequest {
+    /**
+     * The workbook name.
+     */
+    public name: string;
+
+    /**
+     * The worksheet name.
+     */
+    public sheetName: string;
+
+    /**
+     * Source row index
+     */
+    public sourceRowIndex: number;
+
+    /**
+     * Destination row index
+     */
+    public destinationRowIndex: number;
+
+    /**
+     * The copied row number
+     */
+    public rowNumber: number;
+
+    /**
+     * worksheet
+     */
+    public worksheet: string;
+
+    /**
+     * The document folder.
+     */
+    public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
+    
+    public constructor(init?: Partial<Cells_PostCopyWorksheetRowsRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
+ * Request model for Cells_PostGroupWorksheetColumns operation.
+ */
+export class Cells_PostGroupWorksheetColumnsRequest {
+    /**
+     * The workbook name.
+     */
+    public name: string;
+
+    /**
+     * The worksheet name.
+     */
+    public sheetName: string;
+
+    /**
+     * The first column index to be operated.
+     */
+    public firstIndex: number;
+
+    /**
+     * The last column index to be operated.
+     */
+    public lastIndex: number;
+
+    /**
+     * columns visible state
+     */
+    public hide: boolean;
+
+    /**
+     * The document folder.
+     */
+    public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
+    
+    public constructor(init?: Partial<Cells_PostGroupWorksheetColumnsRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
+ * Request model for Cells_PostGroupWorksheetRows operation.
+ */
+export class Cells_PostGroupWorksheetRowsRequest {
+    /**
+     * The workbook name.
+     */
+    public name: string;
+
+    /**
+     * The worksheet name.
+     */
+    public sheetName: string;
+
+    /**
+     * The first row index to be operated.
+     */
+    public firstIndex: number;
+
+    /**
+     * The last row index to be operated.
+     */
+    public lastIndex: number;
+
+    /**
+     * rows visible state
+     */
+    public hide: boolean;
+
+    /**
+     * The document folder.
+     */
+    public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
+    
+    public constructor(init?: Partial<Cells_PostGroupWorksheetRowsRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
+ * Request model for Cells_PostHideWorksheetColumns operation.
+ */
+export class Cells_PostHideWorksheetColumnsRequest {
+    /**
+     * The workbook name.
+     */
+    public name: string;
+
+    /**
+     * The worksheet name.
+     */
+    public sheetName: string;
+
+    /**
+     * The begin column index to be operated.
+     */
+    public startColumn: number;
+
+    /**
+     * Number of columns to be operated.
+     */
+    public totalColumns: number;
+
+    /**
+     * The document folder.
+     */
+    public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
+    
+    public constructor(init?: Partial<Cells_PostHideWorksheetColumnsRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
+ * Request model for Cells_PostHideWorksheetRows operation.
+ */
+export class Cells_PostHideWorksheetRowsRequest {
+    /**
+     * The workbook name.
+     */
+    public name: string;
+
+    /**
+     * The worksheet name.
+     */
+    public sheetName: string;
+
+    /**
+     * The begin row index to be operated.
+     */
+    public startrow: number;
+
+    /**
+     * Number of rows to be operated.
+     */
+    public totalRows: number;
+
+    /**
+     * The document folder.
+     */
+    public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
+    
+    public constructor(init?: Partial<Cells_PostHideWorksheetRowsRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
+ * Request model for Cells_PostRowStyle operation.
+ */
+export class Cells_PostRowStyleRequest {
+    /**
+     * The workbook name.
+     */
+    public name: string;
+
+    /**
+     * The worksheet name.
+     */
+    public sheetName: string;
+
+    /**
+     * The row index.
+     */
+    public rowIndex: number;
+
+    /**
+     * Style dto
+     */
+    public style: Style;
+
+    /**
+     * The document folder.
+     */
+    public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
+    
+    public constructor(init?: Partial<Cells_PostRowStyleRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
+ * Request model for Cells_PostSetCellHtmlString operation.
+ */
+export class Cells_PostSetCellHtmlStringRequest {
+    /**
+     * Workbook name.
+     */
+    public name: string;
+
+    /**
+     * Worksheet name.
+     */
+    public sheetName: string;
+
+    /**
+     * The cell name.
+     */
+    public cellName: string;
+
+    /**
+     * The workbook folder.
+     */
+    public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
+    
+    public constructor(init?: Partial<Cells_PostSetCellHtmlStringRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
+ * Request model for Cells_PostSetCellRangeValue operation.
+ */
+export class Cells_PostSetCellRangeValueRequest {
+    /**
+     * Workbook name.
+     */
+    public name: string;
+
+    /**
+     * Worksheet name.
+     */
+    public sheetName: string;
+
+    /**
+     * Cell area (like \"A1:C2\")
+     */
+    public cellarea: string;
+
+    /**
+     * Range value
+     */
+    public value: string;
+
+    /**
+     * Value data type (like \"int\")
+     */
+    public type: string;
+
+    /**
+     * Folder name
+     */
+    public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
+    
+    public constructor(init?: Partial<Cells_PostSetCellRangeValueRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
+ * Request model for Cells_PostSetWorksheetColumnWidth operation.
+ */
+export class Cells_PostSetWorksheetColumnWidthRequest {
+    /**
+     * The workbook name.
+     */
+    public name: string;
+
+    /**
+     * The worksheet name.
+     */
+    public sheetName: string;
+
+    /**
+     * The column index.
+     */
+    public columnIndex: number;
+
+    /**
+     * The width.
+     */
+    public width: number;
+
+    /**
+     * The workbook folder.
+     */
+    public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
+    
+    public constructor(init?: Partial<Cells_PostSetWorksheetColumnWidthRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
+ * Request model for Cells_PostUngroupWorksheetColumns operation.
+ */
+export class Cells_PostUngroupWorksheetColumnsRequest {
+    /**
+     * The workbook name.
+     */
+    public name: string;
+
+    /**
+     * The worksheet name.
+     */
+    public sheetName: string;
+
+    /**
+     * The first column index to be operated.
+     */
+    public firstIndex: number;
+
+    /**
+     * The last column index to be operated.
+     */
+    public lastIndex: number;
+
+    /**
+     * The document folder.
+     */
+    public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
+    
+    public constructor(init?: Partial<Cells_PostUngroupWorksheetColumnsRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
+ * Request model for Cells_PostUngroupWorksheetRows operation.
+ */
+export class Cells_PostUngroupWorksheetRowsRequest {
+    /**
+     * The workbook name.
+     */
+    public name: string;
+
+    /**
+     * The worksheet name.
+     */
+    public sheetName: string;
+
+    /**
+     * The first row index to be operated.
+     */
+    public firstIndex: number;
+
+    /**
+     * The last row index to be operated.
+     */
+    public lastIndex: number;
+
+    /**
+     * Is all row to be operated
+     */
+    public isAll: boolean;
+
+    /**
+     * The document folder.
+     */
+    public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
+    
+    public constructor(init?: Partial<Cells_PostUngroupWorksheetRowsRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
+ * Request model for Cells_PostUnhideWorksheetColumns operation.
+ */
+export class Cells_PostUnhideWorksheetColumnsRequest {
+    /**
+     * The workbook name.
+     */
+    public name: string;
+
+    /**
+     * The worksheet name.
+     */
+    public sheetName: string;
+
+    /**
+     * The begin column index to be operated.
+     */
+    public startcolumn: number;
+
+    /**
+     * Number of columns to be operated.
+     */
+    public totalColumns: number;
+
+    /**
+     * The new column width.
+     */
+    public width: number;
+
+    /**
+     * The document folder.
+     */
+    public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
+    
+    public constructor(init?: Partial<Cells_PostUnhideWorksheetColumnsRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
+ * Request model for Cells_PostUnhideWorksheetRows operation.
+ */
+export class Cells_PostUnhideWorksheetRowsRequest {
+    /**
+     * The workbook name.
+     */
+    public name: string;
+
+    /**
+     * The worksheet name.
+     */
+    public sheetName: string;
+
+    /**
+     * The begin row index to be operated.
+     */
+    public startrow: number;
+
+    /**
+     * Number of rows to be operated.
+     */
+    public totalRows: number;
+
+    /**
+     * The new row height.
+     */
+    public height: number;
+
+    /**
+     * The document folder.
+     */
+    public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
+    
+    public constructor(init?: Partial<Cells_PostUnhideWorksheetRowsRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
+ * Request model for Cells_PostUpdateWorksheetCellStyle operation.
+ */
+export class Cells_PostUpdateWorksheetCellStyleRequest {
+    /**
+     * Workbook name.
+     */
+    public name: string;
+
+    /**
+     * Worksheet name.
+     */
+    public sheetName: string;
+
+    /**
+     * The cell name.
+     */
+    public cellName: string;
+
+    /**
+     * with update style settings.
+     */
+    public style: Style;
+
+    /**
+     * The workbook folder.
+     */
+    public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
+    
+    public constructor(init?: Partial<Cells_PostUpdateWorksheetCellStyleRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
+ * Request model for Cells_PostUpdateWorksheetRangeStyle operation.
+ */
+export class Cells_PostUpdateWorksheetRangeStyleRequest {
+    /**
+     * Workbook name.
+     */
+    public name: string;
+
+    /**
+     * Worksheet name.
+     */
+    public sheetName: string;
+
+    /**
+     * The range.
+     */
+    public range: string;
+
+    /**
+     * with update style settings.
+     */
+    public style: Style;
+
+    /**
+     * The workbook folder.
+     */
+    public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
+    
+    public constructor(init?: Partial<Cells_PostUpdateWorksheetRangeStyleRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
+ * Request model for Cells_PostUpdateWorksheetRow operation.
+ */
+export class Cells_PostUpdateWorksheetRowRequest {
+    /**
+     * The workbook name.
+     */
+    public name: string;
+
+    /**
+     * The worksheet name.
+     */
+    public sheetName: string;
+
+    /**
+     * The row index.
+     */
+    public rowIndex: number;
+
+    /**
+     * The new row height.
+     */
+    public height: number;
+
+    /**
+     * The document folder.
+     */
+    public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
+    
+    public constructor(init?: Partial<Cells_PostUpdateWorksheetRowRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
+ * Request model for Cells_PostWorksheetCellSetValue operation.
+ */
+export class Cells_PostWorksheetCellSetValueRequest {
+    /**
+     * The document name.
+     */
+    public name: string;
+
+    /**
+     * The worksheet name.
+     */
+    public sheetName: string;
+
+    /**
+     * The cell name.
+     */
+    public cellName: string;
+
+    /**
+     * The cell value.
+     */
+    public value: string;
+
+    /**
+     * The value type.
+     */
+    public type: string;
+
+    /**
+     * Formula for cell
+     */
+    public formula: string;
+
+    /**
+     * The document folder.
+     */
+    public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
+    
+    public constructor(init?: Partial<Cells_PostWorksheetCellSetValueRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
+ * Request model for Cells_PostWorksheetMerge operation.
+ */
+export class Cells_PostWorksheetMergeRequest {
+    /**
+     * The workbook name.
+     */
+    public name: string;
+
+    /**
+     * The worksheet name.
+     */
+    public sheetName: string;
+
+    /**
+     * The start row.
+     */
+    public startRow: number;
+
+    /**
+     * The start column.
+     */
+    public startColumn: number;
+
+    /**
+     * The total rows
+     */
+    public totalRows: number;
+
+    /**
+     * The total columns.
+     */
+    public totalColumns: number;
+
+    /**
+     * The workbook folder.
+     */
+    public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
+    
+    public constructor(init?: Partial<Cells_PostWorksheetMergeRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
+ * Request model for Cells_PostWorksheetUnmerge operation.
+ */
+export class Cells_PostWorksheetUnmergeRequest {
+    /**
+     * The workbook name.
+     */
+    public name: string;
+
+    /**
+     * The worksheet name.
+     */
+    public sheetName: string;
+
+    /**
+     * The start row.
+     */
+    public startRow: number;
+
+    /**
+     * The start column.
+     */
+    public startColumn: number;
+
+    /**
+     * The total rows
+     */
+    public totalRows: number;
+
+    /**
+     * The total columns.
+     */
+    public totalColumns: number;
+
+    /**
+     * The workbook folder.
+     */
+    public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
+    
+    public constructor(init?: Partial<Cells_PostWorksheetUnmergeRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
  * Request model for CellsProperties_DeleteDocumentProperties operation.
  */
 export class CellsProperties_DeleteDocumentPropertiesRequest {
@@ -20467,6 +20851,128 @@ export class CellsProperties_PutDocumentPropertyRequest {
     public storage: string;
     
     public constructor(init?: Partial<CellsProperties_PutDocumentPropertyRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
+ * Request model for Cells_PutInsertWorksheetColumns operation.
+ */
+export class Cells_PutInsertWorksheetColumnsRequest {
+    /**
+     * The workbook name.
+     */
+    public name: string;
+
+    /**
+     * The worksheet name.
+     */
+    public sheetName: string;
+
+    /**
+     * The column index.
+     */
+    public columnIndex: number;
+
+    /**
+     * The columns.
+     */
+    public columns: number;
+
+    /**
+     * The update reference.
+     */
+    public updateReference: boolean;
+
+    /**
+     * The workbook folder.
+     */
+    public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
+    
+    public constructor(init?: Partial<Cells_PutInsertWorksheetColumnsRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
+ * Request model for Cells_PutInsertWorksheetRow operation.
+ */
+export class Cells_PutInsertWorksheetRowRequest {
+    /**
+     * The workbook name.
+     */
+    public name: string;
+
+    /**
+     * The worksheet name.
+     */
+    public sheetName: string;
+
+    /**
+     * The new row index.
+     */
+    public rowIndex: number;
+
+    /**
+     * The document folder.
+     */
+    public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
+    
+    public constructor(init?: Partial<Cells_PutInsertWorksheetRowRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
+ * Request model for Cells_PutInsertWorksheetRows operation.
+ */
+export class Cells_PutInsertWorksheetRowsRequest {
+    /**
+     * The workbook name.
+     */
+    public name: string;
+
+    /**
+     * The worksheet name.
+     */
+    public sheetName: string;
+
+    /**
+     * The begin row index to be operated.
+     */
+    public startrow: number;
+
+    /**
+     * Number of rows to be operated.
+     */
+    public totalRows: number;
+
+    /**
+     * Indicates if update references in other worksheets.
+     */
+    public updateReference: boolean;
+
+    /**
+     * The document folder.
+     */
+    public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
+    
+    public constructor(init?: Partial<Cells_PutInsertWorksheetRowsRequest>) {        
         Object.assign(this, init);
     } 
 }
@@ -21867,7 +22373,7 @@ export class CellsWorkbook_PutConvertWorkbookRequest {
     /**
      * Gets or sets workbook
      */
-    public workbook: string;
+    public workbook: Buffer;
 
     /**
      * The format to convert.
@@ -22106,6 +22612,11 @@ export class CellsWorksheetValidations_PutWorksheetValidationRequest {
      * Specified cells area
      */
     public range: string;
+
+    /**
+     * validation
+     */
+    public validation: Validation;
 
     /**
      * Document's folder.
@@ -23325,6 +23836,275 @@ export class CellsWorksheets_PutWorksheetFreezePanesRequest {
 }
 
 /**
+ * Request model for CopyFile operation.
+ */
+export class CopyFileRequest {
+    /**
+     * Source file path e.g. '/folder/file.ext'
+     */
+    public srcPath: string;
+
+    /**
+     * Destination file path
+     */
+    public destPath: string;
+
+    /**
+     * Source storage name
+     */
+    public srcStorageName: string;
+
+    /**
+     * Destination storage name
+     */
+    public destStorageName: string;
+
+    /**
+     * File version ID to copy
+     */
+    public versionId: string;
+    
+    public constructor(init?: Partial<CopyFileRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
+ * Request model for CopyFolder operation.
+ */
+export class CopyFolderRequest {
+    /**
+     * Source folder path e.g. '/src'
+     */
+    public srcPath: string;
+
+    /**
+     * Destination folder path e.g. '/dst'
+     */
+    public destPath: string;
+
+    /**
+     * Source storage name
+     */
+    public srcStorageName: string;
+
+    /**
+     * Destination storage name
+     */
+    public destStorageName: string;
+    
+    public constructor(init?: Partial<CopyFolderRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
+ * Request model for CreateFolder operation.
+ */
+export class CreateFolderRequest {
+    /**
+     * Folder path to create e.g. 'folder_1/folder_2/'
+     */
+    public path: string;
+
+    /**
+     * Storage name
+     */
+    public storageName: string;
+    
+    public constructor(init?: Partial<CreateFolderRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
+ * Request model for DeleteFile operation.
+ */
+export class DeleteFileRequest {
+    /**
+     * File path e.g. '/folder/file.ext'
+     */
+    public path: string;
+
+    /**
+     * Storage name
+     */
+    public storageName: string;
+
+    /**
+     * File version ID to delete
+     */
+    public versionId: string;
+    
+    public constructor(init?: Partial<DeleteFileRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
+ * Request model for DeleteFolder operation.
+ */
+export class DeleteFolderRequest {
+    /**
+     * Folder path e.g. '/folder'
+     */
+    public path: string;
+
+    /**
+     * Storage name
+     */
+    public storageName: string;
+
+    /**
+     * Enable to delete folders, subfolders and files
+     */
+    public recursive: boolean;
+    
+    public constructor(init?: Partial<DeleteFolderRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
+ * Request model for DownloadFile operation.
+ */
+export class DownloadFileRequest {
+    /**
+     * File path e.g. '/folder/file.ext'
+     */
+    public path: string;
+
+    /**
+     * Storage name
+     */
+    public storageName: string;
+
+    /**
+     * File version ID to download
+     */
+    public versionId: string;
+    
+    public constructor(init?: Partial<DownloadFileRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
+ * Request model for GetDiscUsage operation.
+ */
+export class GetDiscUsageRequest {
+    /**
+     * Storage name
+     */
+    public storageName: string;
+    
+    public constructor(init?: Partial<GetDiscUsageRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
+ * Request model for GetFileVersions operation.
+ */
+export class GetFileVersionsRequest {
+    /**
+     * File path e.g. '/file.ext'
+     */
+    public path: string;
+
+    /**
+     * Storage name
+     */
+    public storageName: string;
+    
+    public constructor(init?: Partial<GetFileVersionsRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
+ * Request model for GetFilesList operation.
+ */
+export class GetFilesListRequest {
+    /**
+     * Folder path e.g. '/folder'
+     */
+    public path: string;
+
+    /**
+     * Storage name
+     */
+    public storageName: string;
+    
+    public constructor(init?: Partial<GetFilesListRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
+ * Request model for MoveFile operation.
+ */
+export class MoveFileRequest {
+    /**
+     * Source file path e.g. '/src.ext'
+     */
+    public srcPath: string;
+
+    /**
+     * Destination file path e.g. '/dest.ext'
+     */
+    public destPath: string;
+
+    /**
+     * Source storage name
+     */
+    public srcStorageName: string;
+
+    /**
+     * Destination storage name
+     */
+    public destStorageName: string;
+
+    /**
+     * File version ID to move
+     */
+    public versionId: string;
+    
+    public constructor(init?: Partial<MoveFileRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
+ * Request model for MoveFolder operation.
+ */
+export class MoveFolderRequest {
+    /**
+     * Folder path to move e.g. '/folder'
+     */
+    public srcPath: string;
+
+    /**
+     * Destination folder path to move to e.g '/dst'
+     */
+    public destPath: string;
+
+    /**
+     * Source storage name
+     */
+    public srcStorageName: string;
+
+    /**
+     * Destination storage name
+     */
+    public destStorageName: string;
+    
+    public constructor(init?: Partial<MoveFolderRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
  * Request model for OAuth_Post operation.
  */
 export class OAuth_PostRequest {
@@ -23344,6 +24124,68 @@ export class OAuth_PostRequest {
     public clientSecret: string;
     
     public constructor(init?: Partial<OAuth_PostRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
+ * Request model for ObjectExists operation.
+ */
+export class ObjectExistsRequest {
+    /**
+     * File or folder path e.g. '/file.ext' or '/folder'
+     */
+    public path: string;
+
+    /**
+     * Storage name
+     */
+    public storageName: string;
+
+    /**
+     * File version ID
+     */
+    public versionId: string;
+    
+    public constructor(init?: Partial<ObjectExistsRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
+ * Request model for StorageExists operation.
+ */
+export class StorageExistsRequest {
+    /**
+     * Storage name
+     */
+    public storageName: string;
+    
+    public constructor(init?: Partial<StorageExistsRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
+ * Request model for UploadFile operation.
+ */
+export class UploadFileRequest {
+    /**
+     * Path where to upload including filename and extension e.g. /file.ext or /Folder 1/file.ext             If the content is multipart and path does not contains the file name it tries to get them from filename parameter             from Content-Disposition header.             
+     */
+    public path: string;
+
+    /**
+     * File to upload
+     */
+    public file: Buffer;
+
+    /**
+     * Storage name
+     */
+    public storageName: string;
+    
+    public constructor(init?: Partial<UploadFileRequest>) {        
         Object.assign(this, init);
     } 
 }

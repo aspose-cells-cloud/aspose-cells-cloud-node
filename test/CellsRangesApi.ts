@@ -27,22 +27,23 @@ import "mocha";
 
 import * as model from "../src/model/model";
 import * as BaseTest from "./baseTest";
-
+var fs = require('fs');
+var path = require('path');
+var assert = require('assert');
 const localPath = "../TestData/";
 
 describe('CellsRangesApi', function() {
   this.timeout(20000);
   describe('cellsRangesGetWorksheetCellsRangeValue', function() {
     it('should call cellsRangesGetWorksheetCellsRangeValue successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsRangesApi = BaseTest.initializeCellsRangesApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsRanges_GetWorksheetCellsRangeValueRequest();
           req.name = filename;
@@ -53,7 +54,7 @@ describe('CellsRangesApi', function() {
           req.columnCount = 2;
           req.folder = "Temp";
           
-          return cellsRangesApi.cellsRangesGetWorksheetCellsRangeValue(req)
+          return cellsApi.cellsRangesGetWorksheetCellsRangeValue(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -63,7 +64,7 @@ describe('CellsRangesApi', function() {
               req.sheetName = "Sheet1";
               req.namerange = "A1:B3";
               req.folder = "Temp";
-              return cellsRangesApi.cellsRangesGetWorksheetCellsRangeValue(req)
+              return cellsApi.cellsRangesGetWorksheetCellsRangeValue(req)
                 .then((result) => {
                   expect(result.body.code).to.equal(200);
                   expect(result.response.statusCode).to.equal(200);
@@ -73,7 +74,7 @@ describe('CellsRangesApi', function() {
                   req.sheetName = "Sheet1";
                   req.namerange = "Name_2";
                   req.folder = "Temp";
-                  return cellsRangesApi.cellsRangesGetWorksheetCellsRangeValue(req)
+                  return cellsApi.cellsRangesGetWorksheetCellsRangeValue(req)
                     .then((result) => {
                       expect(result.body.code).to.equal(200);
                       expect(result.response.statusCode).to.equal(200);
@@ -85,15 +86,14 @@ describe('CellsRangesApi', function() {
   });
   describe('cellsRangesPostWorksheetCellsRangeColumnWidth', function() {
     it('should call cellsRangesPostWorksheetCellsRangeColumnWidth successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsRangesApi = BaseTest.initializeCellsRangesApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsRanges_PostWorksheetCellsRangeColumnWidthRequest();
           req.name = filename;
@@ -108,7 +108,7 @@ describe('CellsRangesApi', function() {
           req.range = range;
           req.folder = "Temp";
           
-          return cellsRangesApi.cellsRangesPostWorksheetCellsRangeColumnWidth(req)
+          return cellsApi.cellsRangesPostWorksheetCellsRangeColumnWidth(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -118,15 +118,14 @@ describe('CellsRangesApi', function() {
   });
   describe('cellsRangesPostWorksheetCellsRangeMerge', function() {
     it('should call cellsRangesPostWorksheetCellsRangeMerge successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsRangesApi = BaseTest.initializeCellsRangesApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsRanges_PostWorksheetCellsRangeMergeRequest();
           req.name = filename;
@@ -140,7 +139,7 @@ describe('CellsRangesApi', function() {
           req.range = range;
           req.folder = "Temp";
           
-          return cellsRangesApi.cellsRangesPostWorksheetCellsRangeMerge(req)
+          return cellsApi.cellsRangesPostWorksheetCellsRangeMerge(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -150,15 +149,14 @@ describe('CellsRangesApi', function() {
   });
   describe('cellsRangesPostWorksheetCellsRangeMoveTo', function() {
     it('should call cellsRangesPostWorksheetCellsRangeMoveTo successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsRangesApi = BaseTest.initializeCellsRangesApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsRanges_PostWorksheetCellsRangeMoveToRequest();
           req.name = filename;
@@ -174,7 +172,7 @@ describe('CellsRangesApi', function() {
           req.range = range;
           req.folder = "Temp";
           
-          return cellsRangesApi.cellsRangesPostWorksheetCellsRangeMoveTo(req)
+          return cellsApi.cellsRangesPostWorksheetCellsRangeMoveTo(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -184,15 +182,14 @@ describe('CellsRangesApi', function() {
   });
   describe('cellsRangesPostWorksheetCellsRangeOutlineBorder', function() {
     it('should call cellsRangesPostWorksheetCellsRangeOutlineBorder successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsRangesApi = BaseTest.initializeCellsRangesApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsRanges_PostWorksheetCellsRangeOutlineBorderRequest();
           req.name = filename;
@@ -201,7 +198,7 @@ describe('CellsRangesApi', function() {
           rangeOperate.borderEdge = "LeftBorder";
           rangeOperate.borderStyle = "Dotted";
           rangeOperate.borderColor = new model.Color();
-          rangeOperate.borderColor.r = 255;
+          rangeOperate.borderColor.R = 255;
           var range = new model.Range();
           range.columnCount = 10;
           range.firstColumn = 1;
@@ -212,7 +209,7 @@ describe('CellsRangesApi', function() {
           req.rangeOperate = rangeOperate;
           req.folder = "Temp";
           
-          return cellsRangesApi.cellsRangesPostWorksheetCellsRangeOutlineBorder(req)
+          return cellsApi.cellsRangesPostWorksheetCellsRangeOutlineBorder(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -222,15 +219,14 @@ describe('CellsRangesApi', function() {
   });
   describe('cellsRangesPostWorksheetCellsRangeRowHeight', function() {
     it('should call cellsRangesPostWorksheetCellsRangeRowHeight successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsRangesApi = BaseTest.initializeCellsRangesApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsRanges_PostWorksheetCellsRangeRowHeightRequest();
           req.name = filename;
@@ -245,7 +241,7 @@ describe('CellsRangesApi', function() {
           req.range = range;
           req.folder = "Temp";
           
-          return cellsRangesApi.cellsRangesPostWorksheetCellsRangeRowHeight(req)
+          return cellsApi.cellsRangesPostWorksheetCellsRangeRowHeight(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -255,15 +251,14 @@ describe('CellsRangesApi', function() {
   });
   describe('cellsRangesPostWorksheetCellsRangeStyle', function() {
     it('should call cellsRangesPostWorksheetCellsRangeStyle successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsRangesApi = BaseTest.initializeCellsRangesApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsRanges_PostWorksheetCellsRangeStyleRequest();
           req.name = filename;
@@ -282,7 +277,7 @@ describe('CellsRangesApi', function() {
           req.rangeOperate = rangeOperate;
           req.folder = "Temp";
           
-          return cellsRangesApi.cellsRangesPostWorksheetCellsRangeStyle(req)
+          return cellsApi.cellsRangesPostWorksheetCellsRangeStyle(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -292,15 +287,14 @@ describe('CellsRangesApi', function() {
   });
   describe('cellsRangesPostWorksheetCellsRangeUnmerge', function() {
     it('should call cellsRangesPostWorksheetCellsRangeUnmerge successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsRangesApi = BaseTest.initializeCellsRangesApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsRanges_PostWorksheetCellsRangeUnmergeRequest();
           req.name = filename;
@@ -314,7 +308,7 @@ describe('CellsRangesApi', function() {
           req.range = range;
           req.folder = "Temp";
           
-          return cellsRangesApi.cellsRangesPostWorksheetCellsRangeUnmerge(req)
+          return cellsApi.cellsRangesPostWorksheetCellsRangeUnmerge(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -324,15 +318,14 @@ describe('CellsRangesApi', function() {
   });
   describe('cellsRangesPostWorksheetCellsRangeValue', function() {
     it('should call cellsRangesPostWorksheetCellsRangeValue successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsRangesApi = BaseTest.initializeCellsRangesApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsRanges_PostWorksheetCellsRangeValueRequest();
           req.name = filename;
@@ -349,7 +342,7 @@ describe('CellsRangesApi', function() {
           req.setStyle = true;
           req.folder = "Temp";
           
-          return cellsRangesApi.cellsRangesPostWorksheetCellsRangeValue(req)
+          return cellsApi.cellsRangesPostWorksheetCellsRangeValue(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -359,15 +352,14 @@ describe('CellsRangesApi', function() {
   });
   describe('cellsRangesPostWorksheetCellsRanges', function() {
     it('should call cellsRangesPostWorksheetCellsRanges successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsRangesApi = BaseTest.initializeCellsRangesApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsRanges_PostWorksheetCellsRangesRequest();
           req.name = filename;
@@ -393,7 +385,7 @@ describe('CellsRangesApi', function() {
           req.rangeOperate = rangeOperate;
           req.folder = "Temp";
           
-          return cellsRangesApi.cellsRangesPostWorksheetCellsRanges(req)
+          return cellsApi.cellsRangesPostWorksheetCellsRanges(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);

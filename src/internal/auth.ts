@@ -74,7 +74,7 @@ export class OAuth implements IAuthentication {
         const requestOptions: request.Options = {
             method: "POST",
             json: true,
-            uri: configuration.baseUrl + "/oauth2/token",
+            uri: configuration.baseUrl + "/connect/token",
             form: {
                 grant_type: "client_credentials",
                 client_id: configuration.appSID,
@@ -92,7 +92,7 @@ export class OAuth implements IAuthentication {
         const requestOptions: request.Options = {
             method: "POST",
             json: true,
-            uri: configuration.baseUrl + "/oauth2/token",
+            uri: configuration.baseUrl + "/connect/token",
             form: {
                 grant_type: "refresh_token",
                 refresh_token: this.refreshToken,

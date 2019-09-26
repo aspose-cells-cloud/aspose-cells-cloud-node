@@ -29,20 +29,21 @@ import * as model from "../src/model/model";
 import * as BaseTest from "./baseTest";
 
 const localPath = "../TestData/";
+var fs = require('fs');
+var path = require('path');
+var assert = require('assert');
 
 describe('CellsAutoFilterApi', function() {
   this.timeout(20000);
   describe('cellsAutoFilterDeleteWorksheetDateFilter', function() {
-    it('should call cellsAutoFilterDeleteWorksheetDateFilter successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsAutoFilterApi = BaseTest.initializeCellsAutoFilterApi();
-      const filename = "Book1.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+    const cellsApi = BaseTest.initializeCellsApi();
+    const filename = "Book1.xlsx";
+    var data =fs.createReadStream(localPath  + filename);
+    var req = new model.UploadFileRequest();
+    req.path = "Temp/" + filename;
+    req.file = data;
+
+    return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsAutoFilter_DeleteWorksheetDateFilterRequest();
           req.name = filename;
@@ -57,7 +58,7 @@ describe('CellsAutoFilterApi', function() {
           req.second = 1;
           req.folder = "Temp";
           
-          return cellsAutoFilterApi.cellsAutoFilterDeleteWorksheetDateFilter(req)
+          return cellsApi.cellsAutoFilterDeleteWorksheetDateFilter(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -67,15 +68,14 @@ describe('CellsAutoFilterApi', function() {
   });
   describe('cellsAutoFilterDeleteWorksheetFilter', function() {
     it('should call cellsAutoFilterDeleteWorksheetFilter successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsAutoFilterApi = BaseTest.initializeCellsAutoFilterApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsAutoFilter_DeleteWorksheetFilterRequest();
           req.name = filename;
@@ -84,7 +84,7 @@ describe('CellsAutoFilterApi', function() {
           req.criteria = "test";
           req.folder = "Temp";
           
-          return cellsAutoFilterApi.cellsAutoFilterDeleteWorksheetFilter(req)
+          return cellsApi.cellsAutoFilterDeleteWorksheetFilter(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -94,22 +94,21 @@ describe('CellsAutoFilterApi', function() {
   });
   describe('cellsAutoFilterGetWorksheetAutoFilter', function() {
     it('should call cellsAutoFilterGetWorksheetAutoFilter successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsAutoFilterApi = BaseTest.initializeCellsAutoFilterApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsAutoFilter_GetWorksheetAutoFilterRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
           req.folder = "Temp";
           
-          return cellsAutoFilterApi.cellsAutoFilterGetWorksheetAutoFilter(req)
+          return cellsApi.cellsAutoFilterGetWorksheetAutoFilter(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -119,22 +118,21 @@ describe('CellsAutoFilterApi', function() {
   });
   describe('cellsAutoFilterPostWorksheetAutoFilterRefresh', function() {
     it('should call cellsAutoFilterPostWorksheetAutoFilterRefresh successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsAutoFilterApi = BaseTest.initializeCellsAutoFilterApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsAutoFilter_PostWorksheetAutoFilterRefreshRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
           req.folder = "Temp";
           
-          return cellsAutoFilterApi.cellsAutoFilterPostWorksheetAutoFilterRefresh(req)
+          return cellsApi.cellsAutoFilterPostWorksheetAutoFilterRefresh(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -144,15 +142,14 @@ describe('CellsAutoFilterApi', function() {
   });
   describe('cellsAutoFilterPostWorksheetMatchBlanks', function() {
     it('should call cellsAutoFilterPostWorksheetMatchBlanks successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsAutoFilterApi = BaseTest.initializeCellsAutoFilterApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsAutoFilter_PostWorksheetMatchBlanksRequest();
           req.name = filename;
@@ -160,7 +157,7 @@ describe('CellsAutoFilterApi', function() {
           req.fieldIndex = 0;
           req.folder = "Temp";
           
-          return cellsAutoFilterApi.cellsAutoFilterPostWorksheetMatchBlanks(req)
+          return cellsApi.cellsAutoFilterPostWorksheetMatchBlanks(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -170,15 +167,14 @@ describe('CellsAutoFilterApi', function() {
   });
   describe('cellsAutoFilterPostWorksheetMatchNonBlanks', function() {
     it('should call cellsAutoFilterPostWorksheetMatchNonBlanks successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsAutoFilterApi = BaseTest.initializeCellsAutoFilterApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsAutoFilter_PostWorksheetMatchNonBlanksRequest();
           req.name = filename;
@@ -186,7 +182,7 @@ describe('CellsAutoFilterApi', function() {
           req.fieldIndex = 0;
           req.folder = "Temp";
           
-          return cellsAutoFilterApi.cellsAutoFilterPostWorksheetMatchNonBlanks(req)
+          return cellsApi.cellsAutoFilterPostWorksheetMatchNonBlanks(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -196,15 +192,14 @@ describe('CellsAutoFilterApi', function() {
   });
   describe('cellsAutoFilterPutWorksheetColorFilter', function() {
     it('should call cellsAutoFilterPutWorksheetColorFilter successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsAutoFilterApi = BaseTest.initializeCellsAutoFilterApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsAutoFilter_PutWorksheetColorFilterRequest();
           req.name = filename;
@@ -215,8 +210,8 @@ describe('CellsAutoFilterApi', function() {
           var colorFilter = new model.ColorFilterRequest();
           req.colorFilter = colorFilter;
           var color = new model.Color();//0, 255, 245, 2
-          color.r = 255;
-          color.g = 245;
+          color.R = 255;
+          color.G = 245;
 
           colorFilter.foregroundColor = new model.CellsColor();
           colorFilter.foregroundColor.color = color;
@@ -224,7 +219,7 @@ describe('CellsAutoFilterApi', function() {
           req.matchBlanks = true;
           req.refresh = true;
           
-          return cellsAutoFilterApi.cellsAutoFilterPutWorksheetColorFilter(req)
+          return cellsApi.cellsAutoFilterPutWorksheetColorFilter(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -234,15 +229,14 @@ describe('CellsAutoFilterApi', function() {
   });
   describe('cellsAutoFilterPutWorksheetCustomFilter', function() {
     it('should call cellsAutoFilterPutWorksheetCustomFilter successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsAutoFilterApi = BaseTest.initializeCellsAutoFilterApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsAutoFilter_PutWorksheetCustomFilterRequest();
           req.name = filename;
@@ -258,7 +252,7 @@ describe('CellsAutoFilterApi', function() {
           req.matchBlanks = true;
           req.refresh = false;
           
-          return cellsAutoFilterApi.cellsAutoFilterPutWorksheetCustomFilter(req)
+          return cellsApi.cellsAutoFilterPutWorksheetCustomFilter(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -268,15 +262,14 @@ describe('CellsAutoFilterApi', function() {
   });
   describe('cellsAutoFilterPutWorksheetDateFilter', function() {
     it('should call cellsAutoFilterPutWorksheetDateFilter successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsAutoFilterApi = BaseTest.initializeCellsAutoFilterApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsAutoFilter_PutWorksheetDateFilterRequest();
           req.name = filename;
@@ -294,7 +287,7 @@ describe('CellsAutoFilterApi', function() {
           req.refresh = true;
           req.folder = "Temp";
           
-          return cellsAutoFilterApi.cellsAutoFilterPutWorksheetDateFilter(req)
+          return cellsApi.cellsAutoFilterPutWorksheetDateFilter(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -304,15 +297,14 @@ describe('CellsAutoFilterApi', function() {
   });
   describe('cellsAutoFilterPutWorksheetDynamicFilter', function() {
     it('should call cellsAutoFilterPutWorksheetDynamicFilter successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsAutoFilterApi = BaseTest.initializeCellsAutoFilterApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsAutoFilter_PutWorksheetDynamicFilterRequest();
           req.name = filename;
@@ -324,7 +316,7 @@ describe('CellsAutoFilterApi', function() {
           req.refresh = true;
           req.folder = "Temp";
           
-          return cellsAutoFilterApi.cellsAutoFilterPutWorksheetDynamicFilter(req)
+          return cellsApi.cellsAutoFilterPutWorksheetDynamicFilter(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -334,15 +326,14 @@ describe('CellsAutoFilterApi', function() {
   });
   describe('cellsAutoFilterPutWorksheetFilter', function() {
     it('should call cellsAutoFilterPutWorksheetFilter successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsAutoFilterApi = BaseTest.initializeCellsAutoFilterApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsAutoFilter_PutWorksheetFilterRequest();
           req.name = filename;
@@ -354,7 +345,7 @@ describe('CellsAutoFilterApi', function() {
           req.refresh = true;
           req.folder = "Temp";
           
-          return cellsAutoFilterApi.cellsAutoFilterPutWorksheetFilter(req)
+          return cellsApi.cellsAutoFilterPutWorksheetFilter(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -364,15 +355,14 @@ describe('CellsAutoFilterApi', function() {
   });
   describe('cellsAutoFilterPutWorksheetFilterTop10', function() {
     it('should call cellsAutoFilterPutWorksheetFilterTop10 successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsAutoFilterApi = BaseTest.initializeCellsAutoFilterApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsAutoFilter_PutWorksheetFilterTop10Request();
           req.name = filename;
@@ -386,7 +376,7 @@ describe('CellsAutoFilterApi', function() {
           req.refresh = null;
           req.folder = "Temp";
           
-          return cellsAutoFilterApi.cellsAutoFilterPutWorksheetFilterTop10(req)
+          return cellsApi.cellsAutoFilterPutWorksheetFilterTop10(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -396,15 +386,14 @@ describe('CellsAutoFilterApi', function() {
   });
   describe('cellsAutoFilterPutWorksheetIconFilter', function() {
     it('should call cellsAutoFilterPutWorksheetIconFilter successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsAutoFilterApi = BaseTest.initializeCellsAutoFilterApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsAutoFilter_PutWorksheetIconFilterRequest();
           req.name = filename;
@@ -417,7 +406,7 @@ describe('CellsAutoFilterApi', function() {
           req.refresh = null;
           req.folder = "Temp";
           
-          return cellsAutoFilterApi.cellsAutoFilterPutWorksheetIconFilter(req)
+          return cellsApi.cellsAutoFilterPutWorksheetIconFilter(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -425,4 +414,3 @@ describe('CellsAutoFilterApi', function() {
         });
     });
   });
-});

@@ -29,20 +29,22 @@ import * as model from "../src/model/model";
 import * as BaseTest from "./baseTest";
 
 const localPath = "../TestData/";
+var fs = require('fs');
+var path = require('path');
+var assert = require('assert');
 
 describe('CellsPicturesApi', function() {
   this.timeout(20000);
   describe('cellsPicturesDeleteWorksheetPicture', function() {
     it('should call cellsPicturesDeleteWorksheetPicture successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsPicturesApi = BaseTest.initializeCellsPicturesApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsPictures_DeleteWorksheetPictureRequest();
           req.name = filename;
@@ -50,7 +52,7 @@ describe('CellsPicturesApi', function() {
           req.pictureIndex = 0;
           req.folder = "Temp";
           
-          return cellsPicturesApi.cellsPicturesDeleteWorksheetPicture(req)
+          return cellsApi.cellsPicturesDeleteWorksheetPicture(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -60,22 +62,21 @@ describe('CellsPicturesApi', function() {
   });
   describe('cellsPicturesDeleteWorksheetPictures', function() {
     it('should call cellsPicturesDeleteWorksheetPictures successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsPicturesApi = BaseTest.initializeCellsPicturesApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsPictures_DeleteWorksheetPicturesRequest();
           req.name = filename;
           req.sheetName = "Sheet6";
           req.folder = "Temp";
           
-          return cellsPicturesApi.cellsPicturesDeleteWorksheetPictures(req)
+          return cellsApi.cellsPicturesDeleteWorksheetPictures(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -85,15 +86,14 @@ describe('CellsPicturesApi', function() {
   });
   describe('cellsPicturesGetWorksheetPicture', function() {
     it('should call cellsPicturesGetWorksheetPicture successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsPicturesApi = BaseTest.initializeCellsPicturesApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsPictures_GetWorksheetPictureRequest();
           req.name = filename;
@@ -101,7 +101,7 @@ describe('CellsPicturesApi', function() {
           req.pictureIndex = 0;
           req.folder = "Temp";
           
-          return cellsPicturesApi.cellsPicturesGetWorksheetPicture(req)
+          return cellsApi.cellsPicturesGetWorksheetPicture(req)
             .then((result) => {
               expect(result.response.statusCode).to.equal(200);
             });
@@ -110,15 +110,14 @@ describe('CellsPicturesApi', function() {
   });
   describe('cellsPicturesGetWorksheetPictureFormat', function() {
     it('should call cellsPicturesGetWorksheetPictureFormat successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsPicturesApi = BaseTest.initializeCellsPicturesApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsPictures_GetWorksheetPictureRequest();
           req.name = filename;
@@ -127,7 +126,7 @@ describe('CellsPicturesApi', function() {
           req.folder = "Temp";
           req.format = "png";
           
-          return cellsPicturesApi.cellsPicturesGetWorksheetPicture(req)
+          return cellsApi.cellsPicturesGetWorksheetPicture(req)
             .then((result) => {
               expect(result.response.statusCode).to.equal(200);
             });
@@ -136,22 +135,21 @@ describe('CellsPicturesApi', function() {
   });
   describe('cellsPicturesGetWorksheetPictures', function() {
     it('should call cellsPicturesGetWorksheetPictures successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsPicturesApi = BaseTest.initializeCellsPicturesApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsPictures_GetWorksheetPicturesRequest();
           req.name = filename;
           req.sheetName = "Sheet6";
           req.folder = "Temp";
           
-          return cellsPicturesApi.cellsPicturesGetWorksheetPictures(req)
+          return cellsApi.cellsPicturesGetWorksheetPictures(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -161,15 +159,14 @@ describe('CellsPicturesApi', function() {
   });
   describe('cellsPicturesPostWorksheetPicture', function() {
     it('should call cellsPicturesPostWorksheetPicture successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsPicturesApi = BaseTest.initializeCellsPicturesApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsPictures_PostWorksheetPictureRequest();
           req.name = filename;
@@ -179,7 +176,7 @@ describe('CellsPicturesApi', function() {
           req.picture.left = 10;
           req.folder = "Temp";
           
-          return cellsPicturesApi.cellsPicturesPostWorksheetPicture(req)
+          return cellsApi.cellsPicturesPostWorksheetPicture(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -189,21 +186,23 @@ describe('CellsPicturesApi', function() {
   });
   describe('cellsPicturesPutWorksheetAddPicture', function() {
     it('should call cellsPicturesPutWorksheetAddPicture successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsPicturesApi = BaseTest.initializeCellsPicturesApi();
-      const filename = "Book1.xlsx";
       const picturePath = "WaterMark.png";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-        storageApi.PutCreate("Temp/" + picturePath, null, null, localPath + picturePath, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      const cellsApi = BaseTest.initializeCellsApi();
+      const filename = "Book1.xlsx";
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
+          var data =fs.createReadStream(localPath  + picturePath);
+          var req = new model.UploadFileRequest();
+          req.path = "Temp/" + picturePath;
+          req.file = data;
+      
+          return cellsApi.uploadFile(req)
+            .then(() => { 
           var req = new model.CellsPictures_PutWorksheetAddPictureRequest();
           req.name = filename;
           req.sheetName = "Sheet6";
@@ -215,7 +214,7 @@ describe('CellsPicturesApi', function() {
           req.picturePath = "WaterMark.png";
           req.folder = "Temp";
           
-          return cellsPicturesApi.cellsPicturesPutWorksheetAddPicture(req)
+          return cellsApi.cellsPicturesPutWorksheetAddPicture(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -223,4 +222,5 @@ describe('CellsPicturesApi', function() {
         });
     });
   });
+});
 });

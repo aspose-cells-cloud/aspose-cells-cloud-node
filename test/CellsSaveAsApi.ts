@@ -29,29 +29,31 @@ import * as model from "../src/model/model";
 import * as BaseTest from "./baseTest";
 
 const localPath = "../TestData/";
+var fs = require('fs');
+var path = require('path');
+var assert = require('assert');
 
-describe('CellsSaveAsApi', function() {
-  describe('cellsSaveAsPostDocumentSaveAs', function() {
+describe('CellsSaveAsApi ', function() {
+  describe('cellsSaveAsPostDocumentSaveAs 1', function() {
     it('should call cellsSaveAsPostDocumentSaveAs successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsSaveAsApi = BaseTest.initializeCellsSaveAsApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsSaveAs_PostDocumentSaveAsRequest();
           req.name = filename;
-          req.saveOptions = null;
-          req.newfilename = "newbook.xlsx";
+          req.saveOptions = new model.OoxmlSaveOptions();
+          req.newfilename = "temp/newbook.xlsx";
           req.isAutoFitRows = true;
           req.isAutoFitColumns = true;
           req.folder = "Temp";
           
-          return cellsSaveAsApi.cellsSaveAsPostDocumentSaveAs(req)
+          return cellsApi.cellsSaveAsPostDocumentSaveAs(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -59,28 +61,27 @@ describe('CellsSaveAsApi', function() {
         });
     });
 
-    describe('cellsSaveAsPostDocumentSaveAsMD', function() {
+    describe('cellsSaveAsPostDocumentSaveAsMD 2', function() {
       it('should call cellsSaveAsPostDocumentSaveAsMD successfully', function() {
-        const storageApi = BaseTest.initializeStorageApi();
-        const cellsSaveAsApi = BaseTest.initializeCellsSaveAsApi();
+        const cellsApi = BaseTest.initializeCellsApi();
         const filename = "Book1.xlsx";
-        return new Promise((resolve) => {
-          storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-            expect(responseMessage.status).to.equal("OK");
-            resolve();
-          });
-        })
+        var data =fs.createReadStream(localPath  + filename);
+        var req = new model.UploadFileRequest();
+        req.path = "Temp/" + filename;
+        req.file = data;
+    
+        return cellsApi.uploadFile(req)
           .then(() => {
             var req = new model.CellsSaveAs_PostDocumentSaveAsRequest();
             req.name = filename;
-            var saveOptions = null;
+            var saveOptions =new model.MarkdownSaveOptions();
             req.saveOptions = saveOptions;
-            req.newfilename = "newbook.pdf.md";
+            req.newfilename = "temp/newbook.md";
             req.isAutoFitRows = true;
             req.isAutoFitColumns = true;
             req.folder = "Temp";
             
-            return cellsSaveAsApi.cellsSaveAsPostDocumentSaveAs(req)
+            return cellsApi.cellsSaveAsPostDocumentSaveAs(req)
               .then((result) => {
                 expect(result.body.code).to.equal(200);
                 expect(result.response.statusCode).to.equal(200);
@@ -89,17 +90,16 @@ describe('CellsSaveAsApi', function() {
       });
     });
 
-    describe('cellsSaveAsPostDocumentSaveAsPDF', function() {
+    describe('cellsSaveAsPostDocumentSaveAsPDF 3', function() {
       it('should call cellsSaveAsPostDocumentSaveAsPDF successfully', function() {
-        const storageApi = BaseTest.initializeStorageApi();
-        const cellsSaveAsApi = BaseTest.initializeCellsSaveAsApi();
+        const cellsApi = BaseTest.initializeCellsApi();
         const filename = "Book1.xlsx";
-        return new Promise((resolve) => {
-          storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-            expect(responseMessage.status).to.equal("OK");
-            resolve();
-          });
-        })
+        var data =fs.createReadStream(localPath  + filename);
+        var req = new model.UploadFileRequest();
+        req.path = "Temp/" + filename;
+        req.file = data;
+    
+        return cellsApi.uploadFile(req)
           .then(() => {
             var req = new model.CellsSaveAs_PostDocumentSaveAsRequest();
             req.name = filename;
@@ -112,7 +112,7 @@ describe('CellsSaveAsApi', function() {
             req.isAutoFitColumns = true;
             req.folder = "Temp";
             
-            return cellsSaveAsApi.cellsSaveAsPostDocumentSaveAs(req)
+            return cellsApi.cellsSaveAsPostDocumentSaveAs(req)
               .then((result) => {
                 expect(result.body.code).to.equal(200);
                 expect(result.response.statusCode).to.equal(200);
@@ -121,18 +121,17 @@ describe('CellsSaveAsApi', function() {
       });
     });
 
-    describe('cellsSaveAsPostDocumentSaveAsPDFDropBox', function() {
+    describe('cellsSaveAsPostDocumentSaveAsPDFDropBox 4', function() {
       it('should call cellsSaveAsPostDocumentSaveAsPDF on DropBox successfully', function() {
-        const storageApi = BaseTest.initializeStorageApi();
-        const cellsSaveAsApi = BaseTest.initializeCellsSaveAsApi();
-        const filename = "Book1.xlsx";
         const storage = "DropBox";
-        return new Promise((resolve) => {
-          storageApi.PutCreate("Temp/" + filename, null, storage, localPath + filename, (responseMessage) => {
-            expect(responseMessage.status).to.equal("OK");
-            resolve();
-          });
-        })
+        const cellsApi = BaseTest.initializeCellsApi();
+        const filename = "Book1.xlsx";
+        var data =fs.createReadStream(localPath  + filename);
+        var req = new model.UploadFileRequest();
+        req.path = "Temp/" + filename;
+        req.file = data;
+    
+        return cellsApi.uploadFile(req)
           .then(() => {
             var req = new model.CellsSaveAs_PostDocumentSaveAsRequest();
             req.name = filename;
@@ -146,7 +145,7 @@ describe('CellsSaveAsApi', function() {
             req.folder = "Temp";
             req.storage = storage;
             
-            return cellsSaveAsApi.cellsSaveAsPostDocumentSaveAs(req)
+            return cellsApi.cellsSaveAsPostDocumentSaveAs(req)
               .then((result) => {
                 expect(result.body.code).to.equal(200);
                 expect(result.response.statusCode).to.equal(200);

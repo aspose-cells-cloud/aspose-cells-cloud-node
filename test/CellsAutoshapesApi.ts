@@ -29,20 +29,26 @@ import * as model from "../src/model/model";
 import * as BaseTest from "./baseTest";
 
 const localPath = "../TestData/";
+var fs = require('fs');
+var path = require('path');
+var assert = require('assert');
 
 describe('CellsAutoshapesApi', function() {
   this.timeout(20000);
   describe('cellsAutoshapesGetWorksheetAutoshape', function() {
     it('should call cellsAutoshapesGetWorksheetAutoshape successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsAutoshapesApi = BaseTest.initializeCellsAutoshapesApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "myDocument.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+
+      // var data = fs.createReadStream(BaseTest.localTestDataFolder +  "threeD.pdf");//readFileSync -> error 
+      // var req = new model.uploadFileRequest();
+      // req.path = "3DTestNodejs/threeD3.pdf";
+      // req.file = data;
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsAutoshapes_GetWorksheetAutoshapeRequest();
           req.name = filename;
@@ -50,7 +56,7 @@ describe('CellsAutoshapesApi', function() {
           req.autoshapeNumber = 4;
           req.folder = "Temp";
           
-          return cellsAutoshapesApi.cellsAutoshapesGetWorksheetAutoshape(req)
+          return cellsApi.cellsAutoshapesGetWorksheetAutoshape(req)
             .then((result) => {
               expect(result.response.statusCode).to.equal(200);
             });
@@ -59,15 +65,18 @@ describe('CellsAutoshapesApi', function() {
   });
   describe('cellsAutoshapesGetWorksheetAutoshapeFormat', function() {
     it('should call cellsAutoshapesGetWorksheetAutoshapeFormat successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsAutoshapesApi = BaseTest.initializeCellsAutoshapesApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "myDocument.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+
+      // var data = fs.createReadStream(BaseTest.localTestDataFolder +  "threeD.pdf");//readFileSync -> error 
+      // var req = new model.uploadFileRequest();
+      // req.path = "3DTestNodejs/threeD3.pdf";
+      // req.file = data;
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsAutoshapes_GetWorksheetAutoshapeRequest();
           req.name = filename;
@@ -76,7 +85,7 @@ describe('CellsAutoshapesApi', function() {
           req.folder = "Temp";
           req.format = "png";
           
-          return cellsAutoshapesApi.cellsAutoshapesGetWorksheetAutoshape(req)
+          return cellsApi.cellsAutoshapesGetWorksheetAutoshape(req)
             .then((result) => {
               expect(result.response.statusCode).to.equal(200);
             });
@@ -85,22 +94,25 @@ describe('CellsAutoshapesApi', function() {
   });
   describe('cellsAutoshapesGetWorksheetAutoshapes', function() {
     it('should call cellsAutoshapesGetWorksheetAutoshapes successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsAutoshapesApi = BaseTest.initializeCellsAutoshapesApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "myDocument.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+
+      // var data = fs.createReadStream(BaseTest.localTestDataFolder +  "threeD.pdf");//readFileSync -> error 
+      // var req = new model.uploadFileRequest();
+      // req.path = "3DTestNodejs/threeD3.pdf";
+      // req.file = data;
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsAutoshapes_GetWorksheetAutoshapesRequest();
           req.name = filename;
           req.sheetName = "Sheet2";
           req.folder = "Temp";
           
-          return cellsAutoshapesApi.cellsAutoshapesGetWorksheetAutoshapes(req)
+          return cellsApi.cellsAutoshapesGetWorksheetAutoshapes(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);

@@ -29,20 +29,22 @@ import * as model from "../src/model/model";
 import * as BaseTest from "./baseTest";
 
 const localPath = "../TestData/";
+var fs = require('fs');
+var path = require('path');
+var assert = require('assert');
 
 describe('CellsPivotTablesApi', function() {
   this.timeout(20000);
   describe('cellsPivotTablesDeletePivotTableField', function() {
     it('should call cellsPivotTablesDeletePivotTableField successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsPivotTablesApi = BaseTest.initializeCellsPivotTablesApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "TestCase.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsPivotTables_DeletePivotTableFieldRequest();
           req.name = filename;
@@ -54,7 +56,7 @@ describe('CellsPivotTablesApi', function() {
           req.request = request;
           req.folder = "Temp";
           
-          return cellsPivotTablesApi.cellsPivotTablesDeletePivotTableField(req)
+          return cellsApi.cellsPivotTablesDeletePivotTableField(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -64,15 +66,14 @@ describe('CellsPivotTablesApi', function() {
   });
   describe('cellsPivotTablesDeleteWorksheetPivotTable', function() {
     it('should call cellsPivotTablesDeleteWorksheetPivotTable successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsPivotTablesApi = BaseTest.initializeCellsPivotTablesApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "TestCase.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsPivotTables_DeleteWorksheetPivotTableRequest();
           req.name = filename;
@@ -80,7 +81,7 @@ describe('CellsPivotTablesApi', function() {
           req.pivotTableIndex = 0;
           req.folder = "Temp";
           
-          return cellsPivotTablesApi.cellsPivotTablesDeleteWorksheetPivotTable(req)
+          return cellsApi.cellsPivotTablesDeleteWorksheetPivotTable(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -90,15 +91,14 @@ describe('CellsPivotTablesApi', function() {
   });
   describe('cellsPivotTablesDeleteWorksheetPivotTableFilter', function() {
     it('should call cellsPivotTablesDeleteWorksheetPivotTableFilter successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsPivotTablesApi = BaseTest.initializeCellsPivotTablesApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "TestCase.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsPivotTables_DeleteWorksheetPivotTableFilterRequest();
           req.name = filename;
@@ -108,7 +108,7 @@ describe('CellsPivotTablesApi', function() {
           req.needReCalculate = true;
           req.folder = "Temp";
           
-          return cellsPivotTablesApi.cellsPivotTablesDeleteWorksheetPivotTableFilter(req)
+          return cellsApi.cellsPivotTablesDeleteWorksheetPivotTableFilter(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -118,15 +118,14 @@ describe('CellsPivotTablesApi', function() {
   });
   describe('cellsPivotTablesDeleteWorksheetPivotTableFilters', function() {
     it('should call cellsPivotTablesDeleteWorksheetPivotTableFilters successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsPivotTablesApi = BaseTest.initializeCellsPivotTablesApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "TestCase.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsPivotTables_DeleteWorksheetPivotTableFiltersRequest();
           req.name = filename;
@@ -135,7 +134,7 @@ describe('CellsPivotTablesApi', function() {
           req.needReCalculate = true;
           req.folder = "Temp";
           
-          return cellsPivotTablesApi.cellsPivotTablesDeleteWorksheetPivotTableFilters(req)
+          return cellsApi.cellsPivotTablesDeleteWorksheetPivotTableFilters(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -145,22 +144,21 @@ describe('CellsPivotTablesApi', function() {
   });
   describe('cellsPivotTablesDeleteWorksheetPivotTables', function() {
     it('should call cellsPivotTablesDeleteWorksheetPivotTables successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsPivotTablesApi = BaseTest.initializeCellsPivotTablesApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "TestCase.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsPivotTables_DeleteWorksheetPivotTablesRequest();
           req.name = filename;
           req.sheetName = "Sheet4";
           req.folder = "Temp";
           
-          return cellsPivotTablesApi.cellsPivotTablesDeleteWorksheetPivotTables(req)
+          return cellsApi.cellsPivotTablesDeleteWorksheetPivotTables(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -170,15 +168,14 @@ describe('CellsPivotTablesApi', function() {
   });
   describe('cellsPivotTablesGetPivotTableField', function() {
     it('should call cellsPivotTablesGetPivotTableField successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsPivotTablesApi = BaseTest.initializeCellsPivotTablesApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "TestCase.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsPivotTables_GetPivotTableFieldRequest();
           req.name = filename;
@@ -188,7 +185,7 @@ describe('CellsPivotTablesApi', function() {
           req.pivotFieldType = "Row";
           req.folder = "Temp";
           
-          return cellsPivotTablesApi.cellsPivotTablesGetPivotTableField(req)
+          return cellsApi.cellsPivotTablesGetPivotTableField(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -198,15 +195,14 @@ describe('CellsPivotTablesApi', function() {
   });
   describe('cellsPivotTablesGetWorksheetPivotTable', function() {
     it('should call cellsPivotTablesGetWorksheetPivotTable successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsPivotTablesApi = BaseTest.initializeCellsPivotTablesApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "TestCase.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsPivotTables_GetWorksheetPivotTableRequest();
           req.name = filename;
@@ -214,7 +210,7 @@ describe('CellsPivotTablesApi', function() {
           req.pivottableIndex = 0;
           req.folder = "Temp";
           
-          return cellsPivotTablesApi.cellsPivotTablesGetWorksheetPivotTable(req)
+          return cellsApi.cellsPivotTablesGetWorksheetPivotTable(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -224,15 +220,14 @@ describe('CellsPivotTablesApi', function() {
   });
   describe('cellsPivotTablesGetWorksheetPivotTableFilter', function() {
     it('should call cellsPivotTablesGetWorksheetPivotTableFilter successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsPivotTablesApi = BaseTest.initializeCellsPivotTablesApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "TestCase.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsPivotTables_PutWorksheetPivotTableFilterRequest();
           req.name = filename;
@@ -257,7 +252,7 @@ describe('CellsPivotTablesApi', function() {
           req.needReCalculate = true;
           req.folder = "Temp";
           
-          return cellsPivotTablesApi.cellsPivotTablesPutWorksheetPivotTableFilter(req)
+          return cellsApi.cellsPivotTablesPutWorksheetPivotTableFilter(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -269,7 +264,7 @@ describe('CellsPivotTablesApi', function() {
               req.filterIndex = 0;
               req.folder = "Temp";
               
-              return cellsPivotTablesApi.cellsPivotTablesGetWorksheetPivotTableFilter(req)
+              return cellsApi.cellsPivotTablesGetWorksheetPivotTableFilter(req)
                 .then((result) => {
                   expect(result.body.code).to.equal(200);
                   expect(result.response.statusCode).to.equal(200);
@@ -280,15 +275,14 @@ describe('CellsPivotTablesApi', function() {
   });
   describe('cellsPivotTablesGetWorksheetPivotTableFilters', function() {
     it('should call cellsPivotTablesGetWorksheetPivotTableFilters successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsPivotTablesApi = BaseTest.initializeCellsPivotTablesApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "TestCase.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsPivotTables_GetWorksheetPivotTableFiltersRequest();
           req.name = filename;
@@ -296,7 +290,7 @@ describe('CellsPivotTablesApi', function() {
           req.pivotTableIndex = 0;
           req.folder = "Temp";
           
-          return cellsPivotTablesApi.cellsPivotTablesGetWorksheetPivotTableFilters(req)
+          return cellsApi.cellsPivotTablesGetWorksheetPivotTableFilters(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -306,22 +300,21 @@ describe('CellsPivotTablesApi', function() {
   });
   describe('cellsPivotTablesGetWorksheetPivotTables', function() {
     it('should call cellsPivotTablesGetWorksheetPivotTables successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsPivotTablesApi = BaseTest.initializeCellsPivotTablesApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "TestCase.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsPivotTables_GetWorksheetPivotTablesRequest();
           req.name = filename;
           req.sheetName = "Sheet4";
           req.folder = "Temp";
           
-          return cellsPivotTablesApi.cellsPivotTablesGetWorksheetPivotTables(req)
+          return cellsApi.cellsPivotTablesGetWorksheetPivotTables(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -331,15 +324,14 @@ describe('CellsPivotTablesApi', function() {
   });
   describe('cellsPivotTablesPostPivotTableCellStyle', function() {
     it('should call cellsPivotTablesPostPivotTableCellStyle successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsPivotTablesApi = BaseTest.initializeCellsPivotTablesApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "TestCase.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsPivotTables_PostPivotTableCellStyleRequest();
           req.name = filename;
@@ -354,7 +346,7 @@ describe('CellsPivotTablesApi', function() {
           req.needReCalculate = true;
           req.folder = "Temp";
           
-          return cellsPivotTablesApi.cellsPivotTablesPostPivotTableCellStyle(req)
+          return cellsApi.cellsPivotTablesPostPivotTableCellStyle(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -364,15 +356,14 @@ describe('CellsPivotTablesApi', function() {
   });
   describe('cellsPivotTablesPostPivotTableFieldHideItem', function() {
     it('should call cellsPivotTablesPostPivotTableFieldHideItem successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsPivotTablesApi = BaseTest.initializeCellsPivotTablesApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "TestCase.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsPivotTables_PostPivotTableFieldHideItemRequest();
           req.name = filename;
@@ -385,7 +376,7 @@ describe('CellsPivotTablesApi', function() {
           req.needReCalculate = true;
           req.folder = "Temp";
           
-          return cellsPivotTablesApi.cellsPivotTablesPostPivotTableFieldHideItem(req)
+          return cellsApi.cellsPivotTablesPostPivotTableFieldHideItem(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -395,15 +386,14 @@ describe('CellsPivotTablesApi', function() {
   });
   describe('cellsPivotTablesPostPivotTableFieldMoveTo', function() {
     it('should call cellsPivotTablesPostPivotTableFieldMoveTo successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsPivotTablesApi = BaseTest.initializeCellsPivotTablesApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "TestCase.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsPivotTables_PostPivotTableFieldMoveToRequest();
           req.name = filename;
@@ -414,7 +404,7 @@ describe('CellsPivotTablesApi', function() {
           req.to = "Column";
           req.folder = "Temp";
           
-          return cellsPivotTablesApi.cellsPivotTablesPostPivotTableFieldMoveTo(req)
+          return cellsApi.cellsPivotTablesPostPivotTableFieldMoveTo(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -424,15 +414,14 @@ describe('CellsPivotTablesApi', function() {
   });
   describe('cellsPivotTablesPostPivotTableStyle', function() {
     it('should call cellsPivotTablesPostPivotTableStyle successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsPivotTablesApi = BaseTest.initializeCellsPivotTablesApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "TestCase.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsPivotTables_PostPivotTableStyleRequest();
           req.name = filename;
@@ -445,7 +434,7 @@ describe('CellsPivotTablesApi', function() {
           req.needReCalculate = true;
           req.folder = "Temp";
           
-          return cellsPivotTablesApi.cellsPivotTablesPostPivotTableStyle(req)
+          return cellsApi.cellsPivotTablesPostPivotTableStyle(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -455,15 +444,14 @@ describe('CellsPivotTablesApi', function() {
   });
   describe('cellsPivotTablesPostWorksheetPivotTableCalculate', function() {
     it('should call cellsPivotTablesPostWorksheetPivotTableCalculate successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsPivotTablesApi = BaseTest.initializeCellsPivotTablesApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "TestCase.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsPivotTables_PostPivotTableStyleRequest();
           req.name = filename;
@@ -476,7 +464,7 @@ describe('CellsPivotTablesApi', function() {
           req.needReCalculate = true;
           req.folder = "Temp";
           
-          return cellsPivotTablesApi.cellsPivotTablesPostPivotTableStyle(req)
+          return cellsApi.cellsPivotTablesPostPivotTableStyle(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -486,15 +474,14 @@ describe('CellsPivotTablesApi', function() {
   });
   describe('cellsPivotTablesPostWorksheetPivotTableMove', function() {
     it('should call cellsPivotTablesPostWorksheetPivotTableMove successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsPivotTablesApi = BaseTest.initializeCellsPivotTablesApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "TestCase.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsPivotTables_PostWorksheetPivotTableMoveRequest();
           req.name = filename;
@@ -505,7 +492,7 @@ describe('CellsPivotTablesApi', function() {
           req.destCellName = "C10";
           req.folder = "Temp";
           
-          return cellsPivotTablesApi.cellsPivotTablesPostWorksheetPivotTableMove(req)
+          return cellsApi.cellsPivotTablesPostWorksheetPivotTableMove(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -515,15 +502,14 @@ describe('CellsPivotTablesApi', function() {
   });
   describe('cellsPivotTablesPutPivotTableField', function() {
     it('should call cellsPivotTablesPutPivotTableField successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsPivotTablesApi = BaseTest.initializeCellsPivotTablesApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "TestCase.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsPivotTables_PutPivotTableFieldRequest();
           req.name = filename;
@@ -535,7 +521,7 @@ describe('CellsPivotTablesApi', function() {
           req.needReCalculate = null;
           req.folder = "Temp";
           
-          return cellsPivotTablesApi.cellsPivotTablesPutPivotTableField(req)
+          return cellsApi.cellsPivotTablesPutPivotTableField(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -545,15 +531,14 @@ describe('CellsPivotTablesApi', function() {
   });
   describe('cellsPivotTablesPutWorksheetPivotTable', function() {
     it('should call cellsPivotTablesPutWorksheetPivotTable successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsPivotTablesApi = BaseTest.initializeCellsPivotTablesApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "TestCase.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsPivotTables_PutWorksheetPivotTableRequest();
           req.name = filename;
@@ -565,7 +550,7 @@ describe('CellsPivotTablesApi', function() {
           req.tableName = "TestPivot";
           req.useSameSource = true;
           
-          return cellsPivotTablesApi.cellsPivotTablesPutWorksheetPivotTable(req)
+          return cellsApi.cellsPivotTablesPutWorksheetPivotTable(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -575,15 +560,14 @@ describe('CellsPivotTablesApi', function() {
   });
   describe('cellsPivotTablesPutWorksheetPivotTableFilter', function() {
     it('should call cellsPivotTablesPutWorksheetPivotTableFilter successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsPivotTablesApi = BaseTest.initializeCellsPivotTablesApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "TestCase.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsPivotTables_PutWorksheetPivotTableFilterRequest();
           req.name = filename;
@@ -608,7 +592,7 @@ describe('CellsPivotTablesApi', function() {
           req.needReCalculate = true;
           req.folder = "Temp";
           
-          return cellsPivotTablesApi.cellsPivotTablesPutWorksheetPivotTableFilter(req)
+          return cellsApi.cellsPivotTablesPutWorksheetPivotTableFilter(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);

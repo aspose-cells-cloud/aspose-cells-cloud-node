@@ -25,7 +25,7 @@
 import { expect } from "chai";
 import "mocha";
 import "mocha-sinon";
-import * as request from "request"
+import * as request from "request";
 
 import * as BaseTest from "./baseTest";
 import { invokeApiMethod } from "../src/internal/requestHelper";
@@ -39,7 +39,7 @@ describe("oauth tests", () => {
         const requestOptions: request.Options = {
             method: "POST",
             json: true,
-            uri: configuration.baseUrl + "/oauth2/token",
+            uri: configuration.baseUrl + "/connect/token",
             form: {
                 grant_type: "client_credentials",
                 client_id: configuration.appSID,

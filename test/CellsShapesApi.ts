@@ -29,20 +29,22 @@ import * as model from "../src/model/model";
 import * as BaseTest from "./baseTest";
 
 const localPath = "../TestData/";
+var fs = require('fs');
+var path = require('path');
+var assert = require('assert');
 
 describe('CellsShapesApi', function() {
   this.timeout(20000);
   describe('cellsShapesDeleteWorksheetShape', function() {
     it('should call cellsShapesDeleteWorksheetShape successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsShapesApi = BaseTest.initializeCellsShapesApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsShapes_DeleteWorksheetShapeRequest();
           req.name = filename;
@@ -50,7 +52,7 @@ describe('CellsShapesApi', function() {
           req.shapeindex = 0;
           req.folder = "Temp";
           
-          return cellsShapesApi.cellsShapesDeleteWorksheetShape(req)
+          return cellsApi.cellsShapesDeleteWorksheetShape(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -60,22 +62,21 @@ describe('CellsShapesApi', function() {
   });
   describe('cellsShapesDeleteWorksheetShapes', function() {
     it('should call cellsShapesDeleteWorksheetShapes successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsShapesApi = BaseTest.initializeCellsShapesApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsShapes_DeleteWorksheetShapesRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
           req.folder = "Temp";
           
-          return cellsShapesApi.cellsShapesDeleteWorksheetShapes(req)
+          return cellsApi.cellsShapesDeleteWorksheetShapes(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -85,15 +86,14 @@ describe('CellsShapesApi', function() {
   });
   describe('cellsShapesGetWorksheetShape', function() {
     it('should call cellsShapesGetWorksheetShape successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsShapesApi = BaseTest.initializeCellsShapesApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsShapes_GetWorksheetShapeRequest();
           req.name = filename;
@@ -101,7 +101,7 @@ describe('CellsShapesApi', function() {
           req.shapeindex = 0;
           req.folder = "Temp";
           
-          return cellsShapesApi.cellsShapesGetWorksheetShape(req)
+          return cellsApi.cellsShapesGetWorksheetShape(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -111,22 +111,21 @@ describe('CellsShapesApi', function() {
   });
   describe('cellsShapesGetWorksheetShapes', function() {
     it('should call cellsShapesGetWorksheetShapes successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsShapesApi = BaseTest.initializeCellsShapesApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsShapes_GetWorksheetShapesRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
           req.folder = "Temp";
           
-          return cellsShapesApi.cellsShapesGetWorksheetShapes(req)
+          return cellsApi.cellsShapesGetWorksheetShapes(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -136,15 +135,14 @@ describe('CellsShapesApi', function() {
   });
   describe('cellsShapesPostWorksheetShape', function() {
     it('should call cellsShapesPostWorksheetShape successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsShapesApi = BaseTest.initializeCellsShapesApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsShapes_PostWorksheetShapeRequest();
           req.name = filename;
@@ -154,7 +152,7 @@ describe('CellsShapesApi', function() {
           req.dto.lowerRightColumn = 10;
           req.folder = "Temp";
           
-          return cellsShapesApi.cellsShapesPostWorksheetShape(req)
+          return cellsApi.cellsShapesPostWorksheetShape(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -164,15 +162,14 @@ describe('CellsShapesApi', function() {
   });
   describe('cellsShapesPutWorksheetShape', function() {
     it('should call cellsShapesPutWorksheetShape successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsShapesApi = BaseTest.initializeCellsShapesApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsShapes_PutWorksheetShapeRequest();
           req.name = filename;
@@ -186,7 +183,7 @@ describe('CellsShapesApi', function() {
           req.height = 90;
           req.folder = "Temp";
           
-          return cellsShapesApi.cellsShapesPutWorksheetShape(req)
+          return cellsApi.cellsShapesPutWorksheetShape(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);

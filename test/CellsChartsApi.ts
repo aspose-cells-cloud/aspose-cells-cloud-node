@@ -29,20 +29,22 @@ import * as model from "../src/model/model";
 import * as BaseTest from "./baseTest";
 
 const localPath = "../TestData/";
+var fs = require('fs');
+var path = require('path');
+var assert = require('assert');
 
 describe('CellsChartsApi', function() {
   this.timeout(20000);
   describe('cellsChartsDeleteWorksheetChartLegend', function() {
     it('should call cellsChartsDeleteWorksheetChartLegend successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsChartsApi = BaseTest.initializeCellsChartsApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "myDocument.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsCharts_DeleteWorksheetChartLegendRequest();
           req.name = filename;
@@ -50,7 +52,7 @@ describe('CellsChartsApi', function() {
           req.chartIndex = 1;
           req.folder = "Temp";
           
-          return cellsChartsApi.cellsChartsDeleteWorksheetChartLegend(req)
+          return cellsApi.cellsChartsDeleteWorksheetChartLegend(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -60,15 +62,14 @@ describe('CellsChartsApi', function() {
   });
   describe('cellsChartsDeleteWorksheetChartTitle', function() {
     it('should call cellsChartsDeleteWorksheetChartTitle successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsChartsApi = BaseTest.initializeCellsChartsApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "myDocument.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsCharts_DeleteWorksheetChartTitleRequest();
           req.name = filename;
@@ -76,7 +77,7 @@ describe('CellsChartsApi', function() {
           req.chartIndex = 0;
           req.folder = "Temp";
           
-          return cellsChartsApi.cellsChartsDeleteWorksheetChartTitle(req)
+          return cellsApi.cellsChartsDeleteWorksheetChartTitle(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -86,22 +87,21 @@ describe('CellsChartsApi', function() {
   });
   describe('cellsChartsDeleteWorksheetClearCharts', function() {
     it('should call cellsChartsDeleteWorksheetClearCharts successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsChartsApi = BaseTest.initializeCellsChartsApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "myDocument.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsCharts_DeleteWorksheetClearChartsRequest();
           req.name = filename;
           req.sheetName = "Sheet3";
           req.folder = "Temp";
           
-          return cellsChartsApi.cellsChartsDeleteWorksheetClearCharts(req)
+          return cellsApi.cellsChartsDeleteWorksheetClearCharts(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -111,15 +111,14 @@ describe('CellsChartsApi', function() {
   });
   describe('cellsChartsDeleteWorksheetDeleteChart', function() {
     it('should call cellsChartsDeleteWorksheetDeleteChart successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsChartsApi = BaseTest.initializeCellsChartsApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "myDocument.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsCharts_DeleteWorksheetDeleteChartRequest();
           req.name = filename;
@@ -127,7 +126,7 @@ describe('CellsChartsApi', function() {
           req.chartIndex = 0;
           req.folder = "Temp";
           
-          return cellsChartsApi.cellsChartsDeleteWorksheetDeleteChart(req)
+          return cellsApi.cellsChartsDeleteWorksheetDeleteChart(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -137,15 +136,14 @@ describe('CellsChartsApi', function() {
   });
   describe('cellsChartsGetWorksheetChart', function() {
     it('should call cellsChartsGetWorksheetChart successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsChartsApi = BaseTest.initializeCellsChartsApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "myDocument.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsCharts_GetWorksheetChartRequest();
           req.name = filename;
@@ -154,7 +152,7 @@ describe('CellsChartsApi', function() {
           req.format = "png";
           req.folder = "Temp";
           
-          return cellsChartsApi.cellsChartsGetWorksheetChart(req)
+          return cellsApi.cellsChartsGetWorksheetChart(req)
             .then((result) => {
               expect(result.response.statusCode).to.equal(200);
             });
@@ -163,15 +161,14 @@ describe('CellsChartsApi', function() {
   });
   describe('cellsChartsGetWorksheetChartLegend', function() {
     it('should call cellsChartsGetWorksheetChartLegend successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsChartsApi = BaseTest.initializeCellsChartsApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "myDocument.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsCharts_GetWorksheetChartLegendRequest();
           req.name = filename;
@@ -179,7 +176,7 @@ describe('CellsChartsApi', function() {
           req.chartIndex = 0;
           req.folder = "Temp";
           
-          return cellsChartsApi.cellsChartsGetWorksheetChartLegend(req)
+          return cellsApi.cellsChartsGetWorksheetChartLegend(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -189,15 +186,14 @@ describe('CellsChartsApi', function() {
   });
   describe('cellsChartsGetWorksheetChartTitle', function() {
     it('should call cellsChartsGetWorksheetChartTitle successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsChartsApi = BaseTest.initializeCellsChartsApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsCharts_GetWorksheetChartTitleRequest();
           req.name = filename;
@@ -205,7 +201,7 @@ describe('CellsChartsApi', function() {
           req.chartIndex = 0;
           req.folder = "Temp";
           
-          return cellsChartsApi.cellsChartsGetWorksheetChartTitle(req)
+          return cellsApi.cellsChartsGetWorksheetChartTitle(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -215,22 +211,21 @@ describe('CellsChartsApi', function() {
   });
   describe('cellsChartsGetWorksheetCharts', function() {
     it('should call cellsChartsGetWorksheetCharts successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsChartsApi = BaseTest.initializeCellsChartsApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "myDocument.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsCharts_GetWorksheetChartsRequest();
           req.name = filename;
           req.sheetName = "Sheet3";
           req.folder = "Temp";
           
-          return cellsChartsApi.cellsChartsGetWorksheetCharts(req)
+          return cellsApi.cellsChartsGetWorksheetCharts(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -240,15 +235,14 @@ describe('CellsChartsApi', function() {
   });
   describe('cellsChartsPostWorksheetChart', function() {
     it('should call cellsChartsPostWorksheetChart successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsChartsApi = BaseTest.initializeCellsChartsApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "myDocument.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsCharts_PostWorksheetChartRequest();
           req.name = filename;
@@ -259,7 +253,7 @@ describe('CellsChartsApi', function() {
           chart.autoScaling = true;
           req.chart = chart;
           
-          return cellsChartsApi.cellsChartsPostWorksheetChart(req)
+          return cellsApi.cellsChartsPostWorksheetChart(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -269,15 +263,14 @@ describe('CellsChartsApi', function() {
   });
   describe('cellsChartsPostWorksheetChartLegend', function() {
     it('should call cellsChartsPostWorksheetChartLegend successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsChartsApi = BaseTest.initializeCellsChartsApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "myDocument.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsCharts_PostWorksheetChartLegendRequest();
           req.name = filename;
@@ -288,7 +281,7 @@ describe('CellsChartsApi', function() {
           legend.width = 10;
           req.legend = legend;
           
-          return cellsChartsApi.cellsChartsPostWorksheetChartLegend(req)
+          return cellsApi.cellsChartsPostWorksheetChartLegend(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -298,15 +291,14 @@ describe('CellsChartsApi', function() {
   });
   describe('cellsChartsPostWorksheetChartTitle', function() {
     it('should call cellsChartsPostWorksheetChartTitle successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsChartsApi = BaseTest.initializeCellsChartsApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "myDocument.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsCharts_PostWorksheetChartTitleRequest();
           req.name = filename;
@@ -317,7 +309,7 @@ describe('CellsChartsApi', function() {
           title.text = "Post title";
           req.title = title;
           
-          return cellsChartsApi.cellsChartsPostWorksheetChartTitle(req)
+          return cellsApi.cellsChartsPostWorksheetChartTitle(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -327,15 +319,14 @@ describe('CellsChartsApi', function() {
   });
   describe('cellsChartsPutWorksheetAddChart', function() {
     it('should call cellsChartsPutWorksheetAddChart successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsChartsApi = BaseTest.initializeCellsChartsApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "myDocument.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsCharts_PutWorksheetAddChartRequest();
           req.name = filename;
@@ -350,7 +341,7 @@ describe('CellsChartsApi', function() {
           req.isAutoGetSerialName = null;
           req.folder = "Temp";
           
-          return cellsChartsApi.cellsChartsPutWorksheetAddChart(req)
+          return cellsApi.cellsChartsPutWorksheetAddChart(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -360,15 +351,14 @@ describe('CellsChartsApi', function() {
   });
   describe('cellsChartsPutWorksheetChartLegend', function() {
     it('should call cellsChartsPutWorksheetChartLegend successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsChartsApi = BaseTest.initializeCellsChartsApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "myDocument.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsCharts_PutWorksheetChartLegendRequest();
           req.name = filename;
@@ -376,7 +366,7 @@ describe('CellsChartsApi', function() {
           req.chartIndex = 0;
           req.folder = "Temp";
           
-          return cellsChartsApi.cellsChartsPutWorksheetChartLegend(req)
+          return cellsApi.cellsChartsPutWorksheetChartLegend(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -386,15 +376,14 @@ describe('CellsChartsApi', function() {
   });
   describe('cellsChartsPutWorksheetChartTitle', function() {
     it('should call cellsChartsPutWorksheetChartTitle successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsChartsApi = BaseTest.initializeCellsChartsApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "myDocument.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsCharts_PutWorksheetChartTitleRequest();
           req.name = filename;
@@ -405,7 +394,7 @@ describe('CellsChartsApi', function() {
           title.text = "New title";
           req.title = title;
           
-          return cellsChartsApi.cellsChartsPutWorksheetChartTitle(req)
+          return cellsApi.cellsChartsPutWorksheetChartTitle(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);

@@ -27,22 +27,23 @@ import "mocha";
 
 import * as model from "../src/model/model";
 import * as BaseTest from "./baseTest";
-
+var fs = require('fs');
+var path = require('path');
+var assert = require('assert');
 const localPath = "../TestData/";
 
 describe('CellsConditionalFormattingsApi', function() {
   this.timeout(20000);
   describe('cellsConditionalFormattingsDeleteWorksheetConditionalFormatting', function() {
     it('should call cellsConditionalFormattingsDeleteWorksheetConditionalFormatting successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsConditionalFormattingsApi = BaseTest.initializeCellsConditionalFormattingsApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsConditionalFormattings_DeleteWorksheetConditionalFormattingRequest();
           req.name = filename;
@@ -50,7 +51,7 @@ describe('CellsConditionalFormattingsApi', function() {
           req.index = 0;
           req.folder = "Temp";
           
-          return cellsConditionalFormattingsApi.cellsConditionalFormattingsDeleteWorksheetConditionalFormatting(req)
+          return cellsApi.cellsConditionalFormattingsDeleteWorksheetConditionalFormatting(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -60,15 +61,14 @@ describe('CellsConditionalFormattingsApi', function() {
   });
   describe('cellsConditionalFormattingsDeleteWorksheetConditionalFormattingArea', function() {
     it('should call cellsConditionalFormattingsDeleteWorksheetConditionalFormattingArea successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsConditionalFormattingsApi = BaseTest.initializeCellsConditionalFormattingsApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsConditionalFormattings_DeleteWorksheetConditionalFormattingAreaRequest();
           req.name = filename;
@@ -79,7 +79,7 @@ describe('CellsConditionalFormattingsApi', function() {
           req.totalColumns = 6;
           req.folder = "Temp";
           
-          return cellsConditionalFormattingsApi.cellsConditionalFormattingsDeleteWorksheetConditionalFormattingArea(req)
+          return cellsApi.cellsConditionalFormattingsDeleteWorksheetConditionalFormattingArea(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -89,22 +89,21 @@ describe('CellsConditionalFormattingsApi', function() {
   });
   describe('cellsConditionalFormattingsDeleteWorksheetConditionalFormattings', function() {
     it('should call cellsConditionalFormattingsDeleteWorksheetConditionalFormattings successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsConditionalFormattingsApi = BaseTest.initializeCellsConditionalFormattingsApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsConditionalFormattings_DeleteWorksheetConditionalFormattingsRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
           req.folder = "Temp";
           
-          return cellsConditionalFormattingsApi.cellsConditionalFormattingsDeleteWorksheetConditionalFormattings(req)
+          return cellsApi.cellsConditionalFormattingsDeleteWorksheetConditionalFormattings(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -114,15 +113,14 @@ describe('CellsConditionalFormattingsApi', function() {
   });
   describe('cellsConditionalFormattingsGetWorksheetConditionalFormatting', function() {
     it('should call cellsConditionalFormattingsGetWorksheetConditionalFormatting successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsConditionalFormattingsApi = BaseTest.initializeCellsConditionalFormattingsApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsConditionalFormattings_GetWorksheetConditionalFormattingRequest();
           req.name = filename;
@@ -130,7 +128,7 @@ describe('CellsConditionalFormattingsApi', function() {
           req.index = 0;
           req.folder = "Temp";
           
-          return cellsConditionalFormattingsApi.cellsConditionalFormattingsGetWorksheetConditionalFormatting(req)
+          return cellsApi.cellsConditionalFormattingsGetWorksheetConditionalFormatting(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -139,23 +137,21 @@ describe('CellsConditionalFormattingsApi', function() {
     });
   });
   describe('cellsConditionalFormattingsGetWorksheetConditionalFormattings', function() {
-    it('should call cellsConditionalFormattingsGetWorksheetConditionalFormattings successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsConditionalFormattingsApi = BaseTest.initializeCellsConditionalFormattingsApi();
-      const filename = "Book1.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+    const cellsApi = BaseTest.initializeCellsApi();
+    const filename = "Book1.xlsx";
+    var data =fs.createReadStream(localPath  + filename);
+    var req = new model.UploadFileRequest();
+    req.path = "Temp/" + filename;
+    req.file = data;
+
+    return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsConditionalFormattings_GetWorksheetConditionalFormattingsRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
           req.folder = "Temp";
           
-          return cellsConditionalFormattingsApi.cellsConditionalFormattingsGetWorksheetConditionalFormattings(req)
+          return cellsApi.cellsConditionalFormattingsGetWorksheetConditionalFormattings(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -165,15 +161,14 @@ describe('CellsConditionalFormattingsApi', function() {
   });
   describe('cellsConditionalFormattingsPutWorksheetConditionalFormatting', function() {
     it('should call cellsConditionalFormattingsPutWorksheetConditionalFormatting successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsConditionalFormattingsApi = BaseTest.initializeCellsConditionalFormattingsApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsConditionalFormattings_PutWorksheetConditionalFormattingRequest();
           req.name = filename;
@@ -187,7 +182,7 @@ describe('CellsConditionalFormattingsApi', function() {
           req.formatcondition = formatcondition;
           req.folder = "Temp";
           
-          return cellsConditionalFormattingsApi.cellsConditionalFormattingsPutWorksheetConditionalFormatting(req)
+          return cellsApi.cellsConditionalFormattingsPutWorksheetConditionalFormatting(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -197,15 +192,14 @@ describe('CellsConditionalFormattingsApi', function() {
   });
   describe('cellsConditionalFormattingsPutWorksheetFormatCondition', function() {
     it('should call cellsConditionalFormattingsPutWorksheetFormatCondition successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsConditionalFormattingsApi = BaseTest.initializeCellsConditionalFormattingsApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsConditionalFormattings_PutWorksheetFormatConditionRequest();
           req.name = filename;
@@ -218,7 +212,7 @@ describe('CellsConditionalFormattingsApi', function() {
           req.formula2 = "v2";
           req.folder = "Temp";
           
-          return cellsConditionalFormattingsApi.cellsConditionalFormattingsPutWorksheetFormatCondition(req)
+          return cellsApi.cellsConditionalFormattingsPutWorksheetFormatCondition(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -228,15 +222,14 @@ describe('CellsConditionalFormattingsApi', function() {
   });
   describe('cellsConditionalFormattingsPutWorksheetFormatConditionArea', function() {
     it('should call cellsConditionalFormattingsPutWorksheetFormatConditionArea successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsConditionalFormattingsApi = BaseTest.initializeCellsConditionalFormattingsApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsConditionalFormattings_PutWorksheetFormatConditionAreaRequest();
           req.name = filename;
@@ -245,7 +238,7 @@ describe('CellsConditionalFormattingsApi', function() {
           req.cellArea = "A1:C10";
           req.folder = "Temp";
           
-          return cellsConditionalFormattingsApi.cellsConditionalFormattingsPutWorksheetFormatConditionArea(req)
+          return cellsApi.cellsConditionalFormattingsPutWorksheetFormatConditionArea(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -255,15 +248,14 @@ describe('CellsConditionalFormattingsApi', function() {
   });
   describe('cellsConditionalFormattingsPutWorksheetFormatConditionCondition', function() {
     it('should call cellsConditionalFormattingsPutWorksheetFormatConditionCondition successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsConditionalFormattingsApi = BaseTest.initializeCellsConditionalFormattingsApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsConditionalFormattings_PutWorksheetFormatConditionConditionRequest();
           req.name = filename;
@@ -275,7 +267,7 @@ describe('CellsConditionalFormattingsApi', function() {
           req.formula2 = "v2";
           req.folder = "Temp";
           
-          return cellsConditionalFormattingsApi.cellsConditionalFormattingsPutWorksheetFormatConditionCondition(req)
+          return cellsApi.cellsConditionalFormattingsPutWorksheetFormatConditionCondition(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -283,4 +275,3 @@ describe('CellsConditionalFormattingsApi', function() {
         });
     });
   });
-});

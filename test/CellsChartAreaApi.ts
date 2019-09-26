@@ -29,20 +29,22 @@ import * as model from "../src/model/model";
 import * as BaseTest from "./baseTest";
 
 const localPath = "../TestData/";
+var fs = require('fs');
+var path = require('path');
+var assert = require('assert');
 
 describe('CellsChartAreaApi', function() {
   this.timeout(20000);
   describe('cellsChartAreaGetChartArea', function() {
     it('should call cellsChartAreaGetChartArea successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsChartAreaApi = BaseTest.initializeCellsChartAreaApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "myDocument.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsChartArea_GetChartAreaRequest();
           req.name = filename;
@@ -50,7 +52,7 @@ describe('CellsChartAreaApi', function() {
           req.chartIndex = 0;
           req.folder = "Temp";
           
-          return cellsChartAreaApi.cellsChartAreaGetChartArea(req)
+          return cellsApi.cellsChartAreaGetChartArea(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -60,15 +62,14 @@ describe('CellsChartAreaApi', function() {
   });
   describe('cellsChartAreaGetChartAreaBorder', function() {
     it('should call cellsChartAreaGetChartAreaBorder successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsChartAreaApi = BaseTest.initializeCellsChartAreaApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "myDocument.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsChartArea_GetChartAreaBorderRequest();
           req.name = filename;
@@ -76,7 +77,7 @@ describe('CellsChartAreaApi', function() {
           req.chartIndex = 0;
           req.folder = "Temp";
           
-          return cellsChartAreaApi.cellsChartAreaGetChartAreaBorder(req)
+          return cellsApi.cellsChartAreaGetChartAreaBorder(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -86,15 +87,14 @@ describe('CellsChartAreaApi', function() {
   });
   describe('cellsChartAreaGetChartAreaFillFormat', function() {
     it('should call cellsChartAreaGetChartAreaFillFormat successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsChartAreaApi = BaseTest.initializeCellsChartAreaApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "myDocument.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsChartArea_GetChartAreaFillFormatRequest();
           req.name = filename;
@@ -102,7 +102,7 @@ describe('CellsChartAreaApi', function() {
           req.chartIndex = 0;
           req.folder = "Temp";
           
-          return cellsChartAreaApi.cellsChartAreaGetChartAreaFillFormat(req)
+          return cellsApi.cellsChartAreaGetChartAreaFillFormat(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);

@@ -29,20 +29,22 @@ import * as model from "../src/model/model";
 import * as BaseTest from "./baseTest";
 
 const localPath = "../TestData/";
+var fs = require('fs');
+var path = require('path');
+var assert = require('assert');
 
 describe('CellsOleObjectsApi', function() {
   this.timeout(20000);
   describe('cellsOleObjectsDeleteWorksheetOleObject', function() {
     it('should call cellsOleObjectsDeleteWorksheetOleObject successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsOleObjectsApi = BaseTest.initializeCellsOleObjectsApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsOleObjects_DeleteWorksheetOleObjectRequest();
           req.name = filename;
@@ -50,7 +52,7 @@ describe('CellsOleObjectsApi', function() {
           req.oleObjectIndex = 0;
           req.folder = "Temp";
           
-          return cellsOleObjectsApi.cellsOleObjectsDeleteWorksheetOleObject(req)
+          return cellsApi.cellsOleObjectsDeleteWorksheetOleObject(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -60,22 +62,21 @@ describe('CellsOleObjectsApi', function() {
   });
   describe('cellsOleObjectsDeleteWorksheetOleObjects', function() {
     it('should call cellsOleObjectsDeleteWorksheetOleObjects successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsOleObjectsApi = BaseTest.initializeCellsOleObjectsApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsOleObjects_DeleteWorksheetOleObjectsRequest();
           req.name = filename;
           req.sheetName = "Sheet6";
           req.folder = "Temp";
           
-          return cellsOleObjectsApi.cellsOleObjectsDeleteWorksheetOleObjects(req)
+          return cellsApi.cellsOleObjectsDeleteWorksheetOleObjects(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -85,15 +86,14 @@ describe('CellsOleObjectsApi', function() {
   });
   describe('cellsOleObjectsGetWorksheetOleObject', function() {
     it('should call cellsOleObjectsGetWorksheetOleObject successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsOleObjectsApi = BaseTest.initializeCellsOleObjectsApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsOleObjects_GetWorksheetOleObjectRequest();
           req.name = filename;
@@ -101,7 +101,7 @@ describe('CellsOleObjectsApi', function() {
           req.objectNumber = 0;
           req.folder = "Temp";
           
-          return cellsOleObjectsApi.cellsOleObjectsGetWorksheetOleObject(req)
+          return cellsApi.cellsOleObjectsGetWorksheetOleObject(req)
             .then((result) => {
               expect(result.response.statusCode).to.equal(200);
             });
@@ -110,15 +110,14 @@ describe('CellsOleObjectsApi', function() {
   });
   describe('cellsOleObjectsGetWorksheetOleObjectFormat', function() {
     it('should call cellsOleObjectsGetWorksheetOleObjectFormat successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsOleObjectsApi = BaseTest.initializeCellsOleObjectsApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsOleObjects_GetWorksheetOleObjectRequest();
           req.name = filename;
@@ -127,7 +126,7 @@ describe('CellsOleObjectsApi', function() {
           req.folder = "Temp";
           req.format = "png";
           
-          return cellsOleObjectsApi.cellsOleObjectsGetWorksheetOleObject(req)
+          return cellsApi.cellsOleObjectsGetWorksheetOleObject(req)
             .then((result) => {
               expect(result.response.statusCode).to.equal(200);
             });
@@ -136,22 +135,21 @@ describe('CellsOleObjectsApi', function() {
   });
   describe('cellsOleObjectsGetWorksheetOleObjects', function() {
     it('should call cellsOleObjectsGetWorksheetOleObjects successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsOleObjectsApi = BaseTest.initializeCellsOleObjectsApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsOleObjects_GetWorksheetOleObjectsRequest();
           req.name = filename;
           req.sheetName = "Sheet6";
           req.folder = "Temp";
           
-          return cellsOleObjectsApi.cellsOleObjectsGetWorksheetOleObjects(req)
+          return cellsApi.cellsOleObjectsGetWorksheetOleObjects(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -161,15 +159,14 @@ describe('CellsOleObjectsApi', function() {
   });
   describe('cellsOleObjectsPostUpdateWorksheetOleObject', function() {
     it('should call cellsOleObjectsPostUpdateWorksheetOleObject successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsOleObjectsApi = BaseTest.initializeCellsOleObjectsApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsOleObjects_PostUpdateWorksheetOleObjectRequest();
           req.name = filename;
@@ -183,7 +180,7 @@ describe('CellsOleObjectsApi', function() {
           ole.width = 78;
           req.ole = ole;
           
-          return cellsOleObjectsApi.cellsOleObjectsPostUpdateWorksheetOleObject(req)
+          return cellsApi.cellsOleObjectsPostUpdateWorksheetOleObject(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -193,26 +190,36 @@ describe('CellsOleObjectsApi', function() {
   });
   describe('cellsOleObjectsPutWorksheetOleObject', function() {
     it('should call cellsOleObjectsPutWorksheetOleObject successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsOleObjectsApi = BaseTest.initializeCellsOleObjectsApi();
+
       const filename = "Book1.xlsx";
       const filename1 = "OLEDoc.docx";
       const filename2 = "word.jpg";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-        storageApi.PutCreate("Temp/" + filename1, null, null, localPath + filename1, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-        storageApi.PutCreate("Temp/" + filename2, null, null, localPath + filename2, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      const cellsApi = BaseTest.initializeCellsApi();
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
+          const filename1= "word.jpg";
+          const cellsApi = BaseTest.initializeCellsApi();
+          var data =fs.createReadStream(localPath  + filename1);
+          var req = new model.UploadFileRequest();
+          req.path = "Temp/" + filename1;
+          req.file = data;
+      
+          return cellsApi.uploadFile(req)
+            .then(() => {
+              const filename2 = "OLEDoc.docx";
+              const cellsApi = BaseTest.initializeCellsApi();
+              var data =fs.createReadStream(localPath  + filename2);
+              var req = new model.UploadFileRequest();
+              req.path = "Temp/" + filename2;
+              req.file = data;
+          
+              return cellsApi.uploadFile(req)
+                .then(() => {                        
           var req = new model.CellsOleObjects_PutWorksheetOleObjectRequest();
           req.name = filename;
           req.sheetName = "Sheet6";
@@ -225,7 +232,7 @@ describe('CellsOleObjectsApi', function() {
           req.oleFile = filename1;
           req.imageFile = filename2;
           
-          return cellsOleObjectsApi.cellsOleObjectsPutWorksheetOleObject(req)
+          return cellsApi.cellsOleObjectsPutWorksheetOleObject(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -233,4 +240,6 @@ describe('CellsOleObjectsApi', function() {
         });
     });
   });
+});
+});
 });

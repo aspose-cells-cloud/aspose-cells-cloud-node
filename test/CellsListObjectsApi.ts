@@ -27,22 +27,23 @@ import "mocha";
 
 import * as model from "../src/model/model";
 import * as BaseTest from "./baseTest";
-
+var fs = require('fs');
+var path = require('path');
+var assert = require('assert');
 const localPath = "../TestData/";
 
 describe('CellsListObjectsApi', function() {
   this.timeout(20000);
   describe('cellsListObjectsDeleteWorksheetListObject', function() {
     it('should call cellsListObjectsDeleteWorksheetListObject successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsListObjectsApi = BaseTest.initializeCellsListObjectsApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsListObjects_DeleteWorksheetListObjectRequest();
           req.name = filename;
@@ -50,7 +51,7 @@ describe('CellsListObjectsApi', function() {
           req.listObjectIndex = 0;
           req.folder = "Temp";
           
-          return cellsListObjectsApi.cellsListObjectsDeleteWorksheetListObject(req)
+          return cellsApi.cellsListObjectsDeleteWorksheetListObject(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -60,22 +61,21 @@ describe('CellsListObjectsApi', function() {
   });
   describe('cellsListObjectsDeleteWorksheetListObjects', function() {
     it('should call cellsListObjectsDeleteWorksheetListObjects successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsListObjectsApi = BaseTest.initializeCellsListObjectsApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsListObjects_DeleteWorksheetListObjectsRequest();
           req.name = filename;
           req.sheetName = "Sheet7";
           req.folder = "Temp";
           
-          return cellsListObjectsApi.cellsListObjectsDeleteWorksheetListObjects(req)
+          return cellsApi.cellsListObjectsDeleteWorksheetListObjects(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -85,15 +85,14 @@ describe('CellsListObjectsApi', function() {
   });
   describe('cellsListObjectsGetWorksheetListObject', function() {
     it('should call cellsListObjectsGetWorksheetListObject successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsListObjectsApi = BaseTest.initializeCellsListObjectsApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsListObjects_GetWorksheetListObjectRequest();
           req.name = filename;
@@ -101,7 +100,7 @@ describe('CellsListObjectsApi', function() {
           req.listobjectindex = 0;
           req.folder = "Temp";
           
-          return cellsListObjectsApi.cellsListObjectsGetWorksheetListObject(req)
+          return cellsApi.cellsListObjectsGetWorksheetListObject(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -111,22 +110,21 @@ describe('CellsListObjectsApi', function() {
   });
   describe('cellsListObjectsGetWorksheetListObjects', function() {
     it('should call cellsListObjectsGetWorksheetListObjects successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsListObjectsApi = BaseTest.initializeCellsListObjectsApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsListObjects_GetWorksheetListObjectsRequest();
           req.name = filename;
           req.sheetName = "Sheet7";
           req.folder = "Temp";
           
-          return cellsListObjectsApi.cellsListObjectsGetWorksheetListObjects(req)
+          return cellsApi.cellsListObjectsGetWorksheetListObjects(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -136,15 +134,14 @@ describe('CellsListObjectsApi', function() {
   });
   describe('cellsListObjectsPostWorksheetListObject', function() {
     it('should call cellsListObjectsPostWorksheetListObject successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsListObjectsApi = BaseTest.initializeCellsListObjectsApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsListObjects_PostWorksheetListObjectRequest();
           req.name = filename;
@@ -154,7 +151,7 @@ describe('CellsListObjectsApi', function() {
           req.listObject.showHeaderRow = true;
           req.folder = "Temp";
           
-          return cellsListObjectsApi.cellsListObjectsPostWorksheetListObject(req)
+          return cellsApi.cellsListObjectsPostWorksheetListObject(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -164,15 +161,14 @@ describe('CellsListObjectsApi', function() {
   });
   describe('cellsListObjectsPostWorksheetListObjectConvertToRange', function() {
     it('should call cellsListObjectsPostWorksheetListObjectConvertToRange successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsListObjectsApi = BaseTest.initializeCellsListObjectsApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsListObjects_PostWorksheetListObjectConvertToRangeRequest();
           req.name = filename;
@@ -180,7 +176,7 @@ describe('CellsListObjectsApi', function() {
           req.listObjectIndex = 0;
           req.folder = "Temp";
           
-          return cellsListObjectsApi.cellsListObjectsPostWorksheetListObjectConvertToRange(req)
+          return cellsApi.cellsListObjectsPostWorksheetListObjectConvertToRange(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -190,15 +186,14 @@ describe('CellsListObjectsApi', function() {
   });
   describe('cellsListObjectsPostWorksheetListObjectSortTable', function() {
     it('should call cellsListObjectsPostWorksheetListObjectSortTable successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsListObjectsApi = BaseTest.initializeCellsListObjectsApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsListObjects_PostWorksheetListObjectSortTableRequest();
           req.name = filename;
@@ -208,7 +203,7 @@ describe('CellsListObjectsApi', function() {
           req.dataSorter.caseSensitive = true;
           req.folder = "Temp";
           
-          return cellsListObjectsApi.cellsListObjectsPostWorksheetListObjectSortTable(req)
+          return cellsApi.cellsListObjectsPostWorksheetListObjectSortTable(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -218,15 +213,14 @@ describe('CellsListObjectsApi', function() {
   });
   describe('cellsListObjectsPostWorksheetListObjectSummarizeWithPivotTable', function() {
     it('should call cellsListObjectsPostWorksheetListObjectSummarizeWithPivotTable successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsListObjectsApi = BaseTest.initializeCellsListObjectsApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsListObjects_PostWorksheetListObjectSummarizeWithPivotTableRequest();
           req.name = filename;
@@ -244,7 +238,7 @@ describe('CellsListObjectsApi', function() {
           req.request = request;
           req.folder = "Temp";
           
-          return cellsListObjectsApi.cellsListObjectsPostWorksheetListObjectSummarizeWithPivotTable(req)
+          return cellsApi.cellsListObjectsPostWorksheetListObjectSummarizeWithPivotTable(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -254,15 +248,14 @@ describe('CellsListObjectsApi', function() {
   });
   describe('cellsListObjectsPutWorksheetListObject', function() {
     it('should call cellsListObjectsPutWorksheetListObject successfully', function() {
-      const storageApi = BaseTest.initializeStorageApi();
-      const cellsListObjectsApi = BaseTest.initializeCellsListObjectsApi();
+      const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      return new Promise((resolve) => {
-        storageApi.PutCreate("Temp/" + filename, null, null, localPath + filename, (responseMessage) => {
-          expect(responseMessage.status).to.equal("OK");
-          resolve();
-        });
-      })
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
         .then(() => {
           var req = new model.CellsListObjects_PutWorksheetListObjectRequest();
           req.name = filename;
@@ -273,7 +266,7 @@ describe('CellsListObjectsApi', function() {
           req.endColumn = 6;
           req.folder = "Temp";
           
-          return cellsListObjectsApi.cellsListObjectsPutWorksheetListObject(req)
+          return cellsApi.cellsListObjectsPutWorksheetListObject(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
