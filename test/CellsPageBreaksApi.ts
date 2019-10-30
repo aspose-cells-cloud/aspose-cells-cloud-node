@@ -45,7 +45,8 @@ describe('CellsPageBreaksApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsPageBreaks_DeleteHorizontalPageBreakRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
@@ -70,7 +71,8 @@ describe('CellsPageBreaksApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsPageBreaks_DeleteHorizontalPageBreaksRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
@@ -95,7 +97,8 @@ describe('CellsPageBreaksApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsPageBreaks_DeleteVerticalPageBreakRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
@@ -120,7 +123,8 @@ describe('CellsPageBreaksApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsPageBreaks_DeleteVerticalPageBreaksRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
@@ -145,7 +149,8 @@ describe('CellsPageBreaksApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsPageBreaks_GetHorizontalPageBreakRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
@@ -170,7 +175,8 @@ describe('CellsPageBreaksApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsPageBreaks_GetHorizontalPageBreaksRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
@@ -194,7 +200,8 @@ describe('CellsPageBreaksApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsPageBreaks_GetVerticalPageBreakRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
@@ -219,7 +226,8 @@ describe('CellsPageBreaksApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsPageBreaks_GetVerticalPageBreaksRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
@@ -243,7 +251,8 @@ describe('CellsPageBreaksApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsPageBreaks_PutHorizontalPageBreakRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
@@ -272,7 +281,8 @@ describe('CellsPageBreaksApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsPageBreaks_PutVerticalPageBreakRequest();
           req.name = filename;
           req.sheetName = "Sheet1";

@@ -45,7 +45,8 @@ describe('CellsWorksheetValidationsApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsWorksheetValidations_DeleteWorksheetValidationRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
@@ -53,6 +54,31 @@ describe('CellsWorksheetValidationsApi', function() {
           req.folder = "Temp";
           
           return cellsApi.cellsWorksheetValidationsDeleteWorksheetValidation(req)
+            .then((result) => {
+              expect(result.body.code).to.equal(200);
+              expect(result.response.statusCode).to.equal(200);
+            });
+        });
+    });
+  });
+  describe('cellsWorksheetValidationsDeleteWorksheetValidations', function() {
+    it('should call cellsWorksheetValidationsDeleteWorksheetValidations successfully', function() {
+      const cellsApi = BaseTest.initializeCellsApi();
+      const filename = "Book1.xlsx";
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
+          var req = new model.CellsWorksheetValidations_DeleteWorksheetValidationsRequest();
+          req.name = filename;
+          req.sheetName = "Sheet1";
+          req.folder = "Temp";
+          
+          return cellsApi.cellsWorksheetValidationsDeleteWorksheetValidations(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
@@ -70,7 +96,8 @@ describe('CellsWorksheetValidationsApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsWorksheetValidations_GetWorksheetValidationRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
@@ -95,7 +122,8 @@ describe('CellsWorksheetValidationsApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsWorksheetValidations_GetWorksheetValidationsRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
@@ -119,7 +147,8 @@ describe('CellsWorksheetValidationsApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsWorksheetValidations_PostWorksheetValidationRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
@@ -156,7 +185,8 @@ describe('CellsWorksheetValidationsApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsWorksheetValidations_PutWorksheetValidationRequest();
           req.name = filename;
           req.sheetName = "Sheet1";

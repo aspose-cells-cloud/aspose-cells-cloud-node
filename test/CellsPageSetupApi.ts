@@ -45,7 +45,8 @@ describe('CellsPageSetupApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsPageSetup_DeleteHeaderFooterRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
@@ -69,7 +70,8 @@ describe('CellsPageSetupApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsPageSetup_GetFooterRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
@@ -93,7 +95,8 @@ describe('CellsPageSetupApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsPageSetup_GetHeaderRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
@@ -117,7 +120,8 @@ describe('CellsPageSetupApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsPageSetup_GetPageSetupRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
@@ -141,7 +145,8 @@ describe('CellsPageSetupApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsPageSetup_PostFooterRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
@@ -168,7 +173,8 @@ describe('CellsPageSetupApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsPageSetup_PostHeaderRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
@@ -195,7 +201,8 @@ describe('CellsPageSetupApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsPageSetup_PostPageSetupRequest();
           req.name = filename;
           req.sheetName = "Sheet1";

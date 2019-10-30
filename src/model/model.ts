@@ -22493,6 +22493,35 @@ export class CellsWorksheetValidations_DeleteWorksheetValidationRequest {
 }
 
 /**
+ * Request model for CellsWorksheetValidations_DeleteWorksheetValidations operation.
+ */
+export class CellsWorksheetValidations_DeleteWorksheetValidationsRequest {
+    /**
+     * Document name.
+     */
+    public name: string;
+
+    /**
+     * Worksheet name.
+     */
+    public sheetName: string;
+
+    /**
+     * Document's folder.
+     */
+    public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
+    
+    public constructor(init?: Partial<CellsWorksheetValidations_DeleteWorksheetValidationsRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
  * Request model for CellsWorksheetValidations_GetWorksheetValidation operation.
  */
 export class CellsWorksheetValidations_GetWorksheetValidationRequest {

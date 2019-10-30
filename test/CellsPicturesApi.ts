@@ -45,7 +45,8 @@ describe('CellsPicturesApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsPictures_DeleteWorksheetPictureRequest();
           req.name = filename;
           req.sheetName = "Sheet6";
@@ -70,7 +71,8 @@ describe('CellsPicturesApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsPictures_DeleteWorksheetPicturesRequest();
           req.name = filename;
           req.sheetName = "Sheet6";
@@ -94,7 +96,8 @@ describe('CellsPicturesApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsPictures_GetWorksheetPictureRequest();
           req.name = filename;
           req.sheetName = "Sheet6";
@@ -118,7 +121,8 @@ describe('CellsPicturesApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsPictures_GetWorksheetPictureRequest();
           req.name = filename;
           req.sheetName = "Sheet6";
@@ -143,7 +147,8 @@ describe('CellsPicturesApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsPictures_GetWorksheetPicturesRequest();
           req.name = filename;
           req.sheetName = "Sheet6";
@@ -167,7 +172,8 @@ describe('CellsPicturesApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsPictures_PostWorksheetPictureRequest();
           req.name = filename;
           req.sheetName = "Sheet6";
@@ -195,7 +201,8 @@ describe('CellsPicturesApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var data =fs.createReadStream(localPath  + picturePath);
           var req = new model.UploadFileRequest();
           req.path = "Temp/" + picturePath;

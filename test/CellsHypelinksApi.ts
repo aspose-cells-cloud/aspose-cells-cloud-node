@@ -44,7 +44,8 @@ describe('CellsHypelinksApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsHypelinks_DeleteWorksheetHyperlinkRequest();
           req.name ="Book1.xlsx";
           req.sheetName = "Sheet1";
@@ -69,7 +70,8 @@ describe('CellsHypelinksApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsHypelinks_DeleteWorksheetHyperlinksRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
@@ -93,7 +95,8 @@ describe('CellsHypelinksApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsHypelinks_GetWorksheetHyperlinkRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
@@ -118,7 +121,8 @@ describe('CellsHypelinksApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsHypelinks_GetWorksheetHyperlinksRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
@@ -142,7 +146,8 @@ describe('CellsHypelinksApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsHypelinks_PostWorksheetHyperlinkRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
@@ -170,7 +175,8 @@ describe('CellsHypelinksApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsHypelinks_PutWorksheetHyperlinkRequest();
           req.name = filename;
           req.sheetName = "Sheet1";

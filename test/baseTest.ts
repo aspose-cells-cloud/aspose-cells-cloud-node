@@ -34,7 +34,7 @@ const ApiURL = "https://api.aspose.cloud/v3.0"
  * Initialize CellsApi
  */
 export function initializeCellsApi() {
-    const cellsApi = new api.CellsApi(AppSid, AppKey);
+    const cellsApi = new api.CellsApi(AppSid, AppKey,"v3.0");
     return cellsApi;
 }
 

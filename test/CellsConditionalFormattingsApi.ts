@@ -44,7 +44,8 @@ describe('CellsConditionalFormattingsApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsConditionalFormattings_DeleteWorksheetConditionalFormattingRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
@@ -69,7 +70,8 @@ describe('CellsConditionalFormattingsApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsConditionalFormattings_DeleteWorksheetConditionalFormattingAreaRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
@@ -97,7 +99,8 @@ describe('CellsConditionalFormattingsApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsConditionalFormattings_DeleteWorksheetConditionalFormattingsRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
@@ -121,7 +124,8 @@ describe('CellsConditionalFormattingsApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsConditionalFormattings_GetWorksheetConditionalFormattingRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
@@ -145,7 +149,8 @@ describe('CellsConditionalFormattingsApi', function() {
     req.file = data;
 
     return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsConditionalFormattings_GetWorksheetConditionalFormattingsRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
@@ -169,7 +174,8 @@ describe('CellsConditionalFormattingsApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsConditionalFormattings_PutWorksheetConditionalFormattingRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
@@ -200,7 +206,8 @@ describe('CellsConditionalFormattingsApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsConditionalFormattings_PutWorksheetFormatConditionRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
@@ -230,7 +237,8 @@ describe('CellsConditionalFormattingsApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsConditionalFormattings_PutWorksheetFormatConditionAreaRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
@@ -256,7 +264,8 @@ describe('CellsConditionalFormattingsApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsConditionalFormattings_PutWorksheetFormatConditionConditionRequest();
           req.name = filename;
           req.sheetName = "Sheet1";

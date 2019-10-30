@@ -44,7 +44,8 @@ describe('CellsSaveAsApi ', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsSaveAs_PostDocumentSaveAsRequest();
           req.name = filename;
           req.saveOptions = new model.OoxmlSaveOptions();
@@ -71,7 +72,8 @@ describe('CellsSaveAsApi ', function() {
         req.file = data;
     
         return cellsApi.uploadFile(req)
-          .then(() => {
+          .then((result) => {
+            expect(result.body.uploaded.length).greaterThan(0);
             var req = new model.CellsSaveAs_PostDocumentSaveAsRequest();
             req.name = filename;
             var saveOptions =new model.MarkdownSaveOptions();
@@ -100,7 +102,8 @@ describe('CellsSaveAsApi ', function() {
         req.file = data;
     
         return cellsApi.uploadFile(req)
-          .then(() => {
+          .then((result) => {
+            expect(result.body.uploaded.length).greaterThan(0);
             var req = new model.CellsSaveAs_PostDocumentSaveAsRequest();
             req.name = filename;
             var saveOptions = new model.PdfSaveOptions();
@@ -132,7 +135,8 @@ describe('CellsSaveAsApi ', function() {
         req.file = data;
     
         return cellsApi.uploadFile(req)
-          .then(() => {
+          .then((result) => {
+            expect(result.body.uploaded.length).greaterThan(0);
             var req = new model.CellsSaveAs_PostDocumentSaveAsRequest();
             req.name = filename;
             var saveOptions = new model.PdfSaveOptions();

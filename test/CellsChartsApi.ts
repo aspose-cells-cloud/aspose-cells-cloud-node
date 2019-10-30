@@ -45,7 +45,8 @@ describe('CellsChartsApi', function() {
       req.file = data;
 
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsCharts_DeleteWorksheetChartLegendRequest();
           req.name = filename;
           req.sheetName = "Sheet3";
@@ -70,7 +71,8 @@ describe('CellsChartsApi', function() {
       req.file = data;
 
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsCharts_DeleteWorksheetChartTitleRequest();
           req.name = filename;
           req.sheetName = "Sheet3";
@@ -95,7 +97,8 @@ describe('CellsChartsApi', function() {
       req.file = data;
 
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsCharts_DeleteWorksheetClearChartsRequest();
           req.name = filename;
           req.sheetName = "Sheet3";
@@ -119,7 +122,8 @@ describe('CellsChartsApi', function() {
       req.file = data;
 
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsCharts_DeleteWorksheetDeleteChartRequest();
           req.name = filename;
           req.sheetName = "Sheet3";
@@ -144,7 +148,8 @@ describe('CellsChartsApi', function() {
       req.file = data;
 
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsCharts_GetWorksheetChartRequest();
           req.name = filename;
           req.sheetName = "Sheet3";
@@ -169,7 +174,8 @@ describe('CellsChartsApi', function() {
       req.file = data;
 
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsCharts_GetWorksheetChartLegendRequest();
           req.name = filename;
           req.sheetName = "Sheet3";
@@ -194,7 +200,8 @@ describe('CellsChartsApi', function() {
       req.file = data;
 
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsCharts_GetWorksheetChartTitleRequest();
           req.name = filename;
           req.sheetName = "Sheet4";
@@ -219,7 +226,8 @@ describe('CellsChartsApi', function() {
       req.file = data;
 
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsCharts_GetWorksheetChartsRequest();
           req.name = filename;
           req.sheetName = "Sheet3";
@@ -243,7 +251,8 @@ describe('CellsChartsApi', function() {
       req.file = data;
 
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsCharts_PostWorksheetChartRequest();
           req.name = filename;
           req.sheetName = "Sheet3";
@@ -271,7 +280,8 @@ describe('CellsChartsApi', function() {
       req.file = data;
 
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsCharts_PostWorksheetChartLegendRequest();
           req.name = filename;
           req.sheetName = "Sheet3";
@@ -299,7 +309,8 @@ describe('CellsChartsApi', function() {
       req.file = data;
 
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsCharts_PostWorksheetChartTitleRequest();
           req.name = filename;
           req.sheetName = "Sheet3";
@@ -327,7 +338,8 @@ describe('CellsChartsApi', function() {
       req.file = data;
 
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsCharts_PutWorksheetAddChartRequest();
           req.name = filename;
           req.sheetName = "Sheet4";
@@ -359,7 +371,8 @@ describe('CellsChartsApi', function() {
       req.file = data;
 
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsCharts_PutWorksheetChartLegendRequest();
           req.name = filename;
           req.sheetName = "Sheet3";
@@ -384,7 +397,8 @@ describe('CellsChartsApi', function() {
       req.file = data;
 
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsCharts_PutWorksheetChartTitleRequest();
           req.name = filename;
           req.sheetName = "Sheet3";

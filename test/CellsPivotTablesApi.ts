@@ -45,7 +45,8 @@ describe('CellsPivotTablesApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsPivotTables_DeletePivotTableFieldRequest();
           req.name = filename;
           req.sheetName = "Sheet4";
@@ -74,7 +75,8 @@ describe('CellsPivotTablesApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsPivotTables_DeleteWorksheetPivotTableRequest();
           req.name = filename;
           req.sheetName = "Sheet4";
@@ -99,7 +101,8 @@ describe('CellsPivotTablesApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsPivotTables_DeleteWorksheetPivotTableFilterRequest();
           req.name = filename;
           req.sheetName = "Sheet4";
@@ -126,7 +129,8 @@ describe('CellsPivotTablesApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsPivotTables_DeleteWorksheetPivotTableFiltersRequest();
           req.name = filename;
           req.sheetName = "Sheet4";
@@ -152,7 +156,8 @@ describe('CellsPivotTablesApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsPivotTables_DeleteWorksheetPivotTablesRequest();
           req.name = filename;
           req.sheetName = "Sheet4";
@@ -176,7 +181,8 @@ describe('CellsPivotTablesApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsPivotTables_GetPivotTableFieldRequest();
           req.name = filename;
           req.sheetName = "Sheet4";
@@ -203,7 +209,8 @@ describe('CellsPivotTablesApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsPivotTables_GetWorksheetPivotTableRequest();
           req.name = filename;
           req.sheetName = "Sheet4";
@@ -228,7 +235,8 @@ describe('CellsPivotTablesApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsPivotTables_PutWorksheetPivotTableFilterRequest();
           req.name = filename;
           req.sheetName = "Sheet4";
@@ -283,7 +291,8 @@ describe('CellsPivotTablesApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsPivotTables_GetWorksheetPivotTableFiltersRequest();
           req.name = filename;
           req.sheetName = "Sheet4";
@@ -308,7 +317,8 @@ describe('CellsPivotTablesApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsPivotTables_GetWorksheetPivotTablesRequest();
           req.name = filename;
           req.sheetName = "Sheet4";
@@ -332,7 +342,8 @@ describe('CellsPivotTablesApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsPivotTables_PostPivotTableCellStyleRequest();
           req.name = filename;
           req.sheetName = "Sheet4";
@@ -364,7 +375,8 @@ describe('CellsPivotTablesApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsPivotTables_PostPivotTableFieldHideItemRequest();
           req.name = filename;
           req.sheetName = "Sheet4";
@@ -394,7 +406,8 @@ describe('CellsPivotTablesApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsPivotTables_PostPivotTableFieldMoveToRequest();
           req.name = filename;
           req.sheetName = "Sheet4";
@@ -422,7 +435,8 @@ describe('CellsPivotTablesApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsPivotTables_PostPivotTableStyleRequest();
           req.name = filename;
           req.sheetName = "Sheet4";
@@ -452,7 +466,8 @@ describe('CellsPivotTablesApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsPivotTables_PostPivotTableStyleRequest();
           req.name = filename;
           req.sheetName = "Sheet4";
@@ -482,7 +497,8 @@ describe('CellsPivotTablesApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsPivotTables_PostWorksheetPivotTableMoveRequest();
           req.name = filename;
           req.sheetName = "Sheet4";
@@ -510,7 +526,8 @@ describe('CellsPivotTablesApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsPivotTables_PutPivotTableFieldRequest();
           req.name = filename;
           req.sheetName = "Sheet4";
@@ -539,7 +556,8 @@ describe('CellsPivotTablesApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsPivotTables_PutWorksheetPivotTableRequest();
           req.name = filename;
           req.sheetName = "Sheet4";
@@ -568,7 +586,8 @@ describe('CellsPivotTablesApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsPivotTables_PutWorksheetPivotTableFilterRequest();
           req.name = filename;
           req.sheetName = "Sheet4";

@@ -45,7 +45,8 @@ describe('CellsChartAreaApi', function() {
       req.file = data;
 
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsChartArea_GetChartAreaRequest();
           req.name = filename;
           req.sheetName = "Sheet3";
@@ -70,7 +71,8 @@ describe('CellsChartAreaApi', function() {
       req.file = data;
 
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsChartArea_GetChartAreaBorderRequest();
           req.name = filename;
           req.sheetName = "Sheet3";
@@ -95,7 +97,8 @@ describe('CellsChartAreaApi', function() {
       req.file = data;
 
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsChartArea_GetChartAreaFillFormatRequest();
           req.name = filename;
           req.sheetName = "Sheet3";

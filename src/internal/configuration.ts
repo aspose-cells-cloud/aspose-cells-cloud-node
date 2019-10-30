@@ -24,7 +24,7 @@
 
 import { IAuthentication, OAuth  } from "../internal/auth";
 const defaultBasePath = "https://api.aspose.cloud";
-const apiVersion = "v3.0";
+const defaultApiVersion = "v3.0";
 
 /**
  * Words API configuration
@@ -49,21 +49,27 @@ export class Configuration {
      * Base Url.
      */
     public baseUrl: string = defaultBasePath;
-
+    /**
+     * Base version.
+     */
+    public apiVersion: string = defaultApiVersion;
     /**
      *  Gets or sets a value indicating whether debug mode. In debug mode all requests and responses are logged to console.
      */
     public debugMode: boolean;
 
-    constructor(appSID: string, appKey: string, baseUrl?: string, debugMode?: boolean) {
+    constructor(appSID: string, appKey: string, apiVersion?: string, baseUrl?: string, debugMode?: boolean) {
         if (baseUrl) {
             this.baseUrl = baseUrl;
         }
 
+        if(apiVersion){
+            this.apiVersion = apiVersion;
+        }
+        
         this.appSID = appSID;
         this.appKey = appKey;
         this.debugMode = debugMode;
-
         this.authentication = new OAuth() as IAuthentication;
     }
 
@@ -71,6 +77,6 @@ export class Configuration {
      * Returns api base url
      */
     public getApiBaseUrl(): string {
-        return this.baseUrl + "/" + apiVersion;
+        return this.baseUrl + "/" + this.apiVersion;
     }
 }

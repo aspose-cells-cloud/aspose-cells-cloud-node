@@ -45,7 +45,8 @@ describe('CellsOleObjectsApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsOleObjects_DeleteWorksheetOleObjectRequest();
           req.name = filename;
           req.sheetName = "Sheet6";
@@ -70,7 +71,8 @@ describe('CellsOleObjectsApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsOleObjects_DeleteWorksheetOleObjectsRequest();
           req.name = filename;
           req.sheetName = "Sheet6";
@@ -94,7 +96,8 @@ describe('CellsOleObjectsApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsOleObjects_GetWorksheetOleObjectRequest();
           req.name = filename;
           req.sheetName = "Sheet6";
@@ -118,7 +121,8 @@ describe('CellsOleObjectsApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsOleObjects_GetWorksheetOleObjectRequest();
           req.name = filename;
           req.sheetName = "Sheet6";
@@ -143,7 +147,8 @@ describe('CellsOleObjectsApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsOleObjects_GetWorksheetOleObjectsRequest();
           req.name = filename;
           req.sheetName = "Sheet6";
@@ -167,7 +172,8 @@ describe('CellsOleObjectsApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsOleObjects_PostUpdateWorksheetOleObjectRequest();
           req.name = filename;
           req.sheetName = "Sheet6";
@@ -201,7 +207,8 @@ describe('CellsOleObjectsApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           const filename1= "word.jpg";
           const cellsApi = BaseTest.initializeCellsApi();
           var data =fs.createReadStream(localPath  + filename1);
@@ -210,7 +217,8 @@ describe('CellsOleObjectsApi', function() {
           req.file = data;
       
           return cellsApi.uploadFile(req)
-            .then(() => {
+            .then((result) => {
+              expect(result.body.uploaded.length).greaterThan(0);
               const filename2 = "OLEDoc.docx";
               const cellsApi = BaseTest.initializeCellsApi();
               var data =fs.createReadStream(localPath  + filename2);
@@ -219,27 +227,28 @@ describe('CellsOleObjectsApi', function() {
               req.file = data;
           
               return cellsApi.uploadFile(req)
-                .then(() => {                        
-          var req = new model.CellsOleObjects_PutWorksheetOleObjectRequest();
-          req.name = filename;
-          req.sheetName = "Sheet6";
-          req.folder = "Temp";
-          req.oleObject = null;
-          req.upperLeftRow = 1;
-          req.upperLeftColumn = 1;
-          req.height = 100;
-          req.width = 80;
-          req.oleFile = filename1;
-          req.imageFile = filename2;
-          
-          return cellsApi.cellsOleObjectsPutWorksheetOleObject(req)
-            .then((result) => {
-              expect(result.body.code).to.equal(200);
-              expect(result.response.statusCode).to.equal(200);
+                .then((result) => {
+                  expect(result.body.uploaded.length).greaterThan(0);                       
+                  var req = new model.CellsOleObjects_PutWorksheetOleObjectRequest();
+                  req.name = filename;
+                  req.sheetName = "Sheet6";
+                  req.folder = "Temp";
+                  req.oleObject = null;
+                  req.upperLeftRow = 1;
+                  req.upperLeftColumn = 1;
+                  req.height = 100;
+                  req.width = 80;
+                  req.oleFile = filename1;
+                  req.imageFile = filename2;
+                  
+                  return cellsApi.cellsOleObjectsPutWorksheetOleObject(req)
+                    .then((result) => {
+                      expect(result.body.code).to.equal(200);
+                      expect(result.response.statusCode).to.equal(200);
+                    });
+                 });
             });
+          });
         });
     });
-  });
-});
-});
 });

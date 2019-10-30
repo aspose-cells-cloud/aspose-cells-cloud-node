@@ -74,7 +74,7 @@ export class OAuth implements IAuthentication {
         const requestOptions: request.Options = {
             method: "POST",
             json: true,
-            uri: configuration.baseUrl + "/connect/token",
+            uri: configuration.baseUrl + (configuration.apiVersion =="v1.1"? "/oauth2/token": "/connect/token"),
             form: {
                 grant_type: "client_credentials",
                 client_id: configuration.appSID,

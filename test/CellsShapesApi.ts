@@ -45,7 +45,8 @@ describe('CellsShapesApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsShapes_DeleteWorksheetShapeRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
@@ -70,7 +71,8 @@ describe('CellsShapesApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsShapes_DeleteWorksheetShapesRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
@@ -94,7 +96,8 @@ describe('CellsShapesApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsShapes_GetWorksheetShapeRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
@@ -119,7 +122,8 @@ describe('CellsShapesApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsShapes_GetWorksheetShapesRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
@@ -143,7 +147,8 @@ describe('CellsShapesApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsShapes_PostWorksheetShapeRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
@@ -170,7 +175,8 @@ describe('CellsShapesApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsShapes_PutWorksheetShapeRequest();
           req.name = filename;
           req.sheetName = "Sheet1";

@@ -45,7 +45,8 @@ describe('CellsPropertiesApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsProperties_DeleteDocumentPropertiesRequest();
           req.name = filename;
           req.folder = "Temp";
@@ -68,7 +69,8 @@ describe('CellsPropertiesApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsProperties_DeleteDocumentPropertyRequest();
           req.name = filename;
           req.propertyName = "Author";
@@ -92,7 +94,8 @@ describe('CellsPropertiesApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsProperties_GetDocumentPropertiesRequest();
           req.name = filename;
           req.folder = "Temp";
@@ -115,7 +118,8 @@ describe('CellsPropertiesApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsProperties_GetDocumentPropertyRequest();
           req.name = filename;
           req.propertyName = "Author";
@@ -139,7 +143,8 @@ describe('CellsPropertiesApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsProperties_PutDocumentPropertyRequest();
           req.name = filename;
           req.propertyName = "Name";

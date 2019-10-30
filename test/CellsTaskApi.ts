@@ -44,7 +44,8 @@ describe('CellsTaskApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsTask_PostRunTaskRequest();
           var taskData = new model.TaskData();
           taskData.tasks = new Array<model.TaskDescription>();

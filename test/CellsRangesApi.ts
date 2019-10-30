@@ -44,7 +44,8 @@ describe('CellsRangesApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsRanges_GetWorksheetCellsRangeValueRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
@@ -94,7 +95,8 @@ describe('CellsRangesApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsRanges_PostWorksheetCellsRangeColumnWidthRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
@@ -126,7 +128,8 @@ describe('CellsRangesApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsRanges_PostWorksheetCellsRangeMergeRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
@@ -157,7 +160,8 @@ describe('CellsRangesApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsRanges_PostWorksheetCellsRangeMoveToRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
@@ -190,7 +194,8 @@ describe('CellsRangesApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsRanges_PostWorksheetCellsRangeOutlineBorderRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
@@ -227,7 +232,8 @@ describe('CellsRangesApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsRanges_PostWorksheetCellsRangeRowHeightRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
@@ -259,7 +265,8 @@ describe('CellsRangesApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsRanges_PostWorksheetCellsRangeStyleRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
@@ -295,7 +302,8 @@ describe('CellsRangesApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsRanges_PostWorksheetCellsRangeUnmergeRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
@@ -326,7 +334,8 @@ describe('CellsRangesApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsRanges_PostWorksheetCellsRangeValueRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
@@ -360,7 +369,8 @@ describe('CellsRangesApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsRanges_PostWorksheetCellsRangesRequest();
           req.name = filename;
           req.sheetName = "Sheet1";

@@ -44,26 +44,27 @@ describe('CellsAutoFilterApi', function() {
     req.file = data;
 
     return cellsApi.uploadFile(req)
-        .then(() => {
-          var req = new model.CellsAutoFilter_DeleteWorksheetDateFilterRequest();
-          req.name = filename;
-          req.sheetName = "Sheet1";
-          req.fieldIndex = 1;
-          req.dateTimeGroupingType = "Day";
-          req.year = 2010;
-          req.month = 10;
-          req.day = 1;
-          req.hour = 1;
-          req.minute = 1;
-          req.second = 1;
-          req.folder = "Temp";
-          
-          return cellsApi.cellsAutoFilterDeleteWorksheetDateFilter(req)
-            .then((result) => {
-              expect(result.body.code).to.equal(200);
-              expect(result.response.statusCode).to.equal(200);
-            });
-        });
+      .then((result) => {
+        expect(result.body.uploaded.length).greaterThan(0);
+        var req = new model.CellsAutoFilter_DeleteWorksheetDateFilterRequest();
+        req.name = filename;
+        req.sheetName = "Sheet1";
+        req.fieldIndex = 1;
+        req.dateTimeGroupingType = "Day";
+        req.year = 2010;
+        req.month = 10;
+        req.day = 1;
+        req.hour = 1;
+        req.minute = 1;
+        req.second = 1;
+        req.folder = "Temp";
+        
+        return cellsApi.cellsAutoFilterDeleteWorksheetDateFilter(req)
+          .then((result) => {
+            expect(result.body.code).to.equal(200);
+            expect(result.response.statusCode).to.equal(200);
+          });
+      });
     });
   });
   describe('cellsAutoFilterDeleteWorksheetFilter', function() {
@@ -76,7 +77,8 @@ describe('CellsAutoFilterApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsAutoFilter_DeleteWorksheetFilterRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
@@ -102,7 +104,8 @@ describe('CellsAutoFilterApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsAutoFilter_GetWorksheetAutoFilterRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
@@ -126,7 +129,8 @@ describe('CellsAutoFilterApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsAutoFilter_PostWorksheetAutoFilterRefreshRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
@@ -150,7 +154,8 @@ describe('CellsAutoFilterApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsAutoFilter_PostWorksheetMatchBlanksRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
@@ -175,7 +180,8 @@ describe('CellsAutoFilterApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsAutoFilter_PostWorksheetMatchNonBlanksRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
@@ -200,7 +206,8 @@ describe('CellsAutoFilterApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsAutoFilter_PutWorksheetColorFilterRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
@@ -237,7 +244,8 @@ describe('CellsAutoFilterApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsAutoFilter_PutWorksheetCustomFilterRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
@@ -270,7 +278,8 @@ describe('CellsAutoFilterApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsAutoFilter_PutWorksheetDateFilterRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
@@ -305,7 +314,8 @@ describe('CellsAutoFilterApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsAutoFilter_PutWorksheetDynamicFilterRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
@@ -334,7 +344,8 @@ describe('CellsAutoFilterApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsAutoFilter_PutWorksheetFilterRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
@@ -363,7 +374,8 @@ describe('CellsAutoFilterApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsAutoFilter_PutWorksheetFilterTop10Request();
           req.name = filename;
           req.sheetName = "Sheet1";
@@ -394,7 +406,8 @@ describe('CellsAutoFilterApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsAutoFilter_PutWorksheetIconFilterRequest();
           req.name = filename;
           req.sheetName = "Sheet1";

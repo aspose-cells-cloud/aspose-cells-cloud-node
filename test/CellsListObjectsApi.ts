@@ -44,7 +44,8 @@ describe('CellsListObjectsApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsListObjects_DeleteWorksheetListObjectRequest();
           req.name = filename;
           req.sheetName = "Sheet7";
@@ -69,7 +70,8 @@ describe('CellsListObjectsApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsListObjects_DeleteWorksheetListObjectsRequest();
           req.name = filename;
           req.sheetName = "Sheet7";
@@ -93,7 +95,8 @@ describe('CellsListObjectsApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsListObjects_GetWorksheetListObjectRequest();
           req.name = filename;
           req.sheetName = "Sheet7";
@@ -118,7 +121,8 @@ describe('CellsListObjectsApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsListObjects_GetWorksheetListObjectsRequest();
           req.name = filename;
           req.sheetName = "Sheet7";
@@ -142,7 +146,8 @@ describe('CellsListObjectsApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsListObjects_PostWorksheetListObjectRequest();
           req.name = filename;
           req.sheetName = "Sheet7";
@@ -169,7 +174,8 @@ describe('CellsListObjectsApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsListObjects_PostWorksheetListObjectConvertToRangeRequest();
           req.name = filename;
           req.sheetName = "Sheet7";
@@ -194,7 +200,8 @@ describe('CellsListObjectsApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsListObjects_PostWorksheetListObjectSortTableRequest();
           req.name = filename;
           req.sheetName = "Sheet7";
@@ -221,7 +228,8 @@ describe('CellsListObjectsApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsListObjects_PostWorksheetListObjectSummarizeWithPivotTableRequest();
           req.name = filename;
           req.sheetName = "Sheet7";
@@ -256,7 +264,8 @@ describe('CellsListObjectsApi', function() {
       req.file = data;
   
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsListObjects_PutWorksheetListObjectRequest();
           req.name = filename;
           req.sheetName = "Sheet7";

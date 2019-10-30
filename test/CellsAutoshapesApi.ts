@@ -49,7 +49,8 @@ describe('CellsAutoshapesApi', function() {
       // req.path = "3DTestNodejs/threeD3.pdf";
       // req.file = data;
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsAutoshapes_GetWorksheetAutoshapeRequest();
           req.name = filename;
           req.sheetName = "Sheet2";
@@ -77,7 +78,8 @@ describe('CellsAutoshapesApi', function() {
       // req.path = "3DTestNodejs/threeD3.pdf";
       // req.file = data;
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsAutoshapes_GetWorksheetAutoshapeRequest();
           req.name = filename;
           req.sheetName = "Sheet2";
@@ -106,7 +108,8 @@ describe('CellsAutoshapesApi', function() {
       // req.path = "3DTestNodejs/threeD3.pdf";
       // req.file = data;
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+         expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsAutoshapes_GetWorksheetAutoshapesRequest();
           req.name = filename;
           req.sheetName = "Sheet2";

@@ -45,7 +45,8 @@ describe('CellsApi', function() {
       req.file = data;
 
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.Cells_DeleteWorksheetColumnsRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
@@ -72,7 +73,8 @@ describe('CellsApi', function() {
       req.file = data;
 
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.Cells_DeleteWorksheetRowRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
@@ -97,7 +99,8 @@ describe('CellsApi', function() {
       req.file = data;
 
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.Cells_DeleteWorksheetRowsRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
@@ -124,7 +127,8 @@ describe('CellsApi', function() {
       req.file = data;
 
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.Cells_GetWorksheetCellRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
@@ -218,7 +222,8 @@ describe('CellsApi', function() {
       req.file = data;
 
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.Cells_GetWorksheetCellStyleRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
@@ -243,7 +248,8 @@ describe('CellsApi', function() {
       req.file = data;
 
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.Cells_GetWorksheetCellsRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
@@ -269,7 +275,8 @@ describe('CellsApi', function() {
       req.file = data;
 
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.Cells_GetWorksheetColumnRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
@@ -294,7 +301,8 @@ describe('CellsApi', function() {
       req.file = data;
 
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.Cells_GetWorksheetColumnsRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
@@ -318,7 +326,8 @@ describe('CellsApi', function() {
       req.file = data;
 
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.Cells_GetWorksheetRowRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
@@ -343,7 +352,8 @@ describe('CellsApi', function() {
       req.file = data;
 
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.Cells_GetWorksheetRowsRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
@@ -367,7 +377,8 @@ describe('CellsApi', function() {
       req.file = data;
 
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.Cells_PostCellCalculateRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
@@ -396,7 +407,8 @@ describe('CellsApi', function() {
       req.file = data;
 
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.Cells_PostCellCharactersRequest();
           req.name = filename;
           req.cellName = "G8";
@@ -432,7 +444,8 @@ describe('CellsApi', function() {
       req.file = data;
 
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.Cells_PostClearContentsRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
@@ -461,7 +474,8 @@ describe('CellsApi', function() {
       req.file = data;
 
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.Cells_PostClearFormatsRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
@@ -490,7 +504,8 @@ describe('CellsApi', function() {
       req.file = data;
 
       return cellsApi.uploadFile(req)
-        .then(() => {
+       .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.Cells_PostColumnStyleRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
@@ -522,7 +537,8 @@ describe('CellsApi', function() {
       req.file = data;
 
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.Cells_PostCopyCellIntoCellRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
@@ -551,7 +567,8 @@ describe('CellsApi', function() {
       req.file = data;
 
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.Cells_PostCopyWorksheetColumnsRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
@@ -579,7 +596,8 @@ describe('CellsApi', function() {
       req.file = data;
 
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.Cells_PostCopyWorksheetRowsRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
@@ -607,7 +625,8 @@ describe('CellsApi', function() {
       req.file = data;
 
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.Cells_PostGroupWorksheetColumnsRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
@@ -634,7 +653,8 @@ describe('CellsApi', function() {
       req.file = data;
 
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.Cells_PostGroupWorksheetRowsRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
@@ -661,7 +681,8 @@ describe('CellsApi', function() {
       req.file = data;
 
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.Cells_PostHideWorksheetColumnsRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
@@ -687,7 +708,8 @@ describe('CellsApi', function() {
       req.file = data;
 
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.Cells_PostHideWorksheetRowsRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
@@ -713,7 +735,8 @@ describe('CellsApi', function() {
       req.file = data;
 
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.Cells_PostRowStyleRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
@@ -744,7 +767,8 @@ describe('CellsApi', function() {
       req.file = data;
 
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.Cells_PostSetCellHtmlStringRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
@@ -768,7 +792,8 @@ describe('CellsApi', function() {
       req.file = data;
 
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.Cells_PostSetCellHtmlStringRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
@@ -793,7 +818,8 @@ describe('CellsApi', function() {
       req.file = data;
 
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.Cells_PostSetCellRangeValueRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
@@ -836,7 +862,8 @@ describe('CellsApi', function() {
       req.file = data;
 
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.Cells_PostSetWorksheetColumnWidthRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
@@ -862,7 +889,8 @@ describe('CellsApi', function() {
       req.file = data;
 
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.Cells_PostUngroupWorksheetColumnsRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
@@ -888,7 +916,8 @@ describe('CellsApi', function() {
       req.file = data;
 
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.Cells_PostUngroupWorksheetRowsRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
@@ -915,7 +944,8 @@ describe('CellsApi', function() {
       req.file = data;
 
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.Cells_PostUnhideWorksheetColumnsRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
@@ -942,7 +972,8 @@ describe('CellsApi', function() {
       req.file = data;
 
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.Cells_PostUnhideWorksheetRowsRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
@@ -969,7 +1000,8 @@ describe('CellsApi', function() {
       req.file = data;
 
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.Cells_PostUpdateWorksheetCellStyleRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
@@ -999,7 +1031,8 @@ describe('CellsApi', function() {
       req.file = data;
 
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.Cells_PostUpdateWorksheetRangeStyleRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
@@ -1029,7 +1062,8 @@ describe('CellsApi', function() {
       req.file = data;
 
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.Cells_PostUpdateWorksheetRowRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
@@ -1055,7 +1089,8 @@ describe('CellsApi', function() {
       req.file = data;
 
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.Cells_PostWorksheetCellSetValueRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
@@ -1100,7 +1135,8 @@ describe('CellsApi', function() {
       req.file = data;
 
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.Cells_PostWorksheetMergeRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
@@ -1128,7 +1164,8 @@ describe('CellsApi', function() {
       req.file = data;
 
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.Cells_PostWorksheetUnmergeRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
@@ -1156,7 +1193,8 @@ describe('CellsApi', function() {
       req.file = data;
 
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.Cells_PutInsertWorksheetColumnsRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
@@ -1183,7 +1221,8 @@ describe('CellsApi', function() {
       req.file = data;
 
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.Cells_PutInsertWorksheetRowRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
@@ -1208,7 +1247,8 @@ describe('CellsApi', function() {
       req.file = data;
 
       return cellsApi.uploadFile(req)
-        .then(() => {
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.Cells_PutInsertWorksheetRowsRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
