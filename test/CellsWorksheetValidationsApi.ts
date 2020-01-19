@@ -1,7 +1,7 @@
 /*
 * MIT License
 
-* Copyright (c) 2018 Aspose Pty Ltd
+* Copyright (c) 2020 Aspose Pty Ltd
 
 * Permission is hereby granted, free of charge, to any person obtaining a copy
 * of this software and associated documentation files (the "Software"), to deal
@@ -54,31 +54,6 @@ describe('CellsWorksheetValidationsApi', function() {
           req.folder = "Temp";
           
           return cellsApi.cellsWorksheetValidationsDeleteWorksheetValidation(req)
-            .then((result) => {
-              expect(result.body.code).to.equal(200);
-              expect(result.response.statusCode).to.equal(200);
-            });
-        });
-    });
-  });
-  describe('cellsWorksheetValidationsDeleteWorksheetValidations', function() {
-    it('should call cellsWorksheetValidationsDeleteWorksheetValidations successfully', function() {
-      const cellsApi = BaseTest.initializeCellsApi();
-      const filename = "Book1.xlsx";
-      var data =fs.createReadStream(localPath  + filename);
-      var req = new model.UploadFileRequest();
-      req.path = "Temp/" + filename;
-      req.file = data;
-  
-      return cellsApi.uploadFile(req)
-        .then((result) => {
-          expect(result.body.uploaded.length).greaterThan(0);
-          var req = new model.CellsWorksheetValidations_DeleteWorksheetValidationsRequest();
-          req.name = filename;
-          req.sheetName = "Sheet1";
-          req.folder = "Temp";
-          
-          return cellsApi.cellsWorksheetValidationsDeleteWorksheetValidations(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);

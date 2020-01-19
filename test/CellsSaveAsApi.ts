@@ -1,7 +1,7 @@
 /*
 * MIT License
 
-* Copyright (c) 2018 Aspose Pty Ltd
+* Copyright (c) 2020 Aspose Pty Ltd
 
 * Permission is hereby granted, free of charge, to any person obtaining a copy
 * of this software and associated documentation files (the "Software"), to deal
@@ -49,6 +49,7 @@ describe('CellsSaveAsApi ', function() {
           var req = new model.CellsSaveAs_PostDocumentSaveAsRequest();
           req.name = filename;
           req.saveOptions = new model.OoxmlSaveOptions();
+          req.saveOptions.saveFormat = "xlsx";
           req.newfilename = "temp/newbook.xlsx";
           req.isAutoFitRows = true;
           req.isAutoFitColumns = true;
@@ -78,6 +79,7 @@ describe('CellsSaveAsApi ', function() {
             req.name = filename;
             var saveOptions =new model.MarkdownSaveOptions();
             req.saveOptions = saveOptions;
+            req.saveOptions.saveFormat = "markdown";
             req.newfilename = "temp/newbook.md";
             req.isAutoFitRows = true;
             req.isAutoFitColumns = true;

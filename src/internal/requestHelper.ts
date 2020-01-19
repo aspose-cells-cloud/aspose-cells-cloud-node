@@ -1,7 +1,7 @@
 /*
 * MIT License
 
-* Copyright (c) 2018 Aspose Pty Ltd
+* Copyright (c) 2020 Aspose Pty Ltd
 
 * Permission is hereby granted, free of charge, to any person obtaining a copy
 * of this software and associated documentation files (the "Software"), to deal
@@ -89,7 +89,7 @@ async function invokeApiMethodInternal(requestOptions: request.Options, confgura
     // requestOptions.rejectUnauthorized=false;
 
     requestOptions.headers["x-aspose-client"] = "nodejs sdk";
-    requestOptions.headers["x-aspose-client-version"] = "19.10.0";
+    requestOptions.headers["x-aspose-client-version"] = "20.1.0";
 
     const auth = confguration.authentication;
     if (!notApplyAuthToRequest) {

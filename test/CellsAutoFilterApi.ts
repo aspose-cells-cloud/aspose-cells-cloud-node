@@ -1,7 +1,7 @@
 /*
 * MIT License
 
-* Copyright (c) 2018 Aspose Pty Ltd
+* Copyright (c) 2020 Aspose Pty Ltd
 
 * Permission is hereby granted, free of charge, to any person obtaining a copy
 * of this software and associated documentation files (the "Software"), to deal
@@ -217,11 +217,32 @@ describe('CellsAutoFilterApi', function() {
           var colorFilter = new model.ColorFilterRequest();
           req.colorFilter = colorFilter;
           var color = new model.Color();//0, 255, 245, 2
-          color.R = 255;
+          color.A = 255;
+          color.B = 255;
+          color.R = 0;
           color.G = 245;
-
+          var themeColor = new model.ThemeColor();
+          themeColor.colorType ='Text2';
+          themeColor.tint = 1.0;
           colorFilter.foregroundColor = new model.CellsColor();
           colorFilter.foregroundColor.color = color;
+          colorFilter.foregroundColor.themeColor = themeColor;
+          colorFilter.foregroundColor.type ='Automatic';
+
+
+          var color1 = new model.Color();//0, 255, 245, 2
+          color1.A = 255;
+          color1.B = 255;
+          color1.R = 0;
+          color1.G = 245;
+          var themeColor1 = new model.ThemeColor();
+          themeColor1.colorType ='Text2';
+          themeColor1.tint = 1.0;
+          colorFilter.backgroundColor = new model.CellsColor();
+          colorFilter.backgroundColor.color = color1;
+          colorFilter.backgroundColor.themeColor = themeColor1;
+          colorFilter.backgroundColor.type ='Automatic';
+
           colorFilter.pattern = "Solid";
           req.matchBlanks = true;
           req.refresh = true;
