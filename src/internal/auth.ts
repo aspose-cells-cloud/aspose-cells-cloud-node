@@ -47,7 +47,7 @@ export interface IAuthentication {
 export class OAuth implements IAuthentication {
     private accessToken: string;
     private refreshToken: string;
-
+    private getTime: number;
      /**
       * Apply authentication settings to header and query params.
       */
@@ -55,7 +55,11 @@ export class OAuth implements IAuthentication {
         if (this.accessToken == null) {
             await this._requestToken(configuration);
         }
+        const now = new Date().getTime();
 
+        if(now - this.getTime > 86300){
+            await this._requestToken(configuration);
+        }
         if (requestOptions && requestOptions.headers) {
             requestOptions.headers.Authorization = "Bearer " + this.accessToken;
         }
@@ -85,6 +89,7 @@ export class OAuth implements IAuthentication {
         const response = await invokeApiMethod(requestOptions, configuration, true);
         this.accessToken = response.body.access_token;
         this.refreshToken = response.body.refresh_token;
+        this.getTime = new Date().getTime();
         return Promise.resolve();
     }
 

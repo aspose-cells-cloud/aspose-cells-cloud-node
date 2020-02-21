@@ -1,7 +1,7 @@
 # Aspose.Cells Cloud SDK for NodeJS 
 
 - API version: 3.0
-- SDK version: 20.1
+- SDK version: 20.2
 
 This repository contains Aspose.Cells Cloud SDK for NodeJS source code. This SDK allows you to work with Aspose.Cells Cloud REST APIs in your NodeJS applications quickly and easily, with zero initial cost.
 
