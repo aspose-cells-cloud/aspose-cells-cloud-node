@@ -31,9 +31,8 @@ var fs = require('fs');
 var path = require('path');
 var assert = require('assert');
 const localPath = "../TestData/";
-describe('cellsWorkbookPutWorkbookCreate', function() {
-  it('should call cellsWorkbookPutWorkbookCreate successfully', function() {
-    const dataFile = "ReportData.xml";
+describe('cellsPostSetCellHtmlString', function() {
+  it('should call cellsPostSetCellHtmlString successfully', function() {
     const cellsApi = BaseTest.initializeCellsApi();
     const filename = "Book1.xlsx";
     var data =fs.createReadStream(localPath  + filename);
@@ -44,37 +43,22 @@ describe('cellsWorkbookPutWorkbookCreate', function() {
     return cellsApi.uploadFile(req)
       .then((result) => {
         expect(result.body.uploaded.length).greaterThan(0);
-        const dataFile = "Book1.xlsx";
-        var data =fs.createReadStream(localPath  + dataFile);
-        var req = new model.UploadFileRequest();
-        req.path = "Temp/" + dataFile;
-        req.file = data;
-    
-        return cellsApi.uploadFile(req)
+        var req = new model.Cells_PostSetCellHtmlStringRequest();
+        req.name = filename;
+        req.sheetName = "Sheet1";
+        req.cellName = "A1";
+        req.folder = "Temp";
+        req.htmlString ="TEST"
+
+        return cellsApi.cellsPostSetCellHtmlString(req)
           .then((result) => {
-            expect(result.body.uploaded.length).greaterThan(0);
-            var req = new model.CellsWorkbook_PutWorkbookCreateRequest();
-            req.folder = "Temp";
-            var date = new Date();
-            var year = date.getUTCFullYear();
-            var month = date.getUTCMonth();
-            var day = date.getUTCDate();
-            var hours = date.getUTCHours();
-            var min = date.getUTCMinutes();
-            var sec = date.getUTCSeconds();
-            req.name ="NewBook" + year + "" + month + "" + day + "" + hours + "" + min + "" + sec + ".xlsx";
-            req.templateFile = "Temp/Book1.xlsx";
-            req.dataFile = "ReportData.xml";
-            
-            return cellsApi.cellsWorkbookPutWorkbookCreate(req)
-              .then((result) => {
-                expect(result.body.code).to.equal(200);
-                expect(result.response.statusCode).to.equal(200);
-            });
-        });
+            expect(result.body.code).to.equal(200);
+            expect(result.response.statusCode).to.equal(200);
+          });
       });
-    });
   });
+});
+
 // describe('cellsWorkbookPutConvertWorkbook', function() {
 //   it('should call cellsWorkbookPutConvertWorkbook successfully', function() {
 //     const cellsApi = BaseTest.initializeCellsApi();

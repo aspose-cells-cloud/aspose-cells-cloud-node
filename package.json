@@ -1,7 +1,7 @@
 {
   "name": "asposecellscloud",
-  "version": "20.2.0",
-  "description": "Aspose.Cells Cloud SDK for Node.js",
+  "version": "20.4.0",
+  "description": "Node.js Cloud SDK wraps Aspose.Cells REST API so you could seamlessly integrate Excel® file generation, manipulation, conversion & processing features into your own Node.js applications.",
   "keywords": [
     "Aspose",
     "Cloud",

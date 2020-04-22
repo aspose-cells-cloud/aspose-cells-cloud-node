@@ -47,8 +47,8 @@ export class CellsApi {
      * @param baseUrl Base api Url.
      * @param debugMode A value indicating whether debug mode. In debug mode all requests and responses are logged to console.
      */
-    constructor(appSID: string, appKey: string, apiVersion?: string, baseUrl?: string, debugMode?: boolean) {
-        this.configuration = new Configuration(appSID, appKey,apiVersion, baseUrl, debugMode);
+    constructor(appSID: string, appKey: string, baseUrl?: string, debugMode?: boolean) {
+        this.configuration = new Configuration(appSID, appKey, baseUrl, debugMode);
     }
 
     /**
@@ -6038,6 +6038,11 @@ export class CellsApi {
         if (requestObj.cellName === null || requestObj.cellName === undefined) {
             throw new Error('Required parameter "requestObj.cellName" was null or undefined when calling cellsPostSetCellHtmlString.');
         }
+
+        // verify required parameter 'requestObj.htmlString' is not null or undefined
+        if (requestObj.htmlString === null || requestObj.htmlString === undefined) {
+            throw new Error('Required parameter "requestObj.htmlString" was null or undefined when calling cellsPostSetCellHtmlString.');
+        }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
@@ -6046,6 +6051,7 @@ export class CellsApi {
             qs: queryParameters,
             uri: localVarPath,
             json: true,
+            body: (requestObj.htmlString == null) ? null : ObjectSerializer.serialize(requestObj.htmlString, requestObj.htmlString.constructor.name === "Object" ? "string" : requestObj.htmlString.constructor.name),
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
@@ -7868,6 +7874,38 @@ export class CellsApi {
     }
 
     /**
+     * Set worksheet background image.
+     * @param requestObj contains request parameters
+     */
+    public async cellsWorkbookDeleteWorkbookBackground(requestObj: model.CellsWorkbook_DeleteWorkbookBackgroundRequest): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}> {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling cellsWorkbookDeleteWorkbookBackground.');
+        }
+
+        let localVarPath = this.configuration.getApiBaseUrl() + "/cells/{name}/background"
+            .replace("{" + "name" + "}", String(requestObj.name));
+        const queryParameters: any = {};
+
+        // verify required parameter 'requestObj.name' is not null or undefined
+        if (requestObj.name === null || requestObj.name === undefined) {
+            throw new Error('Required parameter "requestObj.name" was null or undefined when calling cellsWorkbookDeleteWorkbookBackground.');
+        }
+        
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
+        const requestOptions: request.Options = {
+            method: "DELETE",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "CellsCloudResponse");
+        return Promise.resolve({body: result, response});
+    }
+
+    /**
      * Clean workbook's names.
      * @param requestObj contains request parameters
      */
@@ -8443,6 +8481,7 @@ export class CellsApi {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "horizontalResolution", requestObj.horizontalResolution);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "verticalResolution", requestObj.verticalResolution);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outFolder", requestObj.outFolder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
             method: "POST",
@@ -8648,6 +8687,44 @@ export class CellsApi {
     }
 
     /**
+     * Set workbook background image.
+     * @param requestObj contains request parameters
+     */
+    public async cellsWorkbookPutWorkbookBackground(requestObj: model.CellsWorkbook_PutWorkbookBackgroundRequest): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}> {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling cellsWorkbookPutWorkbookBackground.');
+        }
+
+        let localVarPath = this.configuration.getApiBaseUrl() + "/cells/{name}/background"
+            .replace("{" + "name" + "}", String(requestObj.name));
+        const queryParameters: any = {};
+
+        // verify required parameter 'requestObj.name' is not null or undefined
+        if (requestObj.name === null || requestObj.name === undefined) {
+            throw new Error('Required parameter "requestObj.name" was null or undefined when calling cellsWorkbookPutWorkbookBackground.');
+        }
+
+        // verify required parameter 'requestObj.png' is not null or undefined
+        if (requestObj.png === null || requestObj.png === undefined) {
+            throw new Error('Required parameter "requestObj.png" was null or undefined when calling cellsWorkbookPutWorkbookBackground.');
+        }
+        
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+            body: (requestObj.png == null) ? null : ObjectSerializer.serialize(requestObj.png, requestObj.png.constructor.name === "Object" ? "string" : requestObj.png.constructor.name),
+        };
+
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "CellsCloudResponse");
+        return Promise.resolve({body: result, response});
+    }
+
+    /**
      * Create new workbook using deferent methods.
      * @param requestObj contains request parameters
      */
@@ -8667,6 +8744,7 @@ export class CellsApi {
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "templateFile", requestObj.templateFile);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "dataFile", requestObj.dataFile);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "isWriteOver", requestObj.isWriteOver);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {
@@ -9248,6 +9326,8 @@ export class CellsApi {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "format", requestObj.format);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "verticalResolution", requestObj.verticalResolution);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "horizontalResolution", requestObj.horizontalResolution);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "area", requestObj.area);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "pageIndex", requestObj.pageIndex);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
         const requestOptions: request.Options = {

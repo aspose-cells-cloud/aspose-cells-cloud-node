@@ -745,9 +745,10 @@ describe('CellsWorkbookApi', function() {
           var hours = date.getUTCHours();
           var min = date.getUTCMinutes();
           var sec = date.getUTCSeconds();
-          req.name ="NewBook" + year + "" + month + "" + day + "" + hours + "" + min + "" + sec + ".xlsx";
+          req.name ="NewBook" + year + "" + month + "" + day + "" + ".xlsx";
           req.templateFile = "Temp/Book1.xlsx";
           req.dataFile = "ReportData.xml";
+          req.isWriteOver = true;
           
           return cellsApi.cellsWorkbookPutWorkbookCreate(req)
             .then((result) => {
@@ -757,5 +758,77 @@ describe('CellsWorkbookApi', function() {
         });
     });
   });
+});
+describe('CellsWorkbook_DeleteWorkbookBackground', function() {
+  it('should call cellsWorkbookDeleteWorkbookBackground successfully', function() {
+    const cellsApi = BaseTest.initializeCellsApi();
+    const filename = "Book1.xlsx";
+    var data =fs.createReadStream(localPath  + filename);
+    var req = new model.UploadFileRequest();
+    req.path = "Temp/" + filename;
+    req.file = data;
+
+    return cellsApi.uploadFile(req)
+      .then((result) => {
+        expect(result.body.uploaded.length).greaterThan(0);
+        const dataFile = "Book1.xlsx";
+        var data =fs.createReadStream(localPath  + dataFile);
+        var req = new model.UploadFileRequest();
+        req.path = "Temp/" + dataFile;
+        req.file = data;
+    
+        return cellsApi.uploadFile(req)
+          .then((result) => {
+        expect(result.body.uploaded.length).greaterThan(0);
+        var req = new model.CellsWorkbook_DeleteWorkbookBackgroundRequest();
+        req.folder = "Temp";
+        req.name ="Book1.xlsx";
+
+        
+        return cellsApi.cellsWorkbookDeleteWorkbookBackground(req)
+          .then((result) => {
+            expect(result.body.code).to.equal(200);
+            expect(result.response.statusCode).to.equal(200);
+          });
+      });
+  });
+});
+});
+describe('CellsWorkbook_PutWorkbookBackground', function() {
+  it('should call CellsWorkbook_PutWorkbookBackgroundRequest successfully', function() {
+    const cellsApi = BaseTest.initializeCellsApi();
+    const filename = "Book1.xlsx";
+    const png ="WaterMark.png";
+    var data =fs.createReadStream(localPath  + filename);
+    var req = new model.UploadFileRequest();
+    req.path = "Temp/" + filename;
+    req.file = data;
+
+    return cellsApi.uploadFile(req)
+      .then((result) => {
+        expect(result.body.uploaded.length).greaterThan(0);
+        const dataFile = "Book1.xlsx";
+        var data =fs.createReadStream(localPath  + dataFile);
+        var req = new model.UploadFileRequest();
+        req.path = "Temp/" + dataFile;
+        req.file = data;
+    
+        return cellsApi.uploadFile(req)
+          .then((result) => {
+        expect(result.body.uploaded.length).greaterThan(0);
+        var req = new model.CellsWorkbook_PutWorkbookBackgroundRequest();
+        req.folder = "Temp";
+        req.name ="Book1.xlsx";
+        req.png = localPath + png;
+
+        
+        return cellsApi.cellsWorkbookDeleteWorkbookBackground(req)
+          .then((result) => {
+            expect(result.body.code).to.equal(200);
+            expect(result.response.statusCode).to.equal(200);
+          });
+      });
+  });
+});
 });
 });

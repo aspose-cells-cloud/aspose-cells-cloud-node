@@ -20183,6 +20183,11 @@ export class Cells_PostSetCellHtmlStringRequest {
     public cellName: string;
 
     /**
+     * Gets or sets htmlString
+     */
+    public htmlString: string;
+
+    /**
      * The workbook folder.
      */
     public folder: string;
@@ -21742,6 +21747,30 @@ export class CellsWorkbook_DeleteUnprotectDocumentRequest {
 }
 
 /**
+ * Request model for CellsWorkbook_DeleteWorkbookBackground operation.
+ */
+export class CellsWorkbook_DeleteWorkbookBackgroundRequest {
+    /**
+     * Gets or sets name
+     */
+    public name: string;
+
+    /**
+     * Gets or sets folder
+     */
+    public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
+    
+    public constructor(init?: Partial<CellsWorkbook_DeleteWorkbookBackgroundRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
  * Request model for CellsWorkbook_DeleteWorkbookName operation.
  */
 export class CellsWorkbook_DeleteWorkbookNameRequest {
@@ -22265,6 +22294,11 @@ export class CellsWorkbook_PostWorkbookSplitRequest {
     public folder: string;
 
     /**
+     * out Folder.
+     */
+    public outFolder: string;
+
+    /**
      * storage name.
      */
     public storage: string;
@@ -22425,6 +22459,35 @@ export class CellsWorkbook_PutDocumentProtectFromChangesRequest {
 }
 
 /**
+ * Request model for CellsWorkbook_PutWorkbookBackground operation.
+ */
+export class CellsWorkbook_PutWorkbookBackgroundRequest {
+    /**
+     * Gets or sets name
+     */
+    public name: string;
+
+    /**
+     * Gets or sets png
+     */
+    public png: string;
+
+    /**
+     * Gets or sets folder
+     */
+    public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
+    
+    public constructor(init?: Partial<CellsWorkbook_PutWorkbookBackgroundRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
  * Request model for CellsWorkbook_PutWorkbookCreate operation.
  */
 export class CellsWorkbook_PutWorkbookCreateRequest {
@@ -22442,6 +22505,11 @@ export class CellsWorkbook_PutWorkbookCreateRequest {
      * Smart marker data file, if the data not provided the request content is checked for the data.
      */
     public dataFile: string;
+
+    /**
+     * write over file.
+     */
+    public isWriteOver: boolean;
 
     /**
      * The new document folder.
@@ -22918,6 +22986,16 @@ export class CellsWorksheets_GetWorksheetRequest {
      * Image horizontal resolution.
      */
     public horizontalResolution: number;
+
+    /**
+     * Exported area.
+     */
+    public area: string;
+
+    /**
+     * Exported page index.
+     */
+    public pageIndex: number;
 
     /**
      * The document folder.

@@ -799,7 +799,7 @@ describe('CellsApi', function() {
           req.sheetName = "Sheet1";
           req.cellName = "A1";
           req.folder = "Temp";
-
+          req.htmlString ="TEST"
           return cellsApi.cellsPostSetCellHtmlString(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
