@@ -8760,6 +8760,39 @@ export class CellsApi {
     }
 
     /**
+     * Set workbook background image.
+     * @param requestObj contains request parameters
+     */
+    public async cellsWorkbookPutWorkbookWaterMarker(requestObj: model.CellsWorkbook_PutWorkbookWaterMarkerRequest): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}> {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling cellsWorkbookPutWorkbookWaterMarker.');
+        }
+
+        let localVarPath = this.configuration.getApiBaseUrl() + "/cells/{name}/watermarker"
+            .replace("{" + "name" + "}", String(requestObj.name));
+        const queryParameters: any = {};
+
+        // verify required parameter 'requestObj.name' is not null or undefined
+        if (requestObj.name === null || requestObj.name === undefined) {
+            throw new Error('Required parameter "requestObj.name" was null or undefined when calling cellsWorkbookPutWorkbookWaterMarker.');
+        }
+        
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storage", requestObj.storage);
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+            body: (requestObj.textWaterMarkerRequest == null) ? null : ObjectSerializer.serialize(requestObj.textWaterMarkerRequest, requestObj.textWaterMarkerRequest.constructor.name === "Object" ? "TextWaterMarkerRequest" : requestObj.textWaterMarkerRequest.constructor.name),
+        };
+
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "CellsCloudResponse");
+        return Promise.resolve({body: result, response});
+    }
+
+    /**
      * Delete worksheet validation by index.
      * @param requestObj contains request parameters
      */

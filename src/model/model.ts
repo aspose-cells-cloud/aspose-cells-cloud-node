@@ -4624,6 +4624,79 @@ export class TaskParameter {
     }        
 }
 
+/**
+ * Used by text water marker requests.
+ */
+export class TextWaterMarkerRequest {
+
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "text",
+            baseName: "Text",
+            type: "string",
+        },        
+        {
+            name: "fontName",
+            baseName: "FontName",
+            type: "string",
+        },        
+        {
+            name: "fontSize",
+            baseName: "FontSize",
+            type: "number",
+        },        
+        {
+            name: "height",
+            baseName: "Height",
+            type: "number",
+        },        
+        {
+            name: "width",
+            baseName: "Width",
+            type: "number",
+        }    ];
+
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return TextWaterMarkerRequest.attributeTypeMap;
+    }
+
+    /**
+     * water marker.
+     */
+    public text: string;
+    
+    /**
+     * font name.
+     */
+    public fontName: string;
+    
+    /**
+     * font size.
+     */
+    public fontSize: number;
+    
+    /**
+     * height.
+     */
+    public height: number;
+    
+    /**
+     * width.
+     */
+    public width: number;
+    
+    public constructor(init?: Partial<TextWaterMarkerRequest>) {
+        
+        Object.assign(this, init);
+    }        
+}
+
 export class TextureFill {
 
     /**
@@ -14844,6 +14917,7 @@ const typeMap = {
             TaskData,
             TaskDescription,
             TaskParameter,
+            TextWaterMarkerRequest,
             TextureFill,
             ThemeColor,
             TilePicOption,
@@ -22522,6 +22596,35 @@ export class CellsWorkbook_PutWorkbookCreateRequest {
     public storage: string;
     
     public constructor(init?: Partial<CellsWorkbook_PutWorkbookCreateRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
+ * Request model for CellsWorkbook_PutWorkbookWaterMarker operation.
+ */
+export class CellsWorkbook_PutWorkbookWaterMarkerRequest {
+    /**
+     * Gets or sets name
+     */
+    public name: string;
+
+    /**
+     * Gets or sets folder
+     */
+    public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storage: string;
+
+    /**
+     * The text water marker request.
+     */
+    public textWaterMarkerRequest: TextWaterMarkerRequest;
+    
+    public constructor(init?: Partial<CellsWorkbook_PutWorkbookWaterMarkerRequest>) {        
         Object.assign(this, init);
     } 
 }

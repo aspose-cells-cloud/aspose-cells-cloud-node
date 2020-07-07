@@ -54,7 +54,7 @@ describe('CellsTaskApi', function() {
           var param1 = new model.SplitWorkbookTaskParameter();
           param1.destinationFileFormat = "xlsx";
           param1.destinationFilePosition = new model.FileSource();
-          param1.destinationFilePosition.filePath = "Temp";
+          // param1.destinationFilePosition.filePath = "Temp";
           param1.destinationFilePosition.fileSourceType = "CloudFileSystem";
           param1.splitNameRule = "sheetname";
           param1.workbook = new model.FileSource();

@@ -91,34 +91,7 @@ describe('CellsPivotTablesApi', function() {
         });
     });
   });
-  describe('cellsPivotTablesDeleteWorksheetPivotTableFilter', function() {
-    it('should call cellsPivotTablesDeleteWorksheetPivotTableFilter successfully', function() {
-      const cellsApi = BaseTest.initializeCellsApi();
-      const filename = "TestCase.xlsx";
-      var data =fs.createReadStream(localPath  + filename);
-      var req = new model.UploadFileRequest();
-      req.path = "Temp/" + filename;
-      req.file = data;
   
-      return cellsApi.uploadFile(req)
-        .then((result) => {
-          expect(result.body.uploaded.length).greaterThan(0);
-          var req = new model.CellsPivotTables_DeleteWorksheetPivotTableFilterRequest();
-          req.name = filename;
-          req.sheetName = "Sheet4";
-          req.pivotTableIndex = 0;
-          req.fieldIndex = 0;
-          req.needReCalculate = true;
-          req.folder = "Temp";
-          
-          return cellsApi.cellsPivotTablesDeleteWorksheetPivotTableFilter(req)
-            .then((result) => {
-              expect(result.body.code).to.equal(200);
-              expect(result.response.statusCode).to.equal(200);
-            });
-        });
-    });
-  });
   describe('cellsPivotTablesDeleteWorksheetPivotTableFilters', function() {
     it('should call cellsPivotTablesDeleteWorksheetPivotTableFilters successfully', function() {
       const cellsApi = BaseTest.initializeCellsApi();
@@ -225,7 +198,7 @@ describe('CellsPivotTablesApi', function() {
         });
     });
   });
-  describe('cellsPivotTablesGetWorksheetPivotTableFilter', function() {
+  describe('cellsPivotTablesPutGetDeleteWorksheetPivotTableFilter', function() {
     it('should call cellsPivotTablesGetWorksheetPivotTableFilter successfully', function() {
       const cellsApi = BaseTest.initializeCellsApi();
       const filename = "TestCase.xlsx";
@@ -276,6 +249,19 @@ describe('CellsPivotTablesApi', function() {
                 .then((result) => {
                   expect(result.body.code).to.equal(200);
                   expect(result.response.statusCode).to.equal(200);
+                  var req = new model.CellsPivotTables_DeleteWorksheetPivotTableFilterRequest();
+                req.name = filename;
+                req.sheetName = "Sheet4";
+                req.pivotTableIndex = 0;
+                req.fieldIndex = 0;
+                req.needReCalculate = true;
+                req.folder = "Temp";
+          
+                return cellsApi.cellsPivotTablesDeleteWorksheetPivotTableFilter(req)
+                  .then((result) => {
+                    expect(result.body.code).to.equal(200);
+                    expect(result.response.statusCode).to.equal(200);
+                  });
                 });
             });
         });

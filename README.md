@@ -20,12 +20,11 @@ Node.js Cloud SDK wraps Aspose.Cells REST API so you could seamlessly integrate 
 - Fetch the required shape from worksheet.
 - Leverage the Power of Pivot Tables & ranges.
 
-## Features & Enhancements in Version 20.4
+## Features & Enhancements in Version 20.6
 
-- Support to export area or page of sheet to JPEG.
-- Support to add background for workbook.
-- Enhancement for splitting workbook.
-- Enhancement for create workbook.
+- Support to add text water marker.
+- Enhancement for Cells object operating in Task API.
+- Enhancement for workbook convert images in get workbook AP
 
 
 

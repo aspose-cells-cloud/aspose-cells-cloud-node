@@ -76,7 +76,7 @@ describe('CellsPageBreaksApi', function() {
           var req = new model.CellsPageBreaks_DeleteHorizontalPageBreaksRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
-          req.row = 1;
+          req.row = 0;
           req.folder = "Temp";
           
           return cellsApi.cellsPageBreaksDeleteHorizontalPageBreaks(req)
@@ -128,7 +128,7 @@ describe('CellsPageBreaksApi', function() {
           var req = new model.CellsPageBreaks_DeleteVerticalPageBreaksRequest();
           req.name = filename;
           req.sheetName = "Sheet1";
-          req.column = 1;
+          req.column = 0;
           req.folder = "Temp";
           
           return cellsApi.cellsPageBreaksDeleteVerticalPageBreaks(req)
