@@ -179,6 +179,7 @@ describe('CellsShapesApi', function() {
           expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsShapes_PutWorksheetShapeRequest();
           req.name = filename;
+          req.shapeDTO = null;
           req.sheetName = "Sheet1";
           req.drawingType = "button";
           req.upperLeftRow = 1;

@@ -31,8 +31,8 @@ var fs = require('fs');
 var path = require('path');
 var assert = require('assert');
 const localPath = "../TestData/";
-describe('cellsPostSetCellHtmlString', function() {
-  it('should call cellsPostSetCellHtmlString successfully', function() {
+describe('cellsShapesPutWorksheetShape', function() {
+  it('should call cellsShapesPutWorksheetShape successfully', function() {
     const cellsApi = BaseTest.initializeCellsApi();
     const filename = "Book1.xlsx";
     var data =fs.createReadStream(localPath  + filename);
@@ -43,14 +43,19 @@ describe('cellsPostSetCellHtmlString', function() {
     return cellsApi.uploadFile(req)
       .then((result) => {
         expect(result.body.uploaded.length).greaterThan(0);
-        var req = new model.Cells_PostSetCellHtmlStringRequest();
+        var req = new model.CellsShapes_PutWorksheetShapeRequest();
         req.name = filename;
         req.sheetName = "Sheet1";
-        req.cellName = "A1";
+        req.drawingType = "button";
+        req.upperLeftRow = 1;
+        req.upperLeftColumn = 1;
+        req.top = 10;
+        req.left = 10;
+        req.width = 100;
+        req.height = 90;
         req.folder = "Temp";
-        req.htmlString ="TEST"
-
-        return cellsApi.cellsPostSetCellHtmlString(req)
+        
+        return cellsApi.cellsShapesPutWorksheetShape(req)
           .then((result) => {
             expect(result.body.code).to.equal(200);
             expect(result.response.statusCode).to.equal(200);

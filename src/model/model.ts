@@ -1,7 +1,7 @@
 /*
 * MIT License
 
-* Copyright (c) 2020 Aspose Pty Ltd
+* Copyright (c) 2018 Aspose Pty Ltd
 
 * Permission is hereby granted, free of charge, to any person obtaining a copy
 * of this software and associated documentation files (the "Software"), to deal
@@ -441,6 +441,54 @@ export class CellValue {
     public value: string;
     
     public constructor(init?: Partial<CellValue>) {
+        
+        Object.assign(this, init);
+    }        
+}
+
+export class CellsCloudFileInfo {
+
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "name",
+            baseName: "Name",
+            type: "string",
+        },        
+        {
+            name: "size",
+            baseName: "Size",
+            type: "number",
+        },        
+        {
+            name: "folder",
+            baseName: "Folder",
+            type: "string",
+        },        
+        {
+            name: "storage",
+            baseName: "Storage",
+            type: "string",
+        }    ];
+
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return CellsCloudFileInfo.attributeTypeMap;
+    }
+
+    public name: string;
+    
+    public size: number;
+    
+    public folder: string;
+    
+    public storage: string;
+    
+    public constructor(init?: Partial<CellsCloudFileInfo>) {
         
         Object.assign(this, init);
     }        
@@ -4190,19 +4238,9 @@ export class SaveResult {
      */
     public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            name: "sourceDocument",
-            baseName: "SourceDocument",
-            type: "Link",
-        },        
-        {
-            name: "destDocument",
-            baseName: "DestDocument",
-            type: "Link",
-        },        
-        {
-            name: "additionalItems",
-            baseName: "AdditionalItems",
-            type: "Array<Link>",
+            name: "documents",
+            baseName: "Documents",
+            type: "Array<CellsCloudFileInfo>",
         }    ];
 
     /**
@@ -4212,11 +4250,7 @@ export class SaveResult {
         return SaveResult.attributeTypeMap;
     }
 
-    public sourceDocument: Link;
-    
-    public destDocument: Link;
-    
-    public additionalItems: Array<Link>;
+    public documents: Array<CellsCloudFileInfo>;
     
     public constructor(init?: Partial<SaveResult>) {
         
@@ -4418,7 +4452,7 @@ export class SplitResult {
         {
             name: "documents",
             baseName: "Documents",
-            type: "Array<SplitResultDocument>",
+            type: "Array<CellsCloudFileInfo>",
         }    ];
 
     /**
@@ -4428,7 +4462,7 @@ export class SplitResult {
         return SplitResult.attributeTypeMap;
     }
 
-    public documents: Array<SplitResultDocument>;
+    public documents: Array<CellsCloudFileInfo>;
     
     public constructor(init?: Partial<SplitResult>) {
         
@@ -14844,6 +14878,7 @@ const typeMap = {
             CalculationOptions,
             CellArea,
             CellValue,
+            CellsCloudFileInfo,
             CellsCloudResponse,
             CellsColor,
             CellsError,
@@ -15142,7 +15177,7 @@ export class CellsAutoFilter_DeleteWorksheetDateFilterRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsAutoFilter_DeleteWorksheetDateFilterRequest>) {        
         Object.assign(this, init);
@@ -15181,7 +15216,7 @@ export class CellsAutoFilter_DeleteWorksheetFilterRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsAutoFilter_DeleteWorksheetFilterRequest>) {        
         Object.assign(this, init);
@@ -15210,7 +15245,7 @@ export class CellsAutoFilter_GetWorksheetAutoFilterRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsAutoFilter_GetWorksheetAutoFilterRequest>) {        
         Object.assign(this, init);
@@ -15239,7 +15274,7 @@ export class CellsAutoFilter_PostWorksheetAutoFilterRefreshRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsAutoFilter_PostWorksheetAutoFilterRefreshRequest>) {        
         Object.assign(this, init);
@@ -15273,7 +15308,7 @@ export class CellsAutoFilter_PostWorksheetMatchBlanksRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsAutoFilter_PostWorksheetMatchBlanksRequest>) {        
         Object.assign(this, init);
@@ -15307,7 +15342,7 @@ export class CellsAutoFilter_PostWorksheetMatchNonBlanksRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsAutoFilter_PostWorksheetMatchNonBlanksRequest>) {        
         Object.assign(this, init);
@@ -15361,7 +15396,7 @@ export class CellsAutoFilter_PutWorksheetColorFilterRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsAutoFilter_PutWorksheetColorFilterRequest>) {        
         Object.assign(this, init);
@@ -15435,7 +15470,7 @@ export class CellsAutoFilter_PutWorksheetCustomFilterRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsAutoFilter_PutWorksheetCustomFilterRequest>) {        
         Object.assign(this, init);
@@ -15519,7 +15554,7 @@ export class CellsAutoFilter_PutWorksheetDateFilterRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsAutoFilter_PutWorksheetDateFilterRequest>) {        
         Object.assign(this, init);
@@ -15573,7 +15608,7 @@ export class CellsAutoFilter_PutWorksheetDynamicFilterRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsAutoFilter_PutWorksheetDynamicFilterRequest>) {        
         Object.assign(this, init);
@@ -15627,7 +15662,7 @@ export class CellsAutoFilter_PutWorksheetFilterRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsAutoFilter_PutWorksheetFilterRequest>) {        
         Object.assign(this, init);
@@ -15691,7 +15726,7 @@ export class CellsAutoFilter_PutWorksheetFilterTop10Request {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsAutoFilter_PutWorksheetFilterTop10Request>) {        
         Object.assign(this, init);
@@ -15750,7 +15785,7 @@ export class CellsAutoFilter_PutWorksheetIconFilterRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsAutoFilter_PutWorksheetIconFilterRequest>) {        
         Object.assign(this, init);
@@ -15789,7 +15824,7 @@ export class CellsAutoshapes_GetWorksheetAutoshapeRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsAutoshapes_GetWorksheetAutoshapeRequest>) {        
         Object.assign(this, init);
@@ -15818,7 +15853,7 @@ export class CellsAutoshapes_GetWorksheetAutoshapesRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsAutoshapes_GetWorksheetAutoshapesRequest>) {        
         Object.assign(this, init);
@@ -15852,7 +15887,7 @@ export class CellsChartArea_GetChartAreaRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsChartArea_GetChartAreaRequest>) {        
         Object.assign(this, init);
@@ -15886,7 +15921,7 @@ export class CellsChartArea_GetChartAreaBorderRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsChartArea_GetChartAreaBorderRequest>) {        
         Object.assign(this, init);
@@ -15920,7 +15955,7 @@ export class CellsChartArea_GetChartAreaFillFormatRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsChartArea_GetChartAreaFillFormatRequest>) {        
         Object.assign(this, init);
@@ -15954,7 +15989,7 @@ export class CellsCharts_DeleteWorksheetChartLegendRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsCharts_DeleteWorksheetChartLegendRequest>) {        
         Object.assign(this, init);
@@ -15988,7 +16023,7 @@ export class CellsCharts_DeleteWorksheetChartTitleRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsCharts_DeleteWorksheetChartTitleRequest>) {        
         Object.assign(this, init);
@@ -16017,7 +16052,7 @@ export class CellsCharts_DeleteWorksheetClearChartsRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsCharts_DeleteWorksheetClearChartsRequest>) {        
         Object.assign(this, init);
@@ -16051,7 +16086,7 @@ export class CellsCharts_DeleteWorksheetDeleteChartRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsCharts_DeleteWorksheetDeleteChartRequest>) {        
         Object.assign(this, init);
@@ -16090,7 +16125,7 @@ export class CellsCharts_GetWorksheetChartRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsCharts_GetWorksheetChartRequest>) {        
         Object.assign(this, init);
@@ -16124,7 +16159,7 @@ export class CellsCharts_GetWorksheetChartLegendRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsCharts_GetWorksheetChartLegendRequest>) {        
         Object.assign(this, init);
@@ -16158,7 +16193,7 @@ export class CellsCharts_GetWorksheetChartTitleRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsCharts_GetWorksheetChartTitleRequest>) {        
         Object.assign(this, init);
@@ -16187,7 +16222,7 @@ export class CellsCharts_GetWorksheetChartsRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsCharts_GetWorksheetChartsRequest>) {        
         Object.assign(this, init);
@@ -16226,7 +16261,7 @@ export class CellsCharts_PostWorksheetChartRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsCharts_PostWorksheetChartRequest>) {        
         Object.assign(this, init);
@@ -16265,7 +16300,7 @@ export class CellsCharts_PostWorksheetChartLegendRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsCharts_PostWorksheetChartLegendRequest>) {        
         Object.assign(this, init);
@@ -16304,7 +16339,7 @@ export class CellsCharts_PostWorksheetChartTitleRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsCharts_PostWorksheetChartTitleRequest>) {        
         Object.assign(this, init);
@@ -16383,7 +16418,7 @@ export class CellsCharts_PutWorksheetAddChartRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsCharts_PutWorksheetAddChartRequest>) {        
         Object.assign(this, init);
@@ -16417,7 +16452,7 @@ export class CellsCharts_PutWorksheetChartLegendRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsCharts_PutWorksheetChartLegendRequest>) {        
         Object.assign(this, init);
@@ -16456,7 +16491,7 @@ export class CellsCharts_PutWorksheetChartTitleRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsCharts_PutWorksheetChartTitleRequest>) {        
         Object.assign(this, init);
@@ -16490,7 +16525,7 @@ export class CellsConditionalFormattings_DeleteWorksheetConditionalFormattingReq
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsConditionalFormattings_DeleteWorksheetConditionalFormattingRequest>) {        
         Object.assign(this, init);
@@ -16539,7 +16574,7 @@ export class CellsConditionalFormattings_DeleteWorksheetConditionalFormattingAre
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsConditionalFormattings_DeleteWorksheetConditionalFormattingAreaRequest>) {        
         Object.assign(this, init);
@@ -16568,7 +16603,7 @@ export class CellsConditionalFormattings_DeleteWorksheetConditionalFormattingsRe
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsConditionalFormattings_DeleteWorksheetConditionalFormattingsRequest>) {        
         Object.assign(this, init);
@@ -16602,7 +16637,7 @@ export class CellsConditionalFormattings_GetWorksheetConditionalFormattingReques
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsConditionalFormattings_GetWorksheetConditionalFormattingRequest>) {        
         Object.assign(this, init);
@@ -16631,7 +16666,7 @@ export class CellsConditionalFormattings_GetWorksheetConditionalFormattingsReque
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsConditionalFormattings_GetWorksheetConditionalFormattingsRequest>) {        
         Object.assign(this, init);
@@ -16670,7 +16705,7 @@ export class CellsConditionalFormattings_PutWorksheetConditionalFormattingReques
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsConditionalFormattings_PutWorksheetConditionalFormattingRequest>) {        
         Object.assign(this, init);
@@ -16729,7 +16764,7 @@ export class CellsConditionalFormattings_PutWorksheetFormatConditionRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsConditionalFormattings_PutWorksheetFormatConditionRequest>) {        
         Object.assign(this, init);
@@ -16768,7 +16803,7 @@ export class CellsConditionalFormattings_PutWorksheetFormatConditionAreaRequest 
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsConditionalFormattings_PutWorksheetFormatConditionAreaRequest>) {        
         Object.assign(this, init);
@@ -16822,7 +16857,7 @@ export class CellsConditionalFormattings_PutWorksheetFormatConditionConditionReq
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsConditionalFormattings_PutWorksheetFormatConditionConditionRequest>) {        
         Object.assign(this, init);
@@ -16866,7 +16901,7 @@ export class Cells_DeleteWorksheetColumnsRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<Cells_DeleteWorksheetColumnsRequest>) {        
         Object.assign(this, init);
@@ -16900,7 +16935,7 @@ export class Cells_DeleteWorksheetRowRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<Cells_DeleteWorksheetRowRequest>) {        
         Object.assign(this, init);
@@ -16944,7 +16979,7 @@ export class Cells_DeleteWorksheetRowsRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<Cells_DeleteWorksheetRowsRequest>) {        
         Object.assign(this, init);
@@ -16978,7 +17013,7 @@ export class Cells_GetCellHtmlStringRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<Cells_GetCellHtmlStringRequest>) {        
         Object.assign(this, init);
@@ -17012,7 +17047,7 @@ export class Cells_GetWorksheetCellRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<Cells_GetWorksheetCellRequest>) {        
         Object.assign(this, init);
@@ -17046,7 +17081,7 @@ export class Cells_GetWorksheetCellStyleRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<Cells_GetWorksheetCellStyleRequest>) {        
         Object.assign(this, init);
@@ -17085,7 +17120,7 @@ export class Cells_GetWorksheetCellsRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<Cells_GetWorksheetCellsRequest>) {        
         Object.assign(this, init);
@@ -17119,7 +17154,7 @@ export class Cells_GetWorksheetColumnRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<Cells_GetWorksheetColumnRequest>) {        
         Object.assign(this, init);
@@ -17148,7 +17183,7 @@ export class Cells_GetWorksheetColumnsRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<Cells_GetWorksheetColumnsRequest>) {        
         Object.assign(this, init);
@@ -17182,7 +17217,7 @@ export class Cells_GetWorksheetRowRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<Cells_GetWorksheetRowRequest>) {        
         Object.assign(this, init);
@@ -17211,7 +17246,7 @@ export class Cells_GetWorksheetRowsRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<Cells_GetWorksheetRowsRequest>) {        
         Object.assign(this, init);
@@ -17245,7 +17280,7 @@ export class CellsHypelinks_DeleteWorksheetHyperlinkRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsHypelinks_DeleteWorksheetHyperlinkRequest>) {        
         Object.assign(this, init);
@@ -17274,7 +17309,7 @@ export class CellsHypelinks_DeleteWorksheetHyperlinksRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsHypelinks_DeleteWorksheetHyperlinksRequest>) {        
         Object.assign(this, init);
@@ -17308,7 +17343,7 @@ export class CellsHypelinks_GetWorksheetHyperlinkRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsHypelinks_GetWorksheetHyperlinkRequest>) {        
         Object.assign(this, init);
@@ -17337,7 +17372,7 @@ export class CellsHypelinks_GetWorksheetHyperlinksRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsHypelinks_GetWorksheetHyperlinksRequest>) {        
         Object.assign(this, init);
@@ -17376,7 +17411,7 @@ export class CellsHypelinks_PostWorksheetHyperlinkRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsHypelinks_PostWorksheetHyperlinkRequest>) {        
         Object.assign(this, init);
@@ -17430,7 +17465,7 @@ export class CellsHypelinks_PutWorksheetHyperlinkRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsHypelinks_PutWorksheetHyperlinkRequest>) {        
         Object.assign(this, init);
@@ -17464,7 +17499,7 @@ export class CellsListObjects_DeleteWorksheetListObjectRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsListObjects_DeleteWorksheetListObjectRequest>) {        
         Object.assign(this, init);
@@ -17493,7 +17528,7 @@ export class CellsListObjects_DeleteWorksheetListObjectsRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsListObjects_DeleteWorksheetListObjectsRequest>) {        
         Object.assign(this, init);
@@ -17527,7 +17562,7 @@ export class CellsListObjects_GetWorksheetListObjectRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsListObjects_GetWorksheetListObjectRequest>) {        
         Object.assign(this, init);
@@ -17556,7 +17591,7 @@ export class CellsListObjects_GetWorksheetListObjectsRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsListObjects_GetWorksheetListObjectsRequest>) {        
         Object.assign(this, init);
@@ -17595,7 +17630,7 @@ export class CellsListObjects_PostWorksheetListObjectRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsListObjects_PostWorksheetListObjectRequest>) {        
         Object.assign(this, init);
@@ -17629,7 +17664,7 @@ export class CellsListObjects_PostWorksheetListObjectConvertToRangeRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsListObjects_PostWorksheetListObjectConvertToRangeRequest>) {        
         Object.assign(this, init);
@@ -17668,7 +17703,7 @@ export class CellsListObjects_PostWorksheetListObjectSortTableRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsListObjects_PostWorksheetListObjectSortTableRequest>) {        
         Object.assign(this, init);
@@ -17712,7 +17747,7 @@ export class CellsListObjects_PostWorksheetListObjectSummarizeWithPivotTableRequ
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsListObjects_PostWorksheetListObjectSummarizeWithPivotTableRequest>) {        
         Object.assign(this, init);
@@ -17771,7 +17806,7 @@ export class CellsListObjects_PutWorksheetListObjectRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsListObjects_PutWorksheetListObjectRequest>) {        
         Object.assign(this, init);
@@ -17805,7 +17840,7 @@ export class CellsOleObjects_DeleteWorksheetOleObjectRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsOleObjects_DeleteWorksheetOleObjectRequest>) {        
         Object.assign(this, init);
@@ -17834,7 +17869,7 @@ export class CellsOleObjects_DeleteWorksheetOleObjectsRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsOleObjects_DeleteWorksheetOleObjectsRequest>) {        
         Object.assign(this, init);
@@ -17873,7 +17908,7 @@ export class CellsOleObjects_GetWorksheetOleObjectRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsOleObjects_GetWorksheetOleObjectRequest>) {        
         Object.assign(this, init);
@@ -17902,7 +17937,7 @@ export class CellsOleObjects_GetWorksheetOleObjectsRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsOleObjects_GetWorksheetOleObjectsRequest>) {        
         Object.assign(this, init);
@@ -17941,7 +17976,7 @@ export class CellsOleObjects_PostUpdateWorksheetOleObjectRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsOleObjects_PostUpdateWorksheetOleObjectRequest>) {        
         Object.assign(this, init);
@@ -18005,7 +18040,7 @@ export class CellsOleObjects_PutWorksheetOleObjectRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsOleObjects_PutWorksheetOleObjectRequest>) {        
         Object.assign(this, init);
@@ -18039,7 +18074,7 @@ export class CellsPageBreaks_DeleteHorizontalPageBreakRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsPageBreaks_DeleteHorizontalPageBreakRequest>) {        
         Object.assign(this, init);
@@ -18073,7 +18108,7 @@ export class CellsPageBreaks_DeleteHorizontalPageBreaksRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsPageBreaks_DeleteHorizontalPageBreaksRequest>) {        
         Object.assign(this, init);
@@ -18107,7 +18142,7 @@ export class CellsPageBreaks_DeleteVerticalPageBreakRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsPageBreaks_DeleteVerticalPageBreakRequest>) {        
         Object.assign(this, init);
@@ -18141,7 +18176,7 @@ export class CellsPageBreaks_DeleteVerticalPageBreaksRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsPageBreaks_DeleteVerticalPageBreaksRequest>) {        
         Object.assign(this, init);
@@ -18175,7 +18210,7 @@ export class CellsPageBreaks_GetHorizontalPageBreakRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsPageBreaks_GetHorizontalPageBreakRequest>) {        
         Object.assign(this, init);
@@ -18204,7 +18239,7 @@ export class CellsPageBreaks_GetHorizontalPageBreaksRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsPageBreaks_GetHorizontalPageBreaksRequest>) {        
         Object.assign(this, init);
@@ -18238,7 +18273,7 @@ export class CellsPageBreaks_GetVerticalPageBreakRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsPageBreaks_GetVerticalPageBreakRequest>) {        
         Object.assign(this, init);
@@ -18267,7 +18302,7 @@ export class CellsPageBreaks_GetVerticalPageBreaksRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsPageBreaks_GetVerticalPageBreaksRequest>) {        
         Object.assign(this, init);
@@ -18321,7 +18356,7 @@ export class CellsPageBreaks_PutHorizontalPageBreakRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsPageBreaks_PutHorizontalPageBreakRequest>) {        
         Object.assign(this, init);
@@ -18375,7 +18410,7 @@ export class CellsPageBreaks_PutVerticalPageBreakRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsPageBreaks_PutVerticalPageBreakRequest>) {        
         Object.assign(this, init);
@@ -18404,7 +18439,7 @@ export class CellsPageSetup_DeleteHeaderFooterRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsPageSetup_DeleteHeaderFooterRequest>) {        
         Object.assign(this, init);
@@ -18433,7 +18468,7 @@ export class CellsPageSetup_GetFooterRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsPageSetup_GetFooterRequest>) {        
         Object.assign(this, init);
@@ -18462,7 +18497,7 @@ export class CellsPageSetup_GetHeaderRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsPageSetup_GetHeaderRequest>) {        
         Object.assign(this, init);
@@ -18491,7 +18526,7 @@ export class CellsPageSetup_GetPageSetupRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsPageSetup_GetPageSetupRequest>) {        
         Object.assign(this, init);
@@ -18535,7 +18570,7 @@ export class CellsPageSetup_PostFooterRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsPageSetup_PostFooterRequest>) {        
         Object.assign(this, init);
@@ -18579,7 +18614,7 @@ export class CellsPageSetup_PostHeaderRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsPageSetup_PostHeaderRequest>) {        
         Object.assign(this, init);
@@ -18613,7 +18648,7 @@ export class CellsPageSetup_PostPageSetupRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsPageSetup_PostPageSetupRequest>) {        
         Object.assign(this, init);
@@ -18647,7 +18682,7 @@ export class CellsPictures_DeleteWorksheetPictureRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsPictures_DeleteWorksheetPictureRequest>) {        
         Object.assign(this, init);
@@ -18676,7 +18711,7 @@ export class CellsPictures_DeleteWorksheetPicturesRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsPictures_DeleteWorksheetPicturesRequest>) {        
         Object.assign(this, init);
@@ -18715,7 +18750,7 @@ export class CellsPictures_GetWorksheetPictureRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsPictures_GetWorksheetPictureRequest>) {        
         Object.assign(this, init);
@@ -18744,7 +18779,7 @@ export class CellsPictures_GetWorksheetPicturesRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsPictures_GetWorksheetPicturesRequest>) {        
         Object.assign(this, init);
@@ -18783,7 +18818,7 @@ export class CellsPictures_PostWorksheetPictureRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsPictures_PostWorksheetPictureRequest>) {        
         Object.assign(this, init);
@@ -18842,7 +18877,7 @@ export class CellsPictures_PutWorksheetAddPictureRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsPictures_PutWorksheetAddPictureRequest>) {        
         Object.assign(this, init);
@@ -18886,7 +18921,7 @@ export class CellsPivotTables_DeletePivotTableFieldRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsPivotTables_DeletePivotTableFieldRequest>) {        
         Object.assign(this, init);
@@ -18920,7 +18955,7 @@ export class CellsPivotTables_DeleteWorksheetPivotTableRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsPivotTables_DeleteWorksheetPivotTableRequest>) {        
         Object.assign(this, init);
@@ -18964,7 +18999,7 @@ export class CellsPivotTables_DeleteWorksheetPivotTableFilterRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsPivotTables_DeleteWorksheetPivotTableFilterRequest>) {        
         Object.assign(this, init);
@@ -19003,7 +19038,7 @@ export class CellsPivotTables_DeleteWorksheetPivotTableFiltersRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsPivotTables_DeleteWorksheetPivotTableFiltersRequest>) {        
         Object.assign(this, init);
@@ -19032,7 +19067,7 @@ export class CellsPivotTables_DeleteWorksheetPivotTablesRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsPivotTables_DeleteWorksheetPivotTablesRequest>) {        
         Object.assign(this, init);
@@ -19076,7 +19111,7 @@ export class CellsPivotTables_GetPivotTableFieldRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsPivotTables_GetPivotTableFieldRequest>) {        
         Object.assign(this, init);
@@ -19110,7 +19145,7 @@ export class CellsPivotTables_GetWorksheetPivotTableRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsPivotTables_GetWorksheetPivotTableRequest>) {        
         Object.assign(this, init);
@@ -19149,7 +19184,7 @@ export class CellsPivotTables_GetWorksheetPivotTableFilterRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsPivotTables_GetWorksheetPivotTableFilterRequest>) {        
         Object.assign(this, init);
@@ -19183,7 +19218,7 @@ export class CellsPivotTables_GetWorksheetPivotTableFiltersRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsPivotTables_GetWorksheetPivotTableFiltersRequest>) {        
         Object.assign(this, init);
@@ -19212,7 +19247,7 @@ export class CellsPivotTables_GetWorksheetPivotTablesRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsPivotTables_GetWorksheetPivotTablesRequest>) {        
         Object.assign(this, init);
@@ -19266,7 +19301,7 @@ export class CellsPivotTables_PostPivotTableCellStyleRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsPivotTables_PostPivotTableCellStyleRequest>) {        
         Object.assign(this, init);
@@ -19325,7 +19360,7 @@ export class CellsPivotTables_PostPivotTableFieldHideItemRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsPivotTables_PostPivotTableFieldHideItemRequest>) {        
         Object.assign(this, init);
@@ -19374,7 +19409,7 @@ export class CellsPivotTables_PostPivotTableFieldMoveToRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsPivotTables_PostPivotTableFieldMoveToRequest>) {        
         Object.assign(this, init);
@@ -19418,7 +19453,7 @@ export class CellsPivotTables_PostPivotTableStyleRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsPivotTables_PostPivotTableStyleRequest>) {        
         Object.assign(this, init);
@@ -19452,7 +19487,7 @@ export class CellsPivotTables_PostWorksheetPivotTableCalculateRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsPivotTables_PostWorksheetPivotTableCalculateRequest>) {        
         Object.assign(this, init);
@@ -19501,7 +19536,7 @@ export class CellsPivotTables_PostWorksheetPivotTableMoveRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsPivotTables_PostWorksheetPivotTableMoveRequest>) {        
         Object.assign(this, init);
@@ -19550,7 +19585,7 @@ export class CellsPivotTables_PutPivotTableFieldRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsPivotTables_PutPivotTableFieldRequest>) {        
         Object.assign(this, init);
@@ -19584,7 +19619,7 @@ export class CellsPivotTables_PutWorksheetPivotTableRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
 
     /**
      * The data for the new PivotTable cache.
@@ -19648,7 +19683,7 @@ export class CellsPivotTables_PutWorksheetPivotTableFilterRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsPivotTables_PutWorksheetPivotTableFilterRequest>) {        
         Object.assign(this, init);
@@ -19687,7 +19722,7 @@ export class Cells_PostCellCalculateRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<Cells_PostCellCalculateRequest>) {        
         Object.assign(this, init);
@@ -19726,7 +19761,7 @@ export class Cells_PostCellCharactersRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<Cells_PostCellCharactersRequest>) {        
         Object.assign(this, init);
@@ -19780,7 +19815,7 @@ export class Cells_PostClearContentsRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<Cells_PostClearContentsRequest>) {        
         Object.assign(this, init);
@@ -19834,7 +19869,7 @@ export class Cells_PostClearFormatsRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<Cells_PostClearFormatsRequest>) {        
         Object.assign(this, init);
@@ -19873,7 +19908,7 @@ export class Cells_PostColumnStyleRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<Cells_PostColumnStyleRequest>) {        
         Object.assign(this, init);
@@ -19927,7 +19962,7 @@ export class Cells_PostCopyCellIntoCellRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<Cells_PostCopyCellIntoCellRequest>) {        
         Object.assign(this, init);
@@ -19976,7 +20011,7 @@ export class Cells_PostCopyWorksheetColumnsRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<Cells_PostCopyWorksheetColumnsRequest>) {        
         Object.assign(this, init);
@@ -20025,7 +20060,7 @@ export class Cells_PostCopyWorksheetRowsRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<Cells_PostCopyWorksheetRowsRequest>) {        
         Object.assign(this, init);
@@ -20069,7 +20104,7 @@ export class Cells_PostGroupWorksheetColumnsRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<Cells_PostGroupWorksheetColumnsRequest>) {        
         Object.assign(this, init);
@@ -20113,7 +20148,7 @@ export class Cells_PostGroupWorksheetRowsRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<Cells_PostGroupWorksheetRowsRequest>) {        
         Object.assign(this, init);
@@ -20152,7 +20187,7 @@ export class Cells_PostHideWorksheetColumnsRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<Cells_PostHideWorksheetColumnsRequest>) {        
         Object.assign(this, init);
@@ -20191,7 +20226,7 @@ export class Cells_PostHideWorksheetRowsRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<Cells_PostHideWorksheetRowsRequest>) {        
         Object.assign(this, init);
@@ -20230,7 +20265,7 @@ export class Cells_PostRowStyleRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<Cells_PostRowStyleRequest>) {        
         Object.assign(this, init);
@@ -20269,7 +20304,7 @@ export class Cells_PostSetCellHtmlStringRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<Cells_PostSetCellHtmlStringRequest>) {        
         Object.assign(this, init);
@@ -20313,7 +20348,7 @@ export class Cells_PostSetCellRangeValueRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<Cells_PostSetCellRangeValueRequest>) {        
         Object.assign(this, init);
@@ -20352,7 +20387,7 @@ export class Cells_PostSetWorksheetColumnWidthRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<Cells_PostSetWorksheetColumnWidthRequest>) {        
         Object.assign(this, init);
@@ -20391,7 +20426,7 @@ export class Cells_PostUngroupWorksheetColumnsRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<Cells_PostUngroupWorksheetColumnsRequest>) {        
         Object.assign(this, init);
@@ -20435,7 +20470,7 @@ export class Cells_PostUngroupWorksheetRowsRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<Cells_PostUngroupWorksheetRowsRequest>) {        
         Object.assign(this, init);
@@ -20479,7 +20514,7 @@ export class Cells_PostUnhideWorksheetColumnsRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<Cells_PostUnhideWorksheetColumnsRequest>) {        
         Object.assign(this, init);
@@ -20523,7 +20558,7 @@ export class Cells_PostUnhideWorksheetRowsRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<Cells_PostUnhideWorksheetRowsRequest>) {        
         Object.assign(this, init);
@@ -20562,7 +20597,7 @@ export class Cells_PostUpdateWorksheetCellStyleRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<Cells_PostUpdateWorksheetCellStyleRequest>) {        
         Object.assign(this, init);
@@ -20601,7 +20636,7 @@ export class Cells_PostUpdateWorksheetRangeStyleRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<Cells_PostUpdateWorksheetRangeStyleRequest>) {        
         Object.assign(this, init);
@@ -20640,7 +20675,7 @@ export class Cells_PostUpdateWorksheetRowRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<Cells_PostUpdateWorksheetRowRequest>) {        
         Object.assign(this, init);
@@ -20689,7 +20724,7 @@ export class Cells_PostWorksheetCellSetValueRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<Cells_PostWorksheetCellSetValueRequest>) {        
         Object.assign(this, init);
@@ -20738,7 +20773,7 @@ export class Cells_PostWorksheetMergeRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<Cells_PostWorksheetMergeRequest>) {        
         Object.assign(this, init);
@@ -20787,7 +20822,7 @@ export class Cells_PostWorksheetUnmergeRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<Cells_PostWorksheetUnmergeRequest>) {        
         Object.assign(this, init);
@@ -20811,7 +20846,7 @@ export class CellsProperties_DeleteDocumentPropertiesRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsProperties_DeleteDocumentPropertiesRequest>) {        
         Object.assign(this, init);
@@ -20840,7 +20875,7 @@ export class CellsProperties_DeleteDocumentPropertyRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsProperties_DeleteDocumentPropertyRequest>) {        
         Object.assign(this, init);
@@ -20864,7 +20899,7 @@ export class CellsProperties_GetDocumentPropertiesRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsProperties_GetDocumentPropertiesRequest>) {        
         Object.assign(this, init);
@@ -20893,7 +20928,7 @@ export class CellsProperties_GetDocumentPropertyRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsProperties_GetDocumentPropertyRequest>) {        
         Object.assign(this, init);
@@ -20927,7 +20962,7 @@ export class CellsProperties_PutDocumentPropertyRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsProperties_PutDocumentPropertyRequest>) {        
         Object.assign(this, init);
@@ -20971,7 +21006,7 @@ export class Cells_PutInsertWorksheetColumnsRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<Cells_PutInsertWorksheetColumnsRequest>) {        
         Object.assign(this, init);
@@ -21005,7 +21040,7 @@ export class Cells_PutInsertWorksheetRowRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<Cells_PutInsertWorksheetRowRequest>) {        
         Object.assign(this, init);
@@ -21049,7 +21084,7 @@ export class Cells_PutInsertWorksheetRowsRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<Cells_PutInsertWorksheetRowsRequest>) {        
         Object.assign(this, init);
@@ -21103,7 +21138,7 @@ export class CellsRanges_GetWorksheetCellsRangeValueRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsRanges_GetWorksheetCellsRangeValueRequest>) {        
         Object.assign(this, init);
@@ -21142,7 +21177,7 @@ export class CellsRanges_PostWorksheetCellsRangeColumnWidthRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsRanges_PostWorksheetCellsRangeColumnWidthRequest>) {        
         Object.assign(this, init);
@@ -21176,7 +21211,7 @@ export class CellsRanges_PostWorksheetCellsRangeMergeRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsRanges_PostWorksheetCellsRangeMergeRequest>) {        
         Object.assign(this, init);
@@ -21220,7 +21255,7 @@ export class CellsRanges_PostWorksheetCellsRangeMoveToRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsRanges_PostWorksheetCellsRangeMoveToRequest>) {        
         Object.assign(this, init);
@@ -21254,7 +21289,7 @@ export class CellsRanges_PostWorksheetCellsRangeOutlineBorderRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsRanges_PostWorksheetCellsRangeOutlineBorderRequest>) {        
         Object.assign(this, init);
@@ -21293,7 +21328,7 @@ export class CellsRanges_PostWorksheetCellsRangeRowHeightRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsRanges_PostWorksheetCellsRangeRowHeightRequest>) {        
         Object.assign(this, init);
@@ -21327,7 +21362,7 @@ export class CellsRanges_PostWorksheetCellsRangeStyleRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsRanges_PostWorksheetCellsRangeStyleRequest>) {        
         Object.assign(this, init);
@@ -21361,7 +21396,7 @@ export class CellsRanges_PostWorksheetCellsRangeUnmergeRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsRanges_PostWorksheetCellsRangeUnmergeRequest>) {        
         Object.assign(this, init);
@@ -21410,7 +21445,7 @@ export class CellsRanges_PostWorksheetCellsRangeValueRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsRanges_PostWorksheetCellsRangeValueRequest>) {        
         Object.assign(this, init);
@@ -21444,7 +21479,7 @@ export class CellsRanges_PostWorksheetCellsRangesRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsRanges_PostWorksheetCellsRangesRequest>) {        
         Object.assign(this, init);
@@ -21488,7 +21523,7 @@ export class CellsSaveAs_PostDocumentSaveAsRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsSaveAs_PostDocumentSaveAsRequest>) {        
         Object.assign(this, init);
@@ -21522,7 +21557,7 @@ export class CellsShapes_DeleteWorksheetShapeRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsShapes_DeleteWorksheetShapeRequest>) {        
         Object.assign(this, init);
@@ -21551,7 +21586,7 @@ export class CellsShapes_DeleteWorksheetShapesRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsShapes_DeleteWorksheetShapesRequest>) {        
         Object.assign(this, init);
@@ -21585,7 +21620,7 @@ export class CellsShapes_GetWorksheetShapeRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsShapes_GetWorksheetShapeRequest>) {        
         Object.assign(this, init);
@@ -21614,7 +21649,7 @@ export class CellsShapes_GetWorksheetShapesRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsShapes_GetWorksheetShapesRequest>) {        
         Object.assign(this, init);
@@ -21653,7 +21688,7 @@ export class CellsShapes_PostWorksheetShapeRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsShapes_PostWorksheetShapeRequest>) {        
         Object.assign(this, init);
@@ -21673,6 +21708,11 @@ export class CellsShapes_PutWorksheetShapeRequest {
      * worksheet name.
      */
     public sheetName: string;
+
+    /**
+     * Gets or sets shapeDTO
+     */
+    public shapeDTO: Shape;
 
     /**
      * shape object type
@@ -21717,7 +21757,7 @@ export class CellsShapes_PutWorksheetShapeRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsShapes_PutWorksheetShapeRequest>) {        
         Object.assign(this, init);
@@ -21760,7 +21800,7 @@ export class CellsWorkbook_DeleteDecryptDocumentRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsWorkbook_DeleteDecryptDocumentRequest>) {        
         Object.assign(this, init);
@@ -21784,7 +21824,7 @@ export class CellsWorkbook_DeleteDocumentUnprotectFromChangesRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsWorkbook_DeleteDocumentUnprotectFromChangesRequest>) {        
         Object.assign(this, init);
@@ -21813,7 +21853,7 @@ export class CellsWorkbook_DeleteUnprotectDocumentRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsWorkbook_DeleteUnprotectDocumentRequest>) {        
         Object.assign(this, init);
@@ -21837,7 +21877,7 @@ export class CellsWorkbook_DeleteWorkbookBackgroundRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsWorkbook_DeleteWorkbookBackgroundRequest>) {        
         Object.assign(this, init);
@@ -21866,7 +21906,7 @@ export class CellsWorkbook_DeleteWorkbookNameRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsWorkbook_DeleteWorkbookNameRequest>) {        
         Object.assign(this, init);
@@ -21890,7 +21930,7 @@ export class CellsWorkbook_DeleteWorkbookNamesRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsWorkbook_DeleteWorkbookNamesRequest>) {        
         Object.assign(this, init);
@@ -21934,7 +21974,7 @@ export class CellsWorkbook_GetWorkbookRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
 
     /**
      * The document output folder.
@@ -21963,7 +22003,7 @@ export class CellsWorkbook_GetWorkbookDefaultStyleRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsWorkbook_GetWorkbookDefaultStyleRequest>) {        
         Object.assign(this, init);
@@ -21992,7 +22032,7 @@ export class CellsWorkbook_GetWorkbookNameRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsWorkbook_GetWorkbookNameRequest>) {        
         Object.assign(this, init);
@@ -22021,7 +22061,7 @@ export class CellsWorkbook_GetWorkbookNameValueRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsWorkbook_GetWorkbookNameValueRequest>) {        
         Object.assign(this, init);
@@ -22045,7 +22085,7 @@ export class CellsWorkbook_GetWorkbookNamesRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsWorkbook_GetWorkbookNamesRequest>) {        
         Object.assign(this, init);
@@ -22069,7 +22109,7 @@ export class CellsWorkbook_GetWorkbookSettingsRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsWorkbook_GetWorkbookSettingsRequest>) {        
         Object.assign(this, init);
@@ -22093,7 +22133,7 @@ export class CellsWorkbook_GetWorkbookTextItemsRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsWorkbook_GetWorkbookTextItemsRequest>) {        
         Object.assign(this, init);
@@ -22137,7 +22177,7 @@ export class CellsWorkbook_PostAutofitWorkbookRowsRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsWorkbook_PostAutofitWorkbookRowsRequest>) {        
         Object.assign(this, init);
@@ -22166,7 +22206,7 @@ export class CellsWorkbook_PostEncryptDocumentRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsWorkbook_PostEncryptDocumentRequest>) {        
         Object.assign(this, init);
@@ -22195,7 +22235,7 @@ export class CellsWorkbook_PostImportDataRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsWorkbook_PostImportDataRequest>) {        
         Object.assign(this, init);
@@ -22224,7 +22264,7 @@ export class CellsWorkbook_PostProtectDocumentRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsWorkbook_PostProtectDocumentRequest>) {        
         Object.assign(this, init);
@@ -22258,7 +22298,7 @@ export class CellsWorkbook_PostWorkbookCalculateFormulaRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsWorkbook_PostWorkbookCalculateFormulaRequest>) {        
         Object.assign(this, init);
@@ -22287,7 +22327,7 @@ export class CellsWorkbook_PostWorkbookGetSmartMarkerResultRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
 
     /**
      * Path to save result
@@ -22321,7 +22361,7 @@ export class CellsWorkbook_PostWorkbookSettingsRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsWorkbook_PostWorkbookSettingsRequest>) {        
         Object.assign(this, init);
@@ -22375,7 +22415,7 @@ export class CellsWorkbook_PostWorkbookSplitRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsWorkbook_PostWorkbookSplitRequest>) {        
         Object.assign(this, init);
@@ -22404,7 +22444,7 @@ export class CellsWorkbook_PostWorkbooksMergeRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsWorkbook_PostWorkbooksMergeRequest>) {        
         Object.assign(this, init);
@@ -22438,7 +22478,7 @@ export class CellsWorkbook_PostWorkbooksTextReplaceRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsWorkbook_PostWorkbooksTextReplaceRequest>) {        
         Object.assign(this, init);
@@ -22467,7 +22507,7 @@ export class CellsWorkbook_PostWorkbooksTextSearchRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsWorkbook_PostWorkbooksTextSearchRequest>) {        
         Object.assign(this, init);
@@ -22525,7 +22565,7 @@ export class CellsWorkbook_PutDocumentProtectFromChangesRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsWorkbook_PutDocumentProtectFromChangesRequest>) {        
         Object.assign(this, init);
@@ -22554,7 +22594,7 @@ export class CellsWorkbook_PutWorkbookBackgroundRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsWorkbook_PutWorkbookBackgroundRequest>) {        
         Object.assign(this, init);
@@ -22593,7 +22633,7 @@ export class CellsWorkbook_PutWorkbookCreateRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsWorkbook_PutWorkbookCreateRequest>) {        
         Object.assign(this, init);
@@ -22617,7 +22657,7 @@ export class CellsWorkbook_PutWorkbookWaterMarkerRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
 
     /**
      * The text water marker request.
@@ -22656,7 +22696,7 @@ export class CellsWorksheetValidations_DeleteWorksheetValidationRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsWorksheetValidations_DeleteWorksheetValidationRequest>) {        
         Object.assign(this, init);
@@ -22685,7 +22725,7 @@ export class CellsWorksheetValidations_DeleteWorksheetValidationsRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsWorksheetValidations_DeleteWorksheetValidationsRequest>) {        
         Object.assign(this, init);
@@ -22719,7 +22759,7 @@ export class CellsWorksheetValidations_GetWorksheetValidationRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsWorksheetValidations_GetWorksheetValidationRequest>) {        
         Object.assign(this, init);
@@ -22748,7 +22788,7 @@ export class CellsWorksheetValidations_GetWorksheetValidationsRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsWorksheetValidations_GetWorksheetValidationsRequest>) {        
         Object.assign(this, init);
@@ -22787,7 +22827,7 @@ export class CellsWorksheetValidations_PostWorksheetValidationRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsWorksheetValidations_PostWorksheetValidationRequest>) {        
         Object.assign(this, init);
@@ -22826,7 +22866,7 @@ export class CellsWorksheetValidations_PutWorksheetValidationRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsWorksheetValidations_PutWorksheetValidationRequest>) {        
         Object.assign(this, init);
@@ -22860,7 +22900,7 @@ export class CellsWorksheets_DeleteUnprotectWorksheetRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsWorksheets_DeleteUnprotectWorksheetRequest>) {        
         Object.assign(this, init);
@@ -22889,7 +22929,7 @@ export class CellsWorksheets_DeleteWorksheetRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsWorksheets_DeleteWorksheetRequest>) {        
         Object.assign(this, init);
@@ -22918,7 +22958,7 @@ export class CellsWorksheets_DeleteWorksheetBackgroundRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsWorksheets_DeleteWorksheetBackgroundRequest>) {        
         Object.assign(this, init);
@@ -22952,7 +22992,7 @@ export class CellsWorksheets_DeleteWorksheetCommentRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsWorksheets_DeleteWorksheetCommentRequest>) {        
         Object.assign(this, init);
@@ -22981,7 +23021,7 @@ export class CellsWorksheets_DeleteWorksheetCommentsRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsWorksheets_DeleteWorksheetCommentsRequest>) {        
         Object.assign(this, init);
@@ -23030,7 +23070,7 @@ export class CellsWorksheets_DeleteWorksheetFreezePanesRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsWorksheets_DeleteWorksheetFreezePanesRequest>) {        
         Object.assign(this, init);
@@ -23054,7 +23094,7 @@ export class CellsWorksheets_GetNamedRangesRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsWorksheets_GetNamedRangesRequest>) {        
         Object.assign(this, init);
@@ -23108,7 +23148,7 @@ export class CellsWorksheets_GetWorksheetRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsWorksheets_GetWorksheetRequest>) {        
         Object.assign(this, init);
@@ -23142,7 +23182,7 @@ export class CellsWorksheets_GetWorksheetCalculateFormulaRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsWorksheets_GetWorksheetCalculateFormulaRequest>) {        
         Object.assign(this, init);
@@ -23176,7 +23216,7 @@ export class CellsWorksheets_GetWorksheetCommentRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsWorksheets_GetWorksheetCommentRequest>) {        
         Object.assign(this, init);
@@ -23205,7 +23245,7 @@ export class CellsWorksheets_GetWorksheetCommentsRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsWorksheets_GetWorksheetCommentsRequest>) {        
         Object.assign(this, init);
@@ -23239,7 +23279,7 @@ export class CellsWorksheets_GetWorksheetMergedCellRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsWorksheets_GetWorksheetMergedCellRequest>) {        
         Object.assign(this, init);
@@ -23268,7 +23308,7 @@ export class CellsWorksheets_GetWorksheetMergedCellsRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsWorksheets_GetWorksheetMergedCellsRequest>) {        
         Object.assign(this, init);
@@ -23297,7 +23337,7 @@ export class CellsWorksheets_GetWorksheetTextItemsRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsWorksheets_GetWorksheetTextItemsRequest>) {        
         Object.assign(this, init);
@@ -23321,7 +23361,7 @@ export class CellsWorksheets_GetWorksheetsRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsWorksheets_GetWorksheetsRequest>) {        
         Object.assign(this, init);
@@ -23375,7 +23415,7 @@ export class CellsWorksheets_PostAutofitWorksheetColumnsRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsWorksheets_PostAutofitWorksheetColumnsRequest>) {        
         Object.assign(this, init);
@@ -23424,7 +23464,7 @@ export class CellsWorksheets_PostAutofitWorksheetRowRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsWorksheets_PostAutofitWorksheetRowRequest>) {        
         Object.assign(this, init);
@@ -23473,7 +23513,7 @@ export class CellsWorksheets_PostAutofitWorksheetRowsRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsWorksheets_PostAutofitWorksheetRowsRequest>) {        
         Object.assign(this, init);
@@ -23522,7 +23562,7 @@ export class CellsWorksheets_PostCopyWorksheetRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsWorksheets_PostCopyWorksheetRequest>) {        
         Object.assign(this, init);
@@ -23556,7 +23596,7 @@ export class CellsWorksheets_PostMoveWorksheetRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsWorksheets_PostMoveWorksheetRequest>) {        
         Object.assign(this, init);
@@ -23590,7 +23630,7 @@ export class CellsWorksheets_PostRenameWorksheetRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsWorksheets_PostRenameWorksheetRequest>) {        
         Object.assign(this, init);
@@ -23624,7 +23664,7 @@ export class CellsWorksheets_PostUpdateWorksheetPropertyRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsWorksheets_PostUpdateWorksheetPropertyRequest>) {        
         Object.assign(this, init);
@@ -23658,7 +23698,7 @@ export class CellsWorksheets_PostUpdateWorksheetZoomRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsWorksheets_PostUpdateWorksheetZoomRequest>) {        
         Object.assign(this, init);
@@ -23697,7 +23737,7 @@ export class CellsWorksheets_PostWorksheetCommentRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsWorksheets_PostWorksheetCommentRequest>) {        
         Object.assign(this, init);
@@ -23736,7 +23776,7 @@ export class CellsWorksheets_PostWorksheetRangeSortRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsWorksheets_PostWorksheetRangeSortRequest>) {        
         Object.assign(this, init);
@@ -23770,7 +23810,7 @@ export class CellsWorksheets_PostWorksheetTextSearchRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsWorksheets_PostWorksheetTextSearchRequest>) {        
         Object.assign(this, init);
@@ -23809,7 +23849,7 @@ export class CellsWorksheets_PostWorsheetTextReplaceRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsWorksheets_PostWorsheetTextReplaceRequest>) {        
         Object.assign(this, init);
@@ -23848,7 +23888,7 @@ export class CellsWorksheets_PutAddNewWorksheetRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsWorksheets_PutAddNewWorksheetRequest>) {        
         Object.assign(this, init);
@@ -23882,7 +23922,7 @@ export class CellsWorksheets_PutChangeVisibilityWorksheetRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsWorksheets_PutChangeVisibilityWorksheetRequest>) {        
         Object.assign(this, init);
@@ -23916,7 +23956,7 @@ export class CellsWorksheets_PutProtectWorksheetRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsWorksheets_PutProtectWorksheetRequest>) {        
         Object.assign(this, init);
@@ -23950,7 +23990,7 @@ export class CellsWorksheets_PutWorksheetBackgroundRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsWorksheets_PutWorksheetBackgroundRequest>) {        
         Object.assign(this, init);
@@ -23989,7 +24029,7 @@ export class CellsWorksheets_PutWorksheetCommentRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsWorksheets_PutWorksheetCommentRequest>) {        
         Object.assign(this, init);
@@ -24038,7 +24078,7 @@ export class CellsWorksheets_PutWorksheetFreezePanesRequest {
     /**
      * storage name.
      */
-    public storage: string;
+    public storageName: string;
     
     public constructor(init?: Partial<CellsWorksheets_PutWorksheetFreezePanesRequest>) {        
         Object.assign(this, init);
