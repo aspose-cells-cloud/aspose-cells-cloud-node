@@ -34,7 +34,7 @@ var path = require('path');
 var assert = require('assert');
 
 describe('CellsWorksheetValidationsApi', function() {
-  this.timeout(20000);
+  this.timeout(200000);
   describe('cellsWorksheetValidationsDeleteWorksheetValidation', function() {
     it('should call cellsWorksheetValidationsDeleteWorksheetValidation successfully', function() {
       const cellsApi = BaseTest.initializeCellsApi();

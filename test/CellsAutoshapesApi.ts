@@ -34,7 +34,7 @@ var path = require('path');
 var assert = require('assert');
 
 describe('CellsAutoshapesApi', function() {
-  this.timeout(20000);
+  this.timeout(200000);
   describe('cellsAutoshapesGetWorksheetAutoshape', function() {
     it('should call cellsAutoshapesGetWorksheetAutoshape successfully', function() {
       const cellsApi = BaseTest.initializeCellsApi();

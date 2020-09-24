@@ -34,7 +34,7 @@ var path = require('path');
 var assert = require('assert');
 
 describe('CellsPageSetupApi', function() {
-  this.timeout(20000);
+  this.timeout(200000);
   describe('cellsPageSetupDeleteHeaderFooter', function() {
     it('should call cellsPageSetupDeleteHeaderFooter successfully', function() {
       const cellsApi = BaseTest.initializeCellsApi();

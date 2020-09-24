@@ -34,7 +34,7 @@ var path = require('path');
 var assert = require('assert');
 
 describe('CellsWorksheetsApi', function() {
-  this.timeout(20000);
+  this.timeout(200000);
   describe('cellsWorksheetsDeleteUnprotectWorksheet', function() {
     it('should call cellsWorksheetsDeleteUnprotectWorksheet successfully', function() {
       const cellsApi = BaseTest.initializeCellsApi();

@@ -34,7 +34,7 @@ var path = require('path');
 var assert = require('assert');
 
 describe('CellsAutoFilterApi', function() {
-  this.timeout(20000);
+  this.timeout(200000);
   describe('cellsAutoFilterDeleteWorksheetDateFilter', function() {
     const cellsApi = BaseTest.initializeCellsApi();
     const filename = "Book1.xlsx";

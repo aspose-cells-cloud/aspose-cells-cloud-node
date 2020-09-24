@@ -33,7 +33,7 @@ var fs = require('fs');
 var path = require('path');
 var assert = require('assert');
 describe('CellsTaskApi', function() {
-  this.timeout(20000);
+  this.timeout(200000);
   describe('cellsTaskPostRunTask', function() {
     it('should call cellsTaskPostRunTask successfully', function() {
       const cellsApi = BaseTest.initializeCellsApi();

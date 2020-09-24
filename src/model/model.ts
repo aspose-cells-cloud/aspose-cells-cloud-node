@@ -4443,6 +4443,283 @@ export class SortKey {
     }        
 }
 
+export class Sparkline {
+
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "column",
+            baseName: "Column",
+            type: "number",
+        },        
+        {
+            name: "dataRange",
+            baseName: "DataRange",
+            type: "string",
+        },        
+        {
+            name: "row",
+            baseName: "Row",
+            type: "number",
+        }    ];
+
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return Sparkline.attributeTypeMap;
+    }
+
+    public column: number;
+    
+    public dataRange: string;
+    
+    public row: number;
+    
+    public constructor(init?: Partial<Sparkline>) {
+        
+        Object.assign(this, init);
+    }        
+}
+
+export class SparklineGroup {
+
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "displayHidden",
+            baseName: "DisplayHidden",
+            type: "boolean",
+        },        
+        {
+            name: "firstPointColor",
+            baseName: "FirstPointColor",
+            type: "CellsColor",
+        },        
+        {
+            name: "highPointColor",
+            baseName: "HighPointColor",
+            type: "CellsColor",
+        },        
+        {
+            name: "horizontalAxisColor",
+            baseName: "HorizontalAxisColor",
+            type: "CellsColor",
+        },        
+        {
+            name: "horizontalAxisDateRange",
+            baseName: "HorizontalAxisDateRange",
+            type: "string",
+        },        
+        {
+            name: "lastPointColor",
+            baseName: "LastPointColor",
+            type: "CellsColor",
+        },        
+        {
+            name: "lineWeight",
+            baseName: "LineWeight",
+            type: "number",
+        },        
+        {
+            name: "lowPointColor",
+            baseName: "LowPointColor",
+            type: "CellsColor",
+        },        
+        {
+            name: "markersColor",
+            baseName: "MarkersColor",
+            type: "CellsColor",
+        },        
+        {
+            name: "negativePointsColor",
+            baseName: "NegativePointsColor",
+            type: "CellsColor",
+        },        
+        {
+            name: "plotEmptyCellsType",
+            baseName: "PlotEmptyCellsType",
+            type: "string",
+        },        
+        {
+            name: "plotRightToLeft",
+            baseName: "PlotRightToLeft",
+            type: "boolean",
+        },        
+        {
+            name: "presetStyle",
+            baseName: "PresetStyle",
+            type: "string",
+        },        
+        {
+            name: "seriesColor",
+            baseName: "SeriesColor",
+            type: "CellsColor",
+        },        
+        {
+            name: "showFirstPoint",
+            baseName: "ShowFirstPoint",
+            type: "boolean",
+        },        
+        {
+            name: "showHighPoint",
+            baseName: "ShowHighPoint",
+            type: "boolean",
+        },        
+        {
+            name: "showHorizontalAxis",
+            baseName: "ShowHorizontalAxis",
+            type: "boolean",
+        },        
+        {
+            name: "showLastPoint",
+            baseName: "ShowLastPoint",
+            type: "boolean",
+        },        
+        {
+            name: "showLowPoint",
+            baseName: "ShowLowPoint",
+            type: "boolean",
+        },        
+        {
+            name: "showMarkers",
+            baseName: "ShowMarkers",
+            type: "boolean",
+        },        
+        {
+            name: "showNegativePoints",
+            baseName: "ShowNegativePoints",
+            type: "boolean",
+        },        
+        {
+            name: "sparklineCollection",
+            baseName: "SparklineCollection",
+            type: "Array<Sparkline>",
+        },        
+        {
+            name: "type",
+            baseName: "Type",
+            type: "string",
+        },        
+        {
+            name: "verticalAxisMaxValue",
+            baseName: "VerticalAxisMaxValue",
+            type: "number",
+        },        
+        {
+            name: "verticalAxisMaxValueType",
+            baseName: "VerticalAxisMaxValueType",
+            type: "string",
+        },        
+        {
+            name: "verticalAxisMinValue",
+            baseName: "VerticalAxisMinValue",
+            type: "number",
+        },        
+        {
+            name: "verticalAxisMinValueType",
+            baseName: "VerticalAxisMinValueType",
+            type: "string",
+        }    ];
+
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return SparklineGroup.attributeTypeMap;
+    }
+
+    public displayHidden: boolean;
+    
+    public firstPointColor: CellsColor;
+    
+    public highPointColor: CellsColor;
+    
+    public horizontalAxisColor: CellsColor;
+    
+    public horizontalAxisDateRange: string;
+    
+    public lastPointColor: CellsColor;
+    
+    public lineWeight: number;
+    
+    public lowPointColor: CellsColor;
+    
+    public markersColor: CellsColor;
+    
+    public negativePointsColor: CellsColor;
+    
+    public plotEmptyCellsType: string;
+    
+    public plotRightToLeft: boolean;
+    
+    public presetStyle: string;
+    
+    public seriesColor: CellsColor;
+    
+    public showFirstPoint: boolean;
+    
+    public showHighPoint: boolean;
+    
+    public showHorizontalAxis: boolean;
+    
+    public showLastPoint: boolean;
+    
+    public showLowPoint: boolean;
+    
+    public showMarkers: boolean;
+    
+    public showNegativePoints: boolean;
+    
+    public sparklineCollection: Array<Sparkline>;
+    
+    public type: string;
+    
+    public verticalAxisMaxValue: number;
+    
+    public verticalAxisMaxValueType: string;
+    
+    public verticalAxisMinValue: number;
+    
+    public verticalAxisMinValueType: string;
+    
+    public constructor(init?: Partial<SparklineGroup>) {
+        
+        Object.assign(this, init);
+    }        
+}
+
+export class SparklineGroups {
+
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "sparklineGroupList",
+            baseName: "SparklineGroupList",
+            type: "Array<SparklineGroup>",
+        }    ];
+
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return SparklineGroups.attributeTypeMap;
+    }
+
+    public sparklineGroupList: Array<SparklineGroup>;
+    
+    public constructor(init?: Partial<SparklineGroups>) {
+        
+        Object.assign(this, init);
+    }        
+}
+
 export class SplitResult {
 
     /**
@@ -12161,6 +12438,60 @@ export class SmartMarkerTaskParameter extends TaskParameter {
     }        
 }
 
+export class SparklineGroupResponse extends CellsCloudResponse {
+
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "sparklineGroup",
+            baseName: "SparklineGroup",
+            type: "SparklineGroup",
+        }    ];
+
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return super.getAttributeTypeMap().concat(SparklineGroupResponse.attributeTypeMap);
+    }
+
+    public sparklineGroup: SparklineGroup;
+    
+    public constructor(init?: Partial<SparklineGroupResponse>) {
+        super(init);
+        Object.assign(this, init);
+    }        
+}
+
+export class SparklineGroupsResponse extends CellsCloudResponse {
+
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "sparklineGroups",
+            baseName: "SparklineGroups",
+            type: "SparklineGroups",
+        }    ];
+
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return super.getAttributeTypeMap().concat(SparklineGroupsResponse.attributeTypeMap);
+    }
+
+    public sparklineGroups: SparklineGroups;
+    
+    public constructor(init?: Partial<SparklineGroupsResponse>) {
+        super(init);
+        Object.assign(this, init);
+    }        
+}
+
 export class SplitResultDocument {
 
     /**
@@ -14946,6 +15277,9 @@ const typeMap = {
             SingleValue,
             SolidFill,
             SortKey,
+            Sparkline,
+            SparklineGroup,
+            SparklineGroups,
             SplitResult,
             StorageExist,
             StorageFile,
@@ -15073,6 +15407,8 @@ const typeMap = {
             ShapesResponse,
             SingleValueResponse,
             SmartMarkerTaskParameter,
+            SparklineGroupResponse,
+            SparklineGroupsResponse,
             SplitResultDocument,
             SplitResultResponse,
             SplitWorkbookTaskParameter,
@@ -16419,6 +16755,26 @@ export class CellsCharts_PutWorksheetAddChartRequest {
      * storage name.
      */
     public storageName: string;
+
+    /**
+     * Gets or sets dataLabels
+     */
+    public dataLabels: boolean;
+
+    /**
+     * Gets or sets dataLabelsPosition
+     */
+    public dataLabelsPosition: string;
+
+    /**
+     * Gets or sets pivotTableSheet
+     */
+    public pivotTableSheet: string;
+
+    /**
+     * Gets or sets pivotTableName
+     */
+    public pivotTableName: string;
     
     public constructor(init?: Partial<CellsCharts_PutWorksheetAddChartRequest>) {        
         Object.assign(this, init);
@@ -16693,9 +17049,9 @@ export class CellsConditionalFormattings_PutWorksheetConditionalFormattingReques
     public cellArea: string;
 
     /**
-     * Gets or sets formatcondition
+     * Gets or sets formatCondition
      */
-    public formatcondition: FormatCondition;
+    public formatCondition: FormatCondition;
 
     /**
      * Gets or sets folder
@@ -19461,6 +19817,99 @@ export class CellsPivotTables_PostPivotTableStyleRequest {
 }
 
 /**
+ * Request model for CellsPivotTables_PostPivotTableUpdatePivotField operation.
+ */
+export class CellsPivotTables_PostPivotTableUpdatePivotFieldRequest {
+    /**
+     * Gets or sets name
+     */
+    public name: string;
+
+    /**
+     * Gets or sets sheetName
+     */
+    public sheetName: string;
+
+    /**
+     * Gets or sets pivotTableIndex
+     */
+    public pivotTableIndex: number;
+
+    /**
+     * Gets or sets pivotFieldIndex
+     */
+    public pivotFieldIndex: number;
+
+    /**
+     * Gets or sets pivotFieldType
+     */
+    public pivotFieldType: string;
+
+    /**
+     * Gets or sets pivotField
+     */
+    public pivotField: PivotField;
+
+    /**
+     * Gets or sets needReCalculate
+     */
+    public needReCalculate: boolean;
+
+    /**
+     * Gets or sets folder
+     */
+    public folder: string;
+    
+    public constructor(init?: Partial<CellsPivotTables_PostPivotTableUpdatePivotFieldRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
+ * Request model for CellsPivotTables_PostPivotTableUpdatePivotFields operation.
+ */
+export class CellsPivotTables_PostPivotTableUpdatePivotFieldsRequest {
+    /**
+     * Gets or sets name
+     */
+    public name: string;
+
+    /**
+     * Gets or sets sheetName
+     */
+    public sheetName: string;
+
+    /**
+     * Gets or sets pivotTableIndex
+     */
+    public pivotTableIndex: number;
+
+    /**
+     * Gets or sets pivotFieldType
+     */
+    public pivotFieldType: string;
+
+    /**
+     * Gets or sets pivotField
+     */
+    public pivotField: PivotField;
+
+    /**
+     * Gets or sets needReCalculate
+     */
+    public needReCalculate: boolean;
+
+    /**
+     * Gets or sets folder
+     */
+    public folder: string;
+    
+    public constructor(init?: Partial<CellsPivotTables_PostPivotTableUpdatePivotFieldsRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
  * Request model for CellsPivotTables_PostWorksheetPivotTableCalculate operation.
  */
 export class CellsPivotTables_PostWorksheetPivotTableCalculateRequest {
@@ -21765,6 +22214,220 @@ export class CellsShapes_PutWorksheetShapeRequest {
 }
 
 /**
+ * Request model for CellsSparklineGroups_DeleteWorksheetSparklineGroup operation.
+ */
+export class CellsSparklineGroups_DeleteWorksheetSparklineGroupRequest {
+    /**
+     * Gets or sets name
+     */
+    public name: string;
+
+    /**
+     * Gets or sets sheetName
+     */
+    public sheetName: string;
+
+    /**
+     * Gets or sets sparklineGroupIndex
+     */
+    public sparklineGroupIndex: number;
+
+    /**
+     * Gets or sets folder
+     */
+    public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storageName: string;
+    
+    public constructor(init?: Partial<CellsSparklineGroups_DeleteWorksheetSparklineGroupRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
+ * Request model for CellsSparklineGroups_DeleteWorksheetSparklineGroups operation.
+ */
+export class CellsSparklineGroups_DeleteWorksheetSparklineGroupsRequest {
+    /**
+     * Gets or sets name
+     */
+    public name: string;
+
+    /**
+     * Gets or sets sheetName
+     */
+    public sheetName: string;
+
+    /**
+     * Gets or sets folder
+     */
+    public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storageName: string;
+    
+    public constructor(init?: Partial<CellsSparklineGroups_DeleteWorksheetSparklineGroupsRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
+ * Request model for CellsSparklineGroups_GetWorksheetSparklineGroup operation.
+ */
+export class CellsSparklineGroups_GetWorksheetSparklineGroupRequest {
+    /**
+     * Gets or sets name
+     */
+    public name: string;
+
+    /**
+     * Gets or sets sheetName
+     */
+    public sheetName: string;
+
+    /**
+     * Gets or sets sparklineGroupIndex
+     */
+    public sparklineGroupIndex: number;
+
+    /**
+     * Gets or sets folder
+     */
+    public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storageName: string;
+    
+    public constructor(init?: Partial<CellsSparklineGroups_GetWorksheetSparklineGroupRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
+ * Request model for CellsSparklineGroups_GetWorksheetSparklineGroups operation.
+ */
+export class CellsSparklineGroups_GetWorksheetSparklineGroupsRequest {
+    /**
+     * Document name.
+     */
+    public name: string;
+
+    /**
+     * The worksheet name.
+     */
+    public sheetName: string;
+
+    /**
+     * Document's folder.
+     */
+    public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storageName: string;
+    
+    public constructor(init?: Partial<CellsSparklineGroups_GetWorksheetSparklineGroupsRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
+ * Request model for CellsSparklineGroups_PostWorksheetSparklineGroup operation.
+ */
+export class CellsSparklineGroups_PostWorksheetSparklineGroupRequest {
+    /**
+     * Gets or sets name
+     */
+    public name: string;
+
+    /**
+     * Gets or sets sheetName
+     */
+    public sheetName: string;
+
+    /**
+     * Gets or sets sparklineGroupIndex
+     */
+    public sparklineGroupIndex: number;
+
+    /**
+     * Gets or sets sparklineGroup
+     */
+    public sparklineGroup: SparklineGroup;
+
+    /**
+     * Gets or sets folder
+     */
+    public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storageName: string;
+    
+    public constructor(init?: Partial<CellsSparklineGroups_PostWorksheetSparklineGroupRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
+ * Request model for CellsSparklineGroups_PutWorksheetSparklineGroup operation.
+ */
+export class CellsSparklineGroups_PutWorksheetSparklineGroupRequest {
+    /**
+     * Gets or sets name
+     */
+    public name: string;
+
+    /**
+     * Gets or sets sheetName
+     */
+    public sheetName: string;
+
+    /**
+     * Gets or sets type
+     */
+    public type: string;
+
+    /**
+     * Gets or sets dataRange
+     */
+    public dataRange: string;
+
+    /**
+     * Gets or sets isVertical
+     */
+    public isVertical: boolean;
+
+    /**
+     * Gets or sets locationRange
+     */
+    public locationRange: string;
+
+    /**
+     * Gets or sets folder
+     */
+    public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storageName: string;
+    
+    public constructor(init?: Partial<CellsSparklineGroups_PutWorksheetSparklineGroupRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
  * Request model for CellsTask_PostRunTask operation.
  */
 export class CellsTask_PostRunTaskRequest {
@@ -22223,9 +22886,9 @@ export class CellsWorkbook_PostImportDataRequest {
     public name: string;
 
     /**
-     * Gets or sets importdata
+     * Gets or sets importData
      */
-    public importdata: ImportOption;
+    public importData: ImportOption;
 
     /**
      * Gets or sets folder

@@ -33,7 +33,7 @@ var assert = require('assert');
 const localPath = "../TestData/";
 
 describe('CellsConditionalFormattingsApi', function() {
-  this.timeout(20000);
+  this.timeout(200000);
   describe('cellsConditionalFormattingsDeleteWorksheetConditionalFormatting', function() {
     it('should call cellsConditionalFormattingsDeleteWorksheetConditionalFormatting successfully', function() {
       const cellsApi = BaseTest.initializeCellsApi();
@@ -185,7 +185,7 @@ describe('CellsConditionalFormattingsApi', function() {
           formatcondition.operator = "Between";
           formatcondition.formula1 = "v1";
           formatcondition.formula2 = "v2";
-          req.formatcondition = formatcondition;
+          req.formatCondition = formatcondition;
           req.folder = "Temp";
           
           return cellsApi.cellsConditionalFormattingsPutWorksheetConditionalFormatting(req)

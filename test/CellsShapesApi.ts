@@ -34,7 +34,7 @@ var path = require('path');
 var assert = require('assert');
 
 describe('CellsShapesApi', function() {
-  this.timeout(20000);
+  this.timeout(200000);
   describe('cellsShapesDeleteWorksheetShape', function() {
     it('should call cellsShapesDeleteWorksheetShape successfully', function() {
       const cellsApi = BaseTest.initializeCellsApi();
@@ -179,7 +179,6 @@ describe('CellsShapesApi', function() {
           expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsShapes_PutWorksheetShapeRequest();
           req.name = filename;
-          req.shapeDTO = null;
           req.sheetName = "Sheet1";
           req.drawingType = "button";
           req.upperLeftRow = 1;

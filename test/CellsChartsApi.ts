@@ -34,7 +34,7 @@ var path = require('path');
 var assert = require('assert');
 
 describe('CellsChartsApi', function() {
-  this.timeout(20000);
+  this.timeout(200000);
   describe('cellsChartsDeleteWorksheetChartLegend', function() {
     it('should call cellsChartsDeleteWorksheetChartLegend successfully', function() {
       const cellsApi = BaseTest.initializeCellsApi();

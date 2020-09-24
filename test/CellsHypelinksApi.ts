@@ -33,7 +33,7 @@ var assert = require('assert');
 const localPath = "../TestData/";
 
 describe('CellsHypelinksApi', function() {
-  this.timeout(20000);
+  this.timeout(200000);
   describe('cellsHypelinksDeleteWorksheetHyperlink', function() {
     it('should call cellsHypelinksDeleteWorksheetHyperlink successfully', function() {
       const cellsApi = BaseTest.initializeCellsApi();

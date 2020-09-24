@@ -34,7 +34,7 @@ var path = require('path');
 var assert = require('assert');
 
 describe('CellsWorkbookApi', function() {
-  this.timeout(20000);
+  this.timeout(200000);
   describe('cellsWorkbookDeleteDecryptDocument', function() {
     it('should call cellsWorkbookDeleteDecryptDocument successfully', function() {
       const cellsApi = BaseTest.initializeCellsApi();
@@ -441,7 +441,7 @@ describe('CellsWorkbookApi', function() {
           data.importDataType = "IntArray";
           data.isVertical = true;
           data.data = [ 1, 2, 3, 4 ];
-          req.importdata = data;
+          req.importData = data;
           
           return cellsApi.cellsWorkbookPostImportData(req)
             .then((result) => {

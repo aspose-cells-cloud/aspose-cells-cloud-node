@@ -20,13 +20,11 @@ Node.js Cloud SDK wraps Aspose.Cells REST API so you could seamlessly integrate 
 - Fetch the required shape from worksheet.
 - Leverage the Power of Pivot Tables & ranges.
 
-## Features & Enhancements in Version 20.8
+## Features & Enhancements in Version 20.9
 
 - Aspose.Cells Cloud API calls are not working with explicit storage name but only default storage.
 - Get output file size without downloading during conversion.
 - Enhancement for CellsShapesPutWorksheetShape API.
-
-
 
 ## Read & Write Spreadsheet Formats
 

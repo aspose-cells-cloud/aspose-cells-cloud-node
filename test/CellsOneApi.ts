@@ -46,7 +46,7 @@ describe('cellsShapesPutWorksheetShape', function() {
         var req = new model.CellsShapes_PutWorksheetShapeRequest();
         req.name = filename;
         req.sheetName = "Sheet1";
-        req.drawingType = "button";
+        req.drawingType = "button"; 
         req.upperLeftRow = 1;
         req.upperLeftColumn = 1;
         req.top = 10;
@@ -54,7 +54,6 @@ describe('cellsShapesPutWorksheetShape', function() {
         req.width = 100;
         req.height = 90;
         req.folder = "Temp";
-        
         return cellsApi.cellsShapesPutWorksheetShape(req)
           .then((result) => {
             expect(result.body.code).to.equal(200);
@@ -63,7 +62,6 @@ describe('cellsShapesPutWorksheetShape', function() {
       });
   });
 });
-
 // describe('cellsWorkbookPutConvertWorkbook', function() {
 //   it('should call cellsWorkbookPutConvertWorkbook successfully', function() {
 //     const cellsApi = BaseTest.initializeCellsApi();

@@ -34,7 +34,7 @@ var path = require('path');
 var assert = require('assert');
 
 describe('CellsPicturesApi', function() {
-  this.timeout(20000);
+  this.timeout(200000);
   describe('cellsPicturesDeleteWorksheetPicture', function() {
     it('should call cellsPicturesDeleteWorksheetPicture successfully', function() {
       const cellsApi = BaseTest.initializeCellsApi();

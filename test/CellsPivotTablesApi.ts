@@ -34,7 +34,7 @@ var path = require('path');
 var assert = require('assert');
 
 describe('CellsPivotTablesApi', function() {
-  this.timeout(20000);
+  this.timeout(200000);
   describe('cellsPivotTablesDeletePivotTableField', function() {
     it('should call cellsPivotTablesDeletePivotTableField successfully', function() {
       const cellsApi = BaseTest.initializeCellsApi();
@@ -404,6 +404,65 @@ describe('CellsPivotTablesApi', function() {
           req.folder = "Temp";
           
           return cellsApi.cellsPivotTablesPostPivotTableFieldMoveTo(req)
+            .then((result) => {
+              expect(result.body.code).to.equal(200);
+              expect(result.response.statusCode).to.equal(200);
+            });
+        });
+    });
+  });
+  describe('cellsPivotTablesPostPivotTableUpdatePivotFields', function() {
+    it('should call cellsPivotTablesPostPivotTableUpdatePivotFields successfully', function() {
+      const cellsApi = BaseTest.initializeCellsApi();
+      const filename = "TestCase.xlsx";
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
+          var req = new model.CellsPivotTables_PostPivotTableUpdatePivotFieldsRequest();
+          req.name = filename;
+          req.sheetName = "Sheet4";
+          req.pivotTableIndex = 0;
+          req.pivotFieldType = "Row";
+          req.pivotField = new model.PivotField();
+          req.pivotField.showCompact = true;
+          req.folder = "Temp";
+          
+          return cellsApi.cellsPivotTablesPostPivotTableUpdatePivotFields(req)
+            .then((result) => {
+              expect(result.body.code).to.equal(200);
+              expect(result.response.statusCode).to.equal(200);
+            });
+        });
+    });
+  });
+  describe('cellsPivotTablesPostPivotTableUpdatePivotField', function() {
+    it('should call cellsPivotTablesPostPivotTableUpdatePivotField successfully', function() {
+      const cellsApi = BaseTest.initializeCellsApi();
+      const filename = "TestCase.xlsx";
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
+          var req = new model.CellsPivotTables_PostPivotTableUpdatePivotFieldRequest();
+          req.name = filename;
+          req.sheetName = "Sheet4";
+          req.pivotTableIndex = 0;
+          req.pivotFieldIndex = 0;
+          req.pivotFieldType = "Row";
+          req.pivotField = new model.PivotField();
+          req.pivotField.showCompact = true;
+          req.folder = "Temp";
+          
+          return cellsApi.cellsPivotTablesPostPivotTableUpdatePivotField(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);

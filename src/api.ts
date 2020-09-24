@@ -1,7 +1,7 @@
 /*
 * MIT License
 
-* Copyright (c) 2020 Aspose Pty Ltd
+* Copyright (c) 2018 Aspose Pty Ltd
 
 * Permission is hereby granted, free of charge, to any person obtaining a copy
 * of this software and associated documentation files (the "Software"), to deal
@@ -1482,6 +1482,10 @@ export class CellsApi {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "title", requestObj.title);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", requestObj.storageName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "dataLabels", requestObj.dataLabels);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "dataLabelsPosition", requestObj.dataLabelsPosition);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "pivotTableSheet", requestObj.pivotTableSheet);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "pivotTableName", requestObj.pivotTableName);
         const requestOptions: request.Options = {
             method: "PUT",
             qs: queryParameters,
@@ -1846,7 +1850,7 @@ export class CellsApi {
             qs: queryParameters,
             uri: localVarPath,
             json: true,
-            body: (requestObj.formatcondition == null) ? null : ObjectSerializer.serialize(requestObj.formatcondition, requestObj.formatcondition.constructor.name === "Object" ? "FormatCondition" : requestObj.formatcondition.constructor.name),
+            body: (requestObj.formatCondition == null) ? null : ObjectSerializer.serialize(requestObj.formatCondition, requestObj.formatCondition.constructor.name === "Object" ? "FormatCondition" : requestObj.formatCondition.constructor.name),
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
@@ -5143,6 +5147,124 @@ export class CellsApi {
     }
 
     /**
+     * 
+     * @param requestObj contains request parameters
+     */
+    public async cellsPivotTablesPostPivotTableUpdatePivotField(requestObj: model.CellsPivotTables_PostPivotTableUpdatePivotFieldRequest): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}> {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling cellsPivotTablesPostPivotTableUpdatePivotField.');
+        }
+
+        let localVarPath = this.configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/pivottables/{pivotTableIndex}/PivotFields/{pivotFieldIndex}"
+            .replace("{" + "name" + "}", String(requestObj.name))
+            .replace("{" + "sheetName" + "}", String(requestObj.sheetName))
+            .replace("{" + "pivotTableIndex" + "}", String(requestObj.pivotTableIndex))
+            .replace("{" + "pivotFieldIndex" + "}", String(requestObj.pivotFieldIndex));
+        const queryParameters: any = {};
+
+        // verify required parameter 'requestObj.name' is not null or undefined
+        if (requestObj.name === null || requestObj.name === undefined) {
+            throw new Error('Required parameter "requestObj.name" was null or undefined when calling cellsPivotTablesPostPivotTableUpdatePivotField.');
+        }
+
+        // verify required parameter 'requestObj.sheetName' is not null or undefined
+        if (requestObj.sheetName === null || requestObj.sheetName === undefined) {
+            throw new Error('Required parameter "requestObj.sheetName" was null or undefined when calling cellsPivotTablesPostPivotTableUpdatePivotField.');
+        }
+
+        // verify required parameter 'requestObj.pivotTableIndex' is not null or undefined
+        if (requestObj.pivotTableIndex === null || requestObj.pivotTableIndex === undefined) {
+            throw new Error('Required parameter "requestObj.pivotTableIndex" was null or undefined when calling cellsPivotTablesPostPivotTableUpdatePivotField.');
+        }
+
+        // verify required parameter 'requestObj.pivotFieldIndex' is not null or undefined
+        if (requestObj.pivotFieldIndex === null || requestObj.pivotFieldIndex === undefined) {
+            throw new Error('Required parameter "requestObj.pivotFieldIndex" was null or undefined when calling cellsPivotTablesPostPivotTableUpdatePivotField.');
+        }
+
+        // verify required parameter 'requestObj.pivotFieldType' is not null or undefined
+        if (requestObj.pivotFieldType === null || requestObj.pivotFieldType === undefined) {
+            throw new Error('Required parameter "requestObj.pivotFieldType" was null or undefined when calling cellsPivotTablesPostPivotTableUpdatePivotField.');
+        }
+
+        // verify required parameter 'requestObj.pivotField' is not null or undefined
+        if (requestObj.pivotField === null || requestObj.pivotField === undefined) {
+            throw new Error('Required parameter "requestObj.pivotField" was null or undefined when calling cellsPivotTablesPostPivotTableUpdatePivotField.');
+        }
+        
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "pivotFieldType", requestObj.pivotFieldType);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "needReCalculate", requestObj.needReCalculate);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+            body: (requestObj.pivotField == null) ? null : ObjectSerializer.serialize(requestObj.pivotField, requestObj.pivotField.constructor.name === "Object" ? "PivotField" : requestObj.pivotField.constructor.name),
+        };
+
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "CellsCloudResponse");
+        return Promise.resolve({body: result, response});
+    }
+
+    /**
+     * 
+     * @param requestObj contains request parameters
+     */
+    public async cellsPivotTablesPostPivotTableUpdatePivotFields(requestObj: model.CellsPivotTables_PostPivotTableUpdatePivotFieldsRequest): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}> {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling cellsPivotTablesPostPivotTableUpdatePivotFields.');
+        }
+
+        let localVarPath = this.configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/pivottables/{pivotTableIndex}/PivotFields"
+            .replace("{" + "name" + "}", String(requestObj.name))
+            .replace("{" + "sheetName" + "}", String(requestObj.sheetName))
+            .replace("{" + "pivotTableIndex" + "}", String(requestObj.pivotTableIndex));
+        const queryParameters: any = {};
+
+        // verify required parameter 'requestObj.name' is not null or undefined
+        if (requestObj.name === null || requestObj.name === undefined) {
+            throw new Error('Required parameter "requestObj.name" was null or undefined when calling cellsPivotTablesPostPivotTableUpdatePivotFields.');
+        }
+
+        // verify required parameter 'requestObj.sheetName' is not null or undefined
+        if (requestObj.sheetName === null || requestObj.sheetName === undefined) {
+            throw new Error('Required parameter "requestObj.sheetName" was null or undefined when calling cellsPivotTablesPostPivotTableUpdatePivotFields.');
+        }
+
+        // verify required parameter 'requestObj.pivotTableIndex' is not null or undefined
+        if (requestObj.pivotTableIndex === null || requestObj.pivotTableIndex === undefined) {
+            throw new Error('Required parameter "requestObj.pivotTableIndex" was null or undefined when calling cellsPivotTablesPostPivotTableUpdatePivotFields.');
+        }
+
+        // verify required parameter 'requestObj.pivotFieldType' is not null or undefined
+        if (requestObj.pivotFieldType === null || requestObj.pivotFieldType === undefined) {
+            throw new Error('Required parameter "requestObj.pivotFieldType" was null or undefined when calling cellsPivotTablesPostPivotTableUpdatePivotFields.');
+        }
+
+        // verify required parameter 'requestObj.pivotField' is not null or undefined
+        if (requestObj.pivotField === null || requestObj.pivotField === undefined) {
+            throw new Error('Required parameter "requestObj.pivotField" was null or undefined when calling cellsPivotTablesPostPivotTableUpdatePivotFields.');
+        }
+        
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "pivotFieldType", requestObj.pivotFieldType);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "needReCalculate", requestObj.needReCalculate);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+            body: (requestObj.pivotField == null) ? null : ObjectSerializer.serialize(requestObj.pivotField, requestObj.pivotField.constructor.name === "Object" ? "PivotField" : requestObj.pivotField.constructor.name),
+        };
+
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "CellsCloudResponse");
+        return Promise.resolve({body: result, response});
+    }
+
+    /**
      * Calculates pivottable's data to cells.
      * @param requestObj contains request parameters
      */
@@ -7712,6 +7834,282 @@ export class CellsApi {
     }
 
     /**
+     * 
+     * @param requestObj contains request parameters
+     */
+    public async cellsSparklineGroupsDeleteWorksheetSparklineGroup(requestObj: model.CellsSparklineGroups_DeleteWorksheetSparklineGroupRequest): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}> {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling cellsSparklineGroupsDeleteWorksheetSparklineGroup.');
+        }
+
+        let localVarPath = this.configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/sparklinegroups/{sparklineGroupIndex}"
+            .replace("{" + "name" + "}", String(requestObj.name))
+            .replace("{" + "sheetName" + "}", String(requestObj.sheetName))
+            .replace("{" + "sparklineGroupIndex" + "}", String(requestObj.sparklineGroupIndex));
+        const queryParameters: any = {};
+
+        // verify required parameter 'requestObj.name' is not null or undefined
+        if (requestObj.name === null || requestObj.name === undefined) {
+            throw new Error('Required parameter "requestObj.name" was null or undefined when calling cellsSparklineGroupsDeleteWorksheetSparklineGroup.');
+        }
+
+        // verify required parameter 'requestObj.sheetName' is not null or undefined
+        if (requestObj.sheetName === null || requestObj.sheetName === undefined) {
+            throw new Error('Required parameter "requestObj.sheetName" was null or undefined when calling cellsSparklineGroupsDeleteWorksheetSparklineGroup.');
+        }
+
+        // verify required parameter 'requestObj.sparklineGroupIndex' is not null or undefined
+        if (requestObj.sparklineGroupIndex === null || requestObj.sparklineGroupIndex === undefined) {
+            throw new Error('Required parameter "requestObj.sparklineGroupIndex" was null or undefined when calling cellsSparklineGroupsDeleteWorksheetSparklineGroup.');
+        }
+        
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", requestObj.storageName);
+        const requestOptions: request.Options = {
+            method: "DELETE",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "CellsCloudResponse");
+        return Promise.resolve({body: result, response});
+    }
+
+    /**
+     * 
+     * @param requestObj contains request parameters
+     */
+    public async cellsSparklineGroupsDeleteWorksheetSparklineGroups(requestObj: model.CellsSparklineGroups_DeleteWorksheetSparklineGroupsRequest): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}> {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling cellsSparklineGroupsDeleteWorksheetSparklineGroups.');
+        }
+
+        let localVarPath = this.configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/sparklinegroups"
+            .replace("{" + "name" + "}", String(requestObj.name))
+            .replace("{" + "sheetName" + "}", String(requestObj.sheetName));
+        const queryParameters: any = {};
+
+        // verify required parameter 'requestObj.name' is not null or undefined
+        if (requestObj.name === null || requestObj.name === undefined) {
+            throw new Error('Required parameter "requestObj.name" was null or undefined when calling cellsSparklineGroupsDeleteWorksheetSparklineGroups.');
+        }
+
+        // verify required parameter 'requestObj.sheetName' is not null or undefined
+        if (requestObj.sheetName === null || requestObj.sheetName === undefined) {
+            throw new Error('Required parameter "requestObj.sheetName" was null or undefined when calling cellsSparklineGroupsDeleteWorksheetSparklineGroups.');
+        }
+        
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", requestObj.storageName);
+        const requestOptions: request.Options = {
+            method: "DELETE",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "CellsCloudResponse");
+        return Promise.resolve({body: result, response});
+    }
+
+    /**
+     * 
+     * @param requestObj contains request parameters
+     */
+    public async cellsSparklineGroupsGetWorksheetSparklineGroup(requestObj: model.CellsSparklineGroups_GetWorksheetSparklineGroupRequest): Promise<{response: http.ClientResponse, body: model.SparklineGroupResponse}> {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling cellsSparklineGroupsGetWorksheetSparklineGroup.');
+        }
+
+        let localVarPath = this.configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/sparklinegroups/{sparklineGroupIndex}"
+            .replace("{" + "name" + "}", String(requestObj.name))
+            .replace("{" + "sheetName" + "}", String(requestObj.sheetName))
+            .replace("{" + "sparklineGroupIndex" + "}", String(requestObj.sparklineGroupIndex));
+        const queryParameters: any = {};
+
+        // verify required parameter 'requestObj.name' is not null or undefined
+        if (requestObj.name === null || requestObj.name === undefined) {
+            throw new Error('Required parameter "requestObj.name" was null or undefined when calling cellsSparklineGroupsGetWorksheetSparklineGroup.');
+        }
+
+        // verify required parameter 'requestObj.sheetName' is not null or undefined
+        if (requestObj.sheetName === null || requestObj.sheetName === undefined) {
+            throw new Error('Required parameter "requestObj.sheetName" was null or undefined when calling cellsSparklineGroupsGetWorksheetSparklineGroup.');
+        }
+
+        // verify required parameter 'requestObj.sparklineGroupIndex' is not null or undefined
+        if (requestObj.sparklineGroupIndex === null || requestObj.sparklineGroupIndex === undefined) {
+            throw new Error('Required parameter "requestObj.sparklineGroupIndex" was null or undefined when calling cellsSparklineGroupsGetWorksheetSparklineGroup.');
+        }
+        
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", requestObj.storageName);
+        const requestOptions: request.Options = {
+            method: "GET",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "SparklineGroupResponse");
+        return Promise.resolve({body: result, response});
+    }
+
+    /**
+     * Get worksheet charts description.
+     * @param requestObj contains request parameters
+     */
+    public async cellsSparklineGroupsGetWorksheetSparklineGroups(requestObj: model.CellsSparklineGroups_GetWorksheetSparklineGroupsRequest): Promise<{response: http.ClientResponse, body: model.SparklineGroupsResponse}> {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling cellsSparklineGroupsGetWorksheetSparklineGroups.');
+        }
+
+        let localVarPath = this.configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/sparklinegroups"
+            .replace("{" + "name" + "}", String(requestObj.name))
+            .replace("{" + "sheetName" + "}", String(requestObj.sheetName));
+        const queryParameters: any = {};
+
+        // verify required parameter 'requestObj.name' is not null or undefined
+        if (requestObj.name === null || requestObj.name === undefined) {
+            throw new Error('Required parameter "requestObj.name" was null or undefined when calling cellsSparklineGroupsGetWorksheetSparklineGroups.');
+        }
+
+        // verify required parameter 'requestObj.sheetName' is not null or undefined
+        if (requestObj.sheetName === null || requestObj.sheetName === undefined) {
+            throw new Error('Required parameter "requestObj.sheetName" was null or undefined when calling cellsSparklineGroupsGetWorksheetSparklineGroups.');
+        }
+        
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", requestObj.storageName);
+        const requestOptions: request.Options = {
+            method: "GET",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "SparklineGroupsResponse");
+        return Promise.resolve({body: result, response});
+    }
+
+    /**
+     * 
+     * @param requestObj contains request parameters
+     */
+    public async cellsSparklineGroupsPostWorksheetSparklineGroup(requestObj: model.CellsSparklineGroups_PostWorksheetSparklineGroupRequest): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}> {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling cellsSparklineGroupsPostWorksheetSparklineGroup.');
+        }
+
+        let localVarPath = this.configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/sparklinegroups/{sparklineGroupIndex}"
+            .replace("{" + "name" + "}", String(requestObj.name))
+            .replace("{" + "sheetName" + "}", String(requestObj.sheetName));
+        const queryParameters: any = {};
+
+        // verify required parameter 'requestObj.name' is not null or undefined
+        if (requestObj.name === null || requestObj.name === undefined) {
+            throw new Error('Required parameter "requestObj.name" was null or undefined when calling cellsSparklineGroupsPostWorksheetSparklineGroup.');
+        }
+
+        // verify required parameter 'requestObj.sheetName' is not null or undefined
+        if (requestObj.sheetName === null || requestObj.sheetName === undefined) {
+            throw new Error('Required parameter "requestObj.sheetName" was null or undefined when calling cellsSparklineGroupsPostWorksheetSparklineGroup.');
+        }
+
+        // verify required parameter 'requestObj.sparklineGroupIndex' is not null or undefined
+        if (requestObj.sparklineGroupIndex === null || requestObj.sparklineGroupIndex === undefined) {
+            throw new Error('Required parameter "requestObj.sparklineGroupIndex" was null or undefined when calling cellsSparklineGroupsPostWorksheetSparklineGroup.');
+        }
+
+        // verify required parameter 'requestObj.sparklineGroup' is not null or undefined
+        if (requestObj.sparklineGroup === null || requestObj.sparklineGroup === undefined) {
+            throw new Error('Required parameter "requestObj.sparklineGroup" was null or undefined when calling cellsSparklineGroupsPostWorksheetSparklineGroup.');
+        }
+        
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "sparklineGroupIndex", requestObj.sparklineGroupIndex);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", requestObj.storageName);
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+            body: (requestObj.sparklineGroup == null) ? null : ObjectSerializer.serialize(requestObj.sparklineGroup, requestObj.sparklineGroup.constructor.name === "Object" ? "SparklineGroup" : requestObj.sparklineGroup.constructor.name),
+        };
+
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "CellsCloudResponse");
+        return Promise.resolve({body: result, response});
+    }
+
+    /**
+     * 
+     * @param requestObj contains request parameters
+     */
+    public async cellsSparklineGroupsPutWorksheetSparklineGroup(requestObj: model.CellsSparklineGroups_PutWorksheetSparklineGroupRequest): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}> {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling cellsSparklineGroupsPutWorksheetSparklineGroup.');
+        }
+
+        let localVarPath = this.configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/sparklinegroups"
+            .replace("{" + "name" + "}", String(requestObj.name))
+            .replace("{" + "sheetName" + "}", String(requestObj.sheetName));
+        const queryParameters: any = {};
+
+        // verify required parameter 'requestObj.name' is not null or undefined
+        if (requestObj.name === null || requestObj.name === undefined) {
+            throw new Error('Required parameter "requestObj.name" was null or undefined when calling cellsSparklineGroupsPutWorksheetSparklineGroup.');
+        }
+
+        // verify required parameter 'requestObj.sheetName' is not null or undefined
+        if (requestObj.sheetName === null || requestObj.sheetName === undefined) {
+            throw new Error('Required parameter "requestObj.sheetName" was null or undefined when calling cellsSparklineGroupsPutWorksheetSparklineGroup.');
+        }
+
+        // verify required parameter 'requestObj.type' is not null or undefined
+        if (requestObj.type === null || requestObj.type === undefined) {
+            throw new Error('Required parameter "requestObj.type" was null or undefined when calling cellsSparklineGroupsPutWorksheetSparklineGroup.');
+        }
+
+        // verify required parameter 'requestObj.dataRange' is not null or undefined
+        if (requestObj.dataRange === null || requestObj.dataRange === undefined) {
+            throw new Error('Required parameter "requestObj.dataRange" was null or undefined when calling cellsSparklineGroupsPutWorksheetSparklineGroup.');
+        }
+
+        // verify required parameter 'requestObj.isVertical' is not null or undefined
+        if (requestObj.isVertical === null || requestObj.isVertical === undefined) {
+            throw new Error('Required parameter "requestObj.isVertical" was null or undefined when calling cellsSparklineGroupsPutWorksheetSparklineGroup.');
+        }
+
+        // verify required parameter 'requestObj.locationRange' is not null or undefined
+        if (requestObj.locationRange === null || requestObj.locationRange === undefined) {
+            throw new Error('Required parameter "requestObj.locationRange" was null or undefined when calling cellsSparklineGroupsPutWorksheetSparklineGroup.');
+        }
+        
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "type", requestObj.type);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "dataRange", requestObj.dataRange);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "isVertical", requestObj.isVertical);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "locationRange", requestObj.locationRange);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", requestObj.storageName);
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "CellsCloudResponse");
+        return Promise.resolve({body: result, response});
+    }
+
+    /**
      * Run tasks  
      * @param requestObj contains request parameters
      */
@@ -8269,9 +8667,9 @@ export class CellsApi {
             throw new Error('Required parameter "requestObj.name" was null or undefined when calling cellsWorkbookPostImportData.');
         }
 
-        // verify required parameter 'requestObj.importdata' is not null or undefined
-        if (requestObj.importdata === null || requestObj.importdata === undefined) {
-            throw new Error('Required parameter "requestObj.importdata" was null or undefined when calling cellsWorkbookPostImportData.');
+        // verify required parameter 'requestObj.importData' is not null or undefined
+        if (requestObj.importData === null || requestObj.importData === undefined) {
+            throw new Error('Required parameter "requestObj.importData" was null or undefined when calling cellsWorkbookPostImportData.');
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
@@ -8281,7 +8679,7 @@ export class CellsApi {
             qs: queryParameters,
             uri: localVarPath,
             json: true,
-            body: (requestObj.importdata == null) ? null : ObjectSerializer.serialize(requestObj.importdata, requestObj.importdata.constructor.name === "Object" ? "ImportOption" : requestObj.importdata.constructor.name),
+            body: (requestObj.importData == null) ? null : ObjectSerializer.serialize(requestObj.importData, requestObj.importData.constructor.name === "Object" ? "ImportOption" : requestObj.importData.constructor.name),
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);

@@ -34,7 +34,7 @@ var path = require('path');
 var assert = require('assert');
 
 describe('CellsPageBreaksApi', function() {
-  this.timeout(20000);
+  this.timeout(200000);
   describe('cellsPageBreaksDeleteHorizontalPageBreak', function() {
     it('should call cellsPageBreaksDeleteHorizontalPageBreak successfully', function() {
       const cellsApi = BaseTest.initializeCellsApi();

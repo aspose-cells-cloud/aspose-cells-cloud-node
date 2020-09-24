@@ -34,6 +34,7 @@ var path = require('path');
 var assert = require('assert');
 
 describe('CellsSaveAsApi ', function() {
+  this.timeout(200000);
   describe('cellsSaveAsPostDocumentSaveAs 1', function() {
     it('should call cellsSaveAsPostDocumentSaveAs successfully', function() {
       const cellsApi = BaseTest.initializeCellsApi();
@@ -149,7 +150,7 @@ describe('CellsSaveAsApi ', function() {
             req.isAutoFitRows = true;
             req.isAutoFitColumns = true;
             req.folder = "Temp";
-            req.storage = storage;
+            req.storageName = storage;
             
             return cellsApi.cellsSaveAsPostDocumentSaveAs(req)
               .then((result) => {

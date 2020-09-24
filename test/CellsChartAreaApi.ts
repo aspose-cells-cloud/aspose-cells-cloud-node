@@ -34,7 +34,7 @@ var path = require('path');
 var assert = require('assert');
 
 describe('CellsChartAreaApi', function() {
-  this.timeout(20000);
+  this.timeout(200000);
   describe('cellsChartAreaGetChartArea', function() {
     it('should call cellsChartAreaGetChartArea successfully', function() {
       const cellsApi = BaseTest.initializeCellsApi();

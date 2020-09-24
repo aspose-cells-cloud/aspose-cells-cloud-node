@@ -33,7 +33,7 @@ var assert = require('assert');
 const localPath = "../TestData/";
 
 describe('CellsListObjectsApi', function() {
-  this.timeout(20000);
+  this.timeout(200000);
   describe('cellsListObjectsDeleteWorksheetListObject', function() {
     it('should call cellsListObjectsDeleteWorksheetListObject successfully', function() {
       const cellsApi = BaseTest.initializeCellsApi();

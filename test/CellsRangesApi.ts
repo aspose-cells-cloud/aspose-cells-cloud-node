@@ -33,7 +33,7 @@ var assert = require('assert');
 const localPath = "../TestData/";
 
 describe('CellsRangesApi', function() {
-  this.timeout(20000);
+  this.timeout(200000);
   describe('cellsRangesGetWorksheetCellsRangeValue', function() {
     it('should call cellsRangesGetWorksheetCellsRangeValue successfully', function() {
       const cellsApi = BaseTest.initializeCellsApi();
