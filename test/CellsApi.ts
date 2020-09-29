@@ -28,10 +28,10 @@ import "mocha";
 import * as model from "../src/model/model";
 import * as BaseTest from "./baseTest";
 var fs = require('fs');
-var path = require('path');
-var assert = require('assert');
+// var path = require('path');
+// var assert = require('assert');
 
-const localPath = "../TestData/";
+const localPath = "TestData/";
 
 describe('CellsApi', function() {
   this.timeout(200000);

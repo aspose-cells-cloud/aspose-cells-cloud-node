@@ -30,7 +30,7 @@ import * as BaseTest from "./baseTest";
 var fs = require('fs');
 var path = require('path');
 var assert = require('assert');
-const localPath = "../TestData/";
+const localPath = "TestData/";
 describe('cellsShapesPutWorksheetShape', function() {
   it('should call cellsShapesPutWorksheetShape successfully', function() {
     const cellsApi = BaseTest.initializeCellsApi();

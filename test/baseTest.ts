@@ -23,18 +23,15 @@
 */
 
 import * as api from "../src/api";
-
-let storageApi;
-
 const AppSid = "91A2FD07-BBA1-4B32-9112-ABFB1FE8AEBD";
 const AppKey = "0fbf678c5ecabdb5caca48452a736dd0";
-const ApiURL = "https://api-qa.aspose.cloud/v3.0"
+const ApiURL = "https://api-qa.aspose.cloud";
 
 /**
  * Initialize CellsApi
  */
 export function initializeCellsApi() {
-    const cellsApi = new api.CellsApi(AppSid, AppKey,"v3.0","https://api-qa.aspose.cloud");
+    const cellsApi = new api.CellsApi(AppSid, AppKey,"v3.0",ApiURL);
     return cellsApi;
 }
 

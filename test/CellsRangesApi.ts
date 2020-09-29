@@ -30,7 +30,7 @@ import * as BaseTest from "./baseTest";
 var fs = require('fs');
 var path = require('path');
 var assert = require('assert');
-const localPath = "../TestData/";
+const localPath = "TestData/";
 
 describe('CellsRangesApi', function() {
   this.timeout(200000);
