@@ -32,7 +32,7 @@ import { invokeApiMethod } from "../src/internal/requestHelper";
 
 describe("oauth tests", () => {
 
-    it("get access token", async function() {
+    it("get access token successfully", async function() {
 
         const cellsApi = BaseTest.initializeCellsApi();
         const configuration = cellsApi.configuration;
