@@ -1,30 +1,24 @@
-Node.js Cloud SDK wraps Aspose.Cells REST API so you could seamlessly integrate Excel® file generation, manipulation, conversion & processing features into your own Node.js applications.
+![](https://img.shields.io/badge/REST%20API-v3.0-lightgrey) ![npm](https://img.shields.io/npm/v/asposecellscloud) ![node-current](https://img.shields.io/node/v/asposecellscloud) [![GitHub license](https://img.shields.io/github/license/aspose-cells-cloud/aspose-cells-cloud-node)](https://github.com/aspose-cells-cloud/aspose-cells-cloud-node/blob/master/LICENSE) ![GitHub commits since latest release (by date)](https://img.shields.io/github/commits-since/aspose-cells-cloud/aspose-cells-cloud-node/20.9)
 
 # Process Excel® Files in the Cloud with Node.js
 
-[Aspose.Cells Cloud SDK for Node.js](https://products.aspose.cloud/cells/nodejs) allows developers to create, edit, process & convert Excel spreadsheets in the Cloud. The Excel Cloud SDK gets its functionality from Aspose.Cells Cloud API, allowing your Node.js apps to work with all Excel file formats and features including worksheet & cell management, conditional formatting, auto-filters, auto-shapes, charts, OleObjects, page breaks, ListObjects, Pivot Tables, charts and much more. 
+[Aspose.Cells Cloud SDK for Node.js](https://products.aspose.cloud/cells/nodejs) allows developers to create, edit, process & convert Excel spreadsheets in the Cloud. The Node.js Excel Cloud SDK gets its functionality from Aspose.Cells Cloud API, allowing your Node.js apps to work with all Excel file formats and features including worksheet & cell management, conditional formatting, auto-filters, auto-shapes, charts, OleObjects, page breaks, ListObjects, Pivot Tables, charts and much more. 
 
-## Excel File Processing Features
+## Excel File Manipulation Features
 
-- Create Excel files from scratch using the API. 
-- Load, process & convert spreadsheets via Cloud SDK.
+- Create Excel files from scratch via API or [Smart Markers](https://docs.aspose.cloud/cells/create-excel-workbook-from-a-smartmarker-template/).
+- Load, process & [convert Excel files](https://docs.aspose.cloud/cells/convert-excel-workbook-to-different-file-formats/) via Cloud SDK.
 - Add, update or delete worksheet, charts, pictures, shapes, hyperlinks & validations.
 - Add or remove cells area for conditional formatting from Excel worksheets.
 - Insert or delete, horizontal or vertical page breaks.
 - Add ListObject or convert ListObjects to a range of cells.
-- Summarize data with Pivot Tables & charts.
+- Summarize data with [Pivot Tables](https://docs.aspose.cloud/cells/working-with-pivot-tables/) & Excel charts.
 - Apply custom criteria to list filters of various types.
 - Get, update, show or hide chart legend & titles.
 - Manipulate page setup, header & footer.
 - Create, update, fetch or delete document properties.
 - Fetch the required shape from worksheet.
-- Leverage the Power of Pivot Tables & ranges.
-
-## Features & Enhancements in Version 20.9
-
-- Aspose.Cells Cloud API calls are not working with explicit storage name but only default storage.
-- Get output file size without downloading during conversion.
-- Enhancement for CellsShapesPutWorksheetShape API.
+- Leverage the power of named ranges.
 
 ## Read & Write Spreadsheet Formats
 
@@ -33,34 +27,38 @@ Node.js Cloud SDK wraps Aspose.Cells REST API so you could seamlessly integrate 
 **SpreadsheetML:** XML
 **Text:** CSV, TSV, TXT (TabDelimited)
 **Web:** HTML, MHTML
-**PDF**
 
-## Save Spreadsheet As
+## Save Spreadsheets As
 
-DIF, HTML, MHTML,PNG,JPG, TIFF, XPS, SVG, MD (Markdown), ODS ,xlsx,xls,xlsb, PDF,XML,TXT,CSV
+**Microsoft Excel:** XLS, XLSX, XLSB
+**OpenOffice:** ODS
+**SpreadsheetML:** XML
+**Text:** CSV, TSV, TXT (TabDelimited)
+**Web:** HTML, MHTML
+**Fixed Layout:** PDF, XPS
+**Images:** PNG, JPG, TIFF, SVG
+**Markdown:** MD
+**Other:** DIF
 
-## Read File Formats
+## Read Other Formats
 
 SXC, FODS
 
-## Storage API Support
+## Integrated Storage API
 
-Since version 19.9, SDK includes support of storage operations for better user experience and unification, so now there's no need to use 2 different SDKs!
-
-It gives you an ability to:
+Since version 19.9, SDK includes support of storage operations for better user experience and unification. It gives you an ability to;
 
 - Upload, download, copy, move and delete files, including versions handling (if you are using Cloud storage that supports this feature - true by default).
 - Create, copy, move and delete folders.
 - Copy and move files and folders across separate storages in scope of a single operation.
 - Check if certain file, folder or storage exists.
 
-## Getting Started with Aspose.Cells Cloud SDK for Node.js
+## Get Started with Aspose.Cells Cloud SDK for Node.js
 
-Firstly, create an account at [Aspose for Cloud](https://dashboard.aspose.cloud/#/apps) to get your application information and free quota to use the API. Now execute `npm install asposecellscloud --save` from the command line to install Aspose.Cells Cloud SDK for Node.js via NPM.
-
-The complete source code is available at [GitHub Repository](https://github.com/aspose-cells-cloud/aspose-cells-cloud-node).
+First, create an account at [Aspose for Cloud](https://dashboard.aspose.cloud/#/apps) to get your application information. Next, execute `npm install asposecellscloud --save` from the command line to install Aspose.Cells Cloud SDK for Node.js via NPM.
 
 ## Convert Excel to PDF via Node.js
+
 ```js
 var fs = require('fs');
 var path = require('path');
@@ -114,7 +112,7 @@ return cellsApi.cellsPostHideWorksheetColumns(req)
     });
 ```
 
-## Merge Worksheets in the Cloud via Node.js
+## Merge Worksheets in the Cloud
 
 ```js
 const { CellsApi, Cells_PostWorksheetMergeRequest } = require("asposecellscloud");
