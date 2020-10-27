@@ -4,6 +4,7 @@
         "noImplicitAny": false,
         "noUnusedLocals": true,
         "noUnusedParameters": true,
+        "skipLibCheck": true,
         "suppressImplicitAnyIndexErrors": true,
         "target": "ES6",        
         "moduleResolution": "node",
