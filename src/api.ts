@@ -361,7 +361,7 @@ export class CellsApi {
             qs: queryParameters,
             uri: localVarPath,
             json: true,
-            body: (requestObj.colorFilter == null) ? null : ObjectSerializer.serialize(requestObj.colorFilter, requestObj.colorFilter.constructor.name === "Object" ? "ColorFilterRequest" : requestObj.colorFilter.constructor.name),
+            body: (requestObj.colorFilter == null) ? "" : ObjectSerializer.serialize(requestObj.colorFilter, requestObj.colorFilter.constructor.name === "Object" ? "ColorFilterRequest" : requestObj.colorFilter.constructor.name),
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
@@ -1343,7 +1343,7 @@ export class CellsApi {
             qs: queryParameters,
             uri: localVarPath,
             json: true,
-            body: (requestObj.chart == null) ? null : ObjectSerializer.serialize(requestObj.chart, requestObj.chart.constructor.name === "Object" ? "Chart" : requestObj.chart.constructor.name),
+            body: (requestObj.chart == null) ? "" : ObjectSerializer.serialize(requestObj.chart, requestObj.chart.constructor.name === "Object" ? "Chart" : requestObj.chart.constructor.name),
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
@@ -1388,7 +1388,7 @@ export class CellsApi {
             qs: queryParameters,
             uri: localVarPath,
             json: true,
-            body: (requestObj.legend == null) ? null : ObjectSerializer.serialize(requestObj.legend, requestObj.legend.constructor.name === "Object" ? "Legend" : requestObj.legend.constructor.name),
+            body: (requestObj.legend == null) ? "" : ObjectSerializer.serialize(requestObj.legend, requestObj.legend.constructor.name === "Object" ? "Legend" : requestObj.legend.constructor.name),
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
@@ -1433,7 +1433,7 @@ export class CellsApi {
             qs: queryParameters,
             uri: localVarPath,
             json: true,
-            body: (requestObj.title == null) ? null : ObjectSerializer.serialize(requestObj.title, requestObj.title.constructor.name === "Object" ? "Title" : requestObj.title.constructor.name),
+            body: (requestObj.title == null) ? "" : ObjectSerializer.serialize(requestObj.title, requestObj.title.constructor.name === "Object" ? "Title" : requestObj.title.constructor.name),
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
@@ -1579,7 +1579,7 @@ export class CellsApi {
             qs: queryParameters,
             uri: localVarPath,
             json: true,
-            body: (requestObj.title == null) ? null : ObjectSerializer.serialize(requestObj.title, requestObj.title.constructor.name === "Object" ? "Title" : requestObj.title.constructor.name),
+            body: (requestObj.title == null) ? "" : ObjectSerializer.serialize(requestObj.title, requestObj.title.constructor.name === "Object" ? "Title" : requestObj.title.constructor.name),
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
@@ -1850,7 +1850,7 @@ export class CellsApi {
             qs: queryParameters,
             uri: localVarPath,
             json: true,
-            body: (requestObj.formatCondition == null) ? null : ObjectSerializer.serialize(requestObj.formatCondition, requestObj.formatCondition.constructor.name === "Object" ? "FormatCondition" : requestObj.formatCondition.constructor.name),
+            body: (requestObj.formatCondition == null) ? "" : ObjectSerializer.serialize(requestObj.formatCondition, requestObj.formatCondition.constructor.name === "Object" ? "FormatCondition" : requestObj.formatCondition.constructor.name),
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
@@ -2733,7 +2733,7 @@ export class CellsApi {
             qs: queryParameters,
             uri: localVarPath,
             json: true,
-            body: (requestObj.hyperlink == null) ? null : ObjectSerializer.serialize(requestObj.hyperlink, requestObj.hyperlink.constructor.name === "Object" ? "Hyperlink" : requestObj.hyperlink.constructor.name),
+            body: (requestObj.hyperlink == null) ? "" : ObjectSerializer.serialize(requestObj.hyperlink, requestObj.hyperlink.constructor.name === "Object" ? "Hyperlink" : requestObj.hyperlink.constructor.name),
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
@@ -3010,7 +3010,7 @@ export class CellsApi {
             qs: queryParameters,
             uri: localVarPath,
             json: true,
-            body: (requestObj.listObject == null) ? null : ObjectSerializer.serialize(requestObj.listObject, requestObj.listObject.constructor.name === "Object" ? "ListObject" : requestObj.listObject.constructor.name),
+            body: (requestObj.listObject == null) ? "" : ObjectSerializer.serialize(requestObj.listObject, requestObj.listObject.constructor.name === "Object" ? "ListObject" : requestObj.listObject.constructor.name),
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
@@ -3099,7 +3099,7 @@ export class CellsApi {
             qs: queryParameters,
             uri: localVarPath,
             json: true,
-            body: (requestObj.dataSorter == null) ? null : ObjectSerializer.serialize(requestObj.dataSorter, requestObj.dataSorter.constructor.name === "Object" ? "DataSorter" : requestObj.dataSorter.constructor.name),
+            body: (requestObj.dataSorter == null) ? "" : ObjectSerializer.serialize(requestObj.dataSorter, requestObj.dataSorter.constructor.name === "Object" ? "DataSorter" : requestObj.dataSorter.constructor.name),
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
@@ -3150,7 +3150,7 @@ export class CellsApi {
             qs: queryParameters,
             uri: localVarPath,
             json: true,
-            body: (requestObj.request == null) ? null : ObjectSerializer.serialize(requestObj.request, requestObj.request.constructor.name === "Object" ? "CreatePivotTableRequest" : requestObj.request.constructor.name),
+            body: (requestObj.request == null) ? "" : ObjectSerializer.serialize(requestObj.request, requestObj.request.constructor.name === "Object" ? "CreatePivotTableRequest" : requestObj.request.constructor.name),
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
@@ -3214,7 +3214,7 @@ export class CellsApi {
             qs: queryParameters,
             uri: localVarPath,
             json: true,
-            body: (requestObj.listObject == null) ? null : ObjectSerializer.serialize(requestObj.listObject, requestObj.listObject.constructor.name === "Object" ? "ListObject" : requestObj.listObject.constructor.name),
+            body: (requestObj.listObject == null) ? "" : ObjectSerializer.serialize(requestObj.listObject, requestObj.listObject.constructor.name === "Object" ? "ListObject" : requestObj.listObject.constructor.name),
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
@@ -3424,7 +3424,7 @@ export class CellsApi {
             qs: queryParameters,
             uri: localVarPath,
             json: true,
-            body: (requestObj.ole == null) ? null : ObjectSerializer.serialize(requestObj.ole, requestObj.ole.constructor.name === "Object" ? "OleObject" : requestObj.ole.constructor.name),
+            body: (requestObj.ole == null) ? "" : ObjectSerializer.serialize(requestObj.ole, requestObj.ole.constructor.name === "Object" ? "OleObject" : requestObj.ole.constructor.name),
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
@@ -3469,7 +3469,7 @@ export class CellsApi {
             qs: queryParameters,
             uri: localVarPath,
             json: true,
-            body: (requestObj.oleObject == null) ? null : ObjectSerializer.serialize(requestObj.oleObject, requestObj.oleObject.constructor.name === "Object" ? "OleObject" : requestObj.oleObject.constructor.name),
+            body: (requestObj.oleObject == null) ? "" : ObjectSerializer.serialize(requestObj.oleObject, requestObj.oleObject.constructor.name === "Object" ? "OleObject" : requestObj.oleObject.constructor.name),
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
@@ -4188,7 +4188,7 @@ export class CellsApi {
             qs: queryParameters,
             uri: localVarPath,
             json: true,
-            body: (requestObj.pageSetup == null) ? null : ObjectSerializer.serialize(requestObj.pageSetup, requestObj.pageSetup.constructor.name === "Object" ? "PageSetup" : requestObj.pageSetup.constructor.name),
+            body: (requestObj.pageSetup == null) ? "" : ObjectSerializer.serialize(requestObj.pageSetup, requestObj.pageSetup.constructor.name === "Object" ? "PageSetup" : requestObj.pageSetup.constructor.name),
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
@@ -4398,7 +4398,7 @@ export class CellsApi {
             qs: queryParameters,
             uri: localVarPath,
             json: true,
-            body: (requestObj.picture == null) ? null : ObjectSerializer.serialize(requestObj.picture, requestObj.picture.constructor.name === "Object" ? "Picture" : requestObj.picture.constructor.name),
+            body: (requestObj.picture == null) ? "" : ObjectSerializer.serialize(requestObj.picture, requestObj.picture.constructor.name === "Object" ? "Picture" : requestObj.picture.constructor.name),
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
@@ -4442,7 +4442,7 @@ export class CellsApi {
             qs: queryParameters,
             uri: localVarPath,
             json: true,
-            body: (requestObj.picture == null) ? null : ObjectSerializer.serialize(requestObj.picture, requestObj.picture.constructor.name === "Object" ? "Picture" : requestObj.picture.constructor.name),
+            body: (requestObj.picture == null) ? "" : ObjectSerializer.serialize(requestObj.picture, requestObj.picture.constructor.name === "Object" ? "Picture" : requestObj.picture.constructor.name),
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
@@ -4493,7 +4493,7 @@ export class CellsApi {
             qs: queryParameters,
             uri: localVarPath,
             json: true,
-            body: (requestObj.request == null) ? null : ObjectSerializer.serialize(requestObj.request, requestObj.request.constructor.name === "Object" ? "PivotTableFieldRequest" : requestObj.request.constructor.name),
+            body: (requestObj.request == null) ? "" : ObjectSerializer.serialize(requestObj.request, requestObj.request.constructor.name === "Object" ? "PivotTableFieldRequest" : requestObj.request.constructor.name),
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
@@ -4961,7 +4961,7 @@ export class CellsApi {
             qs: queryParameters,
             uri: localVarPath,
             json: true,
-            body: (requestObj.style == null) ? null : ObjectSerializer.serialize(requestObj.style, requestObj.style.constructor.name === "Object" ? "Style" : requestObj.style.constructor.name),
+            body: (requestObj.style == null) ? "" : ObjectSerializer.serialize(requestObj.style, requestObj.style.constructor.name === "Object" ? "Style" : requestObj.style.constructor.name),
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
@@ -5138,7 +5138,7 @@ export class CellsApi {
             qs: queryParameters,
             uri: localVarPath,
             json: true,
-            body: (requestObj.style == null) ? null : ObjectSerializer.serialize(requestObj.style, requestObj.style.constructor.name === "Object" ? "Style" : requestObj.style.constructor.name),
+            body: (requestObj.style == null) ? "" : ObjectSerializer.serialize(requestObj.style, requestObj.style.constructor.name === "Object" ? "Style" : requestObj.style.constructor.name),
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
@@ -5200,7 +5200,7 @@ export class CellsApi {
             qs: queryParameters,
             uri: localVarPath,
             json: true,
-            body: (requestObj.pivotField == null) ? null : ObjectSerializer.serialize(requestObj.pivotField, requestObj.pivotField.constructor.name === "Object" ? "PivotField" : requestObj.pivotField.constructor.name),
+            body: (requestObj.pivotField == null) ? "" : ObjectSerializer.serialize(requestObj.pivotField, requestObj.pivotField.constructor.name === "Object" ? "PivotField" : requestObj.pivotField.constructor.name),
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
@@ -5256,7 +5256,7 @@ export class CellsApi {
             qs: queryParameters,
             uri: localVarPath,
             json: true,
-            body: (requestObj.pivotField == null) ? null : ObjectSerializer.serialize(requestObj.pivotField, requestObj.pivotField.constructor.name === "Object" ? "PivotField" : requestObj.pivotField.constructor.name),
+            body: (requestObj.pivotField == null) ? "" : ObjectSerializer.serialize(requestObj.pivotField, requestObj.pivotField.constructor.name === "Object" ? "PivotField" : requestObj.pivotField.constructor.name),
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
@@ -5399,7 +5399,7 @@ export class CellsApi {
             qs: queryParameters,
             uri: localVarPath,
             json: true,
-            body: (requestObj.request == null) ? null : ObjectSerializer.serialize(requestObj.request, requestObj.request.constructor.name === "Object" ? "PivotTableFieldRequest" : requestObj.request.constructor.name),
+            body: (requestObj.request == null) ? "" : ObjectSerializer.serialize(requestObj.request, requestObj.request.constructor.name === "Object" ? "PivotTableFieldRequest" : requestObj.request.constructor.name),
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
@@ -5442,7 +5442,7 @@ export class CellsApi {
             qs: queryParameters,
             uri: localVarPath,
             json: true,
-            body: (requestObj.request == null) ? null : ObjectSerializer.serialize(requestObj.request, requestObj.request.constructor.name === "Object" ? "CreatePivotTableRequest" : requestObj.request.constructor.name),
+            body: (requestObj.request == null) ? "" : ObjectSerializer.serialize(requestObj.request, requestObj.request.constructor.name === "Object" ? "CreatePivotTableRequest" : requestObj.request.constructor.name),
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
@@ -5488,7 +5488,7 @@ export class CellsApi {
             qs: queryParameters,
             uri: localVarPath,
             json: true,
-            body: (requestObj.filter == null) ? null : ObjectSerializer.serialize(requestObj.filter, requestObj.filter.constructor.name === "Object" ? "PivotFilter" : requestObj.filter.constructor.name),
+            body: (requestObj.filter == null) ? "" : ObjectSerializer.serialize(requestObj.filter, requestObj.filter.constructor.name === "Object" ? "PivotFilter" : requestObj.filter.constructor.name),
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
@@ -5533,7 +5533,7 @@ export class CellsApi {
             qs: queryParameters,
             uri: localVarPath,
             json: true,
-            body: (requestObj.options == null) ? null : ObjectSerializer.serialize(requestObj.options, requestObj.options.constructor.name === "Object" ? "CalculationOptions" : requestObj.options.constructor.name),
+            body: (requestObj.options == null) ? "" : ObjectSerializer.serialize(requestObj.options, requestObj.options.constructor.name === "Object" ? "CalculationOptions" : requestObj.options.constructor.name),
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
@@ -5578,7 +5578,7 @@ export class CellsApi {
             qs: queryParameters,
             uri: localVarPath,
             json: true,
-            body: (requestObj.options == null) ? null : ObjectSerializer.serialize(requestObj.options, requestObj.options.constructor.name === "Object" ? "Array<FontSetting>" : requestObj.options.constructor.name),
+            body: (requestObj.options == null) ? "" : ObjectSerializer.serialize(requestObj.options, requestObj.options.constructor.name === "Object" ? "Array<FontSetting>" : requestObj.options.constructor.name),
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
@@ -5709,7 +5709,7 @@ export class CellsApi {
             qs: queryParameters,
             uri: localVarPath,
             json: true,
-            body: (requestObj.style == null) ? null : ObjectSerializer.serialize(requestObj.style, requestObj.style.constructor.name === "Object" ? "Style" : requestObj.style.constructor.name),
+            body: (requestObj.style == null) ? "" : ObjectSerializer.serialize(requestObj.style, requestObj.style.constructor.name === "Object" ? "Style" : requestObj.style.constructor.name),
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
@@ -6123,7 +6123,7 @@ export class CellsApi {
             qs: queryParameters,
             uri: localVarPath,
             json: true,
-            body: (requestObj.style == null) ? null : ObjectSerializer.serialize(requestObj.style, requestObj.style.constructor.name === "Object" ? "Style" : requestObj.style.constructor.name),
+            body: (requestObj.style == null) ? "" : ObjectSerializer.serialize(requestObj.style, requestObj.style.constructor.name === "Object" ? "Style" : requestObj.style.constructor.name),
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
@@ -6173,7 +6173,7 @@ export class CellsApi {
             qs: queryParameters,
             uri: localVarPath,
             json: true,
-            body: (requestObj.htmlString == null) ? null : ObjectSerializer.serialize(requestObj.htmlString, requestObj.htmlString.constructor.name === "Object" ? "string" : requestObj.htmlString.constructor.name),
+            body: (requestObj.htmlString == null) ? "" : ObjectSerializer.serialize(requestObj.htmlString, requestObj.htmlString.constructor.name === "Object" ? "string" : requestObj.htmlString.constructor.name),
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
@@ -6527,7 +6527,7 @@ export class CellsApi {
             qs: queryParameters,
             uri: localVarPath,
             json: true,
-            body: (requestObj.style == null) ? null : ObjectSerializer.serialize(requestObj.style, requestObj.style.constructor.name === "Object" ? "Style" : requestObj.style.constructor.name),
+            body: (requestObj.style == null) ? "" : ObjectSerializer.serialize(requestObj.style, requestObj.style.constructor.name === "Object" ? "Style" : requestObj.style.constructor.name),
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
@@ -6572,7 +6572,7 @@ export class CellsApi {
             qs: queryParameters,
             uri: localVarPath,
             json: true,
-            body: (requestObj.style == null) ? null : ObjectSerializer.serialize(requestObj.style, requestObj.style.constructor.name === "Object" ? "Style" : requestObj.style.constructor.name),
+            body: (requestObj.style == null) ? "" : ObjectSerializer.serialize(requestObj.style, requestObj.style.constructor.name === "Object" ? "Style" : requestObj.style.constructor.name),
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
@@ -6967,7 +6967,7 @@ export class CellsApi {
             qs: queryParameters,
             uri: localVarPath,
             json: true,
-            body: (requestObj.property == null) ? null : ObjectSerializer.serialize(requestObj.property, requestObj.property.constructor.name === "Object" ? "CellsDocumentProperty" : requestObj.property.constructor.name),
+            body: (requestObj.property == null) ? "" : ObjectSerializer.serialize(requestObj.property, requestObj.property.constructor.name === "Object" ? "CellsDocumentProperty" : requestObj.property.constructor.name),
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
@@ -7196,7 +7196,7 @@ export class CellsApi {
             qs: queryParameters,
             uri: localVarPath,
             json: true,
-            body: (requestObj.range == null) ? null : ObjectSerializer.serialize(requestObj.range, requestObj.range.constructor.name === "Object" ? "Range" : requestObj.range.constructor.name),
+            body: (requestObj.range == null) ? "" : ObjectSerializer.serialize(requestObj.range, requestObj.range.constructor.name === "Object" ? "Range" : requestObj.range.constructor.name),
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
@@ -7235,7 +7235,7 @@ export class CellsApi {
             qs: queryParameters,
             uri: localVarPath,
             json: true,
-            body: (requestObj.range == null) ? null : ObjectSerializer.serialize(requestObj.range, requestObj.range.constructor.name === "Object" ? "Range" : requestObj.range.constructor.name),
+            body: (requestObj.range == null) ? "" : ObjectSerializer.serialize(requestObj.range, requestObj.range.constructor.name === "Object" ? "Range" : requestObj.range.constructor.name),
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
@@ -7286,7 +7286,7 @@ export class CellsApi {
             qs: queryParameters,
             uri: localVarPath,
             json: true,
-            body: (requestObj.range == null) ? null : ObjectSerializer.serialize(requestObj.range, requestObj.range.constructor.name === "Object" ? "Range" : requestObj.range.constructor.name),
+            body: (requestObj.range == null) ? "" : ObjectSerializer.serialize(requestObj.range, requestObj.range.constructor.name === "Object" ? "Range" : requestObj.range.constructor.name),
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
@@ -7325,7 +7325,7 @@ export class CellsApi {
             qs: queryParameters,
             uri: localVarPath,
             json: true,
-            body: (requestObj.rangeOperate == null) ? null : ObjectSerializer.serialize(requestObj.rangeOperate, requestObj.rangeOperate.constructor.name === "Object" ? "RangeSetOutlineBorderRequest" : requestObj.rangeOperate.constructor.name),
+            body: (requestObj.rangeOperate == null) ? "" : ObjectSerializer.serialize(requestObj.rangeOperate, requestObj.rangeOperate.constructor.name === "Object" ? "RangeSetOutlineBorderRequest" : requestObj.rangeOperate.constructor.name),
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
@@ -7370,7 +7370,7 @@ export class CellsApi {
             qs: queryParameters,
             uri: localVarPath,
             json: true,
-            body: (requestObj.range == null) ? null : ObjectSerializer.serialize(requestObj.range, requestObj.range.constructor.name === "Object" ? "Range" : requestObj.range.constructor.name),
+            body: (requestObj.range == null) ? "" : ObjectSerializer.serialize(requestObj.range, requestObj.range.constructor.name === "Object" ? "Range" : requestObj.range.constructor.name),
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
@@ -7409,7 +7409,7 @@ export class CellsApi {
             qs: queryParameters,
             uri: localVarPath,
             json: true,
-            body: (requestObj.rangeOperate == null) ? null : ObjectSerializer.serialize(requestObj.rangeOperate, requestObj.rangeOperate.constructor.name === "Object" ? "RangeSetStyleRequest" : requestObj.rangeOperate.constructor.name),
+            body: (requestObj.rangeOperate == null) ? "" : ObjectSerializer.serialize(requestObj.rangeOperate, requestObj.rangeOperate.constructor.name === "Object" ? "RangeSetStyleRequest" : requestObj.rangeOperate.constructor.name),
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
@@ -7448,7 +7448,7 @@ export class CellsApi {
             qs: queryParameters,
             uri: localVarPath,
             json: true,
-            body: (requestObj.range == null) ? null : ObjectSerializer.serialize(requestObj.range, requestObj.range.constructor.name === "Object" ? "Range" : requestObj.range.constructor.name),
+            body: (requestObj.range == null) ? "" : ObjectSerializer.serialize(requestObj.range, requestObj.range.constructor.name === "Object" ? "Range" : requestObj.range.constructor.name),
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
@@ -7495,7 +7495,7 @@ export class CellsApi {
             qs: queryParameters,
             uri: localVarPath,
             json: true,
-            body: (requestObj.range == null) ? null : ObjectSerializer.serialize(requestObj.range, requestObj.range.constructor.name === "Object" ? "Range" : requestObj.range.constructor.name),
+            body: (requestObj.range == null) ? "" : ObjectSerializer.serialize(requestObj.range, requestObj.range.constructor.name === "Object" ? "Range" : requestObj.range.constructor.name),
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
@@ -7534,7 +7534,7 @@ export class CellsApi {
             qs: queryParameters,
             uri: localVarPath,
             json: true,
-            body: (requestObj.rangeOperate == null) ? null : ObjectSerializer.serialize(requestObj.rangeOperate, requestObj.rangeOperate.constructor.name === "Object" ? "RangeCopyRequest" : requestObj.rangeOperate.constructor.name),
+            body: (requestObj.rangeOperate == null) ? "" : ObjectSerializer.serialize(requestObj.rangeOperate, requestObj.rangeOperate.constructor.name === "Object" ? "RangeCopyRequest" : requestObj.rangeOperate.constructor.name),
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
@@ -7570,7 +7570,7 @@ export class CellsApi {
             qs: queryParameters,
             uri: localVarPath,
             json: true,
-            body: (requestObj.saveOptions == null) ? null : ObjectSerializer.serialize(requestObj.saveOptions, requestObj.saveOptions.constructor.name === "Object" ? "SaveOptions" : requestObj.saveOptions.constructor.name),
+            body: (requestObj.saveOptions == null) ? "" : ObjectSerializer.serialize(requestObj.saveOptions, requestObj.saveOptions.constructor.name === "Object" ? "SaveOptions" : requestObj.saveOptions.constructor.name),
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
@@ -7779,7 +7779,7 @@ export class CellsApi {
             qs: queryParameters,
             uri: localVarPath,
             json: true,
-            body: (requestObj.dto == null) ? null : ObjectSerializer.serialize(requestObj.dto, requestObj.dto.constructor.name === "Object" ? "Shape" : requestObj.dto.constructor.name),
+            body: (requestObj.dto == null) ? "" : ObjectSerializer.serialize(requestObj.dto, requestObj.dto.constructor.name === "Object" ? "Shape" : requestObj.dto.constructor.name),
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
@@ -8008,7 +8008,8 @@ export class CellsApi {
 
         let localVarPath = this.configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/sparklinegroups/{sparklineGroupIndex}"
             .replace("{" + "name" + "}", String(requestObj.name))
-            .replace("{" + "sheetName" + "}", String(requestObj.sheetName));
+            .replace("{" + "sheetName" + "}", String(requestObj.sheetName))
+            .replace("{" + "sparklineGroupIndex" + "}", String(requestObj.sparklineGroupIndex));
         const queryParameters: any = {};
 
         // verify required parameter 'requestObj.name' is not null or undefined
@@ -8031,7 +8032,6 @@ export class CellsApi {
             throw new Error('Required parameter "requestObj.sparklineGroup" was null or undefined when calling cellsSparklineGroupsPostWorksheetSparklineGroup.');
         }
         
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "sparklineGroupIndex", requestObj.sparklineGroupIndex);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", requestObj.storageName);
         const requestOptions: request.Options = {
@@ -8039,7 +8039,7 @@ export class CellsApi {
             qs: queryParameters,
             uri: localVarPath,
             json: true,
-            body: (requestObj.sparklineGroup == null) ? null : ObjectSerializer.serialize(requestObj.sparklineGroup, requestObj.sparklineGroup.constructor.name === "Object" ? "SparklineGroup" : requestObj.sparklineGroup.constructor.name),
+            body: (requestObj.sparklineGroup == null) ? "" : ObjectSerializer.serialize(requestObj.sparklineGroup, requestObj.sparklineGroup.constructor.name === "Object" ? "SparklineGroup" : requestObj.sparklineGroup.constructor.name),
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
@@ -8131,7 +8131,7 @@ export class CellsApi {
             qs: queryParameters,
             uri: localVarPath,
             json: true,
-            body: (requestObj.taskData == null) ? null : ObjectSerializer.serialize(requestObj.taskData, requestObj.taskData.constructor.name === "Object" ? "TaskData" : requestObj.taskData.constructor.name),
+            body: (requestObj.taskData == null) ? "" : ObjectSerializer.serialize(requestObj.taskData, requestObj.taskData.constructor.name === "Object" ? "TaskData" : requestObj.taskData.constructor.name),
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
@@ -8164,7 +8164,7 @@ export class CellsApi {
             qs: queryParameters,
             uri: localVarPath,
             json: true,
-            body: (requestObj.encryption == null) ? null : ObjectSerializer.serialize(requestObj.encryption, requestObj.encryption.constructor.name === "Object" ? "WorkbookEncryptionRequest" : requestObj.encryption.constructor.name),
+            body: (requestObj.encryption == null) ? "" : ObjectSerializer.serialize(requestObj.encryption, requestObj.encryption.constructor.name === "Object" ? "WorkbookEncryptionRequest" : requestObj.encryption.constructor.name),
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
@@ -8229,7 +8229,7 @@ export class CellsApi {
             qs: queryParameters,
             uri: localVarPath,
             json: true,
-            body: (requestObj.protection == null) ? null : ObjectSerializer.serialize(requestObj.protection, requestObj.protection.constructor.name === "Object" ? "WorkbookProtectionRequest" : requestObj.protection.constructor.name),
+            body: (requestObj.protection == null) ? "" : ObjectSerializer.serialize(requestObj.protection, requestObj.protection.constructor.name === "Object" ? "WorkbookProtectionRequest" : requestObj.protection.constructor.name),
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
@@ -8608,7 +8608,7 @@ export class CellsApi {
             qs: queryParameters,
             uri: localVarPath,
             json: true,
-            body: (requestObj.autoFitterOptions == null) ? null : ObjectSerializer.serialize(requestObj.autoFitterOptions, requestObj.autoFitterOptions.constructor.name === "Object" ? "AutoFitterOptions" : requestObj.autoFitterOptions.constructor.name),
+            body: (requestObj.autoFitterOptions == null) ? "" : ObjectSerializer.serialize(requestObj.autoFitterOptions, requestObj.autoFitterOptions.constructor.name === "Object" ? "AutoFitterOptions" : requestObj.autoFitterOptions.constructor.name),
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
@@ -8641,7 +8641,7 @@ export class CellsApi {
             qs: queryParameters,
             uri: localVarPath,
             json: true,
-            body: (requestObj.encryption == null) ? null : ObjectSerializer.serialize(requestObj.encryption, requestObj.encryption.constructor.name === "Object" ? "WorkbookEncryptionRequest" : requestObj.encryption.constructor.name),
+            body: (requestObj.encryption == null) ? "" : ObjectSerializer.serialize(requestObj.encryption, requestObj.encryption.constructor.name === "Object" ? "WorkbookEncryptionRequest" : requestObj.encryption.constructor.name),
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
@@ -8679,7 +8679,7 @@ export class CellsApi {
             qs: queryParameters,
             uri: localVarPath,
             json: true,
-            body: (requestObj.importData == null) ? null : ObjectSerializer.serialize(requestObj.importData, requestObj.importData.constructor.name === "Object" ? "ImportOption" : requestObj.importData.constructor.name),
+            body: (requestObj.importData == null) ? "" : ObjectSerializer.serialize(requestObj.importData, requestObj.importData.constructor.name === "Object" ? "ImportOption" : requestObj.importData.constructor.name),
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
@@ -8712,7 +8712,7 @@ export class CellsApi {
             qs: queryParameters,
             uri: localVarPath,
             json: true,
-            body: (requestObj.protection == null) ? null : ObjectSerializer.serialize(requestObj.protection, requestObj.protection.constructor.name === "Object" ? "WorkbookProtectionRequest" : requestObj.protection.constructor.name),
+            body: (requestObj.protection == null) ? "" : ObjectSerializer.serialize(requestObj.protection, requestObj.protection.constructor.name === "Object" ? "WorkbookProtectionRequest" : requestObj.protection.constructor.name),
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
@@ -8746,7 +8746,7 @@ export class CellsApi {
             qs: queryParameters,
             uri: localVarPath,
             json: true,
-            body: (requestObj.options == null) ? null : ObjectSerializer.serialize(requestObj.options, requestObj.options.constructor.name === "Object" ? "CalculationOptions" : requestObj.options.constructor.name),
+            body: (requestObj.options == null) ? "" : ObjectSerializer.serialize(requestObj.options, requestObj.options.constructor.name === "Object" ? "CalculationOptions" : requestObj.options.constructor.name),
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
@@ -8813,7 +8813,7 @@ export class CellsApi {
             qs: queryParameters,
             uri: localVarPath,
             json: true,
-            body: (requestObj.settings == null) ? null : ObjectSerializer.serialize(requestObj.settings, requestObj.settings.constructor.name === "Object" ? "WorkbookSettings" : requestObj.settings.constructor.name),
+            body: (requestObj.settings == null) ? "" : ObjectSerializer.serialize(requestObj.settings, requestObj.settings.constructor.name === "Object" ? "WorkbookSettings" : requestObj.settings.constructor.name),
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
@@ -9042,7 +9042,7 @@ export class CellsApi {
             qs: queryParameters,
             uri: localVarPath,
             json: true,
-            body: (requestObj.password == null) ? null : ObjectSerializer.serialize(requestObj.password, requestObj.password.constructor.name === "Object" ? "PasswordRequest" : requestObj.password.constructor.name),
+            body: (requestObj.password == null) ? "" : ObjectSerializer.serialize(requestObj.password, requestObj.password.constructor.name === "Object" ? "PasswordRequest" : requestObj.password.constructor.name),
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
@@ -9080,7 +9080,7 @@ export class CellsApi {
             qs: queryParameters,
             uri: localVarPath,
             json: true,
-            body: (requestObj.png == null) ? null : ObjectSerializer.serialize(requestObj.png, requestObj.png.constructor.name === "Object" ? "string" : requestObj.png.constructor.name),
+            body: (requestObj.png == null) ? "" : ObjectSerializer.serialize(requestObj.png, requestObj.png.constructor.name === "Object" ? "string" : requestObj.png.constructor.name),
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
@@ -9148,7 +9148,7 @@ export class CellsApi {
             qs: queryParameters,
             uri: localVarPath,
             json: true,
-            body: (requestObj.textWaterMarkerRequest == null) ? null : ObjectSerializer.serialize(requestObj.textWaterMarkerRequest, requestObj.textWaterMarkerRequest.constructor.name === "Object" ? "TextWaterMarkerRequest" : requestObj.textWaterMarkerRequest.constructor.name),
+            body: (requestObj.textWaterMarkerRequest == null) ? "" : ObjectSerializer.serialize(requestObj.textWaterMarkerRequest, requestObj.textWaterMarkerRequest.constructor.name === "Object" ? "TextWaterMarkerRequest" : requestObj.textWaterMarkerRequest.constructor.name),
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
@@ -9357,7 +9357,7 @@ export class CellsApi {
             qs: queryParameters,
             uri: localVarPath,
             json: true,
-            body: (requestObj.validation == null) ? null : ObjectSerializer.serialize(requestObj.validation, requestObj.validation.constructor.name === "Object" ? "Validation" : requestObj.validation.constructor.name),
+            body: (requestObj.validation == null) ? "" : ObjectSerializer.serialize(requestObj.validation, requestObj.validation.constructor.name === "Object" ? "Validation" : requestObj.validation.constructor.name),
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
@@ -9397,7 +9397,7 @@ export class CellsApi {
             qs: queryParameters,
             uri: localVarPath,
             json: true,
-            body: (requestObj.validation == null) ? null : ObjectSerializer.serialize(requestObj.validation, requestObj.validation.constructor.name === "Object" ? "Validation" : requestObj.validation.constructor.name),
+            body: (requestObj.validation == null) ? "" : ObjectSerializer.serialize(requestObj.validation, requestObj.validation.constructor.name === "Object" ? "Validation" : requestObj.validation.constructor.name),
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
@@ -9436,7 +9436,7 @@ export class CellsApi {
             qs: queryParameters,
             uri: localVarPath,
             json: true,
-            body: (requestObj.protectParameter == null) ? null : ObjectSerializer.serialize(requestObj.protectParameter, requestObj.protectParameter.constructor.name === "Object" ? "ProtectSheetParameter" : requestObj.protectParameter.constructor.name),
+            body: (requestObj.protectParameter == null) ? "" : ObjectSerializer.serialize(requestObj.protectParameter, requestObj.protectParameter.constructor.name === "Object" ? "ProtectSheetParameter" : requestObj.protectParameter.constructor.name),
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
@@ -10062,7 +10062,7 @@ export class CellsApi {
             qs: queryParameters,
             uri: localVarPath,
             json: true,
-            body: (requestObj.autoFitterOptions == null) ? null : ObjectSerializer.serialize(requestObj.autoFitterOptions, requestObj.autoFitterOptions.constructor.name === "Object" ? "AutoFitterOptions" : requestObj.autoFitterOptions.constructor.name),
+            body: (requestObj.autoFitterOptions == null) ? "" : ObjectSerializer.serialize(requestObj.autoFitterOptions, requestObj.autoFitterOptions.constructor.name === "Object" ? "AutoFitterOptions" : requestObj.autoFitterOptions.constructor.name),
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
@@ -10119,7 +10119,7 @@ export class CellsApi {
             qs: queryParameters,
             uri: localVarPath,
             json: true,
-            body: (requestObj.autoFitterOptions == null) ? null : ObjectSerializer.serialize(requestObj.autoFitterOptions, requestObj.autoFitterOptions.constructor.name === "Object" ? "AutoFitterOptions" : requestObj.autoFitterOptions.constructor.name),
+            body: (requestObj.autoFitterOptions == null) ? "" : ObjectSerializer.serialize(requestObj.autoFitterOptions, requestObj.autoFitterOptions.constructor.name === "Object" ? "AutoFitterOptions" : requestObj.autoFitterOptions.constructor.name),
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
@@ -10161,7 +10161,7 @@ export class CellsApi {
             qs: queryParameters,
             uri: localVarPath,
             json: true,
-            body: (requestObj.autoFitterOptions == null) ? null : ObjectSerializer.serialize(requestObj.autoFitterOptions, requestObj.autoFitterOptions.constructor.name === "Object" ? "AutoFitterOptions" : requestObj.autoFitterOptions.constructor.name),
+            body: (requestObj.autoFitterOptions == null) ? "" : ObjectSerializer.serialize(requestObj.autoFitterOptions, requestObj.autoFitterOptions.constructor.name === "Object" ? "AutoFitterOptions" : requestObj.autoFitterOptions.constructor.name),
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
@@ -10208,7 +10208,7 @@ export class CellsApi {
             qs: queryParameters,
             uri: localVarPath,
             json: true,
-            body: (requestObj.options == null) ? null : ObjectSerializer.serialize(requestObj.options, requestObj.options.constructor.name === "Object" ? "CopyOptions" : requestObj.options.constructor.name),
+            body: (requestObj.options == null) ? "" : ObjectSerializer.serialize(requestObj.options, requestObj.options.constructor.name === "Object" ? "CopyOptions" : requestObj.options.constructor.name),
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
@@ -10247,7 +10247,7 @@ export class CellsApi {
             qs: queryParameters,
             uri: localVarPath,
             json: true,
-            body: (requestObj.moving == null) ? null : ObjectSerializer.serialize(requestObj.moving, requestObj.moving.constructor.name === "Object" ? "WorksheetMovingRequest" : requestObj.moving.constructor.name),
+            body: (requestObj.moving == null) ? "" : ObjectSerializer.serialize(requestObj.moving, requestObj.moving.constructor.name === "Object" ? "WorksheetMovingRequest" : requestObj.moving.constructor.name),
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
@@ -10330,7 +10330,7 @@ export class CellsApi {
             qs: queryParameters,
             uri: localVarPath,
             json: true,
-            body: (requestObj.sheet == null) ? null : ObjectSerializer.serialize(requestObj.sheet, requestObj.sheet.constructor.name === "Object" ? "Worksheet" : requestObj.sheet.constructor.name),
+            body: (requestObj.sheet == null) ? "" : ObjectSerializer.serialize(requestObj.sheet, requestObj.sheet.constructor.name === "Object" ? "Worksheet" : requestObj.sheet.constructor.name),
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
@@ -10419,7 +10419,7 @@ export class CellsApi {
             qs: queryParameters,
             uri: localVarPath,
             json: true,
-            body: (requestObj.comment == null) ? null : ObjectSerializer.serialize(requestObj.comment, requestObj.comment.constructor.name === "Object" ? "Comment" : requestObj.comment.constructor.name),
+            body: (requestObj.comment == null) ? "" : ObjectSerializer.serialize(requestObj.comment, requestObj.comment.constructor.name === "Object" ? "Comment" : requestObj.comment.constructor.name),
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
@@ -10464,7 +10464,7 @@ export class CellsApi {
             qs: queryParameters,
             uri: localVarPath,
             json: true,
-            body: (requestObj.dataSorter == null) ? null : ObjectSerializer.serialize(requestObj.dataSorter, requestObj.dataSorter.constructor.name === "Object" ? "DataSorter" : requestObj.dataSorter.constructor.name),
+            body: (requestObj.dataSorter == null) ? "" : ObjectSerializer.serialize(requestObj.dataSorter, requestObj.dataSorter.constructor.name === "Object" ? "DataSorter" : requestObj.dataSorter.constructor.name),
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
@@ -10681,7 +10681,7 @@ export class CellsApi {
             qs: queryParameters,
             uri: localVarPath,
             json: true,
-            body: (requestObj.protectParameter == null) ? null : ObjectSerializer.serialize(requestObj.protectParameter, requestObj.protectParameter.constructor.name === "Object" ? "ProtectSheetParameter" : requestObj.protectParameter.constructor.name),
+            body: (requestObj.protectParameter == null) ? "" : ObjectSerializer.serialize(requestObj.protectParameter, requestObj.protectParameter.constructor.name === "Object" ? "ProtectSheetParameter" : requestObj.protectParameter.constructor.name),
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
@@ -10725,7 +10725,7 @@ export class CellsApi {
             qs: queryParameters,
             uri: localVarPath,
             json: true,
-            body: (requestObj.png == null) ? null : ObjectSerializer.serialize(requestObj.png, requestObj.png.constructor.name === "Object" ? "string" : requestObj.png.constructor.name),
+            body: (requestObj.png == null) ? "" : ObjectSerializer.serialize(requestObj.png, requestObj.png.constructor.name === "Object" ? "string" : requestObj.png.constructor.name),
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
@@ -10770,7 +10770,7 @@ export class CellsApi {
             qs: queryParameters,
             uri: localVarPath,
             json: true,
-            body: (requestObj.comment == null) ? null : ObjectSerializer.serialize(requestObj.comment, requestObj.comment.constructor.name === "Object" ? "Comment" : requestObj.comment.constructor.name),
+            body: (requestObj.comment == null) ? "" : ObjectSerializer.serialize(requestObj.comment, requestObj.comment.constructor.name === "Object" ? "Comment" : requestObj.comment.constructor.name),
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
