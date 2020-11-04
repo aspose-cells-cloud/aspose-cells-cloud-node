@@ -23,8 +23,8 @@
 */
 
 import * as api from "../src/api";
-const AppSid = "91A2FD07-BBA1-4B32-9112-ABFB1FE8AEBD";
-const AppKey = "0fbf678c5ecabdb5caca48452a736dd0";
+const AppSid = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx";
+const AppKey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
 const ApiURL = "https://api-qa.aspose.cloud";
 
 /**
