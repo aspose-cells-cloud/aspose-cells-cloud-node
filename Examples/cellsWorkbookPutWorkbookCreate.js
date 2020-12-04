@@ -1,10 +1,9 @@
 const { CellsWorkbookApi, CellsWorkbook_PutWorkbookCreateRequest, PasswordRequest } = require("asposecellscloud");
 let date = require('date-and-time');
 
-AppSid = "78946fb4-3bd4-4d3e-b309-f9e2ff9ac6f9"
-AppKey = "b125f13bf6b76ed81ee990142d841195"
-
-cellsWorkbookApi = new CellsWorkbookApi(AppSid, AppKey);
+const clientId = process.env.CellsCloudTestClientId;
+const clientSecret = process.env.CellsCloudTestClientSecret;
+cellsApi = new CellsApi(clientId, clientSecret);
 filename = "Book1.xlsx"
 
 
@@ -22,7 +21,7 @@ req.name = "NewBook" + year + "" + month + "" + day + "" + hours + "" + min + ""
 req.templateFile = "Book1.xlsx";
 req.dataFile = "ReportData.xml";
 
-cellsWorkbookApi.cellsWorkbookPutWorkbookCreate(req)
+cellsApi.cellsWorkbookPutWorkbookCreate(req)
     .then((result) => {
         console.log(result)
     });

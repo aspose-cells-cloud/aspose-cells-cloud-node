@@ -34,6 +34,10 @@ var path = require('path');
 var assert = require('assert');
 
 describe('CellsAutoshapesApi', function() {
+  if(BaseTest.isDockerSDK())
+  {
+    return;
+  }
   this.timeout(200000);
   describe('cellsAutoshapesGetWorksheetAutoshape', function() {
     it('should call cellsAutoshapesGetWorksheetAutoshape successfully', function() {

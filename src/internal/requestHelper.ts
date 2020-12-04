@@ -34,6 +34,10 @@ import { ObjectSerializer } from "./objectSerializer";
  * @param notApplyAuthToRequest if setted to true, auth is not applied to request
  */
 export async function invokeApiMethod(requestOptions: request.Options, confguration: Configuration, notApplyAuthToRequest?: boolean): Promise<request.RequestResponse> {
+    if( (confguration.clientId === null || confguration.clientId === "" || typeof confguration.clientId === "undefined") && (confguration.clientSecret === null || confguration.clientSecret === "" || typeof confguration.clientSecret === "undefined") )
+    {
+        notApplyAuthToRequest = true;
+    }
     try {
         return await invokeApiMethodInternal(requestOptions, confguration, notApplyAuthToRequest);
     } catch (e) {

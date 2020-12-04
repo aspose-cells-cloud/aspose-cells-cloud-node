@@ -1,8 +1,8 @@
 const { CellsListObjectsApi, CellsListObjects_PostWorksheetListObjectSummarizeWithPivotTableRequest, CreatePivotTableRequest } = require("asposecellscloud");
 
-AppSid = "78946fb4-3bd4-4d3e-b309-f9e2ff9ac6f9"
-AppKey = "b125f13bf6b76ed81ee990142d841195"
-cellsApi = new CellsListObjectsApi(AppSid, AppKey);
+const clientId = process.env.CellsCloudTestClientId;
+const clientSecret = process.env.CellsCloudTestClientSecret;
+cellsApi = new CellsApi(clientId, clientSecret);
 filename = "Book1.xlsx"
 
 
@@ -22,7 +22,7 @@ request.useSameSource = true;
 req.request = request;
 req.folder = "";
 
-cellsListObjectsApi.cellsListObjectsPostWorksheetListObjectSummarizeWithPivotTable(req)
+cellsApi.cellsListObjectsPostWorksheetListObjectSummarizeWithPivotTable(req)
     .then((result) => {
         console.log(result)
 

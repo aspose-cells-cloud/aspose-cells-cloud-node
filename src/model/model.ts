@@ -25027,12 +25027,12 @@ export class OAuth_PostRequest {
     public grantType: string;
 
     /**
-     * App SID
+     * client id
      */
     public clientId: string;
 
     /**
-     * App Key
+     * client Secret
      */
     public clientSecret: string;
     

@@ -36,14 +36,14 @@ export class Configuration {
     public authentication: IAuthentication;
 
     /**
-     * App SID.
+     * client Id.
      */
-    public appSID: string;
+    public clientId: string;
 
     /**
-     * App key.
+     * client Secret.
      */
-    public appKey: string;
+    public clientSecret: string;
 
     /**
      * Base Url.
@@ -58,7 +58,7 @@ export class Configuration {
      */
     public debugMode: boolean;
 
-    constructor(appSID: string, appKey: string, apiVersion?: string, baseUrl?: string, debugMode?: boolean) {
+    constructor(clientId: string, clientSecret: string, apiVersion?: string, baseUrl?: string, debugMode?: boolean) {
         if (baseUrl) {
             this.baseUrl = baseUrl;
         }
@@ -67,8 +67,8 @@ export class Configuration {
             this.apiVersion = apiVersion;
         }
         
-        this.appSID = appSID;
-        this.appKey = appKey;
+        this.clientId = clientId;
+        this.clientSecret = clientSecret;
         this.debugMode = debugMode;
         this.authentication = new OAuth() as IAuthentication;
     }

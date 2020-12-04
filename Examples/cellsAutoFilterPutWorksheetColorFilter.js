@@ -1,8 +1,8 @@
 const { CellsAutoFilterApi, CellsAutoFilter_PutWorksheetColorFilterRequest,ColorFilterRequest,CellsColor } = require("asposecellscloud");
 
-AppSid = "78946fb4-3bd4-4d3e-b309-f9e2ff9ac6f9"
-AppKey = "b125f13bf6b76ed81ee990142d841195"
-cellsApi = new CellsAutoFilterApi(AppSid, AppKey);
+const clientId = process.env.CellsCloudTestClientId;
+const clientSecret = process.env.CellsCloudTestClientSecret;
+cellsApi = new CellsApi(clientId, clientSecret);
 filename = "Book1.xlsx"
 
 
@@ -24,7 +24,7 @@ colorFilter.pattern = "Solid";
 req.matchBlanks = true;
 req.refresh = true;
 
-return cellsAutoFilterApi.cellsAutoFilterPutWorksheetColorFilter(req)
+return cellsApi.cellsAutoFilterPutWorksheetColorFilter(req)
   .then((result) => {
     console.log(result)
   });

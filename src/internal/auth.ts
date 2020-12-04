@@ -81,8 +81,8 @@ export class OAuth implements IAuthentication {
             uri: configuration.baseUrl + (configuration.apiVersion =="v1.1"? "/oauth2/token": "/connect/token"),
             form: {
                 grant_type: "client_credentials",
-                client_id: configuration.appSID,
-                client_secret: configuration.appKey,
+                client_id: configuration.clientId,
+                client_secret: configuration.clientSecret,
             },
         };
 

@@ -42,13 +42,13 @@ export class CellsApi {
     public configuration: Configuration;
 
     /**
-     * @param appSID App SID.
-     * @param appKey App key.
+     * @param clientId client Id.
+     * @param clientSecret client Secret.
      * @param baseUrl Base api Url.
      * @param debugMode A value indicating whether debug mode. In debug mode all requests and responses are logged to console.
      */
-    constructor(appSID: string, appKey: string, apiVersion?:string, baseUrl?: string, debugMode?: boolean) {
-        this.configuration = new Configuration(appSID, appKey,apiVersion, baseUrl, debugMode);
+    constructor(clientId: string, clientSecret: string, apiVersion?:string, baseUrl?: string, debugMode?: boolean) {
+        this.configuration = new Configuration(clientId, clientSecret,apiVersion, baseUrl, debugMode);
     }
 
     /**

@@ -1,8 +1,8 @@
 const { CellsPageBreaksApi, CellsPageBreaks_PutHorizontalPageBreakRequest } = require("asposecellscloud");
 
-AppSid = "78946fb4-3bd4-4d3e-b309-f9e2ff9ac6f9"
-AppKey = "b125f13bf6b76ed81ee990142d841195"
-cellsApi = new CellsPageBreaksApi(AppSid, AppKey);
+const clientId = process.env.CellsCloudTestClientId;
+const clientSecret = process.env.CellsCloudTestClientSecret;
+cellsApi = new CellsApi(clientId, clientSecret);
 filename = "Book1.xlsx"
 
 
@@ -17,7 +17,7 @@ req.startColumn = 1;
 req.endColumn = 1;
 req.folder = "";
 
-cellsPageBreaksApi.cellsPageBreaksPutHorizontalPageBreak(req)
+cellsApi.cellsPageBreaksPutHorizontalPageBreak(req)
     .then((result) => {
         console.log(result)
     });

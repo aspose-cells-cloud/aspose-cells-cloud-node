@@ -1,10 +1,9 @@
 var range = new Range();
 const { CellsWorkbookApi, CellsWorkbook_GetWorkbookNameRequest } = require("asposecellscloud");
 
-AppSid = "78946fb4-3bd4-4d3e-b309-f9e2ff9ac6f9"
-AppKey = "b125f13bf6b76ed81ee990142d841195"
-
-cellsWorkbookApi = new CellsWorkbookApi(AppSid, AppKey);
+const clientId = process.env.CellsCloudTestClientId;
+const clientSecret = process.env.CellsCloudTestClientSecret;
+cellsApi = new CellsApi(clientId, clientSecret);
 filename = "Book1.xlsx"
 
 
@@ -13,7 +12,7 @@ req.name = filename;
 req.nameName = "Name_2";
 req.folder = "";
 
-return cellsWorkbookApi.cellsWorkbookGetWorkbookName(req)
+return cellsApi.cellsWorkbookGetWorkbookName(req)
     .then((result) => {
         console.log(result)
     });

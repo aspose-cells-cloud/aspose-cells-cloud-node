@@ -1,4 +1,4 @@
-![](https://img.shields.io/badge/REST%20API-v3.0-lightgrey) ![npm](https://img.shields.io/npm/v/asposecellscloud) ![node-current](https://img.shields.io/node/v/asposecellscloud) [![GitHub license](https://img.shields.io/github/license/aspose-cells-cloud/aspose-cells-cloud-node)](https://github.com/aspose-cells-cloud/aspose-cells-cloud-node/blob/master/LICENSE) ![GitHub commits since latest release (by date)](https://img.shields.io/github/commits-since/aspose-cells-cloud/aspose-cells-cloud-node/20.10)
+![](https://img.shields.io/badge/REST%20API-v3.0-lightgrey) ![npm](https://img.shields.io/npm/v/asposecellscloud) ![node-current](https://img.shields.io/node/v/asposecellscloud) [![GitHub license](https://img.shields.io/github/license/aspose-cells-cloud/aspose-cells-cloud-node)](https://github.com/aspose-cells-cloud/aspose-cells-cloud-node/blob/master/LICENSE) ![GitHub commits since latest release (by date)](https://img.shields.io/github/commits-since/aspose-cells-cloud/aspose-cells-cloud-node/20.11)
 
 # Process Excel® Files in the Cloud with Node.js
 
@@ -20,10 +20,9 @@
 - Fetch the required shape from worksheet.
 - Leverage the power of named ranges.
 
-## Enhancements in Version 20.10
+## Enhancements in Version 20.11
 
-- Support to upload large file.
-- Enhancement for post sparkline group API.
+- Support Aspose.Cells Cloud for Docker.
 
 ## Read & Write Spreadsheet Formats
 
@@ -71,7 +70,7 @@ var assert = require('assert');
 const localPath = "../TestData/";
 describe('cellsWorkbookPutConvertWorkbook', function() {
   it('should call cellsWorkbookPutConvertWorkbook successfully', function() {
-    const cellsApi =new api.CellsApi(AppSid, AppKey);
+    const cellsApi =new api.CellsApi(clientId, clientSecret);
     const filename = "Book1.xlsx";
     var data =fs.createReadStream(localPath  + filename);
     var req = new model.UploadFileRequest();
@@ -99,9 +98,9 @@ describe('cellsWorkbookPutConvertWorkbook', function() {
 ```js
 const { CellsApi, Cells_PostHideWorksheetColumnsRequest } = require("asposecellscloud");
 
-AppSid = ""
-AppKey = ""
-cellsApi = new CellsApi(AppSid, AppKey);
+clientId = ""
+clientSecret = ""
+cellsApi = new CellsApi(clientId, clientSecret);
 filename = "Book1.xlsx"
 
 var req = new Cells_PostHideWorksheetColumnsRequest();
@@ -122,9 +121,9 @@ return cellsApi.cellsPostHideWorksheetColumns(req)
 ```js
 const { CellsApi, Cells_PostWorksheetMergeRequest } = require("asposecellscloud");
 
-AppSid = ""
-AppKey = ""
-cellsApi = new CellsApi(AppSid, AppKey);
+clientId = ""
+clientSecret = ""
+cellsApi = new CellsApi(clientId, clientSecret);
 filename = "Book1.xlsx"
 
 var req = new Cells_PostWorksheetMergeRequest();

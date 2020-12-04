@@ -31,7 +31,10 @@ import * as BaseTest from "./baseTest";
 import { invokeApiMethod } from "../src/internal/requestHelper";
 
 describe("oauth tests", () => {
-
+    if(BaseTest.isDockerSDK())
+    {
+        return;
+    }
     it("get access token successfully", async function() {
 
         const cellsApi = BaseTest.initializeCellsApi();
@@ -42,8 +45,8 @@ describe("oauth tests", () => {
             uri: configuration.baseUrl + "/connect/token",
             form: {
                 grant_type: "client_credentials",
-                client_id: configuration.appSID,
-                client_secret: configuration.appKey,
+                client_id: configuration.clientId,
+                client_secret: configuration.clientSecret,
             },
         };
 

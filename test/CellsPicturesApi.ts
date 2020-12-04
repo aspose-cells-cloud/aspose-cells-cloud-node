@@ -218,7 +218,7 @@ describe('CellsPicturesApi', function() {
           req.upperLeftColumn = 1;
           req.lowerRightRow = 10;
           req.lowerRightColumn = 10;
-          req.picturePath = "WaterMark.png";
+          req.picturePath = "Temp/WaterMark.png";
           req.folder = "Temp";
           
           return cellsApi.cellsPicturesPutWorksheetAddPicture(req)

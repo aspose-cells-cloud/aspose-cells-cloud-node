@@ -23,15 +23,18 @@
 */
 
 import * as api from "../src/api";
-const AppSid = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx";
-const AppKey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-const ApiURL = "https://api-qa.aspose.cloud";
+const clientId = process.env.CellsCloudTestClientId;
+const clientSecret = process.env.CellsCloudTestClientSecret;
+const ApiURL = process.env.CellsCloudTestApiBaseUrl;
 
+export function isDockerSDK() {  
+    return new Boolean(process.env.CellsCloudTestIsDockerTest);
+}
 /**
  * Initialize CellsApi
  */
 export function initializeCellsApi() {
-    const cellsApi = new api.CellsApi(AppSid, AppKey,"v3.0",ApiURL);
+    const cellsApi = new api.CellsApi(clientId, clientSecret,"v3.0",ApiURL);
     return cellsApi;
 }
 

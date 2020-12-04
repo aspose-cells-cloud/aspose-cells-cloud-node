@@ -1,10 +1,9 @@
 var range = new Range();
 const { CellsWorkbookApi, CellsWorkbook_GetWorkbookRequest } = require("asposecellscloud");
 
-AppSid = "78946fb4-3bd4-4d3e-b309-f9e2ff9ac6f9"
-AppKey = "b125f13bf6b76ed81ee990142d841195"
-
-cellsWorkbookApi = new CellsWorkbookApi(AppSid, AppKey);
+const clientId = process.env.CellsCloudTestClientId;
+const clientSecret = process.env.CellsCloudTestClientSecret;
+cellsApi = new CellsApi(clientId, clientSecret);
 filename = "Book1.xlsx"
 
 
@@ -14,7 +13,7 @@ req.password = null;
 req.isAutoFit = true;
 req.folder = "";
 
-cellsWorkbookApi.cellsWorkbookGetWorkbook(req)
+cellsApi.cellsWorkbookGetWorkbook(req)
     .then((result) => {
         console.log(result)
     });
