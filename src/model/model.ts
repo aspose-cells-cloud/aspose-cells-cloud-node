@@ -8226,6 +8226,82 @@ export class ConvertTaskParameter extends TaskParameter {
     }        
 }
 
+export class ConvertWorksheetTaskParameter extends TaskParameter {
+
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "workbook",
+            baseName: "Workbook",
+            type: "FileSource",
+        },        
+        {
+            name: "sheet",
+            baseName: "Sheet",
+            type: "string",
+        },        
+        {
+            name: "target",
+            baseName: "Target",
+            type: "FileSource",
+        },        
+        {
+            name: "format",
+            baseName: "Format",
+            type: "string",
+        },        
+        {
+            name: "area",
+            baseName: "Area",
+            type: "string",
+        },        
+        {
+            name: "pageIndex",
+            baseName: "PageIndex",
+            type: "number",
+        },        
+        {
+            name: "verticalResolution",
+            baseName: "VerticalResolution",
+            type: "number",
+        },        
+        {
+            name: "horizontalResolution",
+            baseName: "HorizontalResolution",
+            type: "number",
+        }    ];
+
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return super.getAttributeTypeMap().concat(ConvertWorksheetTaskParameter.attributeTypeMap);
+    }
+
+    public workbook: FileSource;
+    
+    public sheet: string;
+    
+    public target: FileSource;
+    
+    public format: string;
+    
+    public area: string;
+    
+    public pageIndex: number;
+    
+    public verticalResolution: number;
+    
+    public horizontalResolution: number;
+    
+    public constructor(init?: Partial<ConvertWorksheetTaskParameter>) {
+        super(init);
+        Object.assign(this, init);
+    }        
+}
+
 export class DifSaveOptions extends SaveOptions {
 
     /**
@@ -15333,6 +15409,7 @@ const typeMap = {
             ConditionalFormattings,
             ConditionalFormattingsResponse,
             ConvertTaskParameter,
+            ConvertWorksheetTaskParameter,
             DifSaveOptions,
             FileVersion,
             FillFormatResponse,
@@ -21541,6 +21618,45 @@ export class Cells_PutInsertWorksheetRowsRequest {
 }
 
 /**
+ * Request model for CellsRanges_DeleteWorksheetCellsRange operation.
+ */
+export class CellsRanges_DeleteWorksheetCellsRangeRequest {
+    /**
+     * workbook name
+     */
+    public name: string;
+
+    /**
+     * worksheet name
+     */
+    public sheetName: string;
+
+    /**
+     * range
+     */
+    public range: string;
+
+    /**
+     * Represent the shift options when deleting a range of cells. (Left,Up) 
+     */
+    public shift: string;
+
+    /**
+     * Workbook folder.
+     */
+    public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storageName: string;
+    
+    public constructor(init?: Partial<CellsRanges_DeleteWorksheetCellsRangeRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
  * Request model for CellsRanges_GetWorksheetCellsRangeValue operation.
  */
 export class CellsRanges_GetWorksheetCellsRangeValueRequest {
@@ -21931,6 +22047,45 @@ export class CellsRanges_PostWorksheetCellsRangesRequest {
     public storageName: string;
     
     public constructor(init?: Partial<CellsRanges_PostWorksheetCellsRangesRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
+ * Request model for CellsRanges_PutWorksheetCellsRange operation.
+ */
+export class CellsRanges_PutWorksheetCellsRangeRequest {
+    /**
+     * workbook name
+     */
+    public name: string;
+
+    /**
+     * worksheet name
+     */
+    public sheetName: string;
+
+    /**
+     * range
+     */
+    public range: string;
+
+    /**
+     * Represent the shift options when deleting a range of cells. (Right,Down) 
+     */
+    public shift: string;
+
+    /**
+     * Workbook folder.
+     */
+    public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storageName: string;
+    
+    public constructor(init?: Partial<CellsRanges_PutWorksheetCellsRangeRequest>) {        
         Object.assign(this, init);
     } 
 }
@@ -25027,12 +25182,12 @@ export class OAuth_PostRequest {
     public grantType: string;
 
     /**
-     * client id
+     * App SID
      */
     public clientId: string;
 
     /**
-     * client Secret
+     * App Key
      */
     public clientSecret: string;
     

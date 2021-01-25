@@ -7117,6 +7117,56 @@ export class CellsApi {
     }
 
     /**
+     * Delete range in the worksheet
+     * @param requestObj contains request parameters
+     */
+    public async cellsRangesDeleteWorksheetCellsRange(requestObj: model.CellsRanges_DeleteWorksheetCellsRangeRequest): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}> {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling cellsRangesDeleteWorksheetCellsRange.');
+        }
+
+        let localVarPath = this.configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/ranges"
+            .replace("{" + "name" + "}", String(requestObj.name))
+            .replace("{" + "sheetName" + "}", String(requestObj.sheetName));
+        const queryParameters: any = {};
+
+        // verify required parameter 'requestObj.name' is not null or undefined
+        if (requestObj.name === null || requestObj.name === undefined) {
+            throw new Error('Required parameter "requestObj.name" was null or undefined when calling cellsRangesDeleteWorksheetCellsRange.');
+        }
+
+        // verify required parameter 'requestObj.sheetName' is not null or undefined
+        if (requestObj.sheetName === null || requestObj.sheetName === undefined) {
+            throw new Error('Required parameter "requestObj.sheetName" was null or undefined when calling cellsRangesDeleteWorksheetCellsRange.');
+        }
+
+        // verify required parameter 'requestObj.range' is not null or undefined
+        if (requestObj.range === null || requestObj.range === undefined) {
+            throw new Error('Required parameter "requestObj.range" was null or undefined when calling cellsRangesDeleteWorksheetCellsRange.');
+        }
+
+        // verify required parameter 'requestObj.shift' is not null or undefined
+        if (requestObj.shift === null || requestObj.shift === undefined) {
+            throw new Error('Required parameter "requestObj.shift" was null or undefined when calling cellsRangesDeleteWorksheetCellsRange.');
+        }
+        
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "range", requestObj.range);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "shift", requestObj.shift);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", requestObj.storageName);
+        const requestOptions: request.Options = {
+            method: "DELETE",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "CellsCloudResponse");
+        return Promise.resolve({body: result, response});
+    }
+
+    /**
      * Get cells list in a range by range name or row column indexes  
      * @param requestObj contains request parameters
      */
@@ -7535,6 +7585,56 @@ export class CellsApi {
             uri: localVarPath,
             json: true,
             body: (requestObj.rangeOperate == null) ? "" : ObjectSerializer.serialize(requestObj.rangeOperate, requestObj.rangeOperate.constructor.name === "Object" ? "RangeCopyRequest" : requestObj.rangeOperate.constructor.name),
+        };
+
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "CellsCloudResponse");
+        return Promise.resolve({body: result, response});
+    }
+
+    /**
+     * Insert range in the worksheet
+     * @param requestObj contains request parameters
+     */
+    public async cellsRangesPutWorksheetCellsRange(requestObj: model.CellsRanges_PutWorksheetCellsRangeRequest): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}> {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling cellsRangesPutWorksheetCellsRange.');
+        }
+
+        let localVarPath = this.configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/ranges"
+            .replace("{" + "name" + "}", String(requestObj.name))
+            .replace("{" + "sheetName" + "}", String(requestObj.sheetName));
+        const queryParameters: any = {};
+
+        // verify required parameter 'requestObj.name' is not null or undefined
+        if (requestObj.name === null || requestObj.name === undefined) {
+            throw new Error('Required parameter "requestObj.name" was null or undefined when calling cellsRangesPutWorksheetCellsRange.');
+        }
+
+        // verify required parameter 'requestObj.sheetName' is not null or undefined
+        if (requestObj.sheetName === null || requestObj.sheetName === undefined) {
+            throw new Error('Required parameter "requestObj.sheetName" was null or undefined when calling cellsRangesPutWorksheetCellsRange.');
+        }
+
+        // verify required parameter 'requestObj.range' is not null or undefined
+        if (requestObj.range === null || requestObj.range === undefined) {
+            throw new Error('Required parameter "requestObj.range" was null or undefined when calling cellsRangesPutWorksheetCellsRange.');
+        }
+
+        // verify required parameter 'requestObj.shift' is not null or undefined
+        if (requestObj.shift === null || requestObj.shift === undefined) {
+            throw new Error('Required parameter "requestObj.shift" was null or undefined when calling cellsRangesPutWorksheetCellsRange.');
+        }
+        
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "range", requestObj.range);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "shift", requestObj.shift);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", requestObj.storageName);
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);

@@ -1,7 +1,7 @@
 /*
 * MIT License
 
-* Copyright (c) 2020 Aspose Pty Ltd
+* Copyright (c) 2021 Aspose Pty Ltd
 
 * Permission is hereby granted, free of charge, to any person obtaining a copy
 * of this software and associated documentation files (the "Software"), to deal
@@ -396,6 +396,60 @@ describe('CellsRangesApi', function() {
           req.folder = "Temp";
           
           return cellsApi.cellsRangesPostWorksheetCellsRanges(req)
+            .then((result) => {
+              expect(result.body.code).to.equal(200);
+              expect(result.response.statusCode).to.equal(200);
+            });
+        });
+    });
+  });
+  describe('cellsRangesDeleteWorksheetCellsRange', function() {
+    it('should call cellsRangesDeleteWorksheetCellsRange successfully', function() {
+      const cellsApi = BaseTest.initializeCellsApi();
+      const filename = "Book1.xlsx";
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
+          var req = new model.CellsRanges_DeleteWorksheetCellsRangeRequest();
+          req.name = filename;
+          req.sheetName = "Sheet1";
+          req.range = "A1:B3";
+          req.shift = "Up";
+          req.folder = "Temp";
+          
+          return cellsApi.cellsRangesDeleteWorksheetCellsRange(req)
+            .then((result) => {
+              expect(result.body.code).to.equal(200);
+              expect(result.response.statusCode).to.equal(200);
+            });
+        });
+    });
+  });
+  describe('cellsRangesPutWorksheetCellsRange', function() {
+    it('should call cellsRangesPutWorksheetCellsRange successfully', function() {
+      const cellsApi = BaseTest.initializeCellsApi();
+      const filename = "Book1.xlsx";
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
+          var req = new model.CellsRanges_PutWorksheetCellsRangeRequest();
+          req.name = filename;
+          req.sheetName = "Sheet1";
+          req.range = "A1:B3";
+          req.shift = "Down";
+          req.folder = "Temp";
+          
+          return cellsApi.cellsRangesPutWorksheetCellsRange(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
