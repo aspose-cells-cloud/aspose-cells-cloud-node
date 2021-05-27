@@ -1,7 +1,7 @@
 /*
 * MIT License
 
-* Copyright (c) 2018 Aspose Pty Ltd
+* Copyright (c) 2021 Aspose Pty Ltd
 
 * Permission is hereby granted, free of charge, to any person obtaining a copy
 * of this software and associated documentation files (the "Software"), to deal
@@ -7556,8 +7556,8 @@ export class ChartOperateParameter extends OperateParameter {
      */
     public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            name: "string",
-            baseName: "string",
+            name: "title",
+            baseName: "Title",
             type: "string",
         },        
         {
@@ -7608,7 +7608,7 @@ export class ChartOperateParameter extends OperateParameter {
         return super.getAttributeTypeMap().concat(ChartOperateParameter.attributeTypeMap);
     }
 
-    public string: string;
+    public title: string;
     
     public area: string;
     
@@ -13785,6 +13785,54 @@ export class WorkbookSettingsResponse extends CellsCloudResponse {
     }        
 }
 
+export class WorksheetOperateParameter extends OperateParameter {
+
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "name",
+            baseName: "Name",
+            type: "string",
+        },        
+        {
+            name: "sheetType",
+            baseName: "SheetType",
+            type: "string",
+        },        
+        {
+            name: "newName",
+            baseName: "NewName",
+            type: "string",
+        },        
+        {
+            name: "movingRequest",
+            baseName: "MovingRequest",
+            type: "WorksheetMovingRequest",
+        }    ];
+
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return super.getAttributeTypeMap().concat(WorksheetOperateParameter.attributeTypeMap);
+    }
+
+    public name: string;
+    
+    public sheetType: string;
+    
+    public newName: string;
+    
+    public movingRequest: WorksheetMovingRequest;
+    
+    public constructor(init?: Partial<WorksheetOperateParameter>) {
+        super(init);
+        Object.assign(this, init);
+    }        
+}
+
 export class WorksheetReplaceResponse extends CellsCloudResponse {
 
     /**
@@ -15511,6 +15559,7 @@ const typeMap = {
             WorkbookResponse,
             WorkbookSettingsOperateParameter,
             WorkbookSettingsResponse,
+            WorksheetOperateParameter,
             WorksheetReplaceResponse,
             WorksheetResponse,
             Worksheets,
@@ -22959,6 +23008,45 @@ export class CellsWorkbook_GetWorkbookTextItemsRequest {
 }
 
 /**
+ * Request model for CellsWorkbook_PostAutofitWorkbookColumns operation.
+ */
+export class CellsWorkbook_PostAutofitWorkbookColumnsRequest {
+    /**
+     * Document name.
+     */
+    public name: string;
+
+    /**
+     * Auto Fitter Options.
+     */
+    public autoFitterOptions: AutoFitterOptions;
+
+    /**
+     * Start column.
+     */
+    public startColumn: number;
+
+    /**
+     * End column.
+     */
+    public endColumn: number;
+
+    /**
+     * Document's folder.
+     */
+    public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storageName: string;
+    
+    public constructor(init?: Partial<CellsWorkbook_PostAutofitWorkbookColumnsRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
  * Request model for CellsWorkbook_PostAutofitWorkbookRows operation.
  */
 export class CellsWorkbook_PostAutofitWorkbookRowsRequest {
@@ -23337,9 +23425,9 @@ export class CellsWorkbook_PostWorkbooksTextSearchRequest {
  */
 export class CellsWorkbook_PutConvertWorkbookRequest {
     /**
-     * Gets or sets workbook
+     * Gets or sets file
      */
-    public workbook: Buffer;
+    public file: Buffer;
 
     /**
      * The format to convert.

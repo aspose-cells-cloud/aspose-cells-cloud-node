@@ -390,6 +390,33 @@ describe('CellsWorkbookApi', function() {
         });
     });
   });
+  describe('cellsWorkbookPostAutofitWorkbookColumns', function() {
+    it('should call cellsWorkbookPostAutofitWorkbookColumns successfully', function() {
+      const cellsApi = BaseTest.initializeCellsApi();
+      const filename = "Book1.xlsx";
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
+          var req = new model.CellsWorkbook_PostAutofitWorkbookColumnsRequest();
+          req.name = filename;
+          req.folder = "Temp";
+          req.autoFitterOptions = null;
+          req.startColumn = 1;
+          req.endColumn = 100;
+          
+          return cellsApi.cellsWorkbookPostAutofitWorkbookColumns(req)
+            .then((result) => {
+              expect(result.body.code).to.equal(200);
+              expect(result.response.statusCode).to.equal(200);
+            });
+        });
+    });
+  });  
   describe('cellsWorkbookPostEncryptDocument', function() {
     it('should call cellsWorkbookPostEncryptDocument successfully', function() {
       const cellsApi = BaseTest.initializeCellsApi();
@@ -670,14 +697,14 @@ describe('CellsWorkbookApi', function() {
       const filename = "Book1.xlsx";
       // var data =fs.createReadStream(localPath  + filename);
       var req = new model.CellsWorkbook_PutConvertWorkbookRequest({
-        workbook : fs.createReadStream(localPath  + filename),
+        file : fs.createReadStream(localPath  + filename),
         format : "pdf",
       });
   
       return cellsApi.cellsWorkbookPutConvertWorkbook(req)
         .then((result) => {         
           var req = new model.CellsWorkbook_PutConvertWorkbookRequest({
-            workbook : fs.createReadStream(localPath  + filename),
+            file : fs.createReadStream(localPath  + filename),
             format : "pdf",
           });
   
