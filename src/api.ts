@@ -24,6 +24,7 @@
 
 import http = require("http");
 import request = require("request");
+import { print } from "util";
 
 import { Configuration } from "./internal/configuration";
 import { ObjectSerializer } from "./internal/objectSerializer";
@@ -11497,6 +11498,555 @@ export class CellsApi {
         (requestOptions as any).formData = formParams;        
         const response = await invokeApiMethod(requestOptions, this.configuration);
         const result =  ObjectSerializer.deserialize(response.body, "FilesUploadResult");
+        return Promise.resolve({body: result, response});
+    }
+
+}
+/**
+ * Library for communicating with the Aspose.Cells Cloud API
+ */
+export class LiteCellsApi {
+    /**
+     * API configuration
+     */
+    public configuration: Configuration;
+
+    /**
+     * @param clientId client Id.
+     * @param clientSecret client Secret.
+     * @param baseUrl Base api Url.
+     * @param debugMode A value indicating whether debug mode. In debug mode all requests and responses are logged to console.
+     */
+    constructor(clientId: string, clientSecret: string, apiVersion?:string, baseUrl?: string, debugMode?: boolean) {
+        this.configuration = new Configuration(clientId, clientSecret,apiVersion, baseUrl, debugMode);
+    }
+
+    /**
+     * 
+     * @param requestObj contains request parameters
+     */
+    public async deleteMetadata(requestObj: model.DeleteMetadataRequest): Promise<{response: http.ClientResponse, body: model.FilesResult}> {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling deleteMetadata.');
+        }
+
+        let localVarPath = this.configuration.getApiBaseUrl() + "/cells/metadata/delete";
+        const queryParameters: any = {};
+        const formParams: any = {};
+
+        // verify required parameter 'requestObj.file' is not null or undefined
+        if (requestObj.file === null || requestObj.file === undefined) {
+            throw new Error('Required parameter "requestObj.file" was null or undefined when calling deleteMetadata.');
+        }
+        
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "type", requestObj.type);
+        if (requestObj.file !== undefined) {
+            for (var key in requestObj.file){
+                formParams[key] = requestObj.file[key];
+            }
+        }
+
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        (requestOptions as any).formData = formParams;        
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "FilesResult");
+        return Promise.resolve({body: result, response});
+    }
+
+    /**
+     * 
+     * @param requestObj contains request parameters
+     */
+    public async getMetadata(requestObj: model.GetMetadataRequest): Promise<{response: http.ClientResponse, body: model.Array<CellsDocumentProperty>}> {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling getMetadata.');
+        }
+
+        let localVarPath = this.configuration.getApiBaseUrl() + "/cells/metadata/get";
+        const queryParameters: any = {};
+        const formParams: any = {};
+
+        // verify required parameter 'requestObj.file' is not null or undefined
+        if (requestObj.file === null || requestObj.file === undefined) {
+            throw new Error('Required parameter "requestObj.file" was null or undefined when calling getMetadata.');
+        }
+        
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "type", requestObj.type);
+        if (requestObj.file !== undefined) {
+            for (var key in requestObj.file){
+                formParams[key] = requestObj.file[key];
+            }
+        }
+
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        (requestOptions as any).formData = formParams;        
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "Array<CellsDocumentProperty>");
+        return Promise.resolve({body: result, response});
+    }
+
+    /**
+     * 
+     * @param requestObj contains request parameters
+     */
+    public async postAssemble(requestObj: model.PostAssembleRequest): Promise<{response: http.ClientResponse, body: model.FilesResult}> {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling postAssemble.');
+        }
+
+        let localVarPath = this.configuration.getApiBaseUrl() + "/cells/assemble";
+        const queryParameters: any = {};
+        const formParams: any = {};
+
+        // verify required parameter 'requestObj.file' is not null or undefined
+        if (requestObj.file === null || requestObj.file === undefined) {
+            throw new Error('Required parameter "requestObj.file" was null or undefined when calling postAssemble.');
+        }
+
+        // verify required parameter 'requestObj.datasource' is not null or undefined
+        if (requestObj.datasource === null || requestObj.datasource === undefined) {
+            throw new Error('Required parameter "requestObj.datasource" was null or undefined when calling postAssemble.');
+        }
+        
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "datasource", requestObj.datasource);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "format", requestObj.format);
+        if (requestObj.file !== undefined) {
+            for (var key in requestObj.file){
+                formParams[key] = requestObj.file[key];
+            }
+        }
+
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        (requestOptions as any).formData = formParams;        
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "FilesResult");
+        return Promise.resolve({body: result, response});
+    }
+
+    /**
+     * 
+     * @param requestObj contains request parameters
+     */
+    public async postClearObjects(requestObj: model.PostClearObjectsRequest): Promise<{response: http.ClientResponse, body: model.FilesResult}> {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling postClearObjects.');
+        }
+
+        let localVarPath = this.configuration.getApiBaseUrl() + "/cells/clearobjects";
+        const queryParameters: any = {};
+        const formParams: any = {};
+
+        // verify required parameter 'requestObj.file' is not null or undefined
+        if (requestObj.file === null || requestObj.file === undefined) {
+            throw new Error('Required parameter "requestObj.file" was null or undefined when calling postClearObjects.');
+        }
+
+        // verify required parameter 'requestObj.objecttype' is not null or undefined
+        if (requestObj.objecttype === null || requestObj.objecttype === undefined) {
+            throw new Error('Required parameter "requestObj.objecttype" was null or undefined when calling postClearObjects.');
+        }
+        
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "objecttype", requestObj.objecttype);
+        if (requestObj.file !== undefined) {
+            for (var key in requestObj.file){
+                formParams[key] = requestObj.file[key];
+            }
+        }
+
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        (requestOptions as any).formData = formParams;        
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "FilesResult");
+        return Promise.resolve({body: result, response});
+    }
+
+    /**
+     * 
+     * @param requestObj contains request parameters
+     */
+    public async postExport(requestObj: model.PostExportRequest): Promise<{response: http.ClientResponse, body: model.FilesResult}> {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling postExport.');
+        }
+
+        let localVarPath = this.configuration.getApiBaseUrl() + "/cells/export";
+        const queryParameters: any = {};
+        const formParams: any = {};
+
+        // verify required parameter 'requestObj.file' is not null or undefined
+        if (requestObj.file === null || requestObj.file === undefined) {
+            throw new Error('Required parameter "requestObj.file" was null or undefined when calling postExport.');
+        }
+
+        // verify required parameter 'requestObj.objectType' is not null or undefined
+        if (requestObj.objectType === null || requestObj.objectType === undefined) {
+            throw new Error('Required parameter "requestObj.objectType" was null or undefined when calling postExport.');
+        }
+
+        // verify required parameter 'requestObj.format' is not null or undefined
+        if (requestObj.format === null || requestObj.format === undefined) {
+            throw new Error('Required parameter "requestObj.format" was null or undefined when calling postExport.');
+        }
+        
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "objectType", requestObj.objectType);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "format", requestObj.format);
+        if (requestObj.file !== undefined) {
+            for (var key in requestObj.file){
+                formParams[key] = requestObj.file[key];
+            }
+        }
+
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        (requestOptions as any).formData = formParams;        
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "FilesResult");
+        return Promise.resolve({body: result, response});
+    }
+
+    /**
+     * 
+     * @param requestObj contains request parameters
+     */
+    public async postMerge(requestObj: model.PostMergeRequest): Promise<{response: http.ClientResponse, body: model.FileInfo}> {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling postMerge.');
+        }
+
+        let localVarPath = this.configuration.getApiBaseUrl() + "/cells/merge";
+        const queryParameters: any = {};
+        const formParams: any = {};
+
+        // verify required parameter 'requestObj.file' is not null or undefined
+        if (requestObj.file === null || requestObj.file === undefined) {
+            throw new Error('Required parameter "requestObj.file" was null or undefined when calling postMerge.');
+        }
+        
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "format", requestObj.format);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "mergeToOneSheet", requestObj.mergeToOneSheet);
+        if (requestObj.file !== undefined) {
+            for (var key in requestObj.file){
+                formParams[key] = requestObj.file[key];
+            }
+        }
+
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        (requestOptions as any).formData = formParams;        
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "FileInfo");
+        return Promise.resolve({body: result, response});
+    }
+
+    /**
+     * 
+     * @param requestObj contains request parameters
+     */
+    public async postMetadata(requestObj: model.PostMetadataRequest): Promise<{response: http.ClientResponse, body: model.FilesResult}> {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling postMetadata.');
+        }
+
+        const localVarPath = this.configuration.getApiBaseUrl() + "/cells/metadata/update";
+        const queryParameters: any = {};
+        const formParams: any = {};
+
+        // verify required parameter 'requestObj.file' is not null or undefined
+        if (requestObj.file === null || requestObj.file === undefined) {
+            throw new Error('Required parameter "requestObj.file" was null or undefined when calling postMetadata.');
+        }
+
+        // verify required parameter 'requestObj.documentProperties' is not null or undefined
+        if (requestObj.documentProperties === null || requestObj.documentProperties === undefined) {
+            throw new Error('Required parameter "requestObj.documentProperties" was null or undefined when calling postMetadata.');
+        }
+        
+        if (requestObj.file !== undefined) {
+            for (var key in requestObj.file){
+                formParams[key] = requestObj.file[key];
+            }
+            if((requestObj.documentProperties !== null))
+            {
+                formParams["documentProperties"]  = JSON.stringify(requestObj.documentProperties);
+            }
+        }
+
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,            
+            // body:  "[]",//(requestObj.documentProperties == null) ? "" : ObjectSerializer.serialize(requestObj.documentProperties, requestObj.documentProperties.constructor.name === "Object" ? "CellsDocumentProperty" : requestObj.documentProperties.constructor.name),
+        };
+
+        (requestOptions as any).formData = formParams;        
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "FilesResult");
+        return Promise.resolve({body: result, response});
+    }
+
+    /**
+     * 
+     * @param requestObj contains request parameters
+     */
+    public async postProtect(requestObj: model.PostProtectRequest): Promise<{response: http.ClientResponse, body: model.FilesResult}> {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling postProtect.');
+        }
+
+        let localVarPath = this.configuration.getApiBaseUrl() + "/cells/protect";
+        const queryParameters: any = {};
+        const formParams: any = {};
+
+        // verify required parameter 'requestObj.file' is not null or undefined
+        if (requestObj.file === null || requestObj.file === undefined) {
+            throw new Error('Required parameter "requestObj.file" was null or undefined when calling postProtect.');
+        }
+
+        // verify required parameter 'requestObj.password' is not null or undefined
+        if (requestObj.password === null || requestObj.password === undefined) {
+            throw new Error('Required parameter "requestObj.password" was null or undefined when calling postProtect.');
+        }
+        
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", requestObj.password);
+        if (requestObj.file !== undefined) {
+            for (var key in requestObj.file){
+                formParams[key] = requestObj.file[key];
+            }
+            // formParams.File = requestObj.file;
+        }
+
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        (requestOptions as any).formData = formParams;        
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "FilesResult");
+        return Promise.resolve({body: result, response});
+    }
+
+    /**
+     * 
+     * @param requestObj contains request parameters
+     */
+    public async postSearch(requestObj: model.PostSearchRequest): Promise<{response: http.ClientResponse, body: model.Buffer}> {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling postSearch.');
+        }
+
+        let localVarPath = this.configuration.getApiBaseUrl() + "/cells/search";
+        const queryParameters: any = {};
+        const formParams: any = {};
+
+        // verify required parameter 'requestObj.file' is not null or undefined
+        if (requestObj.file === null || requestObj.file === undefined) {
+            throw new Error('Required parameter "requestObj.file" was null or undefined when calling postSearch.');
+        }
+
+        // verify required parameter 'requestObj.text' is not null or undefined
+        if (requestObj.text === null || requestObj.text === undefined) {
+            throw new Error('Required parameter "requestObj.text" was null or undefined when calling postSearch.');
+        }
+        
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "text", requestObj.text);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", requestObj.password);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "sheetname", requestObj.sheetname);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "path", requestObj.path);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", requestObj.storageName);
+        if (requestObj.file !== undefined) {
+            for (var key in requestObj.file){
+                formParams[key] = requestObj.file[key];
+            }
+        }
+
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        (requestOptions as any).formData = formParams;        
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "Buffer");
+        return Promise.resolve({body: result, response});
+    }
+
+    /**
+     * 
+     * @param requestObj contains request parameters
+     */
+    public async postSplit(requestObj: model.PostSplitRequest): Promise<{response: http.ClientResponse, body: model.FilesResult}> {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling postSplit.');
+        }
+
+        let localVarPath = this.configuration.getApiBaseUrl() + "/cells/split";
+        const queryParameters: any = {};
+        const formParams: any = {};
+
+        // verify required parameter 'requestObj.file' is not null or undefined
+        if (requestObj.file === null || requestObj.file === undefined) {
+            throw new Error('Required parameter "requestObj.file" was null or undefined when calling postSplit.');
+        }
+
+        // verify required parameter 'requestObj.format' is not null or undefined
+        if (requestObj.format === null || requestObj.format === undefined) {
+            throw new Error('Required parameter "requestObj.format" was null or undefined when calling postSplit.');
+        }
+        
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "format", requestObj.format);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", requestObj.password);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "from", requestObj.from);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "to", requestObj.to);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "path", requestObj.path);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", requestObj.storageName);
+        if (requestObj.file !== undefined) {
+            for (var key in requestObj.file){
+                formParams[key] = requestObj.file[key];
+            }
+        }
+
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        (requestOptions as any).formData = formParams;        
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "FilesResult");
+        return Promise.resolve({body: result, response});
+    }
+
+    /**
+     * 
+     * @param requestObj contains request parameters
+     */
+    public async postUnlock(requestObj: model.PostUnlockRequest): Promise<{response: http.ClientResponse, body: model.FilesResult}> {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling postUnlock.');
+        }
+
+        let localVarPath = this.configuration.getApiBaseUrl() + "/cells/unlock";
+        const queryParameters: any = {};
+        const formParams: any = {};
+
+        // verify required parameter 'requestObj.file' is not null or undefined
+        if (requestObj.file === null || requestObj.file === undefined) {
+            throw new Error('Required parameter "requestObj.file" was null or undefined when calling postUnlock.');
+        }
+
+        // verify required parameter 'requestObj.password' is not null or undefined
+        if (requestObj.password === null || requestObj.password === undefined) {
+            throw new Error('Required parameter "requestObj.password" was null or undefined when calling postUnlock.');
+        }
+        
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", requestObj.password);
+        if (requestObj.file !== undefined) {
+            for (var key in requestObj.file){
+                formParams[key] = requestObj.file[key];
+            }
+        }
+
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        (requestOptions as any).formData = formParams;        
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "FilesResult");
+        return Promise.resolve({body: result, response});
+    }
+
+    /**
+     * 
+     * @param requestObj contains request parameters
+     */
+    public async postWatermark(requestObj: model.PostWatermarkRequest): Promise<{response: http.ClientResponse, body: model.FilesResult}> {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling postWatermark.');
+        }
+
+        let localVarPath = this.configuration.getApiBaseUrl() + "/cells/watermark";
+        const queryParameters: any = {};
+        const formParams: any = {};
+
+        // verify required parameter 'requestObj.file' is not null or undefined
+        if (requestObj.file === null || requestObj.file === undefined) {
+            throw new Error('Required parameter "requestObj.file" was null or undefined when calling postWatermark.');
+        }
+
+        // verify required parameter 'requestObj.text' is not null or undefined
+        if (requestObj.text === null || requestObj.text === undefined) {
+            throw new Error('Required parameter "requestObj.text" was null or undefined when calling postWatermark.');
+        }
+
+        // verify required parameter 'requestObj.color' is not null or undefined
+        if (requestObj.color === null || requestObj.color === undefined) {
+            throw new Error('Required parameter "requestObj.color" was null or undefined when calling postWatermark.');
+        }
+        
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "text", requestObj.text);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "color", requestObj.color);
+        if (requestObj.file !== undefined) {
+            for (var key in requestObj.file){
+                formParams[key] = requestObj.file[key];
+            }
+        }
+
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        (requestOptions as any).formData = formParams;        
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "FilesResult");
         return Promise.resolve({body: result, response});
     }
 

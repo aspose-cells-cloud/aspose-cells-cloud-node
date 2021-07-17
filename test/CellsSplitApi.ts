@@ -22,23 +22,34 @@
 * SOFTWARE.
 */
 
-import * as api from "../src/api";
-const clientId = process.env.CellsCloudTestClientId;
-const clientSecret = process.env.CellsCloudTestClientSecret;
-const ApiURL = process.env.CellsCloudTestApiBaseUrl;
+import { expect } from "chai";
+import "mocha";
 
-export function isDockerSDK() {  
-    return new Boolean(process.env.CellsCloudTestIsDockerTest);
-}
-/**
- * Initialize CellsApi
- */
-export function initializeCellsApi() {
-    const cellsApi = new api.CellsApi(clientId, clientSecret,"v3.0",ApiURL);
-    return cellsApi;
-}
+import * as model from "../src/model/model";
+import * as BaseTest from "./baseTest";
 
-export function initializeLiteCellsApi() {
-    const cellsApi = new api.LiteCellsApi(clientId, clientSecret,"v3.0",ApiURL);
-    return cellsApi;
-}
+const localPath = "TestData/";
+var fs = require('fs');
+var path = require('path');
+var assert = require('assert');
+describe('CellsSplitApi', function() {
+  this.timeout(200000);
+  describe('PosSplit', function() {
+    it('should call PosSplit successfully', function() {
+      const cellsApi = BaseTest.initializeLiteCellsApi();
+      const AssemblyTestXlsx = "assemblytest.xlsx";
+      var dataAssemblyTestXlsx =fs.createReadStream(localPath  + AssemblyTestXlsx);
+      const DataSourceXlsx = "datasource.xlsx";
+      var dataDataSourceXlsx =fs.createReadStream(localPath  + DataSourceXlsx);
+      var req = new model.PostSplitRequest();
+      req.file = {AssemblyTestXlsx :dataAssemblyTestXlsx ,DataSourceXlsx:dataDataSourceXlsx };
+      req.format = "pdf";
+  
+      return cellsApi.postSplit(req)
+        .then((result) => {
+          expect(result.response.statusCode).to.equal(200);
+        });
+    });
+  });
+  
+});

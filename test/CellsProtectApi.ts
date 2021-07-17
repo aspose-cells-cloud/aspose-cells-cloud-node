@@ -22,23 +22,31 @@
 * SOFTWARE.
 */
 
-import * as api from "../src/api";
-const clientId = process.env.CellsCloudTestClientId;
-const clientSecret = process.env.CellsCloudTestClientSecret;
-const ApiURL = process.env.CellsCloudTestApiBaseUrl;
+import { expect } from "chai";
+import "mocha";
 
-export function isDockerSDK() {  
-    return new Boolean(process.env.CellsCloudTestIsDockerTest);
-}
-/**
- * Initialize CellsApi
- */
-export function initializeCellsApi() {
-    const cellsApi = new api.CellsApi(clientId, clientSecret,"v3.0",ApiURL);
-    return cellsApi;
-}
+import * as model from "../src/model/model";
+import * as BaseTest from "./baseTest";
 
-export function initializeLiteCellsApi() {
-    const cellsApi = new api.LiteCellsApi(clientId, clientSecret,"v3.0",ApiURL);
-    return cellsApi;
-}
+const localPath = "TestData/";
+var fs = require('fs');
+var path = require('path');
+var assert = require('assert');
+describe('CellsPostProtectApi', function() {
+  this.timeout(200000);
+  describe('PostProtect', function() {
+    it('should callPostProtect successfully', function() {
+      const cellsApi = BaseTest.initializeLiteCellsApi();
+      const filename = "Book1.xlsx";
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.PostProtectRequest();
+      req.file = {filename :data };
+      req.password = "123456";
+  
+      return cellsApi.postProtect(req)
+        .then((result) => {
+          expect(result.response.statusCode).to.equal(200);
+        });
+    });
+  });
+});

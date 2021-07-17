@@ -1555,6 +1555,47 @@ export class ErrorDetails {
     }        
 }
 
+export class FileInfo {
+
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "filename",
+            baseName: "Filename",
+            type: "string",
+        },        
+        {
+            name: "fileSize",
+            baseName: "FileSize",
+            type: "number",
+        },        
+        {
+            name: "fileContent",
+            baseName: "FileContent",
+            type: "string",
+        }    ];
+
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return FileInfo.attributeTypeMap;
+    }
+
+    public filename: string;
+    
+    public fileSize: number;
+    
+    public fileContent: string;
+    
+    public constructor(init?: Partial<FileInfo>) {
+        
+        Object.assign(this, init);
+    }        
+}
+
 export class FileSource {
 
     /**
@@ -1650,6 +1691,33 @@ export class FilesList {
     public value: Array<StorageFile>;
     
     public constructor(init?: Partial<FilesList>) {
+        
+        Object.assign(this, init);
+    }        
+}
+
+export class FilesResult {
+
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "files",
+            baseName: "Files",
+            type: "Array<FileInfo>",
+        }    ];
+
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return FilesResult.attributeTypeMap;
+    }
+
+    public files: Array<FileInfo>;
+    
+    public constructor(init?: Partial<FilesResult>) {
         
         Object.assign(this, init);
     }        
@@ -3643,7 +3711,7 @@ export class PivotItem {
         {
             name: "value",
             baseName: "Value",
-            type: "any",
+            type: "string",
         }    ];
 
     /**
@@ -3668,7 +3736,7 @@ export class PivotItem {
     /**
      * Gets the value of the specified item.
      */
-    public value: any;
+    public value: string;
     
     public constructor(init?: Partial<PivotItem>) {
         
@@ -6822,11 +6890,6 @@ export class CellsDocumentProperty {
             type: "Link",
         },        
         {
-            name: "builtIn",
-            baseName: "BuiltIn",
-            type: "string",
-        },        
-        {
             name: "name",
             baseName: "Name",
             type: "string",
@@ -6834,6 +6897,26 @@ export class CellsDocumentProperty {
         {
             name: "value",
             baseName: "Value",
+            type: "string",
+        },        
+        {
+            name: "isLinkedToContent",
+            baseName: "IsLinkedToContent",
+            type: "string",
+        },        
+        {
+            name: "source",
+            baseName: "Source",
+            type: "string",
+        },        
+        {
+            name: "type",
+            baseName: "Type",
+            type: "string",
+        },        
+        {
+            name: "isGeneratedName",
+            baseName: "IsGeneratedName",
             type: "string",
         }    ];
 
@@ -6846,11 +6929,35 @@ export class CellsDocumentProperty {
 
     public link: Link;
     
-    public builtIn: string;
-    
+    /**
+     * Returns the name of the property.             
+     */
     public name: string;
     
+    /**
+     * Gets or sets the value of the property.
+     */
     public value: string;
+    
+    /**
+     * Indicates whether this property is linked to content
+     */
+    public isLinkedToContent: string;
+    
+    /**
+     * The linked content source.
+     */
+    public source: string;
+    
+    /**
+     * Gets the data type of the property.             
+     */
+    public type: string;
+    
+    /**
+     * Returns true if this property does not have a name in the OLE2 storage and a   unique name was generated only for the public API.             
+     */
+    public isGeneratedName: string;
     
     public constructor(init?: Partial<CellsDocumentProperty>) {
         
@@ -15353,9 +15460,11 @@ const typeMap = {
             DiscUsage,
             DynamicFilter,
             ErrorDetails,
+            FileInfo,
             FileSource,
             FileVersions,
             FilesList,
+            FilesResult,
             FilesUploadResult,
             FillFormat,
             FilterColumn,
@@ -25342,6 +25451,299 @@ export class UploadFileRequest {
     public storageName: string;
     
     public constructor(init?: Partial<UploadFileRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
+ * Request model for DeleteMetadata operation.
+ */
+export class DeleteMetadataRequest {
+    /**
+     * File to upload
+     */
+    public file: {};
+
+    /**
+     * Gets or sets type
+     */
+    public type: string;
+    
+    public constructor(init?: Partial<DeleteMetadataRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
+ * Request model for  operation.
+ */
+export class GetMetadataRequest {
+    /**
+     * File to upload
+     */
+    public file: {}
+
+    /**
+     * Gets or sets type
+     */
+    public type: string;
+    
+    public constructor(init?: Partial<GetMetadataRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
+ * Request model for PostAssemble operation.
+ */
+export class PostAssembleRequest {
+    /**
+     * File to upload
+     */
+    public file: {};
+
+    /**
+     * Gets or sets datasource
+     */
+    public datasource: string;
+
+    /**
+     * Gets or sets format
+     */
+    public format: string;
+    
+    public constructor(init?: Partial<PostAssembleRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
+ * Request model for PostClearObjects operation.
+ */
+export class PostClearObjectsRequest {
+    /**
+     * File to upload
+     */
+    public file:{};
+
+    /**
+     * Gets or sets objecttype
+     */
+    public objecttype: string;
+    
+    public constructor(init?: Partial<PostClearObjectsRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
+ * Request model for PostExport operation.
+ */
+export class PostExportRequest {
+    /**
+     * File to upload
+     */
+    public file: {};
+
+    /**
+     * Gets or sets objectType
+     */
+    public objectType: string;
+
+    /**
+     * Gets or sets format
+     */
+    public format: string;
+    
+    public constructor(init?: Partial<PostExportRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
+ * Request model for PostMerge operation.
+ */
+export class PostMergeRequest {
+    /**
+     * File to upload
+     */
+    public file: {};
+
+    /**
+     * Gets or sets format
+     */
+    public format: string;
+
+    /**
+     * Gets or sets mergeToOneSheet
+     */
+    public mergeToOneSheet: boolean;
+    
+    public constructor(init?: Partial<PostMergeRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
+ * Request model for PostMetadata operation.
+ */
+export class PostMetadataRequest {
+    /**
+     * File to upload
+     */
+    public file: {};
+
+    /**
+     * Cells document property.
+     */
+    public documentProperties:  Array<CellsDocumentProperty>;
+    
+    public constructor(init?: Partial<PostMetadataRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
+ * Request model for PostProtect operation.
+ */
+export class PostProtectRequest {
+    /**
+     * File to upload
+     */
+    public file:{} ;//Buffer
+
+    /**
+     * Gets or sets password
+     */
+    public password: string;
+    
+    public constructor(init?: Partial<PostProtectRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
+ * Request model for PostSearch operation.
+ */
+export class PostSearchRequest {
+    /**
+     * File to upload
+     */
+    public file: {};
+
+    /**
+     * Gets or sets text
+     */
+    public text: string;
+
+    /**
+     * Gets or sets password
+     */
+    public password: string;
+
+    /**
+     * Gets or sets sheetname
+     */
+    public sheetname: string;
+
+    /**
+     * Gets or sets path
+     */
+    public path: string;
+
+    /**
+     * Gets or sets storageName
+     */
+    public storageName: string;
+    
+    public constructor(init?: Partial<PostSearchRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
+ * Request model for PostSplit operation.
+ */
+export class PostSplitRequest {
+    /**
+     * File to upload
+     */
+    public file: {};
+
+    /**
+     * Gets or sets format
+     */
+    public format: string;
+
+    /**
+     * Gets or sets password
+     */
+    public password: string;
+
+    /**
+     * Gets or sets from
+     */
+    public from: number;
+
+    /**
+     * Gets or sets to
+     */
+    public to: number;
+
+    /**
+     * Gets or sets path
+     */
+    public path: string;
+
+    /**
+     * Gets or sets storageName
+     */
+    public storageName: string;
+    
+    public constructor(init?: Partial<PostSplitRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
+ * Request model for PostUnlock operation.
+ */
+export class PostUnlockRequest {
+    /**
+     * File to upload
+     */
+    public file: {};
+
+    /**
+     * Gets or sets password
+     */
+    public password: string;
+    
+    public constructor(init?: Partial<PostUnlockRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
+ * Request model for PostWatermark operation.
+ */
+export class PostWatermarkRequest {
+    /**
+     * File to upload
+     */
+    public file: {};
+
+    /**
+     * Gets or sets text
+     */
+    public text: string;
+
+    /**
+     * Gets or sets color
+     */
+    public color: string;
+    
+    public constructor(init?: Partial<PostWatermarkRequest>) {        
         Object.assign(this, init);
     } 
 }

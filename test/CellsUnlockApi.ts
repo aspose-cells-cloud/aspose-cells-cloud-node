@@ -22,23 +22,34 @@
 * SOFTWARE.
 */
 
-import * as api from "../src/api";
-const clientId = process.env.CellsCloudTestClientId;
-const clientSecret = process.env.CellsCloudTestClientSecret;
-const ApiURL = process.env.CellsCloudTestApiBaseUrl;
+import { expect } from "chai";
+import "mocha";
 
-export function isDockerSDK() {  
-    return new Boolean(process.env.CellsCloudTestIsDockerTest);
-}
-/**
- * Initialize CellsApi
- */
-export function initializeCellsApi() {
-    const cellsApi = new api.CellsApi(clientId, clientSecret,"v3.0",ApiURL);
-    return cellsApi;
-}
+import * as model from "../src/model/model";
+import * as BaseTest from "./baseTest";
 
-export function initializeLiteCellsApi() {
-    const cellsApi = new api.LiteCellsApi(clientId, clientSecret,"v3.0",ApiURL);
-    return cellsApi;
-}
+const localPath = "TestData/";
+var fs = require('fs');
+var path = require('path');
+var assert = require('assert');
+describe('CellsUnlockApi', function() {
+  this.timeout(200000);
+  describe('PostUnlock', function() {
+    it('should call PostUnlock successfully', function() {
+      const cellsApi = BaseTest.initializeLiteCellsApi();
+      const needUnlock = "needUnlock.xlsx";
+      var dataneedUnlock =fs.createReadStream(localPath  + needUnlock);
+      const DataSourceXlsx = "datasource.xlsx";
+      var dataDataSourceXlsx =fs.createReadStream(localPath  + DataSourceXlsx);
+      var req = new model.PostUnlockRequest();
+      req.file = {AssemblyTneedUnlockestXlsx :dataneedUnlock};
+      req.password = "123456";
+  
+      return cellsApi.postUnlock(req)
+        .then((result) => {
+          expect(result.response.statusCode).to.equal(200);
+        });
+    });
+  });
+  
+});

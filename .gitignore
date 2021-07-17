@@ -5,3 +5,4 @@ dist
 .swagger-codegen
 .swagger-codegen-ignore
 package-lock.json
+reports
