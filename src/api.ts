@@ -24,7 +24,7 @@
 
 import http = require("http");
 import request = require("request");
-import { print } from "util";
+
 
 import { Configuration } from "./internal/configuration";
 import { ObjectSerializer } from "./internal/objectSerializer";
@@ -11563,7 +11563,7 @@ export class LiteCellsApi {
      * 
      * @param requestObj contains request parameters
      */
-    public async getMetadata(requestObj: model.GetMetadataRequest): Promise<{response: http.ClientResponse, body: model.Array<CellsDocumentProperty>}> {
+    public async getMetadata(requestObj: model.GetMetadataRequest): Promise<{response: http.ClientResponse, body: Array<model.CellsDocumentProperty>}> {
         if (requestObj === null || requestObj === undefined) {
             throw new Error('Required parameter "requestObj" was null or undefined when calling getMetadata.');
         }
@@ -11867,7 +11867,7 @@ export class LiteCellsApi {
      * 
      * @param requestObj contains request parameters
      */
-    public async postSearch(requestObj: model.PostSearchRequest): Promise<{response: http.ClientResponse, body: model.Buffer}> {
+    public async postSearch(requestObj: model.PostSearchRequest): Promise<{response: http.ClientResponse, body: Buffer}> {
         if (requestObj === null || requestObj === undefined) {
             throw new Error('Required parameter "requestObj" was null or undefined when calling postSearch.');
         }
