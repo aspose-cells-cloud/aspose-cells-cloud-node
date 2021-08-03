@@ -11867,7 +11867,7 @@ export class LiteCellsApi {
      * 
      * @param requestObj contains request parameters
      */
-    public async postSearch(requestObj: model.PostSearchRequest): Promise<{response: http.ClientResponse, body: Buffer}> {
+    public async postSearch(requestObj: model.PostSearchRequest): Promise<{response: http.ClientResponse, body: Array<model.TextItem>}> {
         if (requestObj === null || requestObj === undefined) {
             throw new Error('Required parameter "requestObj" was null or undefined when calling postSearch.');
         }
@@ -11889,8 +11889,6 @@ export class LiteCellsApi {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "text", requestObj.text);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", requestObj.password);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "sheetname", requestObj.sheetname);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "path", requestObj.path);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", requestObj.storageName);
         if (requestObj.file !== undefined) {
             for (var key in requestObj.file){
                 formParams[key] = requestObj.file[key];
@@ -11906,7 +11904,7 @@ export class LiteCellsApi {
 
         (requestOptions as any).formData = formParams;        
         const response = await invokeApiMethod(requestOptions, this.configuration);
-        const result =  ObjectSerializer.deserialize(response.body, "Buffer");
+        const result =  ObjectSerializer.deserialize(response.body, "Array<TextItem>");
         return Promise.resolve({body: result, response});
     }
 
@@ -11937,8 +11935,7 @@ export class LiteCellsApi {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", requestObj.password);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "from", requestObj.from);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "to", requestObj.to);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "path", requestObj.path);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", requestObj.storageName);
+        
         if (requestObj.file !== undefined) {
             for (var key in requestObj.file){
                 formParams[key] = requestObj.file[key];

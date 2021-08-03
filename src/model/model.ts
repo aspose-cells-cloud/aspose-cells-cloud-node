@@ -25645,16 +25645,7 @@ export class PostSearchRequest {
      * Gets or sets sheetname
      */
     public sheetname: string;
-
-    /**
-     * Gets or sets path
-     */
-    public path: string;
-
-    /**
-     * Gets or sets storageName
-     */
-    public storageName: string;
+    
     
     public constructor(init?: Partial<PostSearchRequest>) {        
         Object.assign(this, init);
@@ -25689,16 +25680,6 @@ export class PostSplitRequest {
      * Gets or sets to
      */
     public to: number;
-
-    /**
-     * Gets or sets path
-     */
-    public path: string;
-
-    /**
-     * Gets or sets storageName
-     */
-    public storageName: string;
     
     public constructor(init?: Partial<PostSplitRequest>) {        
         Object.assign(this, init);
