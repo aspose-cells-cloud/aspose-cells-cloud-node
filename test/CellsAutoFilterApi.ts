@@ -405,8 +405,6 @@ describe('CellsAutoFilterApi', function() {
           req.isTop = true;
           req.isPercent = true;
           req.itemCount = 1;
-          req.matchBlanks = null;
-          req.refresh = null;
           req.folder = "Temp";
           
           return cellsApi.cellsAutoFilterPutWorksheetFilterTop10(req)
@@ -436,8 +434,6 @@ describe('CellsAutoFilterApi', function() {
           req.fieldIndex = 0;
           req.iconSetType = "None";
           req.iconId = 0;
-          req.matchBlanks = null;
-          req.refresh = null;
           req.folder = "Temp";
           
           return cellsApi.cellsAutoFilterPutWorksheetIconFilter(req)

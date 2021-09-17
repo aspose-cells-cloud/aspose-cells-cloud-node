@@ -350,7 +350,6 @@ describe('CellsChartsApi', function() {
           req.lowerRightColumn = 10;
           req.area = "C7:D11";
           req.isVertical = true;
-          req.isAutoGetSerialName = null;
           req.folder = "Temp";
           
           return cellsApi.cellsChartsPutWorksheetAddChart(req)

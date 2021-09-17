@@ -34,7 +34,7 @@ var path = require('path');
 var assert = require('assert');
 describe('CellsExporttApi', function() {
   this.timeout(200000);
-  describe('PostExport', function() {
+  describe('PostExport_chart_xlsx', function() {
     it('should call PostExport successfully', function() {
       const cellsApi = BaseTest.initializeLiteCellsApi();
       const AssemblyTestXlsx = "assemblytest.xlsx";
@@ -42,7 +42,7 @@ describe('CellsExporttApi', function() {
       const DataSourceXlsx = "datasource.xlsx";
       var dataDataSourceXlsx =fs.createReadStream(localPath  + DataSourceXlsx);
       var req = new model.PostExportRequest();
-      req.file = {AssemblyTestXlsx :dataAssemblyTestXlsx ,DataSourceXlsx:dataDataSourceXlsx };
+      req.file = {AssemblyTestXlsx:dataAssemblyTestXlsx ,DataSourceXlsx:dataDataSourceXlsx };
       req.objectType = "chart";
       req.format = "xlsx";
       return cellsApi.postExport(req)
@@ -51,5 +51,293 @@ describe('CellsExporttApi', function() {
         });
     });
   });
-  
+  describe('PostExport_chart_pdf', function() {
+    it('should call PostExport successfully', function() {
+      const cellsApi = BaseTest.initializeLiteCellsApi();
+      const AssemblyTestXlsx = "assemblytest.xlsx";
+      var dataAssemblyTestXlsx =fs.createReadStream(localPath  + AssemblyTestXlsx);
+      const DataSourceXlsx = "datasource.xlsx";
+      var dataDataSourceXlsx =fs.createReadStream(localPath  + DataSourceXlsx);
+      var req = new model.PostExportRequest();
+      req.file = { AssemblyTestXlsx:dataAssemblyTestXlsx , DataSourceXlsx:dataDataSourceXlsx };
+      req.objectType = "chart";
+      req.format = "pdf";
+      return cellsApi.postExport(req)
+        .then((result) => {
+          expect(result.response.statusCode).to.equal(200);
+        });
+    });
+  });
+  describe('PostExport_chart_jpg', function() {
+    it('should call PostExport successfully', function() {
+      const cellsApi = BaseTest.initializeLiteCellsApi();
+      const AssemblyTestXlsx = "assemblytest.xlsx";
+      var dataAssemblyTestXlsx =fs.createReadStream(localPath  + AssemblyTestXlsx);
+      const DataSourceXlsx = "datasource.xlsx";
+      var dataDataSourceXlsx =fs.createReadStream(localPath  + DataSourceXlsx);
+      var req = new model.PostExportRequest();
+      req.file = {AssemblyTestXlsx:dataAssemblyTestXlsx ,DataSourceXlsx:dataDataSourceXlsx };
+      req.objectType = "chart";
+      req.format = "jpg";
+      return cellsApi.postExport(req)
+        .then((result) => {
+          expect(result.response.statusCode).to.equal(200);
+        });
+    });
+  });  
+  describe('PostExport_listobject_xlsx', function() {
+    it('should call PostExport successfully', function() {
+      const cellsApi = BaseTest.initializeLiteCellsApi();
+      const AssemblyTestXlsx = "assemblytest.xlsx";
+      var dataAssemblyTestXlsx =fs.createReadStream(localPath  + AssemblyTestXlsx);
+      const DataSourceXlsx = "datasource.xlsx";
+      var dataDataSourceXlsx =fs.createReadStream(localPath  + DataSourceXlsx);
+      var req = new model.PostExportRequest();
+      req.file = {AssemblyTestXlsx:dataAssemblyTestXlsx ,DataSourceXlsx:dataDataSourceXlsx };
+      req.objectType = "listobject";
+      req.format = "xlsx";
+      return cellsApi.postExport(req)
+        .then((result) => {
+          expect(result.response.statusCode).to.equal(200);
+        });
+    });
+  });
+  describe('PostExport_listobject_pdf', function() {
+    it('should call PostExport successfully', function() {
+      const cellsApi = BaseTest.initializeLiteCellsApi();
+      const AssemblyTestXlsx = "assemblytest.xlsx";
+      var dataAssemblyTestXlsx =fs.createReadStream(localPath  + AssemblyTestXlsx);
+      const DataSourceXlsx = "datasource.xlsx";
+      var dataDataSourceXlsx =fs.createReadStream(localPath  + DataSourceXlsx);
+      var req = new model.PostExportRequest();
+      req.file = { AssemblyTestXlsx:dataAssemblyTestXlsx , DataSourceXlsx:dataDataSourceXlsx };
+      req.objectType = "listobject";
+      req.format = "pdf";
+      return cellsApi.postExport(req)
+        .then((result) => {
+          expect(result.response.statusCode).to.equal(200);
+        });
+    });
+  });
+  describe('PostExport_listobject_jpg', function() {
+    it('should call PostExport successfully', function() {
+      const cellsApi = BaseTest.initializeLiteCellsApi();
+      const AssemblyTestXlsx = "assemblytest.xlsx";
+      var dataAssemblyTestXlsx =fs.createReadStream(localPath  + AssemblyTestXlsx);
+      const DataSourceXlsx = "datasource.xlsx";
+      var dataDataSourceXlsx =fs.createReadStream(localPath  + DataSourceXlsx);
+      var req = new model.PostExportRequest();
+      req.file = {AssemblyTestXlsx:dataAssemblyTestXlsx ,DataSourceXlsx:dataDataSourceXlsx };
+      req.objectType = "listobject";
+      req.format = "jpg";
+      return cellsApi.postExport(req)
+        .then((result) => {
+          expect(result.response.statusCode).to.equal(200);
+        });
+    });
+  });  
+  describe('PostExport_oleobject_xlsx', function() {
+    it('should call PostExport successfully', function() {
+      const cellsApi = BaseTest.initializeLiteCellsApi();
+      const AssemblyTestXlsx = "assemblytest.xlsx";
+      var dataAssemblyTestXlsx =fs.createReadStream(localPath  + AssemblyTestXlsx);
+      const DataSourceXlsx = "datasource.xlsx";
+      var dataDataSourceXlsx =fs.createReadStream(localPath  + DataSourceXlsx);
+      var req = new model.PostExportRequest();
+      req.file = {AssemblyTestXlsx:dataAssemblyTestXlsx ,DataSourceXlsx:dataDataSourceXlsx };
+      req.objectType = "oleobject";
+      req.format = "xlsx";
+      return cellsApi.postExport(req)
+        .then((result) => {
+          expect(result.response.statusCode).to.equal(200);
+        });
+    });
+  });
+  describe('PostExport_picture_png', function() {
+    it('should call PostExport successfully', function() {
+      const cellsApi = BaseTest.initializeLiteCellsApi();
+      const AssemblyTestXlsx = "assemblytest.xlsx";
+      var dataAssemblyTestXlsx =fs.createReadStream(localPath  + AssemblyTestXlsx);
+      const DataSourceXlsx = "datasource.xlsx";
+      var dataDataSourceXlsx =fs.createReadStream(localPath  + DataSourceXlsx);
+      var req = new model.PostExportRequest();
+      req.file = { AssemblyTestXlsx:dataAssemblyTestXlsx , DataSourceXlsx:dataDataSourceXlsx };
+      req.objectType = "picture";
+      req.format = "png";
+      return cellsApi.postExport(req)
+        .then((result) => {
+          expect(result.response.statusCode).to.equal(200);
+        });
+    });
+  });
+  describe('PostExport_shape_jpg', function() {
+    it('should call PostExport successfully', function() {
+      const cellsApi = BaseTest.initializeLiteCellsApi();
+      const AssemblyTestXlsx = "assemblytest.xlsx";
+      var dataAssemblyTestXlsx =fs.createReadStream(localPath  + AssemblyTestXlsx);
+      const DataSourceXlsx = "datasource.xlsx";
+      var dataDataSourceXlsx =fs.createReadStream(localPath  + DataSourceXlsx);
+      var req = new model.PostExportRequest();
+      req.file = {AssemblyTestXlsx:dataAssemblyTestXlsx ,DataSourceXlsx:dataDataSourceXlsx };
+      req.objectType = "shape";
+      req.format = "jpg";
+      return cellsApi.postExport(req)
+        .then((result) => {
+          expect(result.response.statusCode).to.equal(200);
+        });
+    });
+  });  
+  describe('PostExport_worksheet_xlsx', function() {
+    it('should call PostExport successfully', function() {
+      const cellsApi = BaseTest.initializeLiteCellsApi();
+      const AssemblyTestXlsx = "assemblytest.xlsx";
+      var dataAssemblyTestXlsx =fs.createReadStream(localPath  + AssemblyTestXlsx);
+      const DataSourceXlsx = "datasource.xlsx";
+      var dataDataSourceXlsx =fs.createReadStream(localPath  + DataSourceXlsx);
+      var req = new model.PostExportRequest();
+      req.file = {AssemblyTestXlsx:dataAssemblyTestXlsx ,DataSourceXlsx:dataDataSourceXlsx };
+      req.objectType = "worksheet";
+      req.format = "xlsx";
+      return cellsApi.postExport(req)
+        .then((result) => {
+          expect(result.response.statusCode).to.equal(200);
+        });
+    });
+  });
+  describe('PostExport_worksheet_pdf', function() {
+    it('should call PostExport successfully', function() {
+      const cellsApi = BaseTest.initializeLiteCellsApi();
+      const AssemblyTestXlsx = "assemblytest.xlsx";
+      var dataAssemblyTestXlsx =fs.createReadStream(localPath  + AssemblyTestXlsx);
+      const DataSourceXlsx = "datasource.xlsx";
+      var dataDataSourceXlsx =fs.createReadStream(localPath  + DataSourceXlsx);
+      var req = new model.PostExportRequest();
+      req.file = { AssemblyTestXlsx:dataAssemblyTestXlsx , DataSourceXlsx:dataDataSourceXlsx };
+      req.objectType = "worksheet";
+      req.format = "pdf";
+      return cellsApi.postExport(req)
+        .then((result) => {
+          expect(result.response.statusCode).to.equal(200);
+        });
+    });
+  });
+  describe('PostExport_worksheet_jpg', function() {
+    it('should call PostExport successfully', function() {
+      const cellsApi = BaseTest.initializeLiteCellsApi();
+      const AssemblyTestXlsx = "assemblytest.xlsx";
+      var dataAssemblyTestXlsx =fs.createReadStream(localPath  + AssemblyTestXlsx);
+      const DataSourceXlsx = "datasource.xlsx";
+      var dataDataSourceXlsx =fs.createReadStream(localPath  + DataSourceXlsx);
+      var req = new model.PostExportRequest();
+      req.file = {AssemblyTestXlsx:dataAssemblyTestXlsx ,DataSourceXlsx:dataDataSourceXlsx };
+      req.objectType = "worksheet";
+      req.format = "jpg";
+      return cellsApi.postExport(req)
+        .then((result) => {
+          expect(result.response.statusCode).to.equal(200);
+        });
+    });
+  });  
+  describe('PostExport_workbook_xlsx', function() {
+    it('should call PostExport successfully', function() {
+      const cellsApi = BaseTest.initializeLiteCellsApi();
+      const AssemblyTestXlsx = "assemblytest.xlsx";
+      var dataAssemblyTestXlsx =fs.createReadStream(localPath  + AssemblyTestXlsx);
+      const DataSourceXlsx = "datasource.xlsx";
+      var dataDataSourceXlsx =fs.createReadStream(localPath  + DataSourceXlsx);
+      var req = new model.PostExportRequest();
+      req.file = {AssemblyTestXlsx:dataAssemblyTestXlsx ,DataSourceXlsx:dataDataSourceXlsx };
+      req.objectType = "workbook";
+      req.format = "xlsx";
+      return cellsApi.postExport(req)
+        .then((result) => {
+          expect(result.response.statusCode).to.equal(200);
+        });
+    });
+  });
+  describe('PostExport_workbook_pdf', function() {
+    it('should call PostExport successfully', function() {
+      const cellsApi = BaseTest.initializeLiteCellsApi();
+      const AssemblyTestXlsx = "assemblytest.xlsx";
+      var dataAssemblyTestXlsx =fs.createReadStream(localPath  + AssemblyTestXlsx);
+      const DataSourceXlsx = "datasource.xlsx";
+      var dataDataSourceXlsx =fs.createReadStream(localPath  + DataSourceXlsx);
+      var req = new model.PostExportRequest();
+      req.file = { AssemblyTestXlsx:dataAssemblyTestXlsx , DataSourceXlsx:dataDataSourceXlsx };
+      req.objectType = "workbook";
+      req.format = "pdf";
+      return cellsApi.postExport(req)
+        .then((result) => {
+          expect(result.response.statusCode).to.equal(200);
+        });
+    });
+  });
+  describe('PostExport_workbook_jpg', function() {
+    it('should call PostExport successfully', function() {
+      const cellsApi = BaseTest.initializeLiteCellsApi();
+      const AssemblyTestXlsx = "assemblytest.xlsx";
+      var dataAssemblyTestXlsx =fs.createReadStream(localPath  + AssemblyTestXlsx);
+      const DataSourceXlsx = "datasource.xlsx";
+      var dataDataSourceXlsx =fs.createReadStream(localPath  + DataSourceXlsx);
+      var req = new model.PostExportRequest();
+      req.file = { AssemblyTestXlsx : dataAssemblyTestXlsx , DataSourceXlsx:dataDataSourceXlsx };
+      req.objectType = "workbook";
+      req.format = "jpg";
+      return cellsApi.postExport(req)
+        .then((result) => {
+          expect(result.response.statusCode).to.equal(200);
+        });
+    });
+  });  
+  describe('PostExport_chart_xlsx', function() {
+    it('should call PostExport successfully', function() {
+      const cellsApi = BaseTest.initializeLiteCellsApi();
+      const AssemblyTestXlsx = "assemblytest.xlsx";
+      var dataAssemblyTestXlsx =fs.createReadStream(localPath  + AssemblyTestXlsx);
+      const DataSourceXlsx = "datasource.xlsx";
+      var dataDataSourceXlsx =fs.createReadStream(localPath  + DataSourceXlsx);
+      var req = new model.PostExportRequest();
+      req.file = {AssemblyTestXlsx:dataAssemblyTestXlsx ,DataSourceXlsx:dataDataSourceXlsx };
+      req.objectType = "chart";
+      req.format = "xlsx";
+      return cellsApi.postExport(req)
+        .then((result) => {
+          expect(result.response.statusCode).to.equal(200);
+        });
+    });
+  });
+  describe('PostExport_chart_pdf', function() {
+    it('should call PostExport successfully', function() {
+      const cellsApi = BaseTest.initializeLiteCellsApi();
+      const AssemblyTestXlsx = "assemblytest.xlsx";
+      var dataAssemblyTestXlsx =fs.createReadStream(localPath  + AssemblyTestXlsx);
+      const DataSourceXlsx = "datasource.xlsx";
+      var dataDataSourceXlsx =fs.createReadStream(localPath  + DataSourceXlsx);
+      var req = new model.PostExportRequest();
+      req.file = { AssemblyTestXlsx:dataAssemblyTestXlsx , DataSourceXlsx:dataDataSourceXlsx };
+      req.objectType = "chart";
+      req.format = "pdf";
+      return cellsApi.postExport(req)
+        .then((result) => {
+          expect(result.response.statusCode).to.equal(200);
+        });
+    });
+  });
+  describe('PostExport_chart_jpg', function() {
+    it('should call PostExport successfully', function() {
+      const cellsApi = BaseTest.initializeLiteCellsApi();
+      const AssemblyTestXlsx = "assemblytest.xlsx";
+      var dataAssemblyTestXlsx =fs.createReadStream(localPath  + AssemblyTestXlsx);
+      const DataSourceXlsx = "datasource.xlsx";
+      var dataDataSourceXlsx =fs.createReadStream(localPath  + DataSourceXlsx);
+      var req = new model.PostExportRequest();
+      req.file = {AssemblyTestXlsx:dataAssemblyTestXlsx ,DataSourceXlsx:dataDataSourceXlsx };
+      req.objectType = "chart";
+      req.format = "jpg";
+      return cellsApi.postExport(req)
+        .then((result) => {
+          expect(result.response.statusCode).to.equal(200);
+        });
+    });
+  });  
 });

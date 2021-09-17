@@ -580,7 +580,6 @@ describe('CellsPivotTablesApi', function() {
           req.pivotFieldType = "Row";
           req.request = new model.PivotTableFieldRequest();
           req.request.data = [1];
-          req.needReCalculate = null;
           req.folder = "Temp";
           
           return cellsApi.cellsPivotTablesPutPivotTableField(req)

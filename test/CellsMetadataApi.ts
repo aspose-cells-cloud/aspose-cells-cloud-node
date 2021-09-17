@@ -42,13 +42,13 @@ describe('CellsMetadataApi', function() {
       var req = new model.DeleteMetadataRequest();
       req.file = {filename :data };
 
-  
       return cellsApi.deleteMetadata(req)
         .then((result) => {
           expect(result.response.statusCode).to.equal(200);
         });
     });
   });
+
   describe('getMetadata', function() {
     it('should call getMetadata successfully', function() {
       const cellsApi = BaseTest.initializeLiteCellsApi();
@@ -64,6 +64,7 @@ describe('CellsMetadataApi', function() {
         });
     });
   });
+  
   describe('updateMetadata', function() {
     it('should call updatreetadata successfully', function() {
       const cellsApi = BaseTest.initializeLiteCellsApi();

@@ -105,7 +105,6 @@ describe('CellsListObjectsApi', function() {
           
           return cellsApi.cellsListObjectsGetWorksheetListObject(req)
             .then((result) => {
-              expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
             });
         });

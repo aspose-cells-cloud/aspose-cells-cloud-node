@@ -2896,7 +2896,7 @@ export class CellsApi {
      * Get worksheet list object info by index.
      * @param requestObj contains request parameters
      */
-    public async cellsListObjectsGetWorksheetListObject(requestObj: model.CellsListObjects_GetWorksheetListObjectRequest): Promise<{response: http.ClientResponse, body: model.ListObjectResponse}> {
+     public async cellsListObjectsGetWorksheetListObject(requestObj: model.CellsListObjects_GetWorksheetListObjectRequest): Promise<{response: http.ClientResponse, body: Buffer}> {
         if (requestObj === null || requestObj === undefined) {
             throw new Error('Required parameter "requestObj" was null or undefined when calling cellsListObjectsGetWorksheetListObject.');
         }
@@ -2922,6 +2922,7 @@ export class CellsApi {
             throw new Error('Required parameter "requestObj.listobjectindex" was null or undefined when calling cellsListObjectsGetWorksheetListObject.');
         }
         
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "format", requestObj.format);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", requestObj.storageName);
         const requestOptions: request.Options = {
@@ -2932,9 +2933,10 @@ export class CellsApi {
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
-        const result =  ObjectSerializer.deserialize(response.body, "ListObjectResponse");
+        const result =  ObjectSerializer.deserialize(response.body, "Buffer");
         return Promise.resolve({body: result, response});
     }
+
 
     /**
      * Get worksheet listobjects info.
@@ -11720,6 +11722,53 @@ export class LiteCellsApi {
             }
         }
 
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        (requestOptions as any).formData = formParams;        
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "FilesResult");
+        return Promise.resolve({body: result, response});
+    }
+
+    /**
+     * 
+     * @param requestObj contains request parameters
+     */
+    public async postImport(requestObj: model.PostImportRequest): Promise<{response: http.ClientResponse, body: model.FilesResult}> {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling postImport.');
+        }
+
+        let localVarPath = this.configuration.getApiBaseUrl() + "/cells/import";
+        const queryParameters: any = {};
+        const formParams: any = {};
+
+        // verify required parameter 'requestObj.file' is not null or undefined
+        if (requestObj.file === null || requestObj.file === undefined) {
+            throw new Error('Required parameter "requestObj.file" was null or undefined when calling postImport.');
+        }
+
+        // verify required parameter 'requestObj.importOption' is not null or undefined
+        if (requestObj.importOption === null || requestObj.importOption === undefined) {
+            throw new Error('Required parameter "requestObj.objectType" was null or undefined when calling postImport.');
+        }
+
+
+        if (requestObj.file !== undefined) {
+            for (var key in requestObj.file){
+                formParams[key] = requestObj.file[key];
+            }
+            if((requestObj.importOption !== null))
+            {
+                formParams["documentProperties"]  = JSON.stringify(requestObj.importOption);
+            }
+        }
+       
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,

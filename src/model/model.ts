@@ -83,7 +83,7 @@ export class AccessTokenResponse {
     public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
             name: "expires",
-            baseName: ".expires",
+            baseName: "expires",
             type: "string",
         },        
         {
@@ -93,7 +93,7 @@ export class AccessTokenResponse {
         },        
         {
             name: "issued",
-            baseName: ".issued",
+            baseName: "issued",
             type: "string",
         },        
         {
@@ -942,7 +942,7 @@ export class ConditionalFormattingValue {
         {
             name: "value",
             baseName: "Value",
-            type: "any",
+            type: "string",
         }    ];
 
     /**
@@ -965,7 +965,7 @@ export class ConditionalFormattingValue {
     /**
      * Get or set the value of this conditional formatting value object.  It should     be used in conjunction with Type.
      */
-    public value: any;
+    public value: string;
     
     public constructor(init?: Partial<ConditionalFormattingValue>) {
         
@@ -1136,7 +1136,7 @@ export class CustomFilter {
         {
             name: "criteria",
             baseName: "Criteria",
-            type: "any",
+            type: "string",
         }    ];
 
     /**
@@ -1148,7 +1148,7 @@ export class CustomFilter {
 
     public filterOperatorType: string;
     
-    public criteria: any;
+    public criteria: string;
     
     public constructor(init?: Partial<CustomFilter>) {
         
@@ -1485,12 +1485,12 @@ export class DynamicFilter {
         {
             name: "maxValue",
             baseName: "MaxValue",
-            type: "any",
+            type: "number",
         },        
         {
             name: "value",
             baseName: "Value",
-            type: "any",
+            type: "number",
         }    ];
 
     /**
@@ -1502,9 +1502,9 @@ export class DynamicFilter {
 
     public dynamicFilterType: string;
     
-    public maxValue: any;
+    public maxValue: number;
     
-    public value: any;
+    public value: number;
     
     public constructor(init?: Partial<DynamicFilter>) {
         
@@ -4069,7 +4069,7 @@ export class RangeSetOutlineBorderRequest {
     public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
             name: "borderColor",
-            baseName: "borderColor",
+            baseName: "BorderColor",
             type: "Color",
         },        
         {
@@ -4079,12 +4079,12 @@ export class RangeSetOutlineBorderRequest {
         },        
         {
             name: "borderStyle",
-            baseName: "borderStyle",
+            baseName: "BorderStyle",
             type: "string",
         },        
         {
             name: "borderEdge",
-            baseName: "borderEdge",
+            baseName: "BorderEdge",
             type: "string",
         }    ];
 
@@ -9301,6 +9301,86 @@ export class ImportIntArrayOption extends ImportOption {
     public firstColumn: number;
     
     public constructor(init?: Partial<ImportIntArrayOption>) {
+        super(init);
+        Object.assign(this, init);
+    }        
+}
+
+export class ImportPictureOption extends ImportOption {
+
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "upperLeftRow",
+            baseName: "UpperLeftRow",
+            type: "number",
+        },        
+        {
+            name: "upperLeftColumn",
+            baseName: "UpperLeftColumn",
+            type: "number",
+        },        
+        {
+            name: "lowerRightRow",
+            baseName: "LowerRightRow",
+            type: "number",
+        },        
+        {
+            name: "lowerRightColumn",
+            baseName: "LowerRightColumn",
+            type: "number",
+        },        
+        {
+            name: "filename",
+            baseName: "Filename",
+            type: "string",
+        },        
+        {
+            name: "data",
+            baseName: "Data",
+            type: "string",
+        }    ];
+
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return super.getAttributeTypeMap().concat(ImportPictureOption.attributeTypeMap);
+    }
+
+    /**
+     * Upper Left Row.
+     */
+    public upperLeftRow: number;
+    
+    /**
+     * Upper Left Column.
+     */
+    public upperLeftColumn: number;
+    
+    /**
+     * Lower Right Row.
+     */
+    public lowerRightRow: number;
+    
+    /**
+     * Lower Right Column.
+     */
+    public lowerRightColumn: number;
+    
+    /**
+     * Filename.
+     */
+    public filename: string;
+    
+    /**
+     * data : base64  string.
+     */
+    public data: string;
+    
+    public constructor(init?: Partial<ImportPictureOption>) {
         super(init);
         Object.assign(this, init);
     }        
@@ -15585,6 +15665,7 @@ const typeMap = {
             ImportDataTaskParameter,
             ImportDoubleArrayOption,
             ImportIntArrayOption,
+            ImportPictureOption,
             ImportStringArrayOption,
             LegendResponse,
             LineFormat,
@@ -18144,6 +18225,11 @@ export class CellsListObjects_GetWorksheetListObjectRequest {
      * list object index.
      */
     public listobjectindex: number;
+
+    /**
+     * export format.
+     */
+    public format: string;
 
     /**
      * Document's folder.
@@ -25481,7 +25567,7 @@ export class GetMetadataRequest {
     /**
      * File to upload
      */
-    public file: {}
+    public file: {};
 
     /**
      * Gets or sets type
@@ -25500,7 +25586,7 @@ export class PostAssembleRequest {
     /**
      * File to upload
      */
-    public file: {};
+    public file:  {};
 
     /**
      * Gets or sets datasource
@@ -25524,7 +25610,7 @@ export class PostClearObjectsRequest {
     /**
      * File to upload
      */
-    public file:{};
+    public file: {};
 
     /**
      * Gets or sets objecttype
@@ -25561,13 +25647,34 @@ export class PostExportRequest {
 }
 
 /**
+ * Request model for PostImport operation.
+ */
+export class PostImportRequest {
+    /**
+     * File to upload
+     */
+    public file: {};
+
+    /**
+     * Gets or sets ImportOption
+     */
+     public importOption: ImportOption;
+
+
+    
+    public constructor(init?: Partial<PostImportRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
  * Request model for PostMerge operation.
  */
 export class PostMergeRequest {
     /**
      * File to upload
      */
-    public file: {};
+    public file:  {};
 
     /**
      * Gets or sets format
@@ -25591,12 +25698,12 @@ export class PostMetadataRequest {
     /**
      * File to upload
      */
-    public file: {};
+    public file:  {};
 
     /**
-     * Cells document property.
+     * Gets or sets documentProperties
      */
-    public documentProperties:  Array<CellsDocumentProperty>;
+    public documentProperties: Array<CellsDocumentProperty>;
     
     public constructor(init?: Partial<PostMetadataRequest>) {        
         Object.assign(this, init);
@@ -25610,7 +25717,7 @@ export class PostProtectRequest {
     /**
      * File to upload
      */
-    public file:{} ;//Buffer
+    public file:  {};
 
     /**
      * Gets or sets password
@@ -25629,7 +25736,7 @@ export class PostSearchRequest {
     /**
      * File to upload
      */
-    public file: {};
+    public file:  {};
 
     /**
      * Gets or sets text
@@ -25646,7 +25753,6 @@ export class PostSearchRequest {
      */
     public sheetname: string;
     
-    
     public constructor(init?: Partial<PostSearchRequest>) {        
         Object.assign(this, init);
     } 
@@ -25659,7 +25765,7 @@ export class PostSplitRequest {
     /**
      * File to upload
      */
-    public file: {};
+    public file:  {};
 
     /**
      * Gets or sets format
@@ -25693,7 +25799,7 @@ export class PostUnlockRequest {
     /**
      * File to upload
      */
-    public file: {};
+    public file:  {};
 
     /**
      * Gets or sets password
@@ -25712,7 +25818,7 @@ export class PostWatermarkRequest {
     /**
      * File to upload
      */
-    public file: {};
+    public file:  {};
 
     /**
      * Gets or sets text
