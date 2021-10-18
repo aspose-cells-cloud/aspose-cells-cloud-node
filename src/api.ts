@@ -25,7 +25,6 @@
 import http = require("http");
 import request = require("request");
 
-
 import { Configuration } from "./internal/configuration";
 import { ObjectSerializer } from "./internal/objectSerializer";
 import { addQueryParameterToUrl, invokeApiMethod } from "./internal/requestHelper";
@@ -789,6 +788,7 @@ export class CellsApi {
             qs: queryParameters,
             uri: localVarPath,
             json: true,
+            encoding: null,
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
@@ -1096,7 +1096,7 @@ export class CellsApi {
      * Delete worksheet chart by index.
      * @param requestObj contains request parameters
      */
-    public async cellsChartsDeleteWorksheetDeleteChart(requestObj: model.CellsCharts_DeleteWorksheetDeleteChartRequest): Promise<{response: http.ClientResponse, body: model.ChartsResponse}> {
+    public async cellsChartsDeleteWorksheetDeleteChart(requestObj: model.CellsCharts_DeleteWorksheetDeleteChartRequest): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}> {
         if (requestObj === null || requestObj === undefined) {
             throw new Error('Required parameter "requestObj" was null or undefined when calling cellsChartsDeleteWorksheetDeleteChart.');
         }
@@ -1132,7 +1132,7 @@ export class CellsApi {
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
-        const result =  ObjectSerializer.deserialize(response.body, "ChartsResponse");
+        const result =  ObjectSerializer.deserialize(response.body, "CellsCloudResponse");
         return Promise.resolve({body: result, response});
     }
 
@@ -1174,6 +1174,7 @@ export class CellsApi {
             qs: queryParameters,
             uri: localVarPath,
             json: true,
+            encoding: null,
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
@@ -1356,7 +1357,7 @@ export class CellsApi {
      * Update chart legend
      * @param requestObj contains request parameters
      */
-    public async cellsChartsPostWorksheetChartLegend(requestObj: model.CellsCharts_PostWorksheetChartLegendRequest): Promise<{response: http.ClientResponse, body: model.LegendResponse}> {
+    public async cellsChartsPostWorksheetChartLegend(requestObj: model.CellsCharts_PostWorksheetChartLegendRequest): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}> {
         if (requestObj === null || requestObj === undefined) {
             throw new Error('Required parameter "requestObj" was null or undefined when calling cellsChartsPostWorksheetChartLegend.');
         }
@@ -1393,7 +1394,7 @@ export class CellsApi {
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
-        const result =  ObjectSerializer.deserialize(response.body, "LegendResponse");
+        const result =  ObjectSerializer.deserialize(response.body, "CellsCloudResponse");
         return Promise.resolve({body: result, response});
     }
 
@@ -1401,7 +1402,7 @@ export class CellsApi {
      * Update chart title
      * @param requestObj contains request parameters
      */
-    public async cellsChartsPostWorksheetChartTitle(requestObj: model.CellsCharts_PostWorksheetChartTitleRequest): Promise<{response: http.ClientResponse, body: model.TitleResponse}> {
+    public async cellsChartsPostWorksheetChartTitle(requestObj: model.CellsCharts_PostWorksheetChartTitleRequest): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}> {
         if (requestObj === null || requestObj === undefined) {
             throw new Error('Required parameter "requestObj" was null or undefined when calling cellsChartsPostWorksheetChartTitle.');
         }
@@ -1438,7 +1439,7 @@ export class CellsApi {
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
-        const result =  ObjectSerializer.deserialize(response.body, "TitleResponse");
+        const result =  ObjectSerializer.deserialize(response.body, "CellsCloudResponse");
         return Promise.resolve({body: result, response});
     }
 
@@ -1446,7 +1447,7 @@ export class CellsApi {
      * Add new chart to worksheet.
      * @param requestObj contains request parameters
      */
-    public async cellsChartsPutWorksheetAddChart(requestObj: model.CellsCharts_PutWorksheetAddChartRequest): Promise<{response: http.ClientResponse, body: model.ChartsResponse}> {
+    public async cellsChartsPutWorksheetAddChart(requestObj: model.CellsCharts_PutWorksheetAddChartRequest): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}> {
         if (requestObj === null || requestObj === undefined) {
             throw new Error('Required parameter "requestObj" was null or undefined when calling cellsChartsPutWorksheetAddChart.');
         }
@@ -1495,7 +1496,7 @@ export class CellsApi {
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
-        const result =  ObjectSerializer.deserialize(response.body, "ChartsResponse");
+        const result =  ObjectSerializer.deserialize(response.body, "CellsCloudResponse");
         return Promise.resolve({body: result, response});
     }
 
@@ -1547,7 +1548,7 @@ export class CellsApi {
      * Add chart title / Set chart title visible
      * @param requestObj contains request parameters
      */
-    public async cellsChartsPutWorksheetChartTitle(requestObj: model.CellsCharts_PutWorksheetChartTitleRequest): Promise<{response: http.ClientResponse, body: model.TitleResponse}> {
+    public async cellsChartsPutWorksheetChartTitle(requestObj: model.CellsCharts_PutWorksheetChartTitleRequest): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}> {
         if (requestObj === null || requestObj === undefined) {
             throw new Error('Required parameter "requestObj" was null or undefined when calling cellsChartsPutWorksheetChartTitle.');
         }
@@ -1584,7 +1585,7 @@ export class CellsApi {
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
-        const result =  ObjectSerializer.deserialize(response.body, "TitleResponse");
+        const result =  ObjectSerializer.deserialize(response.body, "CellsCloudResponse");
         return Promise.resolve({body: result, response});
     }
 
@@ -2234,6 +2235,7 @@ export class CellsApi {
             qs: queryParameters,
             uri: localVarPath,
             json: true,
+            encoding: null,
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
@@ -2278,6 +2280,7 @@ export class CellsApi {
             qs: queryParameters,
             uri: localVarPath,
             json: true,
+            // encoding: null,
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
@@ -2701,7 +2704,7 @@ export class CellsApi {
      * Update worksheet hyperlink by index.
      * @param requestObj contains request parameters
      */
-    public async cellsHypelinksPostWorksheetHyperlink(requestObj: model.CellsHypelinks_PostWorksheetHyperlinkRequest): Promise<{response: http.ClientResponse, body: model.HyperlinkResponse}> {
+    public async cellsHypelinksPostWorksheetHyperlink(requestObj: model.CellsHypelinks_PostWorksheetHyperlinkRequest): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}> {
         if (requestObj === null || requestObj === undefined) {
             throw new Error('Required parameter "requestObj" was null or undefined when calling cellsHypelinksPostWorksheetHyperlink.');
         }
@@ -2738,7 +2741,7 @@ export class CellsApi {
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
-        const result =  ObjectSerializer.deserialize(response.body, "HyperlinkResponse");
+        const result =  ObjectSerializer.deserialize(response.body, "CellsCloudResponse");
         return Promise.resolve({body: result, response});
     }
 
@@ -2746,7 +2749,7 @@ export class CellsApi {
      * Add worksheet hyperlink.
      * @param requestObj contains request parameters
      */
-    public async cellsHypelinksPutWorksheetHyperlink(requestObj: model.CellsHypelinks_PutWorksheetHyperlinkRequest): Promise<{response: http.ClientResponse, body: model.HyperlinkResponse}> {
+    public async cellsHypelinksPutWorksheetHyperlink(requestObj: model.CellsHypelinks_PutWorksheetHyperlinkRequest): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}> {
         if (requestObj === null || requestObj === undefined) {
             throw new Error('Required parameter "requestObj" was null or undefined when calling cellsHypelinksPutWorksheetHyperlink.');
         }
@@ -2806,7 +2809,7 @@ export class CellsApi {
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
-        const result =  ObjectSerializer.deserialize(response.body, "HyperlinkResponse");
+        const result =  ObjectSerializer.deserialize(response.body, "CellsCloudResponse");
         return Promise.resolve({body: result, response});
     }
 
@@ -2896,7 +2899,7 @@ export class CellsApi {
      * Get worksheet list object info by index.
      * @param requestObj contains request parameters
      */
-     public async cellsListObjectsGetWorksheetListObject(requestObj: model.CellsListObjects_GetWorksheetListObjectRequest): Promise<{response: http.ClientResponse, body: Buffer}> {
+    public async cellsListObjectsGetWorksheetListObject(requestObj: model.CellsListObjects_GetWorksheetListObjectRequest): Promise<{response: http.ClientResponse, body: Buffer}> {
         if (requestObj === null || requestObj === undefined) {
             throw new Error('Required parameter "requestObj" was null or undefined when calling cellsListObjectsGetWorksheetListObject.');
         }
@@ -2930,13 +2933,13 @@ export class CellsApi {
             qs: queryParameters,
             uri: localVarPath,
             json: true,
+            encoding: null,
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
         const result =  ObjectSerializer.deserialize(response.body, "Buffer");
         return Promise.resolve({body: result, response});
     }
-
 
     /**
      * Get worksheet listobjects info.
@@ -3165,7 +3168,7 @@ export class CellsApi {
      * Add a list object into worksheet.
      * @param requestObj contains request parameters
      */
-    public async cellsListObjectsPutWorksheetListObject(requestObj: model.CellsListObjects_PutWorksheetListObjectRequest): Promise<{response: http.ClientResponse, body: model.ListObjectResponse}> {
+    public async cellsListObjectsPutWorksheetListObject(requestObj: model.CellsListObjects_PutWorksheetListObjectRequest): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}> {
         if (requestObj === null || requestObj === undefined) {
             throw new Error('Required parameter "requestObj" was null or undefined when calling cellsListObjectsPutWorksheetListObject.');
         }
@@ -3221,7 +3224,7 @@ export class CellsApi {
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
-        const result =  ObjectSerializer.deserialize(response.body, "ListObjectResponse");
+        const result =  ObjectSerializer.deserialize(response.body, "CellsCloudResponse");
         return Promise.resolve({body: result, response});
     }
 
@@ -3345,6 +3348,7 @@ export class CellsApi {
             qs: queryParameters,
             uri: localVarPath,
             json: true,
+            encoding: null,
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
@@ -3439,7 +3443,7 @@ export class CellsApi {
      * Add OLE object
      * @param requestObj contains request parameters
      */
-    public async cellsOleObjectsPutWorksheetOleObject(requestObj: model.CellsOleObjects_PutWorksheetOleObjectRequest): Promise<{response: http.ClientResponse, body: model.OleObjectResponse}> {
+    public async cellsOleObjectsPutWorksheetOleObject(requestObj: model.CellsOleObjects_PutWorksheetOleObjectRequest): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}> {
         if (requestObj === null || requestObj === undefined) {
             throw new Error('Required parameter "requestObj" was null or undefined when calling cellsOleObjectsPutWorksheetOleObject.');
         }
@@ -3476,7 +3480,7 @@ export class CellsApi {
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
-        const result =  ObjectSerializer.deserialize(response.body, "OleObjectResponse");
+        const result =  ObjectSerializer.deserialize(response.body, "CellsCloudResponse");
         return Promise.resolve({body: result, response});
     }
 
@@ -4319,6 +4323,7 @@ export class CellsApi {
             qs: queryParameters,
             uri: localVarPath,
             json: true,
+            encoding: null,
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
@@ -4368,7 +4373,7 @@ export class CellsApi {
      * Update worksheet picture by index.
      * @param requestObj contains request parameters
      */
-    public async cellsPicturesPostWorksheetPicture(requestObj: model.CellsPictures_PostWorksheetPictureRequest): Promise<{response: http.ClientResponse, body: model.PictureResponse}> {
+    public async cellsPicturesPostWorksheetPicture(requestObj: model.CellsPictures_PostWorksheetPictureRequest): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}> {
         if (requestObj === null || requestObj === undefined) {
             throw new Error('Required parameter "requestObj" was null or undefined when calling cellsPicturesPostWorksheetPicture.');
         }
@@ -4405,7 +4410,7 @@ export class CellsApi {
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
-        const result =  ObjectSerializer.deserialize(response.body, "PictureResponse");
+        const result =  ObjectSerializer.deserialize(response.body, "CellsCloudResponse");
         return Promise.resolve({body: result, response});
     }
 
@@ -4413,7 +4418,7 @@ export class CellsApi {
      * Add a new worksheet picture.
      * @param requestObj contains request parameters
      */
-    public async cellsPicturesPutWorksheetAddPicture(requestObj: model.CellsPictures_PutWorksheetAddPictureRequest): Promise<{response: http.ClientResponse, body: model.PicturesResponse}> {
+    public async cellsPicturesPutWorksheetAddPicture(requestObj: model.CellsPictures_PutWorksheetAddPictureRequest): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}> {
         if (requestObj === null || requestObj === undefined) {
             throw new Error('Required parameter "requestObj" was null or undefined when calling cellsPicturesPutWorksheetAddPicture.');
         }
@@ -4449,7 +4454,7 @@ export class CellsApi {
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
-        const result =  ObjectSerializer.deserialize(response.body, "PicturesResponse");
+        const result =  ObjectSerializer.deserialize(response.body, "CellsCloudResponse");
         return Promise.resolve({body: result, response});
     }
 
@@ -5414,7 +5419,7 @@ export class CellsApi {
      * Add a pivot table into worksheet.
      * @param requestObj contains request parameters
      */
-    public async cellsPivotTablesPutWorksheetPivotTable(requestObj: model.CellsPivotTables_PutWorksheetPivotTableRequest): Promise<{response: http.ClientResponse, body: model.PivotTableResponse}> {
+    public async cellsPivotTablesPutWorksheetPivotTable(requestObj: model.CellsPivotTables_PutWorksheetPivotTableRequest): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}> {
         if (requestObj === null || requestObj === undefined) {
             throw new Error('Required parameter "requestObj" was null or undefined when calling cellsPivotTablesPutWorksheetPivotTable.');
         }
@@ -5449,7 +5454,7 @@ export class CellsApi {
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
-        const result =  ObjectSerializer.deserialize(response.body, "PivotTableResponse");
+        const result =  ObjectSerializer.deserialize(response.body, "CellsCloudResponse");
         return Promise.resolve({body: result, response});
     }
 
@@ -6803,7 +6808,7 @@ export class CellsApi {
      * Delete all custom document properties and clean built-in ones.
      * @param requestObj contains request parameters
      */
-    public async cellsPropertiesDeleteDocumentProperties(requestObj: model.CellsProperties_DeleteDocumentPropertiesRequest): Promise<{response: http.ClientResponse, body: model.CellsDocumentPropertiesResponse}> {
+    public async cellsPropertiesDeleteDocumentProperties(requestObj: model.CellsProperties_DeleteDocumentPropertiesRequest): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}> {
         if (requestObj === null || requestObj === undefined) {
             throw new Error('Required parameter "requestObj" was null or undefined when calling cellsPropertiesDeleteDocumentProperties.');
         }
@@ -6827,7 +6832,7 @@ export class CellsApi {
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
-        const result =  ObjectSerializer.deserialize(response.body, "CellsDocumentPropertiesResponse");
+        const result =  ObjectSerializer.deserialize(response.body, "CellsCloudResponse");
         return Promise.resolve({body: result, response});
     }
 
@@ -6835,7 +6840,7 @@ export class CellsApi {
      * Delete document property.
      * @param requestObj contains request parameters
      */
-    public async cellsPropertiesDeleteDocumentProperty(requestObj: model.CellsProperties_DeleteDocumentPropertyRequest): Promise<{response: http.ClientResponse, body: model.CellsDocumentPropertiesResponse}> {
+    public async cellsPropertiesDeleteDocumentProperty(requestObj: model.CellsProperties_DeleteDocumentPropertyRequest): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}> {
         if (requestObj === null || requestObj === undefined) {
             throw new Error('Required parameter "requestObj" was null or undefined when calling cellsPropertiesDeleteDocumentProperty.');
         }
@@ -6865,7 +6870,7 @@ export class CellsApi {
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
-        const result =  ObjectSerializer.deserialize(response.body, "CellsDocumentPropertiesResponse");
+        const result =  ObjectSerializer.deserialize(response.body, "CellsCloudResponse");
         return Promise.resolve({body: result, response});
     }
 
@@ -6943,7 +6948,7 @@ export class CellsApi {
      * Set/create document property.
      * @param requestObj contains request parameters
      */
-    public async cellsPropertiesPutDocumentProperty(requestObj: model.CellsProperties_PutDocumentPropertyRequest): Promise<{response: http.ClientResponse, body: model.CellsDocumentPropertyResponse}> {
+    public async cellsPropertiesPutDocumentProperty(requestObj: model.CellsProperties_PutDocumentPropertyRequest): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}> {
         if (requestObj === null || requestObj === undefined) {
             throw new Error('Required parameter "requestObj" was null or undefined when calling cellsPropertiesPutDocumentProperty.');
         }
@@ -6974,7 +6979,7 @@ export class CellsApi {
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
-        const result =  ObjectSerializer.deserialize(response.body, "CellsDocumentPropertyResponse");
+        const result =  ObjectSerializer.deserialize(response.body, "CellsCloudResponse");
         return Promise.resolve({body: result, response});
     }
 
@@ -7894,7 +7899,7 @@ export class CellsApi {
      * Add shape in worksheet
      * @param requestObj contains request parameters
      */
-    public async cellsShapesPutWorksheetShape(requestObj: model.CellsShapes_PutWorksheetShapeRequest): Promise<{response: http.ClientResponse, body: model.ShapeResponse}> {
+    public async cellsShapesPutWorksheetShape(requestObj: model.CellsShapes_PutWorksheetShapeRequest): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}> {
         if (requestObj === null || requestObj === undefined) {
             throw new Error('Required parameter "requestObj" was null or undefined when calling cellsShapesPutWorksheetShape.');
         }
@@ -7932,7 +7937,7 @@ export class CellsApi {
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
-        const result =  ObjectSerializer.deserialize(response.body, "ShapeResponse");
+        const result =  ObjectSerializer.deserialize(response.body, "CellsCloudResponse");
         return Promise.resolve({body: result, response});
     }
 
@@ -8235,6 +8240,7 @@ export class CellsApi {
             uri: localVarPath,
             json: true,
             body: (requestObj.taskData == null) ? "" : ObjectSerializer.serialize(requestObj.taskData, requestObj.taskData.constructor.name === "Object" ? "TaskData" : requestObj.taskData.constructor.name),
+            encoding: null,
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
@@ -8472,6 +8478,7 @@ export class CellsApi {
             qs: queryParameters,
             uri: localVarPath,
             json: true,
+            encoding: null,
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
@@ -8919,6 +8926,7 @@ export class CellsApi {
             qs: queryParameters,
             uri: localVarPath,
             json: true,
+            encoding: null,
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
@@ -9139,7 +9147,7 @@ export class CellsApi {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", requestObj.password);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", requestObj.outPath);
         if (requestObj.file !== undefined) {
-            formParams.File = requestObj.file;
+            formParams.file = requestObj.file;
         }
 
         const requestOptions: request.Options = {
@@ -9147,6 +9155,7 @@ export class CellsApi {
             qs: queryParameters,
             uri: localVarPath,
             json: true,
+            encoding: null,
         };
 
         (requestOptions as any).formData = formParams;        
@@ -9298,7 +9307,7 @@ export class CellsApi {
      * Delete worksheet validation by index.
      * @param requestObj contains request parameters
      */
-    public async cellsWorksheetValidationsDeleteWorksheetValidation(requestObj: model.CellsWorksheetValidations_DeleteWorksheetValidationRequest): Promise<{response: http.ClientResponse, body: model.ValidationResponse}> {
+    public async cellsWorksheetValidationsDeleteWorksheetValidation(requestObj: model.CellsWorksheetValidations_DeleteWorksheetValidationRequest): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}> {
         if (requestObj === null || requestObj === undefined) {
             throw new Error('Required parameter "requestObj" was null or undefined when calling cellsWorksheetValidationsDeleteWorksheetValidation.');
         }
@@ -9334,7 +9343,7 @@ export class CellsApi {
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
-        const result =  ObjectSerializer.deserialize(response.body, "ValidationResponse");
+        const result =  ObjectSerializer.deserialize(response.body, "CellsCloudResponse");
         return Promise.resolve({body: result, response});
     }
 
@@ -9870,6 +9879,7 @@ export class CellsApi {
             qs: queryParameters,
             uri: localVarPath,
             json: true,
+            encoding: null,
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
@@ -11175,6 +11185,7 @@ export class CellsApi {
             qs: queryParameters,
             uri: localVarPath,
             json: true,
+            encoding: null,
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
@@ -11487,7 +11498,7 @@ export class CellsApi {
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", requestObj.storageName);
         if (requestObj.file !== undefined) {
-            formParams.File = requestObj.file;
+            formParams.file = requestObj.file;
         }
 
         const requestOptions: request.Options = {
@@ -11495,6 +11506,7 @@ export class CellsApi {
             qs: queryParameters,
             uri: localVarPath,
             json: true,
+            encoding: null,
         };
 
         (requestOptions as any).formData = formParams;        
@@ -11507,7 +11519,7 @@ export class CellsApi {
 /**
  * Library for communicating with the Aspose.Cells Cloud API
  */
-export class LiteCellsApi {
+ export class LiteCellsApi {
     /**
      * API configuration
      */

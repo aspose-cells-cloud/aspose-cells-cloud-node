@@ -31,8 +31,9 @@ var fs = require('fs');
 var path = require('path');
 var assert = require('assert');
 const localPath = "../TestData/";
-describe('cellsHypelinksPutWorksheetHyperlink', function() {
-  it('should call cellsHypelinksPutWorksheetHyperlink successfully', function() {
+
+describe('Cells sdk for NodeJS test ok.', function() {
+  it('should call cellsWorkbookPostWorkbookGetSmartMarkerResult successfully', function() {
     const cellsApi = BaseTest.initializeCellsApi();
     const filename = "Book1.xlsx";
     var data =fs.createReadStream(localPath  + filename);
@@ -43,21 +44,55 @@ describe('cellsHypelinksPutWorksheetHyperlink', function() {
     return cellsApi.uploadFile(req)
       .then((result) => {
         expect(result.body.uploaded.length).greaterThan(0);
-        var req = new model.CellsHypelinks_PutWorksheetHyperlinkRequest();
+        var req = new model.CellsWorkbook_PostWorkbookGetSmartMarkerResultRequest();
         req.name = filename;
-        req.sheetName = "Sheet1";
-        req.firstRow = 1;
-        req.firstColumn = 1;
-        req.totalRows = 2;
-        req.totalColumns = 3;
-        req.address = "http://wwww.aspose.com";
+        req.xmlFile = "ReportData.xml";
+        // req.outPath = null;
         req.folder = "Temp";
         
-        return cellsApi.cellsHypelinksPutWorksheetHyperlink(req)
+        return cellsApi.cellsWorkbookPostWorkbookGetSmartMarkerResult(req)
           .then((result) => {
-            expect(result.body.code).to.equal(200);
-            expect(result.response.statusCode).to.equal(200);
+            // expect(result.response.statusCode).to.equal(200);
+            expect(result.body.toString().length).to.greaterThan(0);
           });
       });
   });
+  // it('should call cellsWorkbookPutConvertWorkbook successfully', function() {
+  //   const cellsApi = BaseTest.initializeCellsApi();
+  //   const filename = "Book1.xlsx";
+    
+  //   var req = new model.CellsWorkbook_PutConvertWorkbookRequest({
+  //     file : fs.createReadStream(localPath  + filename),
+  //     format : "pdf",
+  //   });
+
+  //   return cellsApi.cellsWorkbookPutConvertWorkbook(req)
+  //     .then((result) => {         
+  //       // console.log(result);
+  //       fs.writeFile('test.pdf',result['body'],'binary', err => {
+  //         if (err) {
+  //           console.error(err);
+  //         }
+  //       });        
+  //     });
+  // });
+  // it('should call down file successfully', function() {
+  //   const cellsApi = BaseTest.initializeCellsApi();
+  //   const filename = "Book1.xlsx";
+    
+  //   var req = new model.DownloadFileRequest({
+  //     path:'CellsTests/Book1.xlsx',
+  //     storageName:'Cells',
+  //   });
+
+  //   return cellsApi.downloadFile(req)
+  //     .then((result) => {         
+  //       // console.log(result);
+  //       fs.writeFile('Book1.xlsx',result['body'],'binary', err => {
+  //         if (err) {
+  //           console.error(err);
+  //         }
+  //       })     ;        
+  //     });
+  // });
 });

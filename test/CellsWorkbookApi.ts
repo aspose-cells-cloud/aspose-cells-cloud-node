@@ -549,12 +549,13 @@ describe('CellsWorkbookApi', function() {
           var req = new model.CellsWorkbook_PostWorkbookGetSmartMarkerResultRequest();
           req.name = filename;
           req.xmlFile = "ReportData.xml";
-          req.outPath = null;
           req.folder = "Temp";
           
           return cellsApi.cellsWorkbookPostWorkbookGetSmartMarkerResult(req)
             .then((result) => {
-              expect(result.response.statusCode).to.equal(200);
+              expect(result.body.toString().length).to.greaterThan(0);
+              // expect(result.body.code).to.equal(200);
+              // expect(result.response.statusCode).to.equal(200);
             });
         });
     });

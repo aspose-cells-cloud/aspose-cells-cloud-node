@@ -25548,7 +25548,7 @@ export class DeleteMetadataRequest {
     /**
      * File to upload
      */
-    public file: {};
+    public file: Buffer;
 
     /**
      * Gets or sets type
@@ -25563,7 +25563,7 @@ export class DeleteMetadataRequest {
 /**
  * Request model for  operation.
  */
-export class GetMetadataRequest {
+ export class GetMetadataRequest {
     /**
      * File to upload
      */
@@ -25586,7 +25586,7 @@ export class PostAssembleRequest {
     /**
      * File to upload
      */
-    public file:  {};
+    public file: Buffer;
 
     /**
      * Gets or sets datasource
@@ -25610,7 +25610,7 @@ export class PostClearObjectsRequest {
     /**
      * File to upload
      */
-    public file: {};
+    public file: Buffer;
 
     /**
      * Gets or sets objecttype
@@ -25629,7 +25629,7 @@ export class PostExportRequest {
     /**
      * File to upload
      */
-    public file: {};
+    public file: Buffer;
 
     /**
      * Gets or sets objectType
@@ -25653,14 +25653,12 @@ export class PostImportRequest {
     /**
      * File to upload
      */
-    public file: {};
+    public file: Buffer;
 
     /**
-     * Gets or sets ImportOption
+     * Gets or sets importOption
      */
-     public importOption: ImportOption;
-
-
+    public importOption: ImportOption;
     
     public constructor(init?: Partial<PostImportRequest>) {        
         Object.assign(this, init);
@@ -25674,7 +25672,7 @@ export class PostMergeRequest {
     /**
      * File to upload
      */
-    public file:  {};
+    public file: Buffer;
 
     /**
      * Gets or sets format
@@ -25698,10 +25696,10 @@ export class PostMetadataRequest {
     /**
      * File to upload
      */
-    public file:  {};
+    public file: Buffer;
 
     /**
-     * Gets or sets documentProperties
+     * Cells document property.
      */
     public documentProperties: Array<CellsDocumentProperty>;
     
@@ -25717,7 +25715,7 @@ export class PostProtectRequest {
     /**
      * File to upload
      */
-    public file:  {};
+    public file: Buffer;
 
     /**
      * Gets or sets password
@@ -25736,7 +25734,7 @@ export class PostSearchRequest {
     /**
      * File to upload
      */
-    public file:  {};
+    public file: Buffer;
 
     /**
      * Gets or sets text
@@ -25765,7 +25763,7 @@ export class PostSplitRequest {
     /**
      * File to upload
      */
-    public file:  {};
+    public file: Buffer;
 
     /**
      * Gets or sets format
@@ -25799,7 +25797,7 @@ export class PostUnlockRequest {
     /**
      * File to upload
      */
-    public file:  {};
+    public file: Buffer;
 
     /**
      * Gets or sets password
@@ -25818,7 +25816,7 @@ export class PostWatermarkRequest {
     /**
      * File to upload
      */
-    public file:  {};
+    public file: Buffer;
 
     /**
      * Gets or sets text
