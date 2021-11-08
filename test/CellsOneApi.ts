@@ -33,7 +33,7 @@ var assert = require('assert');
 const localPath = "../TestData/";
 
 describe('Cells sdk for NodeJS test ok.', function() {
-  it('should call cellsWorkbookPostWorkbookGetSmartMarkerResult successfully', function() {
+  it('should call cellsWorksheetsDeleteWorksheets successfully', function() {
     const cellsApi = BaseTest.initializeCellsApi();
     const filename = "Book1.xlsx";
     var data =fs.createReadStream(localPath  + filename);
@@ -44,13 +44,15 @@ describe('Cells sdk for NodeJS test ok.', function() {
     return cellsApi.uploadFile(req)
       .then((result) => {
         expect(result.body.uploaded.length).greaterThan(0);
-        var req = new model.CellsWorkbook_PostWorkbookGetSmartMarkerResultRequest();
+        var req = new model.CellsWorksheets_DeleteWorksheetsRequest();
         req.name = filename;
-        req.xmlFile = "ReportData.xml";
-        // req.outPath = null;
+        req.matchCondition = new model.MatchConditionRequest();
+        req.matchCondition.fullMatchConditions =new Array<string>() ; 
+        req.matchCondition.fullMatchConditions.push("Sheet1");
+        req.matchCondition.fullMatchConditions.push("Sheet2");
         req.folder = "Temp";
         
-        return cellsApi.cellsWorkbookPostWorkbookGetSmartMarkerResult(req)
+        return cellsApi.cellsWorksheetsDeleteWorksheets(req)
           .then((result) => {
             // expect(result.response.statusCode).to.equal(200);
             expect(result.body.toString().length).to.greaterThan(0);

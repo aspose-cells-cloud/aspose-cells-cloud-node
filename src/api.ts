@@ -11514,6 +11514,75 @@ export class CellsApi {
         const result =  ObjectSerializer.deserialize(response.body, "FilesUploadResult");
         return Promise.resolve({body: result, response});
     }
+        /**
+     * Read worksheets info.
+     * @param requestObj contains request parameters
+     */
+         public async cellsWorksheetsDeleteWorksheets(requestObj: model.CellsWorksheets_DeleteWorksheetsRequest): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}> {
+            if (requestObj === null || requestObj === undefined) {
+                throw new Error('Required parameter "requestObj" was null or undefined when calling cellsWorksheetsDeleteWorksheets.');
+            }
+    
+            let localVarPath = this.configuration.getApiBaseUrl() + "/cells/{name}/worksheets"
+                .replace("{" + "name" + "}", String(requestObj.name));
+            const queryParameters: any = {};
+    
+            // verify required parameter 'requestObj.name' is not null or undefined
+            if (requestObj.name === null || requestObj.name === undefined) {
+                throw new Error('Required parameter "requestObj.name" was null or undefined when calling cellsWorksheetsDeleteWorksheets.');
+            }
+    
+            // verify required parameter 'requestObj.matchCondition' is not null or undefined
+            if (requestObj.matchCondition === null || requestObj.matchCondition === undefined) {
+                throw new Error('Required parameter "requestObj.matchCondition" was null or undefined when calling cellsWorksheetsDeleteWorksheets.');
+            }
+            
+            localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+            localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", requestObj.storageName);
+            const requestOptions: request.Options = {
+                method: "DELETE",
+                qs: queryParameters,
+                uri: localVarPath,
+                json: true,
+                body: (requestObj.matchCondition == null) ? "" : ObjectSerializer.serialize(requestObj.matchCondition, requestObj.matchCondition.constructor.name === "Object" ? "MatchConditionRequest" : requestObj.matchCondition.constructor.name),
+            };
+    
+            const response = await invokeApiMethod(requestOptions, this.configuration);
+            const result =  ObjectSerializer.deserialize(response.body, "CellsCloudResponse");
+            return Promise.resolve({body: result, response});
+        }
+    
+    
+        /**
+         * 
+         * @param requestObj contains request parameters
+         */
+        public async postBatchConvert(requestObj: model.PostBatchConvertRequest): Promise<{response: http.ClientResponse, body: model.Buffer}> {
+            if (requestObj === null || requestObj === undefined) {
+                throw new Error('Required parameter "requestObj" was null or undefined when calling postBatchConvert.');
+            }
+    
+            const localVarPath = this.configuration.getApiBaseUrl() + "/cells/batch/convert";
+            const queryParameters: any = {};
+    
+            // verify required parameter 'requestObj.batchConvertRequest' is not null or undefined
+            if (requestObj.batchConvertRequest === null || requestObj.batchConvertRequest === undefined) {
+                throw new Error('Required parameter "requestObj.batchConvertRequest" was null or undefined when calling postBatchConvert.');
+            }
+            
+            const requestOptions: request.Options = {
+                method: "POST",
+                qs: queryParameters,
+                uri: localVarPath,
+                json: true,
+                body: (requestObj.batchConvertRequest == null) ? "" : ObjectSerializer.serialize(requestObj.batchConvertRequest, requestObj.batchConvertRequest.constructor.name === "Object" ? "BatchConvertRequest" : requestObj.batchConvertRequest.constructor.name),
+            };
+    
+            const response = await invokeApiMethod(requestOptions, this.configuration);
+            const result =  ObjectSerializer.deserialize(response.body, "Buffer");
+            return Promise.resolve({body: result, response});
+        }
+        
 
 }
 /**
@@ -12107,5 +12176,4 @@ export class CellsApi {
         const result =  ObjectSerializer.deserialize(response.body, "FilesResult");
         return Promise.resolve({body: result, response});
     }
-
 }

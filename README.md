@@ -1,4 +1,4 @@
-![](https://img.shields.io/badge/REST%20API-v3.0-lightgrey) ![npm](https://img.shields.io/npm/v/asposecellscloud) ![node-current](https://img.shields.io/node/v/asposecellscloud) [![GitHub license](https://img.shields.io/github/license/aspose-cells-cloud/aspose-cells-cloud-node)](https://github.com/aspose-cells-cloud/aspose-cells-cloud-node/blob/master/LICENSE) ![GitHub commits since latest release (by date)](https://img.shields.io/github/commits-since/aspose-cells-cloud/aspose-cells-cloud-node/21.9)
+![](https://img.shields.io/badge/REST%20API-v3.0-lightgrey) ![npm](https://img.shields.io/npm/v/asposecellscloud) ![node-current](https://img.shields.io/node/v/asposecellscloud) [![GitHub license](https://img.shields.io/github/license/aspose-cells-cloud/aspose-cells-cloud-node)](https://github.com/aspose-cells-cloud/aspose-cells-cloud-node/blob/master/LICENSE) ![GitHub commits since latest release (by date)](https://img.shields.io/github/commits-since/aspose-cells-cloud/aspose-cells-cloud-node/21.10)
 
 # Process Excel® Files in the Cloud with Node.js
 
@@ -20,27 +20,10 @@
 - Fetch the required shape from worksheet.
 - Leverage the power of named ranges.
 
-## Feature & Enhancements in Version 21.9
+## Feature & Enhancements in Version 21.10
 
-- Correct the return type of the following  REST APIs. 
-
-	Delete WorksheetDeleteChart
-	Post WorksheetChartLegend
-	Post WorksheetChartTitle
-	Put WorksheetAddChart
-	Put WorksheetChartTitle
-	Post WorksheetHyperlink
-	Put WorksheetHyperlink
-	Put WorksheetListObject
-	Put WorksheetOleObject
-	Post WorksheetPicture
-	Put WorksheetAddPicture
-	Put WorksheetPivotTable
-	Delete DocumentProperties
-	Delete DocumentProperty
-	Put DocumentProperty
-	Put WorksheetShape
-	Delete WorksheetValidation
+- Add new API for support delete multiple worksheets in a single call.
+- Add new API for supports batch convert excel files.
 	
  
 ## Read & Write Spreadsheet Formats

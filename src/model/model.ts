@@ -25621,6 +25621,19 @@ export class PostClearObjectsRequest {
         Object.assign(this, init);
     } 
 }
+/**
+ * Request model for PostBatchConvert operation.
+ */
+export class PostBatchConvertRequest {
+    /**
+     * Gets or sets batchConvertRequest
+     */
+    public batchConvertRequest: BatchConvertRequest;
+    
+    public constructor(init?: Partial<PostBatchConvertRequest>) {        
+        Object.assign(this, init);
+    } 
+}
 
 /**
  * Request model for PostExport operation.
@@ -25831,4 +25844,126 @@ export class PostWatermarkRequest {
     public constructor(init?: Partial<PostWatermarkRequest>) {        
         Object.assign(this, init);
     } 
+}
+
+
+/**
+ * Request model for CellsWorksheets_DeleteWorksheets operation.
+ */
+ export class CellsWorksheets_DeleteWorksheetsRequest {
+    /**
+     * Gets or sets name
+     */
+    public name: string;
+
+    /**
+     * Gets or sets matchCondition
+     */
+    public matchCondition: MatchConditionRequest;
+
+    /**
+     * Gets or sets folder
+     */
+    public folder: string;
+
+    /**
+     * Gets or sets storageName
+     */
+    public storageName: string;
+    
+    public constructor(init?: Partial<CellsWorksheets_DeleteWorksheetsRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+
+
+export class BatchConvertRequest {
+
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "sourceFolder",
+            baseName: "SourceFolder",
+            type: "string",
+        },        
+        {
+            name: "matchCondition",
+            baseName: "MatchCondition",
+            type: "MatchConditionRequest",
+        },        
+        {
+            name: "format",
+            baseName: "Format",
+            type: "string",
+        },        
+        {
+            name: "outFolder",
+            baseName: "OutFolder",
+            type: "string",
+        },        
+        {
+            name: "saveOptions",
+            baseName: "SaveOptions",
+            type: "SaveOptions",
+        }    ];
+
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return BatchConvertRequest.attributeTypeMap;
+    }
+
+    public sourceFolder: string;
+    
+    public matchCondition: MatchConditionRequest;
+    
+    public format: string;
+    
+    public outFolder: string;
+    
+    public saveOptions: SaveOptions;
+    
+    public constructor(init?: Partial<BatchConvertRequest>) {
+        
+        Object.assign(this, init);
+    }        
+}
+
+
+export class MatchConditionRequest {
+
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "regexPattern",
+            baseName: "RegexPattern",
+            type: "string",
+        },        
+        {
+            name: "fullMatchConditions",
+            baseName: "FullMatchConditions",
+            type: "Array<string>",
+        }    ];
+
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return MatchConditionRequest.attributeTypeMap;
+    }
+
+    public regexPattern: string;
+    
+    public fullMatchConditions: Array<string>;
+    
+    public constructor(init?: Partial<MatchConditionRequest>) {
+        
+        Object.assign(this, init);
+    }        
 }
