@@ -33,17 +33,17 @@ var fs = require('fs');
 var path = require('path');
 var assert = require('assert');
 
-describe('CellsWorkbookApi', function() {
+describe('CellsWorkbookApi', function () {
   this.timeout(200000);
-  describe('cellsWorkbookDeleteDecryptDocument', function() {
-    it('should call cellsWorkbookDeleteDecryptDocument successfully', function() {
+  describe('cellsWorkbookDeleteDecryptDocument', function () {
+    it('should call cellsWorkbookDeleteDecryptDocument successfully', function () {
       const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      var data =fs.createReadStream(localPath  + filename);
+      var data = fs.createReadStream(localPath + filename);
       var req = new model.UploadFileRequest();
       req.path = "Temp/" + filename;
       req.file = data;
-  
+
       return cellsApi.uploadFile(req)
         .then((result) => {
           expect(result.body.uploaded.length).greaterThan(0);
@@ -55,7 +55,7 @@ describe('CellsWorkbookApi', function() {
           encryption.encryptionType = "XOR";
           req.encryption = encryption;
           req.folder = "Temp";
-          
+
           return cellsApi.cellsWorkbookDeleteDecryptDocument(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
@@ -64,22 +64,22 @@ describe('CellsWorkbookApi', function() {
         });
     });
   });
-  describe('cellsWorkbookDeleteDocumentUnprotectFromChanges', function() {
-    it('should call cellsWorkbookDeleteDocumentUnprotectFromChanges successfully', function() {
+  describe('cellsWorkbookDeleteDocumentUnprotectFromChanges', function () {
+    it('should call cellsWorkbookDeleteDocumentUnprotectFromChanges successfully', function () {
       const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      var data =fs.createReadStream(localPath  + filename);
+      var data = fs.createReadStream(localPath + filename);
       var req = new model.UploadFileRequest();
       req.path = "Temp/" + filename;
       req.file = data;
-  
+
       return cellsApi.uploadFile(req)
         .then((result) => {
           expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsWorkbook_DeleteDocumentUnprotectFromChangesRequest();
           req.name = filename;
           req.folder = "Temp";
-          
+
           return cellsApi.cellsWorkbookDeleteDocumentUnprotectFromChanges(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
@@ -88,15 +88,15 @@ describe('CellsWorkbookApi', function() {
         });
     });
   });
-  describe('cellsWorkbookDeleteUnprotectDocument', function() {
-    it('should call cellsWorkbookDeleteUnprotectDocument successfully', function() {
+  describe('cellsWorkbookDeleteUnprotectDocument', function () {
+    it('should call cellsWorkbookDeleteUnprotectDocument successfully', function () {
       const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      var data =fs.createReadStream(localPath  + filename);
+      var data = fs.createReadStream(localPath + filename);
       var req = new model.UploadFileRequest();
       req.path = "Temp/" + filename;
       req.file = data;
-  
+
       return cellsApi.uploadFile(req)
         .then((result) => {
           expect(result.body.uploaded.length).greaterThan(0);
@@ -107,7 +107,7 @@ describe('CellsWorkbookApi', function() {
           protection.protectionType = "All";
           req.protection = protection;
           req.folder = "Temp";
-          
+
           return cellsApi.cellsWorkbookDeleteUnprotectDocument(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
@@ -116,15 +116,15 @@ describe('CellsWorkbookApi', function() {
         });
     });
   });
-  describe('cellsWorkbookDeleteWorkbookName', function() {
-    it('should call cellsWorkbookDeleteWorkbookName successfully', function() {
+  describe('cellsWorkbookDeleteWorkbookName', function () {
+    it('should call cellsWorkbookDeleteWorkbookName successfully', function () {
       const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      var data =fs.createReadStream(localPath  + filename);
+      var data = fs.createReadStream(localPath + filename);
       var req = new model.UploadFileRequest();
       req.path = "Temp/" + filename;
       req.file = data;
-  
+
       return cellsApi.uploadFile(req)
         .then((result) => {
           expect(result.body.uploaded.length).greaterThan(0);
@@ -132,7 +132,7 @@ describe('CellsWorkbookApi', function() {
           req.name = filename;
           req.nameName = "Name_2";
           req.folder = "Temp";
-          
+
           return cellsApi.cellsWorkbookDeleteWorkbookName(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
@@ -141,22 +141,22 @@ describe('CellsWorkbookApi', function() {
         });
     });
   });
-  describe('cellsWorkbookDeleteWorkbookNames', function() {
-    it('should call cellsWorkbookDeleteWorkbookNames successfully', function() {
+  describe('cellsWorkbookDeleteWorkbookNames', function () {
+    it('should call cellsWorkbookDeleteWorkbookNames successfully', function () {
       const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      var data =fs.createReadStream(localPath  + filename);
+      var data = fs.createReadStream(localPath + filename);
       var req = new model.UploadFileRequest();
       req.path = "Temp/" + filename;
       req.file = data;
-  
+
       return cellsApi.uploadFile(req)
         .then((result) => {
           expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsWorkbook_DeleteWorkbookNamesRequest();
           req.name = filename;
           req.folder = "Temp";
-          
+
           return cellsApi.cellsWorkbookDeleteWorkbookNames(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
@@ -165,15 +165,15 @@ describe('CellsWorkbookApi', function() {
         });
     });
   });
-  describe('cellsWorkbookGetWorkbook', function() {
-    it('should call cellsWorkbookGetWorkbook successfully', function() {
+  describe('cellsWorkbookGetWorkbook', function () {
+    it('should call cellsWorkbookGetWorkbook successfully', function () {
       const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      var data =fs.createReadStream(localPath  + filename);
+      var data = fs.createReadStream(localPath + filename);
       var req = new model.UploadFileRequest();
       req.path = "Temp/" + filename;
       req.file = data;
-  
+
       return cellsApi.uploadFile(req)
         .then((result) => {
           expect(result.body.uploaded.length).greaterThan(0);
@@ -182,7 +182,7 @@ describe('CellsWorkbookApi', function() {
           req.password = null;
           req.isAutoFit = true;
           req.folder = "Temp";
-          
+
           return cellsApi.cellsWorkbookGetWorkbook(req)
             .then((result) => {
               expect(result.response.statusCode).to.equal(200);
@@ -190,15 +190,15 @@ describe('CellsWorkbookApi', function() {
         });
     });
   });
-  describe('cellsWorkbookGetWorkbookFormat', function() {
-    it('should call cellsWorkbookGetWorkbookFormat successfully', function() {
+  describe('cellsWorkbookGetWorkbookFormat', function () {
+    it('should call cellsWorkbookGetWorkbookFormat successfully', function () {
       const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      var data =fs.createReadStream(localPath  + filename);
+      var data = fs.createReadStream(localPath + filename);
       var req = new model.UploadFileRequest();
       req.path = "Temp/" + filename;
       req.file = data;
-  
+
       return cellsApi.uploadFile(req)
         .then((result) => {
           expect(result.body.uploaded.length).greaterThan(0);
@@ -208,7 +208,7 @@ describe('CellsWorkbookApi', function() {
           req.isAutoFit = true;
           req.folder = "Temp";
           req.format = "md";
-          
+
           return cellsApi.cellsWorkbookGetWorkbook(req)
             .then((result) => {
               expect(result.response.statusCode).to.equal(200);
@@ -216,22 +216,22 @@ describe('CellsWorkbookApi', function() {
         });
     });
   });
-  describe('cellsWorkbookGetWorkbookDefaultStyle', function() {
-    it('should call cellsWorkbookGetWorkbookDefaultStyle successfully', function() {
+  describe('cellsWorkbookGetWorkbookDefaultStyle', function () {
+    it('should call cellsWorkbookGetWorkbookDefaultStyle successfully', function () {
       const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      var data =fs.createReadStream(localPath  + filename);
+      var data = fs.createReadStream(localPath + filename);
       var req = new model.UploadFileRequest();
       req.path = "Temp/" + filename;
       req.file = data;
-  
+
       return cellsApi.uploadFile(req)
         .then((result) => {
           expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsWorkbook_GetWorkbookDefaultStyleRequest();
           req.name = filename;
           req.folder = "Temp";
-          
+
           return cellsApi.cellsWorkbookGetWorkbookDefaultStyle(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
@@ -240,15 +240,15 @@ describe('CellsWorkbookApi', function() {
         });
     });
   });
-  describe('cellsWorkbookGetWorkbookName', function() {
-    it('should call cellsWorkbookGetWorkbookName successfully', function() {
+  describe('cellsWorkbookGetWorkbookName', function () {
+    it('should call cellsWorkbookGetWorkbookName successfully', function () {
       const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      var data =fs.createReadStream(localPath  + filename);
+      var data = fs.createReadStream(localPath + filename);
       var req = new model.UploadFileRequest();
       req.path = "Temp/" + filename;
       req.file = data;
-  
+
       return cellsApi.uploadFile(req)
         .then((result) => {
           expect(result.body.uploaded.length).greaterThan(0);
@@ -256,7 +256,7 @@ describe('CellsWorkbookApi', function() {
           req.name = filename;
           req.nameName = "Name_2";
           req.folder = "Temp";
-          
+
           return cellsApi.cellsWorkbookGetWorkbookName(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
@@ -265,15 +265,15 @@ describe('CellsWorkbookApi', function() {
         });
     });
   });
-  describe('cellsWorkbookGetWorkbookNameValue', function() {
-    it('should call cellsWorkbookGetWorkbookNameValue successfully', function() {
+  describe('cellsWorkbookGetWorkbookNameValue', function () {
+    it('should call cellsWorkbookGetWorkbookNameValue successfully', function () {
       const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      var data =fs.createReadStream(localPath  + filename);
+      var data = fs.createReadStream(localPath + filename);
       var req = new model.UploadFileRequest();
       req.path = "Temp/" + filename;
       req.file = data;
-  
+
       return cellsApi.uploadFile(req)
         .then((result) => {
           expect(result.body.uploaded.length).greaterThan(0);
@@ -281,7 +281,7 @@ describe('CellsWorkbookApi', function() {
           req.name = filename;
           req.nameName = "Name_2";
           req.folder = "Temp";
-          
+
           return cellsApi.cellsWorkbookGetWorkbookNameValue(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
@@ -290,22 +290,22 @@ describe('CellsWorkbookApi', function() {
         });
     });
   });
-  describe('cellsWorkbookGetWorkbookNames', function() {
-    it('should call cellsWorkbookGetWorkbookNames successfully', function() {
+  describe('cellsWorkbookGetWorkbookNames', function () {
+    it('should call cellsWorkbookGetWorkbookNames successfully', function () {
       const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      var data =fs.createReadStream(localPath  + filename);
+      var data = fs.createReadStream(localPath + filename);
       var req = new model.UploadFileRequest();
       req.path = "Temp/" + filename;
       req.file = data;
-  
+
       return cellsApi.uploadFile(req)
         .then((result) => {
           expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsWorkbook_GetWorkbookNamesRequest();
           req.name = filename;
           req.folder = "Temp";
-          
+
           return cellsApi.cellsWorkbookGetWorkbookNames(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
@@ -314,22 +314,22 @@ describe('CellsWorkbookApi', function() {
         });
     });
   });
-  describe('cellsWorkbookGetWorkbookSettings', function() {
-    it('should call cellsWorkbookGetWorkbookSettings successfully', function() {
+  describe('cellsWorkbookGetWorkbookSettings', function () {
+    it('should call cellsWorkbookGetWorkbookSettings successfully', function () {
       const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      var data =fs.createReadStream(localPath  + filename);
+      var data = fs.createReadStream(localPath + filename);
       var req = new model.UploadFileRequest();
       req.path = "Temp/" + filename;
       req.file = data;
-  
+
       return cellsApi.uploadFile(req)
         .then((result) => {
           expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsWorkbook_GetWorkbookSettingsRequest();
           req.name = filename;
           req.folder = "Temp";
-          
+
           return cellsApi.cellsWorkbookGetWorkbookSettings(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
@@ -338,22 +338,22 @@ describe('CellsWorkbookApi', function() {
         });
     });
   });
-  describe('cellsWorkbookGetWorkbookTextItems', function() {
-    it('should call cellsWorkbookGetWorkbookTextItems successfully', function() {
+  describe('cellsWorkbookGetWorkbookTextItems', function () {
+    it('should call cellsWorkbookGetWorkbookTextItems successfully', function () {
       const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      var data =fs.createReadStream(localPath  + filename);
+      var data = fs.createReadStream(localPath + filename);
       var req = new model.UploadFileRequest();
       req.path = "Temp/" + filename;
       req.file = data;
-  
+
       return cellsApi.uploadFile(req)
         .then((result) => {
           expect(result.body.uploaded.length).greaterThan(0);
           var req = new model.CellsWorkbook_GetWorkbookTextItemsRequest();
           req.name = filename;
           req.folder = "Temp";
-          
+
           return cellsApi.cellsWorkbookGetWorkbookTextItems(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
@@ -362,15 +362,15 @@ describe('CellsWorkbookApi', function() {
         });
     });
   });
-  describe('cellsWorkbookPostAutofitWorkbookRows', function() {
-    it('should call cellsWorkbookPostAutofitWorkbookRows successfully', function() {
+  describe('cellsWorkbookPostAutofitWorkbookRows', function () {
+    it('should call cellsWorkbookPostAutofitWorkbookRows successfully', function () {
       const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      var data =fs.createReadStream(localPath  + filename);
+      var data = fs.createReadStream(localPath + filename);
       var req = new model.UploadFileRequest();
       req.path = "Temp/" + filename;
       req.file = data;
-  
+
       return cellsApi.uploadFile(req)
         .then((result) => {
           expect(result.body.uploaded.length).greaterThan(0);
@@ -381,7 +381,7 @@ describe('CellsWorkbookApi', function() {
           req.startRow = 1;
           req.endRow = 100;
           req.onlyAuto = true;
-          
+
           return cellsApi.cellsWorkbookPostAutofitWorkbookRows(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
@@ -390,15 +390,15 @@ describe('CellsWorkbookApi', function() {
         });
     });
   });
-  describe('cellsWorkbookPostAutofitWorkbookColumns', function() {
-    it('should call cellsWorkbookPostAutofitWorkbookColumns successfully', function() {
+  describe('cellsWorkbookPostAutofitWorkbookColumns', function () {
+    it('should call cellsWorkbookPostAutofitWorkbookColumns successfully', function () {
       const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      var data =fs.createReadStream(localPath  + filename);
+      var data = fs.createReadStream(localPath + filename);
       var req = new model.UploadFileRequest();
       req.path = "Temp/" + filename;
       req.file = data;
-  
+
       return cellsApi.uploadFile(req)
         .then((result) => {
           expect(result.body.uploaded.length).greaterThan(0);
@@ -408,7 +408,7 @@ describe('CellsWorkbookApi', function() {
           req.autoFitterOptions = null;
           req.startColumn = 1;
           req.endColumn = 100;
-          
+
           return cellsApi.cellsWorkbookPostAutofitWorkbookColumns(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
@@ -416,16 +416,16 @@ describe('CellsWorkbookApi', function() {
             });
         });
     });
-  });  
-  describe('cellsWorkbookPostEncryptDocument', function() {
-    it('should call cellsWorkbookPostEncryptDocument successfully', function() {
+  });
+  describe('cellsWorkbookPostEncryptDocument', function () {
+    it('should call cellsWorkbookPostEncryptDocument successfully', function () {
       const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      var data =fs.createReadStream(localPath  + filename);
+      var data = fs.createReadStream(localPath + filename);
       var req = new model.UploadFileRequest();
       req.path = "Temp/" + filename;
       req.file = data;
-  
+
       return cellsApi.uploadFile(req)
         .then((result) => {
           expect(result.body.uploaded.length).greaterThan(0);
@@ -437,7 +437,7 @@ describe('CellsWorkbookApi', function() {
           encryption.keyLength = 128;
           encryption.encryptionType = "XOR";
           req.encryption = encryption;
-          
+
           return cellsApi.cellsWorkbookPostEncryptDocument(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
@@ -446,15 +446,15 @@ describe('CellsWorkbookApi', function() {
         });
     });
   });
-  describe('cellsWorkbookPostImportData', function() {
-    it('should call cellsWorkbookPostImportData successfully', function() {
+  describe('cellsWorkbookPostImportData', function () {
+    it('should call cellsWorkbookPostImportData successfully', function () {
       const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      var data =fs.createReadStream(localPath  + filename);
+      var data = fs.createReadStream(localPath + filename);
       var req = new model.UploadFileRequest();
       req.path = "Temp/" + filename;
       req.file = data;
-  
+
       return cellsApi.uploadFile(req)
         .then((result) => {
           expect(result.body.uploaded.length).greaterThan(0);
@@ -467,9 +467,9 @@ describe('CellsWorkbookApi', function() {
           data.firstRow = 3;
           data.importDataType = "IntArray";
           data.isVertical = true;
-          data.data = [ 1, 2, 3, 4 ];
+          data.data = [1, 2, 3, 4];
           req.importData = data;
-          
+
           return cellsApi.cellsWorkbookPostImportData(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
@@ -478,15 +478,15 @@ describe('CellsWorkbookApi', function() {
         });
     });
   });
-  describe('cellsWorkbookPostProtectDocument', function() {
-    it('should call cellsWorkbookPostProtectDocument successfully', function() {
+  describe('cellsWorkbookPostProtectDocument', function () {
+    it('should call cellsWorkbookPostProtectDocument successfully', function () {
       const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      var data =fs.createReadStream(localPath  + filename);
+      var data = fs.createReadStream(localPath + filename);
       var req = new model.UploadFileRequest();
       req.path = "Temp/" + filename;
       req.file = data;
-  
+
       return cellsApi.uploadFile(req)
         .then((result) => {
           expect(result.body.uploaded.length).greaterThan(0);
@@ -497,7 +497,7 @@ describe('CellsWorkbookApi', function() {
           protection.password = "123";
           protection.protectionType = "All";
           req.protection = protection;
-          
+
           return cellsApi.cellsWorkbookPostProtectDocument(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
@@ -506,15 +506,15 @@ describe('CellsWorkbookApi', function() {
         });
     });
   });
-  describe('cellsWorkbookPostWorkbookCalculateFormula', function() {
-    it('should call cellsWorkbookPostWorkbookCalculateFormula successfully', function() {
+  describe('cellsWorkbookPostWorkbookCalculateFormula', function () {
+    it('should call cellsWorkbookPostWorkbookCalculateFormula successfully', function () {
       const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      var data =fs.createReadStream(localPath  + filename);
+      var data = fs.createReadStream(localPath + filename);
       var req = new model.UploadFileRequest();
       req.path = "Temp/" + filename;
       req.file = data;
-  
+
       return cellsApi.uploadFile(req)
         .then((result) => {
           expect(result.body.uploaded.length).greaterThan(0);
@@ -525,7 +525,7 @@ describe('CellsWorkbookApi', function() {
           options.ignoreError = true;
           req.options = options;
           req.ignoreError = true;
-          
+
           return cellsApi.cellsWorkbookPostWorkbookCalculateFormula(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
@@ -534,15 +534,15 @@ describe('CellsWorkbookApi', function() {
         });
     });
   });
-  describe('cellsWorkbookPostWorkbookGetSmartMarkerResult', function() {
-    it('should call cellsWorkbookPostWorkbookGetSmartMarkerResult successfully', function() {
+  describe('cellsWorkbookPostWorkbookGetSmartMarkerResult', function () {
+    it('should call cellsWorkbookPostWorkbookGetSmartMarkerResult successfully', function () {
       const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      var data =fs.createReadStream(localPath  + filename);
+      var data = fs.createReadStream(localPath + filename);
       var req = new model.UploadFileRequest();
       req.path = "Temp/" + filename;
       req.file = data;
-  
+
       return cellsApi.uploadFile(req)
         .then((result) => {
           expect(result.body.uploaded.length).greaterThan(0);
@@ -550,7 +550,7 @@ describe('CellsWorkbookApi', function() {
           req.name = filename;
           req.xmlFile = "ReportData.xml";
           req.folder = "Temp";
-          
+
           return cellsApi.cellsWorkbookPostWorkbookGetSmartMarkerResult(req)
             .then((result) => {
               expect(result.body.toString().length).to.greaterThan(0);
@@ -560,15 +560,15 @@ describe('CellsWorkbookApi', function() {
         });
     });
   });
-  describe('cellsWorkbookPostWorkbookSettings', function() {
-    it('should call cellsWorkbookPostWorkbookSettings successfully', function() {
+  describe('cellsWorkbookPostWorkbookSettings', function () {
+    it('should call cellsWorkbookPostWorkbookSettings successfully', function () {
       const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      var data =fs.createReadStream(localPath  + filename);
+      var data = fs.createReadStream(localPath + filename);
       var req = new model.UploadFileRequest();
       req.path = "Temp/" + filename;
       req.file = data;
-  
+
       return cellsApi.uploadFile(req)
         .then((result) => {
           expect(result.body.uploaded.length).greaterThan(0);
@@ -578,7 +578,7 @@ describe('CellsWorkbookApi', function() {
           var settings = new model.WorkbookSettings();
           settings.autoCompressPictures = true;
           req.settings = settings;
-          
+
           return cellsApi.cellsWorkbookPostWorkbookSettings(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
@@ -587,15 +587,15 @@ describe('CellsWorkbookApi', function() {
         });
     });
   });
-  describe('cellsWorkbookPostWorkbookSplit', function() {
-    it('should call cellsWorkbookPostWorkbookSplit successfully', function() {
+  describe('cellsWorkbookPostWorkbookSplit', function () {
+    it('should call cellsWorkbookPostWorkbookSplit successfully', function () {
       const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      var data =fs.createReadStream(localPath  + filename);
+      var data = fs.createReadStream(localPath + filename);
       var req = new model.UploadFileRequest();
       req.path = "Temp/" + filename;
       req.file = data;
-  
+
       return cellsApi.uploadFile(req)
         .then((result) => {
           expect(result.body.uploaded.length).greaterThan(0);
@@ -607,7 +607,7 @@ describe('CellsWorkbookApi', function() {
           req.to = 3;
           req.horizontalResolution = 100;
           req.verticalResolution = 90;
-          
+
           return cellsApi.cellsWorkbookPostWorkbookSplit(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
@@ -616,15 +616,15 @@ describe('CellsWorkbookApi', function() {
         });
     });
   });
-  describe('cellsWorkbookPostWorkbooksMerge', function() {
-    it('should call cellsWorkbookPostWorkbooksMerge successfully', function() {
+  describe('cellsWorkbookPostWorkbooksMerge', function () {
+    it('should call cellsWorkbookPostWorkbooksMerge successfully', function () {
       const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      var data =fs.createReadStream(localPath  + filename);
+      var data = fs.createReadStream(localPath + filename);
       var req = new model.UploadFileRequest();
       req.path = "Temp/" + filename;
       req.file = data;
-  
+
       return cellsApi.uploadFile(req)
         .then((result) => {
           expect(result.body.uploaded.length).greaterThan(0);
@@ -632,7 +632,7 @@ describe('CellsWorkbookApi', function() {
           req.name = filename;
           req.folder = "Temp";
           req.mergeWith = "myDocument.xlsx";
-          
+
           return cellsApi.cellsWorkbookPostWorkbooksMerge(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
@@ -641,15 +641,15 @@ describe('CellsWorkbookApi', function() {
         });
     });
   });
-  describe('cellsWorkbookPostWorkbooksTextReplace', function() {
-    it('should call cellsWorkbookPostWorkbooksTextReplace successfully', function() {
+  describe('cellsWorkbookPostWorkbooksTextReplace', function () {
+    it('should call cellsWorkbookPostWorkbooksTextReplace successfully', function () {
       const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      var data =fs.createReadStream(localPath  + filename);
+      var data = fs.createReadStream(localPath + filename);
       var req = new model.UploadFileRequest();
       req.path = "Temp/" + filename;
       req.file = data;
-  
+
       return cellsApi.uploadFile(req)
         .then((result) => {
           expect(result.body.uploaded.length).greaterThan(0);
@@ -658,7 +658,7 @@ describe('CellsWorkbookApi', function() {
           req.folder = "Temp";
           req.oldValue = "!22";
           req.newValue = "22";
-          
+
           return cellsApi.cellsWorkbookPostWorkbooksTextReplace(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
@@ -667,15 +667,15 @@ describe('CellsWorkbookApi', function() {
         });
     });
   });
-  describe('cellsWorkbookPostWorkbooksTextSearch', function() {
-    it('should call cellsWorkbookPostWorkbooksTextSearch successfully', function() {
+  describe('cellsWorkbookPostWorkbooksTextSearch', function () {
+    it('should call cellsWorkbookPostWorkbooksTextSearch successfully', function () {
       const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      var data =fs.createReadStream(localPath  + filename);
+      var data = fs.createReadStream(localPath + filename);
       var req = new model.UploadFileRequest();
       req.path = "Temp/" + filename;
       req.file = data;
-  
+
       return cellsApi.uploadFile(req)
         .then((result) => {
           expect(result.body.uploaded.length).greaterThan(0);
@@ -683,7 +683,7 @@ describe('CellsWorkbookApi', function() {
           req.name = filename;
           req.folder = "Temp";
           req.text = "test";
-          
+
           return cellsApi.cellsWorkbookPostWorkbooksTextSearch(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
@@ -692,23 +692,23 @@ describe('CellsWorkbookApi', function() {
         });
     });
   });
-  describe('cellsWorkbookPutConvertWorkbook', function() {
-    it('should call cellsWorkbookPutConvertWorkbook successfully', function() {
+  describe('cellsWorkbookPutConvertWorkbook', function () {
+    it('should call cellsWorkbookPutConvertWorkbook successfully', function () {
       const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
       // var data =fs.createReadStream(localPath  + filename);
       var req = new model.CellsWorkbook_PutConvertWorkbookRequest({
-        file : fs.createReadStream(localPath  + filename),
-        format : "pdf",
+        file: fs.createReadStream(localPath + filename),
+        format: "pdf",
       });
-  
+
       return cellsApi.cellsWorkbookPutConvertWorkbook(req)
-        .then((result) => {         
+        .then((result) => {
           var req = new model.CellsWorkbook_PutConvertWorkbookRequest({
-            file : fs.createReadStream(localPath  + filename),
-            format : "pdf",
+            file: fs.createReadStream(localPath + filename),
+            format: "pdf",
           });
-  
+
           return cellsApi.cellsWorkbookPutConvertWorkbook(req)
             .then((result) => {
               expect(result.body.toString().length).to.greaterThan(0);
@@ -716,15 +716,15 @@ describe('CellsWorkbookApi', function() {
         });
     });
   });
-  describe('cellsWorkbookPutDocumentProtectFromChanges', function() {
-    it('should call cellsWorkbookPutDocumentProtectFromChanges successfully', function() {
+  describe('cellsWorkbookPutDocumentProtectFromChanges', function () {
+    it('should call cellsWorkbookPutDocumentProtectFromChanges successfully', function () {
       const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      var data =fs.createReadStream(localPath  + filename);
+      var data = fs.createReadStream(localPath + filename);
       var req = new model.UploadFileRequest();
       req.path = "Temp/" + filename;
       req.file = data;
-  
+
       return cellsApi.uploadFile(req)
         .then((result) => {
           expect(result.body.uploaded.length).greaterThan(0);
@@ -733,7 +733,7 @@ describe('CellsWorkbookApi', function() {
           req.folder = "Temp";
           req.password = new model.PasswordRequest();
           req.password.password = "123456";
-          
+
           return cellsApi.cellsWorkbookPutDocumentProtectFromChanges(req)
             .then((result) => {
               expect(result.body.code).to.equal(200);
@@ -742,121 +742,146 @@ describe('CellsWorkbookApi', function() {
         });
     });
   });
-  describe('cellsWorkbookPutWorkbookCreate', function() {
-    it('should call cellsWorkbookPutWorkbookCreate successfully', function() {
+  describe('cellsWorkbookPutWorkbookCreate', function () {
+    it('should call cellsWorkbookPutWorkbookCreate successfully', function () {
       const dataFile = "ReportData.xml";
       const cellsApi = BaseTest.initializeCellsApi();
       const filename = "Book1.xlsx";
-      var data =fs.createReadStream(localPath  + filename);
+      var data = fs.createReadStream(localPath + filename);
       var req = new model.UploadFileRequest();
       req.path = "Temp/" + filename;
       req.file = data;
-  
+
       return cellsApi.uploadFile(req)
         .then((result) => {
           expect(result.body.uploaded.length).greaterThan(0);
           const dataFile = "Book1.xlsx";
-          var data =fs.createReadStream(localPath  + dataFile);
+          var data = fs.createReadStream(localPath + dataFile);
           var req = new model.UploadFileRequest();
           req.path = "Temp/" + dataFile;
           req.file = data;
-      
+
           return cellsApi.uploadFile(req)
             .then((result) => {
-          expect(result.body.uploaded.length).greaterThan(0);
-          var req = new model.CellsWorkbook_PutWorkbookCreateRequest();
-          req.folder = "Temp";
-          var date = new Date();
-          var year = date.getUTCFullYear();
-          var month = date.getUTCMonth();
-          var day = date.getUTCDate();
-          var hours = date.getUTCHours();
-          var min = date.getUTCMinutes();
-          var sec = date.getUTCSeconds();
-          req.name ="NewBook" + year + "" + month + "" + day + "" + ".xlsx";
-          req.templateFile = "Temp/Book1.xlsx";
-          req.dataFile = "ReportData.xml";
-          req.isWriteOver = true;
-          
-          return cellsApi.cellsWorkbookPutWorkbookCreate(req)
-            .then((result) => {
-              expect(result.body.code).to.equal(200);
-              expect(result.response.statusCode).to.equal(200);
+              expect(result.body.uploaded.length).greaterThan(0);
+              var req = new model.CellsWorkbook_PutWorkbookCreateRequest();
+              req.folder = "Temp";
+              var date = new Date();
+              var year = date.getUTCFullYear();
+              var month = date.getUTCMonth();
+              var day = date.getUTCDate();
+              var hours = date.getUTCHours();
+              var min = date.getUTCMinutes();
+              var sec = date.getUTCSeconds();
+              req.name = "NewBook" + year + "" + month + "" + day + "" + ".xlsx";
+              req.templateFile = "Temp/Book1.xlsx";
+              req.dataFile = "ReportData.xml";
+              req.isWriteOver = true;
+
+              return cellsApi.cellsWorkbookPutWorkbookCreate(req)
+                .then((result) => {
+                  expect(result.body.code).to.equal(200);
+                  expect(result.response.statusCode).to.equal(200);
+                });
             });
         });
     });
   });
-});
-describe('CellsWorkbook_DeleteWorkbookBackground', function() {
-  it('should call cellsWorkbookDeleteWorkbookBackground successfully', function() {
-    const cellsApi = BaseTest.initializeCellsApi();
-    const filename = "Book1.xlsx";
-    var data =fs.createReadStream(localPath  + filename);
-    var req = new model.UploadFileRequest();
-    req.path = "Temp/" + filename;
-    req.file = data;
+  describe('CellsWorkbook_DeleteWorkbookBackground', function () {
+    it('should call cellsWorkbookDeleteWorkbookBackground successfully', function () {
+      const cellsApi = BaseTest.initializeCellsApi();
+      const filename = "Book1.xlsx";
+      var data = fs.createReadStream(localPath + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
 
-    return cellsApi.uploadFile(req)
-      .then((result) => {
-        expect(result.body.uploaded.length).greaterThan(0);
-        const dataFile = "Book1.xlsx";
-        var data =fs.createReadStream(localPath  + dataFile);
-        var req = new model.UploadFileRequest();
-        req.path = "Temp/" + dataFile;
-        req.file = data;
-    
-        return cellsApi.uploadFile(req)
-          .then((result) => {
-        expect(result.body.uploaded.length).greaterThan(0);
-        var req = new model.CellsWorkbook_DeleteWorkbookBackgroundRequest();
-        req.folder = "Temp";
-        req.name ="Book1.xlsx";
+      return cellsApi.uploadFile(req)
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
+          const dataFile = "Book1.xlsx";
+          var data = fs.createReadStream(localPath + dataFile);
+          var req = new model.UploadFileRequest();
+          req.path = "Temp/" + dataFile;
+          req.file = data;
 
-        
-        return cellsApi.cellsWorkbookDeleteWorkbookBackground(req)
-          .then((result) => {
-            expect(result.body.code).to.equal(200);
-            expect(result.response.statusCode).to.equal(200);
-          });
-      });
+          return cellsApi.uploadFile(req)
+            .then((result) => {
+              expect(result.body.uploaded.length).greaterThan(0);
+              var req = new model.CellsWorkbook_DeleteWorkbookBackgroundRequest();
+              req.folder = "Temp";
+              req.name = "Book1.xlsx";
+
+
+              return cellsApi.cellsWorkbookDeleteWorkbookBackground(req)
+                .then((result) => {
+                  expect(result.body.code).to.equal(200);
+                  expect(result.response.statusCode).to.equal(200);
+                });
+            });
+        });
+    });
   });
-});
-});
-describe('CellsWorkbook_PutWorkbookBackground', function() {
-  it('should call CellsWorkbook_PutWorkbookBackgroundRequest successfully', function() {
-    const cellsApi = BaseTest.initializeCellsApi();
-    const filename = "Book1.xlsx";
-    const png ="WaterMark.png";
-    var data =fs.createReadStream(localPath  + filename);
-    var req = new model.UploadFileRequest();
-    req.path = "Temp/" + filename;
-    req.file = data;
+  describe('CellsWorkbook_PutWorkbookBackground', function () {
+    it('should call CellsWorkbook_PutWorkbookBackgroundRequest successfully', function () {
+      const cellsApi = BaseTest.initializeCellsApi();
+      const filename = "Book1.xlsx";
+      const png = "WaterMark.png";
+      var data = fs.createReadStream(localPath + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
 
-    return cellsApi.uploadFile(req)
-      .then((result) => {
-        expect(result.body.uploaded.length).greaterThan(0);
-        const dataFile = "Book1.xlsx";
-        var data =fs.createReadStream(localPath  + dataFile);
-        var req = new model.UploadFileRequest();
-        req.path = "Temp/" + dataFile;
-        req.file = data;
-    
-        return cellsApi.uploadFile(req)
-          .then((result) => {
-        expect(result.body.uploaded.length).greaterThan(0);
-        var req = new model.CellsWorkbook_PutWorkbookBackgroundRequest();
-        req.folder = "Temp";
-        req.name ="Book1.xlsx";
-        req.png = localPath + png;
+      return cellsApi.uploadFile(req)
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
+          const dataFile = "Book1.xlsx";
+          var data = fs.createReadStream(localPath + dataFile);
+          var req = new model.UploadFileRequest();
+          req.path = "Temp/" + dataFile;
+          req.file = data;
 
-        
-        return cellsApi.cellsWorkbookDeleteWorkbookBackground(req)
-          .then((result) => {
-            expect(result.body.code).to.equal(200);
-            expect(result.response.statusCode).to.equal(200);
-          });
-      });
+          return cellsApi.uploadFile(req)
+            .then((result) => {
+              expect(result.body.uploaded.length).greaterThan(0);
+              var req = new model.CellsWorkbook_PutWorkbookBackgroundRequest();
+              req.folder = "Temp";
+              req.name = "Book1.xlsx";
+              req.png = localPath + png;
+
+
+              return cellsApi.cellsWorkbookDeleteWorkbookBackground(req)
+                .then((result) => {
+                  expect(result.body.code).to.equal(200);
+                  expect(result.response.statusCode).to.equal(200);
+                });
+            });
+        });
+    });
   });
-});
-});
+  describe('CellsWorkbook_GetPageCountRequest', function () {
+    it('should call CellsWorkbook_GetPageCountRequest successfully', function () {
+      const cellsApi = BaseTest.initializeCellsApi();
+      const filename = "Book1.xlsx";
+      var data = fs.createReadStream(localPath + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+
+      return cellsApi.uploadFile(req)
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
+          const filename = "Book1.xlsx";
+          var req = new model.CellsWorkbook_GetPageCountRequest();
+          req.folder = "Temp";
+          req.name = filename;
+
+          return cellsApi.cellsWorkbookGetPageCount(req)
+            .then((result) => {
+              expect(result.body).to.greaterThan(0);
+            });
+        });
+    });
+  });
+
 });

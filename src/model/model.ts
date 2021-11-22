@@ -25967,3 +25967,112 @@ export class MatchConditionRequest {
         Object.assign(this, init);
     }        
 }
+
+/**
+ * Request model for PostCompress operation.
+ */
+ export class PostCompressRequest {
+    /**
+     * File to upload
+     */
+    public file: Buffer;
+
+    /**
+     * Gets or sets compressLevel
+     */
+    public compressLevel: number;
+    
+    public constructor(init?: Partial<PostCompressRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+
+/**
+ * Request model for PostReplace operation.
+ */
+export class PostReplaceRequest {
+    /**
+     * File to upload
+     */
+    public file: Buffer;
+
+    /**
+     * Gets or sets text
+     */
+    public text: string;
+
+    /**
+     * Gets or sets newtext
+     */
+    public newtext: string;
+
+    /**
+     * Gets or sets password
+     */
+    public password: string;
+
+    /**
+     * Gets or sets sheetname
+     */
+    public sheetname: string;
+    
+    public constructor(init?: Partial<PostReplaceRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
+ * Request model for CellsWorkbook_GetPageCount operation.
+ */
+export class CellsWorkbook_GetPageCountRequest {
+    /**
+     * Document name.
+     */
+    public name: string;
+
+    /**
+     * Document's folder.
+     */
+    public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storageName: string;
+    
+    public constructor(init?: Partial<CellsWorkbook_GetPageCountRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+
+/**
+ * Request model for CellsWorksheets_GetPageCount operation.
+ */
+export class CellsWorksheets_GetPageCountRequest {
+    /**
+     * Document name.
+     */
+    public name: string;
+
+    /**
+     * The worksheet name.
+     */
+    public sheetName: string;
+
+    /**
+     * Document's folder.
+     */
+    public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storageName: string;
+    
+    public constructor(init?: Partial<CellsWorksheets_GetPageCountRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+

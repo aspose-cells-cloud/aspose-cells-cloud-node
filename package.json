@@ -1,6 +1,6 @@
 {
   "name": "asposecellscloud",
-  "version": "21.10.0",
+  "version": "21.11.0",
   "description": "Aspose.Cells Cloud SDK for Node.js",
   "keywords": [
     "Aspose",
@@ -19,8 +19,8 @@
   "main": "dist/api.js",
   "types": "dist/api.d.ts",
   "scripts": {
-    "test": "cross-env JUNIT_REPORT_PATH=test_report.xml mocha -r ts-node/register test/**/*.ts --timeout 250000 --reporter mocha-jenkins-reporter",
-    "test-jenkins": "cross-env JUNIT_REPORT_PATH=reports/test_report.xml mocha -r ts-node/register test/**/*.ts --timeout 250000 --reporter mocha-jenkins-reporter",
+    "test": "cross-env JUNIT_REPORT_PATH=integration_tests_result.xml mocha -r ts-node/register test/**/*.ts --timeout 250000 --reporter mocha-jenkins-reporter",
+    "test-jenkins": "cross-env JUNIT_REPORT_PATH=reports/integration_tests_result.xml mocha -r ts-node/register test/**/*.ts --timeout 250000 --reporter mocha-jenkins-reporter",
     "lint": "tslint src/{,**/}*.ts test/{,**/}*.ts -t verbose --project ./tsconfig.json",
     "cucumber": "cucumber-js ./bdd/features -r ./dist/bdd/steps",
     "gulp": "gulp"

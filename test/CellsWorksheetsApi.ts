@@ -971,5 +971,29 @@ describe('CellsWorksheetsApi', function() {
             });
         });
     });
+  });
+  describe('Cells sdk for NodeJS test ok.', function() {
+    it('should call cellsWorksheetsDeleteWorksheets successfully', function() {
+      const cellsApi = BaseTest.initializeCellsApi();
+      const filename = "Book1.xlsx";
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
+          var req = new model.CellsWorksheets_GetPageCountRequest();
+          req.name = filename;
+          req.sheetName ="Sheet1";
+          req.folder = "Temp";
+          
+          return cellsApi.cellsWorksheetsGetPageCount(req)
+            .then((result) => {              
+              expect(result.body.toString().length).to.greaterThan(0);
+            });
+        });
+    });
   });;
 });

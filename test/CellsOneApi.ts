@@ -32,11 +32,11 @@ var path = require('path');
 var assert = require('assert');
 const localPath = "../TestData/";
 
-describe('Cells sdk for NodeJS test ok.', function() {
-  it('should call cellsWorksheetsDeleteWorksheets successfully', function() {
+describe('CellsWorkbook_GetPageCountRequest', function () {
+  it('should call CellsWorkbook_GetPageCountRequest successfully', function () {
     const cellsApi = BaseTest.initializeCellsApi();
     const filename = "Book1.xlsx";
-    var data =fs.createReadStream(localPath  + filename);
+    var data = fs.createReadStream(localPath + filename);
     var req = new model.UploadFileRequest();
     req.path = "Temp/" + filename;
     req.file = data;
@@ -44,21 +44,18 @@ describe('Cells sdk for NodeJS test ok.', function() {
     return cellsApi.uploadFile(req)
       .then((result) => {
         expect(result.body.uploaded.length).greaterThan(0);
-        var req = new model.CellsWorksheets_DeleteWorksheetsRequest();
-        req.name = filename;
-        req.matchCondition = new model.MatchConditionRequest();
-        req.matchCondition.fullMatchConditions =new Array<string>() ; 
-        req.matchCondition.fullMatchConditions.push("Sheet1");
-        req.matchCondition.fullMatchConditions.push("Sheet2");
+        const filename = "Book1.xlsx";
+        var req = new model.CellsWorkbook_GetPageCountRequest();
         req.folder = "Temp";
-        
-        return cellsApi.cellsWorksheetsDeleteWorksheets(req)
+        req.name = filename;
+
+        return cellsApi.cellsWorkbookGetPageCount(req)
           .then((result) => {
-            // expect(result.response.statusCode).to.equal(200);
-            expect(result.body.toString().length).to.greaterThan(0);
+            expect(result.body).to.greaterThan(0);
           });
       });
   });
+
   // it('should call cellsWorkbookPutConvertWorkbook successfully', function() {
   //   const cellsApi = BaseTest.initializeCellsApi();
   //   const filename = "Book1.xlsx";
