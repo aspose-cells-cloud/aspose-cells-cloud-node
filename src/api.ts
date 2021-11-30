@@ -8452,7 +8452,7 @@ export class CellsApi {
      * Get page count for workbook.
      * @param requestObj contains request parameters
      */
-     public async cellsWorkbookGetPageCount(requestObj: model.CellsWorkbook_GetPageCountRequest): Promise<{response: http.ClientResponse, body: model.any}> {
+     public async cellsWorkbookGetPageCount(requestObj: model.CellsWorkbook_GetPageCountRequest): Promise<{response: http.ClientResponse, body: Buffer}> {
         if (requestObj === null || requestObj === undefined) {
             throw new Error('Required parameter "requestObj" was null or undefined when calling cellsWorkbookGetPageCount.');
         }
@@ -8476,7 +8476,7 @@ export class CellsApi {
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
-        const result =  ObjectSerializer.deserialize(response.body, "any");
+        const result =  ObjectSerializer.deserialize(response.body, "Buffer");
         return Promise.resolve({body: result, response});
     }
 
@@ -9968,7 +9968,7 @@ export class CellsApi {
      * Get page count for worksheet.
      * @param requestObj contains request parameters
      */
-     public async cellsWorksheetsGetPageCount(requestObj: model.CellsWorksheets_GetPageCountRequest): Promise<{response: http.ClientResponse, body: model.any}> {
+     public async cellsWorksheetsGetPageCount(requestObj: model.CellsWorksheets_GetPageCountRequest): Promise<{response: http.ClientResponse, body: Buffer}> {
         if (requestObj === null || requestObj === undefined) {
             throw new Error('Required parameter "requestObj" was null or undefined when calling cellsWorksheetsGetPageCount.');
         }
@@ -9998,7 +9998,7 @@ export class CellsApi {
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
-        const result =  ObjectSerializer.deserialize(response.body, "any");
+        const result =  ObjectSerializer.deserialize(response.body, "Buffer");
         return Promise.resolve({body: result, response});
     }
 
