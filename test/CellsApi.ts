@@ -868,6 +868,7 @@ describe('CellsApi', function() {
           req.name = filename;
           req.sheetName = "Sheet1";
           req.columnIndex = 1;
+          req.count = 10;
           req.width = 10;
           req.folder = "Temp";
 

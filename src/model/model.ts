@@ -254,6 +254,61 @@ export class AutoFitterOptions {
     }        
 }
 
+export class BatchConvertRequest {
+
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "sourceFolder",
+            baseName: "SourceFolder",
+            type: "string",
+        },        
+        {
+            name: "matchCondition",
+            baseName: "MatchCondition",
+            type: "MatchConditionRequest",
+        },        
+        {
+            name: "format",
+            baseName: "Format",
+            type: "string",
+        },        
+        {
+            name: "outFolder",
+            baseName: "OutFolder",
+            type: "string",
+        },        
+        {
+            name: "saveOptions",
+            baseName: "SaveOptions",
+            type: "SaveOptions",
+        }    ];
+
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return BatchConvertRequest.attributeTypeMap;
+    }
+
+    public sourceFolder: string;
+    
+    public matchCondition: MatchConditionRequest;
+    
+    public format: string;
+    
+    public outFolder: string;
+    
+    public saveOptions: SaveOptions;
+    
+    public constructor(init?: Partial<BatchConvertRequest>) {
+        
+        Object.assign(this, init);
+    }        
+}
+
 export class Border {
 
     /**
@@ -421,6 +476,11 @@ export class CellValue {
             name: "value",
             baseName: "value",
             type: "string",
+        },        
+        {
+            name: "formula",
+            baseName: "formula",
+            type: "string",
         }    ];
 
     /**
@@ -439,6 +499,8 @@ export class CellValue {
     public type: string;
     
     public value: string;
+    
+    public formula: string;
     
     public constructor(init?: Partial<CellValue>) {
         
@@ -2594,6 +2656,16 @@ export class ListColumn {
             name: "name",
             baseName: "Name",
             type: "string",
+        },        
+        {
+            name: "formula",
+            baseName: "Formula",
+            type: "string",
+        },        
+        {
+            name: "range",
+            baseName: "Range",
+            type: "Range",
         }    ];
 
     /**
@@ -2613,7 +2685,51 @@ export class ListColumn {
      */
     public name: string;
     
+    /**
+     * Gets and sets the formula of the list column.
+     */
+    public formula: string;
+    
+    /**
+     * Gets and sets the formula of the list column.
+     */
+    public range: Range;
+    
     public constructor(init?: Partial<ListColumn>) {
+        
+        Object.assign(this, init);
+    }        
+}
+
+export class MatchConditionRequest {
+
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "regexPattern",
+            baseName: "RegexPattern",
+            type: "string",
+        },        
+        {
+            name: "fullMatchConditions",
+            baseName: "FullMatchConditions",
+            type: "Array<string>",
+        }    ];
+
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return MatchConditionRequest.attributeTypeMap;
+    }
+
+    public regexPattern: string;
+    
+    public fullMatchConditions: Array<string>;
+    
+    public constructor(init?: Partial<MatchConditionRequest>) {
         
         Object.assign(this, init);
     }        
@@ -4479,7 +4595,7 @@ export class SortKey {
         {
             name: "customList",
             baseName: "CustomList",
-            type: "string",
+            type: "Array<string>",
         },        
         {
             name: "sortOrder",
@@ -4490,6 +4606,21 @@ export class SortKey {
             name: "key",
             baseName: "Key",
             type: "number",
+        },        
+        {
+            name: "order",
+            baseName: "Order",
+            type: "string",
+        },        
+        {
+            name: "type",
+            baseName: "Type",
+            type: "string",
+        },        
+        {
+            name: "index",
+            baseName: "Index",
+            type: "number",
         }    ];
 
     /**
@@ -4499,11 +4630,17 @@ export class SortKey {
         return SortKey.attributeTypeMap;
     }
 
-    public customList: string;
+    public customList: Array<string>;
     
     public sortOrder: string;
     
     public key: number;
+    
+    public order: string;
+    
+    public type: string;
+    
+    public index: number;
     
     public constructor(init?: Partial<SortKey>) {
         
@@ -4916,6 +5053,47 @@ export class StorageFile {
     public path: string;
     
     public constructor(init?: Partial<StorageFile>) {
+        
+        Object.assign(this, init);
+    }        
+}
+
+export class TableTotalRequest {
+
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "listColumnIndex",
+            baseName: "ListColumnIndex",
+            type: "number",
+        },        
+        {
+            name: "totalsCalculation",
+            baseName: "TotalsCalculation",
+            type: "string",
+        },        
+        {
+            name: "customFormula",
+            baseName: "CustomFormula",
+            type: "string",
+        }    ];
+
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return TableTotalRequest.attributeTypeMap;
+    }
+
+    public listColumnIndex: number;
+    
+    public totalsCalculation: string;
+    
+    public customFormula: string;
+    
+    public constructor(init?: Partial<TableTotalRequest>) {
         
         Object.assign(this, init);
     }        
@@ -15516,6 +15694,7 @@ const typeMap = {
             AccessTokenResponse,
             Area,
             AutoFitterOptions,
+            BatchConvertRequest,
             Border,
             CalculationOptions,
             CellArea,
@@ -15560,6 +15739,7 @@ const typeMap = {
             Link,
             LinkElement,
             ListColumn,
+            MatchConditionRequest,
             MultipleFilter,
             MultipleFilters,
             NegativeBarFormat,
@@ -15596,6 +15776,7 @@ const typeMap = {
             SplitResult,
             StorageExist,
             StorageFile,
+            TableTotalRequest,
             TaskData,
             TaskDescription,
             TaskParameter,
@@ -18276,6 +18457,89 @@ export class CellsListObjects_GetWorksheetListObjectsRequest {
 }
 
 /**
+ * Request model for CellsListObjects_PostWorksheetListColumn operation.
+ */
+export class CellsListObjects_PostWorksheetListColumnRequest {
+    /**
+     * Gets or sets name
+     */
+    public name: string;
+
+    /**
+     * Gets or sets sheetName
+     */
+    public sheetName: string;
+
+    /**
+     * Gets or sets listObjectIndex
+     */
+    public listObjectIndex: number;
+
+    /**
+     * Gets or sets columnIndex
+     */
+    public columnIndex: number;
+
+    /**
+     * Gets or sets listColumn
+     */
+    public listColumn: ListColumn;
+
+    /**
+     * Gets or sets folder
+     */
+    public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storageName: string;
+    
+    public constructor(init?: Partial<CellsListObjects_PostWorksheetListColumnRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
+ * Request model for CellsListObjects_PostWorksheetListColumnsTotal operation.
+ */
+export class CellsListObjects_PostWorksheetListColumnsTotalRequest {
+    /**
+     * Gets or sets name
+     */
+    public name: string;
+
+    /**
+     * Gets or sets sheetName
+     */
+    public sheetName: string;
+
+    /**
+     * Gets or sets listObjectIndex
+     */
+    public listObjectIndex: number;
+
+    /**
+     * Gets or sets tableTotalRequests
+     */
+    public tableTotalRequests: Array<TableTotalRequest>;
+
+    /**
+     * Gets or sets folder
+     */
+    public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storageName: string;
+    
+    public constructor(init?: Partial<CellsListObjects_PostWorksheetListColumnsTotalRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
  * Request model for CellsListObjects_PostWorksheetListObject operation.
  */
 export class CellsListObjects_PostWorksheetListObjectRequest {
@@ -18469,6 +18733,16 @@ export class CellsListObjects_PutWorksheetListObjectRequest {
      * Whether the range has headers.
      */
     public hasHeaders: boolean;
+
+    /**
+     * Gets and sets the display name..
+     */
+    public displayName: boolean;
+
+    /**
+     * Gets and sets whether this ListObject show total row..
+     */
+    public showTotals: boolean;
 
     /**
      * List Object
@@ -21150,6 +21424,11 @@ export class Cells_PostSetWorksheetColumnWidthRequest {
     public width: number;
 
     /**
+     * column number.
+     */
+    public count: number;
+
+    /**
      * The workbook folder.
      */
     public folder: string;
@@ -21436,6 +21715,11 @@ export class Cells_PostUpdateWorksheetRowRequest {
      * The new row height.
      */
     public height: number;
+
+    /**
+     * row number.
+     */
+    public count: number;
 
     /**
      * The document folder.
@@ -22505,6 +22789,40 @@ export class CellsShapes_GetWorksheetShapesRequest {
 }
 
 /**
+ * Request model for CellsShapes_PostWorksheetGroupShape operation.
+ */
+export class CellsShapes_PostWorksheetGroupShapeRequest {
+    /**
+     * document name.
+     */
+    public name: string;
+
+    /**
+     * worksheet name.
+     */
+    public sheetName: string;
+
+    /**
+     * group shape indexs in worksheet shapes.
+     */
+    public listShape: Array<number>;
+
+    /**
+     * Document's folder.
+     */
+    public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storageName: string;
+    
+    public constructor(init?: Partial<CellsShapes_PostWorksheetGroupShapeRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
  * Request model for CellsShapes_PostWorksheetShape operation.
  */
 export class CellsShapes_PostWorksheetShapeRequest {
@@ -22539,6 +22857,40 @@ export class CellsShapes_PostWorksheetShapeRequest {
     public storageName: string;
     
     public constructor(init?: Partial<CellsShapes_PostWorksheetShapeRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
+ * Request model for CellsShapes_PostWorksheetUngroupShape operation.
+ */
+export class CellsShapes_PostWorksheetUngroupShapeRequest {
+    /**
+     * document name.
+     */
+    public name: string;
+
+    /**
+     * worksheet name.
+     */
+    public sheetName: string;
+
+    /**
+     * shape index in worksheet shapes.
+     */
+    public shapeindex: number;
+
+    /**
+     * Document's folder.
+     */
+    public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storageName: string;
+    
+    public constructor(init?: Partial<CellsShapes_PostWorksheetUngroupShapeRequest>) {        
         Object.assign(this, init);
     } 
 }
@@ -22995,6 +23347,30 @@ export class CellsWorkbook_DeleteWorkbookNamesRequest {
     public storageName: string;
     
     public constructor(init?: Partial<CellsWorkbook_DeleteWorkbookNamesRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
+ * Request model for CellsWorkbook_GetPageCount operation.
+ */
+export class CellsWorkbook_GetPageCountRequest {
+    /**
+     * Document name.
+     */
+    public name: string;
+
+    /**
+     * Document's folder.
+     */
+    public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storageName: string;
+    
+    public constructor(init?: Partial<CellsWorkbook_GetPageCountRequest>) {        
         Object.assign(this, init);
     } 
 }
@@ -23638,6 +24014,11 @@ export class CellsWorkbook_PutConvertWorkbookRequest {
      * Path to save result
      */
     public outPath: string;
+
+    /**
+     * storage name.
+     */
+    public storageName: string;
     
     public constructor(init?: Partial<CellsWorkbook_PutConvertWorkbookRequest>) {        
         Object.assign(this, init);
@@ -24179,6 +24560,35 @@ export class CellsWorksheets_DeleteWorksheetFreezePanesRequest {
 }
 
 /**
+ * Request model for CellsWorksheets_DeleteWorksheets operation.
+ */
+export class CellsWorksheets_DeleteWorksheetsRequest {
+    /**
+     * Gets or sets name
+     */
+    public name: string;
+
+    /**
+     * Gets or sets matchCondition
+     */
+    public matchCondition: MatchConditionRequest;
+
+    /**
+     * Gets or sets folder
+     */
+    public folder: string;
+
+    /**
+     * Gets or sets storageName
+     */
+    public storageName: string;
+    
+    public constructor(init?: Partial<CellsWorksheets_DeleteWorksheetsRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
  * Request model for CellsWorksheets_GetNamedRanges operation.
  */
 export class CellsWorksheets_GetNamedRangesRequest {
@@ -24198,6 +24608,35 @@ export class CellsWorksheets_GetNamedRangesRequest {
     public storageName: string;
     
     public constructor(init?: Partial<CellsWorksheets_GetNamedRangesRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
+ * Request model for CellsWorksheets_GetPageCount operation.
+ */
+export class CellsWorksheets_GetPageCountRequest {
+    /**
+     * Document name.
+     */
+    public name: string;
+
+    /**
+     * The worksheet name.
+     */
+    public sheetName: string;
+
+    /**
+     * Document's folder.
+     */
+    public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storageName: string;
+    
+    public constructor(init?: Partial<CellsWorksheets_GetPageCountRequest>) {        
         Object.assign(this, init);
     } 
 }
@@ -25504,6 +25943,20 @@ export class ObjectExistsRequest {
 }
 
 /**
+ * Request model for PostBatchConvert operation.
+ */
+export class PostBatchConvertRequest {
+    /**
+     * Gets or sets batchConvertRequest
+     */
+    public batchConvertRequest: BatchConvertRequest;
+    
+    public constructor(init?: Partial<PostBatchConvertRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
  * Request model for StorageExists operation.
  */
 export class StorageExistsRequest {
@@ -25563,11 +26016,11 @@ export class DeleteMetadataRequest {
 /**
  * Request model for  operation.
  */
- export class GetMetadataRequest {
+export class GetMetadataRequest {
     /**
      * File to upload
      */
-    public file: {};
+    public file: Buffer;
 
     /**
      * Gets or sets type
@@ -25621,16 +26074,22 @@ export class PostClearObjectsRequest {
         Object.assign(this, init);
     } 
 }
+
 /**
- * Request model for PostBatchConvert operation.
+ * Request model for PostCompress operation.
  */
-export class PostBatchConvertRequest {
+export class PostCompressRequest {
     /**
-     * Gets or sets batchConvertRequest
+     * File to upload
      */
-    public batchConvertRequest: BatchConvertRequest;
+    public file: Buffer;
+
+    /**
+     * Gets or sets compressLevel
+     */
+    public compressLevel: number;
     
-    public constructor(init?: Partial<PostBatchConvertRequest>) {        
+    public constructor(init?: Partial<PostCompressRequest>) {        
         Object.assign(this, init);
     } 
 }
@@ -25741,6 +26200,64 @@ export class PostProtectRequest {
 }
 
 /**
+ * Request model for PostReplace operation.
+ */
+export class PostReplaceRequest {
+    /**
+     * File to upload
+     */
+    public file: Buffer;
+
+    /**
+     * Gets or sets text
+     */
+    public text: string;
+
+    /**
+     * Gets or sets newtext
+     */
+    public newtext: string;
+
+    /**
+     * Gets or sets password
+     */
+    public password: string;
+
+    /**
+     * Gets or sets sheetname
+     */
+    public sheetname: string;
+    
+    public constructor(init?: Partial<PostReplaceRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
+ * Request model for PostReverse operation.
+ */
+export class PostReverseRequest {
+    /**
+     * File to upload
+     */
+    public file: Buffer;
+
+    /**
+     * Gets or sets rotateType
+     */
+    public rotateType: string;
+
+    /**
+     * Gets or sets format
+     */
+    public format: string;
+    
+    public constructor(init?: Partial<PostReverseRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
  * Request model for PostSearch operation.
  */
 export class PostSearchRequest {
@@ -25845,234 +26362,3 @@ export class PostWatermarkRequest {
         Object.assign(this, init);
     } 
 }
-
-
-/**
- * Request model for CellsWorksheets_DeleteWorksheets operation.
- */
- export class CellsWorksheets_DeleteWorksheetsRequest {
-    /**
-     * Gets or sets name
-     */
-    public name: string;
-
-    /**
-     * Gets or sets matchCondition
-     */
-    public matchCondition: MatchConditionRequest;
-
-    /**
-     * Gets or sets folder
-     */
-    public folder: string;
-
-    /**
-     * Gets or sets storageName
-     */
-    public storageName: string;
-    
-    public constructor(init?: Partial<CellsWorksheets_DeleteWorksheetsRequest>) {        
-        Object.assign(this, init);
-    } 
-}
-
-
-
-export class BatchConvertRequest {
-
-    /**
-     * Attribute type map
-     */
-    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
-        {
-            name: "sourceFolder",
-            baseName: "SourceFolder",
-            type: "string",
-        },        
-        {
-            name: "matchCondition",
-            baseName: "MatchCondition",
-            type: "MatchConditionRequest",
-        },        
-        {
-            name: "format",
-            baseName: "Format",
-            type: "string",
-        },        
-        {
-            name: "outFolder",
-            baseName: "OutFolder",
-            type: "string",
-        },        
-        {
-            name: "saveOptions",
-            baseName: "SaveOptions",
-            type: "SaveOptions",
-        }    ];
-
-    /**
-     * Returns attribute type map
-     */
-    public static getAttributeTypeMap() {
-        return BatchConvertRequest.attributeTypeMap;
-    }
-
-    public sourceFolder: string;
-    
-    public matchCondition: MatchConditionRequest;
-    
-    public format: string;
-    
-    public outFolder: string;
-    
-    public saveOptions: SaveOptions;
-    
-    public constructor(init?: Partial<BatchConvertRequest>) {
-        
-        Object.assign(this, init);
-    }        
-}
-
-
-export class MatchConditionRequest {
-
-    /**
-     * Attribute type map
-     */
-    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
-        {
-            name: "regexPattern",
-            baseName: "RegexPattern",
-            type: "string",
-        },        
-        {
-            name: "fullMatchConditions",
-            baseName: "FullMatchConditions",
-            type: "Array<string>",
-        }    ];
-
-    /**
-     * Returns attribute type map
-     */
-    public static getAttributeTypeMap() {
-        return MatchConditionRequest.attributeTypeMap;
-    }
-
-    public regexPattern: string;
-    
-    public fullMatchConditions: Array<string>;
-    
-    public constructor(init?: Partial<MatchConditionRequest>) {
-        
-        Object.assign(this, init);
-    }        
-}
-
-/**
- * Request model for PostCompress operation.
- */
- export class PostCompressRequest {
-    /**
-     * File to upload
-     */
-    public file: Buffer;
-
-    /**
-     * Gets or sets compressLevel
-     */
-    public compressLevel: number;
-    
-    public constructor(init?: Partial<PostCompressRequest>) {        
-        Object.assign(this, init);
-    } 
-}
-
-
-/**
- * Request model for PostReplace operation.
- */
-export class PostReplaceRequest {
-    /**
-     * File to upload
-     */
-    public file: Buffer;
-
-    /**
-     * Gets or sets text
-     */
-    public text: string;
-
-    /**
-     * Gets or sets newtext
-     */
-    public newtext: string;
-
-    /**
-     * Gets or sets password
-     */
-    public password: string;
-
-    /**
-     * Gets or sets sheetname
-     */
-    public sheetname: string;
-    
-    public constructor(init?: Partial<PostReplaceRequest>) {        
-        Object.assign(this, init);
-    } 
-}
-
-/**
- * Request model for CellsWorkbook_GetPageCount operation.
- */
-export class CellsWorkbook_GetPageCountRequest {
-    /**
-     * Document name.
-     */
-    public name: string;
-
-    /**
-     * Document's folder.
-     */
-    public folder: string;
-
-    /**
-     * storage name.
-     */
-    public storageName: string;
-    
-    public constructor(init?: Partial<CellsWorkbook_GetPageCountRequest>) {        
-        Object.assign(this, init);
-    } 
-}
-
-
-/**
- * Request model for CellsWorksheets_GetPageCount operation.
- */
-export class CellsWorksheets_GetPageCountRequest {
-    /**
-     * Document name.
-     */
-    public name: string;
-
-    /**
-     * The worksheet name.
-     */
-    public sheetName: string;
-
-    /**
-     * Document's folder.
-     */
-    public folder: string;
-
-    /**
-     * storage name.
-     */
-    public storageName: string;
-    
-    public constructor(init?: Partial<CellsWorksheets_GetPageCountRequest>) {        
-        Object.assign(this, init);
-    } 
-}
-

@@ -788,7 +788,6 @@ export class CellsApi {
             qs: queryParameters,
             uri: localVarPath,
             json: true,
-            encoding: null,
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
@@ -1174,7 +1173,6 @@ export class CellsApi {
             qs: queryParameters,
             uri: localVarPath,
             json: true,
-            encoding: null,
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
@@ -2235,7 +2233,6 @@ export class CellsApi {
             qs: queryParameters,
             uri: localVarPath,
             json: true,
-            encoding: null,
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
@@ -2280,7 +2277,6 @@ export class CellsApi {
             qs: queryParameters,
             uri: localVarPath,
             json: true,
-            // encoding: null,
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
@@ -2933,7 +2929,6 @@ export class CellsApi {
             qs: queryParameters,
             uri: localVarPath,
             json: true,
-            encoding: null,
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
@@ -2976,6 +2971,102 @@ export class CellsApi {
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
         const result =  ObjectSerializer.deserialize(response.body, "ListObjectsResponse");
+        return Promise.resolve({body: result, response});
+    }
+
+    /**
+     * 
+     * @param requestObj contains request parameters
+     */
+    public async cellsListObjectsPostWorksheetListColumn(requestObj: model.CellsListObjects_PostWorksheetListColumnRequest): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}> {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling cellsListObjectsPostWorksheetListColumn.');
+        }
+
+        let localVarPath = this.configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/listobjects/{listObjectIndex}/listcolumns/{columnIndex}"
+            .replace("{" + "name" + "}", String(requestObj.name))
+            .replace("{" + "sheetName" + "}", String(requestObj.sheetName))
+            .replace("{" + "listObjectIndex" + "}", String(requestObj.listObjectIndex))
+            .replace("{" + "columnIndex" + "}", String(requestObj.columnIndex));
+        const queryParameters: any = {};
+
+        // verify required parameter 'requestObj.name' is not null or undefined
+        if (requestObj.name === null || requestObj.name === undefined) {
+            throw new Error('Required parameter "requestObj.name" was null or undefined when calling cellsListObjectsPostWorksheetListColumn.');
+        }
+
+        // verify required parameter 'requestObj.sheetName' is not null or undefined
+        if (requestObj.sheetName === null || requestObj.sheetName === undefined) {
+            throw new Error('Required parameter "requestObj.sheetName" was null or undefined when calling cellsListObjectsPostWorksheetListColumn.');
+        }
+
+        // verify required parameter 'requestObj.listObjectIndex' is not null or undefined
+        if (requestObj.listObjectIndex === null || requestObj.listObjectIndex === undefined) {
+            throw new Error('Required parameter "requestObj.listObjectIndex" was null or undefined when calling cellsListObjectsPostWorksheetListColumn.');
+        }
+
+        // verify required parameter 'requestObj.columnIndex' is not null or undefined
+        if (requestObj.columnIndex === null || requestObj.columnIndex === undefined) {
+            throw new Error('Required parameter "requestObj.columnIndex" was null or undefined when calling cellsListObjectsPostWorksheetListColumn.');
+        }
+        
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", requestObj.storageName);
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+            body: (requestObj.listColumn == null) ? "" : ObjectSerializer.serialize(requestObj.listColumn, requestObj.listColumn.constructor.name === "Object" ? "ListColumn" : requestObj.listColumn.constructor.name),
+        };
+
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "CellsCloudResponse");
+        return Promise.resolve({body: result, response});
+    }
+
+    /**
+     * 
+     * @param requestObj contains request parameters
+     */
+    public async cellsListObjectsPostWorksheetListColumnsTotal(requestObj: model.CellsListObjects_PostWorksheetListColumnsTotalRequest): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}> {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling cellsListObjectsPostWorksheetListColumnsTotal.');
+        }
+
+        let localVarPath = this.configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/listobjects/{listObjectIndex}/listcolumns/total"
+            .replace("{" + "name" + "}", String(requestObj.name))
+            .replace("{" + "sheetName" + "}", String(requestObj.sheetName))
+            .replace("{" + "listObjectIndex" + "}", String(requestObj.listObjectIndex));
+        const queryParameters: any = {};
+
+        // verify required parameter 'requestObj.name' is not null or undefined
+        if (requestObj.name === null || requestObj.name === undefined) {
+            throw new Error('Required parameter "requestObj.name" was null or undefined when calling cellsListObjectsPostWorksheetListColumnsTotal.');
+        }
+
+        // verify required parameter 'requestObj.sheetName' is not null or undefined
+        if (requestObj.sheetName === null || requestObj.sheetName === undefined) {
+            throw new Error('Required parameter "requestObj.sheetName" was null or undefined when calling cellsListObjectsPostWorksheetListColumnsTotal.');
+        }
+
+        // verify required parameter 'requestObj.listObjectIndex' is not null or undefined
+        if (requestObj.listObjectIndex === null || requestObj.listObjectIndex === undefined) {
+            throw new Error('Required parameter "requestObj.listObjectIndex" was null or undefined when calling cellsListObjectsPostWorksheetListColumnsTotal.');
+        }
+        
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", requestObj.storageName);
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+            body: (requestObj.tableTotalRequests == null) ? "" : ObjectSerializer.serialize(requestObj.tableTotalRequests, requestObj.tableTotalRequests.constructor.name === "Object" ? "Array<TableTotalRequest>" : requestObj.tableTotalRequests.constructor.name),
+        };
+
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "CellsCloudResponse");
         return Promise.resolve({body: result, response});
     }
 
@@ -3213,6 +3304,8 @@ export class CellsApi {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "endRow", requestObj.endRow);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "endColumn", requestObj.endColumn);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "hasHeaders", requestObj.hasHeaders);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "displayName", requestObj.displayName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "showTotals", requestObj.showTotals);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", requestObj.storageName);
         const requestOptions: request.Options = {
@@ -3348,7 +3441,6 @@ export class CellsApi {
             qs: queryParameters,
             uri: localVarPath,
             json: true,
-            encoding: null,
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
@@ -4323,7 +4415,6 @@ export class CellsApi {
             qs: queryParameters,
             uri: localVarPath,
             json: true,
-            encoding: null,
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
@@ -6279,8 +6370,14 @@ export class CellsApi {
         if (requestObj.width === null || requestObj.width === undefined) {
             throw new Error('Required parameter "requestObj.width" was null or undefined when calling cellsPostSetWorksheetColumnWidth.');
         }
+
+        // verify required parameter 'requestObj.count' is not null or undefined
+        if (requestObj.count === null || requestObj.count === undefined) {
+            throw new Error('Required parameter "requestObj.count" was null or undefined when calling cellsPostSetWorksheetColumnWidth.');
+        }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "width", requestObj.width);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "count", requestObj.count);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", requestObj.storageName);
         const requestOptions: request.Options = {
@@ -6619,6 +6716,7 @@ export class CellsApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "height", requestObj.height);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "count", requestObj.count);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", requestObj.storageName);
         const requestOptions: request.Options = {
@@ -7854,6 +7952,50 @@ export class CellsApi {
      * Update a shape in worksheet
      * @param requestObj contains request parameters
      */
+    public async cellsShapesPostWorksheetGroupShape(requestObj: model.CellsShapes_PostWorksheetGroupShapeRequest): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}> {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling cellsShapesPostWorksheetGroupShape.');
+        }
+
+        let localVarPath = this.configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/shapes/group"
+            .replace("{" + "name" + "}", String(requestObj.name))
+            .replace("{" + "sheetName" + "}", String(requestObj.sheetName));
+        const queryParameters: any = {};
+
+        // verify required parameter 'requestObj.name' is not null or undefined
+        if (requestObj.name === null || requestObj.name === undefined) {
+            throw new Error('Required parameter "requestObj.name" was null or undefined when calling cellsShapesPostWorksheetGroupShape.');
+        }
+
+        // verify required parameter 'requestObj.sheetName' is not null or undefined
+        if (requestObj.sheetName === null || requestObj.sheetName === undefined) {
+            throw new Error('Required parameter "requestObj.sheetName" was null or undefined when calling cellsShapesPostWorksheetGroupShape.');
+        }
+
+        // verify required parameter 'requestObj.listShape' is not null or undefined
+        if (requestObj.listShape === null || requestObj.listShape === undefined) {
+            throw new Error('Required parameter "requestObj.listShape" was null or undefined when calling cellsShapesPostWorksheetGroupShape.');
+        }
+        
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", requestObj.storageName);
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+            body: (requestObj.listShape == null) ? "" : ObjectSerializer.serialize(requestObj.listShape, requestObj.listShape.constructor.name === "Object" ? "Array<number>" : requestObj.listShape.constructor.name),
+        };
+
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "CellsCloudResponse");
+        return Promise.resolve({body: result, response});
+    }
+
+    /**
+     * Update a shape in worksheet
+     * @param requestObj contains request parameters
+     */
     public async cellsShapesPostWorksheetShape(requestObj: model.CellsShapes_PostWorksheetShapeRequest): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}> {
         if (requestObj === null || requestObj === undefined) {
             throw new Error('Required parameter "requestObj" was null or undefined when calling cellsShapesPostWorksheetShape.');
@@ -7888,6 +8030,50 @@ export class CellsApi {
             uri: localVarPath,
             json: true,
             body: (requestObj.dto == null) ? "" : ObjectSerializer.serialize(requestObj.dto, requestObj.dto.constructor.name === "Object" ? "Shape" : requestObj.dto.constructor.name),
+        };
+
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "CellsCloudResponse");
+        return Promise.resolve({body: result, response});
+    }
+
+    /**
+     * Update a shape in worksheet
+     * @param requestObj contains request parameters
+     */
+    public async cellsShapesPostWorksheetUngroupShape(requestObj: model.CellsShapes_PostWorksheetUngroupShapeRequest): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}> {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling cellsShapesPostWorksheetUngroupShape.');
+        }
+
+        let localVarPath = this.configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/shapes/{shapeindex}/ungroup"
+            .replace("{" + "name" + "}", String(requestObj.name))
+            .replace("{" + "sheetName" + "}", String(requestObj.sheetName))
+            .replace("{" + "shapeindex" + "}", String(requestObj.shapeindex));
+        const queryParameters: any = {};
+
+        // verify required parameter 'requestObj.name' is not null or undefined
+        if (requestObj.name === null || requestObj.name === undefined) {
+            throw new Error('Required parameter "requestObj.name" was null or undefined when calling cellsShapesPostWorksheetUngroupShape.');
+        }
+
+        // verify required parameter 'requestObj.sheetName' is not null or undefined
+        if (requestObj.sheetName === null || requestObj.sheetName === undefined) {
+            throw new Error('Required parameter "requestObj.sheetName" was null or undefined when calling cellsShapesPostWorksheetUngroupShape.');
+        }
+
+        // verify required parameter 'requestObj.shapeindex' is not null or undefined
+        if (requestObj.shapeindex === null || requestObj.shapeindex === undefined) {
+            throw new Error('Required parameter "requestObj.shapeindex" was null or undefined when calling cellsShapesPostWorksheetUngroupShape.');
+        }
+        
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", requestObj.storageName);
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
@@ -8240,7 +8426,6 @@ export class CellsApi {
             uri: localVarPath,
             json: true,
             body: (requestObj.taskData == null) ? "" : ObjectSerializer.serialize(requestObj.taskData, requestObj.taskData.constructor.name === "Object" ? "TaskData" : requestObj.taskData.constructor.name),
-            encoding: null,
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
@@ -8448,11 +8633,11 @@ export class CellsApi {
         return Promise.resolve({body: result, response});
     }
 
-	/**
+    /**
      * Get page count for workbook.
      * @param requestObj contains request parameters
      */
-     public async cellsWorkbookGetPageCount(requestObj: model.CellsWorkbook_GetPageCountRequest): Promise<{response: http.ClientResponse, body: Buffer}> {
+    public async cellsWorkbookGetPageCount(requestObj: model.CellsWorkbook_GetPageCountRequest): Promise<{response: http.ClientResponse, body: any}> {
         if (requestObj === null || requestObj === undefined) {
             throw new Error('Required parameter "requestObj" was null or undefined when calling cellsWorkbookGetPageCount.');
         }
@@ -8476,7 +8661,7 @@ export class CellsApi {
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
-        const result =  ObjectSerializer.deserialize(response.body, "Buffer");
+        const result =  ObjectSerializer.deserialize(response.body, "any");
         return Promise.resolve({body: result, response});
     }
 
@@ -8510,7 +8695,6 @@ export class CellsApi {
             qs: queryParameters,
             uri: localVarPath,
             json: true,
-            encoding: null,
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
@@ -8958,7 +9142,6 @@ export class CellsApi {
             qs: queryParameters,
             uri: localVarPath,
             json: true,
-            encoding: null,
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
@@ -9178,6 +9361,7 @@ export class CellsApi {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "format", requestObj.format);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", requestObj.password);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", requestObj.outPath);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", requestObj.storageName);
         if (requestObj.file !== undefined) {
             formParams.file = requestObj.file;
         }
@@ -9187,7 +9371,6 @@ export class CellsApi {
             qs: queryParameters,
             uri: localVarPath,
             json: true,
-            encoding: null,
         };
 
         (requestOptions as any).formData = formParams;        
@@ -9627,7 +9810,7 @@ export class CellsApi {
      * Delete worksheet.
      * @param requestObj contains request parameters
      */
-    public async cellsWorksheetsDeleteWorksheet(requestObj: model.CellsWorksheets_DeleteWorksheetRequest): Promise<{response: http.ClientResponse, body: model.WorksheetsResponse}> {
+    public async cellsWorksheetsDeleteWorksheet(requestObj: model.CellsWorksheets_DeleteWorksheetRequest): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}> {
         if (requestObj === null || requestObj === undefined) {
             throw new Error('Required parameter "requestObj" was null or undefined when calling cellsWorksheetsDeleteWorksheet.');
         }
@@ -9657,7 +9840,7 @@ export class CellsApi {
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
-        const result =  ObjectSerializer.deserialize(response.body, "WorksheetsResponse");
+        const result =  ObjectSerializer.deserialize(response.body, "CellsCloudResponse");
         return Promise.resolve({body: result, response});
     }
 
@@ -9844,6 +10027,44 @@ export class CellsApi {
     }
 
     /**
+     * Read worksheets info.
+     * @param requestObj contains request parameters
+     */
+    public async cellsWorksheetsDeleteWorksheets(requestObj: model.CellsWorksheets_DeleteWorksheetsRequest): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}> {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling cellsWorksheetsDeleteWorksheets.');
+        }
+
+        let localVarPath = this.configuration.getApiBaseUrl() + "/cells/{name}/worksheets"
+            .replace("{" + "name" + "}", String(requestObj.name));
+        const queryParameters: any = {};
+
+        // verify required parameter 'requestObj.name' is not null or undefined
+        if (requestObj.name === null || requestObj.name === undefined) {
+            throw new Error('Required parameter "requestObj.name" was null or undefined when calling cellsWorksheetsDeleteWorksheets.');
+        }
+
+        // verify required parameter 'requestObj.matchCondition' is not null or undefined
+        if (requestObj.matchCondition === null || requestObj.matchCondition === undefined) {
+            throw new Error('Required parameter "requestObj.matchCondition" was null or undefined when calling cellsWorksheetsDeleteWorksheets.');
+        }
+        
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", requestObj.storageName);
+        const requestOptions: request.Options = {
+            method: "DELETE",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+            body: (requestObj.matchCondition == null) ? "" : ObjectSerializer.serialize(requestObj.matchCondition, requestObj.matchCondition.constructor.name === "Object" ? "MatchConditionRequest" : requestObj.matchCondition.constructor.name),
+        };
+
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "CellsCloudResponse");
+        return Promise.resolve({body: result, response});
+    }
+
+    /**
      * Read worksheets ranges info.
      * @param requestObj contains request parameters
      */
@@ -9872,6 +10093,44 @@ export class CellsApi {
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
         const result =  ObjectSerializer.deserialize(response.body, "RangesResponse");
+        return Promise.resolve({body: result, response});
+    }
+
+    /**
+     * Get page count for worksheet.
+     * @param requestObj contains request parameters
+     */
+    public async cellsWorksheetsGetPageCount(requestObj: model.CellsWorksheets_GetPageCountRequest): Promise<{response: http.ClientResponse, body: any}> {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling cellsWorksheetsGetPageCount.');
+        }
+
+        let localVarPath = this.configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/pagecount"
+            .replace("{" + "name" + "}", String(requestObj.name))
+            .replace("{" + "sheetName" + "}", String(requestObj.sheetName));
+        const queryParameters: any = {};
+
+        // verify required parameter 'requestObj.name' is not null or undefined
+        if (requestObj.name === null || requestObj.name === undefined) {
+            throw new Error('Required parameter "requestObj.name" was null or undefined when calling cellsWorksheetsGetPageCount.');
+        }
+
+        // verify required parameter 'requestObj.sheetName' is not null or undefined
+        if (requestObj.sheetName === null || requestObj.sheetName === undefined) {
+            throw new Error('Required parameter "requestObj.sheetName" was null or undefined when calling cellsWorksheetsGetPageCount.');
+        }
+        
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", requestObj.storageName);
+        const requestOptions: request.Options = {
+            method: "GET",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "any");
         return Promise.resolve({body: result, response});
     }
 
@@ -9911,7 +10170,6 @@ export class CellsApi {
             qs: queryParameters,
             uri: localVarPath,
             json: true,
-            encoding: null,
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
@@ -9960,45 +10218,6 @@ export class CellsApi {
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
         const result =  ObjectSerializer.deserialize(response.body, "SingleValueResponse");
-        return Promise.resolve({body: result, response});
-    }
-
-
-    /**
-     * Get page count for worksheet.
-     * @param requestObj contains request parameters
-     */
-     public async cellsWorksheetsGetPageCount(requestObj: model.CellsWorksheets_GetPageCountRequest): Promise<{response: http.ClientResponse, body: Buffer}> {
-        if (requestObj === null || requestObj === undefined) {
-            throw new Error('Required parameter "requestObj" was null or undefined when calling cellsWorksheetsGetPageCount.');
-        }
-
-        let localVarPath = this.configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/pagecount"
-            .replace("{" + "name" + "}", String(requestObj.name))
-            .replace("{" + "sheetName" + "}", String(requestObj.sheetName));
-        const queryParameters: any = {};
-
-        // verify required parameter 'requestObj.name' is not null or undefined
-        if (requestObj.name === null || requestObj.name === undefined) {
-            throw new Error('Required parameter "requestObj.name" was null or undefined when calling cellsWorksheetsGetPageCount.');
-        }
-
-        // verify required parameter 'requestObj.sheetName' is not null or undefined
-        if (requestObj.sheetName === null || requestObj.sheetName === undefined) {
-            throw new Error('Required parameter "requestObj.sheetName" was null or undefined when calling cellsWorksheetsGetPageCount.');
-        }
-        
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", requestObj.storageName);
-        const requestOptions: request.Options = {
-            method: "GET",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        const response = await invokeApiMethod(requestOptions, this.configuration);
-        const result =  ObjectSerializer.deserialize(response.body, "Buffer");
         return Promise.resolve({body: result, response});
     }
 
@@ -10439,7 +10658,7 @@ export class CellsApi {
      * Move worksheet.
      * @param requestObj contains request parameters
      */
-    public async cellsWorksheetsPostMoveWorksheet(requestObj: model.CellsWorksheets_PostMoveWorksheetRequest): Promise<{response: http.ClientResponse, body: model.WorksheetsResponse}> {
+    public async cellsWorksheetsPostMoveWorksheet(requestObj: model.CellsWorksheets_PostMoveWorksheetRequest): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}> {
         if (requestObj === null || requestObj === undefined) {
             throw new Error('Required parameter "requestObj" was null or undefined when calling cellsWorksheetsPostMoveWorksheet.');
         }
@@ -10470,7 +10689,7 @@ export class CellsApi {
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
-        const result =  ObjectSerializer.deserialize(response.body, "WorksheetsResponse");
+        const result =  ObjectSerializer.deserialize(response.body, "CellsCloudResponse");
         return Promise.resolve({body: result, response});
     }
 
@@ -10789,7 +11008,7 @@ export class CellsApi {
      * Add new worksheet.
      * @param requestObj contains request parameters
      */
-    public async cellsWorksheetsPutAddNewWorksheet(requestObj: model.CellsWorksheets_PutAddNewWorksheetRequest): Promise<{response: http.ClientResponse, body: model.WorksheetsResponse}> {
+    public async cellsWorksheetsPutAddNewWorksheet(requestObj: model.CellsWorksheets_PutAddNewWorksheetRequest): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}> {
         if (requestObj === null || requestObj === undefined) {
             throw new Error('Required parameter "requestObj" was null or undefined when calling cellsWorksheetsPutAddNewWorksheet.');
         }
@@ -10821,7 +11040,7 @@ export class CellsApi {
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
-        const result =  ObjectSerializer.deserialize(response.body, "WorksheetsResponse");
+        const result =  ObjectSerializer.deserialize(response.body, "CellsCloudResponse");
         return Promise.resolve({body: result, response});
     }
 
@@ -10829,7 +11048,7 @@ export class CellsApi {
      * Change worksheet visibility.
      * @param requestObj contains request parameters
      */
-    public async cellsWorksheetsPutChangeVisibilityWorksheet(requestObj: model.CellsWorksheets_PutChangeVisibilityWorksheetRequest): Promise<{response: http.ClientResponse, body: model.WorksheetResponse}> {
+    public async cellsWorksheetsPutChangeVisibilityWorksheet(requestObj: model.CellsWorksheets_PutChangeVisibilityWorksheetRequest): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}> {
         if (requestObj === null || requestObj === undefined) {
             throw new Error('Required parameter "requestObj" was null or undefined when calling cellsWorksheetsPutChangeVisibilityWorksheet.');
         }
@@ -10865,7 +11084,7 @@ export class CellsApi {
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
-        const result =  ObjectSerializer.deserialize(response.body, "WorksheetResponse");
+        const result =  ObjectSerializer.deserialize(response.body, "CellsCloudResponse");
         return Promise.resolve({body: result, response});
     }
 
@@ -11256,7 +11475,6 @@ export class CellsApi {
             qs: queryParameters,
             uri: localVarPath,
             json: true,
-            encoding: null,
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
@@ -11514,6 +11732,36 @@ export class CellsApi {
     }
 
     /**
+     * 
+     * @param requestObj contains request parameters
+     */
+    public async postBatchConvert(requestObj: model.PostBatchConvertRequest): Promise<{response: http.ClientResponse, body: Buffer}> {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling postBatchConvert.');
+        }
+
+        const localVarPath = this.configuration.getApiBaseUrl() + "/cells/batch/convert";
+        const queryParameters: any = {};
+
+        // verify required parameter 'requestObj.batchConvertRequest' is not null or undefined
+        if (requestObj.batchConvertRequest === null || requestObj.batchConvertRequest === undefined) {
+            throw new Error('Required parameter "requestObj.batchConvertRequest" was null or undefined when calling postBatchConvert.');
+        }
+        
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+            body: (requestObj.batchConvertRequest == null) ? "" : ObjectSerializer.serialize(requestObj.batchConvertRequest, requestObj.batchConvertRequest.constructor.name === "Object" ? "BatchConvertRequest" : requestObj.batchConvertRequest.constructor.name),
+        };
+
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "Buffer");
+        return Promise.resolve({body: result, response});
+    }
+
+    /**
      * Check if storage exists
      * @param requestObj contains request parameters
      */
@@ -11577,7 +11825,6 @@ export class CellsApi {
             qs: queryParameters,
             uri: localVarPath,
             json: true,
-            encoding: null,
         };
 
         (requestOptions as any).formData = formParams;        
@@ -11585,75 +11832,6 @@ export class CellsApi {
         const result =  ObjectSerializer.deserialize(response.body, "FilesUploadResult");
         return Promise.resolve({body: result, response});
     }
-        /**
-     * Read worksheets info.
-     * @param requestObj contains request parameters
-     */
-         public async cellsWorksheetsDeleteWorksheets(requestObj: model.CellsWorksheets_DeleteWorksheetsRequest): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}> {
-            if (requestObj === null || requestObj === undefined) {
-                throw new Error('Required parameter "requestObj" was null or undefined when calling cellsWorksheetsDeleteWorksheets.');
-            }
-    
-            let localVarPath = this.configuration.getApiBaseUrl() + "/cells/{name}/worksheets"
-                .replace("{" + "name" + "}", String(requestObj.name));
-            const queryParameters: any = {};
-    
-            // verify required parameter 'requestObj.name' is not null or undefined
-            if (requestObj.name === null || requestObj.name === undefined) {
-                throw new Error('Required parameter "requestObj.name" was null or undefined when calling cellsWorksheetsDeleteWorksheets.');
-            }
-    
-            // verify required parameter 'requestObj.matchCondition' is not null or undefined
-            if (requestObj.matchCondition === null || requestObj.matchCondition === undefined) {
-                throw new Error('Required parameter "requestObj.matchCondition" was null or undefined when calling cellsWorksheetsDeleteWorksheets.');
-            }
-            
-            localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
-            localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", requestObj.storageName);
-            const requestOptions: request.Options = {
-                method: "DELETE",
-                qs: queryParameters,
-                uri: localVarPath,
-                json: true,
-                body: (requestObj.matchCondition == null) ? "" : ObjectSerializer.serialize(requestObj.matchCondition, requestObj.matchCondition.constructor.name === "Object" ? "MatchConditionRequest" : requestObj.matchCondition.constructor.name),
-            };
-    
-            const response = await invokeApiMethod(requestOptions, this.configuration);
-            const result =  ObjectSerializer.deserialize(response.body, "CellsCloudResponse");
-            return Promise.resolve({body: result, response});
-        }
-    
-    
-        /**
-         * 
-         * @param requestObj contains request parameters
-         */
-        public async postBatchConvert(requestObj: model.PostBatchConvertRequest): Promise<{response: http.ClientResponse, body: Buffer}> {
-            if (requestObj === null || requestObj === undefined) {
-                throw new Error('Required parameter "requestObj" was null or undefined when calling postBatchConvert.');
-            }
-    
-            const localVarPath = this.configuration.getApiBaseUrl() + "/cells/batch/convert";
-            const queryParameters: any = {};
-    
-            // verify required parameter 'requestObj.batchConvertRequest' is not null or undefined
-            if (requestObj.batchConvertRequest === null || requestObj.batchConvertRequest === undefined) {
-                throw new Error('Required parameter "requestObj.batchConvertRequest" was null or undefined when calling postBatchConvert.');
-            }
-            
-            const requestOptions: request.Options = {
-                method: "POST",
-                qs: queryParameters,
-                uri: localVarPath,
-                json: true,
-                body: (requestObj.batchConvertRequest == null) ? "" : ObjectSerializer.serialize(requestObj.batchConvertRequest, requestObj.batchConvertRequest.constructor.name === "Object" ? "BatchConvertRequest" : requestObj.batchConvertRequest.constructor.name),
-            };
-    
-            const response = await invokeApiMethod(requestOptions, this.configuration);
-            const result =  ObjectSerializer.deserialize(response.body, "Buffer");
-            return Promise.resolve({body: result, response});
-        }
-        
 
 }
 /**
@@ -12322,6 +12500,54 @@ export class CellsApi {
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "text", requestObj.text);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "color", requestObj.color);
+        if (requestObj.file !== undefined) {
+            for (var key in requestObj.file){
+                formParams[key] = requestObj.file[key];
+            }
+        }
+
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        (requestOptions as any).formData = formParams;        
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "FilesResult");
+        return Promise.resolve({body: result, response});
+    }
+    /**
+     * 
+     * @param requestObj contains request parameters
+     */
+     public async postReverse(requestObj: model.PostReverseRequest): Promise<{response: http.ClientResponse, body: model.FilesResult}> {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling PostReverse.');
+        }
+
+        let localVarPath = this.configuration.getApiBaseUrl() + "/cells/reverse";
+        const queryParameters: any = {};
+        const formParams: any = {};
+
+        // verify required parameter 'requestObj.file' is not null or undefined
+        if (requestObj.file === null || requestObj.file === undefined) {
+            throw new Error('Required parameter "requestObj.file" was null or undefined when calling PostReverse.');
+        }
+
+        // verify required parameter 'requestObj.rotateType' is not null or undefined
+        if (requestObj.rotateType === null || requestObj.rotateType === undefined) {
+            throw new Error('Required parameter "requestObj.rotateType" was null or undefined when calling PostReverse.');
+        }
+
+        // verify required parameter 'requestObj.format' is not null or undefined
+        if (requestObj.format === null || requestObj.format === undefined) {
+            throw new Error('Required parameter "requestObj.format" was null or undefined when calling PostReverse.');
+        }
+        
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "rotateType", requestObj.rotateType);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "format", requestObj.format);
         if (requestObj.file !== undefined) {
             for (var key in requestObj.file){
                 formParams[key] = requestObj.file[key];

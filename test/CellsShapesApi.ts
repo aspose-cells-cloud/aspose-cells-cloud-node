@@ -197,4 +197,56 @@ describe('CellsShapesApi', function() {
         });
     });
   });
+  describe('CellsShapesPostWorksheetUngroupShape', function() {
+    it('should call CellsShapesPostWorksheetUngroupShape successfully', function() {
+      const cellsApi = BaseTest.initializeCellsApi();
+      const filename = "Book1.xlsx";
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
+          var req = new model.CellsShapes_PostWorksheetUngroupShapeRequest();
+          req.name = filename;
+          req.sheetName = "Sheet1";
+          req.shapeindex =  0;         
+          req.folder = "Temp";
+          
+          return cellsApi.cellsShapesPostWorksheetUngroupShape(req)
+            .then((result) => {
+              // expect(result.body.code).to.equal(200);
+              // expect(result.response.statusCode).to.equal(200);
+            });
+        });
+    });
+  });
+  describe('CellsShapesPostWorksheetGroupShape', function() {
+    it('should call CellsShapesPostWorksheetGroupShape successfully', function() {
+      const cellsApi = BaseTest.initializeCellsApi();
+      const filename = "Book1.xlsx";
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
+          var req = new model.CellsShapes_PostWorksheetGroupShapeRequest();
+          req.name = filename;
+          req.sheetName = "Sheet6";
+          req.listShape  = [1,2] ;         
+          req.folder = "Temp";
+          
+          return cellsApi.cellsShapesPostWorksheetGroupShape(req)
+            .then((result) => {
+              // expect(result.body.code).to.equal(200);
+              // expect(result.response.statusCode).to.equal(200);
+            });
+        });
+    });
+  });
 });

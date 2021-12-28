@@ -796,7 +796,7 @@ describe('CellsWorksheetsApi', function() {
 
           return cellsApi.cellsWorksheetsPutAddNewWorksheet(req)
             .then((result) => {
-              expect(result.body.code).to.equal(201);
+              expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
             });
         });
