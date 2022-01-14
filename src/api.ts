@@ -1,7 +1,7 @@
 /*
 * MIT License
 
-* Copyright (c) 2021 Aspose Pty Ltd
+* Copyright (c) 2022 Aspose Pty Ltd
 
 * Permission is hereby granted, free of charge, to any person obtaining a copy
 * of this software and associated documentation files (the "Software"), to deal
@@ -2895,7 +2895,7 @@ export class CellsApi {
      * Get worksheet list object info by index.
      * @param requestObj contains request parameters
      */
-    public async cellsListObjectsGetWorksheetListObject(requestObj: model.CellsListObjects_GetWorksheetListObjectRequest): Promise<{response: http.ClientResponse, body: Buffer}> {
+    public async cellsListObjectsGetWorksheetListObject(requestObj: model.CellsListObjects_GetWorksheetListObjectRequest): Promise<{response: http.ClientResponse, body: model.Buffer}> {
         if (requestObj === null || requestObj === undefined) {
             throw new Error('Required parameter "requestObj" was null or undefined when calling cellsListObjectsGetWorksheetListObject.');
         }
@@ -7771,6 +7771,7 @@ export class CellsApi {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "isAutoFitColumns", requestObj.isAutoFitColumns);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", requestObj.storageName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", requestObj.outStorageName);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -8637,7 +8638,7 @@ export class CellsApi {
      * Get page count for workbook.
      * @param requestObj contains request parameters
      */
-    public async cellsWorkbookGetPageCount(requestObj: model.CellsWorkbook_GetPageCountRequest): Promise<{response: http.ClientResponse, body: any}> {
+    public async cellsWorkbookGetPageCount(requestObj: model.CellsWorkbook_GetPageCountRequest): Promise<{response: http.ClientResponse, body: model.any}> {
         if (requestObj === null || requestObj === undefined) {
             throw new Error('Required parameter "requestObj" was null or undefined when calling cellsWorkbookGetPageCount.');
         }
@@ -8690,6 +8691,7 @@ export class CellsApi {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", requestObj.storageName);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", requestObj.outPath);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", requestObj.outStorageName);
         const requestOptions: request.Options = {
             method: "GET",
             qs: queryParameters,
@@ -9137,6 +9139,7 @@ export class CellsApi {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", requestObj.storageName);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", requestObj.outPath);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", requestObj.outStorageName);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -9208,6 +9211,7 @@ export class CellsApi {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outFolder", requestObj.outFolder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", requestObj.storageName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", requestObj.outStorageName);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -9246,6 +9250,7 @@ export class CellsApi {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "mergeWith", requestObj.mergeWith);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", requestObj.storageName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "mergedStorageName", requestObj.mergedStorageName);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -10100,7 +10105,7 @@ export class CellsApi {
      * Get page count for worksheet.
      * @param requestObj contains request parameters
      */
-    public async cellsWorksheetsGetPageCount(requestObj: model.CellsWorksheets_GetPageCountRequest): Promise<{response: http.ClientResponse, body: any}> {
+    public async cellsWorksheetsGetPageCount(requestObj: model.CellsWorksheets_GetPageCountRequest): Promise<{response: http.ClientResponse, body: model.any}> {
         if (requestObj === null || requestObj === undefined) {
             throw new Error('Required parameter "requestObj" was null or undefined when calling cellsWorksheetsGetPageCount.');
         }
@@ -11735,7 +11740,7 @@ export class CellsApi {
      * 
      * @param requestObj contains request parameters
      */
-    public async postBatchConvert(requestObj: model.PostBatchConvertRequest): Promise<{response: http.ClientResponse, body: Buffer}> {
+    public async postBatchConvert(requestObj: model.PostBatchConvertRequest): Promise<{response: http.ClientResponse, body: model.Buffer}> {
         if (requestObj === null || requestObj === undefined) {
             throw new Error('Required parameter "requestObj" was null or undefined when calling postBatchConvert.');
         }

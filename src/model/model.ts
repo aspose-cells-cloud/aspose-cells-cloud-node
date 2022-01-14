@@ -1,7 +1,7 @@
 /*
 * MIT License
 
-* Copyright (c) 2021 Aspose Pty Ltd
+* Copyright (c) 2022 Aspose Pty Ltd
 
 * Permission is hereby granted, free of charge, to any person obtaining a copy
 * of this software and associated documentation files (the "Software"), to deal
@@ -266,6 +266,11 @@ export class BatchConvertRequest {
             type: "string",
         },        
         {
+            name: "sourceStorage",
+            baseName: "SourceStorage",
+            type: "string",
+        },        
+        {
             name: "matchCondition",
             baseName: "MatchCondition",
             type: "MatchConditionRequest",
@@ -278,6 +283,11 @@ export class BatchConvertRequest {
         {
             name: "outFolder",
             baseName: "OutFolder",
+            type: "string",
+        },        
+        {
+            name: "outStorage",
+            baseName: "OutStorage",
             type: "string",
         },        
         {
@@ -295,11 +305,15 @@ export class BatchConvertRequest {
 
     public sourceFolder: string;
     
+    public sourceStorage: string;
+    
     public matchCondition: MatchConditionRequest;
     
     public format: string;
     
     public outFolder: string;
+    
+    public outStorage: string;
     
     public saveOptions: SaveOptions;
     
@@ -8907,6 +8921,111 @@ export class HtmlSaveOptions extends SaveOptions {
      */
     public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
+            name: "saveAsSingleFile",
+            baseName: "SaveAsSingleFile",
+            type: "string",
+        },        
+        {
+            name: "exportHiddenWorksheet",
+            baseName: "ExportHiddenWorksheet",
+            type: "string",
+        },        
+        {
+            name: "exportGridLines",
+            baseName: "ExportGridLines",
+            type: "string",
+        },        
+        {
+            name: "presentationPreference",
+            baseName: "PresentationPreference",
+            type: "string",
+        },        
+        {
+            name: "cellCssPrefix",
+            baseName: "CellCssPrefix",
+            type: "string",
+        },        
+        {
+            name: "tableCssId",
+            baseName: "TableCssId",
+            type: "string",
+        },        
+        {
+            name: "isFullPathLink",
+            baseName: "IsFullPathLink",
+            type: "string",
+        },        
+        {
+            name: "exportWorksheetCSSSeparately",
+            baseName: "ExportWorksheetCSSSeparately",
+            type: "string",
+        },        
+        {
+            name: "exportSimilarBorderStyle",
+            baseName: "ExportSimilarBorderStyle",
+            type: "string",
+        },        
+        {
+            name: "mergeEmptyTdForcely",
+            baseName: "MergeEmptyTdForcely",
+            type: "string",
+        },        
+        {
+            name: "exportCellCoordinate",
+            baseName: "ExportCellCoordinate",
+            type: "string",
+        },        
+        {
+            name: "exportExtraHeadings",
+            baseName: "ExportExtraHeadings",
+            type: "string",
+        },        
+        {
+            name: "exportHeadings",
+            baseName: "ExportHeadings",
+            type: "string",
+        },        
+        {
+            name: "exportFormula",
+            baseName: "ExportFormula",
+            type: "string",
+        },        
+        {
+            name: "addTooltipText",
+            baseName: "AddTooltipText",
+            type: "string",
+        },        
+        {
+            name: "exportBogusRowData",
+            baseName: "ExportBogusRowData",
+            type: "string",
+        },        
+        {
+            name: "excludeUnusedStyles",
+            baseName: "ExcludeUnusedStyles",
+            type: "string",
+        },        
+        {
+            name: "exportDocumentProperties",
+            baseName: "ExportDocumentProperties",
+            type: "string",
+        },        
+        {
+            name: "exportWorksheetProperties",
+            baseName: "ExportWorksheetProperties",
+            type: "string",
+        },        
+        {
+            name: "exportWorkbookProperties",
+            baseName: "ExportWorkbookProperties",
+            type: "string",
+        },        
+        {
+            name: "exportFrameScriptsAndProperties",
+            baseName: "ExportFrameScriptsAndProperties",
+            type: "string",
+        },        
+        {
             name: "attachedFilesDirectory",
             baseName: "AttachedFilesDirectory",
             type: "string",
@@ -8974,6 +9093,48 @@ export class HtmlSaveOptions extends SaveOptions {
         return super.getAttributeTypeMap().concat(HtmlSaveOptions.attributeTypeMap);
     }
 
+    public saveAsSingleFile: string;
+    
+    public exportHiddenWorksheet: string;
+    
+    public exportGridLines: string;
+    
+    public presentationPreference: string;
+    
+    public cellCssPrefix: string;
+    
+    public tableCssId: string;
+    
+    public isFullPathLink: string;
+    
+    public exportWorksheetCSSSeparately: string;
+    
+    public exportSimilarBorderStyle: string;
+    
+    public mergeEmptyTdForcely: string;
+    
+    public exportCellCoordinate: string;
+    
+    public exportExtraHeadings: string;
+    
+    public exportHeadings: string;
+    
+    public exportFormula: string;
+    
+    public addTooltipText: string;
+    
+    public exportBogusRowData: string;
+    
+    public excludeUnusedStyles: string;
+    
+    public exportDocumentProperties: string;
+    
+    public exportWorksheetProperties: string;
+    
+    public exportWorkbookProperties: string;
+    
+    public exportFrameScriptsAndProperties: string;
+    
     public attachedFilesDirectory: string;
     
     public attachedFilesUrlPrefix: string;
@@ -22656,6 +22817,11 @@ export class CellsSaveAs_PostDocumentSaveAsRequest {
      * storage name.
      */
     public storageName: string;
+
+    /**
+     * output storage name.
+     */
+    public outStorageName: string;
     
     public constructor(init?: Partial<CellsSaveAs_PostDocumentSaveAsRequest>) {        
         Object.assign(this, init);
@@ -23418,6 +23584,11 @@ export class CellsWorkbook_GetWorkbookRequest {
      * The document output folder.
      */
     public outPath: string;
+
+    /**
+     * output storage name.
+     */
+    public outStorageName: string;
     
     public constructor(init?: Partial<CellsWorkbook_GetWorkbookRequest>) {        
         Object.assign(this, init);
@@ -23810,6 +23981,11 @@ export class CellsWorkbook_PostWorkbookGetSmartMarkerResultRequest {
      * Path to save result
      */
     public outPath: string;
+
+    /**
+     * output storage name.
+     */
+    public outStorageName: string;
     
     public constructor(init?: Partial<CellsWorkbook_PostWorkbookGetSmartMarkerResultRequest>) {        
         Object.assign(this, init);
@@ -23893,6 +24069,11 @@ export class CellsWorkbook_PostWorkbookSplitRequest {
      * storage name.
      */
     public storageName: string;
+
+    /**
+     * output storage name.
+     */
+    public outStorageName: string;
     
     public constructor(init?: Partial<CellsWorkbook_PostWorkbookSplitRequest>) {        
         Object.assign(this, init);
@@ -23922,6 +24103,11 @@ export class CellsWorkbook_PostWorkbooksMergeRequest {
      * storage name.
      */
     public storageName: string;
+
+    /**
+     * merged file storage name.
+     */
+    public mergedStorageName: string;
     
     public constructor(init?: Partial<CellsWorkbook_PostWorkbooksMergeRequest>) {        
         Object.assign(this, init);
@@ -26014,7 +26200,7 @@ export class DeleteMetadataRequest {
 }
 
 /**
- * Request model for  operation.
+ * GetMetadataRequest model for  operation.
  */
 export class GetMetadataRequest {
     /**

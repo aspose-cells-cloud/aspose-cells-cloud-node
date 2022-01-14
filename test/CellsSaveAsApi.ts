@@ -136,7 +136,7 @@ describe('CellsSaveAsApi ', function() {
         var req = new model.UploadFileRequest();
         req.path = "Temp/" + filename;
         req.file = data;
-    
+        req.storageName = storage;
         return cellsApi.uploadFile(req)
           .then((result) => {
             expect(result.body.uploaded.length).greaterThan(0);

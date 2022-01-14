@@ -190,6 +190,32 @@ describe('CellsWorkbookApi', function () {
         });
     });
   });
+  describe('cellsWorkbookGetWorkbookToOtherStorage', function () {
+    it('should call cellsWorkbookGetWorkbook successfully', function () {
+      const cellsApi = BaseTest.initializeCellsApi();
+      const filename = "Book1.xlsx";
+      var data = fs.createReadStream(localPath + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+
+      return cellsApi.uploadFile(req)
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
+          var req = new model.CellsWorkbook_GetWorkbookRequest();
+          req.name = filename;
+          req.password = null;
+          req.isAutoFit = true;
+          req.folder = "Temp";
+          req.outPath = "cellsWorkbookGetWorkbookToOtherStorage.md"
+          req.outStorageName = "DropBox"
+          return cellsApi.cellsWorkbookGetWorkbook(req)
+            .then((result) => {
+              expect(result.response.statusCode).to.equal(200);
+            });
+        });
+    });
+  });
   describe('cellsWorkbookGetWorkbookFormat', function () {
     it('should call cellsWorkbookGetWorkbookFormat successfully', function () {
       const cellsApi = BaseTest.initializeCellsApi();
@@ -616,6 +642,36 @@ describe('CellsWorkbookApi', function () {
         });
     });
   });
+  describe('cellsWorkbookPostWorkbookSplitToOtherStorage', function () {
+    it('should call cellsWorkbookPostWorkbookSplit successfully', function () {
+      const cellsApi = BaseTest.initializeCellsApi();
+      const filename = "Book1.xlsx";
+      var data = fs.createReadStream(localPath + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+
+      return cellsApi.uploadFile(req)
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
+          var req = new model.CellsWorkbook_PostWorkbookSplitRequest();
+          req.name = filename;
+          req.folder = "Temp";
+          req.format = "jpg";
+          req.from = 1;
+          req.to = 3;
+          req.horizontalResolution = 100;
+          req.verticalResolution = 90;
+          req.outFolder ="Freeing"
+          req.outStorageName = "DropBox"
+          return cellsApi.cellsWorkbookPostWorkbookSplit(req)
+            .then((result) => {
+              expect(result.body.code).to.equal(200);
+              expect(result.response.statusCode).to.equal(200);
+            });
+        });
+    });
+  });
   describe('cellsWorkbookPostWorkbooksMerge', function () {
     it('should call cellsWorkbookPostWorkbooksMerge successfully', function () {
       const cellsApi = BaseTest.initializeCellsApi();
@@ -641,6 +697,42 @@ describe('CellsWorkbookApi', function () {
         });
     });
   });
+  describe('cellsWorkbookPostWorkbooksMergeWithOtherStorage', function () {
+    it('should call cellsWorkbookPostWorkbooksMerge successfully', function () {
+      const cellsApi = BaseTest.initializeCellsApi();
+      const filename = "Book1.xlsx";
+      var data = fs.createReadStream(localPath + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+
+      return cellsApi.uploadFile(req)
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
+          var filename = "myDocument.xlsx";
+          var data = fs.createReadStream(localPath + filename);
+          var req = new model.UploadFileRequest();
+          req.path = "Temp/" + filename;
+          req.file = data;
+          req.storageName = "DropBox"
+          return cellsApi.uploadFile(req)
+            .then((result) => {
+            expect(result.body.uploaded.length).greaterThan(0);
+            var req = new model.CellsWorkbook_PostWorkbooksMergeRequest();
+            req.name = filename;
+            req.folder = "Temp";
+            req.mergeWith = "Temp/myDocument.xlsx";
+            req.mergedStorageName ="DropBox"
+            return cellsApi.cellsWorkbookPostWorkbooksMerge(req)
+              .then((result) => {
+                expect(result.body.code).to.equal(200);
+                expect(result.response.statusCode).to.equal(200);
+            });
+        });
+      });          
+    });
+  });
+
   describe('cellsWorkbookPostWorkbooksTextReplace', function () {
     it('should call cellsWorkbookPostWorkbooksTextReplace successfully', function () {
       const cellsApi = BaseTest.initializeCellsApi();
@@ -700,6 +792,32 @@ describe('CellsWorkbookApi', function () {
       var req = new model.CellsWorkbook_PutConvertWorkbookRequest({
         file: fs.createReadStream(localPath + filename),
         format: "pdf",
+      });
+
+      return cellsApi.cellsWorkbookPutConvertWorkbook(req)
+        .then((result) => {
+          var req = new model.CellsWorkbook_PutConvertWorkbookRequest({
+            file: fs.createReadStream(localPath + filename),
+            format: "pdf",
+          });
+
+          return cellsApi.cellsWorkbookPutConvertWorkbook(req)
+            .then((result) => {
+              expect(result.body.toString().length).to.greaterThan(0);
+            });
+        });
+    });
+  });
+  describe('cellsWorkbookPutConvertWorkbookToOtherStorage', function () {
+    it('should call cellsWorkbookPutConvertWorkbook successfully', function () {
+      const cellsApi = BaseTest.initializeCellsApi();
+      const filename = "Book1.xlsx";
+      // var data =fs.createReadStream(localPath  + filename);
+      var req = new model.CellsWorkbook_PutConvertWorkbookRequest({
+        file: fs.createReadStream(localPath + filename),
+        format: "pdf",
+        outPath: "cellsWorkbookPutConvertWorkbookToOtherStorage.pdf",
+        storageName: "DropBox"
       });
 
       return cellsApi.cellsWorkbookPutConvertWorkbook(req)
