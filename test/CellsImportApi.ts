@@ -36,7 +36,7 @@ describe('CellsImxporttApi', function() {
   this.timeout(200000);
   describe('PostImport', function() {
     it('should call PostImport successfully', function() {
-      const cellsApi = BaseTest.initializeLiteCellsApi();
+      const cellsApi = BaseTest.initializeLightCellsApi();
       var importOption = new model.ImportIntArrayOption();
       importOption.destinationWorksheet = "Sheet1";
       importOption.firstColumn = 1;
@@ -70,7 +70,7 @@ describe('CellsImxporttApi', function() {
 
   describe('PostImport', function() {
     it('should call PostImport successfully', function() {
-      const cellsApi = BaseTest.initializeLiteCellsApi();
+      const cellsApi = BaseTest.initializeLightCellsApi();
       var importOption = new model.ImportPictureOption();
       importOption.destinationWorksheet = "Sheet1";
       importOption.upperLeftRow = 1;

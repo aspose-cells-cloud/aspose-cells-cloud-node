@@ -36,7 +36,7 @@ describe('CellsClearObjectApi', function() {
   this.timeout(200000);
   describe('PosClearObject', function() {
     it('should call PosClearObject successfully', function() {
-      const cellsApi = BaseTest.initializeLiteCellsApi();
+      const cellsApi = BaseTest.initializeLightCellsApi();
       const AssemblyTestXlsx = "assemblytest.xlsx";
       var dataAssemblyTestXlsx =fs.createReadStream(localPath  + AssemblyTestXlsx);
       const DataSourceXlsx = "datasource.xlsx";

@@ -38,7 +38,7 @@ export function initializeCellsApi() {
     return cellsApi;
 }
 
-export function initializeLiteCellsApi() {
-    const cellsApi = new api.LiteCellsApi(clientId, clientSecret,"v3.0",ApiURL);
+export function initializeLightCellsApi() {
+    const cellsApi = new api.LightCellsApi(clientId, clientSecret,"v3.0",ApiURL);
     return cellsApi;
 }

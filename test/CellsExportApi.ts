@@ -36,7 +36,7 @@ describe('CellsExporttApi', function() {
   this.timeout(200000);
   describe('PostExport_chart_xlsx', function() {
     it('should call PostExport successfully', function() {
-      const cellsApi = BaseTest.initializeLiteCellsApi();
+      const cellsApi = BaseTest.initializeLightCellsApi();
       const AssemblyTestXlsx = "assemblytest.xlsx";
       var dataAssemblyTestXlsx =fs.createReadStream(localPath  + AssemblyTestXlsx);
       const DataSourceXlsx = "datasource.xlsx";
@@ -53,7 +53,7 @@ describe('CellsExporttApi', function() {
   });
   describe('PostExport_chart_pdf', function() {
     it('should call PostExport successfully', function() {
-      const cellsApi = BaseTest.initializeLiteCellsApi();
+      const cellsApi = BaseTest.initializeLightCellsApi();
       const AssemblyTestXlsx = "assemblytest.xlsx";
       var dataAssemblyTestXlsx =fs.createReadStream(localPath  + AssemblyTestXlsx);
       const DataSourceXlsx = "datasource.xlsx";
@@ -70,7 +70,7 @@ describe('CellsExporttApi', function() {
   });
   describe('PostExport_chart_jpg', function() {
     it('should call PostExport successfully', function() {
-      const cellsApi = BaseTest.initializeLiteCellsApi();
+      const cellsApi = BaseTest.initializeLightCellsApi();
       const AssemblyTestXlsx = "assemblytest.xlsx";
       var dataAssemblyTestXlsx =fs.createReadStream(localPath  + AssemblyTestXlsx);
       const DataSourceXlsx = "datasource.xlsx";
@@ -87,7 +87,7 @@ describe('CellsExporttApi', function() {
   });  
   describe('PostExport_listobject_xlsx', function() {
     it('should call PostExport successfully', function() {
-      const cellsApi = BaseTest.initializeLiteCellsApi();
+      const cellsApi = BaseTest.initializeLightCellsApi();
       const AssemblyTestXlsx = "assemblytest.xlsx";
       var dataAssemblyTestXlsx =fs.createReadStream(localPath  + AssemblyTestXlsx);
       const DataSourceXlsx = "datasource.xlsx";
@@ -104,7 +104,7 @@ describe('CellsExporttApi', function() {
   });
   describe('PostExport_listobject_pdf', function() {
     it('should call PostExport successfully', function() {
-      const cellsApi = BaseTest.initializeLiteCellsApi();
+      const cellsApi = BaseTest.initializeLightCellsApi();
       const AssemblyTestXlsx = "assemblytest.xlsx";
       var dataAssemblyTestXlsx =fs.createReadStream(localPath  + AssemblyTestXlsx);
       const DataSourceXlsx = "datasource.xlsx";
@@ -121,7 +121,7 @@ describe('CellsExporttApi', function() {
   });
   describe('PostExport_listobject_jpg', function() {
     it('should call PostExport successfully', function() {
-      const cellsApi = BaseTest.initializeLiteCellsApi();
+      const cellsApi = BaseTest.initializeLightCellsApi();
       const AssemblyTestXlsx = "assemblytest.xlsx";
       var dataAssemblyTestXlsx =fs.createReadStream(localPath  + AssemblyTestXlsx);
       const DataSourceXlsx = "datasource.xlsx";
@@ -138,7 +138,7 @@ describe('CellsExporttApi', function() {
   });  
   describe('PostExport_oleobject_xlsx', function() {
     it('should call PostExport successfully', function() {
-      const cellsApi = BaseTest.initializeLiteCellsApi();
+      const cellsApi = BaseTest.initializeLightCellsApi();
       const AssemblyTestXlsx = "assemblytest.xlsx";
       var dataAssemblyTestXlsx =fs.createReadStream(localPath  + AssemblyTestXlsx);
       const DataSourceXlsx = "datasource.xlsx";
@@ -155,7 +155,7 @@ describe('CellsExporttApi', function() {
   });
   describe('PostExport_picture_png', function() {
     it('should call PostExport successfully', function() {
-      const cellsApi = BaseTest.initializeLiteCellsApi();
+      const cellsApi = BaseTest.initializeLightCellsApi();
       const AssemblyTestXlsx = "assemblytest.xlsx";
       var dataAssemblyTestXlsx =fs.createReadStream(localPath  + AssemblyTestXlsx);
       const DataSourceXlsx = "datasource.xlsx";
@@ -172,7 +172,7 @@ describe('CellsExporttApi', function() {
   });
   describe('PostExport_shape_jpg', function() {
     it('should call PostExport successfully', function() {
-      const cellsApi = BaseTest.initializeLiteCellsApi();
+      const cellsApi = BaseTest.initializeLightCellsApi();
       const AssemblyTestXlsx = "assemblytest.xlsx";
       var dataAssemblyTestXlsx =fs.createReadStream(localPath  + AssemblyTestXlsx);
       const DataSourceXlsx = "datasource.xlsx";
@@ -189,7 +189,7 @@ describe('CellsExporttApi', function() {
   });  
   describe('PostExport_worksheet_xlsx', function() {
     it('should call PostExport successfully', function() {
-      const cellsApi = BaseTest.initializeLiteCellsApi();
+      const cellsApi = BaseTest.initializeLightCellsApi();
       const AssemblyTestXlsx = "assemblytest.xlsx";
       var dataAssemblyTestXlsx =fs.createReadStream(localPath  + AssemblyTestXlsx);
       const DataSourceXlsx = "datasource.xlsx";
@@ -206,7 +206,7 @@ describe('CellsExporttApi', function() {
   });
   describe('PostExport_worksheet_pdf', function() {
     it('should call PostExport successfully', function() {
-      const cellsApi = BaseTest.initializeLiteCellsApi();
+      const cellsApi = BaseTest.initializeLightCellsApi();
       const AssemblyTestXlsx = "assemblytest.xlsx";
       var dataAssemblyTestXlsx =fs.createReadStream(localPath  + AssemblyTestXlsx);
       const DataSourceXlsx = "datasource.xlsx";
@@ -223,7 +223,7 @@ describe('CellsExporttApi', function() {
   });
   describe('PostExport_worksheet_jpg', function() {
     it('should call PostExport successfully', function() {
-      const cellsApi = BaseTest.initializeLiteCellsApi();
+      const cellsApi = BaseTest.initializeLightCellsApi();
       const AssemblyTestXlsx = "assemblytest.xlsx";
       var dataAssemblyTestXlsx =fs.createReadStream(localPath  + AssemblyTestXlsx);
       const DataSourceXlsx = "datasource.xlsx";
@@ -240,7 +240,7 @@ describe('CellsExporttApi', function() {
   });  
   describe('PostExport_workbook_xlsx', function() {
     it('should call PostExport successfully', function() {
-      const cellsApi = BaseTest.initializeLiteCellsApi();
+      const cellsApi = BaseTest.initializeLightCellsApi();
       const AssemblyTestXlsx = "assemblytest.xlsx";
       var dataAssemblyTestXlsx =fs.createReadStream(localPath  + AssemblyTestXlsx);
       const DataSourceXlsx = "datasource.xlsx";
@@ -257,7 +257,7 @@ describe('CellsExporttApi', function() {
   });
   describe('PostExport_workbook_pdf', function() {
     it('should call PostExport successfully', function() {
-      const cellsApi = BaseTest.initializeLiteCellsApi();
+      const cellsApi = BaseTest.initializeLightCellsApi();
       const AssemblyTestXlsx = "assemblytest.xlsx";
       var dataAssemblyTestXlsx =fs.createReadStream(localPath  + AssemblyTestXlsx);
       const DataSourceXlsx = "datasource.xlsx";
@@ -274,7 +274,7 @@ describe('CellsExporttApi', function() {
   });
   describe('PostExport_workbook_jpg', function() {
     it('should call PostExport successfully', function() {
-      const cellsApi = BaseTest.initializeLiteCellsApi();
+      const cellsApi = BaseTest.initializeLightCellsApi();
       const AssemblyTestXlsx = "assemblytest.xlsx";
       var dataAssemblyTestXlsx =fs.createReadStream(localPath  + AssemblyTestXlsx);
       const DataSourceXlsx = "datasource.xlsx";
@@ -291,7 +291,7 @@ describe('CellsExporttApi', function() {
   });  
   describe('PostExport_chart_xlsx', function() {
     it('should call PostExport successfully', function() {
-      const cellsApi = BaseTest.initializeLiteCellsApi();
+      const cellsApi = BaseTest.initializeLightCellsApi();
       const AssemblyTestXlsx = "assemblytest.xlsx";
       var dataAssemblyTestXlsx =fs.createReadStream(localPath  + AssemblyTestXlsx);
       const DataSourceXlsx = "datasource.xlsx";
@@ -308,7 +308,7 @@ describe('CellsExporttApi', function() {
   });
   describe('PostExport_chart_pdf', function() {
     it('should call PostExport successfully', function() {
-      const cellsApi = BaseTest.initializeLiteCellsApi();
+      const cellsApi = BaseTest.initializeLightCellsApi();
       const AssemblyTestXlsx = "assemblytest.xlsx";
       var dataAssemblyTestXlsx =fs.createReadStream(localPath  + AssemblyTestXlsx);
       const DataSourceXlsx = "datasource.xlsx";
@@ -325,7 +325,7 @@ describe('CellsExporttApi', function() {
   });
   describe('PostExport_chart_jpg', function() {
     it('should call PostExport successfully', function() {
-      const cellsApi = BaseTest.initializeLiteCellsApi();
+      const cellsApi = BaseTest.initializeLightCellsApi();
       const AssemblyTestXlsx = "assemblytest.xlsx";
       var dataAssemblyTestXlsx =fs.createReadStream(localPath  + AssemblyTestXlsx);
       const DataSourceXlsx = "datasource.xlsx";

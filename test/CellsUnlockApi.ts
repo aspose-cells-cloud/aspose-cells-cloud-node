@@ -36,7 +36,7 @@ describe('CellsUnlockApi', function() {
   this.timeout(200000);
   describe('PostUnlock', function() {
     it('should call PostUnlock successfully', function() {
-      const cellsApi = BaseTest.initializeLiteCellsApi();
+      const cellsApi = BaseTest.initializeLightCellsApi();
       const needUnlock = "needUnlock.xlsx";
       var dataneedUnlock =fs.createReadStream(localPath  + needUnlock);
       const DataSourceXlsx = "datasource.xlsx";

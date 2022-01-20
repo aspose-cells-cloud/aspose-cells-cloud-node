@@ -36,7 +36,7 @@ describe('CellsAssembleApi', function() {
   this.timeout(200000);
   describe('PosAssemble', function() {
     it('should call PosAssemble successfully', function() {
-      const cellsApi = BaseTest.initializeLiteCellsApi();
+      const cellsApi = BaseTest.initializeLightCellsApi();
       const AssemblyTestXlsx = "assemblytest.xlsx";
       var dataAssemblyTestXlsx =fs.createReadStream(localPath  + AssemblyTestXlsx);
       const DataSourceXlsx = "datasource.xlsx";

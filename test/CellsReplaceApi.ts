@@ -36,7 +36,7 @@ describe('CellsReplaceApi', function() {
   this.timeout(200000);
   describe('PostReplace', function() {
     it('should call PostReplace successfully', function() {
-      const cellsApi = BaseTest.initializeLiteCellsApi();
+      const cellsApi = BaseTest.initializeLightCellsApi();
       var req = new model.PostReplaceRequest();
       req.text ="=";
       req.newtext = "aspose.cells cloud";

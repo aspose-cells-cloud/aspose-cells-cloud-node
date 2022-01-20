@@ -36,7 +36,7 @@ describe('CellsSplitApi', function() {
   this.timeout(200000);
   describe('PosSplit', function() {
     it('should call PosSplit successfully', function() {
-      const cellsApi = BaseTest.initializeLiteCellsApi();
+      const cellsApi = BaseTest.initializeLightCellsApi();
       const AssemblyTestXlsx = "assemblytest.xlsx";
       var dataAssemblyTestXlsx =fs.createReadStream(localPath  + AssemblyTestXlsx);
       const DataSourceXlsx = "datasource.xlsx";

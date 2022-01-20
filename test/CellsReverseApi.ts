@@ -36,7 +36,7 @@ describe('CellsReverseApi', function() {
   this.timeout(200000);
   describe('PostReverse', function() {
     it('should call PostReverse successfully', function() {
-      const cellsApi = BaseTest.initializeLiteCellsApi();
+      const cellsApi = BaseTest.initializeLightCellsApi();
       var req = new model.PostReverseRequest();
       req.rotateType ="row";
       req.format = "pdf";

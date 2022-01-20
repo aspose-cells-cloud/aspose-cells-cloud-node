@@ -11842,7 +11842,7 @@ export class CellsApi {
 /**
  * Library for communicating with the Aspose.Cells Cloud API
  */
- export class LiteCellsApi {
+ export class LightCellsApi {
     /**
      * API configuration
      */

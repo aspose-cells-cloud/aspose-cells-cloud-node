@@ -36,7 +36,7 @@ describe('CellsMetadataApi', function() {
   this.timeout(200000);
   describe('deleteMetadata', function() {
     it('should call deleteMetadata successfully', function() {
-      const cellsApi = BaseTest.initializeLiteCellsApi();
+      const cellsApi = BaseTest.initializeLightCellsApi();
       const filename = "Book1.xlsx";
       var data =fs.createReadStream(localPath  + filename);
       var req = new model.DeleteMetadataRequest();
@@ -51,7 +51,7 @@ describe('CellsMetadataApi', function() {
 
   describe('getMetadata', function() {
     it('should call getMetadata successfully', function() {
-      const cellsApi = BaseTest.initializeLiteCellsApi();
+      const cellsApi = BaseTest.initializeLightCellsApi();
       const filename = "Book1.xlsx";
       var data =fs.createReadStream(localPath  + filename);
       var req = new model.GetMetadataRequest();
@@ -67,7 +67,7 @@ describe('CellsMetadataApi', function() {
   
   describe('updateMetadata', function() {
     it('should call updatreetadata successfully', function() {
-      const cellsApi = BaseTest.initializeLiteCellsApi();
+      const cellsApi = BaseTest.initializeLightCellsApi();
       const filename = "Book1.xlsx";
       var data =fs.createReadStream(localPath  + filename);
       var req = new model.PostMetadataRequest();

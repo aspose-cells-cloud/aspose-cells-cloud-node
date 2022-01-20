@@ -36,7 +36,7 @@ describe('CellsPostProtectApi', function() {
   this.timeout(200000);
   describe('PostProtect', function() {
     it('should callPostProtect successfully', function() {
-      const cellsApi = BaseTest.initializeLiteCellsApi();
+      const cellsApi = BaseTest.initializeLightCellsApi();
       const filename = "Book1.xlsx";
       var data =fs.createReadStream(localPath  + filename);
       var req = new model.PostProtectRequest();

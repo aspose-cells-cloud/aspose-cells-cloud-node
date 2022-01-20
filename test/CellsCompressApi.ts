@@ -36,7 +36,7 @@ describe('CellsCompressApi', function() {
   this.timeout(200000);
   describe('PostCompress', function() {
     it('should call PostCompress successfully', function() {
-      const cellsApi = BaseTest.initializeLiteCellsApi();
+      const cellsApi = BaseTest.initializeLightCellsApi();
       var req = new model.PostCompressRequest();
       req.compressLevel = 80;
       const AssemblyTestXlsx = "assemblytest.xlsx";
