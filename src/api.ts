@@ -2895,7 +2895,7 @@ export class CellsApi {
      * Get worksheet list object info by index.
      * @param requestObj contains request parameters
      */
-    public async cellsListObjectsGetWorksheetListObject(requestObj: model.CellsListObjects_GetWorksheetListObjectRequest): Promise<{response: http.ClientResponse, body: model.Buffer}> {
+    public async cellsListObjectsGetWorksheetListObject(requestObj: model.CellsListObjects_GetWorksheetListObjectRequest): Promise<{response: http.ClientResponse, body: Buffer}> {
         if (requestObj === null || requestObj === undefined) {
             throw new Error('Required parameter "requestObj" was null or undefined when calling cellsListObjectsGetWorksheetListObject.');
         }
@@ -8638,7 +8638,7 @@ export class CellsApi {
      * Get page count for workbook.
      * @param requestObj contains request parameters
      */
-    public async cellsWorkbookGetPageCount(requestObj: model.CellsWorkbook_GetPageCountRequest): Promise<{response: http.ClientResponse, body: model.any}> {
+    public async cellsWorkbookGetPageCount(requestObj: model.CellsWorkbook_GetPageCountRequest): Promise<{response: http.ClientResponse, body: any}> {
         if (requestObj === null || requestObj === undefined) {
             throw new Error('Required parameter "requestObj" was null or undefined when calling cellsWorkbookGetPageCount.');
         }
@@ -10105,7 +10105,7 @@ export class CellsApi {
      * Get page count for worksheet.
      * @param requestObj contains request parameters
      */
-    public async cellsWorksheetsGetPageCount(requestObj: model.CellsWorksheets_GetPageCountRequest): Promise<{response: http.ClientResponse, body: model.any}> {
+    public async cellsWorksheetsGetPageCount(requestObj: model.CellsWorksheets_GetPageCountRequest): Promise<{response: http.ClientResponse, body: any}> {
         if (requestObj === null || requestObj === undefined) {
             throw new Error('Required parameter "requestObj" was null or undefined when calling cellsWorksheetsGetPageCount.');
         }
@@ -11740,7 +11740,7 @@ export class CellsApi {
      * 
      * @param requestObj contains request parameters
      */
-    public async postBatchConvert(requestObj: model.PostBatchConvertRequest): Promise<{response: http.ClientResponse, body: model.Buffer}> {
+    public async postBatchConvert(requestObj: model.PostBatchConvertRequest): Promise<{response: http.ClientResponse, body: Buffer}> {
         if (requestObj === null || requestObj === undefined) {
             throw new Error('Required parameter "requestObj" was null or undefined when calling postBatchConvert.');
         }
@@ -11842,6 +11842,7 @@ export class CellsApi {
 /**
  * Library for communicating with the Aspose.Cells Cloud API
  */
+ 
  export class LightCellsApi {
     /**
      * API configuration
