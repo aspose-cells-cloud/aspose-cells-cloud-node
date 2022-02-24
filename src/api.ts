@@ -6234,7 +6234,7 @@ export class CellsApi {
      * Set htmlstring value into cell
      * @param requestObj contains request parameters
      */
-    public async cellsPostSetCellHtmlString(requestObj: model.Cells_PostSetCellHtmlStringRequest): Promise<{response: http.ClientResponse, body: model.CellResponse}> {
+    public async cellsPostSetCellHtmlString(requestObj: model.Cells_PostSetCellHtmlStringRequest): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}> {
         if (requestObj === null || requestObj === undefined) {
             throw new Error('Required parameter "requestObj" was null or undefined when calling cellsPostSetCellHtmlString.');
         }
@@ -6276,7 +6276,7 @@ export class CellsApi {
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
-        const result =  ObjectSerializer.deserialize(response.body, "CellResponse");
+        const result =  ObjectSerializer.deserialize(response.body, "CellsCloudResponse");
         return Promise.resolve({body: result, response});
     }
 
@@ -9776,7 +9776,7 @@ export class CellsApi {
      * Unprotect worksheet.
      * @param requestObj contains request parameters
      */
-    public async cellsWorksheetsDeleteUnprotectWorksheet(requestObj: model.CellsWorksheets_DeleteUnprotectWorksheetRequest): Promise<{response: http.ClientResponse, body: model.WorksheetResponse}> {
+    public async cellsWorksheetsDeleteUnprotectWorksheet(requestObj: model.CellsWorksheets_DeleteUnprotectWorksheetRequest): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}> {
         if (requestObj === null || requestObj === undefined) {
             throw new Error('Required parameter "requestObj" was null or undefined when calling cellsWorksheetsDeleteUnprotectWorksheet.');
         }
@@ -9807,7 +9807,7 @@ export class CellsApi {
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
-        const result =  ObjectSerializer.deserialize(response.body, "WorksheetResponse");
+        const result =  ObjectSerializer.deserialize(response.body, "CellsCloudResponse");
         return Promise.resolve({body: result, response});
     }
 
@@ -10746,7 +10746,7 @@ export class CellsApi {
      * Update worksheet property
      * @param requestObj contains request parameters
      */
-    public async cellsWorksheetsPostUpdateWorksheetProperty(requestObj: model.CellsWorksheets_PostUpdateWorksheetPropertyRequest): Promise<{response: http.ClientResponse, body: model.WorksheetResponse}> {
+    public async cellsWorksheetsPostUpdateWorksheetProperty(requestObj: model.CellsWorksheets_PostUpdateWorksheetPropertyRequest): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}> {
         if (requestObj === null || requestObj === undefined) {
             throw new Error('Required parameter "requestObj" was null or undefined when calling cellsWorksheetsPostUpdateWorksheetProperty.');
         }
@@ -10777,7 +10777,7 @@ export class CellsApi {
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
-        const result =  ObjectSerializer.deserialize(response.body, "WorksheetResponse");
+        const result =  ObjectSerializer.deserialize(response.body, "CellsCloudResponse");
         return Promise.resolve({body: result, response});
     }
 
@@ -11097,7 +11097,7 @@ export class CellsApi {
      * Protect worksheet.
      * @param requestObj contains request parameters
      */
-    public async cellsWorksheetsPutProtectWorksheet(requestObj: model.CellsWorksheets_PutProtectWorksheetRequest): Promise<{response: http.ClientResponse, body: model.WorksheetResponse}> {
+    public async cellsWorksheetsPutProtectWorksheet(requestObj: model.CellsWorksheets_PutProtectWorksheetRequest): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}> {
         if (requestObj === null || requestObj === undefined) {
             throw new Error('Required parameter "requestObj" was null or undefined when calling cellsWorksheetsPutProtectWorksheet.');
         }
@@ -11128,7 +11128,7 @@ export class CellsApi {
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
-        const result =  ObjectSerializer.deserialize(response.body, "WorksheetResponse");
+        const result =  ObjectSerializer.deserialize(response.body, "CellsCloudResponse");
         return Promise.resolve({body: result, response});
     }
 

@@ -26200,7 +26200,7 @@ export class DeleteMetadataRequest {
 }
 
 /**
- * GetMetadataRequest model for  operation.
+ * Request model for  operation.
  */
 export class GetMetadataRequest {
     /**
