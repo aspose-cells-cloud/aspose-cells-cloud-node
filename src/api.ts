@@ -8980,6 +8980,50 @@ export class CellsApi {
     }
 
     /**
+     * Add digital signature.
+     * @param requestObj contains request parameters
+     */
+    public async cellsWorkbookPostDigitalSignature(requestObj: model.CellsWorkbook_PostDigitalSignatureRequest): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}> {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling cellsWorkbookPostDigitalSignature.');
+        }
+
+        let localVarPath = this.configuration.getApiBaseUrl() + "/cells/{name}/digitalsignature"
+            .replace("{" + "name" + "}", String(requestObj.name));
+        const queryParameters: any = {};
+
+        // verify required parameter 'requestObj.name' is not null or undefined
+        if (requestObj.name === null || requestObj.name === undefined) {
+            throw new Error('Required parameter "requestObj.name" was null or undefined when calling cellsWorkbookPostDigitalSignature.');
+        }
+
+        // verify required parameter 'requestObj.digitalsignaturefile' is not null or undefined
+        if (requestObj.digitalsignaturefile === null || requestObj.digitalsignaturefile === undefined) {
+            throw new Error('Required parameter "requestObj.digitalsignaturefile" was null or undefined when calling cellsWorkbookPostDigitalSignature.');
+        }
+
+        // verify required parameter 'requestObj.password' is not null or undefined
+        if (requestObj.password === null || requestObj.password === undefined) {
+            throw new Error('Required parameter "requestObj.password" was null or undefined when calling cellsWorkbookPostDigitalSignature.');
+        }
+        
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "digitalsignaturefile", requestObj.digitalsignaturefile);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", requestObj.password);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", requestObj.storageName);
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "CellsCloudResponse");
+        return Promise.resolve({body: result, response});
+    }
+
+    /**
      * Encript document.
      * @param requestObj contains request parameters
      */

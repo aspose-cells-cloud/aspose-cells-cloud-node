@@ -32,8 +32,8 @@ var path = require('path');
 var assert = require('assert');
 const localPath = "../TestData/";
 
-describe('CellsWorkbook_GetPageCountRequest', function () {
-  it('should call CellsWorkbook_GetPageCountRequest successfully', function () {
+describe('cellsWorkbookPostDigitalSignature', function () {
+  it('should call cellsWorkbookPostDigitalSignature successfully', function () {
     const cellsApi = BaseTest.initializeCellsApi();
     const filename = "Book1.xlsx";
     var data = fs.createReadStream(localPath + filename);
@@ -43,55 +43,29 @@ describe('CellsWorkbook_GetPageCountRequest', function () {
 
     return cellsApi.uploadFile(req)
       .then((result) => {
-        expect(result.body.uploaded.length).greaterThan(0);
-        const filename = "Book1.xlsx";
-        var req = new model.CellsWorkbook_GetPageCountRequest();
-        req.folder = "Temp";
-        req.name = filename;
+        const pfxfilename = "roywang.pfx";
+        var data1 = fs.createReadStream(localPath + pfxfilename);
+        var req1 = new model.UploadFileRequest();
+        req1.path = "Temp/" + pfxfilename;
+        req1.file = data1;
 
-        return cellsApi.cellsWorkbookGetPageCount(req)
+        return cellsApi.uploadFile(req1)
           .then((result) => {
-            expect(result.body).to.greaterThan(0);
+            expect(result.body.uploaded.length).greaterThan(0);
+            const filename = "Book1.xlsx";
+            const pfxfilename = "roywang.pfx";
+            var req2 = new model.CellsWorkbook_PostDigitalSignatureRequest();
+            req2.digitalsignaturefile =  "Temp/" + pfxfilename;
+            req2.folder = "Temp";
+            req2.password ="123456";
+            req2.name = filename;
+
+            return cellsApi.cellsWorkbookPostDigitalSignature(req2)
+              .then((result) => {
+                expect(result.response.statusCode).to.equal(200);
+              });
           });
       });
-  });
-
-  // it('should call cellsWorkbookPutConvertWorkbook successfully', function() {
-  //   const cellsApi = BaseTest.initializeCellsApi();
-  //   const filename = "Book1.xlsx";
-    
-  //   var req = new model.CellsWorkbook_PutConvertWorkbookRequest({
-  //     file : fs.createReadStream(localPath  + filename),
-  //     format : "pdf",
-  //   });
-
-  //   return cellsApi.cellsWorkbookPutConvertWorkbook(req)
-  //     .then((result) => {         
-  //       // console.log(result);
-  //       fs.writeFile('test.pdf',result['body'],'binary', err => {
-  //         if (err) {
-  //           console.error(err);
-  //         }
-  //       });        
-  //     });
-  // });
-  // it('should call down file successfully', function() {
-  //   const cellsApi = BaseTest.initializeCellsApi();
-  //   const filename = "Book1.xlsx";
-    
-  //   var req = new model.DownloadFileRequest({
-  //     path:'CellsTests/Book1.xlsx',
-  //     storageName:'Cells',
-  //   });
-
-  //   return cellsApi.downloadFile(req)
-  //     .then((result) => {         
-  //       // console.log(result);
-  //       fs.writeFile('Book1.xlsx',result['body'],'binary', err => {
-  //         if (err) {
-  //           console.error(err);
-  //         }
-  //       })     ;        
-  //     });
-  // });
+    });
 });
+  

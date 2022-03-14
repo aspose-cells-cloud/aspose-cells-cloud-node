@@ -1001,5 +1001,40 @@ describe('CellsWorkbookApi', function () {
         });
     });
   });
-
+  describe('cellsWorkbookPostDigitalSignature', function () {
+    it('should call cellsWorkbookPostDigitalSignature successfully', function () {
+      const cellsApi = BaseTest.initializeCellsApi();
+      const filename = "Book1.xlsx";
+      var data = fs.createReadStream(localPath + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
+        .then((result) => {
+          const pfxfilename = "roywang.pfx";
+          var data1 = fs.createReadStream(localPath + pfxfilename);
+          var req1 = new model.UploadFileRequest();
+          req1.path = "Temp/" + pfxfilename;
+          req1.file = data1;
+  
+          return cellsApi.uploadFile(req1)
+            .then((result) => {
+              expect(result.body.uploaded.length).greaterThan(0);
+              const filename = "Book1.xlsx";
+              const pfxfilename = "roywang.pfx";
+              var req2 = new model.CellsWorkbook_PostDigitalSignatureRequest();
+              req2.digitalsignaturefile =  "Temp/" + pfxfilename;
+              req2.folder = "Temp";
+              req2.password ="123456";
+              req2.name = filename;
+  
+              return cellsApi.cellsWorkbookPostDigitalSignature(req2)
+                .then((result) => {
+                  expect(result.response.statusCode).to.equal(200);
+                });
+            });
+        });
+      });
+  });
 });

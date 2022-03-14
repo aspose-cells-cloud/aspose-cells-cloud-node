@@ -23833,6 +23833,40 @@ export class CellsWorkbook_PostAutofitWorkbookRowsRequest {
 }
 
 /**
+ * Request model for CellsWorkbook_PostDigitalSignature operation.
+ */
+export class CellsWorkbook_PostDigitalSignatureRequest {
+    /**
+     * Workbook name.
+     */
+    public name: string;
+
+    /**
+     * Digital signature file parameters.
+     */
+    public digitalsignaturefile: string;
+
+    /**
+     * Gets or sets password
+     */
+    public password: string;
+
+    /**
+     * Workbook's folder.
+     */
+    public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storageName: string;
+    
+    public constructor(init?: Partial<CellsWorkbook_PostDigitalSignatureRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
  * Request model for CellsWorkbook_PostEncryptDocument operation.
  */
 export class CellsWorkbook_PostEncryptDocumentRequest {
