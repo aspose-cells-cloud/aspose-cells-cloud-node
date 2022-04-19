@@ -7772,6 +7772,12 @@ export class CellsApi {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", requestObj.storageName);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", requestObj.outStorageName);
+
+        if (requestObj.extendedQueryParameters !== undefined) {
+            for (var key in requestObj.extendedQueryParameters){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, requestObj.extendedQueryParameters[key]);
+            }
+        }        
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -8692,6 +8698,12 @@ export class CellsApi {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", requestObj.storageName);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", requestObj.outPath);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", requestObj.outStorageName);
+        
+        if (requestObj.extendedQueryParameters !== undefined) {
+            for (var key in requestObj.extendedQueryParameters){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, requestObj.extendedQueryParameters[key]);
+            }
+        }
         const requestOptions: request.Options = {
             method: "GET",
             qs: queryParameters,
@@ -9411,6 +9423,12 @@ export class CellsApi {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", requestObj.password);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", requestObj.outPath);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", requestObj.storageName);
+
+        if (requestObj.extendedQueryParameters !== undefined) {
+            for (var key in requestObj.extendedQueryParameters){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, requestObj.extendedQueryParameters[key]);
+            }
+        }        
         if (requestObj.file !== undefined) {
             formParams.file = requestObj.file;
         }
@@ -12189,6 +12207,13 @@ export class CellsApi {
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "objectType", requestObj.objectType);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "format", requestObj.format);
+
+        if (requestObj.extendedQueryParameters !== undefined) {
+            for (var key in requestObj.extendedQueryParameters){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, requestObj.extendedQueryParameters[key]);
+            }
+        }
+
         if (requestObj.file !== undefined) {
             for (var key in requestObj.file){
                 formParams[key] = requestObj.file[key];

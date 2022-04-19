@@ -95,7 +95,7 @@ describe('CellsSaveAsApi ', function() {
       });
     });
 
-    describe('cellsSaveAsPostDocumentSaveAsPDF 3', function() {
+    describe('cellsSaveAsPostDocumentSaveAsPDF_Extend 3', function() {
       it('should call cellsSaveAsPostDocumentSaveAsPDF successfully', function() {
         const cellsApi = BaseTest.initializeCellsApi();
         const filename = "Book1.xlsx";
@@ -117,6 +117,7 @@ describe('CellsSaveAsApi ', function() {
             req.isAutoFitRows = true;
             req.isAutoFitColumns = true;
             req.folder = "Temp";
+            req.extendedQueryParameters = { "OnePagePerSheet" : "false" };
             
             return cellsApi.cellsSaveAsPostDocumentSaveAs(req)
               .then((result) => {
@@ -126,7 +127,37 @@ describe('CellsSaveAsApi ', function() {
           });
       });
     });
-
+    describe('cellsSaveAsPostDocumentSaveAsPDF 3', function() {
+      it('should call cellsSaveAsPostDocumentSaveAsPDF successfully', function() {
+        const cellsApi = BaseTest.initializeCellsApi();
+        const filename = "Book1.xlsx";
+        var data =fs.createReadStream(localPath  + filename);
+        var req = new model.UploadFileRequest();
+        req.path = "Temp/" + filename;
+        req.file = data;
+    
+        return cellsApi.uploadFile(req)
+          .then((result) => {
+            expect(result.body.uploaded.length).greaterThan(0);
+            var req = new model.CellsSaveAs_PostDocumentSaveAsRequest();
+            req.name = filename;
+            var saveOptions = new model.PdfSaveOptions();
+            // saveOptions.onePagePerSheet = true;
+            saveOptions.saveFormat = "pdf"
+            req.saveOptions = saveOptions;
+            req.newfilename = "newbook.pdf";
+            req.isAutoFitRows = true;
+            req.isAutoFitColumns = true;
+            req.folder = "Temp";
+           
+            return cellsApi.cellsSaveAsPostDocumentSaveAs(req)
+              .then((result) => {
+                expect(result.body.code).to.equal(200);
+                expect(result.response.statusCode).to.equal(200);
+              });
+          });
+      });
+    });
     describe('cellsSaveAsPostDocumentSaveAsPDFDropBox 4', function() {
       it('should call cellsSaveAsPostDocumentSaveAsPDF on DropBox successfully', function() {
         const storage = "DropBox";

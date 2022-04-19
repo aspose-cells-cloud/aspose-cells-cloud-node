@@ -323,6 +323,24 @@ describe('CellsExporttApi', function() {
         });
     });
   });
+  describe('PostExport_workbook_pdf_extend', function() {
+    it('should call PostExport successfully', function() {
+      const cellsApi = BaseTest.initializeLightCellsApi();
+      const AssemblyTestXlsx = "assemblytest.xlsx";
+      var dataAssemblyTestXlsx =fs.createReadStream(localPath  + AssemblyTestXlsx);
+      const DataSourceXlsx = "datasource.xlsx";
+      var dataDataSourceXlsx =fs.createReadStream(localPath  + DataSourceXlsx);
+      var req = new model.PostExportRequest();
+      req.file = { AssemblyTestXlsx:dataAssemblyTestXlsx , DataSourceXlsx:dataDataSourceXlsx };
+      req.objectType = "chart";
+      req.format = "pdf";
+      req.extendedQueryParameters = { "OnePagePerSheet":"false" };
+      return cellsApi.postExport(req)
+        .then((result) => {
+          expect(result.response.statusCode).to.equal(200);
+        });
+    });
+  });
   describe('PostExport_chart_jpg', function() {
     it('should call PostExport successfully', function() {
       const cellsApi = BaseTest.initializeLightCellsApi();

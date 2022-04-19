@@ -190,6 +190,31 @@ describe('CellsWorkbookApi', function () {
         });
     });
   });
+  describe('cellsWorkbookGetWorkbook_Extend', function () {
+    it('should call cellsWorkbookGetWorkbook successfully', function () {
+      const cellsApi = BaseTest.initializeCellsApi();
+      const filename = "Book1.xlsx";
+      var data = fs.createReadStream(localPath + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+
+      return cellsApi.uploadFile(req)
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
+          var req = new model.CellsWorkbook_GetWorkbookRequest();
+          req.name = filename;
+          req.password = null;
+          req.isAutoFit = true;
+          req.folder = "Temp";
+          req.extendedQueryParameters = { "OnePagePerSheet":"false" };
+          return cellsApi.cellsWorkbookGetWorkbook(req)
+            .then((result) => {
+              expect(result.response.statusCode).to.equal(200);
+            });
+        });
+    });
+  });
   describe('cellsWorkbookGetWorkbookToOtherStorage', function () {
     it('should call cellsWorkbookGetWorkbook successfully', function () {
       const cellsApi = BaseTest.initializeCellsApi();
@@ -780,6 +805,32 @@ describe('CellsWorkbookApi', function () {
             .then((result) => {
               expect(result.body.code).to.equal(200);
               expect(result.response.statusCode).to.equal(200);
+            });
+        });
+    });
+  });
+  describe('cellsWorkbookPutConvertWorkbook_extebnd', function () {
+    it('should call cellsWorkbookPutConvertWorkbook successfully', function () {
+      const cellsApi = BaseTest.initializeCellsApi();
+      const filename = "Book1.xlsx";
+      // var data =fs.createReadStream(localPath  + filename);
+      var req = new model.CellsWorkbook_PutConvertWorkbookRequest({
+        file: fs.createReadStream(localPath + filename),
+        format: "pdf",
+        extendedQueryParameters : { "OnePagePerSheet":"false" },
+      });
+
+      return cellsApi.cellsWorkbookPutConvertWorkbook(req)
+        .then((result) => {
+          var req = new model.CellsWorkbook_PutConvertWorkbookRequest({
+            file: fs.createReadStream(localPath + filename),
+            format: "pdf",
+            extendedQueryParameters : { "OnePagePerSheet":"false" },
+          });
+
+          return cellsApi.cellsWorkbookPutConvertWorkbook(req)
+            .then((result) => {
+              expect(result.body.toString().length).to.greaterThan(0);
             });
         });
     });

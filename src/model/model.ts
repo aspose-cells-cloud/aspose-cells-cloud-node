@@ -22823,6 +22823,11 @@ export class CellsSaveAs_PostDocumentSaveAsRequest {
      */
     public outStorageName: string;
     
+    /**
+     * Gets or sets extendedQueryParameters
+     */
+    public extendedQueryParameters: Buffer;    
+    
     public constructor(init?: Partial<CellsSaveAs_PostDocumentSaveAsRequest>) {        
         Object.assign(this, init);
     } 
@@ -23589,6 +23594,11 @@ export class CellsWorkbook_GetWorkbookRequest {
      * output storage name.
      */
     public outStorageName: string;
+
+    /**
+     * Gets or sets extendedQueryParameters
+    */
+    public extendedQueryParameters: Buffer;
     
     public constructor(init?: Partial<CellsWorkbook_GetWorkbookRequest>) {        
         Object.assign(this, init);
@@ -24239,6 +24249,11 @@ export class CellsWorkbook_PutConvertWorkbookRequest {
      * storage name.
      */
     public storageName: string;
+
+    /**
+     * Gets or sets extendedQueryParameters
+     */
+    public extendedQueryParameters: Buffer;
     
     public constructor(init?: Partial<CellsWorkbook_PutConvertWorkbookRequest>) {        
         Object.assign(this, init);
@@ -26332,6 +26347,11 @@ export class PostExportRequest {
      * Gets or sets format
      */
     public format: string;
+
+     /**
+     * Gets or sets extendedQueryParameters
+     */
+    public extendedQueryParameters: Buffer;
     
     public constructor(init?: Partial<PostExportRequest>) {        
         Object.assign(this, init);
