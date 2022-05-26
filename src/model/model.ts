@@ -253,7 +253,74 @@ export class AutoFitterOptions {
         Object.assign(this, init);
     }        
 }
+export class BarcodeResponse {
 
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "barcodeValue",
+            baseName: "BarcodeValue",
+            type: "string",
+        },        
+        {
+            name: "barcodeType",
+            baseName: "BarcodeType",
+            type: "string",
+        },        
+        {
+            name: "checksum",
+            baseName: "Checksum",
+            type: "string",
+        }
+    ];
+
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return BarcodeResponse.attributeTypeMap;
+    }
+
+    public barcodeValue: string;
+    
+    public barcodeType: string;
+    
+    public checksum: string;
+    
+    public constructor(init?: Partial<BarcodeResponse>) {
+        
+        Object.assign(this, init);
+    }        
+}
+
+export class BarcodeResponseList {
+
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "barcodes",
+            baseName: "Barcodes",
+            type: "Array<BarcodeResponse>",
+        }    ];
+
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return BarcodeResponseList.attributeTypeMap;
+    }
+
+    public barcodes: Array<BarcodeResponse>;
+    
+    public constructor(init?: Partial<BarcodeResponseList>) {
+        
+        Object.assign(this, init);
+    }        
+}
 export class BatchConvertRequest {
 
     /**
@@ -19869,6 +19936,39 @@ export class CellsPictures_GetWorksheetPictureRequest {
     } 
 }
 
+/**
+ * Request model for CellsPicture_GetExtractBarcodes operation.
+ */
+export class CellsPicture_GetExtractBarcodesRequest {
+    /**
+     * Workbook name.
+     */
+    public name: string;
+
+    /**
+     * Worksheet name.
+     */
+    public sheetName: string;
+
+    /**
+     * The picture index.
+     */
+    public pictureIndex: number;
+
+    /**
+     * Workbook folder.
+     */
+    public folder: string;
+
+    /**
+     * storage name.
+     */
+    public storageName: string;
+    
+    public constructor(init?: Partial<CellsPicture_GetExtractBarcodesRequest>) {        
+        Object.assign(this, init);
+    } 
+}
 /**
  * Request model for CellsPictures_GetWorksheetPictures operation.
  */
