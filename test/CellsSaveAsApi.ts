@@ -192,4 +192,29 @@ describe('CellsSaveAsApi ', function() {
       });
     });
   });
+  describe('cellsSaveAsPostDocumentSaveAs without save option', function() {
+    it('should call cellsSaveAsPostDocumentSaveAsPDF successfully', function() {
+      const cellsApi = BaseTest.initializeCellsApi();
+      const filename = "Book1.xlsx";
+      var data =fs.createReadStream(localPath  + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+  
+      return cellsApi.uploadFile(req)
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
+          var req = new model.CellsSaveAs_PostDocumentSaveAsRequest();
+          req.name = filename;
+          req.newfilename = "NewBook1.pdf"
+          req.folder = "Temp";
+         
+          return cellsApi.cellsSaveAsPostDocumentSaveAs(req)
+            .then((result) => {
+              expect(result.body.code).to.equal(200);
+              expect(result.response.statusCode).to.equal(200);
+            });
+        });
+    });
+  });
 });

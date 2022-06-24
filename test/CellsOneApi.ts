@@ -27,45 +27,38 @@ import "mocha";
 
 import * as model from "../src/model/model";
 import * as BaseTest from "./baseTest";
+
+const localPath = "../TestData/";
 var fs = require('fs');
 var path = require('path');
 var assert = require('assert');
-const localPath = "../TestData/";
 
-describe('cellsWorkbookPostDigitalSignature', function () {
-  it('should call cellsWorkbookPostDigitalSignature successfully', function () {
-    const cellsApi = BaseTest.initializeCellsApi();
-    const filename = "Book1.xlsx";
-    var data = fs.createReadStream(localPath + filename);
-    var req = new model.UploadFileRequest();
-    req.path = "Temp/" + filename;
-    req.file = data;
-
-    return cellsApi.uploadFile(req)
-      .then((result) => {
-        const pfxfilename = "roywang.pfx";
-        var data1 = fs.createReadStream(localPath + pfxfilename);
-        var req1 = new model.UploadFileRequest();
-        req1.path = "Temp/" + pfxfilename;
-        req1.file = data1;
-
-        return cellsApi.uploadFile(req1)
+describe('CellsSaveAsApi ', function() {
+  this.timeout(200000);
+    describe('cellsSaveAsPostDocumentSaveAsPDF 3', function() {
+      it('should call cellsSaveAsPostDocumentSaveAsPDF successfully', function() {
+        const cellsApi = BaseTest.initializeCellsApi();
+        const filename = "Book1.xlsx";
+        var data =fs.createReadStream(localPath  + filename);
+        var req = new model.UploadFileRequest();
+        req.path = "Temp/" + filename;
+        req.file = data;
+    
+        return cellsApi.uploadFile(req)
           .then((result) => {
             expect(result.body.uploaded.length).greaterThan(0);
-            const filename = "Book1.xlsx";
-            const pfxfilename = "roywang.pfx";
-            var req2 = new model.CellsWorkbook_PostDigitalSignatureRequest();
-            req2.digitalsignaturefile =  "Temp/" + pfxfilename;
-            req2.folder = "Temp";
-            req2.password ="123456";
-            req2.name = filename;
-
-            return cellsApi.cellsWorkbookPostDigitalSignature(req2)
+            var req = new model.CellsSaveAs_PostDocumentSaveAsRequest();
+            req.name = filename;
+            req.newfilename = "NewBook1.pdf"
+            req.folder = "Temp";
+           
+            return cellsApi.cellsSaveAsPostDocumentSaveAs(req)
               .then((result) => {
+                expect(result.body.code).to.equal(200);
                 expect(result.response.statusCode).to.equal(200);
               });
           });
       });
     });
+
 });
-  

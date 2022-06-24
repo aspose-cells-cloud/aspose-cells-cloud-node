@@ -7825,7 +7825,7 @@ export class CellsApi {
             qs: queryParameters,
             uri: localVarPath,
             json: true,
-            body: (requestObj.saveOptions == null) ? "" : ObjectSerializer.serialize(requestObj.saveOptions, requestObj.saveOptions.constructor.name === "Object" ? "SaveOptions" : requestObj.saveOptions.constructor.name),
+            body: (requestObj.saveOptions == null) ? undefined : ObjectSerializer.serialize(requestObj.saveOptions, requestObj.saveOptions.constructor.name === "Object" ? "SaveOptions" : requestObj.saveOptions.constructor.name),
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);

@@ -93,7 +93,8 @@ async function invokeApiMethodInternal(requestOptions: request.Options, confgura
     // requestOptions.rejectUnauthorized=false;
 
     requestOptions.headers["x-aspose-client"] = "nodejs sdk";
-    requestOptions.headers["x-aspose-client-version"] = "21.9.0";
+    requestOptions.headers["x-aspose-client-version"] = "22.6.0";
+    requestOptions.headers["Content-Type"] = "application/json";
     const auth = confguration.authentication;
     if (!notApplyAuthToRequest) {
         await auth.applyToRequest(requestOptions, confguration);
