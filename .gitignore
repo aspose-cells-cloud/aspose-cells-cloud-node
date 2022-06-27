@@ -6,3 +6,4 @@ dist
 .swagger-codegen-ignore
 package-lock.json
 reports
+TestData/roywang.pfx
