@@ -7814,6 +7814,7 @@ export class CellsApi {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", requestObj.storageName);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", requestObj.outStorageName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", requestObj.checkExcelRestriction);
 
         if (requestObj.extendedQueryParameters !== undefined) {
             for (var key in requestObj.extendedQueryParameters){
@@ -12200,6 +12201,15 @@ export class CellsApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "objecttype", requestObj.objecttype);
+        
+        if (!(requestObj.sheetname === null || requestObj.sheetname === undefined) ){
+            localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "sheetname", requestObj.sheetname);
+        }
+
+        if (!(requestObj.outFormat === null || requestObj.outFormat === undefined) ){
+            localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outFormat", requestObj.outFormat);
+        }        
+
         if (requestObj.file !== undefined) {
             for (var key in requestObj.file){
                 formParams[key] = requestObj.file[key];

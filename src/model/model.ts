@@ -22928,6 +22928,11 @@ export class CellsSaveAs_PostDocumentSaveAsRequest {
      */
     public extendedQueryParameters: Buffer;    
     
+    /**
+     * check Excel Restriction.
+     */
+    public checkExcelRestriction: boolean;
+    
     public constructor(init?: Partial<CellsSaveAs_PostDocumentSaveAsRequest>) {        
         Object.assign(this, init);
     } 
@@ -26404,6 +26409,14 @@ export class PostClearObjectsRequest {
      * Gets or sets objecttype
      */
     public objecttype: string;
+    /**
+     * Gets or sets sheetname
+     */
+    public sheetname: string;
+     /**
+     * Gets or sets outFormat
+     */
+    public outFormat: string;
     
     public constructor(init?: Partial<PostClearObjectsRequest>) {        
         Object.assign(this, init);
