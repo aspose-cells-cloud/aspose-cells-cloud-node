@@ -11983,6 +11983,8 @@ export class CellsApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "type", requestObj.type);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", requestObj.checkExcelRestriction);
+        
         if (requestObj.file !== undefined) {
             for (var key in requestObj.file){
                 formParams[key] = requestObj.file[key];
@@ -12021,6 +12023,8 @@ export class CellsApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "type", requestObj.type);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", requestObj.checkExcelRestriction);
+
         if (requestObj.file !== undefined) {
             for (var key in requestObj.file){
                 formParams[key] = requestObj.file[key];
@@ -12065,6 +12069,8 @@ export class CellsApi {
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "datasource", requestObj.datasource);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "format", requestObj.format);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", requestObj.checkExcelRestriction);
+
         if (requestObj.file !== undefined) {
             for (var key in requestObj.file){
                 formParams[key] = requestObj.file[key];
@@ -12108,6 +12114,7 @@ export class CellsApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "compressLevel", requestObj.compressLevel);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", requestObj.checkExcelRestriction);
         
         if (requestObj.file !== undefined) {
             for (var key in requestObj.file){
@@ -12157,6 +12164,7 @@ export class CellsApi {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "newtext", requestObj.newtext);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", requestObj.password);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "sheetname", requestObj.sheetname);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", requestObj.checkExcelRestriction);
         
         if (requestObj.file !== undefined) {
             for (var key in requestObj.file){
@@ -12201,6 +12209,7 @@ export class CellsApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "objecttype", requestObj.objecttype);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", requestObj.checkExcelRestriction);
         
         if (!(requestObj.sheetname === null || requestObj.sheetname === undefined) ){
             localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "sheetname", requestObj.sheetname);
@@ -12259,6 +12268,7 @@ export class CellsApi {
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "objectType", requestObj.objectType);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "format", requestObj.format);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", requestObj.checkExcelRestriction);
 
         if (requestObj.extendedQueryParameters !== undefined) {
             for (var key in requestObj.extendedQueryParameters){
@@ -12351,7 +12361,9 @@ export class CellsApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "format", requestObj.format);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "mergeToOneSheet", requestObj.mergeToOneSheet);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "mergeToOneSheet", requestObj.mergeToOneSheet);        
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", requestObj.checkExcelRestriction);
+
         if (requestObj.file !== undefined) {
             for (var key in requestObj.file){
                 formParams[key] = requestObj.file[key];
@@ -12380,7 +12392,7 @@ export class CellsApi {
             throw new Error('Required parameter "requestObj" was null or undefined when calling postMetadata.');
         }
 
-        const localVarPath = this.configuration.getApiBaseUrl() + "/cells/metadata/update";
+        let localVarPath = this.configuration.getApiBaseUrl() + "/cells/metadata/update";
         const queryParameters: any = {};
         const formParams: any = {};
 
@@ -12394,6 +12406,8 @@ export class CellsApi {
             throw new Error('Required parameter "requestObj.documentProperties" was null or undefined when calling postMetadata.');
         }
         
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", requestObj.checkExcelRestriction);
+
         if (requestObj.file !== undefined) {
             for (var key in requestObj.file){
                 formParams[key] = requestObj.file[key];
@@ -12442,6 +12456,7 @@ export class CellsApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", requestObj.password);
+
         if (requestObj.file !== undefined) {
             for (var key in requestObj.file){
                 formParams[key] = requestObj.file[key];
@@ -12488,6 +12503,8 @@ export class CellsApi {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "text", requestObj.text);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", requestObj.password);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "sheetname", requestObj.sheetname);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", requestObj.checkExcelRestriction);
+
         if (requestObj.file !== undefined) {
             for (var key in requestObj.file){
                 formParams[key] = requestObj.file[key];
@@ -12534,6 +12551,7 @@ export class CellsApi {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", requestObj.password);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "from", requestObj.from);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "to", requestObj.to);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", requestObj.checkExcelRestriction);
         
         if (requestObj.file !== undefined) {
             for (var key in requestObj.file){
@@ -12627,6 +12645,7 @@ export class CellsApi {
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "text", requestObj.text);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "color", requestObj.color);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", requestObj.checkExcelRestriction);
         if (requestObj.file !== undefined) {
             for (var key in requestObj.file){
                 formParams[key] = requestObj.file[key];
@@ -12675,6 +12694,7 @@ export class CellsApi {
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "rotateType", requestObj.rotateType);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "format", requestObj.format);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", requestObj.checkExcelRestriction);
         if (requestObj.file !== undefined) {
             for (var key in requestObj.file){
                 formParams[key] = requestObj.file[key];

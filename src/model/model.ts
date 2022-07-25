@@ -8688,7 +8688,26 @@ export class DifSaveOptions extends SaveOptions {
         Object.assign(this, init);
     }        
 }
+export class DocxSaveOptions extends SaveOptions {
 
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+    ];
+
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return super.getAttributeTypeMap().concat(DocxSaveOptions.attributeTypeMap);
+    }
+
+    public constructor(init?: Partial<DocxSaveOptions>) {
+        super(init);
+        Object.assign(this, init);
+    }        
+}
 /**
  * File Version
  */
@@ -9839,7 +9858,53 @@ export class ImportStringArrayOption extends ImportOption {
         Object.assign(this, init);
     }        
 }
+export class JsonSaveOptions extends SaveOptions {
 
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "exportArea",
+            baseName: "ExportArea",
+            type: "CellArea",
+        },        
+        {
+            name: "hasHeaderRow",
+            baseName: "HasHeaderRow",
+            type: "boolean",
+        },        
+        {
+            name: "exportAsString",
+            baseName: "ExportAsString",
+            type: "boolean",
+        },        
+        {
+            name: "indent",
+            baseName: "Indent",
+            type: "string",
+        }    ];
+
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return super.getAttributeTypeMap().concat(JsonSaveOptions.attributeTypeMap);
+    }
+
+    public exportArea: CellArea;
+    
+    public hasHeaderRow: boolean;
+    
+    public exportAsString: boolean;
+    
+    public indent: string;
+    
+    public constructor(init?: Partial<JsonSaveOptions>) {
+        super(init);
+        Object.assign(this, init);
+    }        
+}
 export class LegendResponse extends CellsCloudResponse {
 
     /**
@@ -12365,7 +12430,26 @@ export class PivotTablesResponse extends CellsCloudResponse {
         Object.assign(this, init);
     }        
 }
+export class PptxSaveOptions extends SaveOptions {
 
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+    ];
+
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return super.getAttributeTypeMap().concat(PptxSaveOptions.attributeTypeMap);
+    }
+
+    public constructor(init?: Partial<PptxSaveOptions>) {
+        super(init);
+        Object.assign(this, init);
+    }        
+}
 export class RangeValueResponse extends CellsCloudResponse {
 
     /**
@@ -13327,7 +13411,109 @@ export class SpreadsheetML2003SaveOptions extends SaveOptions {
         Object.assign(this, init);
     }        
 }
+export class SqlScriptSaveOptions extends SaveOptions {
 
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "checkIfTableExists",
+            baseName: "CheckIfTableExists",
+            type: "boolean",
+        },        
+        {
+            name: "columnTypeMap",
+            baseName: "ColumnTypeMap",
+            type: "string",
+        },        
+        {
+            name: "checkAllDataForColumnType",
+            baseName: "CheckAllDataForColumnType",
+            type: "boolean",
+        },        
+        {
+            name: "addBlankLineBetweenRows",
+            baseName: "AddBlankLineBetweenRows",
+            type: "boolean",
+        },        
+        {
+            name: "operatorType",
+            baseName: "OperatorType",
+            type: "string",
+        },        
+        {
+            name: "createTable",
+            baseName: "CreateTable",
+            type: "boolean",
+        },        
+        {
+            name: "idName",
+            baseName: "IdName",
+            type: "string",
+        },        
+        {
+            name: "startId",
+            baseName: "StartId",
+            type: "number",
+        },        
+        {
+            name: "tableName",
+            baseName: "TableName",
+            type: "string",
+        },        
+        {
+            name: "exportAsString",
+            baseName: "ExportAsString",
+            type: "boolean",
+        },        
+        {
+            name: "exportArea",
+            baseName: "ExportArea",
+            type: "CellArea",
+        },        
+        {
+            name: "hasHeaderRow",
+            baseName: "HasHeaderRow",
+            type: "boolean",
+        }    ];
+
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return super.getAttributeTypeMap().concat(SqlScriptSaveOptions.attributeTypeMap);
+    }
+
+    public checkIfTableExists: boolean;
+    
+    public columnTypeMap: string;
+    
+    public checkAllDataForColumnType: boolean;
+    
+    public addBlankLineBetweenRows: boolean;
+    
+    public operatorType: string;
+    
+    public createTable: boolean;
+    
+    public idName: string;
+    
+    public startId: number;
+    
+    public tableName: string;
+    
+    public exportAsString: boolean;
+    
+    public exportArea: CellArea;
+    
+    public hasHeaderRow: boolean;
+    
+    public constructor(init?: Partial<SqlScriptSaveOptions>) {
+        super(init);
+        Object.assign(this, init);
+    }        
+}
 export class Style {
 
     /**
@@ -15918,261 +16104,268 @@ const enumsMap = {
 };
 
 const typeMap = {
-            AboveAverage,
-            AccessTokenResponse,
-            Area,
-            AutoFitterOptions,
-            BatchConvertRequest,
-            Border,
-            CalculationOptions,
-            CellArea,
-            CellValue,
-            CellsCloudFileInfo,
-            CellsCloudResponse,
-            CellsColor,
-            CellsError,
-            Color,
-            ColorFilter,
-            ColorFilterRequest,
-            ColorScale,
-            ConditionalFormattingIcon,
-            ConditionalFormattingValue,
-            CopyOptions,
-            CreatePivotTableRequest,
-            CustomFilter,
-            CustomParserConfig,
-            DataBar,
-            DataBarBorder,
-            DataSorter,
-            DiscUsage,
-            DynamicFilter,
-            ErrorDetails,
-            FileInfo,
-            FileSource,
-            FileVersions,
-            FilesList,
-            FilesResult,
-            FilesUploadResult,
-            FillFormat,
-            FilterColumn,
-            Font,
-            FontSetting,
-            GradientFill,
-            GradientFillStop,
-            HorizontalPageBreak,
-            IconFilter,
-            IconSet,
-            ImportOption,
-            Line,
-            Link,
-            LinkElement,
-            ListColumn,
-            MatchConditionRequest,
-            MultipleFilter,
-            MultipleFilters,
-            NegativeBarFormat,
-            ObjectExist,
-            OperateObject,
-            OperateObjectPosition,
-            OperateParameter,
-            PageSection,
-            PasswordRequest,
-            PasteOptions,
-            PatternFill,
-            PdfSecurityOptions,
-            PicFormatOption,
-            PivotField,
-            PivotFilter,
-            PivotItem,
-            PivotTableFieldRequest,
-            ProtectSheetParameter,
-            Range,
-            RangeCopyRequest,
-            RangeSetOutlineBorderRequest,
-            RangeSetStyleRequest,
-            Ranges,
-            ResultDestination,
-            SaveOptions,
-            SaveResult,
-            ShadowEffect,
-            SingleValue,
-            SolidFill,
-            SortKey,
-            Sparkline,
-            SparklineGroup,
-            SparklineGroups,
-            SplitResult,
-            StorageExist,
-            StorageFile,
-            TableTotalRequest,
-            TaskData,
-            TaskDescription,
-            TaskParameter,
-            TextWaterMarkerRequest,
-            TextureFill,
-            ThemeColor,
-            TilePicOption,
-            Top10,
-            Top10Filter,
-            ValueType,
-            VerticalPageBreak,
-            Workbook,
-            WorkbookEncryptionRequest,
-            WorkbookProtectionRequest,
-            WorkbookSettings,
-            Worksheet,
-            WorksheetMovingRequest,
-            AutoFilter,
-            AutoFilterResponse,
-            AutoShapeResponse,
-            AutoShapes,
-            AutoShapesResponse,
-            Cell,
-            CellResponse,
-            Cells,
-            CellsDocumentProperties,
-            CellsDocumentPropertiesResponse,
-            CellsDocumentProperty,
-            CellsDocumentPropertyResponse,
-            CellsObjectOperateTaskParameter,
-            CellsResponse,
-            Chart,
-            ChartAreaResponse,
-            ChartFrame,
-            ChartOperateParameter,
-            Charts,
-            ChartsResponse,
-            Column,
-            ColumnResponse,
-            Columns,
-            ColumnsResponse,
-            Comment,
-            CommentResponse,
-            Comments,
-            CommentsResponse,
-            ConditionalFormatting,
-            ConditionalFormattingResponse,
-            ConditionalFormattings,
-            ConditionalFormattingsResponse,
-            ConvertTaskParameter,
-            ConvertWorksheetTaskParameter,
-            DifSaveOptions,
-            FileVersion,
-            FillFormatResponse,
-            FormatCondition,
-            HorizontalPageBreakResponse,
-            HorizontalPageBreaks,
-            HorizontalPageBreaksResponse,
-            HtmlSaveOptions,
-            Hyperlink,
-            HyperlinkResponse,
-            Hyperlinks,
-            HyperlinksResponse,
-            ImageSaveOptions,
-            ImportBatchDataOption,
-            ImportCSVDataOption,
-            ImportDataTaskParameter,
-            ImportDoubleArrayOption,
-            ImportIntArrayOption,
-            ImportPictureOption,
-            ImportStringArrayOption,
-            LegendResponse,
-            LineFormat,
-            LineResponse,
-            ListObject,
-            ListObjectOperateParameter,
-            ListObjectResponse,
-            ListObjects,
-            ListObjectsResponse,
-            MHtmlSaveOptions,
-            MarkdownSaveOptions,
-            MergedCell,
-            MergedCellResponse,
-            MergedCells,
-            MergedCellsResponse,
-            Name,
-            NameResponse,
-            Names,
-            NamesResponse,
-            OdsSaveOptions,
-            OleObjectResponse,
-            OleObjects,
-            OleObjectsResponse,
-            OoxmlSaveOptions,
-            PageBreakOperateParameter,
-            PageSectionsResponse,
-            PageSetup,
-            PageSetupOperateParameter,
-            PageSetupResponse,
-            PdfSaveOptions,
-            PictureResponse,
-            Pictures,
-            PicturesResponse,
-            PivotFieldResponse,
-            PivotFilterResponse,
-            PivotFiltersResponse,
-            PivotTable,
-            PivotTableOperateParameter,
-            PivotTableResponse,
-            PivotTables,
-            PivotTablesResponse,
-            RangeValueResponse,
-            RangesResponse,
-            Row,
-            RowResponse,
-            Rows,
-            RowsResponse,
-            SaveResponse,
-            SaveResultTaskParameter,
-            Shape,
-            ShapeOperateParameter,
-            ShapeResponse,
-            Shapes,
-            ShapesResponse,
-            SingleValueResponse,
-            SmartMarkerTaskParameter,
-            SparklineGroupResponse,
-            SparklineGroupsResponse,
-            SplitResultDocument,
-            SplitResultResponse,
-            SplitWorkbookTaskParameter,
-            SpreadsheetML2003SaveOptions,
-            Style,
-            StyleResponse,
-            SvgSaveOptions,
-            TextItem,
-            TextItems,
-            TextItemsResponse,
-            TextOptions,
-            TitleResponse,
-            TxtSaveOptions,
-            Validation,
-            ValidationResponse,
-            Validations,
-            ValidationsResponse,
-            VerticalPageBreakResponse,
-            VerticalPageBreaks,
-            VerticalPageBreaksResponse,
-            WorkbookOperateParameter,
-            WorkbookReplaceResponse,
-            WorkbookResponse,
-            WorkbookSettingsOperateParameter,
-            WorkbookSettingsResponse,
-            WorksheetOperateParameter,
-            WorksheetReplaceResponse,
-            WorksheetResponse,
-            Worksheets,
-            WorksheetsResponse,
-            XlsSaveOptions,
-            XlsbSaveOptions,
-            XpsSaveOptions,
-            AutoShape,
-            ChartArea,
-            Legend,
-            OleObject,
-            Picture,
-            Title,
+    AboveAverage,
+    AccessTokenResponse,
+    Area,
+    AutoFitterOptions,
+    BarcodeResponse,
+    BarcodeResponseList,
+    BatchConvertRequest,
+    Border,
+    CalculationOptions,
+    CellArea,
+    CellValue,
+    CellsCloudFileInfo,
+    CellsCloudResponse,
+    CellsColor,
+    CellsError,
+    Color,
+    ColorFilter,
+    ColorFilterRequest,
+    ColorScale,
+    ConditionalFormattingIcon,
+    ConditionalFormattingValue,
+    CopyOptions,
+    CreatePivotTableRequest,
+    CustomFilter,
+    CustomParserConfig,
+    DataBar,
+    DataBarBorder,
+    DataSorter,
+    DiscUsage,
+    DynamicFilter,
+    ErrorDetails,
+    FileInfo,
+    FileSource,
+    FileVersions,
+    FilesList,
+    FilesResult,
+    FilesUploadResult,
+    FillFormat,
+    FilterColumn,
+    Font,
+    FontSetting,
+    GradientFill,
+    GradientFillStop,
+    HorizontalPageBreak,
+    IconFilter,
+    IconSet,
+    ImportOption,
+    Line,
+    Link,
+    LinkElement,
+    ListColumn,
+    MatchConditionRequest,
+    MultipleFilter,
+    MultipleFilters,
+    NegativeBarFormat,
+    ObjectExist,
+    OperateObject,
+    OperateObjectPosition,
+    OperateParameter,
+    PageSection,
+    PasswordRequest,
+    PasteOptions,
+    PatternFill,
+    PdfSecurityOptions,
+    PicFormatOption,
+    PivotField,
+    PivotFilter,
+    PivotItem,
+    PivotTableFieldRequest,
+    ProtectSheetParameter,
+    Range,
+    RangeCopyRequest,
+    RangeSetOutlineBorderRequest,
+    RangeSetStyleRequest,
+    Ranges,
+    ResultDestination,
+    SaveOptions,
+    SaveResult,
+    ShadowEffect,
+    SingleValue,
+    SolidFill,
+    SortKey,
+    Sparkline,
+    SparklineGroup,
+    SparklineGroups,
+    SplitResult,
+    StorageExist,
+    StorageFile,
+    TableTotalRequest,
+    TaskData,
+    TaskDescription,
+    TaskParameter,
+    TextWaterMarkerRequest,
+    TextureFill,
+    ThemeColor,
+    TilePicOption,
+    Top10,
+    Top10Filter,
+    ValueType,
+    VerticalPageBreak,
+    Workbook,
+    WorkbookEncryptionRequest,
+    WorkbookProtectionRequest,
+    WorkbookSettings,
+    Worksheet,
+    WorksheetMovingRequest,
+    AutoFilter,
+    AutoFilterResponse,
+    AutoShapeResponse,
+    AutoShapes,
+    AutoShapesResponse,
+    Cell,
+    CellResponse,
+    Cells,
+    CellsDocumentProperties,
+    CellsDocumentPropertiesResponse,
+    CellsDocumentProperty,
+    CellsDocumentPropertyResponse,
+    CellsObjectOperateTaskParameter,
+    CellsResponse,
+    Chart,
+    ChartAreaResponse,
+    ChartFrame,
+    ChartOperateParameter,
+    Charts,
+    ChartsResponse,
+    Column,
+    ColumnResponse,
+    Columns,
+    ColumnsResponse,
+    Comment,
+    CommentResponse,
+    Comments,
+    CommentsResponse,
+    ConditionalFormatting,
+    ConditionalFormattingResponse,
+    ConditionalFormattings,
+    ConditionalFormattingsResponse,
+    ConvertTaskParameter,
+    ConvertWorksheetTaskParameter,
+    DifSaveOptions,
+    DocxSaveOptions,
+    FileVersion,
+    FillFormatResponse,
+    FormatCondition,
+    HorizontalPageBreakResponse,
+    HorizontalPageBreaks,
+    HorizontalPageBreaksResponse,
+    HtmlSaveOptions,
+    Hyperlink,
+    HyperlinkResponse,
+    Hyperlinks,
+    HyperlinksResponse,
+    ImageSaveOptions,
+    ImportBatchDataOption,
+    ImportCSVDataOption,
+    ImportDataTaskParameter,
+    ImportDoubleArrayOption,
+    ImportIntArrayOption,
+    ImportPictureOption,
+    ImportStringArrayOption,
+    JsonSaveOptions,
+    LegendResponse,
+    LineFormat,
+    LineResponse,
+    ListObject,
+    ListObjectOperateParameter,
+    ListObjectResponse,
+    ListObjects,
+    ListObjectsResponse,
+    MHtmlSaveOptions,
+    MarkdownSaveOptions,
+    MergedCell,
+    MergedCellResponse,
+    MergedCells,
+    MergedCellsResponse,
+    Name,
+    NameResponse,
+    Names,
+    NamesResponse,
+    OdsSaveOptions,
+    OleObjectResponse,
+    OleObjects,
+    OleObjectsResponse,
+    OoxmlSaveOptions,
+    PageBreakOperateParameter,
+    PageSectionsResponse,
+    PageSetup,
+    PageSetupOperateParameter,
+    PageSetupResponse,
+    PdfSaveOptions,
+    PictureResponse,
+    Pictures,
+    PicturesResponse,
+    PivotFieldResponse,
+    PivotFilterResponse,
+    PivotFiltersResponse,
+    PivotTable,
+    PivotTableOperateParameter,
+    PivotTableResponse,
+    PivotTables,
+    PivotTablesResponse,
+    PptxSaveOptions,
+    RangeValueResponse,
+    RangesResponse,
+    Row,
+    RowResponse,
+    Rows,
+    RowsResponse,
+    SaveResponse,
+    SaveResultTaskParameter,
+    Shape,
+    ShapeOperateParameter,
+    ShapeResponse,
+    Shapes,
+    ShapesResponse,
+    SingleValueResponse,
+    SmartMarkerTaskParameter,
+    SparklineGroupResponse,
+    SparklineGroupsResponse,
+    SplitResultDocument,
+    SplitResultResponse,
+    SplitWorkbookTaskParameter,
+    SpreadsheetML2003SaveOptions,
+    SqlScriptSaveOptions,
+    Style,
+    StyleResponse,
+    SvgSaveOptions,
+    TextItem,
+    TextItems,
+    TextItemsResponse,
+    TextOptions,
+    TitleResponse,
+    TxtSaveOptions,
+    Validation,
+    ValidationResponse,
+    Validations,
+    ValidationsResponse,
+    VerticalPageBreakResponse,
+    VerticalPageBreaks,
+    VerticalPageBreaksResponse,
+    WorkbookOperateParameter,
+    WorkbookReplaceResponse,
+    WorkbookResponse,
+    WorkbookSettingsOperateParameter,
+    WorkbookSettingsResponse,
+    WorksheetOperateParameter,
+    WorksheetReplaceResponse,
+    WorksheetResponse,
+    Worksheets,
+    WorksheetsResponse,
+    XlsSaveOptions,
+    XlsbSaveOptions,
+    XpsSaveOptions,
+    AutoShape,
+    ChartArea,
+    Legend,
+    OleObject,
+    Picture,
+    Title,
 };
+
 
 export {enumsMap, typeMap};
 
@@ -26347,6 +26540,11 @@ export class DeleteMetadataRequest {
      * Gets or sets type
      */
     public type: string;
+
+    /**
+     * Gets or sets checkExcelRestriction
+     */
+    public checkExcelRestriction: boolean;
     
     public constructor(init?: Partial<DeleteMetadataRequest>) {        
         Object.assign(this, init);
@@ -26367,6 +26565,11 @@ export class GetMetadataRequest {
      */
     public type: string;
     
+    /**
+     * Gets or sets checkExcelRestriction
+     */
+    public checkExcelRestriction: boolean;
+
     public constructor(init?: Partial<GetMetadataRequest>) {        
         Object.assign(this, init);
     } 
@@ -26391,6 +26594,11 @@ export class PostAssembleRequest {
      */
     public format: string;
     
+    /**
+     * Gets or sets checkExcelRestriction
+     */
+    public checkExcelRestriction: boolean;
+
     public constructor(init?: Partial<PostAssembleRequest>) {        
         Object.assign(this, init);
     } 
@@ -26417,7 +26625,12 @@ export class PostClearObjectsRequest {
      * Gets or sets outFormat
      */
     public outFormat: string;
-    
+
+    /**
+     * Gets or sets checkExcelRestriction
+     */
+    public checkExcelRestriction: boolean;
+
     public constructor(init?: Partial<PostClearObjectsRequest>) {        
         Object.assign(this, init);
     } 
@@ -26437,6 +26650,11 @@ export class PostCompressRequest {
      */
     public compressLevel: number;
     
+    /**
+     * Gets or sets checkExcelRestriction
+     */
+    public checkExcelRestriction: boolean;
+
     public constructor(init?: Partial<PostCompressRequest>) {        
         Object.assign(this, init);
     } 
@@ -26460,8 +26678,13 @@ export class PostExportRequest {
      * Gets or sets format
      */
     public format: string;
-
-     /**
+    
+    /**
+     * Gets or sets checkExcelRestriction
+     */
+    public checkExcelRestriction: boolean;
+    
+    /**
      * Gets or sets extendedQueryParameters
      */
     public extendedQueryParameters: Buffer;
@@ -26508,7 +26731,12 @@ export class PostMergeRequest {
      * Gets or sets mergeToOneSheet
      */
     public mergeToOneSheet: boolean;
-    
+
+    /**
+     * Gets or sets checkExcelRestriction
+    */
+    public checkExcelRestriction: boolean;
+
     public constructor(init?: Partial<PostMergeRequest>) {        
         Object.assign(this, init);
     } 
@@ -26528,6 +26756,11 @@ export class PostMetadataRequest {
      */
     public documentProperties: Array<CellsDocumentProperty>;
     
+    /**
+     * Gets or sets checkExcelRestriction
+    */
+    public checkExcelRestriction: boolean;
+
     public constructor(init?: Partial<PostMetadataRequest>) {        
         Object.assign(this, init);
     } 
@@ -26546,6 +26779,11 @@ export class PostProtectRequest {
      * Gets or sets password
      */
     public password: string;
+
+    /**
+     * Gets or sets checkExcelRestriction
+    */
+    public checkExcelRestriction: boolean;
     
     public constructor(init?: Partial<PostProtectRequest>) {        
         Object.assign(this, init);
@@ -26581,6 +26819,11 @@ export class PostReplaceRequest {
      */
     public sheetname: string;
     
+    /**
+     * Gets or sets checkExcelRestriction
+     */
+    public checkExcelRestriction: boolean;
+
     public constructor(init?: Partial<PostReplaceRequest>) {        
         Object.assign(this, init);
     } 
@@ -26605,6 +26848,11 @@ export class PostReverseRequest {
      */
     public format: string;
     
+    /**
+     * Gets or sets checkExcelRestriction
+     */
+    public checkExcelRestriction: boolean;
+
     public constructor(init?: Partial<PostReverseRequest>) {        
         Object.assign(this, init);
     } 
@@ -26634,6 +26882,11 @@ export class PostSearchRequest {
      */
     public sheetname: string;
     
+    /**
+     * Gets or sets checkExcelRestriction
+    */
+    public checkExcelRestriction: boolean;
+
     public constructor(init?: Partial<PostSearchRequest>) {        
         Object.assign(this, init);
     } 
@@ -26667,7 +26920,12 @@ export class PostSplitRequest {
      * Gets or sets to
      */
     public to: number;
-    
+
+    /**
+     * Gets or sets checkExcelRestriction
+    */
+    public checkExcelRestriction: boolean;
+
     public constructor(init?: Partial<PostSplitRequest>) {        
         Object.assign(this, init);
     } 
@@ -26711,6 +26969,11 @@ export class PostWatermarkRequest {
      */
     public color: string;
     
+    /**
+     * Gets or sets checkExcelRestriction
+     */
+    public checkExcelRestriction: boolean;
+
     public constructor(init?: Partial<PostWatermarkRequest>) {        
         Object.assign(this, init);
     } 
