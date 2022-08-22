@@ -12713,4 +12713,53 @@ export class CellsApi {
         const result =  ObjectSerializer.deserialize(response.body, "FilesResult");
         return Promise.resolve({body: result, response});
     }
+    /**
+     * 
+     * @param requestObj contains request parameters
+     */
+     public async postRotate(requestObj: model.PostRotateRequest): Promise<{response: http.ClientResponse, body: model.FilesResult}> {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling PostReverse.');
+        }
+
+        let localVarPath = this.configuration.getApiBaseUrl() + "/cells/rotate";
+        const queryParameters: any = {};
+        const formParams: any = {};
+
+        // verify required parameter 'requestObj.file' is not null or undefined
+        if (requestObj.file === null || requestObj.file === undefined) {
+            throw new Error('Required parameter "requestObj.file" was null or undefined when calling postRotate.');
+        }
+
+        // verify required parameter 'requestObj.rotateType' is not null or undefined
+        if (requestObj.rotateType === null || requestObj.rotateType === undefined) {
+            throw new Error('Required parameter "requestObj.rotateType" was null or undefined when calling postRotate.');
+        }
+
+        // verify required parameter 'requestObj.format' is not null or undefined
+        if (requestObj.format === null || requestObj.format === undefined) {
+            throw new Error('Required parameter "requestObj.format" was null or undefined when calling postRotate.');
+        }
+        
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "rotateType", requestObj.rotateType);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "format", requestObj.format);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", requestObj.checkExcelRestriction);
+        if (requestObj.file !== undefined) {
+            for (var key in requestObj.file){
+                formParams[key] = requestObj.file[key];
+            }
+        }
+
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        (requestOptions as any).formData = formParams;        
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "FilesResult");
+        return Promise.resolve({body: result, response});
+    }
 }

@@ -26858,6 +26858,36 @@ export class PostReverseRequest {
     } 
 }
 
+
+/**
+ * Request model for PostRotateRequest operation.
+ */
+export class PostRotateRequest {
+    /**
+     * File to upload
+     */
+    public file: Buffer;
+
+    /**
+     * Gets or sets rotateType
+     */
+    public rotateType: string;
+
+    /**
+     * Gets or sets format
+     */
+    public format: string;
+    
+    /**
+     * Gets or sets checkExcelRestriction
+     */
+    public checkExcelRestriction: boolean;
+
+    public constructor(init?: Partial<PostRotateRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
 /**
  * Request model for PostSearch operation.
  */
