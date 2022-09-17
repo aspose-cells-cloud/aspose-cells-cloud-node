@@ -11870,6 +11870,116 @@ export class CellsApi {
         const result =  ObjectSerializer.deserialize(response.body, "Buffer");
         return Promise.resolve({body: result, response});
     }
+    /**
+     * 
+     * @param requestObj contains request parameters
+     */
+     public async postConvertWorkbookToDocx(requestObj: model.PostConvertWorkbookToDocxRequest): Promise<{response: http.ClientResponse, body: model.FileInfo}> {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling postConvertWorkbookToDocx.');
+        }
+
+        let localVarPath = this.configuration.getApiBaseUrl() + "/cells/convert/docx";
+        const queryParameters: any = {};
+        const formParams: any = {};
+
+        // verify required parameter 'requestObj.file' is not null or undefined
+        if (requestObj.file === null || requestObj.file === undefined) {
+            throw new Error('Required parameter "requestObj.file" was null or undefined when calling postConvertWorkbookToDocx.');
+        }
+        
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", requestObj.password);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", requestObj.checkExcelRestriction);
+        if (requestObj.file !== undefined) {
+            formParams.file = requestObj.file;
+        }
+
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        (requestOptions as any).formData = formParams;        
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "FileInfo");
+        return Promise.resolve({body: result, response});
+    }
+
+    /**
+     * 
+     * @param requestObj contains request parameters
+     */
+    public async postConvertWorkbookToPDF(requestObj: model.PostConvertWorkbookToPDFRequest): Promise<{response: http.ClientResponse, body: model.FileInfo}> {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling postConvertWorkbookToPDF.');
+        }
+
+        let localVarPath = this.configuration.getApiBaseUrl() + "/cells/convert/pdf";
+        const queryParameters: any = {};
+        const formParams: any = {};
+
+        // verify required parameter 'requestObj.file' is not null or undefined
+        if (requestObj.file === null || requestObj.file === undefined) {
+            throw new Error('Required parameter "requestObj.file" was null or undefined when calling postConvertWorkbookToPDF.');
+        }
+        
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", requestObj.password);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", requestObj.checkExcelRestriction);
+        if (requestObj.file !== undefined) {
+            formParams.file = requestObj.file;
+        }
+
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        (requestOptions as any).formData = formParams;        
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "FileInfo");
+        return Promise.resolve({body: result, response});
+    }
+
+    /**
+     * 
+     * @param requestObj contains request parameters
+     */
+    public async postConvertWorkbookToPNG(requestObj: model.PostConvertWorkbookToPNGRequest): Promise<{response: http.ClientResponse, body: model.FileInfo}> {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling postConvertWorkbookToPNG.');
+        }
+
+        let localVarPath = this.configuration.getApiBaseUrl() + "/cells/convert/png";
+        const queryParameters: any = {};
+        const formParams: any = {};
+
+        // verify required parameter 'requestObj.file' is not null or undefined
+        if (requestObj.file === null || requestObj.file === undefined) {
+            throw new Error('Required parameter "requestObj.file" was null or undefined when calling postConvertWorkbookToPNG.');
+        }
+        
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", requestObj.password);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", requestObj.checkExcelRestriction);
+        if (requestObj.file !== undefined) {
+            formParams.file = requestObj.file;
+        }
+
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        (requestOptions as any).formData = formParams;        
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "FileInfo");
+        return Promise.resolve({body: result, response});
+    }
 
     /**
      * Check if storage exists
