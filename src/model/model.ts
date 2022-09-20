@@ -26490,6 +26490,77 @@ export class PostBatchConvertRequest {
 }
 
 /**
+ * Request model for PostConvertWorkbookToDocx operation.
+ */
+export class PostConvertWorkbookToDocxRequest {
+    /**
+     * File to upload
+     */
+    public file: Buffer;
+
+    /**
+     * Gets or sets password
+     */
+    public password: string;
+
+    /**
+     * Gets or sets checkExcelRestriction
+     */
+    public checkExcelRestriction: boolean;
+    
+    public constructor(init?: Partial<PostConvertWorkbookToDocxRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
+ * Request model for PostConvertWorkbookToPDF operation.
+ */
+export class PostConvertWorkbookToPDFRequest {
+    /**
+     * File to upload
+     */
+    public file: Buffer;
+
+    /**
+     * Gets or sets password
+     */
+    public password: string;
+
+    /**
+     * Gets or sets checkExcelRestriction
+     */
+    public checkExcelRestriction: boolean;
+    
+    public constructor(init?: Partial<PostConvertWorkbookToPDFRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
+ * Request model for PostConvertWorkbookToPNG operation.
+ */
+export class PostConvertWorkbookToPNGRequest {
+    /**
+     * File to upload
+     */
+    public file: Buffer;
+
+    /**
+     * Gets or sets password
+     */
+    public password: string;
+
+    /**
+     * Gets or sets checkExcelRestriction
+     */
+    public checkExcelRestriction: boolean;
+    
+    public constructor(init?: Partial<PostConvertWorkbookToPNGRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+/**
  * Request model for StorageExists operation.
  */
 export class StorageExistsRequest {

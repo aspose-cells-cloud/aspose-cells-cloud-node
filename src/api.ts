@@ -2895,7 +2895,7 @@ export class CellsApi {
      * Get worksheet list object info by index.
      * @param requestObj contains request parameters
      */
-    public async cellsListObjectsGetWorksheetListObject(requestObj: model.CellsListObjects_GetWorksheetListObjectRequest): Promise<{response: http.ClientResponse, body: Buffer}> {
+    public async cellsListObjectsGetWorksheetListObject(requestObj: model.CellsListObjects_GetWorksheetListObjectRequest): Promise<{response: http.ClientResponse, body: model.Buffer}> {
         if (requestObj === null || requestObj === undefined) {
             throw new Error('Required parameter "requestObj" was null or undefined when calling cellsListObjectsGetWorksheetListObject.');
         }
@@ -4294,7 +4294,8 @@ export class CellsApi {
         const result =  ObjectSerializer.deserialize(response.body, "CellsCloudResponse");
         return Promise.resolve({body: result, response});
     }
- /**
+
+    /**
      * Get chart area border info.
      * @param requestObj contains request parameters
      */
@@ -4337,6 +4338,7 @@ export class CellsApi {
         const result =  ObjectSerializer.deserialize(response.body, "BarcodeResponseList");
         return Promise.resolve({body: result, response});
     }
+
     /**
      * Delete a picture object in worksheet
      * @param requestObj contains request parameters
@@ -7814,19 +7816,12 @@ export class CellsApi {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", requestObj.storageName);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", requestObj.outStorageName);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", requestObj.checkExcelRestriction);
-
-        if (requestObj.extendedQueryParameters !== undefined) {
-            for (var key in requestObj.extendedQueryParameters){
-                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, requestObj.extendedQueryParameters[key]);
-            }
-        }        
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
             uri: localVarPath,
             json: true,
-            body: (requestObj.saveOptions == null) ? undefined : ObjectSerializer.serialize(requestObj.saveOptions, requestObj.saveOptions.constructor.name === "Object" ? "SaveOptions" : requestObj.saveOptions.constructor.name),
+            body: (requestObj.saveOptions == null) ? "" : ObjectSerializer.serialize(requestObj.saveOptions, requestObj.saveOptions.constructor.name === "Object" ? "SaveOptions" : requestObj.saveOptions.constructor.name),
         };
 
         const response = await invokeApiMethod(requestOptions, this.configuration);
@@ -8687,7 +8682,7 @@ export class CellsApi {
      * Get page count for workbook.
      * @param requestObj contains request parameters
      */
-    public async cellsWorkbookGetPageCount(requestObj: model.CellsWorkbook_GetPageCountRequest): Promise<{response: http.ClientResponse, body: any}> {
+    public async cellsWorkbookGetPageCount(requestObj: model.CellsWorkbook_GetPageCountRequest): Promise<{response: http.ClientResponse, body: model.any}> {
         if (requestObj === null || requestObj === undefined) {
             throw new Error('Required parameter "requestObj" was null or undefined when calling cellsWorkbookGetPageCount.');
         }
@@ -8741,12 +8736,6 @@ export class CellsApi {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", requestObj.storageName);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", requestObj.outPath);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", requestObj.outStorageName);
-        
-        if (requestObj.extendedQueryParameters !== undefined) {
-            for (var key in requestObj.extendedQueryParameters){
-                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, requestObj.extendedQueryParameters[key]);
-            }
-        }
         const requestOptions: request.Options = {
             method: "GET",
             qs: queryParameters,
@@ -9466,12 +9455,6 @@ export class CellsApi {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", requestObj.password);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", requestObj.outPath);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", requestObj.storageName);
-
-        if (requestObj.extendedQueryParameters !== undefined) {
-            for (var key in requestObj.extendedQueryParameters){
-                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, requestObj.extendedQueryParameters[key]);
-            }
-        }        
         if (requestObj.file !== undefined) {
             formParams.file = requestObj.file;
         }
@@ -10210,7 +10193,7 @@ export class CellsApi {
      * Get page count for worksheet.
      * @param requestObj contains request parameters
      */
-    public async cellsWorksheetsGetPageCount(requestObj: model.CellsWorksheets_GetPageCountRequest): Promise<{response: http.ClientResponse, body: any}> {
+    public async cellsWorksheetsGetPageCount(requestObj: model.CellsWorksheets_GetPageCountRequest): Promise<{response: http.ClientResponse, body: model.any}> {
         if (requestObj === null || requestObj === undefined) {
             throw new Error('Required parameter "requestObj" was null or undefined when calling cellsWorksheetsGetPageCount.');
         }
@@ -11845,7 +11828,7 @@ export class CellsApi {
      * 
      * @param requestObj contains request parameters
      */
-    public async postBatchConvert(requestObj: model.PostBatchConvertRequest): Promise<{response: http.ClientResponse, body: Buffer}> {
+    public async postBatchConvert(requestObj: model.PostBatchConvertRequest): Promise<{response: http.ClientResponse, body: model.Buffer}> {
         if (requestObj === null || requestObj === undefined) {
             throw new Error('Required parameter "requestObj" was null or undefined when calling postBatchConvert.');
         }
@@ -11870,11 +11853,12 @@ export class CellsApi {
         const result =  ObjectSerializer.deserialize(response.body, "Buffer");
         return Promise.resolve({body: result, response});
     }
+
     /**
      * 
      * @param requestObj contains request parameters
      */
-     public async postConvertWorkbookToDocx(requestObj: model.PostConvertWorkbookToDocxRequest): Promise<{response: http.ClientResponse, body: model.FileInfo}> {
+    public async postConvertWorkbookToDocx(requestObj: model.PostConvertWorkbookToDocxRequest): Promise<{response: http.ClientResponse, body: model.FileInfo}> {
         if (requestObj === null || requestObj === undefined) {
             throw new Error('Required parameter "requestObj" was null or undefined when calling postConvertWorkbookToDocx.');
         }
@@ -12057,8 +12041,7 @@ export class CellsApi {
 /**
  * Library for communicating with the Aspose.Cells Cloud API
  */
- 
- export class LightCellsApi {
+export class LightCellsApi {
     /**
      * API configuration
      */
@@ -12093,12 +12076,8 @@ export class CellsApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "type", requestObj.type);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", requestObj.checkExcelRestriction);
-        
         if (requestObj.file !== undefined) {
-            for (var key in requestObj.file){
-                formParams[key] = requestObj.file[key];
-            }
+            formParams.file = requestObj.file;
         }
 
         const requestOptions: request.Options = {
@@ -12118,7 +12097,7 @@ export class CellsApi {
      * 
      * @param requestObj contains request parameters
      */
-    public async getMetadata(requestObj: model.GetMetadataRequest): Promise<{response: http.ClientResponse, body: Array<model.CellsDocumentProperty>}> {
+    public async getMetadata(requestObj: model.Request): Promise<{response: http.ClientResponse, body: model.Array<CellsDocumentProperty>}> {
         if (requestObj === null || requestObj === undefined) {
             throw new Error('Required parameter "requestObj" was null or undefined when calling getMetadata.');
         }
@@ -12133,12 +12112,8 @@ export class CellsApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "type", requestObj.type);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", requestObj.checkExcelRestriction);
-
         if (requestObj.file !== undefined) {
-            for (var key in requestObj.file){
-                formParams[key] = requestObj.file[key];
-            }
+            formParams.file = requestObj.file;
         }
 
         const requestOptions: request.Options = {
@@ -12180,106 +12155,8 @@ export class CellsApi {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "datasource", requestObj.datasource);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "format", requestObj.format);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", requestObj.checkExcelRestriction);
-
         if (requestObj.file !== undefined) {
-            for (var key in requestObj.file){
-                formParams[key] = requestObj.file[key];
-            }
-        }
-
-        const requestOptions: request.Options = {
-            method: "POST",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        (requestOptions as any).formData = formParams;        
-        const response = await invokeApiMethod(requestOptions, this.configuration);
-        const result =  ObjectSerializer.deserialize(response.body, "FilesResult");
-        return Promise.resolve({body: result, response});
-    }
-
-    /**
-     * 
-     * @param requestObj contains request parameters
-     */
-     public async postCompress(requestObj: model.PostCompressRequest): Promise<{response: http.ClientResponse, body: model.FilesResult}> {
-        if (requestObj === null || requestObj === undefined) {
-            throw new Error('Required parameter "requestObj" was null or undefined when calling postCompress.');
-        }
-
-        let localVarPath = this.configuration.getApiBaseUrl() + "/cells/compress";
-        const queryParameters: any = {};
-        const formParams: any = {};
-
-        // verify required parameter 'requestObj.file' is not null or undefined
-        if (requestObj.file === null || requestObj.file === undefined) {
-            throw new Error('Required parameter "requestObj.file" was null or undefined when calling postCompress.');
-        }
-
-        // verify required parameter 'requestObj.compressLevel' is not null or undefined
-        if (requestObj.compressLevel === null || requestObj.compressLevel === undefined) {
-            throw new Error('Required parameter "requestObj.compressLevel" was null or undefined when calling postCompress.');
-        }
-        
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "compressLevel", requestObj.compressLevel);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", requestObj.checkExcelRestriction);
-        
-        if (requestObj.file !== undefined) {
-            for (var key in requestObj.file){
-                formParams[key] = requestObj.file[key];
-            }
-        }
-
-        const requestOptions: request.Options = {
-            method: "POST",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        (requestOptions as any).formData = formParams;        
-        const response = await invokeApiMethod(requestOptions, this.configuration);
-        const result =  ObjectSerializer.deserialize(response.body, "FilesResult");
-        return Promise.resolve({body: result, response});
-    }
-
-    /**
-     * 
-     * @param requestObj contains request parameters
-     */
-    public async postReplace(requestObj: model.PostReplaceRequest): Promise<{response: http.ClientResponse, body: model.FilesResult}> {
-        if (requestObj === null || requestObj === undefined) {
-            throw new Error('Required parameter "requestObj" was null or undefined when calling postReplace.');
-        }
-
-        let localVarPath = this.configuration.getApiBaseUrl() + "/cells/replace";
-        const queryParameters: any = {};
-        const formParams: any = {};
-
-        // verify required parameter 'requestObj.file' is not null or undefined
-        if (requestObj.file === null || requestObj.file === undefined) {
-            throw new Error('Required parameter "requestObj.file" was null or undefined when calling postReplace.');
-        }
-
-        // verify required parameter 'requestObj.newtext' is not null or undefined
-        if (requestObj.newtext === null || requestObj.newtext === undefined) {
-            throw new Error('Required parameter "requestObj.newtext" was null or undefined when calling postReplace.');
-        }
-        if (requestObj.text === null || requestObj.text === undefined) {
-            throw new Error('Required parameter "requestObj.text" was null or undefined when calling postReplace.');
-        }
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "text", requestObj.text);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "newtext", requestObj.newtext);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", requestObj.password);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "sheetname", requestObj.sheetname);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", requestObj.checkExcelRestriction);
-        
-        if (requestObj.file !== undefined) {
-            for (var key in requestObj.file){
-                formParams[key] = requestObj.file[key];
-            }
+            formParams.file = requestObj.file;
         }
 
         const requestOptions: request.Options = {
@@ -12320,19 +12197,50 @@ export class CellsApi {
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "objecttype", requestObj.objecttype);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", requestObj.checkExcelRestriction);
-        
-        if (!(requestObj.sheetname === null || requestObj.sheetname === undefined) ){
-            localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "sheetname", requestObj.sheetname);
+        if (requestObj.file !== undefined) {
+            formParams.file = requestObj.file;
         }
 
-        if (!(requestObj.outFormat === null || requestObj.outFormat === undefined) ){
-            localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outFormat", requestObj.outFormat);
-        }        
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
 
+        (requestOptions as any).formData = formParams;        
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "FilesResult");
+        return Promise.resolve({body: result, response});
+    }
+
+    /**
+     * 
+     * @param requestObj contains request parameters
+     */
+    public async postCompress(requestObj: model.PostCompressRequest): Promise<{response: http.ClientResponse, body: model.FilesResult}> {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling postCompress.');
+        }
+
+        let localVarPath = this.configuration.getApiBaseUrl() + "/cells/compress";
+        const queryParameters: any = {};
+        const formParams: any = {};
+
+        // verify required parameter 'requestObj.file' is not null or undefined
+        if (requestObj.file === null || requestObj.file === undefined) {
+            throw new Error('Required parameter "requestObj.file" was null or undefined when calling postCompress.');
+        }
+
+        // verify required parameter 'requestObj.compressLevel' is not null or undefined
+        if (requestObj.compressLevel === null || requestObj.compressLevel === undefined) {
+            throw new Error('Required parameter "requestObj.compressLevel" was null or undefined when calling postCompress.');
+        }
+        
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "compressLevel", requestObj.compressLevel);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", requestObj.checkExcelRestriction);
         if (requestObj.file !== undefined) {
-            for (var key in requestObj.file){
-                formParams[key] = requestObj.file[key];
-            }
+            formParams.file = requestObj.file;
         }
 
         const requestOptions: request.Options = {
@@ -12379,17 +12287,8 @@ export class CellsApi {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "objectType", requestObj.objectType);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "format", requestObj.format);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", requestObj.checkExcelRestriction);
-
-        if (requestObj.extendedQueryParameters !== undefined) {
-            for (var key in requestObj.extendedQueryParameters){
-                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, requestObj.extendedQueryParameters[key]);
-            }
-        }
-
         if (requestObj.file !== undefined) {
-            for (var key in requestObj.file){
-                formParams[key] = requestObj.file[key];
-            }
+            formParams.file = requestObj.file;
         }
 
         const requestOptions: request.Options = {
@@ -12414,7 +12313,7 @@ export class CellsApi {
             throw new Error('Required parameter "requestObj" was null or undefined when calling postImport.');
         }
 
-        let localVarPath = this.configuration.getApiBaseUrl() + "/cells/import";
+        const localVarPath = this.configuration.getApiBaseUrl() + "/cells/import";
         const queryParameters: any = {};
         const formParams: any = {};
 
@@ -12425,25 +12324,19 @@ export class CellsApi {
 
         // verify required parameter 'requestObj.importOption' is not null or undefined
         if (requestObj.importOption === null || requestObj.importOption === undefined) {
-            throw new Error('Required parameter "requestObj.objectType" was null or undefined when calling postImport.');
+            throw new Error('Required parameter "requestObj.importOption" was null or undefined when calling postImport.');
         }
-
-
+        
         if (requestObj.file !== undefined) {
-            for (var key in requestObj.file){
-                formParams[key] = requestObj.file[key];
-            }
-            if((requestObj.importOption !== null))
-            {
-                formParams["documentProperties"]  = JSON.stringify(requestObj.importOption);
-            }
+            formParams.file = requestObj.file;
         }
-       
+
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
             uri: localVarPath,
             json: true,
+            body: (requestObj.importOption == null) ? "" : ObjectSerializer.serialize(requestObj.importOption, requestObj.importOption.constructor.name === "Object" ? "ImportOption" : requestObj.importOption.constructor.name),
         };
 
         (requestOptions as any).formData = formParams;        
@@ -12471,13 +12364,10 @@ export class CellsApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "format", requestObj.format);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "mergeToOneSheet", requestObj.mergeToOneSheet);        
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "mergeToOneSheet", requestObj.mergeToOneSheet);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", requestObj.checkExcelRestriction);
-
         if (requestObj.file !== undefined) {
-            for (var key in requestObj.file){
-                formParams[key] = requestObj.file[key];
-            }
+            formParams.file = requestObj.file;
         }
 
         const requestOptions: request.Options = {
@@ -12502,7 +12392,7 @@ export class CellsApi {
             throw new Error('Required parameter "requestObj" was null or undefined when calling postMetadata.');
         }
 
-        let localVarPath = this.configuration.getApiBaseUrl() + "/cells/metadata/update";
+        const localVarPath = this.configuration.getApiBaseUrl() + "/cells/metadata/update";
         const queryParameters: any = {};
         const formParams: any = {};
 
@@ -12516,24 +12406,16 @@ export class CellsApi {
             throw new Error('Required parameter "requestObj.documentProperties" was null or undefined when calling postMetadata.');
         }
         
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", requestObj.checkExcelRestriction);
-
         if (requestObj.file !== undefined) {
-            for (var key in requestObj.file){
-                formParams[key] = requestObj.file[key];
-            }
-            if((requestObj.documentProperties !== null))
-            {
-                formParams["documentProperties"]  = JSON.stringify(requestObj.documentProperties);
-            }
+            formParams.file = requestObj.file;
         }
 
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
             uri: localVarPath,
-            json: true,            
-            // body:  "[]",//(requestObj.documentProperties == null) ? "" : ObjectSerializer.serialize(requestObj.documentProperties, requestObj.documentProperties.constructor.name === "Object" ? "CellsDocumentProperty" : requestObj.documentProperties.constructor.name),
+            json: true,
+            body: (requestObj.documentProperties == null) ? "" : ObjectSerializer.serialize(requestObj.documentProperties, requestObj.documentProperties.constructor.name === "Object" ? "Array<CellsDocumentProperty>" : requestObj.documentProperties.constructor.name),
         };
 
         (requestOptions as any).formData = formParams;        
@@ -12566,12 +12448,8 @@ export class CellsApi {
         }
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", requestObj.password);
-
         if (requestObj.file !== undefined) {
-            for (var key in requestObj.file){
-                formParams[key] = requestObj.file[key];
-            }
-            // formParams.File = requestObj.file;
+            formParams.file = requestObj.file;
         }
 
         const requestOptions: request.Options = {
@@ -12591,7 +12469,105 @@ export class CellsApi {
      * 
      * @param requestObj contains request parameters
      */
-    public async postSearch(requestObj: model.PostSearchRequest): Promise<{response: http.ClientResponse, body: Array<model.TextItem>}> {
+    public async postReplace(requestObj: model.PostReplaceRequest): Promise<{response: http.ClientResponse, body: model.FilesResult}> {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling postReplace.');
+        }
+
+        let localVarPath = this.configuration.getApiBaseUrl() + "/cells/replace";
+        const queryParameters: any = {};
+        const formParams: any = {};
+
+        // verify required parameter 'requestObj.file' is not null or undefined
+        if (requestObj.file === null || requestObj.file === undefined) {
+            throw new Error('Required parameter "requestObj.file" was null or undefined when calling postReplace.');
+        }
+
+        // verify required parameter 'requestObj.text' is not null or undefined
+        if (requestObj.text === null || requestObj.text === undefined) {
+            throw new Error('Required parameter "requestObj.text" was null or undefined when calling postReplace.');
+        }
+
+        // verify required parameter 'requestObj.newtext' is not null or undefined
+        if (requestObj.newtext === null || requestObj.newtext === undefined) {
+            throw new Error('Required parameter "requestObj.newtext" was null or undefined when calling postReplace.');
+        }
+        
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "text", requestObj.text);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "newtext", requestObj.newtext);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", requestObj.password);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "sheetname", requestObj.sheetname);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", requestObj.checkExcelRestriction);
+        if (requestObj.file !== undefined) {
+            formParams.file = requestObj.file;
+        }
+
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        (requestOptions as any).formData = formParams;        
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "FilesResult");
+        return Promise.resolve({body: result, response});
+    }
+
+    /**
+     * 
+     * @param requestObj contains request parameters
+     */
+    public async postReverse(requestObj: model.PostReverseRequest): Promise<{response: http.ClientResponse, body: model.FilesResult}> {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling postReverse.');
+        }
+
+        let localVarPath = this.configuration.getApiBaseUrl() + "/cells/reverse";
+        const queryParameters: any = {};
+        const formParams: any = {};
+
+        // verify required parameter 'requestObj.file' is not null or undefined
+        if (requestObj.file === null || requestObj.file === undefined) {
+            throw new Error('Required parameter "requestObj.file" was null or undefined when calling postReverse.');
+        }
+
+        // verify required parameter 'requestObj.rotateType' is not null or undefined
+        if (requestObj.rotateType === null || requestObj.rotateType === undefined) {
+            throw new Error('Required parameter "requestObj.rotateType" was null or undefined when calling postReverse.');
+        }
+
+        // verify required parameter 'requestObj.format' is not null or undefined
+        if (requestObj.format === null || requestObj.format === undefined) {
+            throw new Error('Required parameter "requestObj.format" was null or undefined when calling postReverse.');
+        }
+        
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "rotateType", requestObj.rotateType);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "format", requestObj.format);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", requestObj.checkExcelRestriction);
+        if (requestObj.file !== undefined) {
+            formParams.file = requestObj.file;
+        }
+
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        (requestOptions as any).formData = formParams;        
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "FilesResult");
+        return Promise.resolve({body: result, response});
+    }
+
+    /**
+     * 
+     * @param requestObj contains request parameters
+     */
+    public async postSearch(requestObj: model.PostSearchRequest): Promise<{response: http.ClientResponse, body: model.Array<TextItem>}> {
         if (requestObj === null || requestObj === undefined) {
             throw new Error('Required parameter "requestObj" was null or undefined when calling postSearch.');
         }
@@ -12614,11 +12590,8 @@ export class CellsApi {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", requestObj.password);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "sheetname", requestObj.sheetname);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", requestObj.checkExcelRestriction);
-
         if (requestObj.file !== undefined) {
-            for (var key in requestObj.file){
-                formParams[key] = requestObj.file[key];
-            }
+            formParams.file = requestObj.file;
         }
 
         const requestOptions: request.Options = {
@@ -12662,11 +12635,8 @@ export class CellsApi {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "from", requestObj.from);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "to", requestObj.to);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", requestObj.checkExcelRestriction);
-        
         if (requestObj.file !== undefined) {
-            for (var key in requestObj.file){
-                formParams[key] = requestObj.file[key];
-            }
+            formParams.file = requestObj.file;
         }
 
         const requestOptions: request.Options = {
@@ -12707,9 +12677,7 @@ export class CellsApi {
         
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", requestObj.password);
         if (requestObj.file !== undefined) {
-            for (var key in requestObj.file){
-                formParams[key] = requestObj.file[key];
-            }
+            formParams.file = requestObj.file;
         }
 
         const requestOptions: request.Options = {
@@ -12757,9 +12725,7 @@ export class CellsApi {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "color", requestObj.color);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", requestObj.checkExcelRestriction);
         if (requestObj.file !== undefined) {
-            for (var key in requestObj.file){
-                formParams[key] = requestObj.file[key];
-            }
+            formParams.file = requestObj.file;
         }
 
         const requestOptions: request.Options = {
@@ -12774,102 +12740,5 @@ export class CellsApi {
         const result =  ObjectSerializer.deserialize(response.body, "FilesResult");
         return Promise.resolve({body: result, response});
     }
-    /**
-     * 
-     * @param requestObj contains request parameters
-     */
-     public async postReverse(requestObj: model.PostReverseRequest): Promise<{response: http.ClientResponse, body: model.FilesResult}> {
-        if (requestObj === null || requestObj === undefined) {
-            throw new Error('Required parameter "requestObj" was null or undefined when calling PostReverse.');
-        }
 
-        let localVarPath = this.configuration.getApiBaseUrl() + "/cells/reverse";
-        const queryParameters: any = {};
-        const formParams: any = {};
-
-        // verify required parameter 'requestObj.file' is not null or undefined
-        if (requestObj.file === null || requestObj.file === undefined) {
-            throw new Error('Required parameter "requestObj.file" was null or undefined when calling PostReverse.');
-        }
-
-        // verify required parameter 'requestObj.rotateType' is not null or undefined
-        if (requestObj.rotateType === null || requestObj.rotateType === undefined) {
-            throw new Error('Required parameter "requestObj.rotateType" was null or undefined when calling PostReverse.');
-        }
-
-        // verify required parameter 'requestObj.format' is not null or undefined
-        if (requestObj.format === null || requestObj.format === undefined) {
-            throw new Error('Required parameter "requestObj.format" was null or undefined when calling PostReverse.');
-        }
-        
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "rotateType", requestObj.rotateType);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "format", requestObj.format);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", requestObj.checkExcelRestriction);
-        if (requestObj.file !== undefined) {
-            for (var key in requestObj.file){
-                formParams[key] = requestObj.file[key];
-            }
-        }
-
-        const requestOptions: request.Options = {
-            method: "POST",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        (requestOptions as any).formData = formParams;        
-        const response = await invokeApiMethod(requestOptions, this.configuration);
-        const result =  ObjectSerializer.deserialize(response.body, "FilesResult");
-        return Promise.resolve({body: result, response});
-    }
-    /**
-     * 
-     * @param requestObj contains request parameters
-     */
-     public async postRotate(requestObj: model.PostRotateRequest): Promise<{response: http.ClientResponse, body: model.FilesResult}> {
-        if (requestObj === null || requestObj === undefined) {
-            throw new Error('Required parameter "requestObj" was null or undefined when calling PostReverse.');
-        }
-
-        let localVarPath = this.configuration.getApiBaseUrl() + "/cells/rotate";
-        const queryParameters: any = {};
-        const formParams: any = {};
-
-        // verify required parameter 'requestObj.file' is not null or undefined
-        if (requestObj.file === null || requestObj.file === undefined) {
-            throw new Error('Required parameter "requestObj.file" was null or undefined when calling postRotate.');
-        }
-
-        // verify required parameter 'requestObj.rotateType' is not null or undefined
-        if (requestObj.rotateType === null || requestObj.rotateType === undefined) {
-            throw new Error('Required parameter "requestObj.rotateType" was null or undefined when calling postRotate.');
-        }
-
-        // verify required parameter 'requestObj.format' is not null or undefined
-        if (requestObj.format === null || requestObj.format === undefined) {
-            throw new Error('Required parameter "requestObj.format" was null or undefined when calling postRotate.');
-        }
-        
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "rotateType", requestObj.rotateType);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "format", requestObj.format);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", requestObj.checkExcelRestriction);
-        if (requestObj.file !== undefined) {
-            for (var key in requestObj.file){
-                formParams[key] = requestObj.file[key];
-            }
-        }
-
-        const requestOptions: request.Options = {
-            method: "POST",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        (requestOptions as any).formData = formParams;        
-        const response = await invokeApiMethod(requestOptions, this.configuration);
-        const result =  ObjectSerializer.deserialize(response.body, "FilesResult");
-        return Promise.resolve({body: result, response});
-    }
 }
