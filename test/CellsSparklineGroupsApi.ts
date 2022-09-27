@@ -28,13 +28,13 @@ import "mocha";
 import * as model from "../src/model/model";
 import * as BaseTest from "./baseTest";
 
-const localPath = "TestData/";
+const localPath = "../TestData/";
 var fs = require('fs');
 var path = require('path');
 var assert = require('assert');
 
 describe('CellsSparklineGroupsApi', function() {
-  this.timeout(20000);  
+  this.timeout(200000);  
   describe('CellsSparklineGroupsApiGPPD', function() {
     it('should call CellsSparklineGroupsApiGPPD successfully', function() {
       const cellsApi = BaseTest.initializeCellsApi();
