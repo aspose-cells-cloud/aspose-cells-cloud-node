@@ -26560,6 +26560,77 @@ export class PostConvertWorkbookToPNGRequest {
         Object.assign(this, init);
     } 
 }
+
+/**
+ * Request model for PostConvertWorkbookToPptx operation.
+ */
+export class PostConvertWorkbookToPptxRequest {
+    /**
+     * File to upload
+     */
+    public file: Buffer;
+
+    /**
+     * Gets or sets password
+     */
+    public password: string;
+
+    /**
+     * Gets or sets checkExcelRestriction
+     */
+    public checkExcelRestriction: boolean;
+    
+    public constructor(init?: Partial<PostConvertWorkbookToPptxRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
+ * Request model for PostConvertWorkbookToHtml operation.
+ */
+ export class PostConvertWorkbookToHtmlRequest {
+    /**
+     * File to upload
+     */
+    public file: Buffer;
+
+    /**
+     * Gets or sets password
+     */
+    public password: string;
+
+    /**
+     * Gets or sets checkExcelRestriction
+     */
+    public checkExcelRestriction: boolean;
+    
+    public constructor(init?: Partial<PostConvertWorkbookToHtmlRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+/**
+ * Request model for PostConvertWorkbookToMarkdown operation.
+ */
+ export class PostConvertWorkbookToMarkdownRequest {
+    /**
+     * File to upload
+     */
+    public file: Buffer;
+
+    /**
+     * Gets or sets password
+     */
+    public password: string;
+
+    /**
+     * Gets or sets checkExcelRestriction
+     */
+    public checkExcelRestriction: boolean;
+    
+    public constructor(init?: Partial<PostConvertWorkbookToMarkdownRequest>) {        
+        Object.assign(this, init);
+    } 
+}
 /**
  * Request model for StorageExists operation.
  */

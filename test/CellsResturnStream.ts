@@ -57,7 +57,7 @@ describe('Cells sdk for NodeJS test ok.', function() {
     const filename = "Book1.xlsx";
     
     var req = new model.DownloadFileRequest({
-      path:'CellsTests/Book1.xlsx',
+      path:'Temp/Book1.xlsx',
       storageName:'Cells',
     });
 
@@ -76,7 +76,7 @@ describe('Cells sdk for NodeJS test ok.', function() {
     const filename = "Book1.xlsx";
     
     var req = new model.DownloadFileRequest({
-      path:'CellsTests/Book1.xlsx',
+      path:'Temp/Book1.xlsx',
       storageName:'Cells',
     });
 

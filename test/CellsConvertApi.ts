@@ -46,7 +46,6 @@ describe('CellsConvertApi', function () {
     });
   });
 
-  this.timeout(200000);
   describe('PostConvertWorkbookToPDF', function () {
     it('should call PostCompress successfully', function () {
       const cellsApi = BaseTest.initializeCellsApi();
@@ -59,13 +58,48 @@ describe('CellsConvertApi', function () {
     });
   });
 
-  this.timeout(200000);
   describe('PostConvertWorkbookToDocx', function () {
     it('should call PostCompress successfully', function () {
       const cellsApi = BaseTest.initializeCellsApi();
       var req = new model.PostConvertWorkbookToDocxRequest();
       req.file = fs.createReadStream(localPath + "assemblytest.xlsx");
       return cellsApi.postConvertWorkbookToDocx(req)
+        .then((result) => {
+          expect(result.response.statusCode).to.equal(200);
+        });
+    });
+  });
+
+  describe('PostConvertWorkbookToPptx', function () {
+    it('should call PostCompress successfully', function () {
+      const cellsApi = BaseTest.initializeCellsApi();
+      var req = new model.PostConvertWorkbookToPptxRequest();
+      req.file = fs.createReadStream(localPath + "assemblytest.xlsx");
+      return cellsApi.postConvertWorkbookToPptx(req)
+        .then((result) => {
+          expect(result.response.statusCode).to.equal(200);
+        });
+    });
+  });
+
+  describe('PostConvertWorkbookToHtml', function () {
+    it('should call PostCompress successfully', function () {
+      const cellsApi = BaseTest.initializeCellsApi();
+      var req = new model.PostConvertWorkbookToHtmlRequest();
+      req.file = fs.createReadStream(localPath + "assemblytest.xlsx");
+      return cellsApi.postConvertWorkbookToHtml(req)
+        .then((result) => {
+          expect(result.response.statusCode).to.equal(200);
+        });
+    });
+  });
+
+  describe('PostConvertWorkbookToMarkdown', function () {
+    it('should call PostCompress successfully', function () {
+      const cellsApi = BaseTest.initializeCellsApi();
+      var req = new model.PostConvertWorkbookToMarkdownRequest();
+      req.file = fs.createReadStream(localPath + "assemblytest.xlsx");
+      return cellsApi.postConvertWorkbookToMarkdown(req)
         .then((result) => {
           expect(result.response.statusCode).to.equal(200);
         });
