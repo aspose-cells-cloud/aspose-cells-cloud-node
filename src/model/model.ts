@@ -26631,6 +26631,80 @@ export class PostConvertWorkbookToPptxRequest {
         Object.assign(this, init);
     } 
 }
+
+
+/**
+ * Request model for PostConvertWorkbookToJson operation.
+ */
+ export class PostConvertWorkbookToJsonRequest {
+    /**
+     * File to upload
+     */
+    public file: Buffer;
+
+    /**
+     * Gets or sets password
+     */
+    public password: string;
+
+    /**
+     * Gets or sets checkExcelRestriction
+     */
+    public checkExcelRestriction: boolean;
+    
+    public constructor(init?: Partial<PostConvertWorkbookToJsonRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
+ * Request model for PostConvertWorkbookToSQL operation.
+ */
+export class PostConvertWorkbookToSQLRequest {
+    /**
+     * File to upload
+     */
+    public file: Buffer;
+
+    /**
+     * Gets or sets password
+     */
+    public password: string;
+
+    /**
+     * Gets or sets checkExcelRestriction
+     */
+    public checkExcelRestriction: boolean;
+    
+    public constructor(init?: Partial<PostConvertWorkbookToSQLRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
+ * Request model for PostConvertWorkbookToCSV operation.
+ */
+export class PostConvertWorkbookToCSVRequest {
+    /**
+     * File to upload
+     */
+    public file: Buffer;
+
+    /**
+     * Gets or sets password
+     */
+    public password: string;
+
+    /**
+     * Gets or sets checkExcelRestriction
+     */
+    public checkExcelRestriction: boolean;
+    
+    public constructor(init?: Partial<PostConvertWorkbookToCSVRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
 /**
  * Request model for StorageExists operation.
  */
