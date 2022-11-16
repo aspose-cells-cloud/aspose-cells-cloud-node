@@ -33,32 +33,46 @@ var fs = require('fs');
 var path = require('path');
 var assert = require('assert');
 
-describe('CellsSaveAsApi ', function() {
+describe('CellsCustomApi ', function () {
   this.timeout(200000);
-    describe('cellsSaveAsPostDocumentSaveAsPDF 3', function() {
-      it('should call cellsSaveAsPostDocumentSaveAsPDF successfully', function() {
-        const cellsApi = BaseTest.initializeCellsApi();
-        const filename = "Book1.xlsx";
-        var data =fs.createReadStream(localPath  + filename);
-        var req = new model.UploadFileRequest();
-        req.path = "Temp/" + filename;
-        req.file = data;
-    
-        return cellsApi.uploadFile(req)
-          .then((result) => {
-            expect(result.body.uploaded.length).greaterThan(0);
-            var req = new model.CellsSaveAs_PostDocumentSaveAsRequest();
-            req.name = filename;
-            req.newfilename = "NewBook1.pdf"
-            req.folder = "Temp";
-           
-            return cellsApi.cellsSaveAsPostDocumentSaveAs(req)
-              .then((result) => {
-                expect(result.body.code).to.equal(200);
-                expect(result.response.statusCode).to.equal(200);
-              });
-          });
-      });
+  describe('cellsPageSetupPostPageSetup', function () {
+    it('should call cellsPageSetupPostPageSetup successfully', function () {
+      const cellsApi = BaseTest.initializeCellsApi();
+      const filename = "Book1.xlsx";
+      var data = fs.createReadStream(localPath + filename);
+      var req = new model.UploadFileRequest();
+      req.path = "Temp/" + filename;
+      req.file = data;
+
+      return cellsApi.uploadFile(req)
+        .then((result) => {
+          expect(result.body.uploaded.length).greaterThan(0);
+          var req = new model.CellsPageSetup_PostPageSetupRequest();
+          req.name = filename;
+          req.sheetName = "Sheet1";
+          req.pageSetup = new model.PageSetup();
+          req.pageSetup.blackAndWhite = true;
+          req.pageSetup.paperSize = "PaperA3";
+          req.folder = "Temp";
+
+          return cellsApi.cellsPageSetupPostPageSetup(req)
+            .then((result) => {
+              expect(result.body.code).to.equal(200);
+              expect(result.response.statusCode).to.equal(200);
+              var req = new model.CellsPageSetup_GetPageSetupRequest();
+              req.name = filename;
+              req.sheetName = "Sheet1";
+              req.folder = "Temp";
+
+              return cellsApi.cellsPageSetupGetPageSetup(req)
+                .then((result) => {
+                  expect(result.body.code).to.equal(200);
+                  expect(result.response.statusCode).to.equal(200);
+                  expect(result.body.pageSetup.paperSize).to.equal("PaperA3");
+                });
+            });
+        });
     });
+  });
 
 });
