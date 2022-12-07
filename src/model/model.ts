@@ -253,6 +253,473 @@ export class AutoFitterOptions {
         Object.assign(this, init);
     }        
 }
+export class Axis {
+
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "area",
+            baseName: "Area",
+            type: "Area",
+        },        
+        {
+            name: "axisBetweenCategories",
+            baseName: "AxisBetweenCategories",
+            type: "boolean",
+        },        
+        {
+            name: "axisLine",
+            baseName: "AxisLine",
+            type: "Area",
+        },        
+        {
+            name: "baseUnitScale",
+            baseName: "BaseUnitScale",
+            type: "string",
+        },        
+        {
+            name: "categoryType",
+            baseName: "CategoryType",
+            type: "string",
+        },        
+        {
+            name: "crossAt",
+            baseName: "CrossAt",
+            type: "number",
+        },        
+        {
+            name: "crossType",
+            baseName: "CrossType",
+            type: "string",
+        },        
+        {
+            name: "displayUnit",
+            baseName: "DisplayUnit",
+            type: "string",
+        },        
+        {
+            name: "hasMultiLevelLabels",
+            baseName: "HasMultiLevelLabels",
+            type: "boolean",
+        },        
+        {
+            name: "isAutomaticMaxValue",
+            baseName: "IsAutomaticMaxValue",
+            type: "boolean",
+        },        
+        {
+            name: "isAutomaticMinorUnit",
+            baseName: "IsAutomaticMinorUnit",
+            type: "boolean",
+        },        
+        {
+            name: "isAutomaticMinValue",
+            baseName: "IsAutomaticMinValue",
+            type: "boolean",
+        },        
+        {
+            name: "isDisplayUnitLabelShown",
+            baseName: "IsDisplayUnitLabelShown",
+            type: "boolean",
+        },        
+        {
+            name: "isAutomaticMajorUnit",
+            baseName: "IsAutomaticMajorUnit",
+            type: "boolean",
+        },        
+        {
+            name: "isLogarithmic",
+            baseName: "IsLogarithmic",
+            type: "boolean",
+        },        
+        {
+            name: "isPlotOrderReversed",
+            baseName: "IsPlotOrderReversed",
+            type: "boolean",
+        },        
+        {
+            name: "isVisible",
+            baseName: "IsVisible",
+            type: "boolean",
+        },        
+        {
+            name: "logBase",
+            baseName: "LogBase",
+            type: "number",
+        },        
+        {
+            name: "majorGridLines",
+            baseName: "MajorGridLines",
+            type: "Line",
+        },        
+        {
+            name: "majorTickMark",
+            baseName: "MajorTickMark",
+            type: "string",
+        },        
+        {
+            name: "majorUnit",
+            baseName: "MajorUnit",
+            type: "number",
+        },        
+        {
+            name: "majorUnitScale",
+            baseName: "MajorUnitScale",
+            type: "string",
+        },        
+        {
+            name: "maxValue",
+            baseName: "MaxValue",
+            type: "number",
+        },        
+        {
+            name: "minorGridLines",
+            baseName: "MinorGridLines",
+            type: "Line",
+        },        
+        {
+            name: "minorTickMark",
+            baseName: "MinorTickMark",
+            type: "string",
+        },        
+        {
+            name: "minorUnit",
+            baseName: "MinorUnit",
+            type: "number",
+        },        
+        {
+            name: "minorUnitScale",
+            baseName: "MinorUnitScale",
+            type: "string",
+        },        
+        {
+            name: "minValue",
+            baseName: "MinValue",
+            type: "number",
+        },        
+        {
+            name: "tickLabelPosition",
+            baseName: "TickLabelPosition",
+            type: "string",
+        },        
+        {
+            name: "tickLabels",
+            baseName: "TickLabels",
+            type: "TickLabels",
+        },        
+        {
+            name: "tickLabelSpacing",
+            baseName: "TickLabelSpacing",
+            type: "number",
+        },        
+        {
+            name: "tickMarkSpacing",
+            baseName: "TickMarkSpacing",
+            type: "number",
+        },        
+        {
+            name: "title",
+            baseName: "Title",
+            type: "Title",
+        }    ];
+
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return Axis.attributeTypeMap;
+    }
+
+    public area: Area;
+    
+    /**
+     *  
+     */
+    public axisBetweenCategories: boolean;
+    
+    /**
+     * 
+     */
+    public axisLine: Area;
+    
+    /**
+     *  
+     */
+    public baseUnitScale: string;
+    
+    /**
+     *  
+     */
+    public categoryType: string;
+    
+    /**
+     *  
+     */
+    public crossAt: number;
+    
+    /**
+     *  
+     */
+    public crossType: string;
+    
+    /**
+     *  
+     */
+    public displayUnit: string;
+    
+    /**
+     *  
+     */
+    public hasMultiLevelLabels: boolean;
+    
+    /**
+     *  
+     */
+    public isAutomaticMaxValue: boolean;
+    
+    /**
+     *  
+     */
+    public isAutomaticMinorUnit: boolean;
+    
+    /**
+     *  
+     */
+    public isAutomaticMinValue: boolean;
+    
+    /**
+     *  
+     */
+    public isDisplayUnitLabelShown: boolean;
+    
+    /**
+     *  
+     */
+    public isAutomaticMajorUnit: boolean;
+    
+    /**
+     *  
+     */
+    public isLogarithmic: boolean;
+    
+    /**
+     *  
+     */
+    public isPlotOrderReversed: boolean;
+    
+    /**
+     *  
+     */
+    public isVisible: boolean;
+    
+    /**
+     *  
+     */
+    public logBase: number;
+    
+    /**
+     * 
+     */
+    public majorGridLines: Line;
+    
+    /**
+     *  
+     */
+    public majorTickMark: string;
+    
+    /**
+     *  
+     */
+    public majorUnit: number;
+    
+    /**
+     *  
+     */
+    public majorUnitScale: string;
+    
+    /**
+     *  
+     */
+    public maxValue: number;
+    
+    /**
+     * 
+     */
+    public minorGridLines: Line;
+    
+    /**
+     *  
+     */
+    public minorTickMark: string;
+    
+    /**
+     *  
+     */
+    public minorUnit: number;
+    
+    /**
+     *  
+     */
+    public minorUnitScale: string;
+    
+    /**
+     *  
+     */
+    public minValue: number;
+    
+    /**
+     *  
+     */
+    public tickLabelPosition: string;
+    
+    /**
+     * 
+     */
+    public tickLabels: TickLabels;
+    
+    public tickLabelSpacing: number;
+    
+    public tickMarkSpacing: number;
+    
+    /**
+     * 
+     */
+    public title: Title;
+    
+    public constructor(init?: Partial<Axis>) {
+        
+        Object.assign(this, init);
+    }        
+}
+export class TickLabels {
+
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "autoScaleFont",
+            baseName: "AutoScaleFont",
+            type: "boolean",
+        },        
+        {
+            name: "font",
+            baseName: "Font",
+            type: "Font",
+        },        
+        {
+            name: "backgroundMode",
+            baseName: "BackgroundMode",
+            type: "string",
+        },        
+        {
+            name: "number",
+            baseName: "Number",
+            type: "number",
+        },        
+        {
+            name: "numberFormat",
+            baseName: "NumberFormat",
+            type: "string",
+        },        
+        {
+            name: "numberFormatLinked",
+            baseName: "NumberFormatLinked",
+            type: "boolean",
+        },        
+        {
+            name: "offset",
+            baseName: "Offset",
+            type: "number",
+        },        
+        {
+            name: "rotationAngle",
+            baseName: "RotationAngle",
+            type: "number",
+        },        
+        {
+            name: "textDirection",
+            baseName: "TextDirection",
+            type: "string",
+        },        
+        {
+            name: "readingOrder",
+            baseName: "ReadingOrder",
+            type: "string",
+        },        
+        {
+            name: "directionType",
+            baseName: "DirectionType",
+            type: "string",
+        }    ];
+
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return TickLabels.attributeTypeMap;
+    }
+
+    /**
+     *  
+     */
+    public autoScaleFont: boolean;
+    
+    /**
+     * 
+     */
+    public font: Font;
+    
+    /**
+     *  
+     */
+    public backgroundMode: string;
+    
+    public number: number;
+    
+    /**
+     *  
+     */
+    public numberFormat: string;
+    
+    /**
+     *  
+     */
+    public numberFormatLinked: boolean;
+    
+    /**
+     *  
+     */
+    public offset: number;
+    
+    /**
+     *  
+     */
+    public rotationAngle: number;
+    
+    /**
+     *  
+     */
+    public textDirection: string;
+    
+    /**
+     *  
+     */
+    public readingOrder: string;
+    
+    /**
+     *  
+     */
+    public directionType: string;
+    
+    public constructor(init?: Partial<TickLabels>) {
+        
+        Object.assign(this, init);
+    }        
+}
+
 export class BarcodeResponse {
 
     /**
@@ -667,6 +1134,33 @@ export class CellsCloudResponse {
     
     public constructor(init?: Partial<CellsCloudResponse>) {
         
+        Object.assign(this, init);
+    }        
+}
+
+export class AxisResponse extends CellsCloudResponse {
+
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "axis",
+            baseName: "Axis",
+            type: "Axis",
+        }    ];
+
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return super.getAttributeTypeMap().concat(AxisResponse.attributeTypeMap);
+    }
+
+    public axis: Axis;
+    
+    public constructor(init?: Partial<AxisResponse>) {
+        super(init);
         Object.assign(this, init);
     }        
 }
@@ -16108,6 +16602,7 @@ const typeMap = {
     AccessTokenResponse,
     Area,
     AutoFitterOptions,
+    Axis,
     BarcodeResponse,
     BarcodeResponseList,
     BatchConvertRequest,
@@ -16214,6 +16709,7 @@ const typeMap = {
     AutoFilterResponse,
     AutoShapeResponse,
     AutoShapes,
+    AxisResponse,
     AutoShapesResponse,
     Cell,
     CellResponse,
@@ -16336,7 +16832,8 @@ const typeMap = {
     TextItems,
     TextItemsResponse,
     TextOptions,
-    TitleResponse,
+    TickLabels,
+    TitleResponse,    
     TxtSaveOptions,
     Validation,
     ValidationResponse,
@@ -17346,6 +17843,175 @@ export class CellsCharts_DeleteWorksheetDeleteChartRequest {
         Object.assign(this, init);
     } 
 }
+/**
+ * Request model for CellsCharts_GetChartCategoryAxis operation.
+ */
+ export class CellsCharts_GetChartCategoryAxisRequest {
+    /**
+     * Gets or sets name
+     */
+    public name: string;
+
+    /**
+     * Gets or sets sheetName
+     */
+    public sheetName: string;
+
+    /**
+     * Gets or sets chartIndex
+     */
+    public chartIndex: number;
+
+    /**
+     * Gets or sets folder
+     */
+    public folder: string;
+
+    /**
+     * Gets or sets storageName
+     */
+    public storageName: string;
+    
+    public constructor(init?: Partial<CellsCharts_GetChartCategoryAxisRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
+ * Request model for CellsCharts_GetChartSecondCategoryAxis operation.
+ */
+export class CellsCharts_GetChartSecondCategoryAxisRequest {
+    /**
+     * Gets or sets name
+     */
+    public name: string;
+
+    /**
+     * Gets or sets sheetName
+     */
+    public sheetName: string;
+
+    /**
+     * Gets or sets chartIndex
+     */
+    public chartIndex: number;
+
+    /**
+     * Gets or sets folder
+     */
+    public folder: string;
+
+    /**
+     * Gets or sets storageName
+     */
+    public storageName: string;
+    
+    public constructor(init?: Partial<CellsCharts_GetChartSecondCategoryAxisRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
+ * Request model for CellsCharts_GetChartSecondValueAxis operation.
+ */
+export class CellsCharts_GetChartSecondValueAxisRequest {
+    /**
+     * Gets or sets name
+     */
+    public name: string;
+
+    /**
+     * Gets or sets sheetName
+     */
+    public sheetName: string;
+
+    /**
+     * Gets or sets chartIndex
+     */
+    public chartIndex: number;
+
+    /**
+     * Gets or sets folder
+     */
+    public folder: string;
+
+    /**
+     * Gets or sets storageName
+     */
+    public storageName: string;
+    
+    public constructor(init?: Partial<CellsCharts_GetChartSecondValueAxisRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
+ * Request model for CellsCharts_GetChartSeriesAxis operation.
+ */
+export class CellsCharts_GetChartSeriesAxisRequest {
+    /**
+     * Gets or sets name
+     */
+    public name: string;
+
+    /**
+     * Gets or sets sheetName
+     */
+    public sheetName: string;
+
+    /**
+     * Gets or sets chartIndex
+     */
+    public chartIndex: number;
+
+    /**
+     * Gets or sets folder
+     */
+    public folder: string;
+
+    /**
+     * Gets or sets storageName
+     */
+    public storageName: string;
+    
+    public constructor(init?: Partial<CellsCharts_GetChartSeriesAxisRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
+ * Request model for CellsCharts_GetChartValueAxis operation.
+ */
+export class CellsCharts_GetChartValueAxisRequest {
+    /**
+     * Gets or sets name
+     */
+    public name: string;
+
+    /**
+     * Gets or sets sheetName
+     */
+    public sheetName: string;
+
+    /**
+     * Gets or sets chartIndex
+     */
+    public chartIndex: number;
+
+    /**
+     * Gets or sets folder
+     */
+    public folder: string;
+
+    /**
+     * Gets or sets storageName
+     */
+    public storageName: string;
+    
+    public constructor(init?: Partial<CellsCharts_GetChartValueAxisRequest>) {        
+        Object.assign(this, init);
+    } 
+}
 
 /**
  * Request model for CellsCharts_GetWorksheetChart operation.
@@ -17479,6 +18145,200 @@ export class CellsCharts_GetWorksheetChartsRequest {
     public storageName: string;
     
     public constructor(init?: Partial<CellsCharts_GetWorksheetChartsRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+/**
+ * Request model for CellsCharts_PostChartCategoryAxis operation.
+ */
+ export class CellsCharts_PostChartCategoryAxisRequest {
+    /**
+     * Gets or sets name
+     */
+    public name: string;
+
+    /**
+     * Gets or sets sheetName
+     */
+    public sheetName: string;
+
+    /**
+     * Gets or sets chartIndex
+     */
+    public chartIndex: number;
+
+    /**
+     * Gets or sets axis
+     */
+    public axis: Axis;
+
+    /**
+     * Gets or sets folder
+     */
+    public folder: string;
+
+    /**
+     * Gets or sets storageName
+     */
+    public storageName: string;
+    
+    public constructor(init?: Partial<CellsCharts_PostChartCategoryAxisRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
+ * Request model for CellsCharts_PostChartSecondCategoryAxis operation.
+ */
+export class CellsCharts_PostChartSecondCategoryAxisRequest {
+    /**
+     * Gets or sets name
+     */
+    public name: string;
+
+    /**
+     * Gets or sets sheetName
+     */
+    public sheetName: string;
+
+    /**
+     * Gets or sets chartIndex
+     */
+    public chartIndex: number;
+
+    /**
+     * Gets or sets axis
+     */
+    public axis: Axis;
+
+    /**
+     * Gets or sets folder
+     */
+    public folder: string;
+
+    /**
+     * Gets or sets storageName
+     */
+    public storageName: string;
+    
+    public constructor(init?: Partial<CellsCharts_PostChartSecondCategoryAxisRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
+ * Request model for CellsCharts_PostChartSecondValueAxis operation.
+ */
+export class CellsCharts_PostChartSecondValueAxisRequest {
+    /**
+     * Gets or sets name
+     */
+    public name: string;
+
+    /**
+     * Gets or sets sheetName
+     */
+    public sheetName: string;
+
+    /**
+     * Gets or sets chartIndex
+     */
+    public chartIndex: number;
+
+    /**
+     * Gets or sets axis
+     */
+    public axis: Axis;
+
+    /**
+     * Gets or sets folder
+     */
+    public folder: string;
+
+    /**
+     * Gets or sets storageName
+     */
+    public storageName: string;
+    
+    public constructor(init?: Partial<CellsCharts_PostChartSecondValueAxisRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
+ * Request model for CellsCharts_PostChartSeriesAxis operation.
+ */
+export class CellsCharts_PostChartSeriesAxisRequest {
+    /**
+     * Gets or sets name
+     */
+    public name: string;
+
+    /**
+     * Gets or sets sheetName
+     */
+    public sheetName: string;
+
+    /**
+     * Gets or sets chartIndex
+     */
+    public chartIndex: number;
+
+    /**
+     * Gets or sets axis
+     */
+    public axis: Axis;
+
+    /**
+     * Gets or sets folder
+     */
+    public folder: string;
+
+    /**
+     * Gets or sets storageName
+     */
+    public storageName: string;
+    
+    public constructor(init?: Partial<CellsCharts_PostChartSeriesAxisRequest>) {        
+        Object.assign(this, init);
+    } 
+}
+
+/**
+ * Request model for CellsCharts_PostChartValueAxis operation.
+ */
+export class CellsCharts_PostChartValueAxisRequest {
+    /**
+     * Gets or sets name
+     */
+    public name: string;
+
+    /**
+     * Gets or sets sheetName
+     */
+    public sheetName: string;
+
+    /**
+     * Gets or sets chartIndex
+     */
+    public chartIndex: number;
+
+    /**
+     * Gets or sets axis
+     */
+    public axis: Axis;
+
+    /**
+     * Gets or sets folder
+     */
+    public folder: string;
+
+    /**
+     * Gets or sets storageName
+     */
+    public storageName: string;
+    
+    public constructor(init?: Partial<CellsCharts_PostChartValueAxisRequest>) {        
         Object.assign(this, init);
     } 
 }

@@ -1134,6 +1134,225 @@ export class CellsApi {
         const result = ObjectSerializer.deserialize(response.body, "CellsCloudResponse");
         return Promise.resolve({ body: result, response });
     }
+    /**
+     * Get chart Category Axis
+     * @param requestObj contains request parameters
+     */
+     public async cellsChartsGetChartCategoryAxis(requestObj: model.CellsCharts_GetChartCategoryAxisRequest): Promise<{response: http.ClientResponse, body: model.AxisResponse}> {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling cellsChartsGetChartCategoryAxis.');
+        }
+
+        let localVarPath = this.configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/charts/{chartIndex}/categoryaxis"
+            .replace("{" + "name" + "}", String(requestObj.name))
+            .replace("{" + "sheetName" + "}", String(requestObj.sheetName))
+            .replace("{" + "chartIndex" + "}", String(requestObj.chartIndex));
+        const queryParameters: any = {};
+
+        // verify required parameter 'requestObj.name' is not null or undefined
+        if (requestObj.name === null || requestObj.name === undefined) {
+            throw new Error('Required parameter "requestObj.name" was null or undefined when calling cellsChartsGetChartCategoryAxis.');
+        }
+
+        // verify required parameter 'requestObj.sheetName' is not null or undefined
+        if (requestObj.sheetName === null || requestObj.sheetName === undefined) {
+            throw new Error('Required parameter "requestObj.sheetName" was null or undefined when calling cellsChartsGetChartCategoryAxis.');
+        }
+
+        // verify required parameter 'requestObj.chartIndex' is not null or undefined
+        if (requestObj.chartIndex === null || requestObj.chartIndex === undefined) {
+            throw new Error('Required parameter "requestObj.chartIndex" was null or undefined when calling cellsChartsGetChartCategoryAxis.');
+        }
+        
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", requestObj.storageName);
+        const requestOptions: request.Options = {
+            method: "GET",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "AxisResponse");
+        return Promise.resolve({body: result, response});
+    }
+
+    /**
+     * Get chart second category axis 
+     * @param requestObj contains request parameters
+     */
+    public async cellsChartsGetChartSecondCategoryAxis(requestObj: model.CellsCharts_GetChartSecondCategoryAxisRequest): Promise<{response: http.ClientResponse, body: model.AxisResponse}> {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling cellsChartsGetChartSecondCategoryAxis.');
+        }
+
+        let localVarPath = this.configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/charts/{chartIndex}/secondcategoryaxis"
+            .replace("{" + "name" + "}", String(requestObj.name))
+            .replace("{" + "sheetName" + "}", String(requestObj.sheetName))
+            .replace("{" + "chartIndex" + "}", String(requestObj.chartIndex));
+        const queryParameters: any = {};
+
+        // verify required parameter 'requestObj.name' is not null or undefined
+        if (requestObj.name === null || requestObj.name === undefined) {
+            throw new Error('Required parameter "requestObj.name" was null or undefined when calling cellsChartsGetChartSecondCategoryAxis.');
+        }
+
+        // verify required parameter 'requestObj.sheetName' is not null or undefined
+        if (requestObj.sheetName === null || requestObj.sheetName === undefined) {
+            throw new Error('Required parameter "requestObj.sheetName" was null or undefined when calling cellsChartsGetChartSecondCategoryAxis.');
+        }
+
+        // verify required parameter 'requestObj.chartIndex' is not null or undefined
+        if (requestObj.chartIndex === null || requestObj.chartIndex === undefined) {
+            throw new Error('Required parameter "requestObj.chartIndex" was null or undefined when calling cellsChartsGetChartSecondCategoryAxis.');
+        }
+        
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", requestObj.storageName);
+        const requestOptions: request.Options = {
+            method: "GET",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "AxisResponse");
+        return Promise.resolve({body: result, response});
+    }
+
+    /**
+     * Get chart second value axis 
+     * @param requestObj contains request parameters
+     */
+    public async cellsChartsGetChartSecondValueAxis(requestObj: model.CellsCharts_GetChartSecondValueAxisRequest): Promise<{response: http.ClientResponse, body: model.AxisResponse}> {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling cellsChartsGetChartSecondValueAxis.');
+        }
+
+        let localVarPath = this.configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/charts/{chartIndex}/secondvalueaxis"
+            .replace("{" + "name" + "}", String(requestObj.name))
+            .replace("{" + "sheetName" + "}", String(requestObj.sheetName))
+            .replace("{" + "chartIndex" + "}", String(requestObj.chartIndex));
+        const queryParameters: any = {};
+
+        // verify required parameter 'requestObj.name' is not null or undefined
+        if (requestObj.name === null || requestObj.name === undefined) {
+            throw new Error('Required parameter "requestObj.name" was null or undefined when calling cellsChartsGetChartSecondValueAxis.');
+        }
+
+        // verify required parameter 'requestObj.sheetName' is not null or undefined
+        if (requestObj.sheetName === null || requestObj.sheetName === undefined) {
+            throw new Error('Required parameter "requestObj.sheetName" was null or undefined when calling cellsChartsGetChartSecondValueAxis.');
+        }
+
+        // verify required parameter 'requestObj.chartIndex' is not null or undefined
+        if (requestObj.chartIndex === null || requestObj.chartIndex === undefined) {
+            throw new Error('Required parameter "requestObj.chartIndex" was null or undefined when calling cellsChartsGetChartSecondValueAxis.');
+        }
+        
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", requestObj.storageName);
+        const requestOptions: request.Options = {
+            method: "GET",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "AxisResponse");
+        return Promise.resolve({body: result, response});
+    }
+
+    /**
+     * Get chart Series Axis
+     * @param requestObj contains request parameters
+     */
+    public async cellsChartsGetChartSeriesAxis(requestObj: model.CellsCharts_GetChartSeriesAxisRequest): Promise<{response: http.ClientResponse, body: model.AxisResponse}> {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling cellsChartsGetChartSeriesAxis.');
+        }
+
+        let localVarPath = this.configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/charts/{chartIndex}/seriesaxis"
+            .replace("{" + "name" + "}", String(requestObj.name))
+            .replace("{" + "sheetName" + "}", String(requestObj.sheetName))
+            .replace("{" + "chartIndex" + "}", String(requestObj.chartIndex));
+        const queryParameters: any = {};
+
+        // verify required parameter 'requestObj.name' is not null or undefined
+        if (requestObj.name === null || requestObj.name === undefined) {
+            throw new Error('Required parameter "requestObj.name" was null or undefined when calling cellsChartsGetChartSeriesAxis.');
+        }
+
+        // verify required parameter 'requestObj.sheetName' is not null or undefined
+        if (requestObj.sheetName === null || requestObj.sheetName === undefined) {
+            throw new Error('Required parameter "requestObj.sheetName" was null or undefined when calling cellsChartsGetChartSeriesAxis.');
+        }
+
+        // verify required parameter 'requestObj.chartIndex' is not null or undefined
+        if (requestObj.chartIndex === null || requestObj.chartIndex === undefined) {
+            throw new Error('Required parameter "requestObj.chartIndex" was null or undefined when calling cellsChartsGetChartSeriesAxis.');
+        }
+        
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", requestObj.storageName);
+        const requestOptions: request.Options = {
+            method: "GET",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "AxisResponse");
+        return Promise.resolve({body: result, response});
+    }
+
+    /**
+     * Get chart Value Axis
+     * @param requestObj contains request parameters
+     */
+    public async cellsChartsGetChartValueAxis(requestObj: model.CellsCharts_GetChartValueAxisRequest): Promise<{response: http.ClientResponse, body: model.AxisResponse}> {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling cellsChartsGetChartValueAxis.');
+        }
+
+        let localVarPath = this.configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/charts/{chartIndex}/valueaxis"
+            .replace("{" + "name" + "}", String(requestObj.name))
+            .replace("{" + "sheetName" + "}", String(requestObj.sheetName))
+            .replace("{" + "chartIndex" + "}", String(requestObj.chartIndex));
+        const queryParameters: any = {};
+
+        // verify required parameter 'requestObj.name' is not null or undefined
+        if (requestObj.name === null || requestObj.name === undefined) {
+            throw new Error('Required parameter "requestObj.name" was null or undefined when calling cellsChartsGetChartValueAxis.');
+        }
+
+        // verify required parameter 'requestObj.sheetName' is not null or undefined
+        if (requestObj.sheetName === null || requestObj.sheetName === undefined) {
+            throw new Error('Required parameter "requestObj.sheetName" was null or undefined when calling cellsChartsGetChartValueAxis.');
+        }
+
+        // verify required parameter 'requestObj.chartIndex' is not null or undefined
+        if (requestObj.chartIndex === null || requestObj.chartIndex === undefined) {
+            throw new Error('Required parameter "requestObj.chartIndex" was null or undefined when calling cellsChartsGetChartValueAxis.');
+        }
+        
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", requestObj.storageName);
+        const requestOptions: request.Options = {
+            method: "GET",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "AxisResponse");
+        return Promise.resolve({body: result, response});
+    }
 
     /**
      * Get chart info.
@@ -1304,6 +1523,255 @@ export class CellsApi {
         const response = await invokeApiMethod(requestOptions, this.configuration);
         const result = ObjectSerializer.deserialize(response.body, "ChartsResponse");
         return Promise.resolve({ body: result, response });
+    }
+    /**
+     * Update chart Category Axis
+     * @param requestObj contains request parameters
+     */
+     public async cellsChartsPostChartCategoryAxis(requestObj: model.CellsCharts_PostChartCategoryAxisRequest): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}> {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling cellsChartsPostChartCategoryAxis.');
+        }
+
+        let localVarPath = this.configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/charts/{chartIndex}/categoryaxis"
+            .replace("{" + "name" + "}", String(requestObj.name))
+            .replace("{" + "sheetName" + "}", String(requestObj.sheetName))
+            .replace("{" + "chartIndex" + "}", String(requestObj.chartIndex));
+        const queryParameters: any = {};
+
+        // verify required parameter 'requestObj.name' is not null or undefined
+        if (requestObj.name === null || requestObj.name === undefined) {
+            throw new Error('Required parameter "requestObj.name" was null or undefined when calling cellsChartsPostChartCategoryAxis.');
+        }
+
+        // verify required parameter 'requestObj.sheetName' is not null or undefined
+        if (requestObj.sheetName === null || requestObj.sheetName === undefined) {
+            throw new Error('Required parameter "requestObj.sheetName" was null or undefined when calling cellsChartsPostChartCategoryAxis.');
+        }
+
+        // verify required parameter 'requestObj.chartIndex' is not null or undefined
+        if (requestObj.chartIndex === null || requestObj.chartIndex === undefined) {
+            throw new Error('Required parameter "requestObj.chartIndex" was null or undefined when calling cellsChartsPostChartCategoryAxis.');
+        }
+
+        // verify required parameter 'requestObj.axis' is not null or undefined
+        if (requestObj.axis === null || requestObj.axis === undefined) {
+            throw new Error('Required parameter "requestObj.axis" was null or undefined when calling cellsChartsPostChartCategoryAxis.');
+        }
+        
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", requestObj.storageName);
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+            body: (requestObj.axis == null) ? "" : ObjectSerializer.serialize(requestObj.axis, requestObj.axis.constructor.name === "Object" ? "Axis" : requestObj.axis.constructor.name),
+        };
+
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "CellsCloudResponse");
+        return Promise.resolve({body: result, response});
+    }
+
+    /**
+     * Update chart second category axis 
+     * @param requestObj contains request parameters
+     */
+    public async cellsChartsPostChartSecondCategoryAxis(requestObj: model.CellsCharts_PostChartSecondCategoryAxisRequest): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}> {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling cellsChartsPostChartSecondCategoryAxis.');
+        }
+
+        let localVarPath = this.configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/charts/{chartIndex}/secondcategoryaxis"
+            .replace("{" + "name" + "}", String(requestObj.name))
+            .replace("{" + "sheetName" + "}", String(requestObj.sheetName))
+            .replace("{" + "chartIndex" + "}", String(requestObj.chartIndex));
+        const queryParameters: any = {};
+
+        // verify required parameter 'requestObj.name' is not null or undefined
+        if (requestObj.name === null || requestObj.name === undefined) {
+            throw new Error('Required parameter "requestObj.name" was null or undefined when calling cellsChartsPostChartSecondCategoryAxis.');
+        }
+
+        // verify required parameter 'requestObj.sheetName' is not null or undefined
+        if (requestObj.sheetName === null || requestObj.sheetName === undefined) {
+            throw new Error('Required parameter "requestObj.sheetName" was null or undefined when calling cellsChartsPostChartSecondCategoryAxis.');
+        }
+
+        // verify required parameter 'requestObj.chartIndex' is not null or undefined
+        if (requestObj.chartIndex === null || requestObj.chartIndex === undefined) {
+            throw new Error('Required parameter "requestObj.chartIndex" was null or undefined when calling cellsChartsPostChartSecondCategoryAxis.');
+        }
+
+        // verify required parameter 'requestObj.axis' is not null or undefined
+        if (requestObj.axis === null || requestObj.axis === undefined) {
+            throw new Error('Required parameter "requestObj.axis" was null or undefined when calling cellsChartsPostChartSecondCategoryAxis.');
+        }
+        
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", requestObj.storageName);
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+            body: (requestObj.axis == null) ? "" : ObjectSerializer.serialize(requestObj.axis, requestObj.axis.constructor.name === "Object" ? "Axis" : requestObj.axis.constructor.name),
+        };
+
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "CellsCloudResponse");
+        return Promise.resolve({body: result, response});
+    }
+
+    /**
+     * Update chart second value axis 
+     * @param requestObj contains request parameters
+     */
+    public async cellsChartsPostChartSecondValueAxis(requestObj: model.CellsCharts_PostChartSecondValueAxisRequest): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}> {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling cellsChartsPostChartSecondValueAxis.');
+        }
+
+        let localVarPath = this.configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/charts/{chartIndex}/secondvalueaxis"
+            .replace("{" + "name" + "}", String(requestObj.name))
+            .replace("{" + "sheetName" + "}", String(requestObj.sheetName))
+            .replace("{" + "chartIndex" + "}", String(requestObj.chartIndex));
+        const queryParameters: any = {};
+
+        // verify required parameter 'requestObj.name' is not null or undefined
+        if (requestObj.name === null || requestObj.name === undefined) {
+            throw new Error('Required parameter "requestObj.name" was null or undefined when calling cellsChartsPostChartSecondValueAxis.');
+        }
+
+        // verify required parameter 'requestObj.sheetName' is not null or undefined
+        if (requestObj.sheetName === null || requestObj.sheetName === undefined) {
+            throw new Error('Required parameter "requestObj.sheetName" was null or undefined when calling cellsChartsPostChartSecondValueAxis.');
+        }
+
+        // verify required parameter 'requestObj.chartIndex' is not null or undefined
+        if (requestObj.chartIndex === null || requestObj.chartIndex === undefined) {
+            throw new Error('Required parameter "requestObj.chartIndex" was null or undefined when calling cellsChartsPostChartSecondValueAxis.');
+        }
+
+        // verify required parameter 'requestObj.axis' is not null or undefined
+        if (requestObj.axis === null || requestObj.axis === undefined) {
+            throw new Error('Required parameter "requestObj.axis" was null or undefined when calling cellsChartsPostChartSecondValueAxis.');
+        }
+        
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", requestObj.storageName);
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+            body: (requestObj.axis == null) ? "" : ObjectSerializer.serialize(requestObj.axis, requestObj.axis.constructor.name === "Object" ? "Axis" : requestObj.axis.constructor.name),
+        };
+
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "CellsCloudResponse");
+        return Promise.resolve({body: result, response});
+    }
+
+    /**
+     * Update chart Series Axis
+     * @param requestObj contains request parameters
+     */
+    public async cellsChartsPostChartSeriesAxis(requestObj: model.CellsCharts_PostChartSeriesAxisRequest): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}> {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling cellsChartsPostChartSeriesAxis.');
+        }
+
+        let localVarPath = this.configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/charts/{chartIndex}/seriesaxis"
+            .replace("{" + "name" + "}", String(requestObj.name))
+            .replace("{" + "sheetName" + "}", String(requestObj.sheetName))
+            .replace("{" + "chartIndex" + "}", String(requestObj.chartIndex));
+        const queryParameters: any = {};
+
+        // verify required parameter 'requestObj.name' is not null or undefined
+        if (requestObj.name === null || requestObj.name === undefined) {
+            throw new Error('Required parameter "requestObj.name" was null or undefined when calling cellsChartsPostChartSeriesAxis.');
+        }
+
+        // verify required parameter 'requestObj.sheetName' is not null or undefined
+        if (requestObj.sheetName === null || requestObj.sheetName === undefined) {
+            throw new Error('Required parameter "requestObj.sheetName" was null or undefined when calling cellsChartsPostChartSeriesAxis.');
+        }
+
+        // verify required parameter 'requestObj.chartIndex' is not null or undefined
+        if (requestObj.chartIndex === null || requestObj.chartIndex === undefined) {
+            throw new Error('Required parameter "requestObj.chartIndex" was null or undefined when calling cellsChartsPostChartSeriesAxis.');
+        }
+
+        // verify required parameter 'requestObj.axis' is not null or undefined
+        if (requestObj.axis === null || requestObj.axis === undefined) {
+            throw new Error('Required parameter "requestObj.axis" was null or undefined when calling cellsChartsPostChartSeriesAxis.');
+        }
+        
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", requestObj.storageName);
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+            body: (requestObj.axis == null) ? "" : ObjectSerializer.serialize(requestObj.axis, requestObj.axis.constructor.name === "Object" ? "Axis" : requestObj.axis.constructor.name),
+        };
+
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "CellsCloudResponse");
+        return Promise.resolve({body: result, response});
+    }
+
+    /**
+     * Update chart value axis 
+     * @param requestObj contains request parameters
+     */
+    public async cellsChartsPostChartValueAxis(requestObj: model.CellsCharts_PostChartValueAxisRequest): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}> {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling cellsChartsPostChartValueAxis.');
+        }
+
+        let localVarPath = this.configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/charts/{chartIndex}/valueaxis"
+            .replace("{" + "name" + "}", String(requestObj.name))
+            .replace("{" + "sheetName" + "}", String(requestObj.sheetName))
+            .replace("{" + "chartIndex" + "}", String(requestObj.chartIndex));
+        const queryParameters: any = {};
+
+        // verify required parameter 'requestObj.name' is not null or undefined
+        if (requestObj.name === null || requestObj.name === undefined) {
+            throw new Error('Required parameter "requestObj.name" was null or undefined when calling cellsChartsPostChartValueAxis.');
+        }
+
+        // verify required parameter 'requestObj.sheetName' is not null or undefined
+        if (requestObj.sheetName === null || requestObj.sheetName === undefined) {
+            throw new Error('Required parameter "requestObj.sheetName" was null or undefined when calling cellsChartsPostChartValueAxis.');
+        }
+
+        // verify required parameter 'requestObj.chartIndex' is not null or undefined
+        if (requestObj.chartIndex === null || requestObj.chartIndex === undefined) {
+            throw new Error('Required parameter "requestObj.chartIndex" was null or undefined when calling cellsChartsPostChartValueAxis.');
+        }
+
+        // verify required parameter 'requestObj.axis' is not null or undefined
+        if (requestObj.axis === null || requestObj.axis === undefined) {
+            throw new Error('Required parameter "requestObj.axis" was null or undefined when calling cellsChartsPostChartValueAxis.');
+        }
+        
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", requestObj.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", requestObj.storageName);
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+            body: (requestObj.axis == null) ? "" : ObjectSerializer.serialize(requestObj.axis, requestObj.axis.constructor.name === "Object" ? "Axis" : requestObj.axis.constructor.name),
+        };
+
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "CellsCloudResponse");
+        return Promise.resolve({body: result, response});
     }
 
     /**
