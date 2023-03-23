@@ -1,18 +1,17 @@
 /*
 * MIT License
-
-* Copyright (c) 2021 Aspose Pty Ltd
-
+* 
+* Copyright (c) 2023 Aspose.Cells Cloud
 * Permission is hereby granted, free of charge, to any person obtaining a copy
 * of this software and associated documentation files (the "Software"), to deal
 * in the Software without restriction, including without limitation the rights
 * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 * copies of the Software, and to permit persons to whom the Software is
 * furnished to do so, subject to the following conditions:
-
-* The above copyright notice and this permission notice shall be included in all
+* 
+* The above copyright notice and this permission notice shall be included in all 
 * copies or substantial portions of the Software.
-
+* 
 * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -20,7 +19,9 @@
 * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 * SOFTWARE.
+* 
 */
+
 
 import { enumsMap, typeMap } from "../model/model";
 
@@ -49,8 +50,8 @@ export class ObjectSerializer {
         } else if (primitives.indexOf(type.toLowerCase()) !== -1) {
             return data;
         } else if (type.lastIndexOf("Array<", 0) === 0) { // string.startsWith pre es6
-            let subType: string = type.replace("Array<", ""); // Array<Type> => Type>
-            subType = subType.substring(0, subType.length - 1); // Type> => Type
+            let subType: string = type.replace("Array<", ""); 
+            subType = subType.substring(0, subType.length - 1); 
             const transformedData = [];
             for (const index in data) {
                 if (data.hasOwnProperty(index)) {
