@@ -27081,7 +27081,6 @@ export class OAuth_PostRequest {
 
 
 
-   
 export class GetWorksheetAutoFilterRequest  {
       
     public name: string;
@@ -27626,7 +27625,7 @@ export class PutWorksheetColorFilterRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = (this.colorFilter == null) ? "" :  JSON.stringify(this.colorFilter);
+        const bodyParameter = (this.colorFilter == null) ? null :   ObjectSerializer.serialize( this.colorFilter,this.colorFilter.constructor.name);
         const requestOptions: request.Options = {
             method: "PUT",
             qs: queryParameters,
@@ -27980,7 +27979,7 @@ export class PostBatchConvertRequest  {
         const queryParameters: any = {};
 
 
-        const bodyParameter = (this.batchConvertRequest == null) ? "" :  JSON.stringify(this.batchConvertRequest);
+        const bodyParameter = (this.batchConvertRequest == null) ? null :   ObjectSerializer.serialize( this.batchConvertRequest,this.batchConvertRequest.constructor.name);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -28170,7 +28169,7 @@ export class PostUpdateWorksheetRangeStyleRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = (this.style == null) ? "" :  JSON.stringify(this.style);
+        const bodyParameter = (this.style == null) ? null :   ObjectSerializer.serialize( this.style,this.style.constructor.name);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -28518,7 +28517,7 @@ export class PostUpdateWorksheetCellStyleRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = (this.style == null) ? "" :  JSON.stringify(this.style);
+        const bodyParameter = (this.style == null) ? null :   ObjectSerializer.serialize( this.style,this.style.constructor.name);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -28754,7 +28753,7 @@ export class PostCellCalculateRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = (this.options == null) ? "" :  JSON.stringify(this.options);
+        const bodyParameter = (this.options == null) ? null :   ObjectSerializer.serialize( this.options,this.options.constructor.name);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -28795,7 +28794,7 @@ export class PostCellCharactersRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = (this.options == null) ? "" :  JSON.stringify(this.options);
+        const bodyParameter = (this.options == null) ? null :   ObjectSerializer.serialize( this.options,this.options.constructor.name);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -29355,7 +29354,7 @@ export class PostColumnStyleRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = (this.style == null) ? "" :  JSON.stringify(this.style);
+        const bodyParameter = (this.style == null) ? null :   ObjectSerializer.serialize( this.style,this.style.constructor.name);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -29988,7 +29987,7 @@ export class PostRowStyleRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = (this.style == null) ? "" :  JSON.stringify(this.style);
+        const bodyParameter = (this.style == null) ? null :   ObjectSerializer.serialize( this.style,this.style.constructor.name);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -30402,7 +30401,7 @@ export class PostWorksheetChartRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = (this.chart == null) ? "" :  JSON.stringify(this.chart);
+        const bodyParameter = (this.chart == null) ? null :   ObjectSerializer.serialize( this.chart,this.chart.constructor.name);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -30482,7 +30481,7 @@ export class PostWorksheetChartLegendRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = (this.legend == null) ? "" :  JSON.stringify(this.legend);
+        const bodyParameter = (this.legend == null) ? null :   ObjectSerializer.serialize( this.legend,this.legend.constructor.name);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -30677,7 +30676,7 @@ export class PostWorksheetChartTitleRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = (this.title == null) ? "" :  JSON.stringify(this.title);
+        const bodyParameter = (this.title == null) ? null :   ObjectSerializer.serialize( this.title,this.title.constructor.name);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -30718,7 +30717,7 @@ export class PutWorksheetChartTitleRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = (this.title == null) ? "" :  JSON.stringify(this.title);
+        const bodyParameter = (this.title == null) ? null :   ObjectSerializer.serialize( this.title,this.title.constructor.name);
         const requestOptions: request.Options = {
             method: "PUT",
             qs: queryParameters,
@@ -30993,7 +30992,7 @@ export class PostChartSeriesAxisRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = (this.axis == null) ? "" :  JSON.stringify(this.axis);
+        const bodyParameter = (this.axis == null) ? null :   ObjectSerializer.serialize( this.axis,this.axis.constructor.name);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -31034,7 +31033,7 @@ export class PostChartCategoryAxisRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = (this.axis == null) ? "" :  JSON.stringify(this.axis);
+        const bodyParameter = (this.axis == null) ? null :   ObjectSerializer.serialize( this.axis,this.axis.constructor.name);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -31075,7 +31074,7 @@ export class PostChartValueAxisRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = (this.axis == null) ? "" :  JSON.stringify(this.axis);
+        const bodyParameter = (this.axis == null) ? null :   ObjectSerializer.serialize( this.axis,this.axis.constructor.name);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -31116,7 +31115,7 @@ export class PostChartSecondCategoryAxisRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = (this.axis == null) ? "" :  JSON.stringify(this.axis);
+        const bodyParameter = (this.axis == null) ? null :   ObjectSerializer.serialize( this.axis,this.axis.constructor.name);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -31157,7 +31156,7 @@ export class PostChartSecondValueAxisRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = (this.axis == null) ? "" :  JSON.stringify(this.axis);
+        const bodyParameter = (this.axis == null) ? null :   ObjectSerializer.serialize( this.axis,this.axis.constructor.name);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -31280,7 +31279,7 @@ export class PutWorksheetConditionalFormattingRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = (this.formatcondition == null) ? "" :  JSON.stringify(this.formatcondition);
+        const bodyParameter = (this.formatcondition == null) ? null :   ObjectSerializer.serialize( this.formatcondition,this.formatcondition.constructor.name);
         const requestOptions: request.Options = {
             method: "PUT",
             qs: queryParameters,
@@ -31789,7 +31788,7 @@ export class PostWorkbookSaveAsRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", this.checkExcelRestriction);
 
 
-        const bodyParameter = (this.saveOptions == null) ? "" :  JSON.stringify(this.saveOptions);
+        const bodyParameter = (this.saveOptions == null) ? null :   ObjectSerializer.serialize( this.saveOptions,this.saveOptions.constructor.name);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -32323,7 +32322,7 @@ export class PostWorkSheetHyperlinkRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = (this.hyperlink == null) ? "" :  JSON.stringify(this.hyperlink);
+        const bodyParameter = (this.hyperlink == null) ? null :   ObjectSerializer.serialize( this.hyperlink,this.hyperlink.constructor.name);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -33188,7 +33187,7 @@ export class PostMetadataRequest  {
         }
 
 
-        const bodyParameter = (this.cellsDocuments == null) ? "" : JSON.stringify(this.cellsDocuments);
+        const bodyParameter = (this.cellsDocuments == null) ? null :  ObjectSerializer.serialize( this.cellsDocuments ,this.cellsDocuments.constructor.name);
         formParams["cellsDocuments"] = bodyParameter;    
         const requestOptions: request.Options = {
             method: "POST",
@@ -33533,7 +33532,7 @@ export class PostWorksheetListObjectRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = (this.listObject == null) ? "" :  JSON.stringify(this.listObject);
+        const bodyParameter = (this.listObject == null) ? null :   ObjectSerializer.serialize( this.listObject,this.listObject.constructor.name);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -33621,7 +33620,7 @@ export class PostWorksheetListObjectSummarizeWithPivotTableRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = (this.createPivotTableRequest == null) ? "" :  JSON.stringify(this.createPivotTableRequest);
+        const bodyParameter = (this.createPivotTableRequest == null) ? null :   ObjectSerializer.serialize( this.createPivotTableRequest,this.createPivotTableRequest.constructor.name);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -33662,7 +33661,7 @@ export class PostWorksheetListObjectSortTableRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = (this.dataSorter == null) ? "" :  JSON.stringify(this.dataSorter);
+        const bodyParameter = (this.dataSorter == null) ? null :   ObjectSerializer.serialize( this.dataSorter,this.dataSorter.constructor.name);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -33705,7 +33704,7 @@ export class PostWorksheetListColumnRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = (this.listColumn == null) ? "" :  JSON.stringify(this.listColumn);
+        const bodyParameter = (this.listColumn == null) ? null :   ObjectSerializer.serialize( this.listColumn,this.listColumn.constructor.name);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -33746,7 +33745,7 @@ export class PostWorksheetListColumnsTotalRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = (this.tableTotalRequests == null) ? "" :  JSON.stringify(this.tableTotalRequests);
+        const bodyParameter = (this.tableTotalRequests == null) ? null :   ObjectSerializer.serialize( this.tableTotalRequests,this.tableTotalRequests.constructor.name);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -33942,7 +33941,7 @@ export class PostUpdateWorksheetOleObjectRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = (this.ole == null) ? "" :  JSON.stringify(this.ole);
+        const bodyParameter = (this.ole == null) ? null :   ObjectSerializer.serialize( this.ole,this.ole.constructor.name);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -34487,7 +34486,7 @@ export class PostPageSetupRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = (this.pageSetup == null) ? "" :  JSON.stringify(this.pageSetup);
+        const bodyParameter = (this.pageSetup == null) ? null :   ObjectSerializer.serialize( this.pageSetup,this.pageSetup.constructor.name);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -34858,7 +34857,7 @@ export class PutWorksheetAddPictureRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = (this.picture == null) ? "" :  JSON.stringify(this.picture);
+        const bodyParameter = (this.picture == null) ? null :   ObjectSerializer.serialize( this.picture,this.picture.constructor.name);
         const requestOptions: request.Options = {
             method: "PUT",
             qs: queryParameters,
@@ -34899,7 +34898,7 @@ export class PostWorkSheetPictureRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = (this.picture == null) ? "" :  JSON.stringify(this.picture);
+        const bodyParameter = (this.picture == null) ? null :   ObjectSerializer.serialize( this.picture,this.picture.constructor.name);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -35287,7 +35286,7 @@ export class PutPivotTableFieldRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = (this.pivotTableFieldRequest == null) ? "" :  JSON.stringify(this.pivotTableFieldRequest);
+        const bodyParameter = (this.pivotTableFieldRequest == null) ? null :   ObjectSerializer.serialize( this.pivotTableFieldRequest,this.pivotTableFieldRequest.constructor.name);
         const requestOptions: request.Options = {
             method: "PUT",
             qs: queryParameters,
@@ -35331,7 +35330,7 @@ export class PutWorksheetPivotTableFilterRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = (this.filter == null) ? "" :  JSON.stringify(this.filter);
+        const bodyParameter = (this.filter == null) ? null :   ObjectSerializer.serialize( this.filter,this.filter.constructor.name);
         const requestOptions: request.Options = {
             method: "PUT",
             qs: queryParameters,
@@ -35528,7 +35527,7 @@ export class PostPivotTableCellStyleRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = (this.style == null) ? "" :  JSON.stringify(this.style);
+        const bodyParameter = (this.style == null) ? null :   ObjectSerializer.serialize( this.style,this.style.constructor.name);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -35572,7 +35571,7 @@ export class PostPivotTableStyleRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = (this.style == null) ? "" :  JSON.stringify(this.style);
+        const bodyParameter = (this.style == null) ? null :   ObjectSerializer.serialize( this.style,this.style.constructor.name);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -35624,7 +35623,7 @@ export class PostPivotTableUpdatePivotFieldsRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = (this.pivotField == null) ? "" :  JSON.stringify(this.pivotField);
+        const bodyParameter = (this.pivotField == null) ? null :   ObjectSerializer.serialize( this.pivotField,this.pivotField.constructor.name);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -35678,7 +35677,7 @@ export class PostPivotTableUpdatePivotFieldRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = (this.pivotField == null) ? "" :  JSON.stringify(this.pivotField);
+        const bodyParameter = (this.pivotField == null) ? null :   ObjectSerializer.serialize( this.pivotField,this.pivotField.constructor.name);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -35890,7 +35889,7 @@ export class DeletePivotTableFieldRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = (this.pivotTableFieldRequest == null) ? "" :  JSON.stringify(this.pivotTableFieldRequest);
+        const bodyParameter = (this.pivotTableFieldRequest == null) ? null :   ObjectSerializer.serialize( this.pivotTableFieldRequest,this.pivotTableFieldRequest.constructor.name);
         const requestOptions: request.Options = {
             method: "DELETE",
             qs: queryParameters,
@@ -36088,7 +36087,7 @@ export class PutDocumentPropertyRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = (this.property == null) ? "" :  JSON.stringify(this.property);
+        const bodyParameter = (this.property == null) ? null :   ObjectSerializer.serialize( this.property,this.property.constructor.name);
         const requestOptions: request.Options = {
             method: "PUT",
             qs: queryParameters,
@@ -36202,7 +36201,7 @@ export class PostWorksheetCellsRangesRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = (this.rangeOperate == null) ? "" :  JSON.stringify(this.rangeOperate);
+        const bodyParameter = (this.rangeOperate == null) ? null :   ObjectSerializer.serialize( this.rangeOperate,this.rangeOperate.constructor.name);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -36241,7 +36240,7 @@ export class PostWorksheetCellsRangeMergeRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = (this.range == null) ? "" :  JSON.stringify(this.range);
+        const bodyParameter = (this.range == null) ? null :   ObjectSerializer.serialize( this.range,this.range.constructor.name);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -36280,7 +36279,7 @@ export class PostWorksheetCellsRangeUnMergeRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = (this.range == null) ? "" :  JSON.stringify(this.range);
+        const bodyParameter = (this.range == null) ? null :   ObjectSerializer.serialize( this.range,this.range.constructor.name);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -36319,7 +36318,7 @@ export class PostWorksheetCellsRangeStyleRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = (this.rangeOperate == null) ? "" :  JSON.stringify(this.rangeOperate);
+        const bodyParameter = (this.rangeOperate == null) ? null :   ObjectSerializer.serialize( this.rangeOperate,this.rangeOperate.constructor.name);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -36424,7 +36423,7 @@ export class PostWorksheetCellsRangeValueRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = (this.range == null) ? "" :  JSON.stringify(this.range);
+        const bodyParameter = (this.range == null) ? null :   ObjectSerializer.serialize( this.range,this.range.constructor.name);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -36479,7 +36478,7 @@ export class PostWorksheetCellsRangeMoveToRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = (this.range == null) ? "" :  JSON.stringify(this.range);
+        const bodyParameter = (this.range == null) ? null :   ObjectSerializer.serialize( this.range,this.range.constructor.name);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -36518,7 +36517,7 @@ export class PostWorksheetCellsRangeOutlineBorderRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = (this.rangeOperate == null) ? "" :  JSON.stringify(this.rangeOperate);
+        const bodyParameter = (this.rangeOperate == null) ? null :   ObjectSerializer.serialize( this.rangeOperate,this.rangeOperate.constructor.name);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -36565,7 +36564,7 @@ export class PostWorksheetCellsRangeColumnWidthRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = (this.range == null) ? "" :  JSON.stringify(this.range);
+        const bodyParameter = (this.range == null) ? null :   ObjectSerializer.serialize( this.range,this.range.constructor.name);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -36612,7 +36611,7 @@ export class PostWorksheetCellsRangeRowHeightRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = (this.range == null) ? "" :  JSON.stringify(this.range);
+        const bodyParameter = (this.range == null) ? null :   ObjectSerializer.serialize( this.range,this.range.constructor.name);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -36854,7 +36853,7 @@ export class PutWorksheetShapeRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = (this.shapeDTO == null) ? "" :  JSON.stringify(this.shapeDTO);
+        const bodyParameter = (this.shapeDTO == null) ? null :   ObjectSerializer.serialize( this.shapeDTO,this.shapeDTO.constructor.name);
         const requestOptions: request.Options = {
             method: "PUT",
             qs: queryParameters,
@@ -36971,7 +36970,7 @@ export class PostWorksheetShapeRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = (this.dto == null) ? "" :  JSON.stringify(this.dto);
+        const bodyParameter = (this.dto == null) ? null :   ObjectSerializer.serialize( this.dto,this.dto.constructor.name);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -37010,7 +37009,7 @@ export class PostWorksheetGroupShapeRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = (this.listShape == null) ? "" :  JSON.stringify(this.listShape);
+        const bodyParameter = (this.listShape == null) ? null :   ObjectSerializer.serialize( this.listShape,this.listShape.constructor.name);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -37311,7 +37310,7 @@ export class PostWorksheetSparklineGroupRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = (this.sparklineGroup == null) ? "" :  JSON.stringify(this.sparklineGroup);
+        const bodyParameter = (this.sparklineGroup == null) ? null :   ObjectSerializer.serialize( this.sparklineGroup,this.sparklineGroup.constructor.name);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -37340,7 +37339,7 @@ export class PostRunTaskRequest  {
         const queryParameters: any = {};
 
 
-        const bodyParameter = (this.taskData == null) ? "" :  JSON.stringify(this.taskData);
+        const bodyParameter = (this.taskData == null) ? null :   ObjectSerializer.serialize( this.taskData,this.taskData.constructor.name);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -37428,7 +37427,7 @@ export class PostEncryptWorkbookRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = (this.encryption == null) ? "" :  JSON.stringify(this.encryption);
+        const bodyParameter = (this.encryption == null) ? null :   ObjectSerializer.serialize( this.encryption,this.encryption.constructor.name);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -37465,7 +37464,7 @@ export class DeleteDecryptWorkbookRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = (this.encryption == null) ? "" :  JSON.stringify(this.encryption);
+        const bodyParameter = (this.encryption == null) ? null :   ObjectSerializer.serialize( this.encryption,this.encryption.constructor.name);
         const requestOptions: request.Options = {
             method: "DELETE",
             qs: queryParameters,
@@ -37502,7 +37501,7 @@ export class PostProtectWorkbookRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = (this.protection == null) ? "" :  JSON.stringify(this.protection);
+        const bodyParameter = (this.protection == null) ? null :   ObjectSerializer.serialize( this.protection,this.protection.constructor.name);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -37539,7 +37538,7 @@ export class DeleteUnProtectWorkbookRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = (this.protection == null) ? "" :  JSON.stringify(this.protection);
+        const bodyParameter = (this.protection == null) ? null :   ObjectSerializer.serialize( this.protection,this.protection.constructor.name);
         const requestOptions: request.Options = {
             method: "DELETE",
             qs: queryParameters,
@@ -37681,7 +37680,7 @@ export class PutWorkbookNameRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = (this.newName == null) ? "" :  JSON.stringify(this.newName);
+        const bodyParameter = (this.newName == null) ? null :   ObjectSerializer.serialize( this.newName,this.newName.constructor.name);
         const requestOptions: request.Options = {
             method: "PUT",
             qs: queryParameters,
@@ -37757,7 +37756,7 @@ export class PostWorkbookNameRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = (this.newName == null) ? "" :  JSON.stringify(this.newName);
+        const bodyParameter = (this.newName == null) ? null :   ObjectSerializer.serialize( this.newName,this.newName.constructor.name);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -37903,7 +37902,7 @@ export class PutDocumentProtectFromChangesRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = (this.password == null) ? "" :  JSON.stringify(this.password);
+        const bodyParameter = (this.password == null) ? null :   ObjectSerializer.serialize( this.password,this.password.constructor.name);
         const requestOptions: request.Options = {
             method: "PUT",
             qs: queryParameters,
@@ -38265,7 +38264,7 @@ export class PostImportDataRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = (this.importOption == null) ? "" :  JSON.stringify(this.importOption);
+        const bodyParameter = (this.importOption == null) ? null :   ObjectSerializer.serialize( this.importOption,this.importOption.constructor.name);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -38305,7 +38304,7 @@ export class PostWorkbookCalculateFormulaRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = (this.options == null) ? "" :  JSON.stringify(this.options);
+        const bodyParameter = (this.options == null) ? null :   ObjectSerializer.serialize( this.options,this.options.constructor.name);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -38462,7 +38461,7 @@ export class PostWorkbookSettingsRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = (this.settings == null) ? "" :  JSON.stringify(this.settings);
+        const bodyParameter = (this.settings == null) ? null :   ObjectSerializer.serialize( this.settings,this.settings.constructor.name);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -38581,7 +38580,7 @@ export class PutWorkbookWaterMarkerRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = (this.textWaterMarkerRequest == null) ? "" :  JSON.stringify(this.textWaterMarkerRequest);
+        const bodyParameter = (this.textWaterMarkerRequest == null) ? null :   ObjectSerializer.serialize( this.textWaterMarkerRequest,this.textWaterMarkerRequest.constructor.name);
         const requestOptions: request.Options = {
             method: "PUT",
             qs: queryParameters,
@@ -38964,7 +38963,7 @@ export class DeleteWorksheetsRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = (this.matchCondition == null) ? "" :  JSON.stringify(this.matchCondition);
+        const bodyParameter = (this.matchCondition == null) ? null :   ObjectSerializer.serialize( this.matchCondition,this.matchCondition.constructor.name);
         const requestOptions: request.Options = {
             method: "DELETE",
             qs: queryParameters,
@@ -39003,7 +39002,7 @@ export class PostMoveWorksheetRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = (this.moving == null) ? "" :  JSON.stringify(this.moving);
+        const bodyParameter = (this.moving == null) ? null :   ObjectSerializer.serialize( this.moving,this.moving.constructor.name);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -39042,7 +39041,7 @@ export class PutProtectWorksheetRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = (this.protectParameter == null) ? "" :  JSON.stringify(this.protectParameter);
+        const bodyParameter = (this.protectParameter == null) ? null :   ObjectSerializer.serialize( this.protectParameter,this.protectParameter.constructor.name);
         const requestOptions: request.Options = {
             method: "PUT",
             qs: queryParameters,
@@ -39081,7 +39080,7 @@ export class DeleteUnprotectWorksheetRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = (this.protectParameter == null) ? "" :  JSON.stringify(this.protectParameter);
+        const bodyParameter = (this.protectParameter == null) ? null :   ObjectSerializer.serialize( this.protectParameter,this.protectParameter.constructor.name);
         const requestOptions: request.Options = {
             method: "DELETE",
             qs: queryParameters,
@@ -39235,7 +39234,7 @@ export class PutWorksheetCommentRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = (this.comment == null) ? "" :  JSON.stringify(this.comment);
+        const bodyParameter = (this.comment == null) ? null :   ObjectSerializer.serialize( this.comment,this.comment.constructor.name);
         const requestOptions: request.Options = {
             method: "PUT",
             qs: queryParameters,
@@ -39276,7 +39275,7 @@ export class PostWorksheetCommentRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = (this.comment == null) ? "" :  JSON.stringify(this.comment);
+        const bodyParameter = (this.comment == null) ? null :   ObjectSerializer.serialize( this.comment,this.comment.constructor.name);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -39663,7 +39662,7 @@ export class PostWorksheetRangeSortRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = (this.dataSorter == null) ? "" :  JSON.stringify(this.dataSorter);
+        const bodyParameter = (this.dataSorter == null) ? null :   ObjectSerializer.serialize( this.dataSorter,this.dataSorter.constructor.name);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -40093,7 +40092,7 @@ export class PostCopyWorksheetRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = (this.options == null) ? "" :  JSON.stringify(this.options);
+        const bodyParameter = (this.options == null) ? null :   ObjectSerializer.serialize( this.options,this.options.constructor.name);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -40177,7 +40176,7 @@ export class PostUpdateWorksheetPropertyRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = (this.sheet == null) ? "" :  JSON.stringify(this.sheet);
+        const bodyParameter = (this.sheet == null) ? null :   ObjectSerializer.serialize( this.sheet,this.sheet.constructor.name);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -40488,7 +40487,7 @@ export class PostWorksheetValidationRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = (this.validation == null) ? "" :  JSON.stringify(this.validation);
+        const bodyParameter = (this.validation == null) ? null :   ObjectSerializer.serialize( this.validation,this.validation.constructor.name);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
