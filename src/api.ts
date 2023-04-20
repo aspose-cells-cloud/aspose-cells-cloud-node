@@ -4550,6 +4550,35 @@ export class CellsApi {
         const result =  ObjectSerializer.deserialize(response.body, "CellsCloudResponse");
         return Promise.resolve({body: result, response});
     }
+    /// <summary>
+    /// </summary>
+    /// <param name="request">Request. <see cref="PostWorkbookExportXMLRequest" /></param>
+    public async postWorkbookExportXML(requestObj:model.PostWorkbookExportXMLRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling postWorkbookExportXML.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "Buffer");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// </summary>
+    /// <param name="request">Request. <see cref="PostWorkbookImportXMLRequest" /></param>
+    public async postWorkbookImportXML(requestObj:model.PostWorkbookImportXMLRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling postWorkbookImportXML.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "Buffer");
+        return Promise.resolve({body: result, response});
+    }
 
     /// <summary>
     /// </summary>

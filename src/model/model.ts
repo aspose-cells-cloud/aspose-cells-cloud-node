@@ -3695,6 +3695,79 @@ export class PageSection {
     }        
 }
 
+
+export class ImportPosition  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "sheetName",
+            baseName: "SheetName",
+            type: "string",
+        },
+        {
+            name: "rowIndex",
+            baseName: "RowIndex",
+            type: "number",
+        },
+        {
+            name: "columnIndex",
+            baseName: "ColumnIndex",
+            type: "number",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return  ImportPosition.attributeTypeMap;
+
+    }
+
+    public sheetName: string;
+    public rowIndex: number;
+    public columnIndex: number;
+
+    public constructor(init?: Partial< ImportPosition >) {  
+    
+        Object.assign(this, init);
+    } 
+}
+
+export class ImportXMLRequest  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "xMLFileSource",
+            baseName: "XMLFileSource",
+            type: "FileSource",
+        },
+        {
+            name: "importPosition",
+            baseName: "ImportPosition",
+            type: "ImportPosition",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return  ImportXMLRequest.attributeTypeMap;
+
+    }
+
+    public xMLFileSource: FileSource;
+    public importPosition: ImportPosition;
+
+    public constructor(init?: Partial< ImportXMLRequest >) {  
+    
+        Object.assign(this, init);
+    } 
+}
+
 /**
  * Used for password data transfer.
  */
@@ -16685,6 +16758,7 @@ const typeMap = {
     Link,
     LinkElement,
     ListColumn,
+    ImportXMLRequest,
     MatchConditionRequest,
     MultipleFilter,
     MultipleFilters,
@@ -16795,6 +16869,7 @@ const typeMap = {
     ImportDoubleArrayOption,
     ImportIntArrayOption,
     ImportPictureOption,
+    ImportPosition,
     ImportStringArrayOption,
     JsonSaveOptions,
     LegendResponse,
@@ -40570,6 +40645,102 @@ export class DeleteWorksheetValidationsRequest  {
             qs: queryParameters,
             uri: localVarPath,
             json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+
+export class PostWorkbookExportXMLRequest  {
+      
+    public name: string;
+      
+    public password: string;
+      
+    public folder: string;
+      
+    public storageName: string;
+      
+    public outPath: string;
+      
+    public outStorageName: string;
+      
+    public checkExcelRestriction: boolean;
+
+    public constructor(init?: Partial< PostWorkbookExportXMLRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/exportxml".replace("{" + "name" + "}", String(this.name));
+        const queryParameters: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", this.checkExcelRestriction);
+
+
+        const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+   
+export class PostWorkbookImportXMLRequest  {
+      
+    public name: string;
+      
+    public importXMLRequest: ImportXMLRequest;
+      
+    public password: string;
+      
+    public folder: string;
+      
+    public storageName: string;
+      
+    public outPath: string;
+      
+    public outStorageName: string;
+      
+    public checkExcelRestriction: boolean;
+
+    public constructor(init?: Partial< PostWorkbookImportXMLRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/importxml".replace("{" + "name" + "}", String(this.name));
+        const queryParameters: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", this.checkExcelRestriction);
+
+
+        const bodyParameter = (this.importXMLRequest == null) ? null :   ObjectSerializer.serialize( this.importXMLRequest,this.importXMLRequest.constructor.name);
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+            body:bodyParameter,
         };
 
         return Promise.resolve(requestOptions);

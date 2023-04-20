@@ -17,8 +17,8 @@ var assert = require('assert');
 describe('PicturesController test', function() {
     this.timeout(200000);
     const cellsApi = new api.CellsApi(clientId, clientSecret,"v3.0",ApiURL);
-    describe('post_update_worksheet_range_style test', function(){
-      it("should call PostUpdateWorksheetRangeStyle successfully" , function(){
+    describe('post_worksheet_chart_title test', function(){
+      it("should call PostWorksheetChartTitle successfully" , function(){
         var remoteFolder = "TestData/In"
       
         var localName = "Book1.xlsx"
@@ -30,21 +30,19 @@ describe('PicturesController test', function() {
         localNameRequest.storageName ="";
         cellsApi.uploadFile(localNameRequest );
      
-        var styleFont = new model.Font();
-         styleFont.size = 16  ;
-        var style = new model.Style();
-         style.font = styleFont  ;
+        var title = new model.Title();
+         title.isVisible = true  ;
 
-        var request = new model.PostUpdateWorksheetRangeStyleRequest();
+        var request = new model.PostWorksheetChartTitleRequest();
         request.name =  remoteName;
-        request.sheetName =  "Sheet1";
-        request.range =  "A1:C10";
-        request.style =  style;
+        request.sheetName =  "Sheet4";
+        request.chartIndex =  0;
+        request.title =  title;
         request.folder =  remoteFolder;
         request.storageName =  "";
-        return cellsApi.postUpdateWorksheetRangeStyle(request).then((result) => {
+        return cellsApi.postWorksheetChartTitle(request).then((result) => {
             expect(result.response.statusCode).to.equal(200);
         });
       });
-    });
+    }); 
 });
