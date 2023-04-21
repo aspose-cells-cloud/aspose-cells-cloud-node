@@ -72,6 +72,7 @@ describe('XmlController test', function() {
          importXMLRequest.importPosition = importXMLRequestImportPosition  ;
 
         var request = new model.PostWorkbookImportXMLRequest();
+        request.importXMLRequest = importXMLRequest;
         request.name =  remoteName;
         request.folder =  remoteFolder;
         request.storageName =  "";

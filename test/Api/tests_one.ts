@@ -14,35 +14,47 @@ var path = require('path');
 var assert = require('assert');
 
 
-describe('PicturesController test', function() {
+describe('one test case test', function() {
     this.timeout(200000);
     const cellsApi = new api.CellsApi(clientId, clientSecret,"v3.0",ApiURL);
-    describe('post_worksheet_chart_title test', function(){
-      it("should call PostWorksheetChartTitle successfully" , function(){
+    describe('post_workbook_import_xml test', function(){
+      it("should call PostWorkbookImportXML successfully" , function(){
         var remoteFolder = "TestData/In"
       
-        var localName = "Book1.xlsx"
-        var remoteName = "Book1.xlsx"
+        var localName = "Template.xlsx"
+        var dataXML = "data.xml"
+        var remoteName = "Template.xlsx"
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
         localNameRequest.path = remoteFolder + "/" + remoteName ;
         localNameRequest.storageName ="";
         cellsApi.uploadFile(localNameRequest );
+        var dataXMLRequest = new  model.UploadFileRequest();
+        dataXMLRequest.uploadFiles ={dataXML:fs.createReadStream(localPath  + dataXML)};
+        dataXMLRequest.path = remoteFolder + "/data.xml" ;
+        dataXMLRequest.storageName ="";
+        cellsApi.uploadFile(dataXMLRequest );
      
-        var title = new model.Title();
-         title.isVisible = true  ;
+        var importXMLRequestXMLFileSource = new model.FileSource();
+         importXMLRequestXMLFileSource.fileSourceType = "CloudFileSystem"  ;
+         importXMLRequestXMLFileSource.filePath = remoteFolder + "/data.xml"  ;
+        var importXMLRequestImportPosition = new model.ImportPosition();
+         importXMLRequestImportPosition.sheetName = "Sheet1"  ;
+         importXMLRequestImportPosition.rowIndex = 3  ;
+         importXMLRequestImportPosition.columnIndex = 4  ;
+        var importXMLRequest = new model.ImportXMLRequest();
+         importXMLRequest.xMLFileSource = importXMLRequestXMLFileSource  ;
+         importXMLRequest.importPosition = importXMLRequestImportPosition  ;
 
-        var request = new model.PostWorksheetChartTitleRequest();
+        var request = new model.PostWorkbookImportXMLRequest();
+        request.importXMLRequest = importXMLRequest;
         request.name =  remoteName;
-        request.sheetName =  "Sheet4";
-        request.chartIndex =  0;
-        request.title =  title;
         request.folder =  remoteFolder;
         request.storageName =  "";
-        return cellsApi.postWorksheetChartTitle(request).then((result) => {
+        return cellsApi.postWorkbookImportXML(request).then((result) => {
             expect(result.response.statusCode).to.equal(200);
         });
       });
-    }); 
-});
+  });   
+})

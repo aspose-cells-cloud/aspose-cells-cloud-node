@@ -1,4 +1,4 @@
-![](https://img.shields.io/badge/REST%20API-v3.0-lightgrey) ![npm](https://img.shields.io/npm/v/asposecellscloud) ![node-current](https://img.shields.io/node/v/asposecellscloud) [![GitHub license](https://img.shields.io/github/license/aspose-cells-cloud/aspose-cells-cloud-node)](https://github.com/aspose-cells-cloud/aspose-cells-cloud-node/blob/master/LICENSE) ![GitHub commits since latest release (by date)](https://img.shields.io/github/commits-since/aspose-cells-cloud/aspose-cells-cloud-node/23.3)
+![](https://img.shields.io/badge/REST%20API-v3.0-lightgrey) ![npm](https://img.shields.io/npm/v/asposecellscloud) ![node-current](https://img.shields.io/node/v/asposecellscloud) [![GitHub license](https://img.shields.io/github/license/aspose-cells-cloud/aspose-cells-cloud-node)](https://github.com/aspose-cells-cloud/aspose-cells-cloud-node/blob/master/LICENSE) ![GitHub commits since latest release (by date)](https://img.shields.io/github/commits-since/aspose-cells-cloud/aspose-cells-cloud-node/23.4)
 
 # Process Excel® Files in the Cloud with Node.js
 
@@ -20,9 +20,11 @@
 - Fetch the required shape from worksheet.
 - Leverage the power of named ranges.
 
-## Feature & Enhancements in Version 22.12
+## Feature & Enhancements in Version 23.4
 
-- Adopt the new model.
+- Adopt the new model(Conflicting expired function names are appended with _).
+- Add import xml data api.
+- Add export xml data api.
  
 ## Read & Write Spreadsheet Formats
 
