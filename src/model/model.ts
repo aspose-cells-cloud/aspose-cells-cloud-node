@@ -24,7 +24,7 @@
 
 import request from "request";
 import { Configuration } from "../internal/configuration";
-import { addQueryParameterToUrl, invokeApiMethod } from "../internal/requestHelper";
+import { addQueryParameterToUrl } from "../internal/requestHelper";
 import { ObjectSerializer } from "../internal/objectSerializer";
 
 export class Point {
@@ -27178,7 +27178,7 @@ export class GetWorksheetAutoFilterRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -27263,7 +27263,7 @@ export class PutWorksheetDateFilterRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "PUT",
@@ -27330,7 +27330,7 @@ export class PutWorksheetFilterRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "PUT",
@@ -27405,7 +27405,7 @@ export class PutWorksheetIconFilterRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "PUT",
@@ -27489,7 +27489,7 @@ export class PutWorksheetCustomFilterRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "PUT",
@@ -27556,7 +27556,7 @@ export class PutWorksheetDynamicFilterRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "PUT",
@@ -27639,7 +27639,7 @@ export class PutWorksheetFilterTop10Request  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "PUT",
@@ -27745,7 +27745,7 @@ export class PostWorksheetMatchBlanksRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -27790,7 +27790,7 @@ export class PostWorksheetMatchNonBlanksRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -27827,7 +27827,7 @@ export class PostWorksheetAutoFilterRefreshRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -27898,7 +27898,7 @@ export class DeleteWorksheetDateFilterRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "DELETE",
@@ -27946,7 +27946,7 @@ export class DeleteWorksheetFilterRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "DELETE",
@@ -27983,7 +27983,7 @@ export class GetWorksheetAutoshapesRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -28025,7 +28025,7 @@ export class GetWorksheetAutoshapeWithFormatRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -28093,7 +28093,7 @@ export class GetExtractBarcodesRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -28145,7 +28145,7 @@ export class PostClearContentsRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -28197,7 +28197,7 @@ export class PostClearFormatsRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -28313,7 +28313,7 @@ export class PostWorksheetMergeRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -28382,7 +28382,7 @@ export class PostWorksheetUnmergeRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -28425,7 +28425,7 @@ export class GetWorksheetCellsRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -28464,7 +28464,7 @@ export class GetWorksheetCellRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -28503,7 +28503,7 @@ export class GetWorksheetCellStyleRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -28551,7 +28551,7 @@ export class PostWorksheetCellSetValueRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -28653,7 +28653,7 @@ export class PostSetCellRangeValueRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -28709,7 +28709,7 @@ export class PostCopyCellIntoCellRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -28748,7 +28748,7 @@ export class GetCellHtmlStringRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -28787,7 +28787,7 @@ export class PostSetCellHtmlStringRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -28912,7 +28912,7 @@ export class GetWorksheetColumnsRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -28962,7 +28962,7 @@ export class PostSetWorksheetColumnWidthRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -29001,7 +29001,7 @@ export class GetWorksheetColumnRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -29051,7 +29051,7 @@ export class PutInsertWorksheetColumnsRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "PUT",
@@ -29106,7 +29106,7 @@ export class DeleteWorksheetColumnsRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "DELETE",
@@ -29159,7 +29159,7 @@ export class PostHideWorksheetColumnsRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -29215,7 +29215,7 @@ export class PostUnhideWorksheetColumnsRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -29271,7 +29271,7 @@ export class PostGroupWorksheetColumnsRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -29324,7 +29324,7 @@ export class PostUngroupWorksheetColumnsRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -29388,7 +29388,7 @@ export class PostCopyWorksheetColumnsRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -29472,7 +29472,7 @@ export class GetWorksheetRowsRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -29511,7 +29511,7 @@ export class GetWorksheetRowRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -29550,7 +29550,7 @@ export class DeleteWorksheetRowRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "DELETE",
@@ -29601,7 +29601,7 @@ export class DeleteWorksheetRowsRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "DELETE",
@@ -29652,7 +29652,7 @@ export class PutInsertWorksheetRowsRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "PUT",
@@ -29691,7 +29691,7 @@ export class PutInsertWorksheetRowRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "PUT",
@@ -29736,7 +29736,7 @@ export class PostUpdateWorksheetRowRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -29789,7 +29789,7 @@ export class PostHideWorksheetRowsRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -29845,7 +29845,7 @@ export class PostUnhideWorksheetRowsRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -29901,7 +29901,7 @@ export class PostGroupWorksheetRowsRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -29957,7 +29957,7 @@ export class PostUngroupWorksheetRowsRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -30021,7 +30021,7 @@ export class PostCopyWorksheetRowsRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -30089,7 +30089,7 @@ export class GetCellsCloudServicesHealthCheckRequest  {
         const queryParameters: any = {};
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -30116,7 +30116,7 @@ export class GetCellsCloudServiceStatusRequest  {
         const queryParameters: any = {};
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -30155,7 +30155,7 @@ export class GetChartAreaRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -30194,7 +30194,7 @@ export class GetChartAreaFillFormatRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -30233,7 +30233,7 @@ export class GetChartAreaBorderRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -30270,7 +30270,7 @@ export class GetWorksheetChartsRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -30312,7 +30312,7 @@ export class GetWorksheetChartRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -30396,7 +30396,7 @@ export class PutWorksheetAddChartRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "PUT",
@@ -30435,7 +30435,7 @@ export class DeleteWorksheetDeleteChartRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "DELETE",
@@ -30515,7 +30515,7 @@ export class GetWorksheetChartLegendRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -30595,7 +30595,7 @@ export class PutWorksheetChartLegendRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "PUT",
@@ -30634,7 +30634,7 @@ export class DeleteWorksheetChartLegendRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "DELETE",
@@ -30671,7 +30671,7 @@ export class DeleteWorksheetClearChartsRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "DELETE",
@@ -30710,7 +30710,7 @@ export class GetWorksheetChartTitleRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -30831,7 +30831,7 @@ export class DeleteWorksheetChartTitleRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "DELETE",
@@ -30870,7 +30870,7 @@ export class GetChartSeriesAxisRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -30909,7 +30909,7 @@ export class GetChartCategoryAxisRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -30948,7 +30948,7 @@ export class GetChartValueAxisRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -30987,7 +30987,7 @@ export class GetChartSecondCategoryAxisRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -31026,7 +31026,7 @@ export class GetChartSecondValueAxisRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -31268,7 +31268,7 @@ export class GetWorksheetConditionalFormattingsRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -31307,7 +31307,7 @@ export class GetWorksheetConditionalFormattingRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -31433,7 +31433,7 @@ export class PutWorksheetFormatConditionRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "PUT",
@@ -31480,7 +31480,7 @@ export class PutWorksheetFormatConditionAreaRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "PUT",
@@ -31551,7 +31551,7 @@ export class PutWorksheetFormatConditionConditionRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "PUT",
@@ -31588,7 +31588,7 @@ export class DeleteWorksheetConditionalFormattingsRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "DELETE",
@@ -31627,7 +31627,7 @@ export class DeleteWorksheetConditionalFormattingRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "DELETE",
@@ -31696,7 +31696,7 @@ export class DeleteWorksheetConditionalFormattingAreaRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "DELETE",
@@ -31752,7 +31752,7 @@ export class GetWorkbookRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", this.checkExcelRestriction);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -31805,7 +31805,7 @@ export class PutConvertWorkbookRequest  {
         }
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "PUT",
@@ -31904,7 +31904,7 @@ export class PostConvertWorkbookToPDFRequest  {
         }
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -31946,7 +31946,7 @@ export class PostConvertWorkbookToPNGRequest  {
         }
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -31988,7 +31988,7 @@ export class PostConvertWorkbookToDocxRequest  {
         }
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -32030,7 +32030,7 @@ export class PostConvertWorkbookToPptxRequest  {
         }
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -32072,7 +32072,7 @@ export class PostConvertWorkbookToHtmlRequest  {
         }
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -32114,7 +32114,7 @@ export class PostConvertWorkbookToMarkdownRequest  {
         }
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -32156,7 +32156,7 @@ export class PostConvertWorkbookToJsonRequest  {
         }
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -32198,7 +32198,7 @@ export class PostConvertWorkbookToSQLRequest  {
         }
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -32240,7 +32240,7 @@ export class PostConvertWorkbookToCSVRequest  {
         }
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -32278,7 +32278,7 @@ export class GetWorkSheetHyperlinksRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -32317,7 +32317,7 @@ export class GetWorkSheetHyperlinkRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -32356,7 +32356,7 @@ export class DeleteWorkSheetHyperlinkRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "DELETE",
@@ -32474,7 +32474,7 @@ export class PutWorkSheetHyperlinkRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "PUT",
@@ -32511,7 +32511,7 @@ export class DeleteWorkSheetHyperlinksRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "DELETE",
@@ -32563,7 +32563,7 @@ export class PostAssembleRequest  {
         }
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -32608,7 +32608,7 @@ export class PostCompressRequest  {
         }
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -32636,6 +32636,8 @@ export class PostExportRequest  {
       
     public checkExcelRestriction: boolean;
 
+    public extendedQueryParameters: Buffer;
+
     public constructor(init?: Partial< PostExportRequest >) {  
         Object.assign(this, init);
     } 
@@ -32656,7 +32658,7 @@ export class PostExportRequest  {
         }
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -32704,7 +32706,7 @@ export class PostMergeRequest  {
         }
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -32748,7 +32750,7 @@ export class PostUnlockRequest  {
         }
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -32792,7 +32794,7 @@ export class PostProtectRequest  {
         }
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -32848,7 +32850,7 @@ export class PostSplitRequest  {
         }
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -32901,7 +32903,7 @@ export class PostSearchRequest  {
         }
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -32962,7 +32964,7 @@ export class PostReplaceRequest  {
         }
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -32982,6 +32984,8 @@ export class PostImportRequest  {
     /// File to upload  
     public file: any;
 
+    public importOption: ImportOption;
+
     public constructor(init?: Partial< PostImportRequest >) {  
         Object.assign(this, init);
     } 
@@ -32998,7 +33002,7 @@ export class PostImportRequest  {
         }
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -33056,7 +33060,7 @@ export class PostWatermarkRequest  {
         }
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -33112,7 +33116,7 @@ export class PostClearObjectsRequest  {
         }
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -33165,7 +33169,7 @@ export class PostReverseRequest  {
         }
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -33218,7 +33222,7 @@ export class PostRotateRequest  {
         }
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -33238,7 +33242,7 @@ export class PostMetadataRequest  {
     /// File to upload  
     public file: any;
       
-    public cellsDocuments: Array<CellsDocumentProperty>;
+    public documentProperties: Array<CellsDocumentProperty>;
       
     public password: string;
       
@@ -33262,7 +33266,7 @@ export class PostMetadataRequest  {
         }
 
 
-        const bodyParameter = (this.cellsDocuments == null) ? null :  ObjectSerializer.serialize( this.cellsDocuments ,this.cellsDocuments.constructor.name);
+        const bodyParameter = (this.documentProperties == null) ? null :  ObjectSerializer.serialize( this.documentProperties ,this.documentProperties.constructor.name);
         formParams["cellsDocuments"] = bodyParameter;    
         const requestOptions: request.Options = {
             method: "POST",
@@ -33307,7 +33311,7 @@ export class GetMetadataRequest  {
         }
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -33352,7 +33356,7 @@ export class DeleteMetadataRequest  {
         }
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -33390,7 +33394,7 @@ export class GetWorksheetListObjectsRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -33432,7 +33436,7 @@ export class GetWorksheetListObjectRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -33490,7 +33494,7 @@ export class PutWorksheetListObjectRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "PUT",
@@ -33527,7 +33531,7 @@ export class DeleteWorksheetListObjectsRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "DELETE",
@@ -33566,7 +33570,7 @@ export class DeleteWorksheetListObjectRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "DELETE",
@@ -33646,7 +33650,7 @@ export class PostWorksheetListObjectConvertToRangeRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -33857,7 +33861,7 @@ export class GetWorksheetOleObjectsRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -33899,7 +33903,7 @@ export class GetWorksheetOleObjectRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -33936,7 +33940,7 @@ export class DeleteWorksheetOleObjectsRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "DELETE",
@@ -33975,7 +33979,7 @@ export class DeleteWorksheetOleObjectRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "DELETE",
@@ -34071,7 +34075,7 @@ export class PutWorksheetOleObjectRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "PUT",
@@ -34108,7 +34112,7 @@ export class GetVerticalPageBreaksRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -34145,7 +34149,7 @@ export class GetHorizontalPageBreaksRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -34184,7 +34188,7 @@ export class GetVerticalPageBreakRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -34223,7 +34227,7 @@ export class GetHorizontalPageBreakRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -34275,7 +34279,7 @@ export class PutVerticalPageBreakRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "PUT",
@@ -34327,7 +34331,7 @@ export class PutHorizontalPageBreakRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "PUT",
@@ -34367,7 +34371,7 @@ export class DeleteVerticalPageBreaksRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "DELETE",
@@ -34407,7 +34411,7 @@ export class DeleteHorizontalPageBreaksRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "DELETE",
@@ -34446,7 +34450,7 @@ export class DeleteVerticalPageBreakRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "DELETE",
@@ -34485,7 +34489,7 @@ export class DeleteHorizontalPageBreakRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "DELETE",
@@ -34522,7 +34526,7 @@ export class GetPageSetupRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -34598,7 +34602,7 @@ export class DeleteHeaderFooterRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "DELETE",
@@ -34635,7 +34639,7 @@ export class GetHeaderRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -34696,7 +34700,7 @@ export class PostHeaderRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -34733,7 +34737,7 @@ export class GetFooterRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -34794,7 +34798,7 @@ export class PostFooterRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -34831,7 +34835,7 @@ export class GetWorksheetPicturesRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -34878,7 +34882,7 @@ export class GetWorksheetPictureWithFormatRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -35012,7 +35016,7 @@ export class DeleteWorksheetPictureRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "DELETE",
@@ -35049,7 +35053,7 @@ export class DeleteWorkSheetPicturesRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "DELETE",
@@ -35086,7 +35090,7 @@ export class GetWorksheetPivotTablesRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -35125,7 +35129,7 @@ export class GetWorksheetPivotTableRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -35180,7 +35184,7 @@ export class GetPivotTableFieldRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -35219,7 +35223,7 @@ export class GetWorksheetPivotTableFiltersRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -35260,7 +35264,7 @@ export class GetWorksheetPivotTableFilterRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -35309,7 +35313,7 @@ export class PutWorksheetPivotTableRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "PUT",
@@ -35479,7 +35483,7 @@ export class PostPivotTableFieldHideItemRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -35542,7 +35546,7 @@ export class PostPivotTableFieldMoveToRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -35791,7 +35795,7 @@ export class PostWorksheetPivotTableCalculateRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -35839,7 +35843,7 @@ export class PostWorksheetPivotTableMoveRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -35876,7 +35880,7 @@ export class DeleteWorksheetPivotTablesRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "DELETE",
@@ -35915,7 +35919,7 @@ export class DeleteWorksheetPivotTableRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "DELETE",
@@ -36006,7 +36010,7 @@ export class DeleteWorksheetPivotTableFiltersRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "DELETE",
@@ -36050,7 +36054,7 @@ export class DeleteWorksheetPivotTableFilterRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "DELETE",
@@ -36088,7 +36092,7 @@ export class GetDocumentPropertiesRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -36125,7 +36129,7 @@ export class GetDocumentPropertyRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -36202,7 +36206,7 @@ export class DeleteDocumentPropertyRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "DELETE",
@@ -36237,7 +36241,7 @@ export class DeleteDocumentPropertiesRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "DELETE",
@@ -36445,7 +36449,7 @@ export class GetWorksheetCellsRangeValueRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -36739,7 +36743,7 @@ export class PutWorksheetCellsRangeRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "PUT",
@@ -36792,7 +36796,7 @@ export class DeleteWorksheetCellsRangeRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "DELETE",
@@ -36829,7 +36833,7 @@ export class GetWorksheetShapesRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -36868,7 +36872,7 @@ export class GetWorksheetShapeRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -36965,7 +36969,7 @@ export class DeleteWorksheetShapesRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "DELETE",
@@ -37004,7 +37008,7 @@ export class DeleteWorksheetShapeRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "DELETE",
@@ -37123,7 +37127,7 @@ export class PostWorksheetUngroupShapeRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -37160,7 +37164,7 @@ export class GetWorksheetSparklineGroupsRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -37199,7 +37203,7 @@ export class GetWorksheetSparklineGroupRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -37236,7 +37240,7 @@ export class DeleteWorksheetSparklineGroupsRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "DELETE",
@@ -37275,7 +37279,7 @@ export class DeleteWorksheetSparklineGroupRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "DELETE",
@@ -37344,7 +37348,7 @@ export class PutWorksheetSparklineGroupRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "PUT",
@@ -37465,7 +37469,7 @@ export class PostDigitalSignatureRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -37648,7 +37652,7 @@ export class GetWorkbookDefaultStyleRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -37683,7 +37687,7 @@ export class GetWorkbookTextItemsRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -37718,7 +37722,7 @@ export class GetWorkbookNamesRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -37792,7 +37796,7 @@ export class GetWorkbookNameRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -37868,7 +37872,7 @@ export class GetWorkbookNameValueRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -37903,7 +37907,7 @@ export class DeleteWorkbookNamesRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "DELETE",
@@ -37940,7 +37944,7 @@ export class DeleteWorkbookNameRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "DELETE",
@@ -38012,7 +38016,7 @@ export class DeleteDocumentUnProtectFromChangesRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "DELETE",
@@ -38058,7 +38062,7 @@ export class PostWorkbooksMergeRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "mergedStorageName", this.mergedStorageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -38101,7 +38105,7 @@ export class PostWorkbooksTextSearchRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -38152,7 +38156,7 @@ export class PostWorkbookTextReplaceRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -38196,7 +38200,7 @@ export class PostWorkbookGetSmartMarkerResultRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -38243,7 +38247,7 @@ export class PutWorkbookCreateRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", this.checkExcelRestriction);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "PUT",
@@ -38302,7 +38306,7 @@ export class PostWorkbookSplitRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -38423,7 +38427,7 @@ export class PostAutofitWorkbookRowsRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -38464,7 +38468,7 @@ export class PostAutofitWorkbookColumnsRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -38499,7 +38503,7 @@ export class GetWorkbookSettingsRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -38582,7 +38586,7 @@ export class PutWorkbookBackgroundRequest  {
         }
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "PUT",
@@ -38618,7 +38622,7 @@ export class DeleteWorkbookBackgroundRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "DELETE",
@@ -38690,7 +38694,7 @@ export class GetPageCountRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -38725,7 +38729,7 @@ export class GetWorksheetsRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -38777,7 +38781,7 @@ export class GetWorksheetWithFormatRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -38822,7 +38826,7 @@ export class PutChangeVisibilityWorksheetRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "PUT",
@@ -38859,7 +38863,7 @@ export class PutActiveWorksheetRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "PUT",
@@ -38921,7 +38925,7 @@ export class PutInsertNewWorksheetRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "PUT",
@@ -38964,7 +38968,7 @@ export class PutAddNewWorksheetRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "PUT",
@@ -39001,7 +39005,7 @@ export class DeleteWorksheetRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "DELETE",
@@ -39192,7 +39196,7 @@ export class GetWorksheetTextItemsRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -39229,7 +39233,7 @@ export class GetWorksheetCommentsRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -39268,7 +39272,7 @@ export class GetWorksheetCommentRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -39389,7 +39393,7 @@ export class DeleteWorksheetCommentRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "DELETE",
@@ -39426,7 +39430,7 @@ export class DeleteWorksheetCommentsRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "DELETE",
@@ -39463,7 +39467,7 @@ export class GetWorksheetMergedCellsRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -39502,7 +39506,7 @@ export class GetWorksheetMergedCellRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -39547,7 +39551,7 @@ export class GetWorksheetCalculateFormulaRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -39592,7 +39596,7 @@ export class PostWorksheetCalculateFormulaRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -39637,7 +39641,7 @@ export class PostWorksheetTextSearchRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -39690,7 +39694,7 @@ export class PostWorsheetTextReplaceRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -39798,7 +39802,7 @@ export class PostAutofitWorksheetRowRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -39844,7 +39848,7 @@ export class PostAutofitWorksheetRowsRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -39890,7 +39894,7 @@ export class PostAutofitWorksheetColumnsRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -39938,7 +39942,7 @@ export class PutWorksheetBackgroundRequest  {
         }
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "PUT",
@@ -39976,7 +39980,7 @@ export class DeleteWorksheetBackgroundRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "DELETE",
@@ -40045,7 +40049,7 @@ export class PutWorksheetFreezePanesRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "PUT",
@@ -40114,7 +40118,7 @@ export class DeleteWorksheetFreezePanesRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "DELETE",
@@ -40212,7 +40216,7 @@ export class PostRenameWorksheetRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -40286,7 +40290,7 @@ export class GetNamedRangesRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -40323,7 +40327,7 @@ export class GetNamedRangeValueRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -40368,7 +40372,7 @@ export class PostUpdateWorksheetZoomRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -40405,7 +40409,7 @@ export class GetWorksheetPageCountRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -40442,7 +40446,7 @@ export class GetWorksheetValidationsRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -40481,7 +40485,7 @@ export class GetWorksheetValidationRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -40521,7 +40525,7 @@ export class PutWorksheetValidationRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "PUT",
@@ -40601,7 +40605,7 @@ export class DeleteWorksheetValidationRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "DELETE",
@@ -40638,7 +40642,7 @@ export class DeleteWorksheetValidationsRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "DELETE",
@@ -40685,7 +40689,7 @@ export class PostWorkbookExportXMLRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", this.checkExcelRestriction);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -40769,7 +40773,7 @@ export class DownloadFileRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "versionId", this.versionId);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -40809,7 +40813,7 @@ export class UploadFileRequest  {
         }
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "PUT",
@@ -40856,7 +40860,7 @@ export class CopyFileRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "versionId", this.versionId);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "PUT",
@@ -40902,7 +40906,7 @@ export class MoveFileRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "versionId", this.versionId);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "PUT",
@@ -40937,7 +40941,7 @@ export class DeleteFileRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "versionId", this.versionId);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "DELETE",
@@ -40969,7 +40973,7 @@ export class GetFilesListRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -41001,7 +41005,7 @@ export class CreateFolderRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "PUT",
@@ -41044,7 +41048,7 @@ export class CopyFolderRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "destStorageName", this.destStorageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "PUT",
@@ -41087,7 +41091,7 @@ export class MoveFolderRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "destStorageName", this.destStorageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "PUT",
@@ -41122,7 +41126,7 @@ export class DeleteFolderRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "recursive", this.recursive);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "DELETE",
@@ -41151,7 +41155,7 @@ export class StorageExistsRequest  {
         const queryParameters: any = {};
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -41186,7 +41190,7 @@ export class ObjectExistsRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "versionId", this.versionId);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -41216,7 +41220,7 @@ export class GetDiscUsageRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        const bodyParameter = null;
+        
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -41246,9 +41250,6 @@ export class GetFileVersionsRequest  {
         let localVarPath = configuration.getApiBaseUrl() + "/cells/storage/version/{path}".replace("{" + "path" + "}", String(this.path));
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-
-
-        const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "GET",
