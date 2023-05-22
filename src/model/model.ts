@@ -32255,7 +32255,45 @@ export class PostConvertWorkbookToCSVRequest  {
     }
 
 }
-   
+export class GetWorksheetHyperlinksRequest  {
+      
+    public name: string;
+      
+    public sheetName: string;
+      
+    public folder: string;
+      
+    public storageName: string;
+
+    public constructor(init?: Partial< GetWorksheetHyperlinksRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/hyperlinks".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
+        const queryParameters: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+
+
+        
+
+        const requestOptions: request.Options = {
+            method: "GET",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}   
+/**
+ * @deprecated 
+ */
 export class GetWorkSheetHyperlinksRequest  {
       
     public name: string;
@@ -32292,7 +32330,49 @@ export class GetWorkSheetHyperlinksRequest  {
     }
 
 }
-   
+
+export class GetWorksheetHyperlinkRequest  {
+      
+    public name: string;
+      
+    public sheetName: string;
+      
+    public hyperlinkIndex: number;
+      
+    public folder: string;
+      
+    public storageName: string;
+
+    public constructor(init?: Partial< GetWorksheetHyperlinkRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/hyperlinks/{hyperlinkIndex}".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "hyperlinkIndex" + "}", String(this.hyperlinkIndex));
+        const queryParameters: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+
+
+        
+
+        const requestOptions: request.Options = {
+            method: "GET",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+
+/**
+ * @deprecated 
+ */
 export class GetWorkSheetHyperlinkRequest  {
       
     public name: string;
@@ -32331,7 +32411,49 @@ export class GetWorkSheetHyperlinkRequest  {
     }
 
 }
-   
+
+export class DeleteWorksheetHyperlinkRequest  {
+      
+    public name: string;
+      
+    public sheetName: string;
+      
+    public hyperlinkIndex: number;
+      
+    public folder: string;
+      
+    public storageName: string;
+
+    public constructor(init?: Partial< DeleteWorksheetHyperlinkRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/hyperlinks/{hyperlinkIndex}".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "hyperlinkIndex" + "}", String(this.hyperlinkIndex));
+        const queryParameters: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+
+
+        
+
+        const requestOptions: request.Options = {
+            method: "DELETE",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+  
+/**
+ * @deprecated 
+ */   
 export class DeleteWorkSheetHyperlinkRequest  {
       
     public name: string;
@@ -32370,7 +32492,49 @@ export class DeleteWorkSheetHyperlinkRequest  {
     }
 
 }
-   
+export class PostWorksheetHyperlinkRequest  {
+      
+    public name: string;
+      
+    public sheetName: string;
+      
+    public hyperlinkIndex: number;
+      
+    public hyperlink: Hyperlink;
+      
+    public folder: string;
+      
+    public storageName: string;
+
+    public constructor(init?: Partial< PostWorksheetHyperlinkRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/hyperlinks/{hyperlinkIndex}".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "hyperlinkIndex" + "}", String(this.hyperlinkIndex));
+        const queryParameters: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+
+
+        const bodyParameter = (this.hyperlink == null) ? null :   ObjectSerializer.serialize( this.hyperlink,this.hyperlink.constructor.name);
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+            body:bodyParameter,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/**
+ * @deprecated 
+ */    
 export class PostWorkSheetHyperlinkRequest  {
       
     public name: string;
@@ -32411,7 +32575,87 @@ export class PostWorkSheetHyperlinkRequest  {
     }
 
 }
-   
+
+export class PutWorksheetHyperlinkRequest  {
+      
+    public name: string;
+      
+    public sheetName: string;
+      
+    public firstRow: number;
+      
+    public firstColumn: number;
+      
+    public totalRows: number;
+      
+    public totalColumns: number;
+      
+    public address: string;
+      
+    public folder: string;
+      
+    public storageName: string;
+
+    public constructor(init?: Partial< PutWorksheetHyperlinkRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/hyperlinks".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
+        const queryParameters: any = {};
+         
+        // verify required parameter 'firstRow' is not null or undefined
+        if (this.firstRow === null || this.firstRow === undefined) {
+            throw new Error('Required parameter "firstRow" was null or undefined when calling PutWorkSheetHyperlink.');
+        }
+         
+        // verify required parameter 'firstColumn' is not null or undefined
+        if (this.firstColumn === null || this.firstColumn === undefined) {
+            throw new Error('Required parameter "firstColumn" was null or undefined when calling PutWorkSheetHyperlink.');
+        }
+         
+        // verify required parameter 'totalRows' is not null or undefined
+        if (this.totalRows === null || this.totalRows === undefined) {
+            throw new Error('Required parameter "totalRows" was null or undefined when calling PutWorkSheetHyperlink.');
+        }
+         
+        // verify required parameter 'totalColumns' is not null or undefined
+        if (this.totalColumns === null || this.totalColumns === undefined) {
+            throw new Error('Required parameter "totalColumns" was null or undefined when calling PutWorkSheetHyperlink.');
+        }
+         
+        // verify required parameter 'address' is not null or undefined
+        if (this.address === null || this.address === undefined) {
+            throw new Error('Required parameter "address" was null or undefined when calling PutWorkSheetHyperlink.');
+        }
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "firstRow", this.firstRow);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "firstColumn", this.firstColumn);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "totalRows", this.totalRows);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "totalColumns", this.totalColumns);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "address", this.address);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+
+
+        
+
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+
+/**
+ * @deprecated 
+ */     
 export class PutWorkSheetHyperlinkRequest  {
       
     public name: string;
@@ -32488,7 +32732,45 @@ export class PutWorkSheetHyperlinkRequest  {
     }
 
 }
-   
+export class DeleteWorksheetHyperlinksRequest  {
+      
+    public name: string;
+      
+    public sheetName: string;
+      
+    public folder: string;
+      
+    public storageName: string;
+
+    public constructor(init?: Partial< DeleteWorksheetHyperlinksRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/hyperlinks".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
+        const queryParameters: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+
+
+        
+
+        const requestOptions: request.Options = {
+            method: "DELETE",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/**
+ * @deprecated 
+ */  
 export class DeleteWorkSheetHyperlinksRequest  {
       
     public name: string;
@@ -34950,7 +35232,49 @@ export class PutWorksheetAddPictureRequest  {
     }
 
 }
-   
+export class PostWorksheetPictureRequest  {
+      
+    public name: string;
+      
+    public sheetName: string;
+      
+    public pictureIndex: number;
+      
+    public picture: Picture;
+      
+    public folder: string;
+      
+    public storageName: string;
+
+    public constructor(init?: Partial< PostWorksheetPictureRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/pictures/{pictureIndex}".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "pictureIndex" + "}", String(this.pictureIndex));
+        const queryParameters: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+
+
+        const bodyParameter = (this.picture == null) ? null :   ObjectSerializer.serialize( this.picture,this.picture.constructor.name);
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+            body:bodyParameter,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/**
+ * @deprecated 
+ */   
 export class PostWorkSheetPictureRequest  {
       
     public name: string;
@@ -35030,7 +35354,45 @@ export class DeleteWorksheetPictureRequest  {
     }
 
 }
-   
+export class DeleteWorksheetPicturesRequest  {
+      
+    public name: string;
+      
+    public sheetName: string;
+      
+    public folder: string;
+      
+    public storageName: string;
+
+    public constructor(init?: Partial< DeleteWorksheetPicturesRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/pictures".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
+        const queryParameters: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+
+
+        
+
+        const requestOptions: request.Options = {
+            method: "DELETE",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/**
+ * @deprecated 
+ */   
 export class DeleteWorkSheetPicturesRequest  {
       
     public name: string;
