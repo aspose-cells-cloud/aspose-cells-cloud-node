@@ -3,9 +3,9 @@ import "mocha";
 
 import * as model from "../../src/model/model";
 import * as api from "../../src/api";
-const clientId = process.env.CellsCloudTestClientId;
-const clientSecret = process.env.CellsCloudTestClientSecret;
-const ApiURL = process.env.CellsCloudTestApiBaseUrl;
+const clientId = process.env.CellsCloudClientId;
+const clientSecret = process.env.CellsCloudClientSecret;
+const ApiURL = process.env.CellsCloudApiBaseUrl;
 
 const localPath = "TestData/";
 
@@ -591,7 +591,7 @@ describe('PivotTablesController test', function() {
 
         var request = new model.DeleteWorksheetPivotTableFilterRequest();
         request.name =  remoteName;
-        request.sheetName =  "Sheet4";
+        request.sheetName =  "Sheet3";
         request.pivotTableIndex =  0;
         request.fieldIndex =  0;
         request.needReCalculate =  true;

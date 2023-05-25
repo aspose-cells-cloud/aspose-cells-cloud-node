@@ -3,9 +3,9 @@ import "mocha";
 
 import * as model from "../../src/model/model";
 import * as api from "../../src/api";
-const clientId = process.env.CellsCloudTestClientId;
-const clientSecret = process.env.CellsCloudTestClientSecret;
-const ApiURL = process.env.CellsCloudTestApiBaseUrl;
+const clientId = process.env.CellsCloudClientId;
+const clientSecret = process.env.CellsCloudClientSecret;
+const ApiURL = process.env.CellsCloudApiBaseUrl;
 
 const localPath = "TestData/";
 
@@ -92,7 +92,7 @@ describe('ListObjectsController test', function() {
         request.folder =  remoteFolder;
         request.hasHeaders =  true;
         request.displayName =  "true";
-        request.showTotals =  true;
+        request.showTotals =  false;
         request.storageName =  "";
         return cellsApi.putWorksheetListObject(request).then((result) => {
             expect(result.response.statusCode).to.equal(200);
