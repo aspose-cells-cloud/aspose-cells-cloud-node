@@ -290,6 +290,50 @@ export class CellsApi {
         const result =  ObjectSerializer.deserialize(response.body, "Buffer");
         return Promise.resolve({body: result, response});
     }
+    /// <summary>
+    /// </summary>
+    /// <param name="request">Request. <see cref="PostBatchProtectRequest" /></param>
+    public async postBatchProtect(requestObj:model.PostBatchProtectRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling postBatchProtect.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "Buffer");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// </summary>
+    /// <param name="request">Request. <see cref="PostBatchLockRequest" /></param>
+    public async postBatchLock(requestObj:model.PostBatchLockRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling postBatchLock.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "Buffer");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// </summary>
+    /// <param name="request">Request. <see cref="PostBatchUnlockRequest" /></param>
+    public async postBatchUnlock(requestObj:model.PostBatchUnlockRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling postBatchUnlock.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "Buffer");
+        return Promise.resolve({body: result, response});
+    }
 
     /// <summary>
     /// </summary>
@@ -17894,11 +17938,6 @@ export class LightCellsApi {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "format", requestObj.format);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", requestObj.checkExcelRestriction);
 
-        if (requestObj.extendedQueryParameters !== undefined) {
-            for (var key in requestObj.extendedQueryParameters) {
-                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, requestObj.extendedQueryParameters[key]);
-            }
-        }
 
         if (requestObj.file !== undefined) {
             for (var key in requestObj.file) {
@@ -18034,7 +18073,7 @@ export class LightCellsApi {
         }
 
         // verify required parameter 'requestObj.documentProperties' is not null or undefined
-        if (requestObj.documentProperties === null || requestObj.documentProperties === undefined) {
+        if (requestObj.cellsDocuments === null || requestObj.cellsDocuments === undefined) {
             throw new Error('Required parameter "requestObj.documentProperties" was null or undefined when calling postMetadata.');
         }
 
@@ -18044,8 +18083,8 @@ export class LightCellsApi {
             for (var key in requestObj.file) {
                 formParams[key] = requestObj.file[key];
             }
-            if ((requestObj.documentProperties !== null)) {
-                formParams["documentProperties"] = JSON.stringify(requestObj.documentProperties);
+            if ((requestObj.cellsDocuments !== null)) {
+                formParams["documentProperties"] = JSON.stringify(requestObj.cellsDocuments);
             }
         }
 

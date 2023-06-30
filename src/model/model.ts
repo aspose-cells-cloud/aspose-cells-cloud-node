@@ -891,6 +891,200 @@ export class BatchConvertRequest {
         Object.assign(this, init);
     }        
 }
+export class BatchLockRequest  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "sourceFolder",
+            baseName: "SourceFolder",
+            type: "string",
+        },
+        {
+            name: "sourceStorage",
+            baseName: "SourceStorage",
+            type: "string",
+        },
+        {
+            name: "matchCondition",
+            baseName: "MatchCondition",
+            type: "MatchConditionRequest",
+        },
+        {
+            name: "password",
+            baseName: "Password",
+            type: "string",
+        },
+        {
+            name: "outFolder",
+            baseName: "OutFolder",
+            type: "string",
+        },
+        {
+            name: "outStorage",
+            baseName: "OutStorage",
+            type: "string",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return  BatchLockRequest.attributeTypeMap;
+
+    }
+
+    public sourceFolder: string;
+    public sourceStorage: string;
+    public matchCondition: MatchConditionRequest;
+    public password: string;
+    public outFolder: string;
+    public outStorage: string;
+
+    public constructor(init?: Partial< BatchLockRequest >) {  
+    
+        Object.assign(this, init);
+    } 
+}
+
+export class BatchProtectRequest  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "sourceFolder",
+            baseName: "SourceFolder",
+            type: "string",
+        },
+        {
+            name: "sourceStorage",
+            baseName: "SourceStorage",
+            type: "string",
+        },
+        {
+            name: "matchCondition",
+            baseName: "MatchCondition",
+            type: "MatchConditionRequest",
+        },
+        {
+            name: "protectionType",
+            baseName: "ProtectionType",
+            type: "string",
+        },
+        {
+            name: "password",
+            baseName: "Password",
+            type: "string",
+        },
+        {
+            name: "outFolder",
+            baseName: "OutFolder",
+            type: "string",
+        },
+        {
+            name: "outStorage",
+            baseName: "OutStorage",
+            type: "string",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return  BatchProtectRequest.attributeTypeMap;
+
+    }
+
+    public sourceFolder: string;
+    public sourceStorage: string;
+    public matchCondition: MatchConditionRequest;
+    public protectionType: string;
+    public password: string;
+    public outFolder: string;
+    public outStorage: string;
+
+    public constructor(init?: Partial< BatchProtectRequest >) {  
+    
+        Object.assign(this, init);
+    } 
+}
+   
+export class BatchSplitRequest  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "sourceFolder",
+            baseName: "SourceFolder",
+            type: "string",
+        },
+        {
+            name: "sourceStorage",
+            baseName: "SourceStorage",
+            type: "string",
+        },
+        {
+            name: "matchCondition",
+            baseName: "MatchCondition",
+            type: "MatchConditionRequest",
+        },
+        {
+            name: "format",
+            baseName: "Format",
+            type: "string",
+        },
+        {
+            name: "fromIndex",
+            baseName: "FromIndex",
+            type: "number",
+        },
+        {
+            name: "toIndex",
+            baseName: "ToIndex",
+            type: "number",
+        },
+        {
+            name: "outFolder",
+            baseName: "OutFolder",
+            type: "string",
+        },
+        {
+            name: "outStorage",
+            baseName: "OutStorage",
+            type: "string",
+        },
+        {
+            name: "saveOptions",
+            baseName: "SaveOptions",
+            type: "SaveOptions",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return  BatchSplitRequest.attributeTypeMap;
+
+    }
+
+    public sourceFolder: string;
+    public sourceStorage: string;
+    public matchCondition: MatchConditionRequest;
+    public format: string;
+    public fromIndex: number;
+    public toIndex: number;
+    public outFolder: string;
+    public outStorage: string;
+    public saveOptions: SaveOptions;
+
+    public constructor(init?: Partial< BatchSplitRequest >) {  
+    
+        Object.assign(this, init);
+    } 
+}
 
 export class Border {
 
@@ -16714,6 +16908,9 @@ const typeMap = {
     BarcodeResponse,
     BarcodeResponseList,
     BatchConvertRequest,
+    BatchLockRequest,
+    BatchProtectRequest,
+    BatchSplitRequest,
     Border,
     CalculationOptions,
     CellArea,
@@ -27152,11 +27349,10 @@ export class OAuth_PostRequest {
         Object.assign(this, init);
     } 
 }
-
-
-
-
-export class GetWorksheetAutoFilterRequest  {
+/**
+ * @deprecated 
+ */   
+export class DeleteWorkSheetPicturesRequest  {
       
     public name: string;
       
@@ -27166,734 +27362,14 @@ export class GetWorksheetAutoFilterRequest  {
       
     public storageName: string;
 
-    public constructor(init?: Partial< GetWorksheetAutoFilterRequest >) {  
+    public constructor(init?: Partial< DeleteWorkSheetPicturesRequest >) {  
         Object.assign(this, init);
     } 
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/autoFilter".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/pictures".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
         const queryParameters: any = {};
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-
-
-        
-
-        const requestOptions: request.Options = {
-            method: "GET",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class PutWorksheetDateFilterRequest  {
-      
-    public name: string;
-      
-    public sheetName: string;
-      
-    public range: string;
-      
-    public fieldIndex: number;
-      
-    public dateTimeGroupingType: string;
-      
-    public year: number;
-      
-    public month: number;
-      
-    public day: number;
-      
-    public hour: number;
-      
-    public minute: number;
-      
-    public second: number;
-      
-    public matchBlanks: boolean;
-      
-    public refresh: boolean;
-      
-    public folder: string;
-      
-    public storageName: string;
-
-    public constructor(init?: Partial< PutWorksheetDateFilterRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/autoFilter/dateFilter".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
-        const queryParameters: any = {};
-         
-        // verify required parameter 'range' is not null or undefined
-        if (this.range === null || this.range === undefined) {
-            throw new Error('Required parameter "range" was null or undefined when calling PutWorksheetDateFilter.');
-        }
-         
-        // verify required parameter 'fieldIndex' is not null or undefined
-        if (this.fieldIndex === null || this.fieldIndex === undefined) {
-            throw new Error('Required parameter "fieldIndex" was null or undefined when calling PutWorksheetDateFilter.');
-        }
-         
-        // verify required parameter 'dateTimeGroupingType' is not null or undefined
-        if (this.dateTimeGroupingType === null || this.dateTimeGroupingType === undefined) {
-            throw new Error('Required parameter "dateTimeGroupingType" was null or undefined when calling PutWorksheetDateFilter.');
-        }
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "range", this.range);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fieldIndex", this.fieldIndex);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "dateTimeGroupingType", this.dateTimeGroupingType);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "year", this.year);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "month", this.month);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "day", this.day);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "hour", this.hour);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "minute", this.minute);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "second", this.second);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "matchBlanks", this.matchBlanks);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "refresh", this.refresh);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-
-
-        
-
-        const requestOptions: request.Options = {
-            method: "PUT",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class PutWorksheetFilterRequest  {
-      
-    public name: string;
-      
-    public sheetName: string;
-      
-    public range: string;
-      
-    public fieldIndex: number;
-      
-    public criteria: string;
-      
-    public matchBlanks: boolean;
-      
-    public refresh: boolean;
-      
-    public folder: string;
-      
-    public storageName: string;
-
-    public constructor(init?: Partial< PutWorksheetFilterRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/autoFilter/filter".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
-        const queryParameters: any = {};
-         
-        // verify required parameter 'range' is not null or undefined
-        if (this.range === null || this.range === undefined) {
-            throw new Error('Required parameter "range" was null or undefined when calling PutWorksheetFilter.');
-        }
-         
-        // verify required parameter 'fieldIndex' is not null or undefined
-        if (this.fieldIndex === null || this.fieldIndex === undefined) {
-            throw new Error('Required parameter "fieldIndex" was null or undefined when calling PutWorksheetFilter.');
-        }
-         
-        // verify required parameter 'criteria' is not null or undefined
-        if (this.criteria === null || this.criteria === undefined) {
-            throw new Error('Required parameter "criteria" was null or undefined when calling PutWorksheetFilter.');
-        }
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "range", this.range);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fieldIndex", this.fieldIndex);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "criteria", this.criteria);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "matchBlanks", this.matchBlanks);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "refresh", this.refresh);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-
-
-        
-
-        const requestOptions: request.Options = {
-            method: "PUT",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class PutWorksheetIconFilterRequest  {
-      
-    public name: string;
-      
-    public sheetName: string;
-      
-    public range: string;
-      
-    public fieldIndex: number;
-      
-    public iconSetType: string;
-      
-    public iconId: number;
-      
-    public matchBlanks: boolean;
-      
-    public refresh: boolean;
-      
-    public folder: string;
-      
-    public storageName: string;
-
-    public constructor(init?: Partial< PutWorksheetIconFilterRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/autoFilter/iconFilter".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
-        const queryParameters: any = {};
-         
-        // verify required parameter 'range' is not null or undefined
-        if (this.range === null || this.range === undefined) {
-            throw new Error('Required parameter "range" was null or undefined when calling PutWorksheetIconFilter.');
-        }
-         
-        // verify required parameter 'fieldIndex' is not null or undefined
-        if (this.fieldIndex === null || this.fieldIndex === undefined) {
-            throw new Error('Required parameter "fieldIndex" was null or undefined when calling PutWorksheetIconFilter.');
-        }
-         
-        // verify required parameter 'iconSetType' is not null or undefined
-        if (this.iconSetType === null || this.iconSetType === undefined) {
-            throw new Error('Required parameter "iconSetType" was null or undefined when calling PutWorksheetIconFilter.');
-        }
-         
-        // verify required parameter 'iconId' is not null or undefined
-        if (this.iconId === null || this.iconId === undefined) {
-            throw new Error('Required parameter "iconId" was null or undefined when calling PutWorksheetIconFilter.');
-        }
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "range", this.range);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fieldIndex", this.fieldIndex);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "iconSetType", this.iconSetType);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "iconId", this.iconId);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "matchBlanks", this.matchBlanks);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "refresh", this.refresh);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-
-
-        
-
-        const requestOptions: request.Options = {
-            method: "PUT",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class PutWorksheetCustomFilterRequest  {
-      
-    public name: string;
-      
-    public sheetName: string;
-      
-    public range: string;
-      
-    public fieldIndex: number;
-      
-    public operatorType1: string;
-      
-    public criteria1: string;
-      
-    public isAnd: boolean;
-      
-    public operatorType2: string;
-      
-    public criteria2: string;
-      
-    public matchBlanks: boolean;
-      
-    public refresh: boolean;
-      
-    public folder: string;
-      
-    public storageName: string;
-
-    public constructor(init?: Partial< PutWorksheetCustomFilterRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/autoFilter/custom".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
-        const queryParameters: any = {};
-         
-        // verify required parameter 'range' is not null or undefined
-        if (this.range === null || this.range === undefined) {
-            throw new Error('Required parameter "range" was null or undefined when calling PutWorksheetCustomFilter.');
-        }
-         
-        // verify required parameter 'fieldIndex' is not null or undefined
-        if (this.fieldIndex === null || this.fieldIndex === undefined) {
-            throw new Error('Required parameter "fieldIndex" was null or undefined when calling PutWorksheetCustomFilter.');
-        }
-         
-        // verify required parameter 'operatorType1' is not null or undefined
-        if (this.operatorType1 === null || this.operatorType1 === undefined) {
-            throw new Error('Required parameter "operatorType1" was null or undefined when calling PutWorksheetCustomFilter.');
-        }
-         
-        // verify required parameter 'criteria1' is not null or undefined
-        if (this.criteria1 === null || this.criteria1 === undefined) {
-            throw new Error('Required parameter "criteria1" was null or undefined when calling PutWorksheetCustomFilter.');
-        }
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "range", this.range);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fieldIndex", this.fieldIndex);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "operatorType1", this.operatorType1);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "criteria1", this.criteria1);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "isAnd", this.isAnd);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "operatorType2", this.operatorType2);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "criteria2", this.criteria2);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "matchBlanks", this.matchBlanks);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "refresh", this.refresh);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-
-
-        
-
-        const requestOptions: request.Options = {
-            method: "PUT",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class PutWorksheetDynamicFilterRequest  {
-      
-    public name: string;
-      
-    public sheetName: string;
-      
-    public range: string;
-      
-    public fieldIndex: number;
-      
-    public dynamicFilterType: string;
-      
-    public matchBlanks: boolean;
-      
-    public refresh: boolean;
-      
-    public folder: string;
-      
-    public storageName: string;
-
-    public constructor(init?: Partial< PutWorksheetDynamicFilterRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/autoFilter/dynamicFilter".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
-        const queryParameters: any = {};
-         
-        // verify required parameter 'range' is not null or undefined
-        if (this.range === null || this.range === undefined) {
-            throw new Error('Required parameter "range" was null or undefined when calling PutWorksheetDynamicFilter.');
-        }
-         
-        // verify required parameter 'fieldIndex' is not null or undefined
-        if (this.fieldIndex === null || this.fieldIndex === undefined) {
-            throw new Error('Required parameter "fieldIndex" was null or undefined when calling PutWorksheetDynamicFilter.');
-        }
-         
-        // verify required parameter 'dynamicFilterType' is not null or undefined
-        if (this.dynamicFilterType === null || this.dynamicFilterType === undefined) {
-            throw new Error('Required parameter "dynamicFilterType" was null or undefined when calling PutWorksheetDynamicFilter.');
-        }
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "range", this.range);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fieldIndex", this.fieldIndex);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "dynamicFilterType", this.dynamicFilterType);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "matchBlanks", this.matchBlanks);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "refresh", this.refresh);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-
-
-        
-
-        const requestOptions: request.Options = {
-            method: "PUT",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class PutWorksheetFilterTop10Request  {
-      
-    public name: string;
-      
-    public sheetName: string;
-      
-    public range: string;
-      
-    public fieldIndex: number;
-      
-    public isTop: boolean;
-      
-    public isPercent: boolean;
-      
-    public itemCount: number;
-      
-    public matchBlanks: boolean;
-      
-    public refresh: boolean;
-      
-    public folder: string;
-      
-    public storageName: string;
-
-    public constructor(init?: Partial< PutWorksheetFilterTop10Request >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/autoFilter/filterTop10".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
-        const queryParameters: any = {};
-         
-        // verify required parameter 'range' is not null or undefined
-        if (this.range === null || this.range === undefined) {
-            throw new Error('Required parameter "range" was null or undefined when calling PutWorksheetFilterTop10.');
-        }
-         
-        // verify required parameter 'fieldIndex' is not null or undefined
-        if (this.fieldIndex === null || this.fieldIndex === undefined) {
-            throw new Error('Required parameter "fieldIndex" was null or undefined when calling PutWorksheetFilterTop10.');
-        }
-         
-        // verify required parameter 'isTop' is not null or undefined
-        if (this.isTop === null || this.isTop === undefined) {
-            throw new Error('Required parameter "isTop" was null or undefined when calling PutWorksheetFilterTop10.');
-        }
-         
-        // verify required parameter 'isPercent' is not null or undefined
-        if (this.isPercent === null || this.isPercent === undefined) {
-            throw new Error('Required parameter "isPercent" was null or undefined when calling PutWorksheetFilterTop10.');
-        }
-         
-        // verify required parameter 'itemCount' is not null or undefined
-        if (this.itemCount === null || this.itemCount === undefined) {
-            throw new Error('Required parameter "itemCount" was null or undefined when calling PutWorksheetFilterTop10.');
-        }
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "range", this.range);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fieldIndex", this.fieldIndex);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "isTop", this.isTop);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "isPercent", this.isPercent);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "itemCount", this.itemCount);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "matchBlanks", this.matchBlanks);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "refresh", this.refresh);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-
-
-        
-
-        const requestOptions: request.Options = {
-            method: "PUT",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class PutWorksheetColorFilterRequest  {
-      
-    public name: string;
-      
-    public sheetName: string;
-      
-    public range: string;
-      
-    public fieldIndex: number;
-      
-    public colorFilter: ColorFilterRequest;
-      
-    public matchBlanks: boolean;
-      
-    public refresh: boolean;
-      
-    public folder: string;
-      
-    public storageName: string;
-
-    public constructor(init?: Partial< PutWorksheetColorFilterRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/autoFilter/colorFilter".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
-        const queryParameters: any = {};
-         
-        // verify required parameter 'range' is not null or undefined
-        if (this.range === null || this.range === undefined) {
-            throw new Error('Required parameter "range" was null or undefined when calling PutWorksheetColorFilter.');
-        }
-         
-        // verify required parameter 'fieldIndex' is not null or undefined
-        if (this.fieldIndex === null || this.fieldIndex === undefined) {
-            throw new Error('Required parameter "fieldIndex" was null or undefined when calling PutWorksheetColorFilter.');
-        }
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "range", this.range);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fieldIndex", this.fieldIndex);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "matchBlanks", this.matchBlanks);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "refresh", this.refresh);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-
-
-        const bodyParameter = (this.colorFilter == null) ? null :   ObjectSerializer.serialize( this.colorFilter,this.colorFilter.constructor.name);
-        const requestOptions: request.Options = {
-            method: "PUT",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-            body:bodyParameter,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class PostWorksheetMatchBlanksRequest  {
-      
-    public name: string;
-      
-    public sheetName: string;
-      
-    public fieldIndex: number;
-      
-    public folder: string;
-      
-    public storageName: string;
-
-    public constructor(init?: Partial< PostWorksheetMatchBlanksRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/autoFilter/matchBlanks".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
-        const queryParameters: any = {};
-         
-        // verify required parameter 'fieldIndex' is not null or undefined
-        if (this.fieldIndex === null || this.fieldIndex === undefined) {
-            throw new Error('Required parameter "fieldIndex" was null or undefined when calling PostWorksheetMatchBlanks.');
-        }
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fieldIndex", this.fieldIndex);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-
-
-        
-
-        const requestOptions: request.Options = {
-            method: "POST",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class PostWorksheetMatchNonBlanksRequest  {
-      
-    public name: string;
-      
-    public sheetName: string;
-      
-    public fieldIndex: number;
-      
-    public folder: string;
-      
-    public storageName: string;
-
-    public constructor(init?: Partial< PostWorksheetMatchNonBlanksRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/autoFilter/matchNonBlanks".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
-        const queryParameters: any = {};
-         
-        // verify required parameter 'fieldIndex' is not null or undefined
-        if (this.fieldIndex === null || this.fieldIndex === undefined) {
-            throw new Error('Required parameter "fieldIndex" was null or undefined when calling PostWorksheetMatchNonBlanks.');
-        }
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fieldIndex", this.fieldIndex);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-
-
-        
-
-        const requestOptions: request.Options = {
-            method: "POST",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class PostWorksheetAutoFilterRefreshRequest  {
-      
-    public name: string;
-      
-    public sheetName: string;
-      
-    public folder: string;
-      
-    public storageName: string;
-
-    public constructor(init?: Partial< PostWorksheetAutoFilterRefreshRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/autoFilter/refresh".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
-        const queryParameters: any = {};
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-
-
-        
-
-        const requestOptions: request.Options = {
-            method: "POST",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class DeleteWorksheetDateFilterRequest  {
-      
-    public name: string;
-      
-    public sheetName: string;
-      
-    public fieldIndex: number;
-      
-    public dateTimeGroupingType: string;
-      
-    public year: number;
-      
-    public month: number;
-      
-    public day: number;
-      
-    public hour: number;
-      
-    public minute: number;
-      
-    public second: number;
-      
-    public folder: string;
-      
-    public storageName: string;
-
-    public constructor(init?: Partial< DeleteWorksheetDateFilterRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/autoFilter/dateFilter".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
-        const queryParameters: any = {};
-         
-        // verify required parameter 'fieldIndex' is not null or undefined
-        if (this.fieldIndex === null || this.fieldIndex === undefined) {
-            throw new Error('Required parameter "fieldIndex" was null or undefined when calling DeleteWorksheetDateFilter.');
-        }
-         
-        // verify required parameter 'dateTimeGroupingType' is not null or undefined
-        if (this.dateTimeGroupingType === null || this.dateTimeGroupingType === undefined) {
-            throw new Error('Required parameter "dateTimeGroupingType" was null or undefined when calling DeleteWorksheetDateFilter.');
-        }
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fieldIndex", this.fieldIndex);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "dateTimeGroupingType", this.dateTimeGroupingType);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "year", this.year);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "month", this.month);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "day", this.day);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "hour", this.hour);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "minute", this.minute);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "second", this.second);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
@@ -27912,164 +27388,10 @@ export class DeleteWorksheetDateFilterRequest  {
     }
 
 }
-   
-export class DeleteWorksheetFilterRequest  {
-      
-    public name: string;
-      
-    public sheetName: string;
-      
-    public fieldIndex: number;
-      
-    public criteria: string;
-      
-    public folder: string;
-      
-    public storageName: string;
-
-    public constructor(init?: Partial< DeleteWorksheetFilterRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/autoFilter/filter".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
-        const queryParameters: any = {};
-         
-        // verify required parameter 'fieldIndex' is not null or undefined
-        if (this.fieldIndex === null || this.fieldIndex === undefined) {
-            throw new Error('Required parameter "fieldIndex" was null or undefined when calling DeleteWorksheetFilter.');
-        }
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fieldIndex", this.fieldIndex);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "criteria", this.criteria);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-
-
-        
-
-        const requestOptions: request.Options = {
-            method: "DELETE",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class GetWorksheetAutoshapesRequest  {
-      
-    public name: string;
-      
-    public sheetName: string;
-      
-    public folder: string;
-      
-    public storageName: string;
-
-    public constructor(init?: Partial< GetWorksheetAutoshapesRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/autoshapes".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
-        const queryParameters: any = {};
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-
-
-        
-
-        const requestOptions: request.Options = {
-            method: "GET",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class GetWorksheetAutoshapeWithFormatRequest  {
-      
-    public name: string;
-      
-    public sheetName: string;
-      
-    public autoshapeNumber: number;
-      
-    public format: string;
-      
-    public folder: string;
-      
-    public storageName: string;
-
-    public constructor(init?: Partial< GetWorksheetAutoshapeWithFormatRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/autoshapes/{autoshapeNumber}".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "autoshapeNumber" + "}", String(this.autoshapeNumber));
-        const queryParameters: any = {};
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "format", this.format);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-
-
-        
-
-        const requestOptions: request.Options = {
-            method: "GET",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class PostBatchConvertRequest  {
-      
-    public batchConvertRequest: BatchConvertRequest;
-
-    public constructor(init?: Partial< PostBatchConvertRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/batch/convert";
-        const queryParameters: any = {};
-
-
-        const bodyParameter = (this.batchConvertRequest == null) ? null :   ObjectSerializer.serialize( this.batchConvertRequest,this.batchConvertRequest.constructor.name);
-        const requestOptions: request.Options = {
-            method: "POST",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-            body:bodyParameter,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class GetExtractBarcodesRequest  {
+/**
+ * @deprecated 
+ */   
+export class PostWorkSheetPictureRequest  {
       
     public name: string;
       
@@ -28077,174 +27399,25 @@ export class GetExtractBarcodesRequest  {
       
     public pictureIndex: number;
       
-    public folder: string;
-      
-    public storageName: string;
-
-    public constructor(init?: Partial< GetExtractBarcodesRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/pictures/{pictureIndex}/recognize".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "pictureIndex" + "}", String(this.pictureIndex));
-        const queryParameters: any = {};
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-
-
-        
-
-        const requestOptions: request.Options = {
-            method: "GET",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class PostClearContentsRequest  {
-      
-    public name: string;
-      
-    public sheetName: string;
-      
-    public range: string;
-      
-    public startRow: number;
-      
-    public startColumn: number;
-      
-    public endRow: number;
-      
-    public endColumn: number;
+    public picture: Picture;
       
     public folder: string;
       
     public storageName: string;
 
-    public constructor(init?: Partial< PostClearContentsRequest >) {  
+    public constructor(init?: Partial< PostWorkSheetPictureRequest >) {  
         Object.assign(this, init);
     } 
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/cells/clearcontents".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/pictures/{pictureIndex}".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "pictureIndex" + "}", String(this.pictureIndex));
         const queryParameters: any = {};
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "range", this.range);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "startRow", this.startRow);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "startColumn", this.startColumn);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "endRow", this.endRow);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "endColumn", this.endColumn);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
 
 
-        
-
-        const requestOptions: request.Options = {
-            method: "POST",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class PostClearFormatsRequest  {
-      
-    public name: string;
-      
-    public sheetName: string;
-      
-    public range: string;
-      
-    public startRow: number;
-      
-    public startColumn: number;
-      
-    public endRow: number;
-      
-    public endColumn: number;
-      
-    public folder: string;
-      
-    public storageName: string;
-
-    public constructor(init?: Partial< PostClearFormatsRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/cells/clearformats".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
-        const queryParameters: any = {};
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "range", this.range);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "startRow", this.startRow);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "startColumn", this.startColumn);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "endRow", this.endRow);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "endColumn", this.endColumn);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-
-
-        
-
-        const requestOptions: request.Options = {
-            method: "POST",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class PostUpdateWorksheetRangeStyleRequest  {
-      
-    public name: string;
-      
-    public sheetName: string;
-      
-    public range: string;
-      
-    public style: Style;
-      
-    public folder: string;
-      
-    public storageName: string;
-
-    public constructor(init?: Partial< PostUpdateWorksheetRangeStyleRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/cells/style".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
-        const queryParameters: any = {};
-         
-        // verify required parameter 'range' is not null or undefined
-        if (this.range === null || this.range === undefined) {
-            throw new Error('Required parameter "range" was null or undefined when calling PostUpdateWorksheetRangeStyle.');
-        }
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "range", this.range);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-
-
-        const bodyParameter = (this.style == null) ? null :   ObjectSerializer.serialize( this.style,this.style.constructor.name);
+        const bodyParameter = (this.picture == null) ? null :   ObjectSerializer.serialize( this.picture,this.picture.constructor.name);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -28259,4038 +27432,6 @@ export class PostUpdateWorksheetRangeStyleRequest  {
 
 }
    
-export class PostWorksheetMergeRequest  {
-      
-    public name: string;
-      
-    public sheetName: string;
-      
-    public startRow: number;
-      
-    public startColumn: number;
-      
-    public totalRows: number;
-      
-    public totalColumns: number;
-      
-    public folder: string;
-      
-    public storageName: string;
-
-    public constructor(init?: Partial< PostWorksheetMergeRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/cells/merge".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
-        const queryParameters: any = {};
-         
-        // verify required parameter 'startRow' is not null or undefined
-        if (this.startRow === null || this.startRow === undefined) {
-            throw new Error('Required parameter "startRow" was null or undefined when calling PostWorksheetMerge.');
-        }
-         
-        // verify required parameter 'startColumn' is not null or undefined
-        if (this.startColumn === null || this.startColumn === undefined) {
-            throw new Error('Required parameter "startColumn" was null or undefined when calling PostWorksheetMerge.');
-        }
-         
-        // verify required parameter 'totalRows' is not null or undefined
-        if (this.totalRows === null || this.totalRows === undefined) {
-            throw new Error('Required parameter "totalRows" was null or undefined when calling PostWorksheetMerge.');
-        }
-         
-        // verify required parameter 'totalColumns' is not null or undefined
-        if (this.totalColumns === null || this.totalColumns === undefined) {
-            throw new Error('Required parameter "totalColumns" was null or undefined when calling PostWorksheetMerge.');
-        }
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "startRow", this.startRow);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "startColumn", this.startColumn);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "totalRows", this.totalRows);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "totalColumns", this.totalColumns);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-
-
-        
-
-        const requestOptions: request.Options = {
-            method: "POST",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class PostWorksheetUnmergeRequest  {
-      
-    public name: string;
-      
-    public sheetName: string;
-      
-    public startRow: number;
-      
-    public startColumn: number;
-      
-    public totalRows: number;
-      
-    public totalColumns: number;
-      
-    public folder: string;
-      
-    public storageName: string;
-
-    public constructor(init?: Partial< PostWorksheetUnmergeRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/cells/unmerge".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
-        const queryParameters: any = {};
-         
-        // verify required parameter 'startRow' is not null or undefined
-        if (this.startRow === null || this.startRow === undefined) {
-            throw new Error('Required parameter "startRow" was null or undefined when calling PostWorksheetUnmerge.');
-        }
-         
-        // verify required parameter 'startColumn' is not null or undefined
-        if (this.startColumn === null || this.startColumn === undefined) {
-            throw new Error('Required parameter "startColumn" was null or undefined when calling PostWorksheetUnmerge.');
-        }
-         
-        // verify required parameter 'totalRows' is not null or undefined
-        if (this.totalRows === null || this.totalRows === undefined) {
-            throw new Error('Required parameter "totalRows" was null or undefined when calling PostWorksheetUnmerge.');
-        }
-         
-        // verify required parameter 'totalColumns' is not null or undefined
-        if (this.totalColumns === null || this.totalColumns === undefined) {
-            throw new Error('Required parameter "totalColumns" was null or undefined when calling PostWorksheetUnmerge.');
-        }
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "startRow", this.startRow);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "startColumn", this.startColumn);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "totalRows", this.totalRows);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "totalColumns", this.totalColumns);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-
-
-        
-
-        const requestOptions: request.Options = {
-            method: "POST",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class GetWorksheetCellsRequest  {
-      
-    public name: string;
-      
-    public sheetName: string;
-      
-    public offest: number;
-      
-    public count: number;
-      
-    public folder: string;
-      
-    public storageName: string;
-
-    public constructor(init?: Partial< GetWorksheetCellsRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/cells".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
-        const queryParameters: any = {};
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "offest", this.offest);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "count", this.count);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-
-
-        
-
-        const requestOptions: request.Options = {
-            method: "GET",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class GetWorksheetCellRequest  {
-      
-    public name: string;
-      
-    public sheetName: string;
-      
-    public cellOrMethodName: string;
-      
-    public folder: string;
-      
-    public storageName: string;
-
-    public constructor(init?: Partial< GetWorksheetCellRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/cells/{cellOrMethodName}".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "cellOrMethodName" + "}", String(this.cellOrMethodName));
-        const queryParameters: any = {};
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-
-
-        
-
-        const requestOptions: request.Options = {
-            method: "GET",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class GetWorksheetCellStyleRequest  {
-      
-    public name: string;
-      
-    public sheetName: string;
-      
-    public cellName: string;
-      
-    public folder: string;
-      
-    public storageName: string;
-
-    public constructor(init?: Partial< GetWorksheetCellStyleRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/cells/{cellName}/style".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "cellName" + "}", String(this.cellName));
-        const queryParameters: any = {};
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-
-
-        
-
-        const requestOptions: request.Options = {
-            method: "GET",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class PostWorksheetCellSetValueRequest  {
-      
-    public name: string;
-      
-    public sheetName: string;
-      
-    public cellName: string;
-      
-    public value: string;
-      
-    public type: string;
-      
-    public formula: string;
-      
-    public folder: string;
-      
-    public storageName: string;
-
-    public constructor(init?: Partial< PostWorksheetCellSetValueRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/cells/{cellName}".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "cellName" + "}", String(this.cellName));
-        const queryParameters: any = {};
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "value", this.value);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "type", this.type);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "formula", this.formula);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-
-
-        
-
-        const requestOptions: request.Options = {
-            method: "POST",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class PostUpdateWorksheetCellStyleRequest  {
-      
-    public name: string;
-      
-    public sheetName: string;
-      
-    public cellName: string;
-      
-    public style: Style;
-      
-    public folder: string;
-      
-    public storageName: string;
-
-    public constructor(init?: Partial< PostUpdateWorksheetCellStyleRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/cells/{cellName}/style".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "cellName" + "}", String(this.cellName));
-        const queryParameters: any = {};
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-
-
-        const bodyParameter = (this.style == null) ? null :   ObjectSerializer.serialize( this.style,this.style.constructor.name);
-        const requestOptions: request.Options = {
-            method: "POST",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-            body:bodyParameter,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class PostSetCellRangeValueRequest  {
-      
-    public name: string;
-      
-    public sheetName: string;
-      
-    public cellarea: string;
-      
-    public value: string;
-      
-    public type: string;
-      
-    public folder: string;
-      
-    public storageName: string;
-
-    public constructor(init?: Partial< PostSetCellRangeValueRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/cells".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
-        const queryParameters: any = {};
-         
-        // verify required parameter 'cellarea' is not null or undefined
-        if (this.cellarea === null || this.cellarea === undefined) {
-            throw new Error('Required parameter "cellarea" was null or undefined when calling PostSetCellRangeValue.');
-        }
-         
-        // verify required parameter 'value' is not null or undefined
-        if (this.value === null || this.value === undefined) {
-            throw new Error('Required parameter "value" was null or undefined when calling PostSetCellRangeValue.');
-        }
-         
-        // verify required parameter 'type' is not null or undefined
-        if (this.type === null || this.type === undefined) {
-            throw new Error('Required parameter "type" was null or undefined when calling PostSetCellRangeValue.');
-        }
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "cellarea", this.cellarea);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "value", this.value);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "type", this.type);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-
-
-        
-
-        const requestOptions: request.Options = {
-            method: "POST",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class PostCopyCellIntoCellRequest  {
-      
-    public name: string;
-      
-    public destCellName: string;
-      
-    public sheetName: string;
-      
-    public worksheet: string;
-      
-    public cellname: string;
-      
-    public row: number;
-      
-    public column: number;
-      
-    public folder: string;
-      
-    public storageName: string;
-
-    public constructor(init?: Partial< PostCopyCellIntoCellRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/cells/{destCellName}/copy".replace("{" + "name" + "}", String(this.name)).replace("{" + "destCellName" + "}", String(this.destCellName)).replace("{" + "sheetName" + "}", String(this.sheetName));
-        const queryParameters: any = {};
-         
-        // verify required parameter 'worksheet' is not null or undefined
-        if (this.worksheet === null || this.worksheet === undefined) {
-            throw new Error('Required parameter "worksheet" was null or undefined when calling PostCopyCellIntoCell.');
-        }
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "worksheet", this.worksheet);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "cellname", this.cellname);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "row", this.row);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "column", this.column);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-
-
-        
-
-        const requestOptions: request.Options = {
-            method: "POST",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class GetCellHtmlStringRequest  {
-      
-    public name: string;
-      
-    public sheetName: string;
-      
-    public cellName: string;
-      
-    public folder: string;
-      
-    public storageName: string;
-
-    public constructor(init?: Partial< GetCellHtmlStringRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/cells/{cellName}/htmlstring".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "cellName" + "}", String(this.cellName));
-        const queryParameters: any = {};
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-
-
-        
-
-        const requestOptions: request.Options = {
-            method: "GET",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class PostSetCellHtmlStringRequest  {
-      
-    public name: string;
-      
-    public sheetName: string;
-      
-    public cellName: string;
-      
-    public folder: string;
-      
-    public storageName: string;
-
-    public constructor(init?: Partial< PostSetCellHtmlStringRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/cells/{cellName}/htmlstring".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "cellName" + "}", String(this.cellName));
-        const queryParameters: any = {};
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-
-
-        
-
-        const requestOptions: request.Options = {
-            method: "POST",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class PostCellCalculateRequest  {
-      
-    public name: string;
-      
-    public sheetName: string;
-      
-    public cellName: string;
-      
-    public options: CalculationOptions;
-      
-    public folder: string;
-      
-    public storageName: string;
-
-    public constructor(init?: Partial< PostCellCalculateRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/cells/{cellName}/calculate".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "cellName" + "}", String(this.cellName));
-        const queryParameters: any = {};
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-
-
-        const bodyParameter = (this.options == null) ? null :   ObjectSerializer.serialize( this.options,this.options.constructor.name);
-        const requestOptions: request.Options = {
-            method: "POST",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-            body:bodyParameter,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class PostCellCharactersRequest  {
-      
-    public name: string;
-      
-    public sheetName: string;
-      
-    public cellName: string;
-      
-    public options: Array<FontSetting>;
-      
-    public folder: string;
-      
-    public storageName: string;
-
-    public constructor(init?: Partial< PostCellCharactersRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/cells/{cellName}/characters".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "cellName" + "}", String(this.cellName));
-        const queryParameters: any = {};
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-
-
-        const bodyParameter = (this.options == null) ? null :   ObjectSerializer.serialize( this.options,this.options.constructor.name);
-        const requestOptions: request.Options = {
-            method: "POST",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-            body:bodyParameter,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class GetWorksheetColumnsRequest  {
-      
-    public name: string;
-      
-    public sheetName: string;
-      
-    public offset: number;
-      
-    public count: number;
-      
-    public folder: string;
-      
-    public storageName: string;
-
-    public constructor(init?: Partial< GetWorksheetColumnsRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/cells/columns/".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
-        const queryParameters: any = {};
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "offset", this.offset);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "count", this.count);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-
-
-        
-
-        const requestOptions: request.Options = {
-            method: "GET",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class PostSetWorksheetColumnWidthRequest  {
-      
-    public name: string;
-      
-    public sheetName: string;
-      
-    public columnIndex: number;
-      
-    public width: number;
-      
-    public count: number;
-      
-    public folder: string;
-      
-    public storageName: string;
-
-    public constructor(init?: Partial< PostSetWorksheetColumnWidthRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/cells/columns/{columnIndex}".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "columnIndex" + "}", String(this.columnIndex));
-        const queryParameters: any = {};
-         
-        // verify required parameter 'width' is not null or undefined
-        if (this.width === null || this.width === undefined) {
-            throw new Error('Required parameter "width" was null or undefined when calling PostSetWorksheetColumnWidth.');
-        }
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "width", this.width);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "count", this.count);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-
-
-        
-
-        const requestOptions: request.Options = {
-            method: "POST",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class GetWorksheetColumnRequest  {
-      
-    public name: string;
-      
-    public sheetName: string;
-      
-    public columnIndex: number;
-      
-    public folder: string;
-      
-    public storageName: string;
-
-    public constructor(init?: Partial< GetWorksheetColumnRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/cells/columns/{columnIndex}".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "columnIndex" + "}", String(this.columnIndex));
-        const queryParameters: any = {};
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-
-
-        
-
-        const requestOptions: request.Options = {
-            method: "GET",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class PutInsertWorksheetColumnsRequest  {
-      
-    public name: string;
-      
-    public sheetName: string;
-      
-    public columnIndex: number;
-      
-    public columns: number;
-      
-    public updateReference: boolean;
-      
-    public folder: string;
-      
-    public storageName: string;
-
-    public constructor(init?: Partial< PutInsertWorksheetColumnsRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/cells/columns/{columnIndex}".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "columnIndex" + "}", String(this.columnIndex));
-        const queryParameters: any = {};
-         
-        // verify required parameter 'columns' is not null or undefined
-        if (this.columns === null || this.columns === undefined) {
-            throw new Error('Required parameter "columns" was null or undefined when calling PutInsertWorksheetColumns.');
-        }
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "columns", this.columns);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "updateReference", this.updateReference);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-
-
-        
-
-        const requestOptions: request.Options = {
-            method: "PUT",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class DeleteWorksheetColumnsRequest  {
-      
-    public name: string;
-      
-    public sheetName: string;
-      
-    public columnIndex: number;
-      
-    public columns: number;
-      
-    public updateReference: boolean;
-      
-    public folder: string;
-      
-    public storageName: string;
-
-    public constructor(init?: Partial< DeleteWorksheetColumnsRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/cells/columns/{columnIndex}".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "columnIndex" + "}", String(this.columnIndex));
-        const queryParameters: any = {};
-         
-        // verify required parameter 'columns' is not null or undefined
-        if (this.columns === null || this.columns === undefined) {
-            throw new Error('Required parameter "columns" was null or undefined when calling DeleteWorksheetColumns.');
-        }
-         
-        // verify required parameter 'updateReference' is not null or undefined
-        if (this.updateReference === null || this.updateReference === undefined) {
-            throw new Error('Required parameter "updateReference" was null or undefined when calling DeleteWorksheetColumns.');
-        }
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "columns", this.columns);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "updateReference", this.updateReference);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-
-
-        
-
-        const requestOptions: request.Options = {
-            method: "DELETE",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class PostHideWorksheetColumnsRequest  {
-      
-    public name: string;
-      
-    public sheetName: string;
-      
-    public startColumn: number;
-      
-    public totalColumns: number;
-      
-    public folder: string;
-      
-    public storageName: string;
-
-    public constructor(init?: Partial< PostHideWorksheetColumnsRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/cells/columns/hide".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
-        const queryParameters: any = {};
-         
-        // verify required parameter 'startColumn' is not null or undefined
-        if (this.startColumn === null || this.startColumn === undefined) {
-            throw new Error('Required parameter "startColumn" was null or undefined when calling PostHideWorksheetColumns.');
-        }
-         
-        // verify required parameter 'totalColumns' is not null or undefined
-        if (this.totalColumns === null || this.totalColumns === undefined) {
-            throw new Error('Required parameter "totalColumns" was null or undefined when calling PostHideWorksheetColumns.');
-        }
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "startColumn", this.startColumn);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "totalColumns", this.totalColumns);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-
-
-        
-
-        const requestOptions: request.Options = {
-            method: "POST",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class PostUnhideWorksheetColumnsRequest  {
-      
-    public name: string;
-      
-    public sheetName: string;
-      
-    public startColumn: number;
-      
-    public totalColumns: number;
-      
-    public width: number;
-      
-    public folder: string;
-      
-    public storageName: string;
-
-    public constructor(init?: Partial< PostUnhideWorksheetColumnsRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/cells/columns/unhide".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
-        const queryParameters: any = {};
-         
-        // verify required parameter 'startColumn' is not null or undefined
-        if (this.startColumn === null || this.startColumn === undefined) {
-            throw new Error('Required parameter "startColumn" was null or undefined when calling PostUnhideWorksheetColumns.');
-        }
-         
-        // verify required parameter 'totalColumns' is not null or undefined
-        if (this.totalColumns === null || this.totalColumns === undefined) {
-            throw new Error('Required parameter "totalColumns" was null or undefined when calling PostUnhideWorksheetColumns.');
-        }
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "startColumn", this.startColumn);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "totalColumns", this.totalColumns);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "width", this.width);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-
-
-        
-
-        const requestOptions: request.Options = {
-            method: "POST",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class PostGroupWorksheetColumnsRequest  {
-      
-    public name: string;
-      
-    public sheetName: string;
-      
-    public firstIndex: number;
-      
-    public lastIndex: number;
-      
-    public hide: boolean;
-      
-    public folder: string;
-      
-    public storageName: string;
-
-    public constructor(init?: Partial< PostGroupWorksheetColumnsRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/cells/columns/group".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
-        const queryParameters: any = {};
-         
-        // verify required parameter 'firstIndex' is not null or undefined
-        if (this.firstIndex === null || this.firstIndex === undefined) {
-            throw new Error('Required parameter "firstIndex" was null or undefined when calling PostGroupWorksheetColumns.');
-        }
-         
-        // verify required parameter 'lastIndex' is not null or undefined
-        if (this.lastIndex === null || this.lastIndex === undefined) {
-            throw new Error('Required parameter "lastIndex" was null or undefined when calling PostGroupWorksheetColumns.');
-        }
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "firstIndex", this.firstIndex);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "lastIndex", this.lastIndex);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "hide", this.hide);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-
-
-        
-
-        const requestOptions: request.Options = {
-            method: "POST",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class PostUngroupWorksheetColumnsRequest  {
-      
-    public name: string;
-      
-    public sheetName: string;
-      
-    public firstIndex: number;
-      
-    public lastIndex: number;
-      
-    public folder: string;
-      
-    public storageName: string;
-
-    public constructor(init?: Partial< PostUngroupWorksheetColumnsRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/cells/columns/ungroup".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
-        const queryParameters: any = {};
-         
-        // verify required parameter 'firstIndex' is not null or undefined
-        if (this.firstIndex === null || this.firstIndex === undefined) {
-            throw new Error('Required parameter "firstIndex" was null or undefined when calling PostUngroupWorksheetColumns.');
-        }
-         
-        // verify required parameter 'lastIndex' is not null or undefined
-        if (this.lastIndex === null || this.lastIndex === undefined) {
-            throw new Error('Required parameter "lastIndex" was null or undefined when calling PostUngroupWorksheetColumns.');
-        }
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "firstIndex", this.firstIndex);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "lastIndex", this.lastIndex);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-
-
-        
-
-        const requestOptions: request.Options = {
-            method: "POST",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class PostCopyWorksheetColumnsRequest  {
-      
-    public name: string;
-      
-    public sheetName: string;
-      
-    public sourceColumnIndex: number;
-      
-    public destinationColumnIndex: number;
-      
-    public columnNumber: number;
-      
-    public worksheet: string;
-      
-    public folder: string;
-      
-    public storageName: string;
-
-    public constructor(init?: Partial< PostCopyWorksheetColumnsRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/cells/columns/copy".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
-        const queryParameters: any = {};
-         
-        // verify required parameter 'sourceColumnIndex' is not null or undefined
-        if (this.sourceColumnIndex === null || this.sourceColumnIndex === undefined) {
-            throw new Error('Required parameter "sourceColumnIndex" was null or undefined when calling PostCopyWorksheetColumns.');
-        }
-         
-        // verify required parameter 'destinationColumnIndex' is not null or undefined
-        if (this.destinationColumnIndex === null || this.destinationColumnIndex === undefined) {
-            throw new Error('Required parameter "destinationColumnIndex" was null or undefined when calling PostCopyWorksheetColumns.');
-        }
-         
-        // verify required parameter 'columnNumber' is not null or undefined
-        if (this.columnNumber === null || this.columnNumber === undefined) {
-            throw new Error('Required parameter "columnNumber" was null or undefined when calling PostCopyWorksheetColumns.');
-        }
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "sourceColumnIndex", this.sourceColumnIndex);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "destinationColumnIndex", this.destinationColumnIndex);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "columnNumber", this.columnNumber);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "worksheet", this.worksheet);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-
-
-        
-
-        const requestOptions: request.Options = {
-            method: "POST",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class PostColumnStyleRequest  {
-      
-    public name: string;
-      
-    public sheetName: string;
-      
-    public columnIndex: number;
-      
-    public style: Style;
-      
-    public folder: string;
-      
-    public storageName: string;
-
-    public constructor(init?: Partial< PostColumnStyleRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/cells/columns/{columnIndex}/style".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "columnIndex" + "}", String(this.columnIndex));
-        const queryParameters: any = {};
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-
-
-        const bodyParameter = (this.style == null) ? null :   ObjectSerializer.serialize( this.style,this.style.constructor.name);
-        const requestOptions: request.Options = {
-            method: "POST",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-            body:bodyParameter,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class GetWorksheetRowsRequest  {
-      
-    public name: string;
-      
-    public sheetName: string;
-      
-    public offset: number;
-      
-    public count: number;
-      
-    public folder: string;
-      
-    public storageName: string;
-
-    public constructor(init?: Partial< GetWorksheetRowsRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/cells/rows/".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
-        const queryParameters: any = {};
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "offset", this.offset);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "count", this.count);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-
-
-        
-
-        const requestOptions: request.Options = {
-            method: "GET",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class GetWorksheetRowRequest  {
-      
-    public name: string;
-      
-    public sheetName: string;
-      
-    public rowIndex: number;
-      
-    public folder: string;
-      
-    public storageName: string;
-
-    public constructor(init?: Partial< GetWorksheetRowRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/cells/rows/{rowIndex}".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "rowIndex" + "}", String(this.rowIndex));
-        const queryParameters: any = {};
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-
-
-        
-
-        const requestOptions: request.Options = {
-            method: "GET",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class DeleteWorksheetRowRequest  {
-      
-    public name: string;
-      
-    public sheetName: string;
-      
-    public rowIndex: number;
-      
-    public folder: string;
-      
-    public storageName: string;
-
-    public constructor(init?: Partial< DeleteWorksheetRowRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/cells/rows/{rowIndex}".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "rowIndex" + "}", String(this.rowIndex));
-        const queryParameters: any = {};
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-
-
-        
-
-        const requestOptions: request.Options = {
-            method: "DELETE",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class DeleteWorksheetRowsRequest  {
-      
-    public name: string;
-      
-    public sheetName: string;
-      
-    public startrow: number;
-      
-    public totalRows: number;
-      
-    public updateReference: boolean;
-      
-    public folder: string;
-      
-    public storageName: string;
-
-    public constructor(init?: Partial< DeleteWorksheetRowsRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/cells/rows/".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
-        const queryParameters: any = {};
-         
-        // verify required parameter 'startrow' is not null or undefined
-        if (this.startrow === null || this.startrow === undefined) {
-            throw new Error('Required parameter "startrow" was null or undefined when calling DeleteWorksheetRows.');
-        }
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "startrow", this.startrow);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "totalRows", this.totalRows);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "updateReference", this.updateReference);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-
-
-        
-
-        const requestOptions: request.Options = {
-            method: "DELETE",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class PutInsertWorksheetRowsRequest  {
-      
-    public name: string;
-      
-    public sheetName: string;
-      
-    public startrow: number;
-      
-    public totalRows: number;
-      
-    public updateReference: boolean;
-      
-    public folder: string;
-      
-    public storageName: string;
-
-    public constructor(init?: Partial< PutInsertWorksheetRowsRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/cells/rows/".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
-        const queryParameters: any = {};
-         
-        // verify required parameter 'startrow' is not null or undefined
-        if (this.startrow === null || this.startrow === undefined) {
-            throw new Error('Required parameter "startrow" was null or undefined when calling PutInsertWorksheetRows.');
-        }
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "startrow", this.startrow);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "totalRows", this.totalRows);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "updateReference", this.updateReference);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-
-
-        
-
-        const requestOptions: request.Options = {
-            method: "PUT",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class PutInsertWorksheetRowRequest  {
-      
-    public name: string;
-      
-    public sheetName: string;
-      
-    public rowIndex: number;
-      
-    public folder: string;
-      
-    public storageName: string;
-
-    public constructor(init?: Partial< PutInsertWorksheetRowRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/cells/rows/{rowIndex}".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "rowIndex" + "}", String(this.rowIndex));
-        const queryParameters: any = {};
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-
-
-        
-
-        const requestOptions: request.Options = {
-            method: "PUT",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class PostUpdateWorksheetRowRequest  {
-      
-    public name: string;
-      
-    public sheetName: string;
-      
-    public rowIndex: number;
-      
-    public height: number;
-      
-    public count: number;
-      
-    public folder: string;
-      
-    public storageName: string;
-
-    public constructor(init?: Partial< PostUpdateWorksheetRowRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/cells/rows/{rowIndex}".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "rowIndex" + "}", String(this.rowIndex));
-        const queryParameters: any = {};
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "height", this.height);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "count", this.count);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-
-
-        
-
-        const requestOptions: request.Options = {
-            method: "POST",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class PostHideWorksheetRowsRequest  {
-      
-    public name: string;
-      
-    public sheetName: string;
-      
-    public startrow: number;
-      
-    public totalRows: number;
-      
-    public folder: string;
-      
-    public storageName: string;
-
-    public constructor(init?: Partial< PostHideWorksheetRowsRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/cells/rows/hide".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
-        const queryParameters: any = {};
-         
-        // verify required parameter 'startrow' is not null or undefined
-        if (this.startrow === null || this.startrow === undefined) {
-            throw new Error('Required parameter "startrow" was null or undefined when calling PostHideWorksheetRows.');
-        }
-         
-        // verify required parameter 'totalRows' is not null or undefined
-        if (this.totalRows === null || this.totalRows === undefined) {
-            throw new Error('Required parameter "totalRows" was null or undefined when calling PostHideWorksheetRows.');
-        }
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "startrow", this.startrow);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "totalRows", this.totalRows);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-
-
-        
-
-        const requestOptions: request.Options = {
-            method: "POST",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class PostUnhideWorksheetRowsRequest  {
-      
-    public name: string;
-      
-    public sheetName: string;
-      
-    public startrow: number;
-      
-    public totalRows: number;
-      
-    public height: number;
-      
-    public folder: string;
-      
-    public storageName: string;
-
-    public constructor(init?: Partial< PostUnhideWorksheetRowsRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/cells/rows/unhide".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
-        const queryParameters: any = {};
-         
-        // verify required parameter 'startrow' is not null or undefined
-        if (this.startrow === null || this.startrow === undefined) {
-            throw new Error('Required parameter "startrow" was null or undefined when calling PostUnhideWorksheetRows.');
-        }
-         
-        // verify required parameter 'totalRows' is not null or undefined
-        if (this.totalRows === null || this.totalRows === undefined) {
-            throw new Error('Required parameter "totalRows" was null or undefined when calling PostUnhideWorksheetRows.');
-        }
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "startrow", this.startrow);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "totalRows", this.totalRows);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "height", this.height);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-
-
-        
-
-        const requestOptions: request.Options = {
-            method: "POST",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class PostGroupWorksheetRowsRequest  {
-      
-    public name: string;
-      
-    public sheetName: string;
-      
-    public firstIndex: number;
-      
-    public lastIndex: number;
-      
-    public hide: boolean;
-      
-    public folder: string;
-      
-    public storageName: string;
-
-    public constructor(init?: Partial< PostGroupWorksheetRowsRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/cells/rows/group".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
-        const queryParameters: any = {};
-         
-        // verify required parameter 'firstIndex' is not null or undefined
-        if (this.firstIndex === null || this.firstIndex === undefined) {
-            throw new Error('Required parameter "firstIndex" was null or undefined when calling PostGroupWorksheetRows.');
-        }
-         
-        // verify required parameter 'lastIndex' is not null or undefined
-        if (this.lastIndex === null || this.lastIndex === undefined) {
-            throw new Error('Required parameter "lastIndex" was null or undefined when calling PostGroupWorksheetRows.');
-        }
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "firstIndex", this.firstIndex);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "lastIndex", this.lastIndex);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "hide", this.hide);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-
-
-        
-
-        const requestOptions: request.Options = {
-            method: "POST",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class PostUngroupWorksheetRowsRequest  {
-      
-    public name: string;
-      
-    public sheetName: string;
-      
-    public firstIndex: number;
-      
-    public lastIndex: number;
-      
-    public isAll: boolean;
-      
-    public folder: string;
-      
-    public storageName: string;
-
-    public constructor(init?: Partial< PostUngroupWorksheetRowsRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/cells/rows/ungroup".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
-        const queryParameters: any = {};
-         
-        // verify required parameter 'firstIndex' is not null or undefined
-        if (this.firstIndex === null || this.firstIndex === undefined) {
-            throw new Error('Required parameter "firstIndex" was null or undefined when calling PostUngroupWorksheetRows.');
-        }
-         
-        // verify required parameter 'lastIndex' is not null or undefined
-        if (this.lastIndex === null || this.lastIndex === undefined) {
-            throw new Error('Required parameter "lastIndex" was null or undefined when calling PostUngroupWorksheetRows.');
-        }
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "firstIndex", this.firstIndex);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "lastIndex", this.lastIndex);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "isAll", this.isAll);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-
-
-        
-
-        const requestOptions: request.Options = {
-            method: "POST",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class PostCopyWorksheetRowsRequest  {
-      
-    public name: string;
-      
-    public sheetName: string;
-      
-    public sourceRowIndex: number;
-      
-    public destinationRowIndex: number;
-      
-    public rowNumber: number;
-      
-    public worksheet: string;
-      
-    public folder: string;
-      
-    public storageName: string;
-
-    public constructor(init?: Partial< PostCopyWorksheetRowsRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/cells/rows/copy".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
-        const queryParameters: any = {};
-         
-        // verify required parameter 'sourceRowIndex' is not null or undefined
-        if (this.sourceRowIndex === null || this.sourceRowIndex === undefined) {
-            throw new Error('Required parameter "sourceRowIndex" was null or undefined when calling PostCopyWorksheetRows.');
-        }
-         
-        // verify required parameter 'destinationRowIndex' is not null or undefined
-        if (this.destinationRowIndex === null || this.destinationRowIndex === undefined) {
-            throw new Error('Required parameter "destinationRowIndex" was null or undefined when calling PostCopyWorksheetRows.');
-        }
-         
-        // verify required parameter 'rowNumber' is not null or undefined
-        if (this.rowNumber === null || this.rowNumber === undefined) {
-            throw new Error('Required parameter "rowNumber" was null or undefined when calling PostCopyWorksheetRows.');
-        }
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "sourceRowIndex", this.sourceRowIndex);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "destinationRowIndex", this.destinationRowIndex);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "rowNumber", this.rowNumber);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "worksheet", this.worksheet);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-
-
-        
-
-        const requestOptions: request.Options = {
-            method: "POST",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class PostRowStyleRequest  {
-      
-    public name: string;
-      
-    public sheetName: string;
-      
-    public rowIndex: number;
-      
-    public style: Style;
-      
-    public folder: string;
-      
-    public storageName: string;
-
-    public constructor(init?: Partial< PostRowStyleRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/cells/rows/{rowIndex}/style".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "rowIndex" + "}", String(this.rowIndex));
-        const queryParameters: any = {};
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-
-
-        const bodyParameter = (this.style == null) ? null :   ObjectSerializer.serialize( this.style,this.style.constructor.name);
-        const requestOptions: request.Options = {
-            method: "POST",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-            body:bodyParameter,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class GetCellsCloudServicesHealthCheckRequest  {
-
-    public constructor(init?: Partial< GetCellsCloudServicesHealthCheckRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells";
-        const queryParameters: any = {};
-
-
-        
-
-        const requestOptions: request.Options = {
-            method: "GET",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class GetCellsCloudServiceStatusRequest  {
-
-    public constructor(init?: Partial< GetCellsCloudServiceStatusRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/status/check";
-        const queryParameters: any = {};
-
-
-        
-
-        const requestOptions: request.Options = {
-            method: "GET",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class GetChartAreaRequest  {
-      
-    public name: string;
-      
-    public sheetName: string;
-      
-    public chartIndex: number;
-      
-    public folder: string;
-      
-    public storageName: string;
-
-    public constructor(init?: Partial< GetChartAreaRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/charts/{chartIndex}/chartArea".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "chartIndex" + "}", String(this.chartIndex));
-        const queryParameters: any = {};
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-
-
-        
-
-        const requestOptions: request.Options = {
-            method: "GET",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class GetChartAreaFillFormatRequest  {
-      
-    public name: string;
-      
-    public sheetName: string;
-      
-    public chartIndex: number;
-      
-    public folder: string;
-      
-    public storageName: string;
-
-    public constructor(init?: Partial< GetChartAreaFillFormatRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/charts/{chartIndex}/chartArea/fillFormat".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "chartIndex" + "}", String(this.chartIndex));
-        const queryParameters: any = {};
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-
-
-        
-
-        const requestOptions: request.Options = {
-            method: "GET",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class GetChartAreaBorderRequest  {
-      
-    public name: string;
-      
-    public sheetName: string;
-      
-    public chartIndex: number;
-      
-    public folder: string;
-      
-    public storageName: string;
-
-    public constructor(init?: Partial< GetChartAreaBorderRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/charts/{chartIndex}/chartArea/border".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "chartIndex" + "}", String(this.chartIndex));
-        const queryParameters: any = {};
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-
-
-        
-
-        const requestOptions: request.Options = {
-            method: "GET",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class GetWorksheetChartsRequest  {
-      
-    public name: string;
-      
-    public sheetName: string;
-      
-    public folder: string;
-      
-    public storageName: string;
-
-    public constructor(init?: Partial< GetWorksheetChartsRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/charts".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
-        const queryParameters: any = {};
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-
-
-        
-
-        const requestOptions: request.Options = {
-            method: "GET",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class GetWorksheetChartRequest  {
-      
-    public name: string;
-      
-    public sheetName: string;
-      
-    public chartNumber: number;
-      
-    public format: string;
-      
-    public folder: string;
-      
-    public storageName: string;
-
-    public constructor(init?: Partial< GetWorksheetChartRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/charts/{chartNumber}".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "chartNumber" + "}", String(this.chartNumber));
-        const queryParameters: any = {};
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "format", this.format);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-
-
-        
-
-        const requestOptions: request.Options = {
-            method: "GET",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class PutWorksheetAddChartRequest  {
-      
-    public name: string;
-      
-    public sheetName: string;
-      
-    public chartType: string;
-      
-    public upperLeftRow: number;
-      
-    public upperLeftColumn: number;
-      
-    public lowerRightRow: number;
-      
-    public lowerRightColumn: number;
-      
-    public area: string;
-      
-    public isVertical: boolean;
-      
-    public categoryData: string;
-      
-    public isAutoGetSerialName: boolean;
-      
-    public title: string;
-      
-    public folder: string;
-      
-    public dataLabels: boolean;
-      
-    public dataLabelsPosition: string;
-      
-    public pivotTableSheet: string;
-      
-    public pivotTableName: string;
-      
-    public storageName: string;
-
-    public constructor(init?: Partial< PutWorksheetAddChartRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/charts".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
-        const queryParameters: any = {};
-         
-        // verify required parameter 'chartType' is not null or undefined
-        if (this.chartType === null || this.chartType === undefined) {
-            throw new Error('Required parameter "chartType" was null or undefined when calling PutWorksheetAddChart.');
-        }
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "chartType", this.chartType);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "upperLeftRow", this.upperLeftRow);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "upperLeftColumn", this.upperLeftColumn);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "lowerRightRow", this.lowerRightRow);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "lowerRightColumn", this.lowerRightColumn);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "area", this.area);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "isVertical", this.isVertical);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "categoryData", this.categoryData);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "isAutoGetSerialName", this.isAutoGetSerialName);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "title", this.title);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "dataLabels", this.dataLabels);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "dataLabelsPosition", this.dataLabelsPosition);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "pivotTableSheet", this.pivotTableSheet);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "pivotTableName", this.pivotTableName);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-
-
-        
-
-        const requestOptions: request.Options = {
-            method: "PUT",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class DeleteWorksheetDeleteChartRequest  {
-      
-    public name: string;
-      
-    public sheetName: string;
-      
-    public chartIndex: number;
-      
-    public folder: string;
-      
-    public storageName: string;
-
-    public constructor(init?: Partial< DeleteWorksheetDeleteChartRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/charts/{chartIndex}".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "chartIndex" + "}", String(this.chartIndex));
-        const queryParameters: any = {};
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-
-
-        
-
-        const requestOptions: request.Options = {
-            method: "DELETE",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class PostWorksheetChartRequest  {
-      
-    public name: string;
-      
-    public sheetName: string;
-      
-    public chartIndex: number;
-      
-    public chart: Chart;
-      
-    public folder: string;
-      
-    public storageName: string;
-
-    public constructor(init?: Partial< PostWorksheetChartRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/charts/{chartIndex}".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "chartIndex" + "}", String(this.chartIndex));
-        const queryParameters: any = {};
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-
-
-        const bodyParameter = (this.chart == null) ? null :   ObjectSerializer.serialize( this.chart,this.chart.constructor.name);
-        const requestOptions: request.Options = {
-            method: "POST",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-            body:bodyParameter,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class GetWorksheetChartLegendRequest  {
-      
-    public name: string;
-      
-    public sheetName: string;
-      
-    public chartIndex: number;
-      
-    public folder: string;
-      
-    public storageName: string;
-
-    public constructor(init?: Partial< GetWorksheetChartLegendRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/charts/{chartIndex}/legend".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "chartIndex" + "}", String(this.chartIndex));
-        const queryParameters: any = {};
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-
-
-        
-
-        const requestOptions: request.Options = {
-            method: "GET",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class PostWorksheetChartLegendRequest  {
-      
-    public name: string;
-      
-    public sheetName: string;
-      
-    public chartIndex: number;
-      
-    public legend: Legend;
-      
-    public folder: string;
-      
-    public storageName: string;
-
-    public constructor(init?: Partial< PostWorksheetChartLegendRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/charts/{chartIndex}/legend".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "chartIndex" + "}", String(this.chartIndex));
-        const queryParameters: any = {};
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-
-
-        const bodyParameter = (this.legend == null) ? null :   ObjectSerializer.serialize( this.legend,this.legend.constructor.name);
-        const requestOptions: request.Options = {
-            method: "POST",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-            body:bodyParameter,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class PutWorksheetChartLegendRequest  {
-      
-    public name: string;
-      
-    public sheetName: string;
-      
-    public chartIndex: number;
-      
-    public folder: string;
-      
-    public storageName: string;
-
-    public constructor(init?: Partial< PutWorksheetChartLegendRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/charts/{chartIndex}/legend".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "chartIndex" + "}", String(this.chartIndex));
-        const queryParameters: any = {};
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-
-
-        
-
-        const requestOptions: request.Options = {
-            method: "PUT",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class DeleteWorksheetChartLegendRequest  {
-      
-    public name: string;
-      
-    public sheetName: string;
-      
-    public chartIndex: number;
-      
-    public folder: string;
-      
-    public storageName: string;
-
-    public constructor(init?: Partial< DeleteWorksheetChartLegendRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/charts/{chartIndex}/legend".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "chartIndex" + "}", String(this.chartIndex));
-        const queryParameters: any = {};
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-
-
-        
-
-        const requestOptions: request.Options = {
-            method: "DELETE",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class DeleteWorksheetClearChartsRequest  {
-      
-    public name: string;
-      
-    public sheetName: string;
-      
-    public folder: string;
-      
-    public storageName: string;
-
-    public constructor(init?: Partial< DeleteWorksheetClearChartsRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/charts".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
-        const queryParameters: any = {};
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-
-
-        
-
-        const requestOptions: request.Options = {
-            method: "DELETE",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class GetWorksheetChartTitleRequest  {
-      
-    public name: string;
-      
-    public sheetName: string;
-      
-    public chartIndex: number;
-      
-    public folder: string;
-      
-    public storageName: string;
-
-    public constructor(init?: Partial< GetWorksheetChartTitleRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/charts/{chartIndex}/title".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "chartIndex" + "}", String(this.chartIndex));
-        const queryParameters: any = {};
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-
-
-        
-
-        const requestOptions: request.Options = {
-            method: "GET",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class PostWorksheetChartTitleRequest  {
-      
-    public name: string;
-      
-    public sheetName: string;
-      
-    public chartIndex: number;
-      
-    public title: Title;
-      
-    public folder: string;
-      
-    public storageName: string;
-
-    public constructor(init?: Partial< PostWorksheetChartTitleRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/charts/{chartIndex}/title".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "chartIndex" + "}", String(this.chartIndex));
-        const queryParameters: any = {};
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-
-
-        const bodyParameter = (this.title == null) ? null :   ObjectSerializer.serialize( this.title,this.title.constructor.name);
-        const requestOptions: request.Options = {
-            method: "POST",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-            body:bodyParameter,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class PutWorksheetChartTitleRequest  {
-      
-    public name: string;
-      
-    public sheetName: string;
-      
-    public chartIndex: number;
-      
-    public title: Title;
-      
-    public folder: string;
-      
-    public storageName: string;
-
-    public constructor(init?: Partial< PutWorksheetChartTitleRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/charts/{chartIndex}/title".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "chartIndex" + "}", String(this.chartIndex));
-        const queryParameters: any = {};
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-
-
-        const bodyParameter = (this.title == null) ? null :   ObjectSerializer.serialize( this.title,this.title.constructor.name);
-        const requestOptions: request.Options = {
-            method: "PUT",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-            body:bodyParameter,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class DeleteWorksheetChartTitleRequest  {
-      
-    public name: string;
-      
-    public sheetName: string;
-      
-    public chartIndex: number;
-      
-    public folder: string;
-      
-    public storageName: string;
-
-    public constructor(init?: Partial< DeleteWorksheetChartTitleRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/charts/{chartIndex}/title".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "chartIndex" + "}", String(this.chartIndex));
-        const queryParameters: any = {};
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-
-
-        
-
-        const requestOptions: request.Options = {
-            method: "DELETE",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class GetChartSeriesAxisRequest  {
-      
-    public name: string;
-      
-    public sheetName: string;
-      
-    public chartIndex: number;
-      
-    public folder: string;
-      
-    public storageName: string;
-
-    public constructor(init?: Partial< GetChartSeriesAxisRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/charts/{chartIndex}/seriesaxis".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "chartIndex" + "}", String(this.chartIndex));
-        const queryParameters: any = {};
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-
-
-        
-
-        const requestOptions: request.Options = {
-            method: "GET",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class GetChartCategoryAxisRequest  {
-      
-    public name: string;
-      
-    public sheetName: string;
-      
-    public chartIndex: number;
-      
-    public folder: string;
-      
-    public storageName: string;
-
-    public constructor(init?: Partial< GetChartCategoryAxisRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/charts/{chartIndex}/categoryaxis".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "chartIndex" + "}", String(this.chartIndex));
-        const queryParameters: any = {};
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-
-
-        
-
-        const requestOptions: request.Options = {
-            method: "GET",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class GetChartValueAxisRequest  {
-      
-    public name: string;
-      
-    public sheetName: string;
-      
-    public chartIndex: number;
-      
-    public folder: string;
-      
-    public storageName: string;
-
-    public constructor(init?: Partial< GetChartValueAxisRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/charts/{chartIndex}/valueaxis".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "chartIndex" + "}", String(this.chartIndex));
-        const queryParameters: any = {};
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-
-
-        
-
-        const requestOptions: request.Options = {
-            method: "GET",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class GetChartSecondCategoryAxisRequest  {
-      
-    public name: string;
-      
-    public sheetName: string;
-      
-    public chartIndex: number;
-      
-    public folder: string;
-      
-    public storageName: string;
-
-    public constructor(init?: Partial< GetChartSecondCategoryAxisRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/charts/{chartIndex}/secondcategoryaxis".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "chartIndex" + "}", String(this.chartIndex));
-        const queryParameters: any = {};
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-
-
-        
-
-        const requestOptions: request.Options = {
-            method: "GET",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class GetChartSecondValueAxisRequest  {
-      
-    public name: string;
-      
-    public sheetName: string;
-      
-    public chartIndex: number;
-      
-    public folder: string;
-      
-    public storageName: string;
-
-    public constructor(init?: Partial< GetChartSecondValueAxisRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/charts/{chartIndex}/secondvalueaxis".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "chartIndex" + "}", String(this.chartIndex));
-        const queryParameters: any = {};
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-
-
-        
-
-        const requestOptions: request.Options = {
-            method: "GET",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class PostChartSeriesAxisRequest  {
-      
-    public name: string;
-      
-    public sheetName: string;
-      
-    public chartIndex: number;
-      
-    public axis: Axis;
-      
-    public folder: string;
-      
-    public storageName: string;
-
-    public constructor(init?: Partial< PostChartSeriesAxisRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/charts/{chartIndex}/seriesaxis".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "chartIndex" + "}", String(this.chartIndex));
-        const queryParameters: any = {};
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-
-
-        const bodyParameter = (this.axis == null) ? null :   ObjectSerializer.serialize( this.axis,this.axis.constructor.name);
-        const requestOptions: request.Options = {
-            method: "POST",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-            body:bodyParameter,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class PostChartCategoryAxisRequest  {
-      
-    public name: string;
-      
-    public sheetName: string;
-      
-    public chartIndex: number;
-      
-    public axis: Axis;
-      
-    public folder: string;
-      
-    public storageName: string;
-
-    public constructor(init?: Partial< PostChartCategoryAxisRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/charts/{chartIndex}/categoryaxis".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "chartIndex" + "}", String(this.chartIndex));
-        const queryParameters: any = {};
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-
-
-        const bodyParameter = (this.axis == null) ? null :   ObjectSerializer.serialize( this.axis,this.axis.constructor.name);
-        const requestOptions: request.Options = {
-            method: "POST",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-            body:bodyParameter,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class PostChartValueAxisRequest  {
-      
-    public name: string;
-      
-    public sheetName: string;
-      
-    public chartIndex: number;
-      
-    public axis: Axis;
-      
-    public folder: string;
-      
-    public storageName: string;
-
-    public constructor(init?: Partial< PostChartValueAxisRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/charts/{chartIndex}/valueaxis".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "chartIndex" + "}", String(this.chartIndex));
-        const queryParameters: any = {};
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-
-
-        const bodyParameter = (this.axis == null) ? null :   ObjectSerializer.serialize( this.axis,this.axis.constructor.name);
-        const requestOptions: request.Options = {
-            method: "POST",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-            body:bodyParameter,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class PostChartSecondCategoryAxisRequest  {
-      
-    public name: string;
-      
-    public sheetName: string;
-      
-    public chartIndex: number;
-      
-    public axis: Axis;
-      
-    public folder: string;
-      
-    public storageName: string;
-
-    public constructor(init?: Partial< PostChartSecondCategoryAxisRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/charts/{chartIndex}/secondcategoryaxis".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "chartIndex" + "}", String(this.chartIndex));
-        const queryParameters: any = {};
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-
-
-        const bodyParameter = (this.axis == null) ? null :   ObjectSerializer.serialize( this.axis,this.axis.constructor.name);
-        const requestOptions: request.Options = {
-            method: "POST",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-            body:bodyParameter,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class PostChartSecondValueAxisRequest  {
-      
-    public name: string;
-      
-    public sheetName: string;
-      
-    public chartIndex: number;
-      
-    public axis: Axis;
-      
-    public folder: string;
-      
-    public storageName: string;
-
-    public constructor(init?: Partial< PostChartSecondValueAxisRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/charts/{chartIndex}/secondvalueaxis".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "chartIndex" + "}", String(this.chartIndex));
-        const queryParameters: any = {};
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-
-
-        const bodyParameter = (this.axis == null) ? null :   ObjectSerializer.serialize( this.axis,this.axis.constructor.name);
-        const requestOptions: request.Options = {
-            method: "POST",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-            body:bodyParameter,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class GetWorksheetConditionalFormattingsRequest  {
-      
-    public name: string;
-      
-    public sheetName: string;
-      
-    public folder: string;
-      
-    public storageName: string;
-
-    public constructor(init?: Partial< GetWorksheetConditionalFormattingsRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/conditionalFormattings".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
-        const queryParameters: any = {};
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-
-
-        
-
-        const requestOptions: request.Options = {
-            method: "GET",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class GetWorksheetConditionalFormattingRequest  {
-      
-    public name: string;
-      
-    public sheetName: string;
-      
-    public index: number;
-      
-    public folder: string;
-      
-    public storageName: string;
-
-    public constructor(init?: Partial< GetWorksheetConditionalFormattingRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/conditionalFormattings/{index}".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "index" + "}", String(this.index));
-        const queryParameters: any = {};
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-
-
-        
-
-        const requestOptions: request.Options = {
-            method: "GET",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class PutWorksheetConditionalFormattingRequest  {
-      
-    public name: string;
-      
-    public sheetName: string;
-      
-    public formatcondition: FormatCondition;
-      
-    public cellArea: string;
-      
-    public folder: string;
-      
-    public storageName: string;
-
-    public constructor(init?: Partial< PutWorksheetConditionalFormattingRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/conditionalFormattings".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
-        const queryParameters: any = {};
-         
-        // verify required parameter 'cellArea' is not null or undefined
-        if (this.cellArea === null || this.cellArea === undefined) {
-            throw new Error('Required parameter "cellArea" was null or undefined when calling PutWorksheetConditionalFormatting.');
-        }
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "cellArea", this.cellArea);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-
-
-        const bodyParameter = (this.formatcondition == null) ? null :   ObjectSerializer.serialize( this.formatcondition,this.formatcondition.constructor.name);
-        const requestOptions: request.Options = {
-            method: "PUT",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-            body:bodyParameter,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class PutWorksheetFormatConditionRequest  {
-      
-    public name: string;
-      
-    public sheetName: string;
-      
-    public index: number;
-      
-    public cellArea: string;
-      
-    public type: string;
-      
-    public operatorType: string;
-      
-    public formula1: string;
-      
-    public formula2: string;
-      
-    public folder: string;
-      
-    public storageName: string;
-
-    public constructor(init?: Partial< PutWorksheetFormatConditionRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/conditionalFormattings/{index}".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "index" + "}", String(this.index));
-        const queryParameters: any = {};
-         
-        // verify required parameter 'cellArea' is not null or undefined
-        if (this.cellArea === null || this.cellArea === undefined) {
-            throw new Error('Required parameter "cellArea" was null or undefined when calling PutWorksheetFormatCondition.');
-        }
-         
-        // verify required parameter 'type' is not null or undefined
-        if (this.type === null || this.type === undefined) {
-            throw new Error('Required parameter "type" was null or undefined when calling PutWorksheetFormatCondition.');
-        }
-         
-        // verify required parameter 'operatorType' is not null or undefined
-        if (this.operatorType === null || this.operatorType === undefined) {
-            throw new Error('Required parameter "operatorType" was null or undefined when calling PutWorksheetFormatCondition.');
-        }
-         
-        // verify required parameter 'formula1' is not null or undefined
-        if (this.formula1 === null || this.formula1 === undefined) {
-            throw new Error('Required parameter "formula1" was null or undefined when calling PutWorksheetFormatCondition.');
-        }
-         
-        // verify required parameter 'formula2' is not null or undefined
-        if (this.formula2 === null || this.formula2 === undefined) {
-            throw new Error('Required parameter "formula2" was null or undefined when calling PutWorksheetFormatCondition.');
-        }
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "cellArea", this.cellArea);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "type", this.type);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "operatorType", this.operatorType);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "formula1", this.formula1);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "formula2", this.formula2);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-
-
-        
-
-        const requestOptions: request.Options = {
-            method: "PUT",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class PutWorksheetFormatConditionAreaRequest  {
-      
-    public name: string;
-      
-    public sheetName: string;
-      
-    public index: number;
-      
-    public cellArea: string;
-      
-    public folder: string;
-      
-    public storageName: string;
-
-    public constructor(init?: Partial< PutWorksheetFormatConditionAreaRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/conditionalFormattings/{index}/area".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "index" + "}", String(this.index));
-        const queryParameters: any = {};
-         
-        // verify required parameter 'cellArea' is not null or undefined
-        if (this.cellArea === null || this.cellArea === undefined) {
-            throw new Error('Required parameter "cellArea" was null or undefined when calling PutWorksheetFormatConditionArea.');
-        }
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "cellArea", this.cellArea);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-
-
-        
-
-        const requestOptions: request.Options = {
-            method: "PUT",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class PutWorksheetFormatConditionConditionRequest  {
-      
-    public name: string;
-      
-    public sheetName: string;
-      
-    public index: number;
-      
-    public type: string;
-      
-    public operatorType: string;
-      
-    public formula1: string;
-      
-    public formula2: string;
-      
-    public folder: string;
-      
-    public storageName: string;
-
-    public constructor(init?: Partial< PutWorksheetFormatConditionConditionRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/conditionalFormattings/{index}/condition".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "index" + "}", String(this.index));
-        const queryParameters: any = {};
-         
-        // verify required parameter 'type' is not null or undefined
-        if (this.type === null || this.type === undefined) {
-            throw new Error('Required parameter "type" was null or undefined when calling PutWorksheetFormatConditionCondition.');
-        }
-         
-        // verify required parameter 'operatorType' is not null or undefined
-        if (this.operatorType === null || this.operatorType === undefined) {
-            throw new Error('Required parameter "operatorType" was null or undefined when calling PutWorksheetFormatConditionCondition.');
-        }
-         
-        // verify required parameter 'formula1' is not null or undefined
-        if (this.formula1 === null || this.formula1 === undefined) {
-            throw new Error('Required parameter "formula1" was null or undefined when calling PutWorksheetFormatConditionCondition.');
-        }
-         
-        // verify required parameter 'formula2' is not null or undefined
-        if (this.formula2 === null || this.formula2 === undefined) {
-            throw new Error('Required parameter "formula2" was null or undefined when calling PutWorksheetFormatConditionCondition.');
-        }
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "type", this.type);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "operatorType", this.operatorType);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "formula1", this.formula1);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "formula2", this.formula2);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-
-
-        
-
-        const requestOptions: request.Options = {
-            method: "PUT",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class DeleteWorksheetConditionalFormattingsRequest  {
-      
-    public name: string;
-      
-    public sheetName: string;
-      
-    public folder: string;
-      
-    public storageName: string;
-
-    public constructor(init?: Partial< DeleteWorksheetConditionalFormattingsRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/conditionalFormattings".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
-        const queryParameters: any = {};
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-
-
-        
-
-        const requestOptions: request.Options = {
-            method: "DELETE",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class DeleteWorksheetConditionalFormattingRequest  {
-      
-    public name: string;
-      
-    public sheetName: string;
-      
-    public index: number;
-      
-    public folder: string;
-      
-    public storageName: string;
-
-    public constructor(init?: Partial< DeleteWorksheetConditionalFormattingRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/conditionalFormattings/{index}".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "index" + "}", String(this.index));
-        const queryParameters: any = {};
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-
-
-        
-
-        const requestOptions: request.Options = {
-            method: "DELETE",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class DeleteWorksheetConditionalFormattingAreaRequest  {
-      
-    public name: string;
-      
-    public sheetName: string;
-      
-    public startRow: number;
-      
-    public startColumn: number;
-      
-    public totalRows: number;
-      
-    public totalColumns: number;
-      
-    public folder: string;
-      
-    public storageName: string;
-
-    public constructor(init?: Partial< DeleteWorksheetConditionalFormattingAreaRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/conditionalFormattings/area".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
-        const queryParameters: any = {};
-         
-        // verify required parameter 'startRow' is not null or undefined
-        if (this.startRow === null || this.startRow === undefined) {
-            throw new Error('Required parameter "startRow" was null or undefined when calling DeleteWorksheetConditionalFormattingArea.');
-        }
-         
-        // verify required parameter 'startColumn' is not null or undefined
-        if (this.startColumn === null || this.startColumn === undefined) {
-            throw new Error('Required parameter "startColumn" was null or undefined when calling DeleteWorksheetConditionalFormattingArea.');
-        }
-         
-        // verify required parameter 'totalRows' is not null or undefined
-        if (this.totalRows === null || this.totalRows === undefined) {
-            throw new Error('Required parameter "totalRows" was null or undefined when calling DeleteWorksheetConditionalFormattingArea.');
-        }
-         
-        // verify required parameter 'totalColumns' is not null or undefined
-        if (this.totalColumns === null || this.totalColumns === undefined) {
-            throw new Error('Required parameter "totalColumns" was null or undefined when calling DeleteWorksheetConditionalFormattingArea.');
-        }
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "startRow", this.startRow);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "startColumn", this.startColumn);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "totalRows", this.totalRows);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "totalColumns", this.totalColumns);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-
-
-        
-
-        const requestOptions: request.Options = {
-            method: "DELETE",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class GetWorkbookRequest  {
-      
-    public name: string;
-      
-    public format: string;
-      
-    public password: string;
-      
-    public isAutoFit: boolean;
-      
-    public onlySaveTable: boolean;
-      
-    public folder: string;
-      
-    public outPath: string;
-      
-    public storageName: string;
-      
-    public outStorageName: string;
-      
-    public checkExcelRestriction: boolean;
-
-    public constructor(init?: Partial< GetWorkbookRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}".replace("{" + "name" + "}", String(this.name));
-        const queryParameters: any = {};
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "format", this.format);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "isAutoFit", this.isAutoFit);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "onlySaveTable", this.onlySaveTable);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", this.checkExcelRestriction);
-
-
-        
-
-        const requestOptions: request.Options = {
-            method: "GET",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class PutConvertWorkbookRequest  {
-    /// File to upload  
-    public file: any;
-      
-    public format: string;
-      
-    public password: string;
-      
-    public outPath: string;
-      
-    public storageName: string;
-      
-    public checkExcelRestriction: boolean;
-      
-    public streamFormat: string;
-
-    public constructor(init?: Partial< PutConvertWorkbookRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/convert";
-        const queryParameters: any = {};
-        const formParams: any = {};
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "format", this.format);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", this.checkExcelRestriction);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "streamFormat", this.streamFormat);
-        if (this.file !== undefined) {
-            for (var key in this.file){
-                formParams[key] = this.file[key];
-            }
-        }
-
-
-        
-
-        const requestOptions: request.Options = {
-            method: "PUT",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        (requestOptions as any).formData = formParams;        
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class PostWorkbookSaveAsRequest  {
-      
-    public name: string;
-      
-    public newfilename: string;
-      
-    public saveOptions: SaveOptions;
-      
-    public isAutoFitRows: boolean;
-      
-    public isAutoFitColumns: boolean;
-      
-    public folder: string;
-      
-    public storageName: string;
-      
-    public outStorageName: string;
-      
-    public checkExcelRestriction: boolean;
-
-    public constructor(init?: Partial< PostWorkbookSaveAsRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/SaveAs".replace("{" + "name" + "}", String(this.name));
-        const queryParameters: any = {};
-         
-        // verify required parameter 'newfilename' is not null or undefined
-        if (this.newfilename === null || this.newfilename === undefined) {
-            throw new Error('Required parameter "newfilename" was null or undefined when calling PostWorkbookSaveAs.');
-        }
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "newfilename", this.newfilename);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "isAutoFitRows", this.isAutoFitRows);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "isAutoFitColumns", this.isAutoFitColumns);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", this.checkExcelRestriction);
-
-
-        const bodyParameter = (this.saveOptions == null) ? null :   ObjectSerializer.serialize( this.saveOptions,this.saveOptions.constructor.name);
-        const requestOptions: request.Options = {
-            method: "POST",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-            body:bodyParameter,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class PostConvertWorkbookToPDFRequest  {
-    /// File to upload  
-    public file: any;
-      
-    public password: string;
-      
-    public checkExcelRestriction: boolean;
-
-    public constructor(init?: Partial< PostConvertWorkbookToPDFRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/convert/pdf";
-        const queryParameters: any = {};
-        const formParams: any = {};
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", this.checkExcelRestriction);
-        if (this.file !== undefined) {
-            for (var key in this.file){
-                formParams[key] = this.file[key];
-            }
-        }
-
-
-        
-
-        const requestOptions: request.Options = {
-            method: "POST",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        (requestOptions as any).formData = formParams;        
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class PostConvertWorkbookToPNGRequest  {
-    /// File to upload  
-    public file: any;
-      
-    public password: string;
-      
-    public checkExcelRestriction: boolean;
-
-    public constructor(init?: Partial< PostConvertWorkbookToPNGRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/convert/png";
-        const queryParameters: any = {};
-        const formParams: any = {};
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", this.checkExcelRestriction);
-        if (this.file !== undefined) {
-            for (var key in this.file){
-                formParams[key] = this.file[key];
-            }
-        }
-
-
-        
-
-        const requestOptions: request.Options = {
-            method: "POST",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        (requestOptions as any).formData = formParams;        
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class PostConvertWorkbookToDocxRequest  {
-    /// File to upload  
-    public file: any;
-      
-    public password: string;
-      
-    public checkExcelRestriction: boolean;
-
-    public constructor(init?: Partial< PostConvertWorkbookToDocxRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/convert/docx";
-        const queryParameters: any = {};
-        const formParams: any = {};
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", this.checkExcelRestriction);
-        if (this.file !== undefined) {
-            for (var key in this.file){
-                formParams[key] = this.file[key];
-            }
-        }
-
-
-        
-
-        const requestOptions: request.Options = {
-            method: "POST",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        (requestOptions as any).formData = formParams;        
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class PostConvertWorkbookToPptxRequest  {
-    /// File to upload  
-    public file: any;
-      
-    public password: string;
-      
-    public checkExcelRestriction: boolean;
-
-    public constructor(init?: Partial< PostConvertWorkbookToPptxRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/convert/pptx";
-        const queryParameters: any = {};
-        const formParams: any = {};
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", this.checkExcelRestriction);
-        if (this.file !== undefined) {
-            for (var key in this.file){
-                formParams[key] = this.file[key];
-            }
-        }
-
-
-        
-
-        const requestOptions: request.Options = {
-            method: "POST",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        (requestOptions as any).formData = formParams;        
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class PostConvertWorkbookToHtmlRequest  {
-    /// File to upload  
-    public file: any;
-      
-    public password: string;
-      
-    public checkExcelRestriction: boolean;
-
-    public constructor(init?: Partial< PostConvertWorkbookToHtmlRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/convert/html";
-        const queryParameters: any = {};
-        const formParams: any = {};
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", this.checkExcelRestriction);
-        if (this.file !== undefined) {
-            for (var key in this.file){
-                formParams[key] = this.file[key];
-            }
-        }
-
-
-        
-
-        const requestOptions: request.Options = {
-            method: "POST",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        (requestOptions as any).formData = formParams;        
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class PostConvertWorkbookToMarkdownRequest  {
-    /// File to upload  
-    public file: any;
-      
-    public password: string;
-      
-    public checkExcelRestriction: boolean;
-
-    public constructor(init?: Partial< PostConvertWorkbookToMarkdownRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/convert/markdown";
-        const queryParameters: any = {};
-        const formParams: any = {};
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", this.checkExcelRestriction);
-        if (this.file !== undefined) {
-            for (var key in this.file){
-                formParams[key] = this.file[key];
-            }
-        }
-
-
-        
-
-        const requestOptions: request.Options = {
-            method: "POST",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        (requestOptions as any).formData = formParams;        
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class PostConvertWorkbookToJsonRequest  {
-    /// File to upload  
-    public file: any;
-      
-    public password: string;
-      
-    public checkExcelRestriction: boolean;
-
-    public constructor(init?: Partial< PostConvertWorkbookToJsonRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/convert/json";
-        const queryParameters: any = {};
-        const formParams: any = {};
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", this.checkExcelRestriction);
-        if (this.file !== undefined) {
-            for (var key in this.file){
-                formParams[key] = this.file[key];
-            }
-        }
-
-
-        
-
-        const requestOptions: request.Options = {
-            method: "POST",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        (requestOptions as any).formData = formParams;        
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class PostConvertWorkbookToSQLRequest  {
-    /// File to upload  
-    public file: any;
-      
-    public password: string;
-      
-    public checkExcelRestriction: boolean;
-
-    public constructor(init?: Partial< PostConvertWorkbookToSQLRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/convert/sql";
-        const queryParameters: any = {};
-        const formParams: any = {};
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", this.checkExcelRestriction);
-        if (this.file !== undefined) {
-            for (var key in this.file){
-                formParams[key] = this.file[key];
-            }
-        }
-
-
-        
-
-        const requestOptions: request.Options = {
-            method: "POST",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        (requestOptions as any).formData = formParams;        
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class PostConvertWorkbookToCSVRequest  {
-    /// File to upload  
-    public file: any;
-      
-    public password: string;
-      
-    public checkExcelRestriction: boolean;
-
-    public constructor(init?: Partial< PostConvertWorkbookToCSVRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/convert/csv";
-        const queryParameters: any = {};
-        const formParams: any = {};
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", this.checkExcelRestriction);
-        if (this.file !== undefined) {
-            for (var key in this.file){
-                formParams[key] = this.file[key];
-            }
-        }
-
-
-        
-
-        const requestOptions: request.Options = {
-            method: "POST",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        (requestOptions as any).formData = formParams;        
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-export class GetWorksheetHyperlinksRequest  {
-      
-    public name: string;
-      
-    public sheetName: string;
-      
-    public folder: string;
-      
-    public storageName: string;
-
-    public constructor(init?: Partial< GetWorksheetHyperlinksRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/hyperlinks".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
-        const queryParameters: any = {};
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-
-
-        
-
-        const requestOptions: request.Options = {
-            method: "GET",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}   
 /**
  * @deprecated 
  */
@@ -32311,45 +27452,6 @@ export class GetWorkSheetHyperlinksRequest  {
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/hyperlinks".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
-        const queryParameters: any = {};
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-
-
-        
-
-        const requestOptions: request.Options = {
-            method: "GET",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-
-export class GetWorksheetHyperlinkRequest  {
-      
-    public name: string;
-      
-    public sheetName: string;
-      
-    public hyperlinkIndex: number;
-      
-    public folder: string;
-      
-    public storageName: string;
-
-    public constructor(init?: Partial< GetWorksheetHyperlinkRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/hyperlinks/{hyperlinkIndex}".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "hyperlinkIndex" + "}", String(this.hyperlinkIndex));
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
@@ -32412,45 +27514,6 @@ export class GetWorkSheetHyperlinkRequest  {
 
 }
 
-export class DeleteWorksheetHyperlinkRequest  {
-      
-    public name: string;
-      
-    public sheetName: string;
-      
-    public hyperlinkIndex: number;
-      
-    public folder: string;
-      
-    public storageName: string;
-
-    public constructor(init?: Partial< DeleteWorksheetHyperlinkRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/hyperlinks/{hyperlinkIndex}".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "hyperlinkIndex" + "}", String(this.hyperlinkIndex));
-        const queryParameters: any = {};
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-
-
-        
-
-        const requestOptions: request.Options = {
-            method: "DELETE",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-  
 /**
  * @deprecated 
  */   
@@ -32485,46 +27548,6 @@ export class DeleteWorkSheetHyperlinkRequest  {
             qs: queryParameters,
             uri: localVarPath,
             json: true,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-export class PostWorksheetHyperlinkRequest  {
-      
-    public name: string;
-      
-    public sheetName: string;
-      
-    public hyperlinkIndex: number;
-      
-    public hyperlink: Hyperlink;
-      
-    public folder: string;
-      
-    public storageName: string;
-
-    public constructor(init?: Partial< PostWorksheetHyperlinkRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/hyperlinks/{hyperlinkIndex}".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "hyperlinkIndex" + "}", String(this.hyperlinkIndex));
-        const queryParameters: any = {};
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-
-
-        const bodyParameter = (this.hyperlink == null) ? null :   ObjectSerializer.serialize( this.hyperlink,this.hyperlink.constructor.name);
-        const requestOptions: request.Options = {
-            method: "POST",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-            body:bodyParameter,
         };
 
         return Promise.resolve(requestOptions);
@@ -32568,83 +27591,6 @@ export class PostWorkSheetHyperlinkRequest  {
             uri: localVarPath,
             json: true,
             body:bodyParameter,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-
-export class PutWorksheetHyperlinkRequest  {
-      
-    public name: string;
-      
-    public sheetName: string;
-      
-    public firstRow: number;
-      
-    public firstColumn: number;
-      
-    public totalRows: number;
-      
-    public totalColumns: number;
-      
-    public address: string;
-      
-    public folder: string;
-      
-    public storageName: string;
-
-    public constructor(init?: Partial< PutWorksheetHyperlinkRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/hyperlinks".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
-        const queryParameters: any = {};
-         
-        // verify required parameter 'firstRow' is not null or undefined
-        if (this.firstRow === null || this.firstRow === undefined) {
-            throw new Error('Required parameter "firstRow" was null or undefined when calling PutWorkSheetHyperlink.');
-        }
-         
-        // verify required parameter 'firstColumn' is not null or undefined
-        if (this.firstColumn === null || this.firstColumn === undefined) {
-            throw new Error('Required parameter "firstColumn" was null or undefined when calling PutWorkSheetHyperlink.');
-        }
-         
-        // verify required parameter 'totalRows' is not null or undefined
-        if (this.totalRows === null || this.totalRows === undefined) {
-            throw new Error('Required parameter "totalRows" was null or undefined when calling PutWorkSheetHyperlink.');
-        }
-         
-        // verify required parameter 'totalColumns' is not null or undefined
-        if (this.totalColumns === null || this.totalColumns === undefined) {
-            throw new Error('Required parameter "totalColumns" was null or undefined when calling PutWorkSheetHyperlink.');
-        }
-         
-        // verify required parameter 'address' is not null or undefined
-        if (this.address === null || this.address === undefined) {
-            throw new Error('Required parameter "address" was null or undefined when calling PutWorkSheetHyperlink.');
-        }
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "firstRow", this.firstRow);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "firstColumn", this.firstColumn);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "totalRows", this.totalRows);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "totalColumns", this.totalColumns);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "address", this.address);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-
-
-        
-
-        const requestOptions: request.Options = {
-            method: "PUT",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
         };
 
         return Promise.resolve(requestOptions);
@@ -32732,42 +27678,7 @@ export class PutWorkSheetHyperlinkRequest  {
     }
 
 }
-export class DeleteWorksheetHyperlinksRequest  {
-      
-    public name: string;
-      
-    public sheetName: string;
-      
-    public folder: string;
-      
-    public storageName: string;
 
-    public constructor(init?: Partial< DeleteWorksheetHyperlinksRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/hyperlinks".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
-        const queryParameters: any = {};
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-
-
-        
-
-        const requestOptions: request.Options = {
-            method: "DELETE",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
 /**
  * @deprecated 
  */  
@@ -32807,18 +27718,6332 @@ export class DeleteWorkSheetHyperlinksRequest  {
     }
 
 }
+
+/// Get auto filters description in worksheet.   
+export class GetWorksheetAutoFilterRequest  {
+    /// The workbook name.  
+    public name: string;
+    /// The worksheet name.  
+    public sheetName: string;
+    /// Original workbook folder.  
+    public folder: string;
+    /// Storage name.  
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< GetWorksheetAutoFilterRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/autoFilter".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
+        const queryParameters: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "GET",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Adds date filter in worksheet.   
+export class PutWorksheetDateFilterRequest  {
+    /// The workbook name.  
+    public name: string;
+    /// The worksheet name.  
+    public sheetName: string;
+    /// Represents the range to which the specified AutoFilter applies.  
+    public range: string;
+    /// The integer offset of the field on which you want to base the filter (from the left of the list; the leftmost field is field 0).  
+    public fieldIndex: number;
+    /// Specifies how to group dateTime values(Day,Hour,Minute,Month,Second,Year).  
+    public dateTimeGroupingType: string;
+    /// The year.  
+    public year: number;
+    /// The month.  
+    public month: number;
+    /// The day.  
+    public day: number;
+    /// The hour.  
+    public hour: number;
+    /// The minute.  
+    public minute: number;
+    /// The second.  
+    public second: number;
+    /// Match all blank or not blank cell in the list.(true/false)  
+    public matchBlanks: boolean;
+    /// If true, hide the filtered rows.  
+    public refresh: boolean;
+    /// Original workbook folder.  
+    public folder: string;
+    /// Storage name.  
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< PutWorksheetDateFilterRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/autoFilter/dateFilter".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
+        const queryParameters: any = {};
+        /// Represents the range to which the specified AutoFilter applies. 
+        // verify required parameter 'range' is not null or undefined
+        if (this.range === null || this.range === undefined) {
+            throw new Error('Required parameter "range" was null or undefined when calling PutWorksheetDateFilter.');
+        }
+        /// The integer offset of the field on which you want to base the filter (from the left of the list; the leftmost field is field 0). 
+        // verify required parameter 'fieldIndex' is not null or undefined
+        if (this.fieldIndex === null || this.fieldIndex === undefined) {
+            throw new Error('Required parameter "fieldIndex" was null or undefined when calling PutWorksheetDateFilter.');
+        }
+        /// Specifies how to group dateTime values(Day,Hour,Minute,Month,Second,Year). 
+        // verify required parameter 'dateTimeGroupingType' is not null or undefined
+        if (this.dateTimeGroupingType === null || this.dateTimeGroupingType === undefined) {
+            throw new Error('Required parameter "dateTimeGroupingType" was null or undefined when calling PutWorksheetDateFilter.');
+        }
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "range", this.range);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fieldIndex", this.fieldIndex);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "dateTimeGroupingType", this.dateTimeGroupingType);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "year", this.year);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "month", this.month);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "day", this.day);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "hour", this.hour);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "minute", this.minute);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "second", this.second);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "matchBlanks", this.matchBlanks);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "refresh", this.refresh);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Adds a filter for a filter column in worksheet.
+///                
+export class PutWorksheetFilterRequest  {
+    /// The workbook name.  
+    public name: string;
+    /// The worksheet name.  
+    public sheetName: string;
+    /// Represents the range to which the specified AutoFilter applies.  
+    public range: string;
+    /// The integer offset of the field on which you want to base the filter (from the left of the list; the leftmost field is field 0).  
+    public fieldIndex: number;
+    /// The custom criteria.  
+    public criteria: string;
+    /// Match all blank or  not blank cell in the list.(true/false)  
+    public matchBlanks: boolean;
+    /// If true, hide the filtered rows.  
+    public refresh: boolean;
+    /// Original workbook folder.  
+    public folder: string;
+    /// Storage name.  
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< PutWorksheetFilterRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/autoFilter/filter".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
+        const queryParameters: any = {};
+        /// Represents the range to which the specified AutoFilter applies. 
+        // verify required parameter 'range' is not null or undefined
+        if (this.range === null || this.range === undefined) {
+            throw new Error('Required parameter "range" was null or undefined when calling PutWorksheetFilter.');
+        }
+        /// The integer offset of the field on which you want to base the filter (from the left of the list; the leftmost field is field 0). 
+        // verify required parameter 'fieldIndex' is not null or undefined
+        if (this.fieldIndex === null || this.fieldIndex === undefined) {
+            throw new Error('Required parameter "fieldIndex" was null or undefined when calling PutWorksheetFilter.');
+        }
+        /// The custom criteria. 
+        // verify required parameter 'criteria' is not null or undefined
+        if (this.criteria === null || this.criteria === undefined) {
+            throw new Error('Required parameter "criteria" was null or undefined when calling PutWorksheetFilter.');
+        }
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "range", this.range);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fieldIndex", this.fieldIndex);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "criteria", this.criteria);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "matchBlanks", this.matchBlanks);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "refresh", this.refresh);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Adds an icon filter in worksheet.   
+export class PutWorksheetIconFilterRequest  {
+    /// The workbook name.  
+    public name: string;
+    /// The worksheet name.  
+    public sheetName: string;
+    /// Represents the range to which the specified AutoFilter applies.  
+    public range: string;
+    /// The integer offset of the field on which you want to base the filter (from the left of the list; the leftmost field is field 0).  
+    public fieldIndex: number;
+    /// The icon set type.  
+    public iconSetType: string;
+    /// The icon id.  
+    public iconId: number;
+    /// Match all blank or  not blank cell in the list.(true/false)  
+    public matchBlanks: boolean;
+    /// If true, hide the filtered rows.  
+    public refresh: boolean;
+    /// Original workbook folder.  
+    public folder: string;
+    /// Storage name.  
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< PutWorksheetIconFilterRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/autoFilter/iconFilter".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
+        const queryParameters: any = {};
+        /// Represents the range to which the specified AutoFilter applies. 
+        // verify required parameter 'range' is not null or undefined
+        if (this.range === null || this.range === undefined) {
+            throw new Error('Required parameter "range" was null or undefined when calling PutWorksheetIconFilter.');
+        }
+        /// The integer offset of the field on which you want to base the filter (from the left of the list; the leftmost field is field 0). 
+        // verify required parameter 'fieldIndex' is not null or undefined
+        if (this.fieldIndex === null || this.fieldIndex === undefined) {
+            throw new Error('Required parameter "fieldIndex" was null or undefined when calling PutWorksheetIconFilter.');
+        }
+        /// The icon set type. 
+        // verify required parameter 'iconSetType' is not null or undefined
+        if (this.iconSetType === null || this.iconSetType === undefined) {
+            throw new Error('Required parameter "iconSetType" was null or undefined when calling PutWorksheetIconFilter.');
+        }
+        /// The icon id. 
+        // verify required parameter 'iconId' is not null or undefined
+        if (this.iconId === null || this.iconId === undefined) {
+            throw new Error('Required parameter "iconId" was null or undefined when calling PutWorksheetIconFilter.');
+        }
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "range", this.range);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fieldIndex", this.fieldIndex);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "iconSetType", this.iconSetType);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "iconId", this.iconId);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "matchBlanks", this.matchBlanks);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "refresh", this.refresh);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Filters a list with a custom criteria in worksheet.
+///                
+export class PutWorksheetCustomFilterRequest  {
+    /// The workbook name.  
+    public name: string;
+    /// The worksheet name.  
+    public sheetName: string;
+    /// Represents the range to which the specified AutoFilter applies.  
+    public range: string;
+    /// The integer offset of the field on which you want to base the filter (from the left of the list; the leftmost field is field 0).  
+    public fieldIndex: number;
+    /// The filter operator type  
+    public operatorType1: string;
+    /// The custom criteria.  
+    public criteria1: string;
+    /// true/false  
+    public isAnd: boolean;
+      
+    public operatorType2: string;
+    /// The custom criteria.  
+    public criteria2: string;
+    /// Match all blank or  not blank cell in the list.(true/false)  
+    public matchBlanks: boolean;
+    /// If true, hide the filtered rows.  
+    public refresh: boolean;
+    /// Original workbook folder.  
+    public folder: string;
+    /// Storage name.  
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< PutWorksheetCustomFilterRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/autoFilter/custom".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
+        const queryParameters: any = {};
+        /// Represents the range to which the specified AutoFilter applies. 
+        // verify required parameter 'range' is not null or undefined
+        if (this.range === null || this.range === undefined) {
+            throw new Error('Required parameter "range" was null or undefined when calling PutWorksheetCustomFilter.');
+        }
+        /// The integer offset of the field on which you want to base the filter (from the left of the list; the leftmost field is field 0). 
+        // verify required parameter 'fieldIndex' is not null or undefined
+        if (this.fieldIndex === null || this.fieldIndex === undefined) {
+            throw new Error('Required parameter "fieldIndex" was null or undefined when calling PutWorksheetCustomFilter.');
+        }
+        /// The filter operator type 
+        // verify required parameter 'operatorType1' is not null or undefined
+        if (this.operatorType1 === null || this.operatorType1 === undefined) {
+            throw new Error('Required parameter "operatorType1" was null or undefined when calling PutWorksheetCustomFilter.');
+        }
+        /// The custom criteria. 
+        // verify required parameter 'criteria1' is not null or undefined
+        if (this.criteria1 === null || this.criteria1 === undefined) {
+            throw new Error('Required parameter "criteria1" was null or undefined when calling PutWorksheetCustomFilter.');
+        }
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "range", this.range);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fieldIndex", this.fieldIndex);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "operatorType1", this.operatorType1);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "criteria1", this.criteria1);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "isAnd", this.isAnd);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "operatorType2", this.operatorType2);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "criteria2", this.criteria2);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "matchBlanks", this.matchBlanks);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "refresh", this.refresh);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Adds a dynamic filter in worksheet.   
+export class PutWorksheetDynamicFilterRequest  {
+    /// The workbook name.  
+    public name: string;
+    /// The worksheet name.  
+    public sheetName: string;
+    /// Represents the range to which the specified AutoFilter applies.  
+    public range: string;
+    /// The integer offset of the field on which you want to base the filter (from the left of the list; the leftmost field is field 0).  
+    public fieldIndex: number;
+    /// Dynamic filter type.  
+    public dynamicFilterType: string;
+    /// Match all blank or  not blank cell in the list.(true/false)  
+    public matchBlanks: boolean;
+    /// If true, hide the filtered rows.  
+    public refresh: boolean;
+    /// Original workbook folder.  
+    public folder: string;
+    /// Storage name.  
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< PutWorksheetDynamicFilterRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/autoFilter/dynamicFilter".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
+        const queryParameters: any = {};
+        /// Represents the range to which the specified AutoFilter applies. 
+        // verify required parameter 'range' is not null or undefined
+        if (this.range === null || this.range === undefined) {
+            throw new Error('Required parameter "range" was null or undefined when calling PutWorksheetDynamicFilter.');
+        }
+        /// The integer offset of the field on which you want to base the filter (from the left of the list; the leftmost field is field 0). 
+        // verify required parameter 'fieldIndex' is not null or undefined
+        if (this.fieldIndex === null || this.fieldIndex === undefined) {
+            throw new Error('Required parameter "fieldIndex" was null or undefined when calling PutWorksheetDynamicFilter.');
+        }
+        /// Dynamic filter type. 
+        // verify required parameter 'dynamicFilterType' is not null or undefined
+        if (this.dynamicFilterType === null || this.dynamicFilterType === undefined) {
+            throw new Error('Required parameter "dynamicFilterType" was null or undefined when calling PutWorksheetDynamicFilter.');
+        }
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "range", this.range);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fieldIndex", this.fieldIndex);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "dynamicFilterType", this.dynamicFilterType);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "matchBlanks", this.matchBlanks);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "refresh", this.refresh);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Filters the top 10 item in the list in worksheet   
+export class PutWorksheetFilterTop10Request  {
+    /// The workbook name.  
+    public name: string;
+    /// The worksheet name.  
+    public sheetName: string;
+    /// Represents the range to which the specified AutoFilter applies.  
+    public range: string;
+    /// The integer offset of the field on which you want to base the filter (from the left of the list; the leftmost field is field 0).  
+    public fieldIndex: number;
+    /// Indicates whether filter from top or bottom  
+    public isTop: boolean;
+    /// Indicates whether the items is percent or count  
+    public isPercent: boolean;
+    /// The item count  
+    public itemCount: number;
+    /// Match all blank or  not blank cell in the list.(true/false)  
+    public matchBlanks: boolean;
+    /// If true, hide the filtered rows.  
+    public refresh: boolean;
+    /// Original workbook folder.  
+    public folder: string;
+    /// Storage name.  
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< PutWorksheetFilterTop10Request >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/autoFilter/filterTop10".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
+        const queryParameters: any = {};
+        /// Represents the range to which the specified AutoFilter applies. 
+        // verify required parameter 'range' is not null or undefined
+        if (this.range === null || this.range === undefined) {
+            throw new Error('Required parameter "range" was null or undefined when calling PutWorksheetFilterTop10.');
+        }
+        /// The integer offset of the field on which you want to base the filter (from the left of the list; the leftmost field is field 0). 
+        // verify required parameter 'fieldIndex' is not null or undefined
+        if (this.fieldIndex === null || this.fieldIndex === undefined) {
+            throw new Error('Required parameter "fieldIndex" was null or undefined when calling PutWorksheetFilterTop10.');
+        }
+        /// Indicates whether filter from top or bottom 
+        // verify required parameter 'isTop' is not null or undefined
+        if (this.isTop === null || this.isTop === undefined) {
+            throw new Error('Required parameter "isTop" was null or undefined when calling PutWorksheetFilterTop10.');
+        }
+        /// Indicates whether the items is percent or count 
+        // verify required parameter 'isPercent' is not null or undefined
+        if (this.isPercent === null || this.isPercent === undefined) {
+            throw new Error('Required parameter "isPercent" was null or undefined when calling PutWorksheetFilterTop10.');
+        }
+        /// The item count 
+        // verify required parameter 'itemCount' is not null or undefined
+        if (this.itemCount === null || this.itemCount === undefined) {
+            throw new Error('Required parameter "itemCount" was null or undefined when calling PutWorksheetFilterTop10.');
+        }
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "range", this.range);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fieldIndex", this.fieldIndex);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "isTop", this.isTop);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "isPercent", this.isPercent);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "itemCount", this.itemCount);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "matchBlanks", this.matchBlanks);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "refresh", this.refresh);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Adds a color filter in worksheet.   
+export class PutWorksheetColorFilterRequest  {
+    /// The workbook name.  
+    public name: string;
+    /// The worksheet name.  
+    public sheetName: string;
+    /// Represents the range to which the specified AutoFilter applies.  
+    public range: string;
+    /// The integer offset of the field on which you want to base the filter (from the left of the list; the leftmost field is field 0).  
+    public fieldIndex: number;
+    /// color filter request.  
+    public colorFilter: ColorFilterRequest;
+    /// Match all blank or  not blank cell in the list.(true/false)  
+    public matchBlanks: boolean;
+    /// If true, hide the filtered rows.  
+    public refresh: boolean;
+    /// Original workbook folder.  
+    public folder: string;
+    /// Storage name.  
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< PutWorksheetColorFilterRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/autoFilter/colorFilter".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
+        const queryParameters: any = {};
+        /// Represents the range to which the specified AutoFilter applies. 
+        // verify required parameter 'range' is not null or undefined
+        if (this.range === null || this.range === undefined) {
+            throw new Error('Required parameter "range" was null or undefined when calling PutWorksheetColorFilter.');
+        }
+        /// The integer offset of the field on which you want to base the filter (from the left of the list; the leftmost field is field 0). 
+        // verify required parameter 'fieldIndex' is not null or undefined
+        if (this.fieldIndex === null || this.fieldIndex === undefined) {
+            throw new Error('Required parameter "fieldIndex" was null or undefined when calling PutWorksheetColorFilter.');
+        }
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "range", this.range);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fieldIndex", this.fieldIndex);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "matchBlanks", this.matchBlanks);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "refresh", this.refresh);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        const bodyParameter = (this.colorFilter == null) ? null :   ObjectSerializer.serialize( this.colorFilter,this.colorFilter.constructor.name);
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+            body:bodyParameter,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Match all blank cell in the list.   
+export class PostWorksheetMatchBlanksRequest  {
+    /// The workbook name.  
+    public name: string;
+    /// The worksheet name.  
+    public sheetName: string;
+    /// The integer offset of the field on which you want to base the filter (from the left of the list; the leftmost field is field 0).  
+    public fieldIndex: number;
+    /// Original workbook folder.  
+    public folder: string;
+    /// Storage name.  
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< PostWorksheetMatchBlanksRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/autoFilter/matchBlanks".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
+        const queryParameters: any = {};
+        /// The integer offset of the field on which you want to base the filter (from the left of the list; the leftmost field is field 0). 
+        // verify required parameter 'fieldIndex' is not null or undefined
+        if (this.fieldIndex === null || this.fieldIndex === undefined) {
+            throw new Error('Required parameter "fieldIndex" was null or undefined when calling PostWorksheetMatchBlanks.');
+        }
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fieldIndex", this.fieldIndex);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Match all not blank cell in the list.
+///                
+export class PostWorksheetMatchNonBlanksRequest  {
+    /// The workbook name.  
+    public name: string;
+    /// The worksheet name.  
+    public sheetName: string;
+    /// The integer offset of the field on which you want to base the filter (from the left of the list; the leftmost field is field 0).  
+    public fieldIndex: number;
+    /// Original workbook folder.  
+    public folder: string;
+    /// Storage name.  
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< PostWorksheetMatchNonBlanksRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/autoFilter/matchNonBlanks".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
+        const queryParameters: any = {};
+        /// The integer offset of the field on which you want to base the filter (from the left of the list; the leftmost field is field 0). 
+        // verify required parameter 'fieldIndex' is not null or undefined
+        if (this.fieldIndex === null || this.fieldIndex === undefined) {
+            throw new Error('Required parameter "fieldIndex" was null or undefined when calling PostWorksheetMatchNonBlanks.');
+        }
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fieldIndex", this.fieldIndex);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Refresh auto filters in worksheet.   
+export class PostWorksheetAutoFilterRefreshRequest  {
+    /// The workbook name.  
+    public name: string;
+    /// The worksheet name.  
+    public sheetName: string;
+    /// Original workbook folder.  
+    public folder: string;
+    /// Storage name.  
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< PostWorksheetAutoFilterRefreshRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/autoFilter/refresh".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
+        const queryParameters: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Removes a date filter in worksheet.
+///                
+export class DeleteWorksheetDateFilterRequest  {
+    /// The workbook name.  
+    public name: string;
+    /// The worksheet name.  
+    public sheetName: string;
+    /// The integer offset of the field on which you want to base the filter (from the left of the list; the leftmost field is field 0).  
+    public fieldIndex: number;
+    /// Specifies how to group dateTime values.  
+    public dateTimeGroupingType: string;
+    /// The year.  
+    public year: number;
+    /// The month.  
+    public month: number;
+    /// The day.  
+    public day: number;
+    /// The hour.  
+    public hour: number;
+    /// The minute.  
+    public minute: number;
+    /// The second.  
+    public second: number;
+    /// Original workbook folder.  
+    public folder: string;
+    /// Storage name.  
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< DeleteWorksheetDateFilterRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/autoFilter/dateFilter".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
+        const queryParameters: any = {};
+        /// The integer offset of the field on which you want to base the filter (from the left of the list; the leftmost field is field 0). 
+        // verify required parameter 'fieldIndex' is not null or undefined
+        if (this.fieldIndex === null || this.fieldIndex === undefined) {
+            throw new Error('Required parameter "fieldIndex" was null or undefined when calling DeleteWorksheetDateFilter.');
+        }
+        /// Specifies how to group dateTime values. 
+        // verify required parameter 'dateTimeGroupingType' is not null or undefined
+        if (this.dateTimeGroupingType === null || this.dateTimeGroupingType === undefined) {
+            throw new Error('Required parameter "dateTimeGroupingType" was null or undefined when calling DeleteWorksheetDateFilter.');
+        }
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fieldIndex", this.fieldIndex);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "dateTimeGroupingType", this.dateTimeGroupingType);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "year", this.year);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "month", this.month);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "day", this.day);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "hour", this.hour);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "minute", this.minute);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "second", this.second);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "DELETE",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Deletes a filter for a filter column in worksheet.
+///                
+export class DeleteWorksheetFilterRequest  {
+    /// The workbook name.  
+    public name: string;
+    /// The worksheet name.  
+    public sheetName: string;
+    /// The integer offset of the field on which you want to base the filter (from the left of the list; the leftmost field is field 0).  
+    public fieldIndex: number;
+    /// The custom criteria.  
+    public criteria: string;
+    /// Original workbook folder.  
+    public folder: string;
+    /// Storage name.  
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< DeleteWorksheetFilterRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/autoFilter/filter".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
+        const queryParameters: any = {};
+        /// The integer offset of the field on which you want to base the filter (from the left of the list; the leftmost field is field 0). 
+        // verify required parameter 'fieldIndex' is not null or undefined
+        if (this.fieldIndex === null || this.fieldIndex === undefined) {
+            throw new Error('Required parameter "fieldIndex" was null or undefined when calling DeleteWorksheetFilter.');
+        }
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fieldIndex", this.fieldIndex);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "criteria", this.criteria);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "DELETE",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
    
+export class GetWorksheetAutoshapesRequest  {
+      
+    public name: string;
+      
+    public sheetName: string;
+      
+    public folder: string;
+      
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< GetWorksheetAutoshapesRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/autoshapes".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
+        const queryParameters: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "GET",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+   
+export class GetWorksheetAutoshapeWithFormatRequest  {
+      
+    public name: string;
+      
+    public sheetName: string;
+      
+    public autoshapeNumber: number;
+      
+    public format: string;
+      
+    public folder: string;
+      
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< GetWorksheetAutoshapeWithFormatRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/autoshapes/{autoshapeNumber}".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "autoshapeNumber" + "}", String(this.autoshapeNumber));
+        const queryParameters: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "format", this.format);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "GET",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+   
+export class PostBatchConvertRequest  {
+      
+    public batchConvertRequest: BatchConvertRequest;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< PostBatchConvertRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/batch/convert";
+        const queryParameters: any = {};
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        const bodyParameter = (this.batchConvertRequest == null) ? null :   ObjectSerializer.serialize( this.batchConvertRequest,this.batchConvertRequest.constructor.name);
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+            body:bodyParameter,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+   
+export class PostBatchProtectRequest  {
+      
+    public batchProtectRequest: BatchProtectRequest;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< PostBatchProtectRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/batch/protect";
+        const queryParameters: any = {};
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        const bodyParameter = (this.batchProtectRequest == null) ? null :   ObjectSerializer.serialize( this.batchProtectRequest,this.batchProtectRequest.constructor.name);
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+            body:bodyParameter,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+   
+export class PostBatchLockRequest  {
+      
+    public batchLockRequest: BatchLockRequest;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< PostBatchLockRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/batch/lock";
+        const queryParameters: any = {};
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        const bodyParameter = (this.batchLockRequest == null) ? null :   ObjectSerializer.serialize( this.batchLockRequest,this.batchLockRequest.constructor.name);
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+            body:bodyParameter,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+   
+export class PostBatchUnlockRequest  {
+      
+    public batchLockRequest: BatchLockRequest;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< PostBatchUnlockRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/batch/unlock";
+        const queryParameters: any = {};
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        const bodyParameter = (this.batchLockRequest == null) ? null :   ObjectSerializer.serialize( this.batchLockRequest,this.batchLockRequest.constructor.name);
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+            body:bodyParameter,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+   
+export class PostBatchSplitRequest  {
+      
+    public batchSplitRequest: BatchSplitRequest;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< PostBatchSplitRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/batch/split";
+        const queryParameters: any = {};
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        const bodyParameter = (this.batchSplitRequest == null) ? null :   ObjectSerializer.serialize( this.batchSplitRequest,this.batchSplitRequest.constructor.name);
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+            body:bodyParameter,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Extract barcodes from worksheet picture.   
+export class GetExtractBarcodesRequest  {
+    /// The workbook name.  
+    public name: string;
+    /// The worksheet name.  
+    public sheetName: string;
+    /// Picture index.  
+    public pictureIndex: number;
+    /// Workbook folder.  
+    public folder: string;
+      
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< GetExtractBarcodesRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/pictures/{pictureIndex}/recognize".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "pictureIndex" + "}", String(this.pictureIndex));
+        const queryParameters: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "GET",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Clear cells contents in worksheet.   
+export class PostClearContentsRequest  {
+    /// The workbook name.  
+    public name: string;
+    /// The worksheet name.  
+    public sheetName: string;
+    /// Represents the range to which the specified cells applies.  
+    public range: string;
+    /// The start row.  
+    public startRow: number;
+    /// The start column.  
+    public startColumn: number;
+    /// The end row.  
+    public endRow: number;
+    /// The end column.  
+    public endColumn: number;
+    /// Original workbook folder.  
+    public folder: string;
+    /// Storage name.  
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< PostClearContentsRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/cells/clearcontents".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
+        const queryParameters: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "range", this.range);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "startRow", this.startRow);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "startColumn", this.startColumn);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "endRow", this.endRow);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "endColumn", this.endColumn);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Clear cells formats in worksheet.   
+export class PostClearFormatsRequest  {
+    /// The workbook name.  
+    public name: string;
+    /// The worksheet name.  
+    public sheetName: string;
+    /// Represents the range to which the specified cells applies.  
+    public range: string;
+    /// The start row.  
+    public startRow: number;
+    /// The start column.  
+    public startColumn: number;
+    /// The end row.  
+    public endRow: number;
+    /// The end column.  
+    public endColumn: number;
+    /// Original workbook folder.  
+    public folder: string;
+    /// Storage name.  
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< PostClearFormatsRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/cells/clearformats".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
+        const queryParameters: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "range", this.range);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "startRow", this.startRow);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "startColumn", this.startColumn);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "endRow", this.endRow);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "endColumn", this.endColumn);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Updates cell's range style in worksheet.   
+export class PostUpdateWorksheetRangeStyleRequest  {
+    /// The workbook name.  
+    public name: string;
+    /// The worksheet name.  
+    public sheetName: string;
+    /// Represents the range to which the specified cells applies.  
+    public range: string;
+    /// Style with update style settings.  
+    public style: Style;
+    /// Original workbook folder.  
+    public folder: string;
+    /// Storage name.  
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< PostUpdateWorksheetRangeStyleRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/cells/style".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
+        const queryParameters: any = {};
+        /// Represents the range to which the specified cells applies. 
+        // verify required parameter 'range' is not null or undefined
+        if (this.range === null || this.range === undefined) {
+            throw new Error('Required parameter "range" was null or undefined when calling PostUpdateWorksheetRangeStyle.');
+        }
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "range", this.range);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        const bodyParameter = (this.style == null) ? null :   ObjectSerializer.serialize( this.style,this.style.constructor.name);
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+            body:bodyParameter,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Merge cells in worksheet.   
+export class PostWorksheetMergeRequest  {
+    /// The workbook name.  
+    public name: string;
+    /// The worksheet name.  
+    public sheetName: string;
+    /// The start row.  
+    public startRow: number;
+    /// The start column.  
+    public startColumn: number;
+    /// The total rows  
+    public totalRows: number;
+    /// The total columns.  
+    public totalColumns: number;
+    /// Original workbook folder.  
+    public folder: string;
+    /// Storage name.  
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< PostWorksheetMergeRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/cells/merge".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
+        const queryParameters: any = {};
+        /// The start row. 
+        // verify required parameter 'startRow' is not null or undefined
+        if (this.startRow === null || this.startRow === undefined) {
+            throw new Error('Required parameter "startRow" was null or undefined when calling PostWorksheetMerge.');
+        }
+        /// The start column. 
+        // verify required parameter 'startColumn' is not null or undefined
+        if (this.startColumn === null || this.startColumn === undefined) {
+            throw new Error('Required parameter "startColumn" was null or undefined when calling PostWorksheetMerge.');
+        }
+        /// The total rows 
+        // verify required parameter 'totalRows' is not null or undefined
+        if (this.totalRows === null || this.totalRows === undefined) {
+            throw new Error('Required parameter "totalRows" was null or undefined when calling PostWorksheetMerge.');
+        }
+        /// The total columns. 
+        // verify required parameter 'totalColumns' is not null or undefined
+        if (this.totalColumns === null || this.totalColumns === undefined) {
+            throw new Error('Required parameter "totalColumns" was null or undefined when calling PostWorksheetMerge.');
+        }
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "startRow", this.startRow);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "startColumn", this.startColumn);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "totalRows", this.totalRows);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "totalColumns", this.totalColumns);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Unmerge cells in worksheet.   
+export class PostWorksheetUnmergeRequest  {
+    /// The workbook name.  
+    public name: string;
+    /// The worksheet name.  
+    public sheetName: string;
+    /// The start row.  
+    public startRow: number;
+    /// The start column.  
+    public startColumn: number;
+    /// The total rows  
+    public totalRows: number;
+    /// The total columns.  
+    public totalColumns: number;
+    /// Original workbook folder.  
+    public folder: string;
+    /// Storage name.  
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< PostWorksheetUnmergeRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/cells/unmerge".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
+        const queryParameters: any = {};
+        /// The start row. 
+        // verify required parameter 'startRow' is not null or undefined
+        if (this.startRow === null || this.startRow === undefined) {
+            throw new Error('Required parameter "startRow" was null or undefined when calling PostWorksheetUnmerge.');
+        }
+        /// The start column. 
+        // verify required parameter 'startColumn' is not null or undefined
+        if (this.startColumn === null || this.startColumn === undefined) {
+            throw new Error('Required parameter "startColumn" was null or undefined when calling PostWorksheetUnmerge.');
+        }
+        /// The total rows 
+        // verify required parameter 'totalRows' is not null or undefined
+        if (this.totalRows === null || this.totalRows === undefined) {
+            throw new Error('Required parameter "totalRows" was null or undefined when calling PostWorksheetUnmerge.');
+        }
+        /// The total columns. 
+        // verify required parameter 'totalColumns' is not null or undefined
+        if (this.totalColumns === null || this.totalColumns === undefined) {
+            throw new Error('Required parameter "totalColumns" was null or undefined when calling PostWorksheetUnmerge.');
+        }
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "startRow", this.startRow);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "startColumn", this.startColumn);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "totalRows", this.totalRows);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "totalColumns", this.totalColumns);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Gets cells description in some format.   
+export class GetWorksheetCellsRequest  {
+    /// Document name.  
+    public name: string;
+    /// The worksheet name.  
+    public sheetName: string;
+    /// Begginig offset.  
+    public offest: number;
+    /// Maximum amount of cells in the response.  
+    public count: number;
+    /// Document's folder name.  
+    public folder: string;
+    /// Storage name.  
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< GetWorksheetCellsRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/cells".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
+        const queryParameters: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "offest", this.offest);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "count", this.count);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "GET",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Gets cell data by cell or method name in worksheet.   
+export class GetWorksheetCellRequest  {
+    /// Document name.  
+    public name: string;
+    /// The worksheet name.  
+    public sheetName: string;
+    /// The cell's or method name. (Method name like firstcell, endcell etc.)  
+    public cellOrMethodName: string;
+    /// Document's folder.  
+    public folder: string;
+    /// Storage name.  
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< GetWorksheetCellRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/cells/{cellOrMethodName}".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "cellOrMethodName" + "}", String(this.cellOrMethodName));
+        const queryParameters: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "GET",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Gets cell's style description in worksheet.   
+export class GetWorksheetCellStyleRequest  {
+    /// Document name.  
+    public name: string;
+    /// The worksheet name.  
+    public sheetName: string;
+    /// Cell's name.  
+    public cellName: string;
+    /// Document's folder.  
+    public folder: string;
+    /// Storage name.  
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< GetWorksheetCellStyleRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/cells/{cellName}/style".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "cellName" + "}", String(this.cellName));
+        const queryParameters: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "GET",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Sets cell value by cell name in worksheet.   
+export class PostWorksheetCellSetValueRequest  {
+    /// The workbook name.  
+    public name: string;
+    /// The worksheet name.  
+    public sheetName: string;
+    /// The cell name.  
+    public cellName: string;
+    /// The cell value.  
+    public value: string;
+    /// The value type.  
+    public type: string;
+    /// Formula for cell  
+    public formula: string;
+    /// The document folder.  
+    public folder: string;
+    /// Storage name.  
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< PostWorksheetCellSetValueRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/cells/{cellName}".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "cellName" + "}", String(this.cellName));
+        const queryParameters: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "value", this.value);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "type", this.type);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "formula", this.formula);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Sets cell's style by cell name in worksheet.   
+export class PostUpdateWorksheetCellStyleRequest  {
+    /// The workbook name.  
+    public name: string;
+    /// The worksheet name.  
+    public sheetName: string;
+    /// The cell name.  
+    public cellName: string;
+    /// Style with update style settings.  
+    public style: Style;
+    /// Original workbook folder.  
+    public folder: string;
+    /// Storage name.  
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< PostUpdateWorksheetCellStyleRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/cells/{cellName}/style".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "cellName" + "}", String(this.cellName));
+        const queryParameters: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        const bodyParameter = (this.style == null) ? null :   ObjectSerializer.serialize( this.style,this.style.constructor.name);
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+            body:bodyParameter,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Sets the value of the range in worksheet.   
+export class PostSetCellRangeValueRequest  {
+    /// The workbook name.  
+    public name: string;
+    /// The worksheet name.  
+    public sheetName: string;
+    /// Cell area (like "A1:C2")  
+    public cellarea: string;
+    /// Range value  
+    public value: string;
+    /// Value data type (like "int")  
+    public type: string;
+    /// Original workbook folder.  
+    public folder: string;
+    /// Storage name.  
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< PostSetCellRangeValueRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/cells".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
+        const queryParameters: any = {};
+        /// Cell area (like "A1:C2") 
+        // verify required parameter 'cellarea' is not null or undefined
+        if (this.cellarea === null || this.cellarea === undefined) {
+            throw new Error('Required parameter "cellarea" was null or undefined when calling PostSetCellRangeValue.');
+        }
+        /// Range value 
+        // verify required parameter 'value' is not null or undefined
+        if (this.value === null || this.value === undefined) {
+            throw new Error('Required parameter "value" was null or undefined when calling PostSetCellRangeValue.');
+        }
+        /// Value data type (like "int") 
+        // verify required parameter 'type' is not null or undefined
+        if (this.type === null || this.type === undefined) {
+            throw new Error('Required parameter "type" was null or undefined when calling PostSetCellRangeValue.');
+        }
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "cellarea", this.cellarea);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "value", this.value);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "type", this.type);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Copies data to destination cell from a source cell in worksheet.   
+export class PostCopyCellIntoCellRequest  {
+    /// The workbook name.  
+    public name: string;
+    /// Destination cell name  
+    public destCellName: string;
+    /// Destination worksheet name.  
+    public sheetName: string;
+    /// Source worksheet name.  
+    public worksheet: string;
+    /// Source cell name  
+    public cellname: string;
+    /// Source row  
+    public row: number;
+    /// Source column  
+    public column: number;
+    /// Original workbook folder.  
+    public folder: string;
+    /// Storage name.  
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< PostCopyCellIntoCellRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/cells/{destCellName}/copy".replace("{" + "name" + "}", String(this.name)).replace("{" + "destCellName" + "}", String(this.destCellName)).replace("{" + "sheetName" + "}", String(this.sheetName));
+        const queryParameters: any = {};
+        /// Source worksheet name. 
+        // verify required parameter 'worksheet' is not null or undefined
+        if (this.worksheet === null || this.worksheet === undefined) {
+            throw new Error('Required parameter "worksheet" was null or undefined when calling PostCopyCellIntoCell.');
+        }
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "worksheet", this.worksheet);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "cellname", this.cellname);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "row", this.row);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "column", this.column);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Gets the html string which contains data and some formats in this cell.   
+export class GetCellHtmlStringRequest  {
+    /// The workbook name.  
+    public name: string;
+    /// The worksheet name.  
+    public sheetName: string;
+    /// The cell name.  
+    public cellName: string;
+    /// Original workbook folder.  
+    public folder: string;
+    /// Storage name.  
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< GetCellHtmlStringRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/cells/{cellName}/htmlstring".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "cellName" + "}", String(this.cellName));
+        const queryParameters: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "GET",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Sets the html string which contains data and some formats in this cell.   
+export class PostSetCellHtmlStringRequest  {
+    /// The workbook name.  
+    public name: string;
+    /// The worksheet name.  
+    public sheetName: string;
+    /// The cell name.  
+    public cellName: string;
+    /// Original workbook folder.  
+    public folder: string;
+    /// Storage name.  
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< PostSetCellHtmlStringRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/cells/{cellName}/htmlstring".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "cellName" + "}", String(this.cellName));
+        const queryParameters: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Calculates cell formula in worksheet.   
+export class PostCellCalculateRequest  {
+    /// The workbook name.  
+    public name: string;
+    /// The worksheet name.  
+    public sheetName: string;
+    /// The cell name.  
+    public cellName: string;
+    /// Calculation Options  
+    public options: CalculationOptions;
+    /// Original workbook folder.  
+    public folder: string;
+    /// Storage name.  
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< PostCellCalculateRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/cells/{cellName}/calculate".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "cellName" + "}", String(this.cellName));
+        const queryParameters: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        const bodyParameter = (this.options == null) ? null :   ObjectSerializer.serialize( this.options,this.options.constructor.name);
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+            body:bodyParameter,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Sets cell characters in worksheet.   
+export class PostCellCharactersRequest  {
+    /// The workbook name.  
+    public name: string;
+    /// The worksheet name.  
+    public sheetName: string;
+    /// The cell name.  
+    public cellName: string;
+      
+    public options: Array<FontSetting>;
+    /// Original workbook folder.  
+    public folder: string;
+    /// Storage name.  
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< PostCellCharactersRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/cells/{cellName}/characters".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "cellName" + "}", String(this.cellName));
+        const queryParameters: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        const bodyParameter = (this.options == null) ? null :   ObjectSerializer.serialize( this.options,this.options.constructor.name);
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+            body:bodyParameter,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+   
+export class GetWorksheetColumnsRequest  {
+      
+    public name: string;
+      
+    public sheetName: string;
+      
+    public offset: number;
+      
+    public count: number;
+      
+    public folder: string;
+      
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< GetWorksheetColumnsRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/cells/columns/".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
+        const queryParameters: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "offset", this.offset);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "count", this.count);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "GET",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Sets worksheet column width.   
+export class PostSetWorksheetColumnWidthRequest  {
+    /// The workbook name.  
+    public name: string;
+    /// The worksheet name.  
+    public sheetName: string;
+    /// The column index.  
+    public columnIndex: number;
+    /// Gets and sets the column width in unit of characters.  
+    public width: number;
+      
+    public count: number;
+    /// Original workbook folder.  
+    public folder: string;
+    /// Storage name.  
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< PostSetWorksheetColumnWidthRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/cells/columns/{columnIndex}".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "columnIndex" + "}", String(this.columnIndex));
+        const queryParameters: any = {};
+        /// Gets and sets the column width in unit of characters. 
+        // verify required parameter 'width' is not null or undefined
+        if (this.width === null || this.width === undefined) {
+            throw new Error('Required parameter "width" was null or undefined when calling PostSetWorksheetColumnWidth.');
+        }
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "width", this.width);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "count", this.count);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Gets worksheet column data by column's index.   
+export class GetWorksheetColumnRequest  {
+    /// The workbook name.  
+    public name: string;
+    /// The worksheet name.  
+    public sheetName: string;
+    /// The column index.  
+    public columnIndex: number;
+    /// Original workbook folder.  
+    public folder: string;
+    /// Storage name.  
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< GetWorksheetColumnRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/cells/columns/{columnIndex}".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "columnIndex" + "}", String(this.columnIndex));
+        const queryParameters: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "GET",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Insert worksheet columns.   
+export class PutInsertWorksheetColumnsRequest  {
+    /// The workbook name.  
+    public name: string;
+    /// The worksheet name.  
+    public sheetName: string;
+    /// The column index.  
+    public columnIndex: number;
+    /// The number of columns.  
+    public columns: number;
+    /// Indicates if references in other worksheets will be updated.  
+    public updateReference: boolean;
+    /// Original workbook folder.  
+    public folder: string;
+    /// Storage name.  
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< PutInsertWorksheetColumnsRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/cells/columns/{columnIndex}".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "columnIndex" + "}", String(this.columnIndex));
+        const queryParameters: any = {};
+        /// The number of columns. 
+        // verify required parameter 'columns' is not null or undefined
+        if (this.columns === null || this.columns === undefined) {
+            throw new Error('Required parameter "columns" was null or undefined when calling PutInsertWorksheetColumns.');
+        }
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "columns", this.columns);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "updateReference", this.updateReference);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Delete worksheet columns.   
+export class DeleteWorksheetColumnsRequest  {
+    /// The workbook name.  
+    public name: string;
+    /// The worksheet name.  
+    public sheetName: string;
+    /// The column index.  
+    public columnIndex: number;
+    /// The number of columns.  
+    public columns: number;
+    /// Indicates if references in other worksheets will be updated.  
+    public updateReference: boolean;
+    /// Original workbook folder.  
+    public folder: string;
+    /// Storage name.  
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< DeleteWorksheetColumnsRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/cells/columns/{columnIndex}".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "columnIndex" + "}", String(this.columnIndex));
+        const queryParameters: any = {};
+        /// The number of columns. 
+        // verify required parameter 'columns' is not null or undefined
+        if (this.columns === null || this.columns === undefined) {
+            throw new Error('Required parameter "columns" was null or undefined when calling DeleteWorksheetColumns.');
+        }
+        /// Indicates if references in other worksheets will be updated. 
+        // verify required parameter 'updateReference' is not null or undefined
+        if (this.updateReference === null || this.updateReference === undefined) {
+            throw new Error('Required parameter "updateReference" was null or undefined when calling DeleteWorksheetColumns.');
+        }
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "columns", this.columns);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "updateReference", this.updateReference);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "DELETE",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Hide worksheet columns.   
+export class PostHideWorksheetColumnsRequest  {
+    /// The workbook name.  
+    public name: string;
+    /// The worksheet name.  
+    public sheetName: string;
+    /// The begin column index to be operated.  
+    public startColumn: number;
+    /// Number of columns to be operated.  
+    public totalColumns: number;
+    /// Original workbook folder.  
+    public folder: string;
+    /// Storage name.  
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< PostHideWorksheetColumnsRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/cells/columns/hide".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
+        const queryParameters: any = {};
+        /// The begin column index to be operated. 
+        // verify required parameter 'startColumn' is not null or undefined
+        if (this.startColumn === null || this.startColumn === undefined) {
+            throw new Error('Required parameter "startColumn" was null or undefined when calling PostHideWorksheetColumns.');
+        }
+        /// Number of columns to be operated. 
+        // verify required parameter 'totalColumns' is not null or undefined
+        if (this.totalColumns === null || this.totalColumns === undefined) {
+            throw new Error('Required parameter "totalColumns" was null or undefined when calling PostHideWorksheetColumns.');
+        }
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "startColumn", this.startColumn);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "totalColumns", this.totalColumns);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Unhide worksheet columns.   
+export class PostUnhideWorksheetColumnsRequest  {
+    /// The workbook name.  
+    public name: string;
+    /// The worksheet name.  
+    public sheetName: string;
+    /// The begin column index to be operated.  
+    public startColumn: number;
+    /// Number of columns to be operated.  
+    public totalColumns: number;
+    /// Gets and sets the column width in unit of characters.  
+    public width: number;
+    /// Original workbook folder.  
+    public folder: string;
+    /// Storage name.  
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< PostUnhideWorksheetColumnsRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/cells/columns/unhide".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
+        const queryParameters: any = {};
+        /// The begin column index to be operated. 
+        // verify required parameter 'startColumn' is not null or undefined
+        if (this.startColumn === null || this.startColumn === undefined) {
+            throw new Error('Required parameter "startColumn" was null or undefined when calling PostUnhideWorksheetColumns.');
+        }
+        /// Number of columns to be operated. 
+        // verify required parameter 'totalColumns' is not null or undefined
+        if (this.totalColumns === null || this.totalColumns === undefined) {
+            throw new Error('Required parameter "totalColumns" was null or undefined when calling PostUnhideWorksheetColumns.');
+        }
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "startColumn", this.startColumn);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "totalColumns", this.totalColumns);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "width", this.width);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Group worksheet columns.   
+export class PostGroupWorksheetColumnsRequest  {
+    /// The workbook name.  
+    public name: string;
+    /// The worksheet name.  
+    public sheetName: string;
+    /// The first column index to be operated.  
+    public firstIndex: number;
+    /// The last column index to be operated.  
+    public lastIndex: number;
+    /// columns visible state  
+    public hide: boolean;
+    /// Original workbook folder.  
+    public folder: string;
+    /// Storage name.  
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< PostGroupWorksheetColumnsRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/cells/columns/group".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
+        const queryParameters: any = {};
+        /// The first column index to be operated. 
+        // verify required parameter 'firstIndex' is not null or undefined
+        if (this.firstIndex === null || this.firstIndex === undefined) {
+            throw new Error('Required parameter "firstIndex" was null or undefined when calling PostGroupWorksheetColumns.');
+        }
+        /// The last column index to be operated. 
+        // verify required parameter 'lastIndex' is not null or undefined
+        if (this.lastIndex === null || this.lastIndex === undefined) {
+            throw new Error('Required parameter "lastIndex" was null or undefined when calling PostGroupWorksheetColumns.');
+        }
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "firstIndex", this.firstIndex);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "lastIndex", this.lastIndex);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "hide", this.hide);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Ungroup worksheet columns.   
+export class PostUngroupWorksheetColumnsRequest  {
+    /// The workbook name.  
+    public name: string;
+    /// The worksheet name.  
+    public sheetName: string;
+    /// The first column index to be operated.  
+    public firstIndex: number;
+    /// The last column index to be operated.  
+    public lastIndex: number;
+    /// Original workbook folder.  
+    public folder: string;
+    /// Storage name.  
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< PostUngroupWorksheetColumnsRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/cells/columns/ungroup".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
+        const queryParameters: any = {};
+        /// The first column index to be operated. 
+        // verify required parameter 'firstIndex' is not null or undefined
+        if (this.firstIndex === null || this.firstIndex === undefined) {
+            throw new Error('Required parameter "firstIndex" was null or undefined when calling PostUngroupWorksheetColumns.');
+        }
+        /// The last column index to be operated. 
+        // verify required parameter 'lastIndex' is not null or undefined
+        if (this.lastIndex === null || this.lastIndex === undefined) {
+            throw new Error('Required parameter "lastIndex" was null or undefined when calling PostUngroupWorksheetColumns.');
+        }
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "firstIndex", this.firstIndex);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "lastIndex", this.lastIndex);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Copy data to destination columns from source columns in worksheet.   
+export class PostCopyWorksheetColumnsRequest  {
+    /// The workbook name.  
+    public name: string;
+    /// The worksheet name.  
+    public sheetName: string;
+    /// Source column index  
+    public sourceColumnIndex: number;
+    /// Destination column index  
+    public destinationColumnIndex: number;
+    /// The copied column number  
+    public columnNumber: number;
+    /// The destination worksheet name.  
+    public worksheet: string;
+    /// Original workbook folder.  
+    public folder: string;
+    /// Storage name.  
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< PostCopyWorksheetColumnsRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/cells/columns/copy".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
+        const queryParameters: any = {};
+        /// Source column index 
+        // verify required parameter 'sourceColumnIndex' is not null or undefined
+        if (this.sourceColumnIndex === null || this.sourceColumnIndex === undefined) {
+            throw new Error('Required parameter "sourceColumnIndex" was null or undefined when calling PostCopyWorksheetColumns.');
+        }
+        /// Destination column index 
+        // verify required parameter 'destinationColumnIndex' is not null or undefined
+        if (this.destinationColumnIndex === null || this.destinationColumnIndex === undefined) {
+            throw new Error('Required parameter "destinationColumnIndex" was null or undefined when calling PostCopyWorksheetColumns.');
+        }
+        /// The copied column number 
+        // verify required parameter 'columnNumber' is not null or undefined
+        if (this.columnNumber === null || this.columnNumber === undefined) {
+            throw new Error('Required parameter "columnNumber" was null or undefined when calling PostCopyWorksheetColumns.');
+        }
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "sourceColumnIndex", this.sourceColumnIndex);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "destinationColumnIndex", this.destinationColumnIndex);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "columnNumber", this.columnNumber);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "worksheet", this.worksheet);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Sets column style in worksheet.   
+export class PostColumnStyleRequest  {
+    /// The workbook name.  
+    public name: string;
+    /// The worksheet name.  
+    public sheetName: string;
+    /// The column index.  
+    public columnIndex: number;
+    /// Represents display style of excel document,such as font,color,alignment,border,etc.  
+    public style: Style;
+    /// Original workbook folder.  
+    public folder: string;
+    /// Storage name.  
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< PostColumnStyleRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/cells/columns/{columnIndex}/style".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "columnIndex" + "}", String(this.columnIndex));
+        const queryParameters: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        const bodyParameter = (this.style == null) ? null :   ObjectSerializer.serialize( this.style,this.style.constructor.name);
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+            body:bodyParameter,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+   
+export class GetWorksheetRowsRequest  {
+      
+    public name: string;
+      
+    public sheetName: string;
+      
+    public offset: number;
+      
+    public count: number;
+      
+    public folder: string;
+      
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< GetWorksheetRowsRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/cells/rows/".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
+        const queryParameters: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "offset", this.offset);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "count", this.count);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "GET",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Gets row data by row's index in worksheet.   
+export class GetWorksheetRowRequest  {
+    /// The workbook name.  
+    public name: string;
+    /// The worksheet name.  
+    public sheetName: string;
+    /// The row index.  
+    public rowIndex: number;
+    /// The workbook folder.  
+    public folder: string;
+    /// Storage name.  
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< GetWorksheetRowRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/cells/rows/{rowIndex}".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "rowIndex" + "}", String(this.rowIndex));
+        const queryParameters: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "GET",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Deletes row in worksheet.   
+export class DeleteWorksheetRowRequest  {
+    /// The workbook name.  
+    public name: string;
+    /// The worksheet name.  
+    public sheetName: string;
+    /// The row index.  
+    public rowIndex: number;
+    /// Original workbook folder.  
+    public folder: string;
+    /// Storage name.  
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< DeleteWorksheetRowRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/cells/rows/{rowIndex}".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "rowIndex" + "}", String(this.rowIndex));
+        const queryParameters: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "DELETE",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+   
+export class DeleteWorksheetRowsRequest  {
+      
+    public name: string;
+      
+    public sheetName: string;
+      
+    public startrow: number;
+      
+    public totalRows: number;
+      
+    public updateReference: boolean;
+      
+    public folder: string;
+      
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< DeleteWorksheetRowsRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/cells/rows/".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
+        const queryParameters: any = {};
+         
+        // verify required parameter 'startrow' is not null or undefined
+        if (this.startrow === null || this.startrow === undefined) {
+            throw new Error('Required parameter "startrow" was null or undefined when calling DeleteWorksheetRows.');
+        }
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "startrow", this.startrow);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "totalRows", this.totalRows);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "updateReference", this.updateReference);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "DELETE",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+   
+export class PutInsertWorksheetRowsRequest  {
+      
+    public name: string;
+      
+    public sheetName: string;
+      
+    public startrow: number;
+      
+    public totalRows: number;
+      
+    public updateReference: boolean;
+      
+    public folder: string;
+      
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< PutInsertWorksheetRowsRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/cells/rows/".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
+        const queryParameters: any = {};
+         
+        // verify required parameter 'startrow' is not null or undefined
+        if (this.startrow === null || this.startrow === undefined) {
+            throw new Error('Required parameter "startrow" was null or undefined when calling PutInsertWorksheetRows.');
+        }
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "startrow", this.startrow);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "totalRows", this.totalRows);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "updateReference", this.updateReference);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Inserts new row in worksheet.   
+export class PutInsertWorksheetRowRequest  {
+    /// The workbook name.  
+    public name: string;
+    /// The worksheet name.  
+    public sheetName: string;
+    /// The new row index.  
+    public rowIndex: number;
+    /// Original workbook folder.  
+    public folder: string;
+    /// Storage name.  
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< PutInsertWorksheetRowRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/cells/rows/{rowIndex}".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "rowIndex" + "}", String(this.rowIndex));
+        const queryParameters: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Updates row in worksheet.   
+export class PostUpdateWorksheetRowRequest  {
+    /// The workbook name.  
+    public name: string;
+    /// The worksheet name.  
+    public sheetName: string;
+    /// The row index.  
+    public rowIndex: number;
+    /// The new row height.  
+    public height: number;
+      
+    public count: number;
+    /// Original workbook folder.  
+    public folder: string;
+    /// Storage name.  
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< PostUpdateWorksheetRowRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/cells/rows/{rowIndex}".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "rowIndex" + "}", String(this.rowIndex));
+        const queryParameters: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "height", this.height);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "count", this.count);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Hide rows in worksheet.   
+export class PostHideWorksheetRowsRequest  {
+    /// The workbook name.  
+    public name: string;
+    /// The worksheet name.  
+    public sheetName: string;
+    /// The begin row index to be operated.  
+    public startrow: number;
+    /// Number of rows to be operated.  
+    public totalRows: number;
+    /// Original workbook folder.  
+    public folder: string;
+    /// Storage name.  
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< PostHideWorksheetRowsRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/cells/rows/hide".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
+        const queryParameters: any = {};
+        /// The begin row index to be operated. 
+        // verify required parameter 'startrow' is not null or undefined
+        if (this.startrow === null || this.startrow === undefined) {
+            throw new Error('Required parameter "startrow" was null or undefined when calling PostHideWorksheetRows.');
+        }
+        /// Number of rows to be operated. 
+        // verify required parameter 'totalRows' is not null or undefined
+        if (this.totalRows === null || this.totalRows === undefined) {
+            throw new Error('Required parameter "totalRows" was null or undefined when calling PostHideWorksheetRows.');
+        }
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "startrow", this.startrow);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "totalRows", this.totalRows);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Unhide rows in worksheet.   
+export class PostUnhideWorksheetRowsRequest  {
+    /// The workbook name.  
+    public name: string;
+    /// The worksheet name.  
+    public sheetName: string;
+    /// The begin row index to be operated.  
+    public startrow: number;
+    /// Number of rows to be operated.  
+    public totalRows: number;
+    /// The new row height.  
+    public height: number;
+    /// Original workbook folder.  
+    public folder: string;
+    /// Storage name.  
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< PostUnhideWorksheetRowsRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/cells/rows/unhide".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
+        const queryParameters: any = {};
+        /// The begin row index to be operated. 
+        // verify required parameter 'startrow' is not null or undefined
+        if (this.startrow === null || this.startrow === undefined) {
+            throw new Error('Required parameter "startrow" was null or undefined when calling PostUnhideWorksheetRows.');
+        }
+        /// Number of rows to be operated. 
+        // verify required parameter 'totalRows' is not null or undefined
+        if (this.totalRows === null || this.totalRows === undefined) {
+            throw new Error('Required parameter "totalRows" was null or undefined when calling PostUnhideWorksheetRows.');
+        }
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "startrow", this.startrow);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "totalRows", this.totalRows);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "height", this.height);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Group rows in worksheet.   
+export class PostGroupWorksheetRowsRequest  {
+    /// The workbook name.  
+    public name: string;
+    /// The worksheet name.  
+    public sheetName: string;
+    /// The first row index to be operated.  
+    public firstIndex: number;
+    /// The last row index to be operated.  
+    public lastIndex: number;
+    /// rows visible state  
+    public hide: boolean;
+    /// Original workbook folder.  
+    public folder: string;
+    /// Storage name.  
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< PostGroupWorksheetRowsRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/cells/rows/group".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
+        const queryParameters: any = {};
+        /// The first row index to be operated. 
+        // verify required parameter 'firstIndex' is not null or undefined
+        if (this.firstIndex === null || this.firstIndex === undefined) {
+            throw new Error('Required parameter "firstIndex" was null or undefined when calling PostGroupWorksheetRows.');
+        }
+        /// The last row index to be operated. 
+        // verify required parameter 'lastIndex' is not null or undefined
+        if (this.lastIndex === null || this.lastIndex === undefined) {
+            throw new Error('Required parameter "lastIndex" was null or undefined when calling PostGroupWorksheetRows.');
+        }
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "firstIndex", this.firstIndex);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "lastIndex", this.lastIndex);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "hide", this.hide);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Ungroup rows in worksheet.   
+export class PostUngroupWorksheetRowsRequest  {
+    /// The workbook name.  
+    public name: string;
+    /// The worksheet name.  
+    public sheetName: string;
+    /// The first row index to be operated.  
+    public firstIndex: number;
+    /// The last row index to be operated.  
+    public lastIndex: number;
+    /// Is all row to be operated  
+    public isAll: boolean;
+    /// Original workbook folder.  
+    public folder: string;
+    /// Storage name.  
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< PostUngroupWorksheetRowsRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/cells/rows/ungroup".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
+        const queryParameters: any = {};
+        /// The first row index to be operated. 
+        // verify required parameter 'firstIndex' is not null or undefined
+        if (this.firstIndex === null || this.firstIndex === undefined) {
+            throw new Error('Required parameter "firstIndex" was null or undefined when calling PostUngroupWorksheetRows.');
+        }
+        /// The last row index to be operated. 
+        // verify required parameter 'lastIndex' is not null or undefined
+        if (this.lastIndex === null || this.lastIndex === undefined) {
+            throw new Error('Required parameter "lastIndex" was null or undefined when calling PostUngroupWorksheetRows.');
+        }
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "firstIndex", this.firstIndex);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "lastIndex", this.lastIndex);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "isAll", this.isAll);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Copies data and formats of some whole rows in worksheet.   
+export class PostCopyWorksheetRowsRequest  {
+    /// The workbook name.  
+    public name: string;
+    /// The worksheet name.  
+    public sheetName: string;
+    /// Source row index  
+    public sourceRowIndex: number;
+    /// Destination row index  
+    public destinationRowIndex: number;
+    /// The copied row number  
+    public rowNumber: number;
+    /// The worksheet name.  
+    public worksheet: string;
+    /// Original workbook folder.  
+    public folder: string;
+    /// Storage name.  
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< PostCopyWorksheetRowsRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/cells/rows/copy".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
+        const queryParameters: any = {};
+        /// Source row index 
+        // verify required parameter 'sourceRowIndex' is not null or undefined
+        if (this.sourceRowIndex === null || this.sourceRowIndex === undefined) {
+            throw new Error('Required parameter "sourceRowIndex" was null or undefined when calling PostCopyWorksheetRows.');
+        }
+        /// Destination row index 
+        // verify required parameter 'destinationRowIndex' is not null or undefined
+        if (this.destinationRowIndex === null || this.destinationRowIndex === undefined) {
+            throw new Error('Required parameter "destinationRowIndex" was null or undefined when calling PostCopyWorksheetRows.');
+        }
+        /// The copied row number 
+        // verify required parameter 'rowNumber' is not null or undefined
+        if (this.rowNumber === null || this.rowNumber === undefined) {
+            throw new Error('Required parameter "rowNumber" was null or undefined when calling PostCopyWorksheetRows.');
+        }
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "sourceRowIndex", this.sourceRowIndex);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "destinationRowIndex", this.destinationRowIndex);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "rowNumber", this.rowNumber);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "worksheet", this.worksheet);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Applies formats for a whole row in worksheet.
+///                
+export class PostRowStyleRequest  {
+    /// The workbook name.  
+    public name: string;
+    /// The worksheet name.  
+    public sheetName: string;
+    /// The row index.  
+    public rowIndex: number;
+    /// Style description.  
+    public style: Style;
+    /// Original workbook folder.  
+    public folder: string;
+    /// Storage name.  
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< PostRowStyleRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/cells/rows/{rowIndex}/style".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "rowIndex" + "}", String(this.rowIndex));
+        const queryParameters: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        const bodyParameter = (this.style == null) ? null :   ObjectSerializer.serialize( this.style,this.style.constructor.name);
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+            body:bodyParameter,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Gets cells description in some format.   
+export class GetCellsCloudServicesHealthCheckRequest  {
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< GetCellsCloudServicesHealthCheckRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells";
+        const queryParameters: any = {};
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "GET",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Aspose.Cells Cloud service health status check(old).    
+export class GetCellsCloudServiceStatusRequest  {
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< GetCellsCloudServiceStatusRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/status/check";
+        const queryParameters: any = {};
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "GET",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Gets chart area description in worksheet.   
+export class GetChartAreaRequest  {
+    /// The workbook name.  
+    public name: string;
+    /// The worksheet name.  
+    public sheetName: string;
+    /// The chart index.  
+    public chartIndex: number;
+    /// Original workbook folder.  
+    public folder: string;
+      
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< GetChartAreaRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/charts/{chartIndex}/chartArea".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "chartIndex" + "}", String(this.chartIndex));
+        const queryParameters: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "GET",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Gets chart area fill format description in worksheet.   
+export class GetChartAreaFillFormatRequest  {
+    /// The workbook name.  
+    public name: string;
+    /// The worksheet name.  
+    public sheetName: string;
+    /// The chart index.  
+    public chartIndex: number;
+    /// Original workbook folder.  
+    public folder: string;
+      
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< GetChartAreaFillFormatRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/charts/{chartIndex}/chartArea/fillFormat".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "chartIndex" + "}", String(this.chartIndex));
+        const queryParameters: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "GET",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Gets chart area border description.   
+export class GetChartAreaBorderRequest  {
+    /// The workbook name.  
+    public name: string;
+    /// The worksheet name.  
+    public sheetName: string;
+    /// The chart index.  
+    public chartIndex: number;
+    /// Original workbook folder.  
+    public folder: string;
+      
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< GetChartAreaBorderRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/charts/{chartIndex}/chartArea/border".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "chartIndex" + "}", String(this.chartIndex));
+        const queryParameters: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "GET",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Get worksheet charts description.   
+export class GetWorksheetChartsRequest  {
+    /// The workbook name.  
+    public name: string;
+    /// The worksheet name.  
+    public sheetName: string;
+    /// Original workbook folder.  
+    public folder: string;
+    /// Storage name.  
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< GetWorksheetChartsRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/charts".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
+        const queryParameters: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "GET",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Gets chart in some format.   
+export class GetWorksheetChartRequest  {
+    /// The workbook name.  
+    public name: string;
+    /// The worksheet name.  
+    public sheetName: string;
+    /// The chart number.  
+    public chartNumber: number;
+    /// Chart conversion format.(PNG/TIFF/JPEG/GIF/EMF/BMP)  
+    public format: string;
+    /// Original workbook folder.  
+    public folder: string;
+    /// Storage name.  
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< GetWorksheetChartRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/charts/{chartNumber}".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "chartNumber" + "}", String(this.chartNumber));
+        const queryParameters: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "format", this.format);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "GET",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Adds new chart in worksheet.   
+export class PutWorksheetAddChartRequest  {
+    /// The workbook name.  
+    public name: string;
+    /// The worksheet name.  
+    public sheetName: string;
+    /// Chart type, please refer property Type in chart resource.  
+    public chartType: string;
+    /// New chart upper left row.  
+    public upperLeftRow: number;
+    /// New chart upperleft column.  
+    public upperLeftColumn: number;
+    /// New chart lower right row.  
+    public lowerRightRow: number;
+    /// New chart lower right column.  
+    public lowerRightColumn: number;
+    /// Specifies values from which to plot the data series.   
+    public area: string;
+    /// Specifies whether to plot the series from a range of cell values by row or by column.   
+    public isVertical: boolean;
+    /// Gets or sets the range of category Axis values. It can be a range of cells (such as, "d1:e10").   
+    public categoryData: string;
+    /// Specifies whether auto update serial name.   
+    public isAutoGetSerialName: boolean;
+    /// Specifies chart title name.  
+    public title: string;
+    /// Original workbook folder.  
+    public folder: string;
+    /// Represents a specified chart's data label values display behavior. True displays the values. False to hide.  
+    public dataLabels: boolean;
+    /// Represents data label position(Center/InsideBase/InsideEnd/OutsideEnd/Above/Below/Left/Right/BestFit/Moved).  
+    public dataLabelsPosition: string;
+    /// The source is the data of the pivotTable. If PivotSource is not empty ,the chart is PivotChart.  
+    public pivotTableSheet: string;
+    /// The source is the data of the pivotTable.  
+    public pivotTableName: string;
+    /// Storage name.  
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< PutWorksheetAddChartRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/charts".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
+        const queryParameters: any = {};
+        /// Chart type, please refer property Type in chart resource. 
+        // verify required parameter 'chartType' is not null or undefined
+        if (this.chartType === null || this.chartType === undefined) {
+            throw new Error('Required parameter "chartType" was null or undefined when calling PutWorksheetAddChart.');
+        }
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "chartType", this.chartType);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "upperLeftRow", this.upperLeftRow);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "upperLeftColumn", this.upperLeftColumn);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "lowerRightRow", this.lowerRightRow);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "lowerRightColumn", this.lowerRightColumn);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "area", this.area);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "isVertical", this.isVertical);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "categoryData", this.categoryData);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "isAutoGetSerialName", this.isAutoGetSerialName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "title", this.title);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "dataLabels", this.dataLabels);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "dataLabelsPosition", this.dataLabelsPosition);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "pivotTableSheet", this.pivotTableSheet);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "pivotTableName", this.pivotTableName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Deletes a chart by index in worksheet.   
+export class DeleteWorksheetDeleteChartRequest  {
+    /// The workbook name.  
+    public name: string;
+    /// The worksheet name.  
+    public sheetName: string;
+    /// The chart index.  
+    public chartIndex: number;
+    /// Original workbook folder.  
+    public folder: string;
+    /// Storage name.  
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< DeleteWorksheetDeleteChartRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/charts/{chartIndex}".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "chartIndex" + "}", String(this.chartIndex));
+        const queryParameters: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "DELETE",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Update chart propreties in worksheet.   
+export class PostWorksheetChartRequest  {
+    /// The workbook name.  
+    public name: string;
+    /// The worksheet name.  
+    public sheetName: string;
+    /// The chart index.  
+    public chartIndex: number;
+    /// Represents a specified chart.  
+    public chart: Chart;
+    /// Original workbook folder.  
+    public folder: string;
+    /// Storage name.  
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< PostWorksheetChartRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/charts/{chartIndex}".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "chartIndex" + "}", String(this.chartIndex));
+        const queryParameters: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        const bodyParameter = (this.chart == null) ? null :   ObjectSerializer.serialize( this.chart,this.chart.constructor.name);
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+            body:bodyParameter,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Gets chart legend description in worksheet.   
+export class GetWorksheetChartLegendRequest  {
+    /// The workbook name.  
+    public name: string;
+    /// The worksheet name.  
+    public sheetName: string;
+    /// The chart index.  
+    public chartIndex: number;
+    /// Original workbook folder.  
+    public folder: string;
+    /// Storage name.  
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< GetWorksheetChartLegendRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/charts/{chartIndex}/legend".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "chartIndex" + "}", String(this.chartIndex));
+        const queryParameters: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "GET",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Updates chart legend in worksheet.   
+export class PostWorksheetChartLegendRequest  {
+    /// The workbook name.  
+    public name: string;
+    /// The worksheet name.  
+    public sheetName: string;
+    /// The chart index.  
+    public chartIndex: number;
+      
+    public legend: Legend;
+    /// Original workbook folder.  
+    public folder: string;
+    /// Storage name.  
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< PostWorksheetChartLegendRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/charts/{chartIndex}/legend".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "chartIndex" + "}", String(this.chartIndex));
+        const queryParameters: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        const bodyParameter = (this.legend == null) ? null :   ObjectSerializer.serialize( this.legend,this.legend.constructor.name);
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+            body:bodyParameter,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Show chart legend in worksheet.   
+export class PutWorksheetChartLegendRequest  {
+    /// The workbook name.  
+    public name: string;
+    /// The worksheet name.  
+    public sheetName: string;
+    /// The chart index.  
+    public chartIndex: number;
+    /// Original workbook folder.  
+    public folder: string;
+    /// Storage name.  
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< PutWorksheetChartLegendRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/charts/{chartIndex}/legend".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "chartIndex" + "}", String(this.chartIndex));
+        const queryParameters: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Hides chart legend in worksheet.   
+export class DeleteWorksheetChartLegendRequest  {
+    /// The workbook name.  
+    public name: string;
+    /// The worksheet name.  
+    public sheetName: string;
+    /// The chart index.  
+    public chartIndex: number;
+    /// Original workbook folder.  
+    public folder: string;
+    /// Storage name.  
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< DeleteWorksheetChartLegendRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/charts/{chartIndex}/legend".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "chartIndex" + "}", String(this.chartIndex));
+        const queryParameters: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "DELETE",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Clear the charts in worksheets.   
+export class DeleteWorksheetClearChartsRequest  {
+    /// The workbook name.  
+    public name: string;
+    /// The worksheet name.  
+    public sheetName: string;
+    /// Original workbook folder.  
+    public folder: string;
+    /// Storage name.  
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< DeleteWorksheetClearChartsRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/charts".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
+        const queryParameters: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "DELETE",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Gets chart title description in worksheet.   
+export class GetWorksheetChartTitleRequest  {
+    /// The workbook name.  
+    public name: string;
+    /// The worksheet name.  
+    public sheetName: string;
+    /// The chart index.  
+    public chartIndex: number;
+    /// Original workbook folder.  
+    public folder: string;
+    /// Storage name.  
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< GetWorksheetChartTitleRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/charts/{chartIndex}/title".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "chartIndex" + "}", String(this.chartIndex));
+        const queryParameters: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "GET",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Update chart title in worksheet.   
+export class PostWorksheetChartTitleRequest  {
+    /// The workbook name.  
+    public name: string;
+    /// The worksheet name.  
+    public sheetName: string;
+    /// The chart index.  
+    public chartIndex: number;
+    /// Chart title  
+    public title: Title;
+    /// Original workbook folder.  
+    public folder: string;
+    /// Storage name.  
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< PostWorksheetChartTitleRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/charts/{chartIndex}/title".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "chartIndex" + "}", String(this.chartIndex));
+        const queryParameters: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        const bodyParameter = (this.title == null) ? null :   ObjectSerializer.serialize( this.title,this.title.constructor.name);
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+            body:bodyParameter,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Add chart title / Set chart title visible   
+export class PutWorksheetChartTitleRequest  {
+    /// The workbook name.  
+    public name: string;
+    /// The worksheet name.  
+    public sheetName: string;
+    /// The chart index.  
+    public chartIndex: number;
+    /// Chart title.  
+    public title: Title;
+    /// Original workbook folder.  
+    public folder: string;
+    /// Storage name.  
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< PutWorksheetChartTitleRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/charts/{chartIndex}/title".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "chartIndex" + "}", String(this.chartIndex));
+        const queryParameters: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        const bodyParameter = (this.title == null) ? null :   ObjectSerializer.serialize( this.title,this.title.constructor.name);
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+            body:bodyParameter,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Hides chart title in worksheet.   
+export class DeleteWorksheetChartTitleRequest  {
+    /// The workbook name.  
+    public name: string;
+    /// The worksheet name.  
+    public sheetName: string;
+    /// The chart index.  
+    public chartIndex: number;
+    /// Original workbook folder.  
+    public folder: string;
+    /// Storage name.  
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< DeleteWorksheetChartTitleRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/charts/{chartIndex}/title".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "chartIndex" + "}", String(this.chartIndex));
+        const queryParameters: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "DELETE",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+   
+export class GetChartSeriesAxisRequest  {
+      
+    public name: string;
+      
+    public sheetName: string;
+      
+    public chartIndex: number;
+      
+    public folder: string;
+      
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< GetChartSeriesAxisRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/charts/{chartIndex}/seriesaxis".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "chartIndex" + "}", String(this.chartIndex));
+        const queryParameters: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "GET",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+   
+export class GetChartCategoryAxisRequest  {
+      
+    public name: string;
+      
+    public sheetName: string;
+      
+    public chartIndex: number;
+      
+    public folder: string;
+      
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< GetChartCategoryAxisRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/charts/{chartIndex}/categoryaxis".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "chartIndex" + "}", String(this.chartIndex));
+        const queryParameters: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "GET",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+   
+export class GetChartValueAxisRequest  {
+      
+    public name: string;
+      
+    public sheetName: string;
+      
+    public chartIndex: number;
+      
+    public folder: string;
+      
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< GetChartValueAxisRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/charts/{chartIndex}/valueaxis".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "chartIndex" + "}", String(this.chartIndex));
+        const queryParameters: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "GET",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+   
+export class GetChartSecondCategoryAxisRequest  {
+      
+    public name: string;
+      
+    public sheetName: string;
+      
+    public chartIndex: number;
+      
+    public folder: string;
+      
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< GetChartSecondCategoryAxisRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/charts/{chartIndex}/secondcategoryaxis".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "chartIndex" + "}", String(this.chartIndex));
+        const queryParameters: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "GET",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+   
+export class GetChartSecondValueAxisRequest  {
+      
+    public name: string;
+      
+    public sheetName: string;
+      
+    public chartIndex: number;
+      
+    public folder: string;
+      
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< GetChartSecondValueAxisRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/charts/{chartIndex}/secondvalueaxis".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "chartIndex" + "}", String(this.chartIndex));
+        const queryParameters: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "GET",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+   
+export class PostChartSeriesAxisRequest  {
+      
+    public name: string;
+      
+    public sheetName: string;
+      
+    public chartIndex: number;
+      
+    public axis: Axis;
+      
+    public folder: string;
+      
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< PostChartSeriesAxisRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/charts/{chartIndex}/seriesaxis".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "chartIndex" + "}", String(this.chartIndex));
+        const queryParameters: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        const bodyParameter = (this.axis == null) ? null :   ObjectSerializer.serialize( this.axis,this.axis.constructor.name);
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+            body:bodyParameter,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+   
+export class PostChartCategoryAxisRequest  {
+      
+    public name: string;
+      
+    public sheetName: string;
+      
+    public chartIndex: number;
+      
+    public axis: Axis;
+      
+    public folder: string;
+      
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< PostChartCategoryAxisRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/charts/{chartIndex}/categoryaxis".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "chartIndex" + "}", String(this.chartIndex));
+        const queryParameters: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        const bodyParameter = (this.axis == null) ? null :   ObjectSerializer.serialize( this.axis,this.axis.constructor.name);
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+            body:bodyParameter,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+   
+export class PostChartValueAxisRequest  {
+      
+    public name: string;
+      
+    public sheetName: string;
+      
+    public chartIndex: number;
+      
+    public axis: Axis;
+      
+    public folder: string;
+      
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< PostChartValueAxisRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/charts/{chartIndex}/valueaxis".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "chartIndex" + "}", String(this.chartIndex));
+        const queryParameters: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        const bodyParameter = (this.axis == null) ? null :   ObjectSerializer.serialize( this.axis,this.axis.constructor.name);
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+            body:bodyParameter,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+   
+export class PostChartSecondCategoryAxisRequest  {
+      
+    public name: string;
+      
+    public sheetName: string;
+      
+    public chartIndex: number;
+      
+    public axis: Axis;
+      
+    public folder: string;
+      
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< PostChartSecondCategoryAxisRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/charts/{chartIndex}/secondcategoryaxis".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "chartIndex" + "}", String(this.chartIndex));
+        const queryParameters: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        const bodyParameter = (this.axis == null) ? null :   ObjectSerializer.serialize( this.axis,this.axis.constructor.name);
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+            body:bodyParameter,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+   
+export class PostChartSecondValueAxisRequest  {
+      
+    public name: string;
+      
+    public sheetName: string;
+      
+    public chartIndex: number;
+      
+    public axis: Axis;
+      
+    public folder: string;
+      
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< PostChartSecondValueAxisRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/charts/{chartIndex}/secondvalueaxis".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "chartIndex" + "}", String(this.chartIndex));
+        const queryParameters: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        const bodyParameter = (this.axis == null) ? null :   ObjectSerializer.serialize( this.axis,this.axis.constructor.name);
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+            body:bodyParameter,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Get conditional formattings description.   
+export class GetWorksheetConditionalFormattingsRequest  {
+    /// The workbook name.  
+    public name: string;
+    /// The worksheet name.  
+    public sheetName: string;
+    /// Original workbook folder.  
+    public folder: string;
+    /// Storage name.  
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< GetWorksheetConditionalFormattingsRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/conditionalFormattings".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
+        const queryParameters: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "GET",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Gets conditional formatting description in worksheet.   
+export class GetWorksheetConditionalFormattingRequest  {
+    /// The workbook name.  
+    public name: string;
+    /// The worksheet name.  
+    public sheetName: string;
+    /// The conditional formatting index.  
+    public index: number;
+    /// Original workbook folder.  
+    public folder: string;
+    /// Storage name.  
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< GetWorksheetConditionalFormattingRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/conditionalFormattings/{index}".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "index" + "}", String(this.index));
+        const queryParameters: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "GET",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Adds a condition formatting in worksheet.   
+export class PutWorksheetConditionalFormattingRequest  {
+    /// The workbook name.  
+    public name: string;
+    /// The worksheet name.  
+    public sheetName: string;
+      
+    public formatcondition: FormatCondition;
+    /// Adds a conditional formatted cell range.  
+    public cellArea: string;
+    /// Original workbook folder.  
+    public folder: string;
+    /// Storage name.  
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< PutWorksheetConditionalFormattingRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/conditionalFormattings".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
+        const queryParameters: any = {};
+        /// Adds a conditional formatted cell range. 
+        // verify required parameter 'cellArea' is not null or undefined
+        if (this.cellArea === null || this.cellArea === undefined) {
+            throw new Error('Required parameter "cellArea" was null or undefined when calling PutWorksheetConditionalFormatting.');
+        }
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "cellArea", this.cellArea);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        const bodyParameter = (this.formatcondition == null) ? null :   ObjectSerializer.serialize( this.formatcondition,this.formatcondition.constructor.name);
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+            body:bodyParameter,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Adds a format condition in worksheet.   
+export class PutWorksheetFormatConditionRequest  {
+    /// The workbook name.  
+    public name: string;
+    /// The worksheet name.  
+    public sheetName: string;
+    /// Gets the Conditional Formatting element at the specified index.  
+    public index: number;
+    /// Adds a conditional formatted cell range.  
+    public cellArea: string;
+    /// Format condition type(CellValue/Expression/ColorScale/DataBar/IconSet/Top10/UniqueValues/DuplicateValues/ContainsText/NotContainsText/BeginsWith/EndsWith/ContainsBlanks/NotContainsBlanks/ContainsErrors/NotContainsErrors/TimePeriod/AboveAverage).  
+    public type: string;
+    /// Represents the operator type of conditional format and data validation(Between/Equal/GreaterThan/GreaterOrEqual/LessThan/None/NotBetween/NotEqual).  
+    public operatorType: string;
+    /// The value or expression associated with conditional formatting.  
+    public formula1: string;
+    /// The value or expression associated with conditional formatting.  
+    public formula2: string;
+    /// Original workbook folder.  
+    public folder: string;
+    /// Storage name.  
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< PutWorksheetFormatConditionRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/conditionalFormattings/{index}".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "index" + "}", String(this.index));
+        const queryParameters: any = {};
+        /// Adds a conditional formatted cell range. 
+        // verify required parameter 'cellArea' is not null or undefined
+        if (this.cellArea === null || this.cellArea === undefined) {
+            throw new Error('Required parameter "cellArea" was null or undefined when calling PutWorksheetFormatCondition.');
+        }
+        /// Format condition type(CellValue/Expression/ColorScale/DataBar/IconSet/Top10/UniqueValues/DuplicateValues/ContainsText/NotContainsText/BeginsWith/EndsWith/ContainsBlanks/NotContainsBlanks/ContainsErrors/NotContainsErrors/TimePeriod/AboveAverage). 
+        // verify required parameter 'type' is not null or undefined
+        if (this.type === null || this.type === undefined) {
+            throw new Error('Required parameter "type" was null or undefined when calling PutWorksheetFormatCondition.');
+        }
+        /// Represents the operator type of conditional format and data validation(Between/Equal/GreaterThan/GreaterOrEqual/LessThan/None/NotBetween/NotEqual). 
+        // verify required parameter 'operatorType' is not null or undefined
+        if (this.operatorType === null || this.operatorType === undefined) {
+            throw new Error('Required parameter "operatorType" was null or undefined when calling PutWorksheetFormatCondition.');
+        }
+        /// The value or expression associated with conditional formatting. 
+        // verify required parameter 'formula1' is not null or undefined
+        if (this.formula1 === null || this.formula1 === undefined) {
+            throw new Error('Required parameter "formula1" was null or undefined when calling PutWorksheetFormatCondition.');
+        }
+        /// The value or expression associated with conditional formatting. 
+        // verify required parameter 'formula2' is not null or undefined
+        if (this.formula2 === null || this.formula2 === undefined) {
+            throw new Error('Required parameter "formula2" was null or undefined when calling PutWorksheetFormatCondition.');
+        }
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "cellArea", this.cellArea);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "type", this.type);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "operatorType", this.operatorType);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "formula1", this.formula1);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "formula2", this.formula2);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Adds a cell area for format condition.   
+export class PutWorksheetFormatConditionAreaRequest  {
+    /// The workbook name.  
+    public name: string;
+    /// The worksheet name.  
+    public sheetName: string;
+    /// Gets the Conditional Formatting element at the specified index.  
+    public index: number;
+    /// Adds a conditional formatted cell range.  
+    public cellArea: string;
+    /// Original workbook folder.  
+    public folder: string;
+    /// Storage name.  
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< PutWorksheetFormatConditionAreaRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/conditionalFormattings/{index}/area".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "index" + "}", String(this.index));
+        const queryParameters: any = {};
+        /// Adds a conditional formatted cell range. 
+        // verify required parameter 'cellArea' is not null or undefined
+        if (this.cellArea === null || this.cellArea === undefined) {
+            throw new Error('Required parameter "cellArea" was null or undefined when calling PutWorksheetFormatConditionArea.');
+        }
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "cellArea", this.cellArea);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Adds a condition for format condition.   
+export class PutWorksheetFormatConditionConditionRequest  {
+    /// The workbook name.  
+    public name: string;
+    /// The worksheet name.  
+    public sheetName: string;
+    /// Gets the Conditional Formatting element at the specified index.  
+    public index: number;
+    /// Format condition type(CellValue/Expression/ColorScale/DataBar/IconSet/Top10/UniqueValues/DuplicateValues/ContainsText/NotContainsText/BeginsWith/EndsWith/ContainsBlanks/NotContainsBlanks/ContainsErrors/NotContainsErrors/TimePeriod/AboveAverage).  
+    public type: string;
+    /// Represents the operator type of conditional format and data validation(Between/Equal/GreaterThan/GreaterOrEqual/LessThan/None/NotBetween/NotEqual).  
+    public operatorType: string;
+    /// The value or expression associated with conditional formatting.  
+    public formula1: string;
+    /// The value or expression associated with conditional formatting.  
+    public formula2: string;
+    /// Original workbook folder.  
+    public folder: string;
+    /// Storage name.  
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< PutWorksheetFormatConditionConditionRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/conditionalFormattings/{index}/condition".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "index" + "}", String(this.index));
+        const queryParameters: any = {};
+        /// Format condition type(CellValue/Expression/ColorScale/DataBar/IconSet/Top10/UniqueValues/DuplicateValues/ContainsText/NotContainsText/BeginsWith/EndsWith/ContainsBlanks/NotContainsBlanks/ContainsErrors/NotContainsErrors/TimePeriod/AboveAverage). 
+        // verify required parameter 'type' is not null or undefined
+        if (this.type === null || this.type === undefined) {
+            throw new Error('Required parameter "type" was null or undefined when calling PutWorksheetFormatConditionCondition.');
+        }
+        /// Represents the operator type of conditional format and data validation(Between/Equal/GreaterThan/GreaterOrEqual/LessThan/None/NotBetween/NotEqual). 
+        // verify required parameter 'operatorType' is not null or undefined
+        if (this.operatorType === null || this.operatorType === undefined) {
+            throw new Error('Required parameter "operatorType" was null or undefined when calling PutWorksheetFormatConditionCondition.');
+        }
+        /// The value or expression associated with conditional formatting. 
+        // verify required parameter 'formula1' is not null or undefined
+        if (this.formula1 === null || this.formula1 === undefined) {
+            throw new Error('Required parameter "formula1" was null or undefined when calling PutWorksheetFormatConditionCondition.');
+        }
+        /// The value or expression associated with conditional formatting. 
+        // verify required parameter 'formula2' is not null or undefined
+        if (this.formula2 === null || this.formula2 === undefined) {
+            throw new Error('Required parameter "formula2" was null or undefined when calling PutWorksheetFormatConditionCondition.');
+        }
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "type", this.type);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "operatorType", this.operatorType);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "formula1", this.formula1);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "formula2", this.formula2);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Clear all condition formattings.   
+export class DeleteWorksheetConditionalFormattingsRequest  {
+    /// The workbook name.  
+    public name: string;
+    /// The worksheet name.  
+    public sheetName: string;
+    /// Original workbook folder.  
+    public folder: string;
+    /// Storage name.  
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< DeleteWorksheetConditionalFormattingsRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/conditionalFormattings".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
+        const queryParameters: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "DELETE",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Remove a conditional formatting.   
+export class DeleteWorksheetConditionalFormattingRequest  {
+    /// The workbook name.  
+    public name: string;
+    /// The worksheet name.  
+    public sheetName: string;
+    /// Gets the Conditional Formatting element at the specified index.  
+    public index: number;
+    /// Original workbook folder.  
+    public folder: string;
+    /// Storage name.  
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< DeleteWorksheetConditionalFormattingRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/conditionalFormattings/{index}".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "index" + "}", String(this.index));
+        const queryParameters: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "DELETE",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Removes cell area from conditional formatting.   
+export class DeleteWorksheetConditionalFormattingAreaRequest  {
+    /// The workbook name.  
+    public name: string;
+    /// The worksheet name.  
+    public sheetName: string;
+    /// The start row of the range.  
+    public startRow: number;
+    /// The start column of the range.  
+    public startColumn: number;
+    /// The number of rows of the range.  
+    public totalRows: number;
+    /// The number of columns of the range.  
+    public totalColumns: number;
+    /// Original workbook folder.  
+    public folder: string;
+    /// Storage name.  
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< DeleteWorksheetConditionalFormattingAreaRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/conditionalFormattings/area".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
+        const queryParameters: any = {};
+        /// The start row of the range. 
+        // verify required parameter 'startRow' is not null or undefined
+        if (this.startRow === null || this.startRow === undefined) {
+            throw new Error('Required parameter "startRow" was null or undefined when calling DeleteWorksheetConditionalFormattingArea.');
+        }
+        /// The start column of the range. 
+        // verify required parameter 'startColumn' is not null or undefined
+        if (this.startColumn === null || this.startColumn === undefined) {
+            throw new Error('Required parameter "startColumn" was null or undefined when calling DeleteWorksheetConditionalFormattingArea.');
+        }
+        /// The number of rows of the range. 
+        // verify required parameter 'totalRows' is not null or undefined
+        if (this.totalRows === null || this.totalRows === undefined) {
+            throw new Error('Required parameter "totalRows" was null or undefined when calling DeleteWorksheetConditionalFormattingArea.');
+        }
+        /// The number of columns of the range. 
+        // verify required parameter 'totalColumns' is not null or undefined
+        if (this.totalColumns === null || this.totalColumns === undefined) {
+            throw new Error('Required parameter "totalColumns" was null or undefined when calling DeleteWorksheetConditionalFormattingArea.');
+        }
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "startRow", this.startRow);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "startColumn", this.startColumn);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "totalRows", this.totalRows);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "totalColumns", this.totalColumns);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "DELETE",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Exports workbook to some format.   
+export class GetWorkbookRequest  {
+    /// The workbook name.  
+    public name: string;
+    /// The conversion format(CSV/XLS/HTML/MHTML/ODS/PDF/XML/TXT/TIFF/XLSB/XLSM/XLSX/XLTM/XLTX/XPS/PNG/JPG/JPEG/GIF/EMF/BMP/MD[Markdown]/Numbers).  
+    public format: string;
+    /// The excel password.  
+    public password: string;
+    /// Specifies whether set workbook rows to be autofit.  
+    public isAutoFit: boolean;
+    /// Specifies whether only save table data.Only use pdf to excel.  
+    public onlySaveTable: boolean;
+    /// Original workbook folder.  
+    public folder: string;
+    /// Path to save result  
+    public outPath: string;
+    /// Storage name.  
+    public storageName: string;
+    /// Storage name.  
+    public outStorageName: string;
+      
+    public checkExcelRestriction: boolean;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< GetWorkbookRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}".replace("{" + "name" + "}", String(this.name));
+        const queryParameters: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "format", this.format);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "isAutoFit", this.isAutoFit);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "onlySaveTable", this.onlySaveTable);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", this.checkExcelRestriction);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "GET",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Converts workbook from request content to some format.   
+export class PutConvertWorkbookRequest  {
+    /// File to upload  
+    public file: any;
+    /// The format to convert(CSV/XLS/HTML/MHTML/ODS/PDF/XML/TXT/TIFF/XLSB/XLSM/XLSX/XLTM/XLTX/XPS/PNG/JPG/JPEG/GIF/EMF/BMP/MD[Markdown]/Numbers).  
+    public format: string;
+    /// The workbook password.  
+    public password: string;
+    /// Path to save result  
+    public outPath: string;
+    /// Storage name.  
+    public storageName: string;
+      
+    public checkExcelRestriction: boolean;
+      
+    public streamFormat: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< PutConvertWorkbookRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/convert";
+        const queryParameters: any = {};
+        const formParams: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "format", this.format);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", this.checkExcelRestriction);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "streamFormat", this.streamFormat);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+        if (this.file !== undefined) {
+            for (var key in this.file){
+                formParams[key] = this.file[key];
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        (requestOptions as any).formData = formParams;        
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Converts document and saves result to storage.   
+export class PostWorkbookSaveAsRequest  {
+    /// The workbook name.  
+    public name: string;
+    /// The new file name.  
+    public newfilename: string;
+      
+    public saveOptions: SaveOptions;
+    /// Indicates if Autofit rows in workbook.  
+    public isAutoFitRows: boolean;
+    /// Indicates if Autofit columns in workbook.  
+    public isAutoFitColumns: boolean;
+    /// Original workbook folder.  
+    public folder: string;
+    /// Storage name.  
+    public storageName: string;
+      
+    public outStorageName: string;
+      
+    public checkExcelRestriction: boolean;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< PostWorkbookSaveAsRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/SaveAs".replace("{" + "name" + "}", String(this.name));
+        const queryParameters: any = {};
+        /// The new file name. 
+        // verify required parameter 'newfilename' is not null or undefined
+        if (this.newfilename === null || this.newfilename === undefined) {
+            throw new Error('Required parameter "newfilename" was null or undefined when calling PostWorkbookSaveAs.');
+        }
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "newfilename", this.newfilename);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "isAutoFitRows", this.isAutoFitRows);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "isAutoFitColumns", this.isAutoFitColumns);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", this.checkExcelRestriction);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        const bodyParameter = (this.saveOptions == null) ? null :   ObjectSerializer.serialize( this.saveOptions,this.saveOptions.constructor.name);
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+            body:bodyParameter,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+   
+export class PostConvertWorkbookToPDFRequest  {
+    /// File to upload  
+    public file: any;
+      
+    public password: string;
+      
+    public checkExcelRestriction: boolean;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< PostConvertWorkbookToPDFRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/convert/pdf";
+        const queryParameters: any = {};
+        const formParams: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", this.checkExcelRestriction);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+        if (this.file !== undefined) {
+            for (var key in this.file){
+                formParams[key] = this.file[key];
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        (requestOptions as any).formData = formParams;        
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+   
+export class PostConvertWorkbookToPNGRequest  {
+    /// File to upload  
+    public file: any;
+      
+    public password: string;
+      
+    public checkExcelRestriction: boolean;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< PostConvertWorkbookToPNGRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/convert/png";
+        const queryParameters: any = {};
+        const formParams: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", this.checkExcelRestriction);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+        if (this.file !== undefined) {
+            for (var key in this.file){
+                formParams[key] = this.file[key];
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        (requestOptions as any).formData = formParams;        
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+   
+export class PostConvertWorkbookToDocxRequest  {
+    /// File to upload  
+    public file: any;
+      
+    public password: string;
+      
+    public checkExcelRestriction: boolean;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< PostConvertWorkbookToDocxRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/convert/docx";
+        const queryParameters: any = {};
+        const formParams: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", this.checkExcelRestriction);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+        if (this.file !== undefined) {
+            for (var key in this.file){
+                formParams[key] = this.file[key];
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        (requestOptions as any).formData = formParams;        
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+   
+export class PostConvertWorkbookToPptxRequest  {
+    /// File to upload  
+    public file: any;
+      
+    public password: string;
+      
+    public checkExcelRestriction: boolean;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< PostConvertWorkbookToPptxRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/convert/pptx";
+        const queryParameters: any = {};
+        const formParams: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", this.checkExcelRestriction);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+        if (this.file !== undefined) {
+            for (var key in this.file){
+                formParams[key] = this.file[key];
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        (requestOptions as any).formData = formParams;        
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+   
+export class PostConvertWorkbookToHtmlRequest  {
+    /// File to upload  
+    public file: any;
+      
+    public password: string;
+      
+    public checkExcelRestriction: boolean;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< PostConvertWorkbookToHtmlRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/convert/html";
+        const queryParameters: any = {};
+        const formParams: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", this.checkExcelRestriction);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+        if (this.file !== undefined) {
+            for (var key in this.file){
+                formParams[key] = this.file[key];
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        (requestOptions as any).formData = formParams;        
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+   
+export class PostConvertWorkbookToMarkdownRequest  {
+    /// File to upload  
+    public file: any;
+      
+    public password: string;
+      
+    public checkExcelRestriction: boolean;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< PostConvertWorkbookToMarkdownRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/convert/markdown";
+        const queryParameters: any = {};
+        const formParams: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", this.checkExcelRestriction);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+        if (this.file !== undefined) {
+            for (var key in this.file){
+                formParams[key] = this.file[key];
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        (requestOptions as any).formData = formParams;        
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+   
+export class PostConvertWorkbookToJsonRequest  {
+    /// File to upload  
+    public file: any;
+      
+    public password: string;
+      
+    public checkExcelRestriction: boolean;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< PostConvertWorkbookToJsonRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/convert/json";
+        const queryParameters: any = {};
+        const formParams: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", this.checkExcelRestriction);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+        if (this.file !== undefined) {
+            for (var key in this.file){
+                formParams[key] = this.file[key];
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        (requestOptions as any).formData = formParams;        
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+   
+export class PostConvertWorkbookToSQLRequest  {
+    /// File to upload  
+    public file: any;
+      
+    public password: string;
+      
+    public checkExcelRestriction: boolean;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< PostConvertWorkbookToSQLRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/convert/sql";
+        const queryParameters: any = {};
+        const formParams: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", this.checkExcelRestriction);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+        if (this.file !== undefined) {
+            for (var key in this.file){
+                formParams[key] = this.file[key];
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        (requestOptions as any).formData = formParams;        
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+   
+export class PostConvertWorkbookToCSVRequest  {
+    /// File to upload  
+    public file: any;
+      
+    public password: string;
+      
+    public checkExcelRestriction: boolean;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< PostConvertWorkbookToCSVRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/convert/csv";
+        const queryParameters: any = {};
+        const formParams: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", this.checkExcelRestriction);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+        if (this.file !== undefined) {
+            for (var key in this.file){
+                formParams[key] = this.file[key];
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        (requestOptions as any).formData = formParams;        
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Get hyperlinks description in worksheet.   
+export class GetWorksheetHyperlinksRequest  {
+    /// The workbook name.  
+    public name: string;
+    /// The worksheet name.  
+    public sheetName: string;
+    /// Original workbook folder.  
+    public folder: string;
+    /// Storage name.  
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< GetWorksheetHyperlinksRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/hyperlinks".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
+        const queryParameters: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "GET",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Gets hyperlink description by index in worksheet.   
+export class GetWorksheetHyperlinkRequest  {
+    /// The workbook name.  
+    public name: string;
+    /// The worksheet name.  
+    public sheetName: string;
+    /// The hyperlink's index.  
+    public hyperlinkIndex: number;
+    /// Original workbook folder.  
+    public folder: string;
+    /// Storage name.  
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< GetWorksheetHyperlinkRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/hyperlinks/{hyperlinkIndex}".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "hyperlinkIndex" + "}", String(this.hyperlinkIndex));
+        const queryParameters: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "GET",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Deletes hyperlink by index in worksheet.   
+export class DeleteWorksheetHyperlinkRequest  {
+    /// The workbook name.  
+    public name: string;
+    /// The worksheet name.  
+    public sheetName: string;
+    /// The hyperlink's index.  
+    public hyperlinkIndex: number;
+    /// Original workbook folder.  
+    public folder: string;
+    /// Storage name.  
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< DeleteWorksheetHyperlinkRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/hyperlinks/{hyperlinkIndex}".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "hyperlinkIndex" + "}", String(this.hyperlinkIndex));
+        const queryParameters: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "DELETE",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Updates hyperlink by index in worksheet.   
+export class PostWorksheetHyperlinkRequest  {
+    /// The workbook name.  
+    public name: string;
+    /// The worksheet name.  
+    public sheetName: string;
+    /// The hyperlink's index.  
+    public hyperlinkIndex: number;
+    /// Hyperlink object  
+    public hyperlink: Hyperlink;
+    /// Original workbook folder.  
+    public folder: string;
+    /// Storage name.  
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< PostWorksheetHyperlinkRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/hyperlinks/{hyperlinkIndex}".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "hyperlinkIndex" + "}", String(this.hyperlinkIndex));
+        const queryParameters: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        const bodyParameter = (this.hyperlink == null) ? null :   ObjectSerializer.serialize( this.hyperlink,this.hyperlink.constructor.name);
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+            body:bodyParameter,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Adds hyperlink in worksheet.   
+export class PutWorksheetHyperlinkRequest  {
+    /// The workbook name.  
+    public name: string;
+    /// The worksheet name.  
+    public sheetName: string;
+    /// First row of the hyperlink range.  
+    public firstRow: number;
+    /// First column of the hyperlink range.  
+    public firstColumn: number;
+    /// Number of rows in this hyperlink range.  
+    public totalRows: number;
+    /// Number of columns of this hyperlink range.  
+    public totalColumns: number;
+    /// Address of the hyperlink.  
+    public address: string;
+    /// Original workbook folder.  
+    public folder: string;
+    /// Storage name.  
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< PutWorksheetHyperlinkRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/hyperlinks".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
+        const queryParameters: any = {};
+        /// First row of the hyperlink range. 
+        // verify required parameter 'firstRow' is not null or undefined
+        if (this.firstRow === null || this.firstRow === undefined) {
+            throw new Error('Required parameter "firstRow" was null or undefined when calling PutWorksheetHyperlink.');
+        }
+        /// First column of the hyperlink range. 
+        // verify required parameter 'firstColumn' is not null or undefined
+        if (this.firstColumn === null || this.firstColumn === undefined) {
+            throw new Error('Required parameter "firstColumn" was null or undefined when calling PutWorksheetHyperlink.');
+        }
+        /// Number of rows in this hyperlink range. 
+        // verify required parameter 'totalRows' is not null or undefined
+        if (this.totalRows === null || this.totalRows === undefined) {
+            throw new Error('Required parameter "totalRows" was null or undefined when calling PutWorksheetHyperlink.');
+        }
+        /// Number of columns of this hyperlink range. 
+        // verify required parameter 'totalColumns' is not null or undefined
+        if (this.totalColumns === null || this.totalColumns === undefined) {
+            throw new Error('Required parameter "totalColumns" was null or undefined when calling PutWorksheetHyperlink.');
+        }
+        /// Address of the hyperlink. 
+        // verify required parameter 'address' is not null or undefined
+        if (this.address === null || this.address === undefined) {
+            throw new Error('Required parameter "address" was null or undefined when calling PutWorksheetHyperlink.');
+        }
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "firstRow", this.firstRow);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "firstColumn", this.firstColumn);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "totalRows", this.totalRows);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "totalColumns", this.totalColumns);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "address", this.address);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Delete all hyperlinks in worksheet.   
+export class DeleteWorksheetHyperlinksRequest  {
+    /// The workbook name.  
+    public name: string;
+    /// The worksheet name.  
+    public sheetName: string;
+    /// Original workbook folder.  
+    public folder: string;
+    /// Storage name.  
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< DeleteWorksheetHyperlinksRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/hyperlinks".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
+        const queryParameters: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "DELETE",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Combine data files and template files to kinds of format files.    
 export class PostAssembleRequest  {
     /// File to upload  
     public file: any;
       
     public datasource: string;
-      
+    /// The format to convert(CSV/XLS/HTML/MHTML/ODS/PDF/XML/TXT/TIFF/XLSB/XLSM/XLSX/XLTM/XLTX/XPS/PNG/JPG/JPEG/GIF/EMF/BMP/MD[Markdown]/Numbers)  
     public format: string;
       
     public password: string;
       
     public checkExcelRestriction: boolean;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< PostAssembleRequest >) {  
         Object.assign(this, init);
@@ -32838,6 +34063,11 @@ export class PostAssembleRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "format", this.format);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", this.checkExcelRestriction);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
         if (this.file !== undefined) {
             for (var key in this.file){
                 formParams[key] = this.file[key];
@@ -32845,7 +34075,7 @@ export class PostAssembleRequest  {
         }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -32860,7 +34090,7 @@ export class PostAssembleRequest  {
     }
 
 }
-   
+/// Compress XLS, XLSX, XLSM, XLSB, ODS and more   
 export class PostCompressRequest  {
     /// File to upload  
     public file: any;
@@ -32870,6 +34100,8 @@ export class PostCompressRequest  {
     public password: string;
       
     public checkExcelRestriction: boolean;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< PostCompressRequest >) {  
         Object.assign(this, init);
@@ -32883,6 +34115,11 @@ export class PostCompressRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "compressLevel", this.compressLevel);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", this.checkExcelRestriction);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
         if (this.file !== undefined) {
             for (var key in this.file){
                 formParams[key] = this.file[key];
@@ -32890,7 +34127,7 @@ export class PostCompressRequest  {
         }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -32905,20 +34142,20 @@ export class PostCompressRequest  {
     }
 
 }
-   
+/// Export excel internal elements or itself to kinds of format files.   
 export class PostExportRequest  {
     /// File to upload  
     public file: any;
-      
+    /// workbook/worksheet/chart/comment/picture/shape/listobject/oleobject  
     public objectType: string;
-      
+    /// The format to convert(CSV/XLS/HTML/MHTML/ODS/PDF/XML/TXT/TIFF/XLSB/XLSM/XLSX/XLTM/XLTX/XPS/PNG/JPG/JPEG/GIF/EMF/BMP/MD[Markdown]/Numbers)  
     public format: string;
       
     public password: string;
       
     public checkExcelRestriction: boolean;
-
-    public extendedQueryParameters: Buffer;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< PostExportRequest >) {  
         Object.assign(this, init);
@@ -32933,6 +34170,11 @@ export class PostExportRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "format", this.format);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", this.checkExcelRestriction);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
         if (this.file !== undefined) {
             for (var key in this.file){
                 formParams[key] = this.file[key];
@@ -32940,7 +34182,7 @@ export class PostExportRequest  {
         }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -32955,7 +34197,7 @@ export class PostExportRequest  {
     }
 
 }
-   
+/// Merge cells in worksheet.   
 export class PostMergeRequest  {
     /// File to upload  
     public file: any;
@@ -32967,6 +34209,8 @@ export class PostMergeRequest  {
     public password: string;
       
     public checkExcelRestriction: boolean;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< PostMergeRequest >) {  
         Object.assign(this, init);
@@ -32981,6 +34225,11 @@ export class PostMergeRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "mergeToOneSheet", this.mergeToOneSheet);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", this.checkExcelRestriction);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
         if (this.file !== undefined) {
             for (var key in this.file){
                 formParams[key] = this.file[key];
@@ -32988,7 +34237,7 @@ export class PostMergeRequest  {
         }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -33003,12 +34252,14 @@ export class PostMergeRequest  {
     }
 
 }
-   
+/// Unprotect password protected Excel file.   
 export class PostUnlockRequest  {
     /// File to upload  
     public file: any;
       
     public password: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< PostUnlockRequest >) {  
         Object.assign(this, init);
@@ -33025,6 +34276,11 @@ export class PostUnlockRequest  {
             throw new Error('Required parameter "password" was null or undefined when calling PostUnlock.');
         }
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
         if (this.file !== undefined) {
             for (var key in this.file){
                 formParams[key] = this.file[key];
@@ -33032,7 +34288,7 @@ export class PostUnlockRequest  {
         }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -33047,12 +34303,14 @@ export class PostUnlockRequest  {
     }
 
 }
-   
+/// Protect MS Excel and OpenDocument Spreadsheet by making them password protected.   
 export class PostProtectRequest  {
     /// File to upload  
     public file: any;
       
     public password: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< PostProtectRequest >) {  
         Object.assign(this, init);
@@ -33069,6 +34327,11 @@ export class PostProtectRequest  {
             throw new Error('Required parameter "password" was null or undefined when calling PostProtect.');
         }
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
         if (this.file !== undefined) {
             for (var key in this.file){
                 formParams[key] = this.file[key];
@@ -33076,7 +34339,7 @@ export class PostProtectRequest  {
         }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -33091,20 +34354,22 @@ export class PostProtectRequest  {
     }
 
 }
-   
+/// Split Excel spreadsheet files by worksheet, save as kinds of format files.   
 export class PostSplitRequest  {
     /// File to upload  
     public file: any;
-      
+    /// The format to convert(CSV/XLS/HTML/MHTML/ODS/PDF/XML/TXT/TIFF/XLSB/XLSM/XLSX/XLTM/XLTX/XPS/PNG/JPG/JPEG/GIF/EMF/BMP/MD[Markdown]/Numbers)  
     public format: string;
       
     public password: string;
-      
+    /// sheet index  
     public from: number;
-      
+    /// sheet index  
     public to: number;
       
     public checkExcelRestriction: boolean;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< PostSplitRequest >) {  
         Object.assign(this, init);
@@ -33115,7 +34380,7 @@ export class PostSplitRequest  {
         let localVarPath = configuration.getApiBaseUrl() + "/cells/split";
         const queryParameters: any = {};
         const formParams: any = {};
-         
+        /// The format to convert(CSV/XLS/HTML/MHTML/ODS/PDF/XML/TXT/TIFF/XLSB/XLSM/XLSX/XLTM/XLTX/XPS/PNG/JPG/JPEG/GIF/EMF/BMP/MD[Markdown]/Numbers) 
         // verify required parameter 'format' is not null or undefined
         if (this.format === null || this.format === undefined) {
             throw new Error('Required parameter "format" was null or undefined when calling PostSplit.');
@@ -33125,6 +34390,11 @@ export class PostSplitRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "from", this.from);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "to", this.to);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", this.checkExcelRestriction);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
         if (this.file !== undefined) {
             for (var key in this.file){
                 formParams[key] = this.file[key];
@@ -33132,7 +34402,7 @@ export class PostSplitRequest  {
         }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -33147,7 +34417,7 @@ export class PostSplitRequest  {
     }
 
 }
-   
+/// Search specify the text from excel files.   
 export class PostSearchRequest  {
     /// File to upload  
     public file: any;
@@ -33159,6 +34429,8 @@ export class PostSearchRequest  {
     public sheetname: string;
       
     public checkExcelRestriction: boolean;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< PostSearchRequest >) {  
         Object.assign(this, init);
@@ -33178,6 +34450,11 @@ export class PostSearchRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "sheetname", this.sheetname);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", this.checkExcelRestriction);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
         if (this.file !== undefined) {
             for (var key in this.file){
                 formParams[key] = this.file[key];
@@ -33185,7 +34462,7 @@ export class PostSearchRequest  {
         }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -33200,7 +34477,7 @@ export class PostSearchRequest  {
     }
 
 }
-   
+/// Use new text to replace specify the text from excel files.   
 export class PostReplaceRequest  {
     /// File to upload  
     public file: any;
@@ -33214,6 +34491,8 @@ export class PostReplaceRequest  {
     public sheetname: string;
       
     public checkExcelRestriction: boolean;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< PostReplaceRequest >) {  
         Object.assign(this, init);
@@ -33239,6 +34518,11 @@ export class PostReplaceRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "sheetname", this.sheetname);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", this.checkExcelRestriction);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
         if (this.file !== undefined) {
             for (var key in this.file){
                 formParams[key] = this.file[key];
@@ -33246,7 +34530,7 @@ export class PostReplaceRequest  {
         }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -33261,13 +34545,15 @@ export class PostReplaceRequest  {
     }
 
 }
-   
+/// Import data into excel file.   
 export class PostImportRequest  {
     /// File to upload  
     public file: any;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public importOption: ImportOption;
-
+    
     public constructor(init?: Partial< PostImportRequest >) {  
         Object.assign(this, init);
     } 
@@ -33277,6 +34563,11 @@ export class PostImportRequest  {
         let localVarPath = configuration.getApiBaseUrl() + "/cells/import";
         const queryParameters: any = {};
         const formParams: any = {};
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
         if (this.file !== undefined) {
             for (var key in this.file){
                 formParams[key] = this.file[key];
@@ -33284,7 +34575,7 @@ export class PostImportRequest  {
         }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -33299,18 +34590,20 @@ export class PostImportRequest  {
     }
 
 }
-   
+/// Add Text Watermark to Excel files.   
 export class PostWatermarkRequest  {
     /// File to upload  
     public file: any;
       
     public text: string;
-      
+    /// e.g. #1032ff  
     public color: string;
       
     public password: string;
       
     public checkExcelRestriction: boolean;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< PostWatermarkRequest >) {  
         Object.assign(this, init);
@@ -33326,7 +34619,7 @@ export class PostWatermarkRequest  {
         if (this.text === null || this.text === undefined) {
             throw new Error('Required parameter "text" was null or undefined when calling PostWatermark.');
         }
-         
+        /// e.g. #1032ff 
         // verify required parameter 'color' is not null or undefined
         if (this.color === null || this.color === undefined) {
             throw new Error('Required parameter "color" was null or undefined when calling PostWatermark.');
@@ -33335,6 +34628,11 @@ export class PostWatermarkRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "color", this.color);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", this.checkExcelRestriction);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
         if (this.file !== undefined) {
             for (var key in this.file){
                 formParams[key] = this.file[key];
@@ -33342,7 +34640,7 @@ export class PostWatermarkRequest  {
         }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -33357,11 +34655,11 @@ export class PostWatermarkRequest  {
     }
 
 }
-   
+/// Clear excel internal elements for excel files   
 export class PostClearObjectsRequest  {
     /// File to upload  
     public file: any;
-      
+    /// chart/comment/picture/shape/listobject/hyperlink/oleobject/pivottable/validation/Background  
     public objecttype: string;
       
     public sheetname: string;
@@ -33371,6 +34669,8 @@ export class PostClearObjectsRequest  {
     public password: string;
       
     public checkExcelRestriction: boolean;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< PostClearObjectsRequest >) {  
         Object.assign(this, init);
@@ -33381,7 +34681,7 @@ export class PostClearObjectsRequest  {
         let localVarPath = configuration.getApiBaseUrl() + "/cells/clearobjects";
         const queryParameters: any = {};
         const formParams: any = {};
-         
+        /// chart/comment/picture/shape/listobject/hyperlink/oleobject/pivottable/validation/Background 
         // verify required parameter 'objecttype' is not null or undefined
         if (this.objecttype === null || this.objecttype === undefined) {
             throw new Error('Required parameter "objecttype" was null or undefined when calling PostClearObjects.');
@@ -33391,6 +34691,11 @@ export class PostClearObjectsRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outFormat", this.outFormat);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", this.checkExcelRestriction);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
         if (this.file !== undefined) {
             for (var key in this.file){
                 formParams[key] = this.file[key];
@@ -33398,7 +34703,7 @@ export class PostClearObjectsRequest  {
         }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -33413,18 +34718,20 @@ export class PostClearObjectsRequest  {
     }
 
 }
-   
+/// Reverse rows or columns of Excel files, save as kinds of format files.   
 export class PostReverseRequest  {
     /// File to upload  
     public file: any;
-      
+    /// rows/cols/both  
     public rotateType: string;
-      
+    /// CSV/XLS/HTML/MHTML/ODS/PDF/XML/TXT/TIFF/XLSB/XLSM/XLSX/XLTM/XLTX/XPS/PNG/JPG/JPEG/GIF/EMF/BMP/MD[Markdown]/Numbers  
     public format: string;
       
     public password: string;
       
     public checkExcelRestriction: boolean;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< PostReverseRequest >) {  
         Object.assign(this, init);
@@ -33435,7 +34742,7 @@ export class PostReverseRequest  {
         let localVarPath = configuration.getApiBaseUrl() + "/cells/reverse";
         const queryParameters: any = {};
         const formParams: any = {};
-         
+        /// rows/cols/both 
         // verify required parameter 'rotateType' is not null or undefined
         if (this.rotateType === null || this.rotateType === undefined) {
             throw new Error('Required parameter "rotateType" was null or undefined when calling PostReverse.');
@@ -33444,6 +34751,11 @@ export class PostReverseRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "format", this.format);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", this.checkExcelRestriction);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
         if (this.file !== undefined) {
             for (var key in this.file){
                 formParams[key] = this.file[key];
@@ -33451,7 +34763,7 @@ export class PostReverseRequest  {
         }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -33466,18 +34778,20 @@ export class PostReverseRequest  {
     }
 
 }
-   
+/// Reverse rows or columns of Excel files, save as kinds of format files.   
 export class PostRotateRequest  {
     /// File to upload  
     public file: any;
-      
+    /// 270/90/row/col/row2col  
     public rotateType: string;
-      
+    /// CSV/XLS/HTML/MHTML/ODS/PDF/XML/TXT/TIFF/XLSB/XLSM/XLSX/XLTM/XLTX/XPS/PNG/JPG/JPEG/GIF/EMF/BMP/MD[Markdown]/Numbers  
     public format: string;
       
     public password: string;
       
     public checkExcelRestriction: boolean;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< PostRotateRequest >) {  
         Object.assign(this, init);
@@ -33488,7 +34802,7 @@ export class PostRotateRequest  {
         let localVarPath = configuration.getApiBaseUrl() + "/cells/rotate";
         const queryParameters: any = {};
         const formParams: any = {};
-         
+        /// 270/90/row/col/row2col 
         // verify required parameter 'rotateType' is not null or undefined
         if (this.rotateType === null || this.rotateType === undefined) {
             throw new Error('Required parameter "rotateType" was null or undefined when calling PostRotate.');
@@ -33497,6 +34811,11 @@ export class PostRotateRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "format", this.format);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", this.checkExcelRestriction);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
         if (this.file !== undefined) {
             for (var key in this.file){
                 formParams[key] = this.file[key];
@@ -33504,7 +34823,7 @@ export class PostRotateRequest  {
         }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -33524,11 +34843,13 @@ export class PostMetadataRequest  {
     /// File to upload  
     public file: any;
       
-    public documentProperties: Array<CellsDocumentProperty>;
+    public cellsDocuments: Array<CellsDocumentProperty>;
       
     public password: string;
       
     public checkExcelRestriction: boolean;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< PostMetadataRequest >) {  
         Object.assign(this, init);
@@ -33541,15 +34862,18 @@ export class PostMetadataRequest  {
         const formParams: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", this.checkExcelRestriction);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
         if (this.file !== undefined) {
             for (var key in this.file){
                 formParams[key] = this.file[key];
             }
         }
 
-
-        const bodyParameter = (this.documentProperties == null) ? null :  ObjectSerializer.serialize( this.documentProperties ,this.documentProperties.constructor.name);
-        formParams["cellsDocuments"] = bodyParameter;    
+        formParams["cellsDocuments"] = JSON.stringify(this.cellsDocuments);    
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -33573,6 +34897,8 @@ export class GetMetadataRequest  {
     public password: string;
       
     public checkExcelRestriction: boolean;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< GetMetadataRequest >) {  
         Object.assign(this, init);
@@ -33586,6 +34912,11 @@ export class GetMetadataRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "type", this.type);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", this.checkExcelRestriction);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
         if (this.file !== undefined) {
             for (var key in this.file){
                 formParams[key] = this.file[key];
@@ -33593,7 +34924,7 @@ export class GetMetadataRequest  {
         }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -33618,6 +34949,8 @@ export class DeleteMetadataRequest  {
     public password: string;
       
     public checkExcelRestriction: boolean;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< DeleteMetadataRequest >) {  
         Object.assign(this, init);
@@ -33631,6 +34964,11 @@ export class DeleteMetadataRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "type", this.type);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", this.checkExcelRestriction);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
         if (this.file !== undefined) {
             for (var key in this.file){
                 formParams[key] = this.file[key];
@@ -33638,7 +34976,7 @@ export class DeleteMetadataRequest  {
         }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -33653,16 +34991,18 @@ export class DeleteMetadataRequest  {
     }
 
 }
-   
+/// Get listobjects description in worksheet.   
 export class GetWorksheetListObjectsRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< GetWorksheetListObjectsRequest >) {  
         Object.assign(this, init);
@@ -33674,9 +35014,14 @@ export class GetWorksheetListObjectsRequest  {
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -33690,20 +35035,22 @@ export class GetWorksheetListObjectsRequest  {
     }
 
 }
-   
+/// Gets list object description by index in worksheet.   
 export class GetWorksheetListObjectRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// list object index.  
     public listobjectindex: number;
       
     public format: string;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< GetWorksheetListObjectRequest >) {  
         Object.assign(this, init);
@@ -33716,9 +35063,14 @@ export class GetWorksheetListObjectRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "format", this.format);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -33732,30 +35084,32 @@ export class GetWorksheetListObjectRequest  {
     }
 
 }
-   
+/// Adds a list object in worksheet.   
 export class PutWorksheetListObjectRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// The start row of the list range.  
     public startRow: number;
-      
+    /// The start row of the list range.  
     public startColumn: number;
-      
+    /// The start row of the list range.  
     public endRow: number;
-      
+    /// The start row of the list range.  
     public endColumn: number;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Whether the range has headers.  
     public hasHeaders: boolean;
       
     public displayName: string;
       
     public showTotals: boolean;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< PutWorksheetListObjectRequest >) {  
         Object.assign(this, init);
@@ -33774,9 +35128,14 @@ export class PutWorksheetListObjectRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "displayName", this.displayName);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "showTotals", this.showTotals);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "PUT",
@@ -33790,16 +35149,18 @@ export class PutWorksheetListObjectRequest  {
     }
 
 }
-   
+/// Delete worksheet list objects in worksheet.   
 export class DeleteWorksheetListObjectsRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< DeleteWorksheetListObjectsRequest >) {  
         Object.assign(this, init);
@@ -33811,9 +35172,14 @@ export class DeleteWorksheetListObjectsRequest  {
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "DELETE",
@@ -33827,18 +35193,20 @@ export class DeleteWorksheetListObjectsRequest  {
     }
 
 }
-   
+/// Deletes list object by index in worksheet.   
 export class DeleteWorksheetListObjectRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// List object index.  
     public listObjectIndex: number;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< DeleteWorksheetListObjectRequest >) {  
         Object.assign(this, init);
@@ -33850,9 +35218,14 @@ export class DeleteWorksheetListObjectRequest  {
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "DELETE",
@@ -33866,20 +35239,22 @@ export class DeleteWorksheetListObjectRequest  {
     }
 
 }
-   
+/// Updates list object in worksheet.   
 export class PostWorksheetListObjectRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// list Object index  
     public listObjectIndex: number;
-      
+    /// listObject dto in request body.  
     public listObject: ListObject;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< PostWorksheetListObjectRequest >) {  
         Object.assign(this, init);
@@ -33891,6 +35266,11 @@ export class PostWorksheetListObjectRequest  {
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
         const bodyParameter = (this.listObject == null) ? null :   ObjectSerializer.serialize( this.listObject,this.listObject.constructor.name);
@@ -33907,18 +35287,20 @@ export class PostWorksheetListObjectRequest  {
     }
 
 }
-   
+/// Converts list object to range in worksheet.   
 export class PostWorksheetListObjectConvertToRangeRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// List object index.  
     public listObjectIndex: number;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< PostWorksheetListObjectConvertToRangeRequest >) {  
         Object.assign(this, init);
@@ -33930,9 +35312,14 @@ export class PostWorksheetListObjectConvertToRangeRequest  {
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -33946,22 +35333,24 @@ export class PostWorksheetListObjectConvertToRangeRequest  {
     }
 
 }
-   
+/// Creates pivot table with list object in worksheet.   
 export class PostWorksheetListObjectSummarizeWithPivotTableRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// List object index.  
     public listObjectIndex: number;
-      
+    /// Target work sheet name.  
     public destsheetName: string;
-      
+    /// Create pivot table request.  
     public createPivotTableRequest: CreatePivotTableRequest;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< PostWorksheetListObjectSummarizeWithPivotTableRequest >) {  
         Object.assign(this, init);
@@ -33971,7 +35360,7 @@ export class PostWorksheetListObjectSummarizeWithPivotTableRequest  {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/listobjects/{listObjectIndex}/SummarizeWithPivotTable".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "listObjectIndex" + "}", String(this.listObjectIndex));
         const queryParameters: any = {};
-         
+        /// Target work sheet name. 
         // verify required parameter 'destsheetName' is not null or undefined
         if (this.destsheetName === null || this.destsheetName === undefined) {
             throw new Error('Required parameter "destsheetName" was null or undefined when calling PostWorksheetListObjectSummarizeWithPivotTable.');
@@ -33979,6 +35368,11 @@ export class PostWorksheetListObjectSummarizeWithPivotTableRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "destsheetName", this.destsheetName);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
         const bodyParameter = (this.createPivotTableRequest == null) ? null :   ObjectSerializer.serialize( this.createPivotTableRequest,this.createPivotTableRequest.constructor.name);
@@ -33995,20 +35389,22 @@ export class PostWorksheetListObjectSummarizeWithPivotTableRequest  {
     }
 
 }
-   
+/// Sorts list object in worksheet.   
 export class PostWorksheetListObjectSortTableRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// List object index.  
     public listObjectIndex: number;
-      
+    /// Represents sort order for the data range.  
     public dataSorter: DataSorter;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< PostWorksheetListObjectSortTableRequest >) {  
         Object.assign(this, init);
@@ -34020,6 +35416,11 @@ export class PostWorksheetListObjectSortTableRequest  {
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
         const bodyParameter = (this.dataSorter == null) ? null :   ObjectSerializer.serialize( this.dataSorter,this.dataSorter.constructor.name);
@@ -34036,22 +35437,24 @@ export class PostWorksheetListObjectSortTableRequest  {
     }
 
 }
-   
+/// Update list column properties.   
 export class PostWorksheetListColumnRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// List object index.  
     public listObjectIndex: number;
-      
+    /// Represents table column index.  
     public columnIndex: number;
-      
+    /// Represents table column description.  
     public listColumn: ListColumn;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< PostWorksheetListColumnRequest >) {  
         Object.assign(this, init);
@@ -34063,6 +35466,11 @@ export class PostWorksheetListColumnRequest  {
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
         const bodyParameter = (this.listColumn == null) ? null :   ObjectSerializer.serialize( this.listColumn,this.listColumn.constructor.name);
@@ -34079,20 +35487,22 @@ export class PostWorksheetListColumnRequest  {
     }
 
 }
-   
+/// Update table total of list columns.   
 export class PostWorksheetListColumnsTotalRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// List object index.  
     public listObjectIndex: number;
-      
+    /// Represents table column description.  
     public tableTotalRequests: Array<TableTotalRequest>;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< PostWorksheetListColumnsTotalRequest >) {  
         Object.assign(this, init);
@@ -34104,6 +35514,11 @@ export class PostWorksheetListColumnsTotalRequest  {
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
         const bodyParameter = (this.tableTotalRequests == null) ? null :   ObjectSerializer.serialize( this.tableTotalRequests,this.tableTotalRequests.constructor.name);
@@ -34120,16 +35535,18 @@ export class PostWorksheetListColumnsTotalRequest  {
     }
 
 }
-   
+/// Get OLE objects description in worksheet.   
 export class GetWorksheetOleObjectsRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// Document's folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< GetWorksheetOleObjectsRequest >) {  
         Object.assign(this, init);
@@ -34141,9 +35558,14 @@ export class GetWorksheetOleObjectsRequest  {
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -34157,20 +35579,22 @@ export class GetWorksheetOleObjectsRequest  {
     }
 
 }
-   
+/// Gets OLE object info or get the OLE object in some format.   
 export class GetWorksheetOleObjectRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// The object number.  
     public objectNumber: number;
-      
+    /// Object conversion format(PNG/TIFF/JPEG/GIF/EMF/BMP).  
     public format: string;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< GetWorksheetOleObjectRequest >) {  
         Object.assign(this, init);
@@ -34183,9 +35607,14 @@ export class GetWorksheetOleObjectRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "format", this.format);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -34199,16 +35628,18 @@ export class GetWorksheetOleObjectRequest  {
     }
 
 }
-   
+/// Delete all OLE objects in  worksheet.   
 export class DeleteWorksheetOleObjectsRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worsheet name.  
     public sheetName: string;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< DeleteWorksheetOleObjectsRequest >) {  
         Object.assign(this, init);
@@ -34220,9 +35651,14 @@ export class DeleteWorksheetOleObjectsRequest  {
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "DELETE",
@@ -34236,18 +35672,20 @@ export class DeleteWorksheetOleObjectsRequest  {
     }
 
 }
-   
+/// Deletes an OLE object in worksheet.   
 export class DeleteWorksheetOleObjectRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worsheet name.  
     public sheetName: string;
-      
+    /// Ole object index.  
     public oleObjectIndex: number;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< DeleteWorksheetOleObjectRequest >) {  
         Object.assign(this, init);
@@ -34259,9 +35697,14 @@ export class DeleteWorksheetOleObjectRequest  {
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "DELETE",
@@ -34275,20 +35718,22 @@ export class DeleteWorksheetOleObjectRequest  {
     }
 
 }
-   
+/// Update an OLE object in worksheet.   
 export class PostUpdateWorksheetOleObjectRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worsheet name.  
     public sheetName: string;
-      
+    /// Ole object index.  
     public oleObjectIndex: number;
-      
+    /// Ole Object description.  
     public ole: OleObject;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< PostUpdateWorksheetOleObjectRequest >) {  
         Object.assign(this, init);
@@ -34300,6 +35745,11 @@ export class PostUpdateWorksheetOleObjectRequest  {
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
         const bodyParameter = (this.ole == null) ? null :   ObjectSerializer.serialize( this.ole,this.ole.constructor.name);
@@ -34316,28 +35766,30 @@ export class PostUpdateWorksheetOleObjectRequest  {
     }
 
 }
-   
+/// Add an OLE object in worksheet.   
 export class PutWorksheetOleObjectRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worsheet name.  
     public sheetName: string;
-      
+    /// Upper left row index  
     public upperLeftRow: number;
-      
+    /// Upper left column index  
     public upperLeftColumn: number;
-      
+    /// Height of oleObject, in unit of pixel  
     public height: number;
-      
+    /// Width of oleObject, in unit of pixel  
     public width: number;
-      
+    /// OLE filename(full file name).  
     public oleFile: string;
-      
+    /// Image filename(full file name).  
     public imageFile: string;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< PutWorksheetOleObjectRequest >) {  
         Object.assign(this, init);
@@ -34355,9 +35807,14 @@ export class PutWorksheetOleObjectRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "imageFile", this.imageFile);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "PUT",
@@ -34371,16 +35828,18 @@ export class PutWorksheetOleObjectRequest  {
     }
 
 }
-   
+/// Get vertical page breaks description in worksheet.   
 export class GetVerticalPageBreaksRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< GetVerticalPageBreaksRequest >) {  
         Object.assign(this, init);
@@ -34392,9 +35851,14 @@ export class GetVerticalPageBreaksRequest  {
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -34408,16 +35872,18 @@ export class GetVerticalPageBreaksRequest  {
     }
 
 }
-   
+/// Get horizontal page breaks descripton in worksheet.   
 export class GetHorizontalPageBreaksRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< GetHorizontalPageBreaksRequest >) {  
         Object.assign(this, init);
@@ -34429,9 +35895,14 @@ export class GetHorizontalPageBreaksRequest  {
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -34445,18 +35916,20 @@ export class GetHorizontalPageBreaksRequest  {
     }
 
 }
-   
+/// Gets a vertical page break description in worksheet.   
 export class GetVerticalPageBreakRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// The zero based index of the element.  
     public index: number;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< GetVerticalPageBreakRequest >) {  
         Object.assign(this, init);
@@ -34468,9 +35941,14 @@ export class GetVerticalPageBreakRequest  {
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -34484,18 +35962,20 @@ export class GetVerticalPageBreakRequest  {
     }
 
 }
-   
+/// Gets a horizontal page breaks descripton in worksheet.   
 export class GetHorizontalPageBreakRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// The zero based index of the element.  
     public index: number;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< GetHorizontalPageBreakRequest >) {  
         Object.assign(this, init);
@@ -34507,9 +35987,14 @@ export class GetHorizontalPageBreakRequest  {
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -34523,26 +36008,28 @@ export class GetHorizontalPageBreakRequest  {
     }
 
 }
-   
+/// Adds a vertical page break in worksheet.   
 export class PutVerticalPageBreakRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// Cell name  
     public cellname: string;
-      
+    /// Column index, zero based.  
     public column: number;
-      
+    /// Row index, zero based.  
     public row: number;
-      
+    /// Start row index, zero based.  
     public startRow: number;
-      
+    /// End row index, zero based.  
     public endRow: number;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< PutVerticalPageBreakRequest >) {  
         Object.assign(this, init);
@@ -34559,9 +36046,14 @@ export class PutVerticalPageBreakRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "endRow", this.endRow);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "PUT",
@@ -34575,26 +36067,28 @@ export class PutVerticalPageBreakRequest  {
     }
 
 }
-   
+/// Adds a horizontal page breaks in worksheet.   
 export class PutHorizontalPageBreakRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// Cell name  
     public cellname: string;
-      
+    /// Row index, zero based.  
     public row: number;
-      
+    /// Column index, zero based.  
     public column: number;
-      
+    /// Start column index, zero based.  
     public startColumn: number;
-      
+    /// End column index, zero based.  
     public endColumn: number;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< PutHorizontalPageBreakRequest >) {  
         Object.assign(this, init);
@@ -34611,9 +36105,14 @@ export class PutHorizontalPageBreakRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "endColumn", this.endColumn);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "PUT",
@@ -34627,18 +36126,20 @@ export class PutHorizontalPageBreakRequest  {
     }
 
 }
-   
+/// Delete vertical page breaks in worksheet.   
 export class DeleteVerticalPageBreaksRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// Column index, zero based.  
     public column: number;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< DeleteVerticalPageBreaksRequest >) {  
         Object.assign(this, init);
@@ -34651,9 +36152,14 @@ export class DeleteVerticalPageBreaksRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "column", this.column);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "DELETE",
@@ -34667,18 +36173,20 @@ export class DeleteVerticalPageBreaksRequest  {
     }
 
 }
-   
+/// Delete horizontal page breaks in worksheet.   
 export class DeleteHorizontalPageBreaksRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// Row index, zero based.  
     public row: number;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< DeleteHorizontalPageBreaksRequest >) {  
         Object.assign(this, init);
@@ -34691,9 +36199,14 @@ export class DeleteHorizontalPageBreaksRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "row", this.row);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "DELETE",
@@ -34707,18 +36220,20 @@ export class DeleteHorizontalPageBreaksRequest  {
     }
 
 }
-   
+/// Delete a vertical page breaks in worksheet.   
 export class DeleteVerticalPageBreakRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// Removes the VPageBreak element at a specified name. Element index, zero based.  
     public index: number;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< DeleteVerticalPageBreakRequest >) {  
         Object.assign(this, init);
@@ -34730,9 +36245,14 @@ export class DeleteVerticalPageBreakRequest  {
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "DELETE",
@@ -34746,18 +36266,20 @@ export class DeleteVerticalPageBreakRequest  {
     }
 
 }
-   
+/// Delete a horizontal page breaks in worksheet.   
 export class DeleteHorizontalPageBreakRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// Removes the HPageBreak element at a specified name. Element index, zero based.  
     public index: number;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< DeleteHorizontalPageBreakRequest >) {  
         Object.assign(this, init);
@@ -34769,9 +36291,14 @@ export class DeleteHorizontalPageBreakRequest  {
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "DELETE",
@@ -34785,16 +36312,18 @@ export class DeleteHorizontalPageBreakRequest  {
     }
 
 }
-   
+/// Gets page setup description in worksheet.   
 export class GetPageSetupRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< GetPageSetupRequest >) {  
         Object.assign(this, init);
@@ -34806,9 +36335,14 @@ export class GetPageSetupRequest  {
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -34822,18 +36356,20 @@ export class GetPageSetupRequest  {
     }
 
 }
-   
+/// Updates page setup in worksheet.   
 export class PostPageSetupRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// Page Setup description.  
     public pageSetup: PageSetup;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< PostPageSetupRequest >) {  
         Object.assign(this, init);
@@ -34845,6 +36381,11 @@ export class PostPageSetupRequest  {
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
         const bodyParameter = (this.pageSetup == null) ? null :   ObjectSerializer.serialize( this.pageSetup,this.pageSetup.constructor.name);
@@ -34861,16 +36402,18 @@ export class PostPageSetupRequest  {
     }
 
 }
-   
+/// Clears header footer in worksheet.   
 export class DeleteHeaderFooterRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< DeleteHeaderFooterRequest >) {  
         Object.assign(this, init);
@@ -34882,9 +36425,14 @@ export class DeleteHeaderFooterRequest  {
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "DELETE",
@@ -34898,16 +36446,18 @@ export class DeleteHeaderFooterRequest  {
     }
 
 }
-   
+/// Gets page header description in worksheet.   
 export class GetHeaderRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< GetHeaderRequest >) {  
         Object.assign(this, init);
@@ -34919,9 +36469,14 @@ export class GetHeaderRequest  {
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -34935,22 +36490,24 @@ export class GetHeaderRequest  {
     }
 
 }
-   
+/// Updates page header in worksheet.    
 export class PostHeaderRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// 0:Left Section. 1:Center Section 2:Right Section  
     public section: number;
-      
+    /// Header format script.  
     public script: string;
-      
+    /// Is first page(true/false).  
     public isFirstPage: boolean;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< PostHeaderRequest >) {  
         Object.assign(this, init);
@@ -34960,17 +36517,17 @@ export class PostHeaderRequest  {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/pagesetup/header".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
         const queryParameters: any = {};
-         
+        /// 0:Left Section. 1:Center Section 2:Right Section 
         // verify required parameter 'section' is not null or undefined
         if (this.section === null || this.section === undefined) {
             throw new Error('Required parameter "section" was null or undefined when calling PostHeader.');
         }
-         
+        /// Header format script. 
         // verify required parameter 'script' is not null or undefined
         if (this.script === null || this.script === undefined) {
             throw new Error('Required parameter "script" was null or undefined when calling PostHeader.');
         }
-         
+        /// Is first page(true/false). 
         // verify required parameter 'isFirstPage' is not null or undefined
         if (this.isFirstPage === null || this.isFirstPage === undefined) {
             throw new Error('Required parameter "isFirstPage" was null or undefined when calling PostHeader.');
@@ -34980,9 +36537,14 @@ export class PostHeaderRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "isFirstPage", this.isFirstPage);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -34996,16 +36558,18 @@ export class PostHeaderRequest  {
     }
 
 }
-   
+/// Gets page footer description in worksheet.   
 export class GetFooterRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< GetFooterRequest >) {  
         Object.assign(this, init);
@@ -35017,9 +36581,14 @@ export class GetFooterRequest  {
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -35033,22 +36602,24 @@ export class GetFooterRequest  {
     }
 
 }
-   
+/// Update  page footer description in worksheet.    
 export class PostFooterRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// 0:Left Section. 1:Center Section 2:Right Section  
     public section: number;
-      
+    /// Header format script.  
     public script: string;
-      
+    /// Is first page(true/false).  
     public isFirstPage: boolean;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< PostFooterRequest >) {  
         Object.assign(this, init);
@@ -35058,17 +36629,17 @@ export class PostFooterRequest  {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/pagesetup/footer".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
         const queryParameters: any = {};
-         
+        /// 0:Left Section. 1:Center Section 2:Right Section 
         // verify required parameter 'section' is not null or undefined
         if (this.section === null || this.section === undefined) {
             throw new Error('Required parameter "section" was null or undefined when calling PostFooter.');
         }
-         
+        /// Header format script. 
         // verify required parameter 'script' is not null or undefined
         if (this.script === null || this.script === undefined) {
             throw new Error('Required parameter "script" was null or undefined when calling PostFooter.');
         }
-         
+        /// Is first page(true/false). 
         // verify required parameter 'isFirstPage' is not null or undefined
         if (this.isFirstPage === null || this.isFirstPage === undefined) {
             throw new Error('Required parameter "isFirstPage" was null or undefined when calling PostFooter.');
@@ -35078,9 +36649,14 @@ export class PostFooterRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "isFirstPage", this.isFirstPage);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -35094,16 +36670,18 @@ export class PostFooterRequest  {
     }
 
 }
-   
+/// Get pictures description in worksheet.   
 export class GetWorksheetPicturesRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< GetWorksheetPicturesRequest >) {  
         Object.assign(this, init);
@@ -35115,9 +36693,14 @@ export class GetWorksheetPicturesRequest  {
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -35131,20 +36714,22 @@ export class GetWorksheetPicturesRequest  {
     }
 
 }
-   
+/// Gets a picture by number in worksheet.   
 export class GetWorksheetPictureWithFormatRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// The picture number.  
     public pictureNumber: number;
-      
+    /// Picture conversion format(PNG/TIFF/JPEG/GIF/EMF/BMP).  
     public format: string;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< GetWorksheetPictureWithFormatRequest >) {  
         Object.assign(this, init);
@@ -35154,7 +36739,7 @@ export class GetWorksheetPictureWithFormatRequest  {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/pictures/{pictureNumber}".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "pictureNumber" + "}", String(this.pictureNumber));
         const queryParameters: any = {};
-         
+        /// Picture conversion format(PNG/TIFF/JPEG/GIF/EMF/BMP). 
         // verify required parameter 'format' is not null or undefined
         if (this.format === null || this.format === undefined) {
             throw new Error('Required parameter "format" was null or undefined when calling GetWorksheetPictureWithFormat.');
@@ -35162,9 +36747,14 @@ export class GetWorksheetPictureWithFormatRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "format", this.format);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -35178,28 +36768,30 @@ export class GetWorksheetPictureWithFormatRequest  {
     }
 
 }
-   
+/// Adds a new picture in worksheet.   
 export class PutWorksheetAddPictureRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worsheet name.  
     public sheetName: string;
-      
+    /// Pictute object  
     public picture: Picture;
-      
+    /// The image upper left row.  
     public upperLeftRow: number;
-      
+    /// The image upper left column.  
     public upperLeftColumn: number;
-      
+    /// The image low right row.  
     public lowerRightRow: number;
-      
+    /// The image low right column.  
     public lowerRightColumn: number;
-      
+    /// The picture path, if not provided the picture data is inspected in the request body.  
     public picturePath: string;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< PutWorksheetAddPictureRequest >) {  
         Object.assign(this, init);
@@ -35216,6 +36808,11 @@ export class PutWorksheetAddPictureRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "picturePath", this.picturePath);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
         const bodyParameter = (this.picture == null) ? null :   ObjectSerializer.serialize( this.picture,this.picture.constructor.name);
@@ -35232,19 +36829,22 @@ export class PutWorksheetAddPictureRequest  {
     }
 
 }
+/// Updates a picture by index in worksheet.   
 export class PostWorksheetPictureRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// The picture's index.  
     public pictureIndex: number;
-      
+    /// Picture object description.  
     public picture: Picture;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< PostWorksheetPictureRequest >) {  
         Object.assign(this, init);
@@ -35256,6 +36856,11 @@ export class PostWorksheetPictureRequest  {
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
         const bodyParameter = (this.picture == null) ? null :   ObjectSerializer.serialize( this.picture,this.picture.constructor.name);
@@ -35272,61 +36877,20 @@ export class PostWorksheetPictureRequest  {
     }
 
 }
-/**
- * @deprecated 
- */   
-export class PostWorkSheetPictureRequest  {
-      
-    public name: string;
-      
-    public sheetName: string;
-      
-    public pictureIndex: number;
-      
-    public picture: Picture;
-      
-    public folder: string;
-      
-    public storageName: string;
-
-    public constructor(init?: Partial< PostWorkSheetPictureRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/pictures/{pictureIndex}".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "pictureIndex" + "}", String(this.pictureIndex));
-        const queryParameters: any = {};
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-
-
-        const bodyParameter = (this.picture == null) ? null :   ObjectSerializer.serialize( this.picture,this.picture.constructor.name);
-        const requestOptions: request.Options = {
-            method: "POST",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-            body:bodyParameter,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
+/// Deletes a picture object in worksheet   
 export class DeleteWorksheetPictureRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worsheet name.  
     public sheetName: string;
-      
+    /// Picture index.  
     public pictureIndex: number;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< DeleteWorksheetPictureRequest >) {  
         Object.assign(this, init);
@@ -35338,9 +36902,14 @@ export class DeleteWorksheetPictureRequest  {
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "DELETE",
@@ -35354,15 +36923,18 @@ export class DeleteWorksheetPictureRequest  {
     }
 
 }
+/// Delete all pictures in worksheet.   
 export class DeleteWorksheetPicturesRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< DeleteWorksheetPicturesRequest >) {  
         Object.assign(this, init);
@@ -35374,48 +36946,14 @@ export class DeleteWorksheetPicturesRequest  {
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
-
-        const requestOptions: request.Options = {
-            method: "DELETE",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-/**
- * @deprecated 
- */   
-export class DeleteWorkSheetPicturesRequest  {
-      
-    public name: string;
-      
-    public sheetName: string;
-      
-    public folder: string;
-      
-    public storageName: string;
-
-    public constructor(init?: Partial< DeleteWorkSheetPicturesRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/pictures".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
-        const queryParameters: any = {};
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-
-
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "DELETE",
@@ -35429,16 +36967,18 @@ export class DeleteWorkSheetPicturesRequest  {
     }
 
 }
-   
+/// Get worksheet pivottables description.   
 export class GetWorksheetPivotTablesRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< GetWorksheetPivotTablesRequest >) {  
         Object.assign(this, init);
@@ -35450,9 +36990,14 @@ export class GetWorksheetPivotTablesRequest  {
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -35466,18 +37011,20 @@ export class GetWorksheetPivotTablesRequest  {
     }
 
 }
-   
+/// Gets a pivottable info by index in worksheet.   
 export class GetWorksheetPivotTableRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// Gets the PivotTable report by index.  
     public pivottableIndex: number;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< GetWorksheetPivotTableRequest >) {  
         Object.assign(this, init);
@@ -35489,9 +37036,14 @@ export class GetWorksheetPivotTableRequest  {
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -35505,22 +37057,24 @@ export class GetWorksheetPivotTableRequest  {
     }
 
 }
-   
+/// Gets pivot field description in pivot table.   
 export class GetPivotTableFieldRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// Gets the PivotTable report by index.  
     public pivotTableIndex: number;
-      
+    /// The field index in the base fields.  
     public pivotFieldIndex: number;
-      
+    /// The fields area type(column/row).  
     public pivotFieldType: string;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< GetPivotTableFieldRequest >) {  
         Object.assign(this, init);
@@ -35530,12 +37084,12 @@ export class GetPivotTableFieldRequest  {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/pivottables/{pivotTableIndex}/PivotField".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "pivotTableIndex" + "}", String(this.pivotTableIndex));
         const queryParameters: any = {};
-         
+        /// The field index in the base fields. 
         // verify required parameter 'pivotFieldIndex' is not null or undefined
         if (this.pivotFieldIndex === null || this.pivotFieldIndex === undefined) {
             throw new Error('Required parameter "pivotFieldIndex" was null or undefined when calling GetPivotTableField.');
         }
-         
+        /// The fields area type(column/row). 
         // verify required parameter 'pivotFieldType' is not null or undefined
         if (this.pivotFieldType === null || this.pivotFieldType === undefined) {
             throw new Error('Required parameter "pivotFieldType" was null or undefined when calling GetPivotTableField.');
@@ -35544,9 +37098,14 @@ export class GetPivotTableFieldRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "pivotFieldType", this.pivotFieldType);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -35560,18 +37119,20 @@ export class GetPivotTableFieldRequest  {
     }
 
 }
-   
+/// Gets pivot table filters in worksheet.   
 export class GetWorksheetPivotTableFiltersRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// Gets the PivotTable report by index.  
     public pivotTableIndex: number;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< GetWorksheetPivotTableFiltersRequest >) {  
         Object.assign(this, init);
@@ -35583,9 +37144,14 @@ export class GetWorksheetPivotTableFiltersRequest  {
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -35599,20 +37165,22 @@ export class GetWorksheetPivotTableFiltersRequest  {
     }
 
 }
-   
+/// Gets pivot table filters in worksheet.   
 export class GetWorksheetPivotTableFilterRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// Gets the PivotTable report by index.  
     public pivotTableIndex: number;
-      
+    /// Gets the pivotfilter object at the specific index.  
     public filterIndex: number;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< GetWorksheetPivotTableFilterRequest >) {  
         Object.assign(this, init);
@@ -35624,9 +37192,14 @@ export class GetWorksheetPivotTableFilterRequest  {
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -35640,24 +37213,26 @@ export class GetWorksheetPivotTableFilterRequest  {
     }
 
 }
-   
+/// Adds a pivot table in worksheet.   
 export class PutWorksheetPivotTableRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// The data for the new PivotTable cache.  
     public sourceData: string;
-      
+    /// The cell in the upper-left corner of the PivotTable report's destination range.  
     public destCellName: string;
-      
+    /// The name of the new PivotTable report.  
     public tableName: string;
-      
+    /// Indicates whether using same data source when another existing pivot table has used this data source. If the property is true, it will save memory.  
     public useSameSource: boolean;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< PutWorksheetPivotTableRequest >) {  
         Object.assign(this, init);
@@ -35673,9 +37248,14 @@ export class PutWorksheetPivotTableRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "tableName", this.tableName);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "useSameSource", this.useSameSource);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "PUT",
@@ -35689,24 +37269,26 @@ export class PutWorksheetPivotTableRequest  {
     }
 
 }
-   
+/// Adds a pivot field in pivot table   
 export class PutPivotTableFieldRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// Gets the PivotTable report by index.  
     public pivotTableIndex: number;
-      
+    /// The fields area type.  
     public pivotFieldType: string;
-      
+    /// Dto that conrains field indexes  
     public pivotTableFieldRequest: PivotTableFieldRequest;
-      
+    /// Whether the specific pivot table calculate(true/false).  
     public needReCalculate: boolean;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< PutPivotTableFieldRequest >) {  
         Object.assign(this, init);
@@ -35716,7 +37298,7 @@ export class PutPivotTableFieldRequest  {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/pivottables/{pivotTableIndex}/PivotField".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "pivotTableIndex" + "}", String(this.pivotTableIndex));
         const queryParameters: any = {};
-         
+        /// The fields area type. 
         // verify required parameter 'pivotFieldType' is not null or undefined
         if (this.pivotFieldType === null || this.pivotFieldType === undefined) {
             throw new Error('Required parameter "pivotFieldType" was null or undefined when calling PutPivotTableField.');
@@ -35725,6 +37307,11 @@ export class PutPivotTableFieldRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "needReCalculate", this.needReCalculate);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
         const bodyParameter = (this.pivotTableFieldRequest == null) ? null :   ObjectSerializer.serialize( this.pivotTableFieldRequest,this.pivotTableFieldRequest.constructor.name);
@@ -35741,22 +37328,24 @@ export class PutPivotTableFieldRequest  {
     }
 
 }
-   
+/// Adds a pivot filter for piovt table index   
 export class PutWorksheetPivotTableFilterRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// Gets the PivotTable report by index.  
     public pivotTableIndex: number;
-      
+    /// Pivot filter description.  
     public filter: PivotFilter;
-      
+    /// Whether the specific pivot table calculate(true/false).  
     public needReCalculate: boolean;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< PutWorksheetPivotTableFilterRequest >) {  
         Object.assign(this, init);
@@ -35769,6 +37358,11 @@ export class PutWorksheetPivotTableFilterRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "needReCalculate", this.needReCalculate);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
         const bodyParameter = (this.filter == null) ? null :   ObjectSerializer.serialize( this.filter,this.filter.constructor.name);
@@ -35785,28 +37379,30 @@ export class PutWorksheetPivotTableFilterRequest  {
     }
 
 }
-   
+/// Hides pivot field item in pivot table.   
 export class PostPivotTableFieldHideItemRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// Gets the PivotTable report by index.  
     public pivotTableIndex: number;
-      
+    /// Represents PivotTable field type(Undefined/Row/Column/Page/Data).  
     public pivotFieldType: string;
-      
+    /// Gets the PivotField Object at the specific index.  
     public fieldIndex: number;
-      
+    /// The index of the pivotItem in the pivotField.  
     public itemIndex: number;
-      
+    /// Whether the specific PivotItem is hidden(true/false).  
     public isHide: boolean;
-      
+    /// Whether the specific pivot table calculate(true/false).  
     public needReCalculate: boolean;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< PostPivotTableFieldHideItemRequest >) {  
         Object.assign(this, init);
@@ -35816,22 +37412,22 @@ export class PostPivotTableFieldHideItemRequest  {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/pivottables/{pivotTableIndex}/PivotField/Hide".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "pivotTableIndex" + "}", String(this.pivotTableIndex));
         const queryParameters: any = {};
-         
+        /// Represents PivotTable field type(Undefined/Row/Column/Page/Data). 
         // verify required parameter 'pivotFieldType' is not null or undefined
         if (this.pivotFieldType === null || this.pivotFieldType === undefined) {
             throw new Error('Required parameter "pivotFieldType" was null or undefined when calling PostPivotTableFieldHideItem.');
         }
-         
+        /// Gets the PivotField Object at the specific index. 
         // verify required parameter 'fieldIndex' is not null or undefined
         if (this.fieldIndex === null || this.fieldIndex === undefined) {
             throw new Error('Required parameter "fieldIndex" was null or undefined when calling PostPivotTableFieldHideItem.');
         }
-         
+        /// The index of the pivotItem in the pivotField. 
         // verify required parameter 'itemIndex' is not null or undefined
         if (this.itemIndex === null || this.itemIndex === undefined) {
             throw new Error('Required parameter "itemIndex" was null or undefined when calling PostPivotTableFieldHideItem.');
         }
-         
+        /// Whether the specific PivotItem is hidden(true/false). 
         // verify required parameter 'isHide' is not null or undefined
         if (this.isHide === null || this.isHide === undefined) {
             throw new Error('Required parameter "isHide" was null or undefined when calling PostPivotTableFieldHideItem.');
@@ -35843,9 +37439,14 @@ export class PostPivotTableFieldHideItemRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "needReCalculate", this.needReCalculate);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -35859,24 +37460,26 @@ export class PostPivotTableFieldHideItemRequest  {
     }
 
 }
-   
+/// Moves pivot field in pivot table.   
 export class PostPivotTableFieldMoveToRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// Gets the PivotTable report by index.  
     public pivotTableIndex: number;
-      
+    /// Gets the PivotField Object at the specific index.  
     public fieldIndex: number;
-      
+    /// The fields area type(Column/Row/Page/Data/Undefined).  
     public from: string;
-      
+    /// The fields area type(Column/Row/Page/Data/Undefined).  
     public to: string;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< PostPivotTableFieldMoveToRequest >) {  
         Object.assign(this, init);
@@ -35886,17 +37489,17 @@ export class PostPivotTableFieldMoveToRequest  {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/pivottables/{pivotTableIndex}/PivotField/Move".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "pivotTableIndex" + "}", String(this.pivotTableIndex));
         const queryParameters: any = {};
-         
+        /// Gets the PivotField Object at the specific index. 
         // verify required parameter 'fieldIndex' is not null or undefined
         if (this.fieldIndex === null || this.fieldIndex === undefined) {
             throw new Error('Required parameter "fieldIndex" was null or undefined when calling PostPivotTableFieldMoveTo.');
         }
-         
+        /// The fields area type(Column/Row/Page/Data/Undefined). 
         // verify required parameter 'from' is not null or undefined
         if (this.from === null || this.from === undefined) {
             throw new Error('Required parameter "from" was null or undefined when calling PostPivotTableFieldMoveTo.');
         }
-         
+        /// The fields area type(Column/Row/Page/Data/Undefined). 
         // verify required parameter 'to' is not null or undefined
         if (this.to === null || this.to === undefined) {
             throw new Error('Required parameter "to" was null or undefined when calling PostPivotTableFieldMoveTo.');
@@ -35906,9 +37509,14 @@ export class PostPivotTableFieldMoveToRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "to", this.to);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -35922,26 +37530,28 @@ export class PostPivotTableFieldMoveToRequest  {
     }
 
 }
-   
+/// Updates cell style in pivot table.   
 export class PostPivotTableCellStyleRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// Gets the PivotTable report by index.  
     public pivotTableIndex: number;
-      
+    /// Column index of the cell.  
     public column: number;
-      
+    /// RowIndex of the cell.  
     public row: number;
-      
+    /// Style description in request body.  
     public style: Style;
-      
+    /// Whether the specific pivot table calculate(true/false).  
     public needReCalculate: boolean;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< PostPivotTableCellStyleRequest >) {  
         Object.assign(this, init);
@@ -35951,12 +37561,12 @@ export class PostPivotTableCellStyleRequest  {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/pivottables/{pivotTableIndex}/Format".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "pivotTableIndex" + "}", String(this.pivotTableIndex));
         const queryParameters: any = {};
-         
+        /// Column index of the cell. 
         // verify required parameter 'column' is not null or undefined
         if (this.column === null || this.column === undefined) {
             throw new Error('Required parameter "column" was null or undefined when calling PostPivotTableCellStyle.');
         }
-         
+        /// RowIndex of the cell. 
         // verify required parameter 'row' is not null or undefined
         if (this.row === null || this.row === undefined) {
             throw new Error('Required parameter "row" was null or undefined when calling PostPivotTableCellStyle.');
@@ -35966,6 +37576,11 @@ export class PostPivotTableCellStyleRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "needReCalculate", this.needReCalculate);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
         const bodyParameter = (this.style == null) ? null :   ObjectSerializer.serialize( this.style,this.style.constructor.name);
@@ -35982,22 +37597,24 @@ export class PostPivotTableCellStyleRequest  {
     }
 
 }
-   
+/// Updates style in pivot table.   
 export class PostPivotTableStyleRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// Gets the PivotTable report by index.  
     public pivotTableIndex: number;
-      
+    /// Style description in request body.  
     public style: Style;
-      
+    /// Whether the specific pivot table calculate(true/false).  
     public needReCalculate: boolean;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< PostPivotTableStyleRequest >) {  
         Object.assign(this, init);
@@ -36010,6 +37627,11 @@ export class PostPivotTableStyleRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "needReCalculate", this.needReCalculate);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
         const bodyParameter = (this.style == null) ? null :   ObjectSerializer.serialize( this.style,this.style.constructor.name);
@@ -36028,22 +37650,24 @@ export class PostPivotTableStyleRequest  {
 }
    
 export class PostPivotTableUpdatePivotFieldsRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// Gets the PivotTable report by index.  
     public pivotTableIndex: number;
-      
+    /// Represents PivotTable field type(Undefined/Row/Column/Page/Data).  
     public pivotFieldType: string;
-      
+    /// Represents pivot field.  
     public pivotField: PivotField;
-      
+    /// Whether the specific pivot table calculate(true/false).  
     public needReCalculate: boolean;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< PostPivotTableUpdatePivotFieldsRequest >) {  
         Object.assign(this, init);
@@ -36053,7 +37677,7 @@ export class PostPivotTableUpdatePivotFieldsRequest  {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/pivottables/{pivotTableIndex}/PivotFields".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "pivotTableIndex" + "}", String(this.pivotTableIndex));
         const queryParameters: any = {};
-         
+        /// Represents PivotTable field type(Undefined/Row/Column/Page/Data). 
         // verify required parameter 'pivotFieldType' is not null or undefined
         if (this.pivotFieldType === null || this.pivotFieldType === undefined) {
             throw new Error('Required parameter "pivotFieldType" was null or undefined when calling PostPivotTableUpdatePivotFields.');
@@ -36062,6 +37686,11 @@ export class PostPivotTableUpdatePivotFieldsRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "needReCalculate", this.needReCalculate);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
         const bodyParameter = (this.pivotField == null) ? null :   ObjectSerializer.serialize( this.pivotField,this.pivotField.constructor.name);
@@ -36080,24 +37709,26 @@ export class PostPivotTableUpdatePivotFieldsRequest  {
 }
    
 export class PostPivotTableUpdatePivotFieldRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// Gets the PivotTable report by index.  
     public pivotTableIndex: number;
-      
+    /// Gets the PivotField Object at the specific index.  
     public pivotFieldIndex: number;
-      
+    /// Represents PivotTable field type(Undefined/Row/Column/Page/Data).  
     public pivotFieldType: string;
-      
+    /// Represents pivot field.  
     public pivotField: PivotField;
-      
+    /// Whether the specific pivot table calculate(true/false).  
     public needReCalculate: boolean;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< PostPivotTableUpdatePivotFieldRequest >) {  
         Object.assign(this, init);
@@ -36107,7 +37738,7 @@ export class PostPivotTableUpdatePivotFieldRequest  {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/pivottables/{pivotTableIndex}/PivotFields/{pivotFieldIndex}".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "pivotTableIndex" + "}", String(this.pivotTableIndex)).replace("{" + "pivotFieldIndex" + "}", String(this.pivotFieldIndex));
         const queryParameters: any = {};
-         
+        /// Represents PivotTable field type(Undefined/Row/Column/Page/Data). 
         // verify required parameter 'pivotFieldType' is not null or undefined
         if (this.pivotFieldType === null || this.pivotFieldType === undefined) {
             throw new Error('Required parameter "pivotFieldType" was null or undefined when calling PostPivotTableUpdatePivotField.');
@@ -36116,6 +37747,11 @@ export class PostPivotTableUpdatePivotFieldRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "needReCalculate", this.needReCalculate);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
         const bodyParameter = (this.pivotField == null) ? null :   ObjectSerializer.serialize( this.pivotField,this.pivotField.constructor.name);
@@ -36132,18 +37768,20 @@ export class PostPivotTableUpdatePivotFieldRequest  {
     }
 
 }
-   
+/// Calculates pivottable's data to cells.   
 export class PostWorksheetPivotTableCalculateRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// Gets the PivotTable report by index.  
     public pivotTableIndex: number;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< PostWorksheetPivotTableCalculateRequest >) {  
         Object.assign(this, init);
@@ -36155,9 +37793,14 @@ export class PostWorksheetPivotTableCalculateRequest  {
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -36171,24 +37814,26 @@ export class PostWorksheetPivotTableCalculateRequest  {
     }
 
 }
-   
+/// Moves pivot table in worksheet.   
 export class PostWorksheetPivotTableMoveRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// Gets the PivotTable report by index.  
     public pivotTableIndex: number;
-      
+    /// Row index.  
     public row: number;
-      
+    /// Column index.  
     public column: number;
-      
+    /// The dest cell name.  
     public destCellName: string;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< PostWorksheetPivotTableMoveRequest >) {  
         Object.assign(this, init);
@@ -36203,9 +37848,14 @@ export class PostWorksheetPivotTableMoveRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "destCellName", this.destCellName);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -36219,16 +37869,18 @@ export class PostWorksheetPivotTableMoveRequest  {
     }
 
 }
-   
+/// Delete pivot tables in worksheet.   
 export class DeleteWorksheetPivotTablesRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< DeleteWorksheetPivotTablesRequest >) {  
         Object.assign(this, init);
@@ -36240,9 +37892,14 @@ export class DeleteWorksheetPivotTablesRequest  {
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "DELETE",
@@ -36256,18 +37913,20 @@ export class DeleteWorksheetPivotTablesRequest  {
     }
 
 }
-   
+/// Deletes  pivot table by index in worksheet.   
 export class DeleteWorksheetPivotTableRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// Gets the PivotTable report by index.  
     public pivotTableIndex: number;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< DeleteWorksheetPivotTableRequest >) {  
         Object.assign(this, init);
@@ -36279,9 +37938,14 @@ export class DeleteWorksheetPivotTableRequest  {
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "DELETE",
@@ -36295,22 +37959,24 @@ export class DeleteWorksheetPivotTableRequest  {
     }
 
 }
-   
+/// Deletes pivot field in pivot table.   
 export class DeletePivotTableFieldRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// Gets the PivotTable report by index.  
     public pivotTableIndex: number;
-      
+    /// The fields area type.  
     public pivotFieldType: string;
-      
+    /// Pivot table field request.  
     public pivotTableFieldRequest: PivotTableFieldRequest;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< DeletePivotTableFieldRequest >) {  
         Object.assign(this, init);
@@ -36320,7 +37986,7 @@ export class DeletePivotTableFieldRequest  {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/pivottables/{pivotTableIndex}/PivotField".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "pivotTableIndex" + "}", String(this.pivotTableIndex));
         const queryParameters: any = {};
-         
+        /// The fields area type. 
         // verify required parameter 'pivotFieldType' is not null or undefined
         if (this.pivotFieldType === null || this.pivotFieldType === undefined) {
             throw new Error('Required parameter "pivotFieldType" was null or undefined when calling DeletePivotTableField.');
@@ -36328,6 +37994,11 @@ export class DeletePivotTableFieldRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "pivotFieldType", this.pivotFieldType);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
         const bodyParameter = (this.pivotTableFieldRequest == null) ? null :   ObjectSerializer.serialize( this.pivotTableFieldRequest,this.pivotTableFieldRequest.constructor.name);
@@ -36344,20 +38015,22 @@ export class DeletePivotTableFieldRequest  {
     }
 
 }
-   
+/// Delete all pivot filters in piovt table.   
 export class DeleteWorksheetPivotTableFiltersRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// Gets the PivotTable report by index.  
     public pivotTableIndex: number;
-      
+    /// Whether the specific pivot table calculate(true/false).  
     public needReCalculate: boolean;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< DeleteWorksheetPivotTableFiltersRequest >) {  
         Object.assign(this, init);
@@ -36370,9 +38043,14 @@ export class DeleteWorksheetPivotTableFiltersRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "needReCalculate", this.needReCalculate);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "DELETE",
@@ -36386,22 +38064,24 @@ export class DeleteWorksheetPivotTableFiltersRequest  {
     }
 
 }
-   
+/// Deletes a pivot filter in piovt table.   
 export class DeleteWorksheetPivotTableFilterRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// Gets the PivotTable report by index.  
     public pivotTableIndex: number;
-      
+    /// Gets the PivotField Object at the specific index.  
     public fieldIndex: number;
-      
+    /// Whether the specific pivot table calculate(true/false).  
     public needReCalculate: boolean;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< DeleteWorksheetPivotTableFilterRequest >) {  
         Object.assign(this, init);
@@ -36414,9 +38094,14 @@ export class DeleteWorksheetPivotTableFilterRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "needReCalculate", this.needReCalculate);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "DELETE",
@@ -36430,16 +38115,18 @@ export class DeleteWorksheetPivotTableFilterRequest  {
     }
 
 }
-   
+/// Get document properties description.   
 export class GetDocumentPropertiesRequest  {
-      
+    /// The workbook name.  
     public name: string;
       
     public type: string;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< GetDocumentPropertiesRequest >) {  
         Object.assign(this, init);
@@ -36452,46 +38139,14 @@ export class GetDocumentPropertiesRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "type", this.type);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
-
-        const requestOptions: request.Options = {
-            method: "GET",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class GetDocumentPropertyRequest  {
-      
-    public name: string;
-      
-    public propertyName: string;
-      
-    public folder: string;
-      
-    public storageName: string;
-
-    public constructor(init?: Partial< GetDocumentPropertyRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/documentproperties/{propertyName}".replace("{" + "name" + "}", String(this.name)).replace("{" + "propertyName" + "}", String(this.propertyName));
-        const queryParameters: any = {};
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-
-
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -36505,16 +38160,18 @@ export class GetDocumentPropertyRequest  {
     }
 
 }
-   
+/// Sets/creates a sdocument property.   
 export class PutDocumentPropertyRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// Gets or sets the value of the property.  
     public property: CellsDocumentProperty;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< PutDocumentPropertyRequest >) {  
         Object.assign(this, init);
@@ -36522,10 +38179,15 @@ export class PutDocumentPropertyRequest  {
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/documentproperties/{propertyName}".replace("{" + "name" + "}", String(this.name));
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/documentproperties".replace("{" + "name" + "}", String(this.name));
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
         const bodyParameter = (this.property == null) ? null :   ObjectSerializer.serialize( this.property,this.property.constructor.name);
@@ -36542,18 +38204,64 @@ export class PutDocumentPropertyRequest  {
     }
 
 }
-   
-export class DeleteDocumentPropertyRequest  {
-      
+/// Gets document property by name.   
+export class GetDocumentPropertyRequest  {
+    /// The workbook name.  
     public name: string;
-      
+    /// The property name.  
+    public propertyName: string;
+    /// Original workbook folder.  
+    public folder: string;
+    /// Storage name.  
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< GetDocumentPropertyRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/documentproperties/{propertyName}".replace("{" + "name" + "}", String(this.name)).replace("{" + "propertyName" + "}", String(this.propertyName));
+        const queryParameters: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "GET",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Deletes a document property.   
+export class DeleteDocumentPropertyRequest  {
+    /// The workbook name.  
+    public name: string;
+    /// The property name.  
     public propertyName: string;
       
     public type: string;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< DeleteDocumentPropertyRequest >) {  
         Object.assign(this, init);
@@ -36566,9 +38274,14 @@ export class DeleteDocumentPropertyRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "type", this.type);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "DELETE",
@@ -36582,14 +38295,16 @@ export class DeleteDocumentPropertyRequest  {
     }
 
 }
-   
+/// Delete all custom document properties and clean built-in ones.   
 export class DeleteDocumentPropertiesRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< DeleteDocumentPropertiesRequest >) {  
         Object.assign(this, init);
@@ -36601,9 +38316,14 @@ export class DeleteDocumentPropertiesRequest  {
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "DELETE",
@@ -36617,18 +38337,20 @@ export class DeleteDocumentPropertiesRequest  {
     }
 
 }
-   
+/// Copys content to destination range from source range in worksheet.   
 export class PostWorksheetCellsRangesRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// copydata,copystyle,copyto,copyvalue  
     public rangeOperate: RangeCopyRequest;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< PostWorksheetCellsRangesRequest >) {  
         Object.assign(this, init);
@@ -36640,6 +38362,11 @@ export class PostWorksheetCellsRangesRequest  {
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
         const bodyParameter = (this.rangeOperate == null) ? null :   ObjectSerializer.serialize( this.rangeOperate,this.rangeOperate.constructor.name);
@@ -36656,18 +38383,20 @@ export class PostWorksheetCellsRangesRequest  {
     }
 
 }
-   
+/// Combines a range of cells into a single cell.    
 export class PostWorksheetCellsRangeMergeRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// range description.  
     public range: Range;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< PostWorksheetCellsRangeMergeRequest >) {  
         Object.assign(this, init);
@@ -36679,6 +38408,11 @@ export class PostWorksheetCellsRangeMergeRequest  {
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
         const bodyParameter = (this.range == null) ? null :   ObjectSerializer.serialize( this.range,this.range.constructor.name);
@@ -36695,18 +38429,20 @@ export class PostWorksheetCellsRangeMergeRequest  {
     }
 
 }
-   
+/// Unmerges merged cells of this range.   
 export class PostWorksheetCellsRangeUnMergeRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// range description.  
     public range: Range;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< PostWorksheetCellsRangeUnMergeRequest >) {  
         Object.assign(this, init);
@@ -36718,6 +38454,11 @@ export class PostWorksheetCellsRangeUnMergeRequest  {
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
         const bodyParameter = (this.range == null) ? null :   ObjectSerializer.serialize( this.range,this.range.constructor.name);
@@ -36734,18 +38475,20 @@ export class PostWorksheetCellsRangeUnMergeRequest  {
     }
 
 }
-   
+/// Sets the style of the range.   
 export class PostWorksheetCellsRangeStyleRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// Range Set Style Request   
     public rangeOperate: RangeSetStyleRequest;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< PostWorksheetCellsRangeStyleRequest >) {  
         Object.assign(this, init);
@@ -36757,6 +38500,11 @@ export class PostWorksheetCellsRangeStyleRequest  {
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
         const bodyParameter = (this.rangeOperate == null) ? null :   ObjectSerializer.serialize( this.rangeOperate,this.rangeOperate.constructor.name);
@@ -36773,26 +38521,28 @@ export class PostWorksheetCellsRangeStyleRequest  {
     }
 
 }
-   
+/// Get the value of cells in range.   
 export class GetWorksheetCellsRangeValueRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// range name.  
     public namerange: string;
-      
+    /// Gets the index of the first row of the range.  
     public firstRow: number;
-      
+    /// Gets the index of the first columnn of the range.  
     public firstColumn: number;
-      
+    /// Gets the count of rows in the range.  
     public rowCount: number;
-      
+    /// Gets the count of columns in the range.  
     public columnCount: number;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< GetWorksheetCellsRangeValueRequest >) {  
         Object.assign(this, init);
@@ -36809,9 +38559,14 @@ export class GetWorksheetCellsRangeValueRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "columnCount", this.columnCount);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -36825,24 +38580,27 @@ export class GetWorksheetCellsRangeValueRequest  {
     }
 
 }
-   
+/// Puts a value into the range, if appropriate the value will be converted to other data type and cell's number format will be reset.
+///                
 export class PostWorksheetCellsRangeValueRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// range in worksheet   
     public range: Range;
-      
+    /// Input value  
     public value: string;
-      
+    /// True: converted to other data type if appropriate.  
     public isConverted: boolean;
-      
+    /// True: set the number format to cell's style when converting to other data type  
     public setStyle: boolean;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< PostWorksheetCellsRangeValueRequest >) {  
         Object.assign(this, init);
@@ -36852,7 +38610,7 @@ export class PostWorksheetCellsRangeValueRequest  {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/ranges/value".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
         const queryParameters: any = {};
-         
+        /// Input value 
         // verify required parameter 'value' is not null or undefined
         if (this.value === null || this.value === undefined) {
             throw new Error('Required parameter "value" was null or undefined when calling PostWorksheetCellsRangeValue.');
@@ -36862,6 +38620,11 @@ export class PostWorksheetCellsRangeValueRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "setStyle", this.setStyle);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
         const bodyParameter = (this.range == null) ? null :   ObjectSerializer.serialize( this.range,this.range.constructor.name);
@@ -36878,22 +38641,25 @@ export class PostWorksheetCellsRangeValueRequest  {
     }
 
 }
-   
+/// Moves the current range to the dest range.
+///                
 export class PostWorksheetCellsRangeMoveToRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// range in worksheet   
     public range: Range;
-      
+    /// The start row of the dest range.  
     public destRow: number;
-      
+    /// The start column of the dest range.  
     public destColumn: number;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< PostWorksheetCellsRangeMoveToRequest >) {  
         Object.assign(this, init);
@@ -36903,12 +38669,12 @@ export class PostWorksheetCellsRangeMoveToRequest  {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/ranges/moveto".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
         const queryParameters: any = {};
-         
+        /// The start row of the dest range. 
         // verify required parameter 'destRow' is not null or undefined
         if (this.destRow === null || this.destRow === undefined) {
             throw new Error('Required parameter "destRow" was null or undefined when calling PostWorksheetCellsRangeMoveTo.');
         }
-         
+        /// The start column of the dest range. 
         // verify required parameter 'destColumn' is not null or undefined
         if (this.destColumn === null || this.destColumn === undefined) {
             throw new Error('Required parameter "destColumn" was null or undefined when calling PostWorksheetCellsRangeMoveTo.');
@@ -36917,6 +38683,11 @@ export class PostWorksheetCellsRangeMoveToRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "destColumn", this.destColumn);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
         const bodyParameter = (this.range == null) ? null :   ObjectSerializer.serialize( this.range,this.range.constructor.name);
@@ -36933,18 +38704,20 @@ export class PostWorksheetCellsRangeMoveToRequest  {
     }
 
 }
-   
+/// Sets outline border around a range of cells.   
 export class PostWorksheetCellsRangeOutlineBorderRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// Range Set OutlineBorder Request   
     public rangeOperate: RangeSetOutlineBorderRequest;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< PostWorksheetCellsRangeOutlineBorderRequest >) {  
         Object.assign(this, init);
@@ -36956,6 +38729,11 @@ export class PostWorksheetCellsRangeOutlineBorderRequest  {
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
         const bodyParameter = (this.rangeOperate == null) ? null :   ObjectSerializer.serialize( this.rangeOperate,this.rangeOperate.constructor.name);
@@ -36972,20 +38750,22 @@ export class PostWorksheetCellsRangeOutlineBorderRequest  {
     }
 
 }
-   
+/// Sets column width of range.   
 export class PostWorksheetCellsRangeColumnWidthRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// The range object.  
     public range: Range;
-      
+    /// Sets the column width of this range.  
     public value: number;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< PostWorksheetCellsRangeColumnWidthRequest >) {  
         Object.assign(this, init);
@@ -36995,7 +38775,7 @@ export class PostWorksheetCellsRangeColumnWidthRequest  {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/ranges/columnWidth".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
         const queryParameters: any = {};
-         
+        /// Sets the column width of this range. 
         // verify required parameter 'value' is not null or undefined
         if (this.value === null || this.value === undefined) {
             throw new Error('Required parameter "value" was null or undefined when calling PostWorksheetCellsRangeColumnWidth.');
@@ -37003,6 +38783,11 @@ export class PostWorksheetCellsRangeColumnWidthRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "value", this.value);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
         const bodyParameter = (this.range == null) ? null :   ObjectSerializer.serialize( this.range,this.range.constructor.name);
@@ -37019,20 +38804,22 @@ export class PostWorksheetCellsRangeColumnWidthRequest  {
     }
 
 }
-   
+/// Sets row height of range.   
 export class PostWorksheetCellsRangeRowHeightRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// The range object.  
     public range: Range;
-      
+    /// Sets the column height of this range.  
     public value: number;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< PostWorksheetCellsRangeRowHeightRequest >) {  
         Object.assign(this, init);
@@ -37042,7 +38829,7 @@ export class PostWorksheetCellsRangeRowHeightRequest  {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/ranges/rowHeight".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
         const queryParameters: any = {};
-         
+        /// Sets the column height of this range. 
         // verify required parameter 'value' is not null or undefined
         if (this.value === null || this.value === undefined) {
             throw new Error('Required parameter "value" was null or undefined when calling PostWorksheetCellsRangeRowHeight.');
@@ -37050,6 +38837,11 @@ export class PostWorksheetCellsRangeRowHeightRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "value", this.value);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
         const bodyParameter = (this.range == null) ? null :   ObjectSerializer.serialize( this.range,this.range.constructor.name);
@@ -37066,20 +38858,23 @@ export class PostWorksheetCellsRangeRowHeightRequest  {
     }
 
 }
-   
+/// Inserts a range of cells and shift cells according to the shift option.
+///                
 export class PutWorksheetCellsRangeRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// The range object.  
     public range: string;
-      
+    /// Represent the shift options when deleting a range of cells(Down/Left/None/Right/Up).  
     public shift: string;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< PutWorksheetCellsRangeRequest >) {  
         Object.assign(this, init);
@@ -37089,12 +38884,12 @@ export class PutWorksheetCellsRangeRequest  {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/ranges".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
         const queryParameters: any = {};
-         
+        /// The range object. 
         // verify required parameter 'range' is not null or undefined
         if (this.range === null || this.range === undefined) {
             throw new Error('Required parameter "range" was null or undefined when calling PutWorksheetCellsRange.');
         }
-         
+        /// Represent the shift options when deleting a range of cells(Down/Left/None/Right/Up). 
         // verify required parameter 'shift' is not null or undefined
         if (this.shift === null || this.shift === undefined) {
             throw new Error('Required parameter "shift" was null or undefined when calling PutWorksheetCellsRange.');
@@ -37103,9 +38898,14 @@ export class PutWorksheetCellsRangeRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "shift", this.shift);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "PUT",
@@ -37119,20 +38919,22 @@ export class PutWorksheetCellsRangeRequest  {
     }
 
 }
-   
+/// Deletes a range of cells and shift cells according to the shift option.   
 export class DeleteWorksheetCellsRangeRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// The range object.  
     public range: string;
-      
+    /// Represent the shift options when deleting a range of cells(Down/Left/None/Right/Up).  
     public shift: string;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< DeleteWorksheetCellsRangeRequest >) {  
         Object.assign(this, init);
@@ -37142,12 +38944,12 @@ export class DeleteWorksheetCellsRangeRequest  {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/ranges".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
         const queryParameters: any = {};
-         
+        /// The range object. 
         // verify required parameter 'range' is not null or undefined
         if (this.range === null || this.range === undefined) {
             throw new Error('Required parameter "range" was null or undefined when calling DeleteWorksheetCellsRange.');
         }
-         
+        /// Represent the shift options when deleting a range of cells(Down/Left/None/Right/Up). 
         // verify required parameter 'shift' is not null or undefined
         if (this.shift === null || this.shift === undefined) {
             throw new Error('Required parameter "shift" was null or undefined when calling DeleteWorksheetCellsRange.');
@@ -37156,9 +38958,14 @@ export class DeleteWorksheetCellsRangeRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "shift", this.shift);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "DELETE",
@@ -37172,16 +38979,18 @@ export class DeleteWorksheetCellsRangeRequest  {
     }
 
 }
-   
+/// Get shapes description in worksheet.   
 export class GetWorksheetShapesRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< GetWorksheetShapesRequest >) {  
         Object.assign(this, init);
@@ -37193,9 +39002,14 @@ export class GetWorksheetShapesRequest  {
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -37209,18 +39023,20 @@ export class GetWorksheetShapesRequest  {
     }
 
 }
-   
+/// Gets shape description in worksheet.   
 export class GetWorksheetShapeRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// shape index in worksheet shapes.  
     public shapeindex: number;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< GetWorksheetShapeRequest >) {  
         Object.assign(this, init);
@@ -37232,9 +39048,14 @@ export class GetWorksheetShapeRequest  {
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -37248,32 +39069,34 @@ export class GetWorksheetShapeRequest  {
     }
 
 }
-   
+/// Adds shape in worksheet.   
 export class PutWorksheetShapeRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
       
     public shapeDTO: Shape;
-      
+    /// shape object type  
     public drawingType: string;
-      
+    /// Upper left row index.  
     public upperLeftRow: number;
-      
+    /// Upper left column index.  
     public upperLeftColumn: number;
-      
+    /// Represents the vertical offset of Spinner from its left row, in unit of pixel.  
     public top: number;
-      
+    /// Represents the horizontal offset of Spinner from its left column, in unit of pixel.  
     public left: number;
-      
+    /// Represents the height of Spinner, in unit of pixel.  
     public width: number;
-      
+    /// Represents the width of Spinner, in unit of pixel.  
     public height: number;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< PutWorksheetShapeRequest >) {  
         Object.assign(this, init);
@@ -37292,6 +39115,11 @@ export class PutWorksheetShapeRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "height", this.height);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
         const bodyParameter = (this.shapeDTO == null) ? null :   ObjectSerializer.serialize( this.shapeDTO,this.shapeDTO.constructor.name);
@@ -37308,16 +39136,18 @@ export class PutWorksheetShapeRequest  {
     }
 
 }
-   
+/// delete all shapes in worksheet.   
 export class DeleteWorksheetShapesRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< DeleteWorksheetShapesRequest >) {  
         Object.assign(this, init);
@@ -37329,9 +39159,14 @@ export class DeleteWorksheetShapesRequest  {
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "DELETE",
@@ -37345,18 +39180,20 @@ export class DeleteWorksheetShapesRequest  {
     }
 
 }
-   
+/// Deletes a shape in worksheet.   
 export class DeleteWorksheetShapeRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// shape index in worksheet shapes.  
     public shapeindex: number;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< DeleteWorksheetShapeRequest >) {  
         Object.assign(this, init);
@@ -37368,9 +39205,14 @@ export class DeleteWorksheetShapeRequest  {
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "DELETE",
@@ -37384,20 +39226,22 @@ export class DeleteWorksheetShapeRequest  {
     }
 
 }
-   
+/// Updates a shape in worksheet.   
 export class PostWorksheetShapeRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// shape index in worksheet shapes.  
     public shapeindex: number;
-      
+    /// The shape description.  
     public dto: Shape;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< PostWorksheetShapeRequest >) {  
         Object.assign(this, init);
@@ -37409,6 +39253,11 @@ export class PostWorksheetShapeRequest  {
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
         const bodyParameter = (this.dto == null) ? null :   ObjectSerializer.serialize( this.dto,this.dto.constructor.name);
@@ -37437,6 +39286,8 @@ export class PostWorksheetGroupShapeRequest  {
     public folder: string;
       
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< PostWorksheetGroupShapeRequest >) {  
         Object.assign(this, init);
@@ -37448,6 +39299,11 @@ export class PostWorksheetGroupShapeRequest  {
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
         const bodyParameter = (this.listShape == null) ? null :   ObjectSerializer.serialize( this.listShape,this.listShape.constructor.name);
@@ -37476,6 +39332,8 @@ export class PostWorksheetUngroupShapeRequest  {
     public folder: string;
       
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< PostWorksheetUngroupShapeRequest >) {  
         Object.assign(this, init);
@@ -37487,9 +39345,14 @@ export class PostWorksheetUngroupShapeRequest  {
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -37503,16 +39366,18 @@ export class PostWorksheetUngroupShapeRequest  {
     }
 
 }
-   
+/// Get worksheet sparkline groups description.   
 export class GetWorksheetSparklineGroupsRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< GetWorksheetSparklineGroupsRequest >) {  
         Object.assign(this, init);
@@ -37524,9 +39389,14 @@ export class GetWorksheetSparklineGroupsRequest  {
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -37540,18 +39410,20 @@ export class GetWorksheetSparklineGroupsRequest  {
     }
 
 }
-   
+/// Get worksheet sparkline group description.   
 export class GetWorksheetSparklineGroupRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// The zero based index of the element.  
     public sparklineIndex: number;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< GetWorksheetSparklineGroupRequest >) {  
         Object.assign(this, init);
@@ -37563,9 +39435,14 @@ export class GetWorksheetSparklineGroupRequest  {
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -37579,16 +39456,18 @@ export class GetWorksheetSparklineGroupRequest  {
     }
 
 }
-   
+/// Delete worksheet sparkline groups description.   
 export class DeleteWorksheetSparklineGroupsRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< DeleteWorksheetSparklineGroupsRequest >) {  
         Object.assign(this, init);
@@ -37600,9 +39479,14 @@ export class DeleteWorksheetSparklineGroupsRequest  {
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "DELETE",
@@ -37616,18 +39500,20 @@ export class DeleteWorksheetSparklineGroupsRequest  {
     }
 
 }
-   
+/// Delete worksheet sparkline group description.   
 export class DeleteWorksheetSparklineGroupRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// The zero based index of the element.  
     public sparklineIndex: number;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< DeleteWorksheetSparklineGroupRequest >) {  
         Object.assign(this, init);
@@ -37639,9 +39525,14 @@ export class DeleteWorksheetSparklineGroupRequest  {
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "DELETE",
@@ -37655,24 +39546,26 @@ export class DeleteWorksheetSparklineGroupRequest  {
     }
 
 }
-   
+/// Put worksheet sparkline group description.   
 export class PutWorksheetSparklineGroupRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// Represents the sparkline types(Line/Column/Stacked).  
     public type: string;
-      
+    /// Specifies the data range of the sparkline group.  
     public dataRange: string;
-      
+    /// Specifies whether to plot the sparklines from the data range by row or by column.  
     public isVertical: boolean;
-      
+    /// Specifies where the sparklines to be placed.  
     public locationRange: string;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< PutWorksheetSparklineGroupRequest >) {  
         Object.assign(this, init);
@@ -37682,22 +39575,22 @@ export class PutWorksheetSparklineGroupRequest  {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/sparklineGroups".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
         const queryParameters: any = {};
-         
+        /// Represents the sparkline types(Line/Column/Stacked). 
         // verify required parameter 'type' is not null or undefined
         if (this.type === null || this.type === undefined) {
             throw new Error('Required parameter "type" was null or undefined when calling PutWorksheetSparklineGroup.');
         }
-         
+        /// Specifies the data range of the sparkline group. 
         // verify required parameter 'dataRange' is not null or undefined
         if (this.dataRange === null || this.dataRange === undefined) {
             throw new Error('Required parameter "dataRange" was null or undefined when calling PutWorksheetSparklineGroup.');
         }
-         
+        /// Specifies whether to plot the sparklines from the data range by row or by column. 
         // verify required parameter 'isVertical' is not null or undefined
         if (this.isVertical === null || this.isVertical === undefined) {
             throw new Error('Required parameter "isVertical" was null or undefined when calling PutWorksheetSparklineGroup.');
         }
-         
+        /// Specifies where the sparklines to be placed. 
         // verify required parameter 'locationRange' is not null or undefined
         if (this.locationRange === null || this.locationRange === undefined) {
             throw new Error('Required parameter "locationRange" was null or undefined when calling PutWorksheetSparklineGroup.');
@@ -37708,9 +39601,14 @@ export class PutWorksheetSparklineGroupRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "locationRange", this.locationRange);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "PUT",
@@ -37724,20 +39622,22 @@ export class PutWorksheetSparklineGroupRequest  {
     }
 
 }
-   
+/// Post worksheet sparkline group description.   
 export class PostWorksheetSparklineGroupRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// The zero based index of the element.  
     public sparklineGroupIndex: number;
-      
+    /// Spark line group description.  
     public sparklineGroup: SparklineGroup;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< PostWorksheetSparklineGroupRequest >) {  
         Object.assign(this, init);
@@ -37749,6 +39649,11 @@ export class PostWorksheetSparklineGroupRequest  {
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
         const bodyParameter = (this.sparklineGroup == null) ? null :   ObjectSerializer.serialize( this.sparklineGroup,this.sparklineGroup.constructor.name);
@@ -37765,10 +39670,12 @@ export class PostWorksheetSparklineGroupRequest  {
     }
 
 }
-   
+/// Run tasks.   
 export class PostRunTaskRequest  {
     /// Task Data Descrition  
     public taskData: TaskData;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< PostRunTaskRequest >) {  
         Object.assign(this, init);
@@ -37778,6 +39685,11 @@ export class PostRunTaskRequest  {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/task/runtask";
         const queryParameters: any = {};
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
         const bodyParameter = (this.taskData == null) ? null :   ObjectSerializer.serialize( this.taskData,this.taskData.constructor.name);
@@ -37794,18 +39706,20 @@ export class PostRunTaskRequest  {
     }
 
 }
-   
+/// Digital Signature.   
 export class PostDigitalSignatureRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// Digital signature file parameters.  
     public digitalsignaturefile: string;
       
     public password: string;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< PostDigitalSignatureRequest >) {  
         Object.assign(this, init);
@@ -37815,7 +39729,7 @@ export class PostDigitalSignatureRequest  {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/digitalsignature".replace("{" + "name" + "}", String(this.name));
         const queryParameters: any = {};
-         
+        /// Digital signature file parameters. 
         // verify required parameter 'digitalsignaturefile' is not null or undefined
         if (this.digitalsignaturefile === null || this.digitalsignaturefile === undefined) {
             throw new Error('Required parameter "digitalsignaturefile" was null or undefined when calling PostDigitalSignature.');
@@ -37829,9 +39743,14 @@ export class PostDigitalSignatureRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -37845,16 +39764,18 @@ export class PostDigitalSignatureRequest  {
     }
 
 }
-   
+/// Encripts workbook.   
 export class PostEncryptWorkbookRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// Encryption parameters.  
     public encryption: WorkbookEncryptionRequest;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< PostEncryptWorkbookRequest >) {  
         Object.assign(this, init);
@@ -37866,6 +39787,11 @@ export class PostEncryptWorkbookRequest  {
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
         const bodyParameter = (this.encryption == null) ? null :   ObjectSerializer.serialize( this.encryption,this.encryption.constructor.name);
@@ -37882,16 +39808,18 @@ export class PostEncryptWorkbookRequest  {
     }
 
 }
-   
+/// Decrypts workbook.   
 export class DeleteDecryptWorkbookRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// Encryption settings, only password can be specified.  
     public encryption: WorkbookEncryptionRequest;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< DeleteDecryptWorkbookRequest >) {  
         Object.assign(this, init);
@@ -37903,6 +39831,11 @@ export class DeleteDecryptWorkbookRequest  {
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
         const bodyParameter = (this.encryption == null) ? null :   ObjectSerializer.serialize( this.encryption,this.encryption.constructor.name);
@@ -37919,16 +39852,18 @@ export class DeleteDecryptWorkbookRequest  {
     }
 
 }
-   
+/// Protects workbook.   
 export class PostProtectWorkbookRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The protection settings.  
     public protection: WorkbookProtectionRequest;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< PostProtectWorkbookRequest >) {  
         Object.assign(this, init);
@@ -37940,6 +39875,11 @@ export class PostProtectWorkbookRequest  {
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
         const bodyParameter = (this.protection == null) ? null :   ObjectSerializer.serialize( this.protection,this.protection.constructor.name);
@@ -37956,16 +39896,18 @@ export class PostProtectWorkbookRequest  {
     }
 
 }
-   
+/// Unprotects workbook.   
 export class DeleteUnProtectWorkbookRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// Protection settings, only password can be specified.  
     public protection: WorkbookProtectionRequest;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< DeleteUnProtectWorkbookRequest >) {  
         Object.assign(this, init);
@@ -37977,6 +39919,11 @@ export class DeleteUnProtectWorkbookRequest  {
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
         const bodyParameter = (this.protection == null) ? null :   ObjectSerializer.serialize( this.protection,this.protection.constructor.name);
@@ -37993,14 +39940,16 @@ export class DeleteUnProtectWorkbookRequest  {
     }
 
 }
-   
+/// Gets workbook default style description.   
 export class GetWorkbookDefaultStyleRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< GetWorkbookDefaultStyleRequest >) {  
         Object.assign(this, init);
@@ -38012,9 +39961,14 @@ export class GetWorkbookDefaultStyleRequest  {
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -38028,14 +39982,16 @@ export class GetWorkbookDefaultStyleRequest  {
     }
 
 }
-   
+/// Get workbook's text items.   
 export class GetWorkbookTextItemsRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< GetWorkbookTextItemsRequest >) {  
         Object.assign(this, init);
@@ -38047,9 +40003,14 @@ export class GetWorkbookTextItemsRequest  {
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -38063,14 +40024,16 @@ export class GetWorkbookTextItemsRequest  {
     }
 
 }
-   
+/// Get workbook's names.   
 export class GetWorkbookNamesRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< GetWorkbookNamesRequest >) {  
         Object.assign(this, init);
@@ -38082,9 +40045,14 @@ export class GetWorkbookNamesRequest  {
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -38098,16 +40066,18 @@ export class GetWorkbookNamesRequest  {
     }
 
 }
-   
+/// Defines a new name in workbook.   
 export class PutWorkbookNameRequest  {
-      
+    /// The workbook name.  
     public name: string;
       
     public newName: Name;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< PutWorkbookNameRequest >) {  
         Object.assign(this, init);
@@ -38119,6 +40089,11 @@ export class PutWorkbookNameRequest  {
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
         const bodyParameter = (this.newName == null) ? null :   ObjectSerializer.serialize( this.newName,this.newName.constructor.name);
@@ -38135,16 +40110,18 @@ export class PutWorkbookNameRequest  {
     }
 
 }
-   
+/// Gets workbook's name description.   
 export class GetWorkbookNameRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The name.  
     public nameName: string;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< GetWorkbookNameRequest >) {  
         Object.assign(this, init);
@@ -38156,9 +40133,14 @@ export class GetWorkbookNameRequest  {
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -38172,18 +40154,20 @@ export class GetWorkbookNameRequest  {
     }
 
 }
-   
+/// Update workbook's name.    
 export class PostWorkbookNameRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// the Aspose.Cells.Name element name.  
     public nameName: string;
-      
+    /// new name.  
     public newName: Name;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< PostWorkbookNameRequest >) {  
         Object.assign(this, init);
@@ -38195,6 +40179,11 @@ export class PostWorkbookNameRequest  {
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
         const bodyParameter = (this.newName == null) ? null :   ObjectSerializer.serialize( this.newName,this.newName.constructor.name);
@@ -38211,16 +40200,18 @@ export class PostWorkbookNameRequest  {
     }
 
 }
-   
+/// Gets workbook's name value.   
 export class GetWorkbookNameValueRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// the Aspose.Cells.Name element name.  
     public nameName: string;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< GetWorkbookNameValueRequest >) {  
         Object.assign(this, init);
@@ -38232,9 +40223,14 @@ export class GetWorkbookNameValueRequest  {
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -38248,14 +40244,16 @@ export class GetWorkbookNameValueRequest  {
     }
 
 }
-   
+/// Delete workbook's names.   
 export class DeleteWorkbookNamesRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< DeleteWorkbookNamesRequest >) {  
         Object.assign(this, init);
@@ -38267,9 +40265,14 @@ export class DeleteWorkbookNamesRequest  {
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "DELETE",
@@ -38283,16 +40286,18 @@ export class DeleteWorkbookNamesRequest  {
     }
 
 }
-   
+/// Gets workbook's name description.   
 export class DeleteWorkbookNameRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// the Aspose.Cells.Name element name.  
     public nameName: string;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< DeleteWorkbookNameRequest >) {  
         Object.assign(this, init);
@@ -38304,9 +40309,14 @@ export class DeleteWorkbookNameRequest  {
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "DELETE",
@@ -38320,16 +40330,18 @@ export class DeleteWorkbookNameRequest  {
     }
 
 }
-   
+/// Protects document from changes.   
 export class PutDocumentProtectFromChangesRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// Modification password.  
     public password: PasswordRequest;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< PutDocumentProtectFromChangesRequest >) {  
         Object.assign(this, init);
@@ -38341,6 +40353,11 @@ export class PutDocumentProtectFromChangesRequest  {
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
         const bodyParameter = (this.password == null) ? null :   ObjectSerializer.serialize( this.password,this.password.constructor.name);
@@ -38357,14 +40374,16 @@ export class PutDocumentProtectFromChangesRequest  {
     }
 
 }
-   
+/// Unprotects document from changes.   
 export class DeleteDocumentUnProtectFromChangesRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< DeleteDocumentUnProtectFromChangesRequest >) {  
         Object.assign(this, init);
@@ -38376,9 +40395,14 @@ export class DeleteDocumentUnProtectFromChangesRequest  {
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "DELETE",
@@ -38392,18 +40416,20 @@ export class DeleteDocumentUnProtectFromChangesRequest  {
     }
 
 }
-   
+/// Merge workbooks.   
 export class PostWorkbooksMergeRequest  {
-      
+    /// Workbook name.  
     public name: string;
-      
+    /// The workbook to merge with.  
     public mergeWith: string;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
-      
+    /// Storage name.  
     public mergedStorageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< PostWorkbooksMergeRequest >) {  
         Object.assign(this, init);
@@ -38413,7 +40439,7 @@ export class PostWorkbooksMergeRequest  {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/merge".replace("{" + "name" + "}", String(this.name));
         const queryParameters: any = {};
-         
+        /// The workbook to merge with. 
         // verify required parameter 'mergeWith' is not null or undefined
         if (this.mergeWith === null || this.mergeWith === undefined) {
             throw new Error('Required parameter "mergeWith" was null or undefined when calling PostWorkbooksMerge.');
@@ -38422,9 +40448,14 @@ export class PostWorkbooksMergeRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "mergedStorageName", this.mergedStorageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -38438,16 +40469,18 @@ export class PostWorkbooksMergeRequest  {
     }
 
 }
-   
+/// Search text in workbook.   
 export class PostWorkbooksTextSearchRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// Text sample.  
     public text: string;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< PostWorkbooksTextSearchRequest >) {  
         Object.assign(this, init);
@@ -38457,7 +40490,7 @@ export class PostWorkbooksTextSearchRequest  {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/findText".replace("{" + "name" + "}", String(this.name));
         const queryParameters: any = {};
-         
+        /// Text sample. 
         // verify required parameter 'text' is not null or undefined
         if (this.text === null || this.text === undefined) {
             throw new Error('Required parameter "text" was null or undefined when calling PostWorkbooksTextSearch.');
@@ -38465,9 +40498,14 @@ export class PostWorkbooksTextSearchRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "text", this.text);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -38481,18 +40519,20 @@ export class PostWorkbooksTextSearchRequest  {
     }
 
 }
-   
+/// Replaces text in workbook.   
 export class PostWorkbookTextReplaceRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The old value.  
     public oldValue: string;
-      
+    /// The new value.  
     public newValue: string;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< PostWorkbookTextReplaceRequest >) {  
         Object.assign(this, init);
@@ -38502,12 +40542,12 @@ export class PostWorkbookTextReplaceRequest  {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/replaceText".replace("{" + "name" + "}", String(this.name));
         const queryParameters: any = {};
-         
+        /// The old value. 
         // verify required parameter 'oldValue' is not null or undefined
         if (this.oldValue === null || this.oldValue === undefined) {
             throw new Error('Required parameter "oldValue" was null or undefined when calling PostWorkbookTextReplace.');
         }
-         
+        /// The new value. 
         // verify required parameter 'newValue' is not null or undefined
         if (this.newValue === null || this.newValue === undefined) {
             throw new Error('Required parameter "newValue" was null or undefined when calling PostWorkbookTextReplace.');
@@ -38516,9 +40556,14 @@ export class PostWorkbookTextReplaceRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "newValue", this.newValue);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -38532,20 +40577,22 @@ export class PostWorkbookTextReplaceRequest  {
     }
 
 }
-   
+/// Smart marker processing result.   
 export class PostWorkbookGetSmartMarkerResultRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The xml file full path, if empty the data is read from request body.  
     public xmlFile: string;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Path to save result  
     public outPath: string;
-      
+    /// Storage name.  
     public storageName: string;
-      
+    /// Storage name.  
     public outStorageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< PostWorkbookGetSmartMarkerResultRequest >) {  
         Object.assign(this, init);
@@ -38560,9 +40607,14 @@ export class PostWorkbookGetSmartMarkerResultRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -38576,22 +40628,24 @@ export class PostWorkbookGetSmartMarkerResultRequest  {
     }
 
 }
-   
+/// Creates new workbook using deferent methods.   
 export class PutWorkbookCreateRequest  {
-      
+    /// The new document name.  
     public name: string;
-      
+    /// The template file, if the data not provided default workbook is created.  
     public templateFile: string;
-      
+    /// Smart marker data file, if the data not provided the request content is checked for the data.  
     public dataFile: string;
-      
+    /// Specifies whether to write over targer file.  
     public isWriteOver: boolean;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
       
     public checkExcelRestriction: boolean;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< PutWorkbookCreateRequest >) {  
         Object.assign(this, init);
@@ -38607,9 +40661,14 @@ export class PutWorkbookCreateRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", this.checkExcelRestriction);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "PUT",
@@ -38623,30 +40682,32 @@ export class PutWorkbookCreateRequest  {
     }
 
 }
-   
+/// Splits workbook.   
 export class PostWorkbookSplitRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// Split format.  
     public format: string;
       
     public outFolder: string;
-      
+    /// Start worksheet index.  
     public from: number;
-      
+    /// End worksheet index.  
     public to: number;
-      
+    /// Image horizontal resolution.  
     public horizontalResolution: number;
-      
+    /// Image vertical resolution.  
     public verticalResolution: number;
-      
+    /// rule name : sheetname  newguid   
     public splitNameRule: string;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
       
     public outStorageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< PostWorkbookSplitRequest >) {  
         Object.assign(this, init);
@@ -38666,9 +40727,14 @@ export class PostWorkbookSplitRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -38682,16 +40748,18 @@ export class PostWorkbookSplitRequest  {
     }
 
 }
-   
+/// Imports data into workbook.   
 export class PostImportDataRequest  {
-      
+    /// The workbook name.  
     public name: string;
       
     public importOption: ImportOption;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< PostImportDataRequest >) {  
         Object.assign(this, init);
@@ -38703,6 +40771,11 @@ export class PostImportDataRequest  {
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
         const bodyParameter = (this.importOption == null) ? null :   ObjectSerializer.serialize( this.importOption,this.importOption.constructor.name);
@@ -38719,18 +40792,20 @@ export class PostImportDataRequest  {
     }
 
 }
-   
+/// Calculate all formulas in workbook.   
 export class PostWorkbookCalculateFormulaRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// Calculation Options.  
     public options: CalculationOptions;
-      
+    /// ignore Error.  
     public ignoreError: boolean;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< PostWorkbookCalculateFormulaRequest >) {  
         Object.assign(this, init);
@@ -38743,6 +40818,11 @@ export class PostWorkbookCalculateFormulaRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "ignoreError", this.ignoreError);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
         const bodyParameter = (this.options == null) ? null :   ObjectSerializer.serialize( this.options,this.options.constructor.name);
@@ -38759,20 +40839,22 @@ export class PostWorkbookCalculateFormulaRequest  {
     }
 
 }
-   
+/// Autofit workbook rows.   
 export class PostAutofitWorkbookRowsRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// Start row.  
     public startRow: number;
-      
+    /// End row.  
     public endRow: number;
-      
+    /// Only auto.  
     public onlyAuto: boolean;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< PostAutofitWorkbookRowsRequest >) {  
         Object.assign(this, init);
@@ -38787,9 +40869,14 @@ export class PostAutofitWorkbookRowsRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "onlyAuto", this.onlyAuto);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -38815,6 +40902,8 @@ export class PostAutofitWorkbookColumnsRequest  {
     public folder: string;
       
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< PostAutofitWorkbookColumnsRequest >) {  
         Object.assign(this, init);
@@ -38828,9 +40917,14 @@ export class PostAutofitWorkbookColumnsRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "endColumn", this.endColumn);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -38844,14 +40938,16 @@ export class PostAutofitWorkbookColumnsRequest  {
     }
 
 }
-   
+/// Gets workbook settings description.   
 export class GetWorkbookSettingsRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< GetWorkbookSettingsRequest >) {  
         Object.assign(this, init);
@@ -38863,9 +40959,14 @@ export class GetWorkbookSettingsRequest  {
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -38879,16 +40980,18 @@ export class GetWorkbookSettingsRequest  {
     }
 
 }
-   
+/// Updates workbook setting.   
 export class PostWorkbookSettingsRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// Workbook Setting description.  
     public settings: WorkbookSettings;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< PostWorkbookSettingsRequest >) {  
         Object.assign(this, init);
@@ -38900,6 +41003,11 @@ export class PostWorkbookSettingsRequest  {
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
         const bodyParameter = (this.settings == null) ? null :   ObjectSerializer.serialize( this.settings,this.settings.constructor.name);
@@ -38916,18 +41024,20 @@ export class PostWorkbookSettingsRequest  {
     }
 
 }
-   
+/// Set workbook background.   
 export class PutWorkbookBackgroundRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// picture full path.  
     public picPath: string;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
     /// File to upload  
     public file: any;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< PutWorkbookBackgroundRequest >) {  
         Object.assign(this, init);
@@ -38941,6 +41051,11 @@ export class PutWorkbookBackgroundRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "picPath", this.picPath);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
         if (this.file !== undefined) {
             for (var key in this.file){
                 formParams[key] = this.file[key];
@@ -38948,7 +41063,7 @@ export class PutWorkbookBackgroundRequest  {
         }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "PUT",
@@ -38963,14 +41078,16 @@ export class PutWorkbookBackgroundRequest  {
     }
 
 }
-   
+/// Delete workbook background.   
 export class DeleteWorkbookBackgroundRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< DeleteWorkbookBackgroundRequest >) {  
         Object.assign(this, init);
@@ -38982,9 +41099,14 @@ export class DeleteWorkbookBackgroundRequest  {
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "DELETE",
@@ -38998,16 +41120,18 @@ export class DeleteWorkbookBackgroundRequest  {
     }
 
 }
-   
+/// Set workbook water marker.   
 export class PutWorkbookWaterMarkerRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// Text water marker request  
     public textWaterMarkerRequest: TextWaterMarkerRequest;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< PutWorkbookWaterMarkerRequest >) {  
         Object.assign(this, init);
@@ -39019,6 +41143,11 @@ export class PutWorkbookWaterMarkerRequest  {
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
         const bodyParameter = (this.textWaterMarkerRequest == null) ? null :   ObjectSerializer.serialize( this.textWaterMarkerRequest,this.textWaterMarkerRequest.constructor.name);
@@ -39043,6 +41172,8 @@ export class GetPageCountRequest  {
     public folder: string;
       
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< GetPageCountRequest >) {  
         Object.assign(this, init);
@@ -39054,9 +41185,14 @@ export class GetPageCountRequest  {
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -39070,14 +41206,16 @@ export class GetPageCountRequest  {
     }
 
 }
-   
+/// Get worksheets description.   
 export class GetWorksheetsRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< GetWorksheetsRequest >) {  
         Object.assign(this, init);
@@ -39089,9 +41227,14 @@ export class GetWorksheetsRequest  {
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -39105,26 +41248,28 @@ export class GetWorksheetsRequest  {
     }
 
 }
-   
+/// Gets worksheet in some format.   
 export class GetWorksheetWithFormatRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// Export format(CSV/XLS/HTML/MHTML/ODS/PDF/XML/TXT/TIFF/XLSB/XLSM/XLSX/XLTM/XLTX/XPS/PNG/JPG/JPEG/GIF/EMF/BMP/MD[Markdown]/Numbers).  
     public format: string;
-      
+    /// Image vertical resolution.  
     public verticalResolution: number;
-      
+    /// Image horizontal resolution.  
     public horizontalResolution: number;
-      
+    /// Represents the range to be printed.  
     public area: string;
-      
+    /// Represents the page to be printed  
     public pageIndex: number;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< GetWorksheetWithFormatRequest >) {  
         Object.assign(this, init);
@@ -39141,9 +41286,14 @@ export class GetWorksheetWithFormatRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "pageIndex", this.pageIndex);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -39157,18 +41307,20 @@ export class GetWorksheetWithFormatRequest  {
     }
 
 }
-   
+/// Changes worksheet visibility.   
 export class PutChangeVisibilityWorksheetRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// Worksheet name.  
     public sheetName: string;
-      
+    /// New worksheet visibility value.  
     public isVisible: boolean;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< PutChangeVisibilityWorksheetRequest >) {  
         Object.assign(this, init);
@@ -39178,7 +41330,7 @@ export class PutChangeVisibilityWorksheetRequest  {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/visible".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
         const queryParameters: any = {};
-         
+        /// New worksheet visibility value. 
         // verify required parameter 'isVisible' is not null or undefined
         if (this.isVisible === null || this.isVisible === undefined) {
             throw new Error('Required parameter "isVisible" was null or undefined when calling PutChangeVisibilityWorksheet.');
@@ -39186,9 +41338,14 @@ export class PutChangeVisibilityWorksheetRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "isVisible", this.isVisible);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "PUT",
@@ -39202,16 +41359,18 @@ export class PutChangeVisibilityWorksheetRequest  {
     }
 
 }
-   
+/// Active sheet   
 export class PutActiveWorksheetRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< PutActiveWorksheetRequest >) {  
         Object.assign(this, init);
@@ -39223,9 +41382,14 @@ export class PutActiveWorksheetRequest  {
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "PUT",
@@ -39239,22 +41403,24 @@ export class PutActiveWorksheetRequest  {
     }
 
 }
-   
+/// Inserts new worksheet in workbook.   
 export class PutInsertNewWorksheetRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
       
     public index: number;
-      
+    /// Specifies the worksheet type(VB/Worksheet/Chart/BIFF4Macro/InternationalMacro/Other/Dialog).  
     public sheettype: string;
       
     public newsheetname: string;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< PutInsertNewWorksheetRequest >) {  
         Object.assign(this, init);
@@ -39264,7 +41430,7 @@ export class PutInsertNewWorksheetRequest  {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/insert".replace("{" + "name" + "}", String(this.name));
         const queryParameters: any = {};
-         
+        /// The worksheet name. 
         // verify required parameter 'sheetName' is not null or undefined
         if (this.sheetName === null || this.sheetName === undefined) {
             throw new Error('Required parameter "sheetName" was null or undefined when calling PutInsertNewWorksheet.');
@@ -39274,7 +41440,7 @@ export class PutInsertNewWorksheetRequest  {
         if (this.index === null || this.index === undefined) {
             throw new Error('Required parameter "index" was null or undefined when calling PutInsertNewWorksheet.');
         }
-         
+        /// Specifies the worksheet type(VB/Worksheet/Chart/BIFF4Macro/InternationalMacro/Other/Dialog). 
         // verify required parameter 'sheettype' is not null or undefined
         if (this.sheettype === null || this.sheettype === undefined) {
             throw new Error('Required parameter "sheettype" was null or undefined when calling PutInsertNewWorksheet.');
@@ -39285,9 +41451,14 @@ export class PutInsertNewWorksheetRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "newsheetname", this.newsheetname);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "PUT",
@@ -39301,20 +41472,22 @@ export class PutInsertNewWorksheetRequest  {
     }
 
 }
-   
+/// Adds new worksheet in workbook.   
 export class PutAddNewWorksheetRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The new sheet name.  
     public sheetName: string;
-      
+    /// The new sheet position.  
     public position: number;
-      
+    /// Specifies the worksheet type(VB/Worksheet/Chart/BIFF4Macro/InternationalMacro/Other/Dialog).  
     public sheettype: string;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< PutAddNewWorksheetRequest >) {  
         Object.assign(this, init);
@@ -39328,9 +41501,14 @@ export class PutAddNewWorksheetRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "sheettype", this.sheettype);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "PUT",
@@ -39344,16 +41522,18 @@ export class PutAddNewWorksheetRequest  {
     }
 
 }
-   
+/// Deletes a worksheet in workbook.   
 export class DeleteWorksheetRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< DeleteWorksheetRequest >) {  
         Object.assign(this, init);
@@ -39365,9 +41545,14 @@ export class DeleteWorksheetRequest  {
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "DELETE",
@@ -39391,6 +41576,8 @@ export class DeleteWorksheetsRequest  {
     public folder: string;
       
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< DeleteWorksheetsRequest >) {  
         Object.assign(this, init);
@@ -39402,6 +41589,11 @@ export class DeleteWorksheetsRequest  {
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
         const bodyParameter = (this.matchCondition == null) ? null :   ObjectSerializer.serialize( this.matchCondition,this.matchCondition.constructor.name);
@@ -39418,18 +41610,20 @@ export class DeleteWorksheetsRequest  {
     }
 
 }
-   
+/// Move worksheet in workbook.   
 export class PostMoveWorksheetRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// WorksheetMovingRequest with moving parameters.  
     public moving: WorksheetMovingRequest;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< PostMoveWorksheetRequest >) {  
         Object.assign(this, init);
@@ -39441,6 +41635,11 @@ export class PostMoveWorksheetRequest  {
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
         const bodyParameter = (this.moving == null) ? null :   ObjectSerializer.serialize( this.moving,this.moving.constructor.name);
@@ -39457,18 +41656,20 @@ export class PostMoveWorksheetRequest  {
     }
 
 }
-   
+/// Protects worksheet.   
 export class PutProtectWorksheetRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// ProtectSheetParameter with protection settings.  
     public protectParameter: ProtectSheetParameter;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< PutProtectWorksheetRequest >) {  
         Object.assign(this, init);
@@ -39480,6 +41681,11 @@ export class PutProtectWorksheetRequest  {
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
         const bodyParameter = (this.protectParameter == null) ? null :   ObjectSerializer.serialize( this.protectParameter,this.protectParameter.constructor.name);
@@ -39496,18 +41702,20 @@ export class PutProtectWorksheetRequest  {
     }
 
 }
-   
+/// Unprotects worksheet.   
 export class DeleteUnprotectWorksheetRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// WorksheetResponse with protection settings. Only password is used here.  
     public protectParameter: ProtectSheetParameter;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< DeleteUnprotectWorksheetRequest >) {  
         Object.assign(this, init);
@@ -39519,6 +41727,11 @@ export class DeleteUnprotectWorksheetRequest  {
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
         const bodyParameter = (this.protectParameter == null) ? null :   ObjectSerializer.serialize( this.protectParameter,this.protectParameter.constructor.name);
@@ -39535,16 +41748,18 @@ export class DeleteUnprotectWorksheetRequest  {
     }
 
 }
-   
+/// Get text items in worksheet.   
 export class GetWorksheetTextItemsRequest  {
-      
+    /// Workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// The workbook's folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< GetWorksheetTextItemsRequest >) {  
         Object.assign(this, init);
@@ -39556,9 +41771,14 @@ export class GetWorksheetTextItemsRequest  {
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -39572,16 +41792,18 @@ export class GetWorksheetTextItemsRequest  {
     }
 
 }
-   
+/// Get comments description in worksheet.   
 export class GetWorksheetCommentsRequest  {
-      
+    /// Workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< GetWorksheetCommentsRequest >) {  
         Object.assign(this, init);
@@ -39593,9 +41815,14 @@ export class GetWorksheetCommentsRequest  {
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -39609,18 +41836,20 @@ export class GetWorksheetCommentsRequest  {
     }
 
 }
-   
+/// Gets comment by cell name in worksheet.   
 export class GetWorksheetCommentRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// The cell name  
     public cellName: string;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< GetWorksheetCommentRequest >) {  
         Object.assign(this, init);
@@ -39632,9 +41861,14 @@ export class GetWorksheetCommentRequest  {
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -39648,20 +41882,22 @@ export class GetWorksheetCommentRequest  {
     }
 
 }
-   
+/// Adds cell comment in worksheet.   
 export class PutWorksheetCommentRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// The cell name.  
     public cellName: string;
-      
+    /// Comment object.  
     public comment: Comment;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< PutWorksheetCommentRequest >) {  
         Object.assign(this, init);
@@ -39673,6 +41909,11 @@ export class PutWorksheetCommentRequest  {
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
         const bodyParameter = (this.comment == null) ? null :   ObjectSerializer.serialize( this.comment,this.comment.constructor.name);
@@ -39689,20 +41930,22 @@ export class PutWorksheetCommentRequest  {
     }
 
 }
-   
+/// Updates cell comment in worksheet.   
 export class PostWorksheetCommentRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// The cell name.  
     public cellName: string;
-      
+    /// Comment object.  
     public comment: Comment;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< PostWorksheetCommentRequest >) {  
         Object.assign(this, init);
@@ -39714,6 +41957,11 @@ export class PostWorksheetCommentRequest  {
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
         const bodyParameter = (this.comment == null) ? null :   ObjectSerializer.serialize( this.comment,this.comment.constructor.name);
@@ -39730,18 +41978,20 @@ export class PostWorksheetCommentRequest  {
     }
 
 }
-   
+/// Deletes cell comment in worksheet.   
 export class DeleteWorksheetCommentRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// The cell name.  
     public cellName: string;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< DeleteWorksheetCommentRequest >) {  
         Object.assign(this, init);
@@ -39753,9 +42003,14 @@ export class DeleteWorksheetCommentRequest  {
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "DELETE",
@@ -39769,16 +42024,18 @@ export class DeleteWorksheetCommentRequest  {
     }
 
 }
-   
+/// Delete all comments in worksheet.   
 export class DeleteWorksheetCommentsRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< DeleteWorksheetCommentsRequest >) {  
         Object.assign(this, init);
@@ -39790,9 +42047,14 @@ export class DeleteWorksheetCommentsRequest  {
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "DELETE",
@@ -39806,16 +42068,18 @@ export class DeleteWorksheetCommentsRequest  {
     }
 
 }
-   
+/// Get worksheet merged cells.   
 export class GetWorksheetMergedCellsRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The workseet name.  
     public sheetName: string;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< GetWorksheetMergedCellsRequest >) {  
         Object.assign(this, init);
@@ -39827,9 +42091,14 @@ export class GetWorksheetMergedCellsRequest  {
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -39843,18 +42112,20 @@ export class GetWorksheetMergedCellsRequest  {
     }
 
 }
-   
+/// Gets merged cell description by its index in worksheet.   
 export class GetWorksheetMergedCellRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// Worksheet name.  
     public sheetName: string;
-      
+    /// Merged cell index.  
     public mergedCellIndex: number;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< GetWorksheetMergedCellRequest >) {  
         Object.assign(this, init);
@@ -39866,9 +42137,14 @@ export class GetWorksheetMergedCellRequest  {
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -39882,18 +42158,20 @@ export class GetWorksheetMergedCellRequest  {
     }
 
 }
-   
+/// Calculates formula value in worksheet.   
 export class GetWorksheetCalculateFormulaRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// Worksheet name.  
     public sheetName: string;
-      
+    /// The formula.  
     public formula: string;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< GetWorksheetCalculateFormulaRequest >) {  
         Object.assign(this, init);
@@ -39903,7 +42181,7 @@ export class GetWorksheetCalculateFormulaRequest  {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/formulaResult".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
         const queryParameters: any = {};
-         
+        /// The formula. 
         // verify required parameter 'formula' is not null or undefined
         if (this.formula === null || this.formula === undefined) {
             throw new Error('Required parameter "formula" was null or undefined when calling GetWorksheetCalculateFormula.');
@@ -39911,9 +42189,14 @@ export class GetWorksheetCalculateFormulaRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "formula", this.formula);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -39927,18 +42210,20 @@ export class GetWorksheetCalculateFormulaRequest  {
     }
 
 }
-   
+/// Calculates formula value in worksheet.   
 export class PostWorksheetCalculateFormulaRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// Worksheet name.  
     public sheetName: string;
-      
+    /// The formula.  
     public formula: string;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< PostWorksheetCalculateFormulaRequest >) {  
         Object.assign(this, init);
@@ -39948,7 +42233,7 @@ export class PostWorksheetCalculateFormulaRequest  {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/calculateformula".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
         const queryParameters: any = {};
-         
+        /// The formula. 
         // verify required parameter 'formula' is not null or undefined
         if (this.formula === null || this.formula === undefined) {
             throw new Error('Required parameter "formula" was null or undefined when calling PostWorksheetCalculateFormula.');
@@ -39956,9 +42241,14 @@ export class PostWorksheetCalculateFormulaRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "formula", this.formula);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -39972,18 +42262,20 @@ export class PostWorksheetCalculateFormulaRequest  {
     }
 
 }
-   
+/// Searchs text in worksheet.   
 export class PostWorksheetTextSearchRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// Text to search.  
     public text: string;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< PostWorksheetTextSearchRequest >) {  
         Object.assign(this, init);
@@ -39993,7 +42285,7 @@ export class PostWorksheetTextSearchRequest  {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/findText".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
         const queryParameters: any = {};
-         
+        /// Text to search. 
         // verify required parameter 'text' is not null or undefined
         if (this.text === null || this.text === undefined) {
             throw new Error('Required parameter "text" was null or undefined when calling PostWorksheetTextSearch.');
@@ -40001,9 +42293,14 @@ export class PostWorksheetTextSearchRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "text", this.text);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -40017,20 +42314,22 @@ export class PostWorksheetTextSearchRequest  {
     }
 
 }
-   
+/// Replaces text in worksheet.   
 export class PostWorsheetTextReplaceRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// Worksheet name.  
     public sheetName: string;
-      
+    /// The old text to replace.  
     public oldValue: string;
-      
+    /// The new text to replace by.  
     public newValue: string;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< PostWorsheetTextReplaceRequest >) {  
         Object.assign(this, init);
@@ -40040,12 +42339,12 @@ export class PostWorsheetTextReplaceRequest  {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/replaceText".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
         const queryParameters: any = {};
-         
+        /// The old text to replace. 
         // verify required parameter 'oldValue' is not null or undefined
         if (this.oldValue === null || this.oldValue === undefined) {
             throw new Error('Required parameter "oldValue" was null or undefined when calling PostWorsheetTextReplace.');
         }
-         
+        /// The new text to replace by. 
         // verify required parameter 'newValue' is not null or undefined
         if (this.newValue === null || this.newValue === undefined) {
             throw new Error('Required parameter "newValue" was null or undefined when calling PostWorsheetTextReplace.');
@@ -40054,9 +42353,14 @@ export class PostWorsheetTextReplaceRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "newValue", this.newValue);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -40070,20 +42374,22 @@ export class PostWorsheetTextReplaceRequest  {
     }
 
 }
-   
+/// Sorts range in worksheet.   
 export class PostWorksheetRangeSortRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// The area needed to sort.  
     public cellArea: string;
-      
+    /// DataSorter with sorting settings.  
     public dataSorter: DataSorter;
-      
+    /// The workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< PostWorksheetRangeSortRequest >) {  
         Object.assign(this, init);
@@ -40093,7 +42399,7 @@ export class PostWorksheetRangeSortRequest  {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/sort".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
         const queryParameters: any = {};
-         
+        /// The area needed to sort. 
         // verify required parameter 'cellArea' is not null or undefined
         if (this.cellArea === null || this.cellArea === undefined) {
             throw new Error('Required parameter "cellArea" was null or undefined when calling PostWorksheetRangeSort.');
@@ -40101,6 +42407,11 @@ export class PostWorksheetRangeSortRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "cellArea", this.cellArea);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
         const bodyParameter = (this.dataSorter == null) ? null :   ObjectSerializer.serialize( this.dataSorter,this.dataSorter.constructor.name);
@@ -40117,22 +42428,24 @@ export class PostWorksheetRangeSortRequest  {
     }
 
 }
-   
+/// Autofits row in worksheet.   
 export class PostAutofitWorksheetRowRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// Row index.  
     public rowIndex: number;
-      
+    /// First column index.  
     public firstColumn: number;
-      
+    /// Last column index.  
     public lastColumn: number;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< PostAutofitWorksheetRowRequest >) {  
         Object.assign(this, init);
@@ -40142,17 +42455,17 @@ export class PostAutofitWorksheetRowRequest  {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/autofitrow".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
         const queryParameters: any = {};
-         
+        /// Row index. 
         // verify required parameter 'rowIndex' is not null or undefined
         if (this.rowIndex === null || this.rowIndex === undefined) {
             throw new Error('Required parameter "rowIndex" was null or undefined when calling PostAutofitWorksheetRow.');
         }
-         
+        /// First column index. 
         // verify required parameter 'firstColumn' is not null or undefined
         if (this.firstColumn === null || this.firstColumn === undefined) {
             throw new Error('Required parameter "firstColumn" was null or undefined when calling PostAutofitWorksheetRow.');
         }
-         
+        /// Last column index. 
         // verify required parameter 'lastColumn' is not null or undefined
         if (this.lastColumn === null || this.lastColumn === undefined) {
             throw new Error('Required parameter "lastColumn" was null or undefined when calling PostAutofitWorksheetRow.');
@@ -40162,9 +42475,14 @@ export class PostAutofitWorksheetRowRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "lastColumn", this.lastColumn);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -40178,22 +42496,24 @@ export class PostAutofitWorksheetRowRequest  {
     }
 
 }
-   
+/// Autofit rows in worksheet.   
 export class PostAutofitWorksheetRowsRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// Start row index.  
     public startRow: number;
-      
+    /// End row index.  
     public endRow: number;
-      
+    /// Autofits all rows in this worksheet.  
     public onlyAuto: boolean;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< PostAutofitWorksheetRowsRequest >) {  
         Object.assign(this, init);
@@ -40208,9 +42528,14 @@ export class PostAutofitWorksheetRowsRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "onlyAuto", this.onlyAuto);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -40240,6 +42565,8 @@ export class PostAutofitWorksheetColumnsRequest  {
     public folder: string;
       
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< PostAutofitWorksheetColumnsRequest >) {  
         Object.assign(this, init);
@@ -40254,9 +42581,14 @@ export class PostAutofitWorksheetColumnsRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "onlyAuto", this.onlyAuto);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -40270,20 +42602,22 @@ export class PostAutofitWorksheetColumnsRequest  {
     }
 
 }
-   
+/// Sets background image in worksheet.   
 export class PutWorksheetBackgroundRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// picture full filename.  
     public picPath: string;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
     /// File to upload  
     public file: any;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< PutWorksheetBackgroundRequest >) {  
         Object.assign(this, init);
@@ -40297,6 +42631,11 @@ export class PutWorksheetBackgroundRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "picPath", this.picPath);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
         if (this.file !== undefined) {
             for (var key in this.file){
                 formParams[key] = this.file[key];
@@ -40304,7 +42643,7 @@ export class PutWorksheetBackgroundRequest  {
         }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "PUT",
@@ -40319,16 +42658,18 @@ export class PutWorksheetBackgroundRequest  {
     }
 
 }
-   
+/// Delete background image in worksheet.   
 export class DeleteWorksheetBackgroundRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< DeleteWorksheetBackgroundRequest >) {  
         Object.assign(this, init);
@@ -40340,9 +42681,14 @@ export class DeleteWorksheetBackgroundRequest  {
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "DELETE",
@@ -40356,24 +42702,26 @@ export class DeleteWorksheetBackgroundRequest  {
     }
 
 }
-   
+/// Sets freeze panes in worksheet.   
 export class PutWorksheetFreezePanesRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// Row index.  
     public row: number;
-      
+    /// Column index.  
     public column: number;
-      
+    /// Number of visible rows in top pane, no more than row index.  
     public freezedRows: number;
-      
+    /// Number of visible columns in left pane, no more than column index.  
     public freezedColumns: number;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< PutWorksheetFreezePanesRequest >) {  
         Object.assign(this, init);
@@ -40383,22 +42731,22 @@ export class PutWorksheetFreezePanesRequest  {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/freezepanes".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
         const queryParameters: any = {};
-         
+        /// Row index. 
         // verify required parameter 'row' is not null or undefined
         if (this.row === null || this.row === undefined) {
             throw new Error('Required parameter "row" was null or undefined when calling PutWorksheetFreezePanes.');
         }
-         
+        /// Column index. 
         // verify required parameter 'column' is not null or undefined
         if (this.column === null || this.column === undefined) {
             throw new Error('Required parameter "column" was null or undefined when calling PutWorksheetFreezePanes.');
         }
-         
+        /// Number of visible rows in top pane, no more than row index. 
         // verify required parameter 'freezedRows' is not null or undefined
         if (this.freezedRows === null || this.freezedRows === undefined) {
             throw new Error('Required parameter "freezedRows" was null or undefined when calling PutWorksheetFreezePanes.');
         }
-         
+        /// Number of visible columns in left pane, no more than column index. 
         // verify required parameter 'freezedColumns' is not null or undefined
         if (this.freezedColumns === null || this.freezedColumns === undefined) {
             throw new Error('Required parameter "freezedColumns" was null or undefined when calling PutWorksheetFreezePanes.');
@@ -40409,9 +42757,14 @@ export class PutWorksheetFreezePanesRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "freezedColumns", this.freezedColumns);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "PUT",
@@ -40425,24 +42778,26 @@ export class PutWorksheetFreezePanesRequest  {
     }
 
 }
-   
+/// Unfreezes panes in worksheet.   
 export class DeleteWorksheetFreezePanesRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// Row index.  
     public row: number;
-      
+    /// Column index.  
     public column: number;
-      
+    /// Number of visible rows in top pane, no more than row index.  
     public freezedRows: number;
-      
+    /// Number of visible columns in left pane, no more than column index.  
     public freezedColumns: number;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< DeleteWorksheetFreezePanesRequest >) {  
         Object.assign(this, init);
@@ -40452,22 +42807,22 @@ export class DeleteWorksheetFreezePanesRequest  {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/freezepanes".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
         const queryParameters: any = {};
-         
+        /// Row index. 
         // verify required parameter 'row' is not null or undefined
         if (this.row === null || this.row === undefined) {
             throw new Error('Required parameter "row" was null or undefined when calling DeleteWorksheetFreezePanes.');
         }
-         
+        /// Column index. 
         // verify required parameter 'column' is not null or undefined
         if (this.column === null || this.column === undefined) {
             throw new Error('Required parameter "column" was null or undefined when calling DeleteWorksheetFreezePanes.');
         }
-         
+        /// Number of visible rows in top pane, no more than row index. 
         // verify required parameter 'freezedRows' is not null or undefined
         if (this.freezedRows === null || this.freezedRows === undefined) {
             throw new Error('Required parameter "freezedRows" was null or undefined when calling DeleteWorksheetFreezePanes.');
         }
-         
+        /// Number of visible columns in left pane, no more than column index. 
         // verify required parameter 'freezedColumns' is not null or undefined
         if (this.freezedColumns === null || this.freezedColumns === undefined) {
             throw new Error('Required parameter "freezedColumns" was null or undefined when calling DeleteWorksheetFreezePanes.');
@@ -40478,9 +42833,14 @@ export class DeleteWorksheetFreezePanesRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "freezedColumns", this.freezedColumns);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "DELETE",
@@ -40494,24 +42854,26 @@ export class DeleteWorksheetFreezePanesRequest  {
     }
 
 }
-   
+/// Copies contents and formats from another worksheet.   
 export class PostCopyWorksheetRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// Source worksheet.  
     public sourceSheet: string;
-      
+    /// Represents the copy options.  
     public options: CopyOptions;
-      
+    /// source Workbook.  
     public sourceWorkbook: string;
-      
+    /// Original workbook folder.  
     public sourceFolder: string;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< PostCopyWorksheetRequest >) {  
         Object.assign(this, init);
@@ -40521,7 +42883,7 @@ export class PostCopyWorksheetRequest  {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/copy".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
         const queryParameters: any = {};
-         
+        /// Source worksheet. 
         // verify required parameter 'sourceSheet' is not null or undefined
         if (this.sourceSheet === null || this.sourceSheet === undefined) {
             throw new Error('Required parameter "sourceSheet" was null or undefined when calling PostCopyWorksheet.');
@@ -40531,6 +42893,11 @@ export class PostCopyWorksheetRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "sourceFolder", this.sourceFolder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
         const bodyParameter = (this.options == null) ? null :   ObjectSerializer.serialize( this.options,this.options.constructor.name);
@@ -40547,18 +42914,20 @@ export class PostCopyWorksheetRequest  {
     }
 
 }
-   
+/// Rename worksheet.   
 export class PostRenameWorksheetRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// New worksheet name.  
     public newname: string;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< PostRenameWorksheetRequest >) {  
         Object.assign(this, init);
@@ -40568,7 +42937,7 @@ export class PostRenameWorksheetRequest  {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/rename".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
         const queryParameters: any = {};
-         
+        /// New worksheet name. 
         // verify required parameter 'newname' is not null or undefined
         if (this.newname === null || this.newname === undefined) {
             throw new Error('Required parameter "newname" was null or undefined when calling PostRenameWorksheet.');
@@ -40576,9 +42945,14 @@ export class PostRenameWorksheetRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "newname", this.newname);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -40592,18 +42966,20 @@ export class PostRenameWorksheetRequest  {
     }
 
 }
-   
+/// Update worksheet properties.   
 export class PostUpdateWorksheetPropertyRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// The worksheet description.  
     public sheet: Worksheet;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< PostUpdateWorksheetPropertyRequest >) {  
         Object.assign(this, init);
@@ -40615,6 +42991,11 @@ export class PostUpdateWorksheetPropertyRequest  {
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
         const bodyParameter = (this.sheet == null) ? null :   ObjectSerializer.serialize( this.sheet,this.sheet.constructor.name);
@@ -40631,14 +43012,16 @@ export class PostUpdateWorksheetPropertyRequest  {
     }
 
 }
-   
+/// Get worksheets ranges description.   
 export class GetNamedRangesRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< GetNamedRangesRequest >) {  
         Object.assign(this, init);
@@ -40650,9 +43033,14 @@ export class GetNamedRangesRequest  {
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -40666,16 +43054,18 @@ export class GetNamedRangesRequest  {
     }
 
 }
-   
+/// Get range values.   
 export class GetNamedRangeValueRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// Range name.  
     public namerange: string;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< GetNamedRangeValueRequest >) {  
         Object.assign(this, init);
@@ -40687,9 +43077,14 @@ export class GetNamedRangeValueRequest  {
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -40703,18 +43098,20 @@ export class GetNamedRangeValueRequest  {
     }
 
 }
-   
+/// Updates worksheet zoom.   
 export class PostUpdateWorksheetZoomRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// Represents the scaling factor in percentage. It should be between 10 and 400.  
     public value: number;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< PostUpdateWorksheetZoomRequest >) {  
         Object.assign(this, init);
@@ -40724,7 +43121,7 @@ export class PostUpdateWorksheetZoomRequest  {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/zoom".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
         const queryParameters: any = {};
-         
+        /// Represents the scaling factor in percentage. It should be between 10 and 400. 
         // verify required parameter 'value' is not null or undefined
         if (this.value === null || this.value === undefined) {
             throw new Error('Required parameter "value" was null or undefined when calling PostUpdateWorksheetZoom.');
@@ -40732,9 +43129,14 @@ export class PostUpdateWorksheetZoomRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "value", this.value);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -40758,6 +43160,8 @@ export class GetWorksheetPageCountRequest  {
     public folder: string;
       
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< GetWorksheetPageCountRequest >) {  
         Object.assign(this, init);
@@ -40769,9 +43173,14 @@ export class GetWorksheetPageCountRequest  {
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -40785,16 +43194,18 @@ export class GetWorksheetPageCountRequest  {
     }
 
 }
-   
+/// Get validations description in worksheet.   
 export class GetWorksheetValidationsRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< GetWorksheetValidationsRequest >) {  
         Object.assign(this, init);
@@ -40806,9 +43217,14 @@ export class GetWorksheetValidationsRequest  {
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -40822,18 +43238,20 @@ export class GetWorksheetValidationsRequest  {
     }
 
 }
-   
+/// Gets a validation by index in worksheet.   
 export class GetWorksheetValidationRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// The validation index.  
     public validationIndex: number;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< GetWorksheetValidationRequest >) {  
         Object.assign(this, init);
@@ -40845,9 +43263,14 @@ export class GetWorksheetValidationRequest  {
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -40861,18 +43284,20 @@ export class GetWorksheetValidationRequest  {
     }
 
 }
-   
+/// Adds a validation at index in worksheet.   
 export class PutWorksheetValidationRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// Specified cells area  
     public range: string;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< PutWorksheetValidationRequest >) {  
         Object.assign(this, init);
@@ -40885,9 +43310,14 @@ export class PutWorksheetValidationRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "range", this.range);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "PUT",
@@ -40901,20 +43331,22 @@ export class PutWorksheetValidationRequest  {
     }
 
 }
-   
+/// Updates a validation by index in worksheet.   
 export class PostWorksheetValidationRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// The validation index.  
     public validationIndex: number;
-      
+    /// Validation description.  
     public validation: Validation;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< PostWorksheetValidationRequest >) {  
         Object.assign(this, init);
@@ -40926,6 +43358,11 @@ export class PostWorksheetValidationRequest  {
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
         const bodyParameter = (this.validation == null) ? null :   ObjectSerializer.serialize( this.validation,this.validation.constructor.name);
@@ -40942,18 +43379,20 @@ export class PostWorksheetValidationRequest  {
     }
 
 }
-   
+/// Deletes a validation by index in worksheet.   
 export class DeleteWorksheetValidationRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// The validation index.  
     public validationIndex: number;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< DeleteWorksheetValidationRequest >) {  
         Object.assign(this, init);
@@ -40965,9 +43404,14 @@ export class DeleteWorksheetValidationRequest  {
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "DELETE",
@@ -40981,16 +43425,18 @@ export class DeleteWorksheetValidationRequest  {
     }
 
 }
-   
+/// Delete all validations in worksheet.   
 export class DeleteWorksheetValidationsRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< DeleteWorksheetValidationsRequest >) {  
         Object.assign(this, init);
@@ -41002,9 +43448,14 @@ export class DeleteWorksheetValidationsRequest  {
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "DELETE",
@@ -41018,22 +43469,26 @@ export class DeleteWorksheetValidationsRequest  {
     }
 
 }
-
+/// Export XML data from Excel file. 
+/// When there are Xml Maps in Excel file, export xml data. 
+/// When there is not xml map in Excel file, convert Excel file to xml file.    
 export class PostWorkbookExportXMLRequest  {
-      
+    /// The workbook(Excel/ODS/...) name.  
     public name: string;
-      
+    /// password  
     public password: string;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
-      
+    /// Output file path.  
     public outPath: string;
-      
+    /// Storage name for output file.  
     public outStorageName: string;
-      
+    /// check excel restriction.  
     public checkExcelRestriction: boolean;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< PostWorkbookExportXMLRequest >) {  
         Object.assign(this, init);
@@ -41049,9 +43504,14 @@ export class PostWorkbookExportXMLRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", this.checkExcelRestriction);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "POST",
@@ -41065,24 +43525,27 @@ export class PostWorkbookExportXMLRequest  {
     }
 
 }
-   
+/// Imports/Updates an XML data file into the workbook.
+/// The XML data file can be a cloud file or HTTP URI data.   
 export class PostWorkbookImportXMLRequest  {
-      
+    /// The workbook(Excel/ODS/...) name.  
     public name: string;
-      
+    /// password  
     public importXMLRequest: ImportXMLRequest;
       
     public password: string;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
-      
+    /// Output file path.  
     public outPath: string;
-      
+    /// Storage name for output file.  
     public outStorageName: string;
-      
+    /// check Excel restriction.  
     public checkExcelRestriction: boolean;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< PostWorkbookImportXMLRequest >) {  
         Object.assign(this, init);
@@ -41098,6 +43561,11 @@ export class PostWorkbookImportXMLRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", this.checkExcelRestriction);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
         const bodyParameter = (this.importXMLRequest == null) ? null :   ObjectSerializer.serialize( this.importXMLRequest,this.importXMLRequest.constructor.name);
@@ -41122,6 +43590,8 @@ export class DownloadFileRequest  {
     public storageName: string;
       
     public versionId: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< DownloadFileRequest >) {  
         Object.assign(this, init);
@@ -41133,9 +43603,14 @@ export class DownloadFileRequest  {
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "versionId", this.versionId);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -41157,6 +43632,8 @@ export class UploadFileRequest  {
     public path: string;
       
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< UploadFileRequest >) {  
         Object.assign(this, init);
@@ -41168,6 +43645,11 @@ export class UploadFileRequest  {
         const queryParameters: any = {};
         const formParams: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
         if (this.uploadFiles !== undefined) {
             for (var key in this.uploadFiles){
                 formParams[key] = this.uploadFiles[key];
@@ -41175,7 +43657,7 @@ export class UploadFileRequest  {
         }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "PUT",
@@ -41202,6 +43684,8 @@ export class CopyFileRequest  {
     public destStorageName: string;
       
     public versionId: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< CopyFileRequest >) {  
         Object.assign(this, init);
@@ -41220,9 +43704,14 @@ export class CopyFileRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "srcStorageName", this.srcStorageName);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "destStorageName", this.destStorageName);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "versionId", this.versionId);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "PUT",
@@ -41248,6 +43737,8 @@ export class MoveFileRequest  {
     public destStorageName: string;
       
     public versionId: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< MoveFileRequest >) {  
         Object.assign(this, init);
@@ -41266,9 +43757,14 @@ export class MoveFileRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "srcStorageName", this.srcStorageName);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "destStorageName", this.destStorageName);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "versionId", this.versionId);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "PUT",
@@ -41290,6 +43786,8 @@ export class DeleteFileRequest  {
     public storageName: string;
       
     public versionId: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< DeleteFileRequest >) {  
         Object.assign(this, init);
@@ -41301,9 +43799,14 @@ export class DeleteFileRequest  {
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "versionId", this.versionId);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "DELETE",
@@ -41323,6 +43826,8 @@ export class GetFilesListRequest  {
     public path: string;
       
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< GetFilesListRequest >) {  
         Object.assign(this, init);
@@ -41333,9 +43838,14 @@ export class GetFilesListRequest  {
         let localVarPath = configuration.getApiBaseUrl() + "/cells/storage/folder/{path}".replace("{" + "path" + "}", String(this.path));
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -41355,6 +43865,8 @@ export class CreateFolderRequest  {
     public path: string;
       
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< CreateFolderRequest >) {  
         Object.assign(this, init);
@@ -41365,9 +43877,14 @@ export class CreateFolderRequest  {
         let localVarPath = configuration.getApiBaseUrl() + "/cells/storage/folder/{path}".replace("{" + "path" + "}", String(this.path));
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "PUT",
@@ -41391,6 +43908,8 @@ export class CopyFolderRequest  {
     public srcStorageName: string;
       
     public destStorageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< CopyFolderRequest >) {  
         Object.assign(this, init);
@@ -41408,9 +43927,14 @@ export class CopyFolderRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "destPath", this.destPath);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "srcStorageName", this.srcStorageName);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "destStorageName", this.destStorageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "PUT",
@@ -41434,6 +43958,8 @@ export class MoveFolderRequest  {
     public srcStorageName: string;
       
     public destStorageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< MoveFolderRequest >) {  
         Object.assign(this, init);
@@ -41451,9 +43977,14 @@ export class MoveFolderRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "destPath", this.destPath);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "srcStorageName", this.srcStorageName);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "destStorageName", this.destStorageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "PUT",
@@ -41475,6 +44006,8 @@ export class DeleteFolderRequest  {
     public storageName: string;
       
     public recursive: boolean;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< DeleteFolderRequest >) {  
         Object.assign(this, init);
@@ -41486,9 +44019,14 @@ export class DeleteFolderRequest  {
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "recursive", this.recursive);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "DELETE",
@@ -41506,6 +44044,8 @@ export class DeleteFolderRequest  {
 export class StorageExistsRequest  {
       
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< StorageExistsRequest >) {  
         Object.assign(this, init);
@@ -41515,9 +44055,14 @@ export class StorageExistsRequest  {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/storage/{storageName}/exist".replace("{" + "storageName" + "}", String(this.storageName));
         const queryParameters: any = {};
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -41539,6 +44084,8 @@ export class ObjectExistsRequest  {
     public storageName: string;
       
     public versionId: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< ObjectExistsRequest >) {  
         Object.assign(this, init);
@@ -41550,9 +44097,14 @@ export class ObjectExistsRequest  {
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "versionId", this.versionId);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -41570,6 +44122,8 @@ export class ObjectExistsRequest  {
 export class GetDiscUsageRequest  {
       
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< GetDiscUsageRequest >) {  
         Object.assign(this, init);
@@ -41580,9 +44134,14 @@ export class GetDiscUsageRequest  {
         let localVarPath = configuration.getApiBaseUrl() + "/cells/storage/disc";
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
 
 
-        
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "GET",
@@ -41602,6 +44161,8 @@ export class GetFileVersionsRequest  {
     public path: string;
       
     public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
 
     public constructor(init?: Partial< GetFileVersionsRequest >) {  
         Object.assign(this, init);
@@ -41612,6 +44173,14 @@ export class GetFileVersionsRequest  {
         let localVarPath = configuration.getApiBaseUrl() + "/cells/storage/version/{path}".replace("{" + "path" + "}", String(this.path));
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
 
         const requestOptions: request.Options = {
             method: "GET",

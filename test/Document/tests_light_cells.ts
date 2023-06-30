@@ -4945,7 +4945,7 @@ describe('LightCells test', function() {
 
         var request = new model.PostMetadataRequest();
         request.file =  mapFiles;
-        request.documentProperties =  cellsDocuments;
+        request.cellsDocuments =  cellsDocuments;
         return cellsApi.postMetadata(request).then((result) => {
             expect(result.response.statusCode).to.equal(200);
         });
