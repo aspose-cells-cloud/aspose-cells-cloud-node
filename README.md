@@ -1,4 +1,4 @@
-![](https://img.shields.io/badge/REST%20API-v3.0-lightgrey) ![npm](https://img.shields.io/npm/v/asposecellscloud) ![node-current](https://img.shields.io/node/v/asposecellscloud) [![GitHub license](https://img.shields.io/github/license/aspose-cells-cloud/aspose-cells-cloud-node)](https://github.com/aspose-cells-cloud/aspose-cells-cloud-node/blob/master/LICENSE) ![GitHub commits since latest release (by date)](https://img.shields.io/github/commits-since/aspose-cells-cloud/aspose-cells-cloud-node/23.6)
+![](https://img.shields.io/badge/REST%20API-v3.0-lightgrey) ![npm](https://img.shields.io/npm/v/asposecellscloud) ![node-current](https://img.shields.io/node/v/asposecellscloud) [![GitHub license](https://img.shields.io/github/license/aspose-cells-cloud/aspose-cells-cloud-node)](https://github.com/aspose-cells-cloud/aspose-cells-cloud-node/blob/master/LICENSE) ![GitHub commits since latest release (by date)](https://img.shields.io/github/commits-since/aspose-cells-cloud/aspose-cells-cloud-node/23.7)
 
 # Process Excel® Files in the Cloud with Node.js
 
@@ -20,13 +20,9 @@
 - Fetch the required shape from worksheet.
 - Leverage the power of named ranges.
 
-## Feature & Enhancements in Version 23.6
+## Feature & Enhancements in Version 23.7
 
-- Support to batch lock multi-files.
-- Support to batch unlock multi-files.
-- Support to protect lock multi-files.
-- Support to split lock multi-files.
-- Fix put document property api.
+- Support to repair api.
  
 ## Read & Write Spreadsheet Formats
 

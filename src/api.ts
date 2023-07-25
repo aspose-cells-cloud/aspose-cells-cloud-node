@@ -2062,7 +2062,20 @@ export class CellsApi {
         const result =  ObjectSerializer.deserialize(response.body, "FilesResult");
         return Promise.resolve({body: result, response});
     }
+    /// <summary>
+    /// </summary>
+    /// <param name="request">Request. <see cref="PostRepairRequest" /></param>
+    public async postRepair(requestObj:model.PostRepairRequest ): Promise<{response: http.ClientResponse, body: model.FilesResult}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling postRepair.');
+        }
 
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "FilesResult");
+        return Promise.resolve({body: result, response});
+    }
     /// <summary>
     /// </summary>
     /// <param name="request">Request. <see cref="PostRotateRequest" /></param>
