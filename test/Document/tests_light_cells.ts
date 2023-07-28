@@ -4760,6 +4760,86 @@ describe('LightCells test', function() {
         });
       });
     }); 
+    describe('post_repair_xlsx test', function(){
+      it("should call PostRepair successfully" , function(){
+      
+        var book1Xlsx = "Book1.xlsx"
+
+     
+        var format = "xlsx"
+
+        var mapFiles = {};           
+
+         mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
+
+        var request = new model.PostRepairRequest();
+        request.file =  mapFiles;
+        request.format =  format;
+        return cellsApi.postRepair(request).then((result) => {
+            expect(result.response.statusCode).to.equal(200);
+        });
+      });
+    }); 
+    describe('post_repair_pdf test', function(){
+      it("should call PostRepair successfully" , function(){
+      
+        var book1Xlsx = "Book1.xlsx"
+
+     
+        var format = "pdf"
+
+        var mapFiles = {};           
+
+         mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
+
+        var request = new model.PostRepairRequest();
+        request.file =  mapFiles;
+        request.format =  format;
+        return cellsApi.postRepair(request).then((result) => {
+            expect(result.response.statusCode).to.equal(200);
+        });
+      });
+    }); 
+    describe('post_repair_csv test', function(){
+      it("should call PostRepair successfully" , function(){
+      
+        var book1Xlsx = "Book1.xlsx"
+
+     
+        var format = "csv"
+
+        var mapFiles = {};           
+
+         mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
+
+        var request = new model.PostRepairRequest();
+        request.file =  mapFiles;
+        request.format =  format;
+        return cellsApi.postRepair(request).then((result) => {
+            expect(result.response.statusCode).to.equal(200);
+        });
+      });
+    }); 
+    describe('post_repair_png test', function(){
+      it("should call PostRepair successfully" , function(){
+      
+        var book1Xlsx = "Book1.xlsx"
+
+     
+        var format = "png"
+
+        var mapFiles = {};           
+
+         mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
+
+        var request = new model.PostRepairRequest();
+        request.file =  mapFiles;
+        request.format =  format;
+        return cellsApi.postRepair(request).then((result) => {
+            expect(result.response.statusCode).to.equal(200);
+        });
+      });
+    }); 
     describe('post_reverse_rows_pdf test', function(){
       it("should call PostReverse successfully" , function(){
       

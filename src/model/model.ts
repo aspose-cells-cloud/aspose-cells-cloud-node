@@ -21296,39 +21296,7 @@ export class CellsPictures_GetWorksheetPictureRequest {
     } 
 }
 
-/**
- * Request model for CellsPicture_GetExtractBarcodes operation.
- */
-export class CellsPicture_GetExtractBarcodesRequest {
-    /**
-     * Workbook name.
-     */
-    public name: string;
 
-    /**
-     * Worksheet name.
-     */
-    public sheetName: string;
-
-    /**
-     * The picture index.
-     */
-    public pictureIndex: number;
-
-    /**
-     * Workbook folder.
-     */
-    public folder: string;
-
-    /**
-     * storage name.
-     */
-    public storageName: string;
-    
-    public constructor(init?: Partial<CellsPicture_GetExtractBarcodesRequest>) {        
-        Object.assign(this, init);
-    } 
-}
 /**
  * Request model for CellsPictures_GetWorksheetPictures operation.
  */
@@ -28893,52 +28861,7 @@ export class PostBatchSplitRequest  {
     }
 
 }
-/// Extract barcodes from worksheet picture.   
-export class GetExtractBarcodesRequest  {
-    /// The workbook name.  
-    public name: string;
-    /// The worksheet name.  
-    public sheetName: string;
-    /// Picture index.  
-    public pictureIndex: number;
-    /// Workbook folder.  
-    public folder: string;
-      
-    public storageName: string;
-    /// extend query parameter
-    public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< GetExtractBarcodesRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/pictures/{pictureIndex}/recognize".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "pictureIndex" + "}", String(this.pictureIndex));
-        const queryParameters: any = {};
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-        if(this.extendQueryParameterMap !== undefined){
-            for (var key in this.extendQueryParameterMap){
-                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
-            }
-        }
-
-
-        // const bodyParameter = null;
-
-        const requestOptions: request.Options = {
-            method: "GET",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
 /// Clear cells contents in worksheet.   
 export class PostClearContentsRequest  {
     /// The workbook name.  

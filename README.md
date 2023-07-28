@@ -23,6 +23,7 @@
 ## Feature & Enhancements in Version 23.7
 
 - Support to repair api.
+- Remove GetExtractBarcodes API.
  
 ## Read & Write Spreadsheet Formats
 
