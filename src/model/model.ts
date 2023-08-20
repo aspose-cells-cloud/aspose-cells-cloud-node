@@ -9794,256 +9794,424 @@ export class HorizontalPageBreaksResponse extends CellsCloudResponse {
         Object.assign(this, init);
     }        
 }
-
-export class HtmlSaveOptions extends SaveOptions {
-
+export class ImageOrPrintOptions  {
     /**
      * Attribute type map
      */
     public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            name: "saveAsSingleFile",
-            baseName: "SaveAsSingleFile",
+            name: "textCrossType",
+            baseName: "TextCrossType",
             type: "string",
-        },        
+        },
         {
-            name: "exportHiddenWorksheet",
-            baseName: "ExportHiddenWorksheet",
+            name: "gridlineType",
+            baseName: "GridlineType",
             type: "string",
-        },        
+        },
         {
-            name: "exportGridLines",
-            baseName: "ExportGridLines",
-            type: "string",
-        },        
-        {
-            name: "presentationPreference",
-            baseName: "PresentationPreference",
-            type: "string",
-        },        
-        {
-            name: "cellCssPrefix",
-            baseName: "CellCssPrefix",
-            type: "string",
-        },        
-        {
-            name: "tableCssId",
-            baseName: "TableCssId",
-            type: "string",
-        },        
-        {
-            name: "isFullPathLink",
-            baseName: "IsFullPathLink",
-            type: "string",
-        },        
-        {
-            name: "exportWorksheetCSSSeparately",
-            baseName: "ExportWorksheetCSSSeparately",
-            type: "string",
-        },        
-        {
-            name: "exportSimilarBorderStyle",
-            baseName: "ExportSimilarBorderStyle",
-            type: "string",
-        },        
-        {
-            name: "mergeEmptyTdForcely",
-            baseName: "MergeEmptyTdForcely",
-            type: "string",
-        },        
-        {
-            name: "exportCellCoordinate",
-            baseName: "ExportCellCoordinate",
-            type: "string",
-        },        
-        {
-            name: "exportExtraHeadings",
-            baseName: "ExportExtraHeadings",
-            type: "string",
-        },        
-        {
-            name: "exportHeadings",
-            baseName: "ExportHeadings",
-            type: "string",
-        },        
-        {
-            name: "exportFormula",
-            baseName: "ExportFormula",
-            type: "string",
-        },        
-        {
-            name: "addTooltipText",
-            baseName: "AddTooltipText",
-            type: "string",
-        },        
-        {
-            name: "exportBogusRowData",
-            baseName: "ExportBogusRowData",
-            type: "string",
-        },        
-        {
-            name: "excludeUnusedStyles",
-            baseName: "ExcludeUnusedStyles",
-            type: "string",
-        },        
-        {
-            name: "exportDocumentProperties",
-            baseName: "ExportDocumentProperties",
-            type: "string",
-        },        
-        {
-            name: "exportWorksheetProperties",
-            baseName: "ExportWorksheetProperties",
-            type: "string",
-        },        
-        {
-            name: "exportWorkbookProperties",
-            baseName: "ExportWorkbookProperties",
-            type: "string",
-        },        
-        {
-            name: "exportFrameScriptsAndProperties",
-            baseName: "ExportFrameScriptsAndProperties",
-            type: "string",
-        },        
-        {
-            name: "attachedFilesDirectory",
-            baseName: "AttachedFilesDirectory",
-            type: "string",
-        },        
-        {
-            name: "attachedFilesUrlPrefix",
-            baseName: "AttachedFilesUrlPrefix",
-            type: "string",
-        },        
-        {
-            name: "encoding",
-            baseName: "Encoding",
-            type: "string",
-        },        
-        {
-            name: "exportActiveWorksheetOnly",
-            baseName: "ExportActiveWorksheetOnly",
+            name: "outputBlankPageWhenNothingToPrint",
+            baseName: "OutputBlankPageWhenNothingToPrint",
             type: "boolean",
-        },        
+        },
         {
-            name: "exportChartImageFormat",
-            baseName: "ExportChartImageFormat",
-            type: "string",
-        },        
-        {
-            name: "exportImagesAsBase64",
-            baseName: "ExportImagesAsBase64",
+            name: "checkWorkbookDefaultFont",
+            baseName: "CheckWorkbookDefaultFont",
             type: "boolean",
-        },        
+        },
         {
-            name: "hiddenColDisplayType",
-            baseName: "HiddenColDisplayType",
+            name: "defaultFont",
+            baseName: "DefaultFont",
             type: "string",
-        },        
+        },
         {
-            name: "hiddenRowDisplayType",
-            baseName: "HiddenRowDisplayType",
-            type: "string",
-        },        
-        {
-            name: "htmlCrossStringType",
-            baseName: "HtmlCrossStringType",
-            type: "string",
-        },        
-        {
-            name: "isExpImageToTempDir",
-            baseName: "IsExpImageToTempDir",
+            name: "isOptimized",
+            baseName: "IsOptimized",
             type: "boolean",
-        },        
+        },
         {
-            name: "pageTitle",
-            baseName: "PageTitle",
-            type: "string",
-        },        
+            name: "pageCount",
+            baseName: "PageCount",
+            type: "number",
+        },
         {
-            name: "parseHtmlTagInCell",
-            baseName: "ParseHtmlTagInCell",
+            name: "pageIndex",
+            baseName: "PageIndex",
+            type: "number",
+        },
+        {
+            name: "isFontSubstitutionCharGranularity",
+            baseName: "IsFontSubstitutionCharGranularity",
             type: "boolean",
-        }    ];
-
+        },
+        {
+            name: "transparent",
+            baseName: "Transparent",
+            type: "boolean",
+        },
+        {
+            name: "onlyArea",
+            baseName: "OnlyArea",
+            type: "boolean",
+        },
+        {
+            name: "sVGFitToViewPort",
+            baseName: "SVGFitToViewPort",
+            type: "boolean",
+        },
+        {
+            name: "embededImageNameInSvg",
+            baseName: "EmbededImageNameInSvg",
+            type: "string",
+        },
+        {
+            name: "allColumnsInOnePagePerSheet",
+            baseName: "AllColumnsInOnePagePerSheet",
+            type: "boolean",
+        },
+        {
+            name: "printWithStatusDialog",
+            baseName: "PrintWithStatusDialog",
+            type: "boolean",
+        },
+        {
+            name: "horizontalResolution",
+            baseName: "HorizontalResolution",
+            type: "number",
+        },
+        {
+            name: "verticalResolution",
+            baseName: "VerticalResolution",
+            type: "number",
+        },
+        {
+            name: "defaultEditLanguage",
+            baseName: "DefaultEditLanguage",
+            type: "string",
+        },
+        {
+            name: "tiffColorDepth",
+            baseName: "TiffColorDepth",
+            type: "string",
+        },
+        {
+            name: "tiffCompression",
+            baseName: "TiffCompression",
+            type: "string",
+        },
+        {
+            name: "printingPage",
+            baseName: "PrintingPage",
+            type: "string",
+        },
+        {
+            name: "quality",
+            baseName: "Quality",
+            type: "number",
+        },
+        {
+            name: "imageType",
+            baseName: "ImageType",
+            type: "string",
+        },
+        {
+            name: "onePagePerSheet",
+            baseName: "OnePagePerSheet",
+            type: "boolean",
+        },
+        {
+            name: "tiffBinarizationMethod",
+            baseName: "TiffBinarizationMethod",
+            type: "string",
+        }
+    ];
     /**
      * Returns attribute type map
      */
     public static getAttributeTypeMap() {
-        return super.getAttributeTypeMap().concat(HtmlSaveOptions.attributeTypeMap);
+        return  ImageOrPrintOptions.attributeTypeMap;
+
     }
 
-    public saveAsSingleFile: string;
+    public textCrossType: string;
+    public gridlineType: string;
+    public outputBlankPageWhenNothingToPrint: boolean;
+    public checkWorkbookDefaultFont: boolean;
+    public defaultFont: string;
+    public isOptimized: boolean;
+    public pageCount: number;
+    public pageIndex: number;
+    public isFontSubstitutionCharGranularity: boolean;
+    public transparent: boolean;
+    public onlyArea: boolean;
+    public sVGFitToViewPort: boolean;
+    public embededImageNameInSvg: string;
+    public allColumnsInOnePagePerSheet: boolean;
+    public printWithStatusDialog: boolean;
+    public horizontalResolution: number;
+    public verticalResolution: number;
+    public defaultEditLanguage: string;
+    public tiffColorDepth: string;
+    public tiffCompression: string;
+    public printingPage: string;
+    public quality: number;
+    public imageType: string;
+    public onePagePerSheet: boolean;
+    public tiffBinarizationMethod: string;
+
+    public constructor(init?: Partial< ImageOrPrintOptions >) {  
     
-    public exportHiddenWorksheet: string;
-    
-    public exportGridLines: string;
-    
-    public presentationPreference: string;
-    
-    public cellCssPrefix: string;
-    
-    public tableCssId: string;
-    
-    public isFullPathLink: string;
-    
-    public exportWorksheetCSSSeparately: string;
-    
-    public exportSimilarBorderStyle: string;
-    
-    public mergeEmptyTdForcely: string;
-    
-    public exportCellCoordinate: string;
-    
-    public exportExtraHeadings: string;
-    
-    public exportHeadings: string;
-    
-    public exportFormula: string;
-    
-    public addTooltipText: string;
-    
-    public exportBogusRowData: string;
-    
-    public excludeUnusedStyles: string;
-    
-    public exportDocumentProperties: string;
-    
-    public exportWorksheetProperties: string;
-    
-    public exportWorkbookProperties: string;
-    
-    public exportFrameScriptsAndProperties: string;
-    
-    public attachedFilesDirectory: string;
-    
-    public attachedFilesUrlPrefix: string;
-    
-    public encoding: string;
-    
-    public exportActiveWorksheetOnly: boolean;
-    
-    public exportChartImageFormat: string;
-    
-    public exportImagesAsBase64: boolean;
-    
-    public hiddenColDisplayType: string;
-    
-    public hiddenRowDisplayType: string;
-    
-    public htmlCrossStringType: string;
-    
-    public isExpImageToTempDir: boolean;
-    
-    public pageTitle: string;
-    
-    public parseHtmlTagInCell: boolean;
-    
-    public constructor(init?: Partial<HtmlSaveOptions>) {
-        super(init);
         Object.assign(this, init);
-    }        
+    } 
+}
+
+export class HtmlSaveOptions  extends SaveOptions  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "exportPageHeaders",
+            baseName: "ExportPageHeaders",
+            type: "boolean",
+        },
+        {
+            name: "exportPageFooters",
+            baseName: "ExportPageFooters",
+            type: "boolean",
+        },
+        {
+            name: "exportRowColumnHeadings",
+            baseName: "ExportRowColumnHeadings",
+            type: "boolean",
+        },
+        {
+            name: "showAllSheets",
+            baseName: "ShowAllSheets",
+            type: "boolean",
+        },
+        {
+            name: "imageOptions",
+            baseName: "ImageOptions",
+            type: "ImageOrPrintOptions",
+        },
+        {
+            name: "saveAsSingleFile",
+            baseName: "SaveAsSingleFile",
+            type: "boolean",
+        },
+        {
+            name: "exportHiddenWorksheet",
+            baseName: "ExportHiddenWorksheet",
+            type: "boolean",
+        },
+        {
+            name: "exportGridLines",
+            baseName: "ExportGridLines",
+            type: "boolean",
+        },
+        {
+            name: "presentationPreference",
+            baseName: "PresentationPreference",
+            type: "boolean",
+        },
+        {
+            name: "cellCssPrefix",
+            baseName: "CellCssPrefix",
+            type: "string",
+        },
+        {
+            name: "tableCssId",
+            baseName: "TableCssId",
+            type: "string",
+        },
+        {
+            name: "isFullPathLink",
+            baseName: "IsFullPathLink",
+            type: "boolean",
+        },
+        {
+            name: "exportWorksheetCSSSeparately",
+            baseName: "ExportWorksheetCSSSeparately",
+            type: "boolean",
+        },
+        {
+            name: "exportSimilarBorderStyle",
+            baseName: "ExportSimilarBorderStyle",
+            type: "boolean",
+        },
+        {
+            name: "mergeEmptyTdForcely",
+            baseName: "MergeEmptyTdForcely",
+            type: "boolean",
+        },
+        {
+            name: "exportCellCoordinate",
+            baseName: "ExportCellCoordinate",
+            type: "boolean",
+        },
+        {
+            name: "exportExtraHeadings",
+            baseName: "ExportExtraHeadings",
+            type: "boolean",
+        },
+        {
+            name: "exportHeadings",
+            baseName: "ExportHeadings",
+            type: "boolean",
+        },
+        {
+            name: "exportFormula",
+            baseName: "ExportFormula",
+            type: "boolean",
+        },
+        {
+            name: "addTooltipText",
+            baseName: "AddTooltipText",
+            type: "boolean",
+        },
+        {
+            name: "exportBogusRowData",
+            baseName: "ExportBogusRowData",
+            type: "boolean",
+        },
+        {
+            name: "excludeUnusedStyles",
+            baseName: "ExcludeUnusedStyles",
+            type: "boolean",
+        },
+        {
+            name: "exportDocumentProperties",
+            baseName: "ExportDocumentProperties",
+            type: "boolean",
+        },
+        {
+            name: "exportWorksheetProperties",
+            baseName: "ExportWorksheetProperties",
+            type: "boolean",
+        },
+        {
+            name: "exportWorkbookProperties",
+            baseName: "ExportWorkbookProperties",
+            type: "boolean",
+        },
+        {
+            name: "exportFrameScriptsAndProperties",
+            baseName: "ExportFrameScriptsAndProperties",
+            type: "boolean",
+        },
+        {
+            name: "attachedFilesDirectory",
+            baseName: "AttachedFilesDirectory",
+            type: "string",
+        },
+        {
+            name: "attachedFilesUrlPrefix",
+            baseName: "AttachedFilesUrlPrefix",
+            type: "string",
+        },
+        {
+            name: "encoding",
+            baseName: "Encoding",
+            type: "string",
+        },
+        {
+            name: "exportActiveWorksheetOnly",
+            baseName: "ExportActiveWorksheetOnly",
+            type: "boolean",
+        },
+        {
+            name: "exportChartImageFormat",
+            baseName: "ExportChartImageFormat",
+            type: "string",
+        },
+        {
+            name: "exportImagesAsBase64",
+            baseName: "ExportImagesAsBase64",
+            type: "boolean",
+        },
+        {
+            name: "hiddenColDisplayType",
+            baseName: "HiddenColDisplayType",
+            type: "string",
+        },
+        {
+            name: "hiddenRowDisplayType",
+            baseName: "HiddenRowDisplayType",
+            type: "string",
+        },
+        {
+            name: "htmlCrossStringType",
+            baseName: "HtmlCrossStringType",
+            type: "string",
+        },
+        {
+            name: "isExpImageToTempDir",
+            baseName: "IsExpImageToTempDir",
+            type: "boolean",
+        },
+        {
+            name: "pageTitle",
+            baseName: "PageTitle",
+            type: "string",
+        },
+        {
+            name: "parseHtmlTagInCell",
+            baseName: "ParseHtmlTagInCell",
+            type: "boolean",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return super.getAttributeTypeMap().concat(HtmlSaveOptions.attributeTypeMap) ;
+
+    }
+
+    public exportPageHeaders: boolean;
+    public exportPageFooters: boolean;
+    public exportRowColumnHeadings: boolean;
+    public showAllSheets: boolean;
+    public imageOptions: ImageOrPrintOptions;
+    public saveAsSingleFile: boolean;
+    public exportHiddenWorksheet: boolean;
+    public exportGridLines: boolean;
+    public presentationPreference: boolean;
+    public cellCssPrefix: string;
+    public tableCssId: string;
+    public isFullPathLink: boolean;
+    public exportWorksheetCSSSeparately: boolean;
+    public exportSimilarBorderStyle: boolean;
+    public mergeEmptyTdForcely: boolean;
+    public exportCellCoordinate: boolean;
+    public exportExtraHeadings: boolean;
+    public exportHeadings: boolean;
+    public exportFormula: boolean;
+    public addTooltipText: boolean;
+    public exportBogusRowData: boolean;
+    public excludeUnusedStyles: boolean;
+    public exportDocumentProperties: boolean;
+    public exportWorksheetProperties: boolean;
+    public exportWorkbookProperties: boolean;
+    public exportFrameScriptsAndProperties: boolean;
+    public attachedFilesDirectory: string;
+    public attachedFilesUrlPrefix: string;
+    public encoding: string;
+    public exportActiveWorksheetOnly: boolean;
+    public exportChartImageFormat: string;
+    public exportImagesAsBase64: boolean;
+    public hiddenColDisplayType: string;
+    public hiddenRowDisplayType: string;
+    public htmlCrossStringType: string;
+    public isExpImageToTempDir: boolean;
+    public pageTitle: string;
+    public parseHtmlTagInCell: boolean;
+
+    public constructor(init?: Partial< HtmlSaveOptions >) {  
+         super(init);     
+        Object.assign(this, init);
+    } 
 }
 
 export class Hyperlink {
@@ -11760,8 +11928,7 @@ export class OleObjectsResponse extends CellsCloudResponse {
     }        
 }
 
-export class OoxmlSaveOptions extends SaveOptions {
-
+export class OoxmlSaveOptions  extends SaveOptions  {
     /**
      * Attribute type map
      */
@@ -11770,21 +11937,183 @@ export class OoxmlSaveOptions extends SaveOptions {
             name: "exportCellName",
             baseName: "ExportCellName",
             type: "boolean",
-        }    ];
-
+        },
+        {
+            name: "updateZoom",
+            baseName: "UpdateZoom",
+            type: "boolean",
+        },
+        {
+            name: "enableZip64",
+            baseName: "EnableZip64",
+            type: "boolean",
+        },
+        {
+            name: "embedOoxmlAsOleObject",
+            baseName: "EmbedOoxmlAsOleObject",
+            type: "boolean",
+        },
+        {
+            name: "compressionType",
+            baseName: "CompressionType",
+            type: "string",
+        }
+    ];
     /**
      * Returns attribute type map
      */
     public static getAttributeTypeMap() {
-        return super.getAttributeTypeMap().concat(OoxmlSaveOptions.attributeTypeMap);
+        return super.getAttributeTypeMap().concat(OoxmlSaveOptions.attributeTypeMap) ;
+
     }
 
     public exportCellName: boolean;
-    
-    public constructor(init?: Partial<OoxmlSaveOptions>) {
-        super(init);
+    public updateZoom: boolean;
+    public enableZip64: boolean;
+    public embedOoxmlAsOleObject: boolean;
+    public compressionType: string;
+
+    public constructor(init?: Partial< OoxmlSaveOptions >) {  
+         super(init);     
         Object.assign(this, init);
-    }        
+    } 
+}
+export class RenderingFont  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "name",
+            baseName: "Name",
+            type: "string",
+        },
+        {
+            name: "size",
+            baseName: "Size",
+            type: "number",
+        },
+        {
+            name: "bold",
+            baseName: "Bold",
+            type: "boolean",
+        },
+        {
+            name: "italic",
+            baseName: "Italic",
+            type: "boolean",
+        },
+        {
+            name: "color",
+            baseName: "Color",
+            type: "Color",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return  RenderingFont.attributeTypeMap;
+
+    }
+
+    public name: string;
+    public size: number;
+    public bold: boolean;
+    public italic: boolean;
+    public color: Color;
+
+    public constructor(init?: Partial< RenderingFont >) {  
+    
+        Object.assign(this, init);
+    } 
+}
+   
+export class RenderingWatermark  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "rotation",
+            baseName: "Rotation",
+            type: "number",
+        },
+        {
+            name: "scaleToPagePercent",
+            baseName: "ScaleToPagePercent",
+            type: "number",
+        },
+        {
+            name: "opacity",
+            baseName: "Opacity",
+            type: "number",
+        },
+        {
+            name: "isBackground",
+            baseName: "IsBackground",
+            type: "boolean",
+        },
+        {
+            name: "text",
+            baseName: "Text",
+            type: "string",
+        },
+        {
+            name: "font",
+            baseName: "Font",
+            type: "RenderingFont",
+        },
+        {
+            name: "image",
+            baseName: "Image",
+            type: "Array<number>",
+        },
+        {
+            name: "hAlignment",
+            baseName: "HAlignment",
+            type: "string",
+        },
+        {
+            name: "vAlignment",
+            baseName: "VAlignment",
+            type: "string",
+        },
+        {
+            name: "offsetX",
+            baseName: "OffsetX",
+            type: "number",
+        },
+        {
+            name: "offsetY",
+            baseName: "OffsetY",
+            type: "number",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return  RenderingWatermark.attributeTypeMap;
+
+    }
+
+    public rotation: number;
+    public scaleToPagePercent: number;
+    public opacity: number;
+    public isBackground: boolean;
+    public text: string;
+    public font: RenderingFont;
+    public image: Array<number>;
+    public hAlignment: string;
+    public vAlignment: string;
+    public offsetX: number;
+    public offsetY: number;
+
+    public constructor(init?: Partial< RenderingWatermark >) {  
+    
+        Object.assign(this, init);
+    } 
 }
 
 export class PageBreakOperateParameter extends OperateParameter {
@@ -12300,94 +12629,139 @@ export class PageSetupResponse extends CellsCloudResponse {
     }        
 }
 
-export class PdfSaveOptions extends SaveOptions {
-
+export class PdfSaveOptions  extends SaveOptions  {
     /**
      * Attribute type map
      */
     public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
+            name: "displayDocTitle",
+            baseName: "DisplayDocTitle",
+            type: "boolean",
+        },
+        {
+            name: "exportDocumentStructure",
+            baseName: "ExportDocumentStructure",
+            type: "boolean",
+        },
+        {
+            name: "emfRenderSetting",
+            baseName: "EmfRenderSetting",
+            type: "string",
+        },
+        {
+            name: "customPropertiesExport",
+            baseName: "CustomPropertiesExport",
+            type: "string",
+        },
+        {
+            name: "optimizationType",
+            baseName: "OptimizationType",
+            type: "string",
+        },
+        {
+            name: "producer",
+            baseName: "Producer",
+            type: "string",
+        },
+        {
+            name: "pdfCompression",
+            baseName: "PdfCompression",
+            type: "string",
+        },
+        {
+            name: "fontEncoding",
+            baseName: "FontEncoding",
+            type: "string",
+        },
+        {
+            name: "watermark",
+            baseName: "Watermark",
+            type: "RenderingWatermark",
+        },
+        {
             name: "calculateFormula",
             baseName: "CalculateFormula",
             type: "boolean",
-        },        
+        },
         {
             name: "checkFontCompatibility",
             baseName: "CheckFontCompatibility",
             type: "boolean",
-        },        
-        {
-            name: "onePagePerSheet",
-            baseName: "OnePagePerSheet",
-            type: "boolean",
-        },        
+        },
         {
             name: "compliance",
             baseName: "Compliance",
             type: "string",
-        },        
+        },
         {
             name: "defaultFont",
             baseName: "DefaultFont",
             type: "string",
-        },        
+        },
+        {
+            name: "onePagePerSheet",
+            baseName: "OnePagePerSheet",
+            type: "boolean",
+        },
         {
             name: "printingPageType",
             baseName: "PrintingPageType",
             type: "string",
-        },        
-        {
-            name: "imageType",
-            baseName: "ImageType",
-            type: "string",
-        },        
-        {
-            name: "desiredPPI",
-            baseName: "desiredPPI",
-            type: "number",
-        },        
-        {
-            name: "jpegQuality",
-            baseName: "jpegQuality",
-            type: "number",
-        },        
+        },
         {
             name: "securityOptions",
             baseName: "SecurityOptions",
             type: "PdfSecurityOptions",
-        }    ];
-
+        },
+        {
+            name: "desiredPPI",
+            baseName: "desiredPPI",
+            type: "number",
+        },
+        {
+            name: "jpegQuality",
+            baseName: "jpegQuality",
+            type: "number",
+        },
+        {
+            name: "imageType",
+            baseName: "ImageType",
+            type: "string",
+        }
+    ];
     /**
      * Returns attribute type map
      */
     public static getAttributeTypeMap() {
-        return super.getAttributeTypeMap().concat(PdfSaveOptions.attributeTypeMap);
+        return super.getAttributeTypeMap().concat(PdfSaveOptions.attributeTypeMap) ;
+
     }
 
+    public displayDocTitle: boolean;
+    public exportDocumentStructure: boolean;
+    public emfRenderSetting: string;
+    public customPropertiesExport: string;
+    public optimizationType: string;
+    public producer: string;
+    public pdfCompression: string;
+    public fontEncoding: string;
+    public watermark: RenderingWatermark;
     public calculateFormula: boolean;
-    
     public checkFontCompatibility: boolean;
-    
-    public onePagePerSheet: boolean;
-    
     public compliance: string;
-    
     public defaultFont: string;
-    
+    public onePagePerSheet: boolean;
     public printingPageType: string;
-    
-    public imageType: string;
-    
-    public desiredPPI: number;
-    
-    public jpegQuality: number;
-    
     public securityOptions: PdfSecurityOptions;
-    
-    public constructor(init?: Partial<PdfSaveOptions>) {
-        super(init);
+    public desiredPPI: number;
+    public jpegQuality: number;
+    public imageType: string;
+
+    public constructor(init?: Partial< PdfSaveOptions >) {  
+         super(init);     
         Object.assign(this, init);
-    }        
+    } 
 }
 
 export class PictureResponse extends CellsCloudResponse {
@@ -16894,6 +17268,254 @@ export class Title {
         Object.assign(this, init);
     }        
 }
+export class DigitalSignature  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "comments",
+            baseName: "Comments",
+            type: "string",
+        },
+        {
+            name: "signTime",
+            baseName: "SignTime",
+            type: "string",
+        },
+        {
+            name: "id",
+            baseName: "Id",
+            type: "string",
+        },
+        {
+            name: "password",
+            baseName: "Password",
+            type: "string",
+        },
+        {
+            name: "image",
+            baseName: "Image",
+            type: "Array<number>",
+        },
+        {
+            name: "providerId",
+            baseName: "ProviderId",
+            type: "string",
+        },
+        {
+            name: "isValid",
+            baseName: "IsValid",
+            type: "boolean",
+        },
+        {
+            name: "xAdESType",
+            baseName: "XAdESType",
+            type: "string",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return  DigitalSignature.attributeTypeMap;
+
+    }
+
+    public comments: string;
+    public signTime: string;
+    public id: string;
+    public password: string;
+    public image: Array<number>;
+    public providerId: string;
+    public isValid: boolean;
+    public xAdESType: string;
+
+    public constructor(init?: Partial< DigitalSignature >) {  
+    
+        Object.assign(this, init);
+    } 
+}
+
+export class Protection  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "allowDeletingColumn",
+            baseName: "AllowDeletingColumn",
+            type: "boolean",
+        },
+        {
+            name: "allowDeletingRow",
+            baseName: "AllowDeletingRow",
+            type: "boolean",
+        },
+        {
+            name: "allowFiltering",
+            baseName: "AllowFiltering",
+            type: "boolean",
+        },
+        {
+            name: "allowFormattingCell",
+            baseName: "AllowFormattingCell",
+            type: "boolean",
+        },
+        {
+            name: "allowFormattingColumn",
+            baseName: "AllowFormattingColumn",
+            type: "boolean",
+        },
+        {
+            name: "allowFormattingRow",
+            baseName: "AllowFormattingRow",
+            type: "boolean",
+        },
+        {
+            name: "allowInsertingColumn",
+            baseName: "AllowInsertingColumn",
+            type: "boolean",
+        },
+        {
+            name: "allowInsertingHyperlink",
+            baseName: "AllowInsertingHyperlink",
+            type: "boolean",
+        },
+        {
+            name: "allowInsertingRow",
+            baseName: "AllowInsertingRow",
+            type: "boolean",
+        },
+        {
+            name: "allowSorting",
+            baseName: "AllowSorting",
+            type: "boolean",
+        },
+        {
+            name: "allowUsingPivotTable",
+            baseName: "AllowUsingPivotTable",
+            type: "boolean",
+        },
+        {
+            name: "allowEditingContent",
+            baseName: "AllowEditingContent",
+            type: "boolean",
+        },
+        {
+            name: "allowEditingObject",
+            baseName: "AllowEditingObject",
+            type: "boolean",
+        },
+        {
+            name: "allowEditingScenario",
+            baseName: "AllowEditingScenario",
+            type: "boolean",
+        },
+        {
+            name: "password",
+            baseName: "Password",
+            type: "string",
+        },
+        {
+            name: "allowSelectingLockedCell",
+            baseName: "AllowSelectingLockedCell",
+            type: "boolean",
+        },
+        {
+            name: "allowSelectingUnlockedCell",
+            baseName: "AllowSelectingUnlockedCell",
+            type: "boolean",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return  Protection.attributeTypeMap;
+
+    }
+
+    public allowDeletingColumn: boolean;
+    public allowDeletingRow: boolean;
+    public allowFiltering: boolean;
+    public allowFormattingCell: boolean;
+    public allowFormattingColumn: boolean;
+    public allowFormattingRow: boolean;
+    public allowInsertingColumn: boolean;
+    public allowInsertingHyperlink: boolean;
+    public allowInsertingRow: boolean;
+    public allowSorting: boolean;
+    public allowUsingPivotTable: boolean;
+    public allowEditingContent: boolean;
+    public allowEditingObject: boolean;
+    public allowEditingScenario: boolean;
+    public password: string;
+    public allowSelectingLockedCell: boolean;
+    public allowSelectingUnlockedCell: boolean;
+
+    public constructor(init?: Partial< Protection >) {  
+    
+        Object.assign(this, init);
+    } 
+}
+   
+export class ProtectWorkbookRequst  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "awaysOpenOnlyReady",
+            baseName: "AwaysOpenOnlyReady",
+            type: "boolean",
+        },
+        {
+            name: "encryptWithPassword",
+            baseName: "EncryptWithPassword",
+            type: "string",
+        },
+        {
+            name: "protectCurrentSheet",
+            baseName: "ProtectCurrentSheet",
+            type: "Protection",
+        },
+        {
+            name: "protectWorkbookStructure",
+            baseName: "ProtectWorkbookStructure",
+            type: "string",
+        },
+        {
+            name: "digitalSignature",
+            baseName: "DigitalSignature",
+            type: "DigitalSignature",
+        },
+        {
+            name: "markAsFinal",
+            baseName: "MarkAsFinal",
+            type: "boolean",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return  ProtectWorkbookRequst.attributeTypeMap;
+
+    }
+
+    public awaysOpenOnlyReady: boolean;
+    public encryptWithPassword: string;
+    public protectCurrentSheet: Protection;
+    public protectWorkbookStructure: string;
+    public digitalSignature: DigitalSignature;
+    public markAsFinal: boolean;
+
+    public constructor(init?: Partial< ProtectWorkbookRequst >) {  
+    
+        Object.assign(this, init);
+    } 
+}
 
 const enumsMap = {
 };
@@ -17054,6 +17676,10 @@ const typeMap = {
     HorizontalPageBreakResponse,
     HorizontalPageBreaks,
     HorizontalPageBreaksResponse,
+    ImageOrPrintOptions,
+    Protection,
+    ProtectWorkbookRequst,
+    DigitalSignature,
     HtmlSaveOptions,
     Hyperlink,
     HyperlinkResponse,
@@ -17092,6 +17718,8 @@ const typeMap = {
     OleObjects,
     OleObjectsResponse,
     OoxmlSaveOptions,
+    RenderingFont,
+    RenderingWatermark,
     PageBreakOperateParameter,
     PageSectionsResponse,
     PageSetup,
@@ -34226,8 +34854,8 @@ export class PostUnlockRequest  {
     }
 
 }
-/// Protect MS Excel and OpenDocument Spreadsheet by making them password protected.   
-export class PostProtectRequest  {
+   
+export class PostLockRequest  {
     /// File to upload  
     public file: any;
       
@@ -34235,19 +34863,19 @@ export class PostProtectRequest  {
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostProtectRequest >) {  
+    public constructor(init?: Partial< PostLockRequest >) {  
         Object.assign(this, init);
     } 
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
-        let localVarPath = configuration.getApiBaseUrl() + "/cells/protect";
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/lock";
         const queryParameters: any = {};
         const formParams: any = {};
          
         // verify required parameter 'password' is not null or undefined
         if (this.password === null || this.password === undefined) {
-            throw new Error('Required parameter "password" was null or undefined when calling PostProtect.');
+            throw new Error('Required parameter "password" was null or undefined when calling PostLock.');
         }
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         if(this.extendQueryParameterMap !== undefined){
@@ -34264,6 +34892,52 @@ export class PostProtectRequest  {
 
         // const bodyParameter = null;
 
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        (requestOptions as any).formData = formParams;        
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Protect MS Excel and OpenDocument Spreadsheet by making them password protected.   
+export class PostProtectRequest  {
+    /// File to upload  
+    public file: any;
+      
+    public protectWorkbookRequst: ProtectWorkbookRequst;
+      
+    public password: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< PostProtectRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/protect";
+        const queryParameters: any = {};
+        const formParams: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+        if (this.file !== undefined) {
+            for (var key in this.file){
+                formParams[key] = this.file[key];
+            }
+        }
+
+        formParams["ProtectWorkbookRequst"] =JSON.stringify(this.protectWorkbookRequst );    
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -34730,6 +35404,9 @@ export class PostRepairRequest  {
             }
         }
 
+
+        // const bodyParameter = null;
+
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -34743,7 +35420,6 @@ export class PostRepairRequest  {
     }
 
 }
-
 /// Reverse rows or columns of Excel files, save as kinds of format files.   
 export class PostRotateRequest  {
     /// File to upload  
