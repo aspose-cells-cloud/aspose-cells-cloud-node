@@ -109,7 +109,87 @@ export class AboveAverage {
         Object.assign(this, init);
     }        
 }
+/// Represents user's custom calculation engine to extend the default calculation engine of Aspose.Cells.
+///     
+export class AbstractCalculationEngine  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "isParamLiteralRequired",
+            baseName: "IsParamLiteralRequired",
+            type: "boolean",
+        },
+        {
+            name: "isParamArrayModeRequired",
+            baseName: "IsParamArrayModeRequired",
+            type: "boolean",
+        },
+        {
+            name: "processBuiltInFunctions",
+            baseName: "ProcessBuiltInFunctions",
+            type: "boolean",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return  AbstractCalculationEngine.attributeTypeMap;
 
+    }
+
+    public isParamLiteralRequired: boolean;
+    public isParamArrayModeRequired: boolean;
+    public processBuiltInFunctions: boolean;
+
+    public constructor(init?: Partial< AbstractCalculationEngine >) {  
+    
+        Object.assign(this, init);
+    } 
+}
+/// Monitor for user to track the progress of formula calculation.
+///     
+export class AbstractCalculationMonitor  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "originalValue",
+            baseName: "OriginalValue",
+            type: "Object",
+        },
+        {
+            name: "valueChanged",
+            baseName: "ValueChanged",
+            type: "boolean",
+        },
+        {
+            name: "calculatedValue",
+            baseName: "CalculatedValue",
+            type: "Object",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return  AbstractCalculationMonitor.attributeTypeMap;
+
+    }
+
+    public originalValue: Object;
+    public valueChanged: boolean;
+    public calculatedValue: Object;
+
+    public constructor(init?: Partial< AbstractCalculationMonitor >) {  
+    
+        Object.assign(this, init);
+    } 
+}
+   
 export class AccessTokenResponse {
 
     /**
@@ -248,46 +328,81 @@ export class Area {
     }        
 }
 
-export class AutoFitterOptions {
-
+export class AutoFitterOptions  {
     /**
      * Attribute type map
      */
     public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            name: "ignoreHidden",
-            baseName: "IgnoreHidden",
-            type: "boolean",
-        },        
-        {
-            name: "onlyAuto",
-            baseName: "OnlyAuto",
-            type: "boolean",
-        },        
+            name: "autoFitMergedCellsType",
+            baseName: "AutoFitMergedCellsType",
+            type: "string",
+        },
         {
             name: "autoFitMergedCells",
             baseName: "AutoFitMergedCells",
             type: "boolean",
-        }    ];
-
+        },
+        {
+            name: "ignoreHidden",
+            baseName: "IgnoreHidden",
+            type: "boolean",
+        },
+        {
+            name: "onlyAuto",
+            baseName: "OnlyAuto",
+            type: "boolean",
+        },
+        {
+            name: "defaultEditLanguage",
+            baseName: "DefaultEditLanguage",
+            type: "string",
+        },
+        {
+            name: "maxRowHeight",
+            baseName: "MaxRowHeight",
+            type: "number",
+        },
+        {
+            name: "autoFitWrappedTextType",
+            baseName: "AutoFitWrappedTextType",
+            type: "string",
+        },
+        {
+            name: "formatStrategy",
+            baseName: "FormatStrategy",
+            type: "string",
+        },
+        {
+            name: "forRendering",
+            baseName: "ForRendering",
+            type: "boolean",
+        }
+    ];
     /**
      * Returns attribute type map
      */
     public static getAttributeTypeMap() {
-        return AutoFitterOptions.attributeTypeMap;
+        return  AutoFitterOptions.attributeTypeMap;
+
     }
 
-    public ignoreHidden: boolean;
-    
-    public onlyAuto: boolean;
-    
+    public autoFitMergedCellsType: string;
     public autoFitMergedCells: boolean;
+    public ignoreHidden: boolean;
+    public onlyAuto: boolean;
+    public defaultEditLanguage: string;
+    public maxRowHeight: number;
+    public autoFitWrappedTextType: string;
+    public formatStrategy: string;
+    public forRendering: boolean;
+
+    public constructor(init?: Partial< AutoFitterOptions >) {  
     
-    public constructor(init?: Partial<AutoFitterOptions>) {
-        
         Object.assign(this, init);
-    }        
+    } 
 }
+
 export class Axis {
 
     /**
@@ -1127,54 +1242,69 @@ export class Border {
     }        
 }
 
-export class CalculationOptions {
-
+export class CalculationOptions  {
     /**
      * Attribute type map
      */
     public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            name: "precisionStrategy",
-            baseName: "PrecisionStrategy",
-            type: "string",
-        },        
+            name: "calcStackSize",
+            baseName: "CalcStackSize",
+            type: "number",
+        },
         {
             name: "ignoreError",
             baseName: "IgnoreError",
             type: "boolean",
-        },        
+        },
+        {
+            name: "precisionStrategy",
+            baseName: "PrecisionStrategy",
+            type: "string",
+        },
         {
             name: "recursive",
             baseName: "Recursive",
             type: "boolean",
-        },        
+        },
         {
-            name: "calcStackSize",
-            baseName: "CalcStackSize",
-            type: "number",
-        }    ];
-
+            name: "customEngine",
+            baseName: "CustomEngine",
+            type: "AbstractCalculationEngine",
+        },
+        {
+            name: "calculationMonitor",
+            baseName: "CalculationMonitor",
+            type: "AbstractCalculationMonitor",
+        },
+        {
+            name: "linkedDataSources",
+            baseName: "LinkedDataSources",
+            type: "Array<Workbook>",
+        }
+    ];
     /**
      * Returns attribute type map
      */
     public static getAttributeTypeMap() {
-        return CalculationOptions.attributeTypeMap;
+        return  CalculationOptions.attributeTypeMap;
+
     }
 
-    public precisionStrategy: string;
-    
-    public ignoreError: boolean;
-    
-    public recursive: boolean;
-    
     public calcStackSize: number;
-    
-    public constructor(init?: Partial<CalculationOptions>) {
-        
-        Object.assign(this, init);
-    }        
-}
+    public ignoreError: boolean;
+    public precisionStrategy: string;
+    public recursive: boolean;
+    public customEngine: AbstractCalculationEngine;
+    public calculationMonitor: AbstractCalculationMonitor;
+    public linkedDataSources: Array<Workbook>;
 
+    public constructor(init?: Partial< CalculationOptions >) {  
+    
+        Object.assign(this, init);
+    } 
+}
+   
 export class CellArea {
 
     /**
@@ -3444,66 +3574,57 @@ export class LinkElement {
     }        
 }
 
-export class ListColumn {
-
+export class ListColumn  {
     /**
      * Attribute type map
      */
     public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            name: "totalsCalculation",
-            baseName: "TotalsCalculation",
-            type: "string",
-        },        
-        {
             name: "name",
             baseName: "Name",
             type: "string",
-        },        
-        {
-            name: "formula",
-            baseName: "Formula",
-            type: "string",
-        },        
+        },
         {
             name: "range",
             baseName: "Range",
             type: "Range",
-        }    ];
-
+        },
+        {
+            name: "totalsCalculation",
+            baseName: "TotalsCalculation",
+            type: "string",
+        },
+        {
+            name: "formula",
+            baseName: "Formula",
+            type: "string",
+        },
+        {
+            name: "totalsRowLabel",
+            baseName: "TotalsRowLabel",
+            type: "string",
+        }
+    ];
     /**
      * Returns attribute type map
      */
     public static getAttributeTypeMap() {
-        return ListColumn.attributeTypeMap;
+        return  ListColumn.attributeTypeMap;
+
     }
 
-    /**
-     * Gets and sets the type of calculation in the Totals row of the list column.
-     */
-    public totalsCalculation: string;
-    
-    /**
-     * Gets and sets the name of the column.
-     */
     public name: string;
-    
-    /**
-     * Gets and sets the formula of the list column.
-     */
-    public formula: string;
-    
-    /**
-     * Gets and sets the formula of the list column.
-     */
     public range: Range;
-    
-    public constructor(init?: Partial<ListColumn>) {
-        
-        Object.assign(this, init);
-    }        
-}
+    public totalsCalculation: string;
+    public formula: string;
+    public totalsRowLabel: string;
 
+    public constructor(init?: Partial< ListColumn >) {  
+    
+        Object.assign(this, init);
+    } 
+}
+   
 export class MatchConditionRequest {
 
     /**
@@ -5934,6 +6055,39 @@ export class StorageFile {
     }        
 }
 
+export class RangeSortRequest  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "dataSorter",
+            baseName: "DataSorter",
+            type: "DataSorter",
+        },
+        {
+            name: "cellArea",
+            baseName: "CellArea",
+            type: "Range",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return  RangeSortRequest.attributeTypeMap;
+
+    }
+
+    public dataSorter: DataSorter;
+    public cellArea: Range;
+
+    public constructor(init?: Partial< RangeSortRequest >) {  
+    
+        Object.assign(this, init);
+    } 
+}
+   
 export class TableTotalRequest {
 
     /**
@@ -6341,6 +6495,229 @@ export class Top10 {
     }        
 }
 
+export class FormulaFormatCondition  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "formula1",
+            baseName: "Formula1",
+            type: "string",
+        },
+        {
+            name: "formula2",
+            baseName: "Formula2",
+            type: "string",
+        },
+        {
+            name: "operator",
+            baseName: "Operator",
+            type: "string",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return  FormulaFormatCondition.attributeTypeMap;
+
+    }
+
+    public formula1: string;
+    public formula2: string;
+    public operator: string;
+
+    public constructor(init?: Partial< FormulaFormatCondition >) {  
+    
+        Object.assign(this, init);
+    } 
+}
+/// Settings of formulas and calculation.
+///     
+export class FormulaSettings  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "calculateOnOpen",
+            baseName: "CalculateOnOpen",
+            type: "boolean",
+        },
+        {
+            name: "calculateOnSave",
+            baseName: "CalculateOnSave",
+            type: "boolean",
+        },
+        {
+            name: "forceFullCalculation",
+            baseName: "ForceFullCalculation",
+            type: "boolean",
+        },
+        {
+            name: "calculationMode",
+            baseName: "CalculationMode",
+            type: "string",
+        },
+        {
+            name: "calculationId",
+            baseName: "CalculationId",
+            type: "string",
+        },
+        {
+            name: "enableIterativeCalculation",
+            baseName: "EnableIterativeCalculation",
+            type: "boolean",
+        },
+        {
+            name: "maxIteration",
+            baseName: "MaxIteration",
+            type: "number",
+        },
+        {
+            name: "maxChange",
+            baseName: "MaxChange",
+            type: "number",
+        },
+        {
+            name: "precisionAsDisplayed",
+            baseName: "PrecisionAsDisplayed",
+            type: "boolean",
+        },
+        {
+            name: "enableCalculationChain",
+            baseName: "EnableCalculationChain",
+            type: "boolean",
+        },
+        {
+            name: "preservePaddingSpaces",
+            baseName: "PreservePaddingSpaces",
+            type: "boolean",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return  FormulaSettings.attributeTypeMap;
+
+    }
+
+    public calculateOnOpen: boolean;
+    public calculateOnSave: boolean;
+    public forceFullCalculation: boolean;
+    public calculationMode: string;
+    public calculationId: string;
+    public enableIterativeCalculation: boolean;
+    public maxIteration: number;
+    public maxChange: number;
+    public precisionAsDisplayed: boolean;
+    public enableCalculationChain: boolean;
+    public preservePaddingSpaces: boolean;
+
+    public constructor(init?: Partial< FormulaSettings >) {  
+    
+        Object.assign(this, init);
+    } 
+}
+/// Represents the globalization settings for chart.
+///     
+export class ChartGlobalizationSettings  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return  ChartGlobalizationSettings.attributeTypeMap;
+
+    }
+
+
+    public constructor(init?: Partial< ChartGlobalizationSettings >) {  
+    
+        Object.assign(this, init);
+    } 
+}
+/// Represents the globalization settings for pivot tables.
+///     
+export class PivotGlobalizationSettings  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return  PivotGlobalizationSettings.attributeTypeMap;
+
+    }
+
+
+    public constructor(init?: Partial< PivotGlobalizationSettings >) {  
+    
+        Object.assign(this, init);
+    } 
+}
+/// Represents the globalization settings.
+///     
+export class GlobalizationSettings  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "chartSettings",
+            baseName: "ChartSettings",
+            type: "ChartGlobalizationSettings",
+        },
+        {
+            name: "pivotSettings",
+            baseName: "PivotSettings",
+            type: "PivotGlobalizationSettings",
+        },
+        {
+            name: "listSeparator",
+            baseName: "ListSeparator",
+            type: "string",
+        },
+        {
+            name: "rowSeparatorOfFormulaArray",
+            baseName: "RowSeparatorOfFormulaArray",
+            type: "string",
+        },
+        {
+            name: "columnSeparatorOfFormulaArray",
+            baseName: "ColumnSeparatorOfFormulaArray",
+            type: "string",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return  GlobalizationSettings.attributeTypeMap;
+
+    }
+
+    public chartSettings: ChartGlobalizationSettings;
+    public pivotSettings: PivotGlobalizationSettings;
+    public listSeparator: string;
+    public rowSeparatorOfFormulaArray: string;
+    public columnSeparatorOfFormulaArray: string;
+
+    public constructor(init?: Partial< GlobalizationSettings >) {  
+    
+        Object.assign(this, init);
+    } 
+}
+
 export class Top10Filter {
 
     /**
@@ -6644,437 +7021,450 @@ export class WorkbookProtectionRequest {
     }        
 }
 
-export class WorkbookSettings {
-
+export class WriteProtection  {
     /**
      * Attribute type map
      */
     public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            name: "numberGroupSeparator",
-            baseName: "NumberGroupSeparator",
+            name: "author",
+            baseName: "Author",
             type: "string",
-        },        
-        {
-            name: "hidePivotFieldList",
-            baseName: "HidePivotFieldList",
-            type: "boolean",
-        },        
-        {
-            name: "isMinimized",
-            baseName: "IsMinimized",
-            type: "boolean",
-        },        
-        {
-            name: "calculationId",
-            baseName: "CalculationId",
-            type: "string",
-        },        
-        {
-            name: "reCalculateOnOpen",
-            baseName: "ReCalculateOnOpen",
-            type: "boolean",
-        },        
-        {
-            name: "checkExcelRestriction",
-            baseName: "CheckExcelRestriction",
-            type: "boolean",
-        },        
-        {
-            name: "isHScrollBarVisible",
-            baseName: "IsHScrollBarVisible",
-            type: "boolean",
-        },        
-        {
-            name: "windowHeight",
-            baseName: "WindowHeight",
-            type: "number",
-        },        
-        {
-            name: "windowLeft",
-            baseName: "WindowLeft",
-            type: "number",
-        },        
-        {
-            name: "calcStackSize",
-            baseName: "CalcStackSize",
-            type: "number",
-        },        
-        {
-            name: "shared",
-            baseName: "Shared",
-            type: "boolean",
-        },        
-        {
-            name: "removePersonalInformation",
-            baseName: "RemovePersonalInformation",
-            type: "boolean",
-        },        
-        {
-            name: "languageCode",
-            baseName: "LanguageCode",
-            type: "string",
-        },        
-        {
-            name: "enableMacros",
-            baseName: "EnableMacros",
-            type: "boolean",
-        },        
-        {
-            name: "isDefaultEncrypted",
-            baseName: "IsDefaultEncrypted",
-            type: "boolean",
-        },        
-        {
-            name: "recalculateBeforeSave",
-            baseName: "RecalculateBeforeSave",
-            type: "boolean",
-        },        
-        {
-            name: "parsingFormulaOnOpen",
-            baseName: "ParsingFormulaOnOpen",
-            type: "boolean",
-        },        
-        {
-            name: "windowTop",
-            baseName: "WindowTop",
-            type: "number",
-        },        
-        {
-            name: "region",
-            baseName: "Region",
-            type: "string",
-        },        
-        {
-            name: "memorySetting",
-            baseName: "MemorySetting",
-            type: "string",
-        },        
-        {
-            name: "updateAdjacentCellsBorder",
-            baseName: "UpdateAdjacentCellsBorder",
-            type: "boolean",
-        },        
-        {
-            name: "crashSave",
-            baseName: "CrashSave",
-            type: "boolean",
-        },        
-        {
-            name: "showTabs",
-            baseName: "ShowTabs",
-            type: "boolean",
-        },        
-        {
-            name: "precisionAsDisplayed",
-            baseName: "PrecisionAsDisplayed",
-            type: "boolean",
-        },        
-        {
-            name: "calcMode",
-            baseName: "CalcMode",
-            type: "string",
-        },        
-        {
-            name: "autoCompressPictures",
-            baseName: "AutoCompressPictures",
-            type: "boolean",
-        },        
-        {
-            name: "date1904",
-            baseName: "Date1904",
-            type: "boolean",
-        },        
-        {
-            name: "numberDecimalSeparator",
-            baseName: "NumberDecimalSeparator",
-            type: "string",
-        },        
-        {
-            name: "iteration",
-            baseName: "Iteration",
-            type: "boolean",
-        },        
-        {
-            name: "checkComptiliblity",
-            baseName: "CheckComptiliblity",
-            type: "boolean",
-        },        
-        {
-            name: "autoRecover",
-            baseName: "AutoRecover",
-            type: "boolean",
-        },        
-        {
-            name: "maxChange",
-            baseName: "MaxChange",
-            type: "number",
-        },        
-        {
-            name: "dataExtractLoad",
-            baseName: "DataExtractLoad",
-            type: "boolean",
-        },        
-        {
-            name: "firstVisibleTab",
-            baseName: "FirstVisibleTab",
-            type: "number",
-        },        
-        {
-            name: "isHidden",
-            baseName: "IsHidden",
-            type: "boolean",
-        },        
+        },
         {
             name: "recommendReadOnly",
             baseName: "RecommendReadOnly",
             type: "boolean",
-        },        
+        },
         {
-            name: "displayDrawingObjects",
-            baseName: "DisplayDrawingObjects",
-            type: "string",
-        },        
-        {
-            name: "buildVersion",
-            baseName: "BuildVersion",
-            type: "string",
-        },        
-        {
-            name: "isVScrollBarVisible",
-            baseName: "IsVScrollBarVisible",
+            name: "isWriteProtected",
+            baseName: "IsWriteProtected",
             type: "boolean",
-        },        
+        },
         {
-            name: "windowWidth",
-            baseName: "WindowWidth",
-            type: "number",
-        },        
-        {
-            name: "createCalcChain",
-            baseName: "CreateCalcChain",
-            type: "boolean",
-        },        
-        {
-            name: "maxIteration",
-            baseName: "MaxIteration",
-            type: "number",
-        },        
-        {
-            name: "repairLoad",
-            baseName: "RepairLoad",
-            type: "boolean",
-        },        
-        {
-            name: "updateLinksType",
-            baseName: "UpdateLinksType",
+            name: "password",
+            baseName: "Password",
             type: "string",
-        },        
-        {
-            name: "sheetTabBarWidth",
-            baseName: "SheetTabBarWidth",
-            type: "number",
-        }    ];
-
+        }
+    ];
     /**
      * Returns attribute type map
      */
     public static getAttributeTypeMap() {
-        return WorkbookSettings.attributeTypeMap;
+        return  WriteProtection.attributeTypeMap;
+
     }
 
-    public numberGroupSeparator: string;
-    
-    public hidePivotFieldList: boolean;
-    
-    /**
-     * Represents whether the generated spreadsheet will be opened Minimized.             
-     */
-    public isMinimized: boolean;
-    
-    /**
-     * Specifies the version of the calculation engine used to calculate values in the workbook.             
-     */
-    public calculationId: string;
-    
-    /**
-     * Indicates whether re-calculate all formulas on opening file.             
-     */
-    public reCalculateOnOpen: boolean;
-    
-    /**
-     * Whether check restriction of excel file when user modify cells related objects.  For example, excel does not allow inputting string value longer than 32K.  When you input a value longer than 32K such as by Cell.PutValue(string), if this property is true, you will get an Exception.  If this property is false, we will accept your input string value as the cell's value so that later you can output the complete string value for other file formats such as CSV.  However, if you have set such kind of value that is invalid for excel file format, you should not save the workbook as excel file format later. Otherwise there may be unexpected error for the generated excel file.             
-     */
-    public checkExcelRestriction: boolean;
-    
-    /**
-     * Gets or sets a value indicating whether the generated spreadsheet will contain a horizontal scroll bar.                           Remarks: The default value is true.              
-     */
-    public isHScrollBarVisible: boolean;
-    
-    /**
-     * The height of the window, in unit of point.             
-     */
-    public windowHeight: number;
-    
-    /**
-     * The distance from the left edge of the client area to the left edge of the window, in unit of point.             
-     */
-    public windowLeft: number;
-    
-    /**
-     * Specifies the stack size for calculating cells recursively.  The large value for this size will give better performance when there are lots of cells need to be calculated recursively.  On the other hand, larger value will raise the stakes of StackOverflowException.  If use gets StackOverflowException when calculating formulas, this value should be decreased.             
-     */
-    public calcStackSize: number;
-    
-    /**
-     * Gets or sets a value that indicates whether the Workbook is shared.                           Remarks: The default value is false.              
-     */
-    public shared: boolean;
-    
-    public removePersonalInformation: boolean;
-    
-    /**
-     * Gets or sets the user interface language of the Workbook version based on CountryCode that has saved the file.             
-     */
-    public languageCode: string;
-    
-    public enableMacros: boolean;
-    
-    public isDefaultEncrypted: boolean;
-    
-    /**
-     * Indicates whether to recalculate before saving the document.             
-     */
-    public recalculateBeforeSave: boolean;
-    
-    /**
-     * Indicates whether parsing the formula when reading the file.                           Remarks: Only applies for Excel Xlsx,Xltx, Xltm,Xlsm file because the formulas in the files are stored with a string formula.              
-     */
-    public parsingFormulaOnOpen: boolean;
-    
-    /**
-     * The distance from the top edge of the client area to the top edge of the window, in unit of point.             
-     */
-    public windowTop: number;
-    
-    /**
-     * Gets or sets the system regional settings based on CountryCode at the time the file was saved.                           Remarks: If you do not want to use the region saved in the file, please reset it after reading the file.              
-     */
-    public region: string;
-    
-    public memorySetting: string;
-    
-    /**
-     * Indicates whether update adjacent cells' border.                           Remarks: The default value is true.  For example: the bottom border of the cell A1 is update, the top border of the cell A2 should be changed too.              
-     */
-    public updateAdjacentCellsBorder: boolean;
-    
-    public crashSave: boolean;
-    
-    /**
-     * Get or sets a value whether the Workbook tabs are displayed.                           Remarks: The default value is true.              
-     */
-    public showTabs: boolean;
-    
-    /**
-     * True if calculations in this workbook will be done using only the precision of the numbers as they're displayed             
-     */
-    public precisionAsDisplayed: boolean;
-    
-    /**
-     * It specifies whether to calculate formulas manually, automatically or automatically except for multiple table operations.             
-     */
-    public calcMode: string;
-    
-    public autoCompressPictures: boolean;
-    
-    /**
-     * Gets or sets a value which represents if the workbook uses the 1904 date system.             
-     */
-    public date1904: boolean;
-    
-    public numberDecimalSeparator: string;
-    
-    /**
-     * Indicates if Aspose.Cells will use iteration to resolve circular references.             
-     */
-    public iteration: boolean;
-    
-    /**
-     * Indicates whether check comptiliblity when saving workbook.                           Remarks:  The default value is true.              
-     */
-    public checkComptiliblity: boolean;
-    
-    public autoRecover: boolean;
-    
-    /**
-     * Returns or sets the maximum number of change that Microsoft Excel can use to resolve a circular reference.             
-     */
-    public maxChange: number;
-    
-    public dataExtractLoad: boolean;
-    
-    /**
-     * Gets or sets the first visible worksheet tab.             
-     */
-    public firstVisibleTab: number;
-    
-    /**
-     * Indicates whether this workbook is hidden.             
-     */
-    public isHidden: boolean;
-    
-    /**
-     * Indicates if the Read Only Recommended option is selected.             
-     */
+    public author: string;
     public recommendReadOnly: boolean;
-    
-    /**
-     * Indicates whether and how to show objects in the workbook.             
-     */
-    public displayDrawingObjects: string;
-    
-    /**
-     * Specifies the incremental public release of the application.             
-     */
-    public buildVersion: string;
-    
-    /**
-     * Gets or sets a value indicating whether the generated spreadsheet will contain a vertical scroll bar.                           Remarks: The default value is true.              
-     */
-    public isVScrollBarVisible: boolean;
-    
-    /**
-     * The width of the window, in unit of point.             
-     */
-    public windowWidth: number;
-    
-    /**
-     * Indicates whether create calculated formulas chain.             
-     */
-    public createCalcChain: boolean;
-    
-    /**
-     * Returns or sets the maximum number of iterations that Aspose.Cells can use to resolve a circular reference.             
-     */
-    public maxIteration: number;
-    
-    public repairLoad: boolean;
-    
-    public updateLinksType: string;
-    
-    /**
-     * Width of worksheet tab bar (in 1/1000 of window width).             
-     */
-    public sheetTabBarWidth: number;
-    
-    public constructor(init?: Partial<WorkbookSettings>) {
-        
-        Object.assign(this, init);
-    }        
-}
+    public isWriteProtected: boolean;
+    public password: string;
 
+    public constructor(init?: Partial< WriteProtection >) {  
+    
+        Object.assign(this, init);
+    } 
+}
+   
+export class WorkbookSettings  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "autoCompressPictures",
+            baseName: "AutoCompressPictures",
+            type: "boolean",
+        },
+        {
+            name: "autoRecover",
+            baseName: "AutoRecover",
+            type: "boolean",
+        },
+        {
+            name: "buildVersion",
+            baseName: "BuildVersion",
+            type: "string",
+        },
+        {
+            name: "calcMode",
+            baseName: "CalcMode",
+            type: "string",
+        },
+        {
+            name: "calcStackSize",
+            baseName: "CalcStackSize",
+            type: "number",
+        },
+        {
+            name: "calculationId",
+            baseName: "CalculationId",
+            type: "string",
+        },
+        {
+            name: "checkComptiliblity",
+            baseName: "CheckComptiliblity",
+            type: "boolean",
+        },
+        {
+            name: "checkExcelRestriction",
+            baseName: "CheckExcelRestriction",
+            type: "boolean",
+        },
+        {
+            name: "crashSave",
+            baseName: "CrashSave",
+            type: "boolean",
+        },
+        {
+            name: "createCalcChain",
+            baseName: "CreateCalcChain",
+            type: "boolean",
+        },
+        {
+            name: "dataExtractLoad",
+            baseName: "DataExtractLoad",
+            type: "boolean",
+        },
+        {
+            name: "date1904",
+            baseName: "Date1904",
+            type: "boolean",
+        },
+        {
+            name: "displayDrawingObjects",
+            baseName: "DisplayDrawingObjects",
+            type: "string",
+        },
+        {
+            name: "enableMacros",
+            baseName: "EnableMacros",
+            type: "boolean",
+        },
+        {
+            name: "firstVisibleTab",
+            baseName: "FirstVisibleTab",
+            type: "number",
+        },
+        {
+            name: "hidePivotFieldList",
+            baseName: "HidePivotFieldList",
+            type: "boolean",
+        },
+        {
+            name: "isDefaultEncrypted",
+            baseName: "IsDefaultEncrypted",
+            type: "boolean",
+        },
+        {
+            name: "isHidden",
+            baseName: "IsHidden",
+            type: "boolean",
+        },
+        {
+            name: "isHScrollBarVisible",
+            baseName: "IsHScrollBarVisible",
+            type: "boolean",
+        },
+        {
+            name: "isMinimized",
+            baseName: "IsMinimized",
+            type: "boolean",
+        },
+        {
+            name: "isVScrollBarVisible",
+            baseName: "IsVScrollBarVisible",
+            type: "boolean",
+        },
+        {
+            name: "iteration",
+            baseName: "Iteration",
+            type: "boolean",
+        },
+        {
+            name: "languageCode",
+            baseName: "LanguageCode",
+            type: "string",
+        },
+        {
+            name: "maxChange",
+            baseName: "MaxChange",
+            type: "number",
+        },
+        {
+            name: "maxIteration",
+            baseName: "MaxIteration",
+            type: "number",
+        },
+        {
+            name: "memorySetting",
+            baseName: "MemorySetting",
+            type: "string",
+        },
+        {
+            name: "numberDecimalSeparator",
+            baseName: "NumberDecimalSeparator",
+            type: "string",
+        },
+        {
+            name: "numberGroupSeparator",
+            baseName: "NumberGroupSeparator",
+            type: "string",
+        },
+        {
+            name: "parsingFormulaOnOpen",
+            baseName: "ParsingFormulaOnOpen",
+            type: "boolean",
+        },
+        {
+            name: "precisionAsDisplayed",
+            baseName: "PrecisionAsDisplayed",
+            type: "boolean",
+        },
+        {
+            name: "recalculateBeforeSave",
+            baseName: "RecalculateBeforeSave",
+            type: "boolean",
+        },
+        {
+            name: "reCalculateOnOpen",
+            baseName: "ReCalculateOnOpen",
+            type: "boolean",
+        },
+        {
+            name: "recommendReadOnly",
+            baseName: "RecommendReadOnly",
+            type: "boolean",
+        },
+        {
+            name: "region",
+            baseName: "Region",
+            type: "string",
+        },
+        {
+            name: "removePersonalInformation",
+            baseName: "RemovePersonalInformation",
+            type: "boolean",
+        },
+        {
+            name: "repairLoad",
+            baseName: "RepairLoad",
+            type: "boolean",
+        },
+        {
+            name: "shared",
+            baseName: "Shared",
+            type: "boolean",
+        },
+        {
+            name: "sheetTabBarWidth",
+            baseName: "SheetTabBarWidth",
+            type: "number",
+        },
+        {
+            name: "showTabs",
+            baseName: "ShowTabs",
+            type: "boolean",
+        },
+        {
+            name: "updateAdjacentCellsBorder",
+            baseName: "UpdateAdjacentCellsBorder",
+            type: "boolean",
+        },
+        {
+            name: "updateLinksType",
+            baseName: "UpdateLinksType",
+            type: "string",
+        },
+        {
+            name: "windowHeight",
+            baseName: "WindowHeight",
+            type: "number",
+        },
+        {
+            name: "windowLeft",
+            baseName: "WindowLeft",
+            type: "number",
+        },
+        {
+            name: "windowTop",
+            baseName: "WindowTop",
+            type: "number",
+        },
+        {
+            name: "windowWidth",
+            baseName: "WindowWidth",
+            type: "number",
+        },
+        {
+            name: "author",
+            baseName: "Author",
+            type: "string",
+        },
+        {
+            name: "checkCustomNumberFormat",
+            baseName: "CheckCustomNumberFormat",
+            type: "boolean",
+        },
+        {
+            name: "protectionType",
+            baseName: "ProtectionType",
+            type: "string",
+        },
+        {
+            name: "globalizationSettings",
+            baseName: "GlobalizationSettings",
+            type: "GlobalizationSettings",
+        },
+        {
+            name: "password",
+            baseName: "Password",
+            type: "string",
+        },
+        {
+            name: "writeProtection",
+            baseName: "WriteProtection",
+            type: "WriteProtection",
+        },
+        {
+            name: "isEncrypted",
+            baseName: "IsEncrypted",
+            type: "boolean",
+        },
+        {
+            name: "isProtected",
+            baseName: "IsProtected",
+            type: "boolean",
+        },
+        {
+            name: "maxRow",
+            baseName: "MaxRow",
+            type: "number",
+        },
+        {
+            name: "maxColumn",
+            baseName: "MaxColumn",
+            type: "number",
+        },
+        {
+            name: "significantDigits",
+            baseName: "SignificantDigits",
+            type: "number",
+        },
+        {
+            name: "checkCompatibility",
+            baseName: "CheckCompatibility",
+            type: "boolean",
+        },
+        {
+            name: "paperSize",
+            baseName: "PaperSize",
+            type: "string",
+        },
+        {
+            name: "maxRowsOfSharedFormula",
+            baseName: "MaxRowsOfSharedFormula",
+            type: "number",
+        },
+        {
+            name: "compliance",
+            baseName: "Compliance",
+            type: "string",
+        },
+        {
+            name: "quotePrefixToStyle",
+            baseName: "QuotePrefixToStyle",
+            type: "boolean",
+        },
+        {
+            name: "formulaSettings",
+            baseName: "FormulaSettings",
+            type: "FormulaSettings",
+        },
+        {
+            name: "forceFullCalculate",
+            baseName: "ForceFullCalculate",
+            type: "boolean",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return  WorkbookSettings.attributeTypeMap;
+
+    }
+
+    public autoCompressPictures: boolean;
+    public autoRecover: boolean;
+    public buildVersion: string;
+    public calcMode: string;
+    public calcStackSize: number;
+    public calculationId: string;
+    public checkComptiliblity: boolean;
+    public checkExcelRestriction: boolean;
+    public crashSave: boolean;
+    public createCalcChain: boolean;
+    public dataExtractLoad: boolean;
+    public date1904: boolean;
+    public displayDrawingObjects: string;
+    public enableMacros: boolean;
+    public firstVisibleTab: number;
+    public hidePivotFieldList: boolean;
+    public isDefaultEncrypted: boolean;
+    public isHidden: boolean;
+    public isHScrollBarVisible: boolean;
+    public isMinimized: boolean;
+    public isVScrollBarVisible: boolean;
+    public iteration: boolean;
+    public languageCode: string;
+    public maxChange: number;
+    public maxIteration: number;
+    public memorySetting: string;
+    public numberDecimalSeparator: string;
+    public numberGroupSeparator: string;
+    public parsingFormulaOnOpen: boolean;
+    public precisionAsDisplayed: boolean;
+    public recalculateBeforeSave: boolean;
+    public reCalculateOnOpen: boolean;
+    public recommendReadOnly: boolean;
+    public region: string;
+    public removePersonalInformation: boolean;
+    public repairLoad: boolean;
+    public shared: boolean;
+    public sheetTabBarWidth: number;
+    public showTabs: boolean;
+    public updateAdjacentCellsBorder: boolean;
+    public updateLinksType: string;
+    public windowHeight: number;
+    public windowLeft: number;
+    public windowTop: number;
+    public windowWidth: number;
+    public author: string;
+    public checkCustomNumberFormat: boolean;
+    public protectionType: string;
+    public globalizationSettings: GlobalizationSettings;
+    public password: string;
+    public writeProtection: WriteProtection;
+    public isEncrypted: boolean;
+    public isProtected: boolean;
+    public maxRow: number;
+    public maxColumn: number;
+    public significantDigits: number;
+    public checkCompatibility: boolean;
+    public paperSize: string;
+    public maxRowsOfSharedFormula: number;
+    public compliance: string;
+    public quotePrefixToStyle: boolean;
+    public formulaSettings: FormulaSettings;
+    public forceFullCalculate: boolean;
+
+    public constructor(init?: Partial< WorkbookSettings >) {  
+    
+        Object.assign(this, init);
+    } 
+}
+   
 export class Worksheet {
 
     /**
@@ -11061,181 +11451,151 @@ export class LineResponse extends CellsCloudResponse {
     }        
 }
 
-export class ListObject {
-
+export class ListObject extends LinkElement {
     /**
      * Attribute type map
      */
     public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            name: "link",
-            baseName: "link",
-            type: "Link",
-        },        
-        {
-            name: "showTotals",
-            baseName: "ShowTotals",
-            type: "boolean",
-        },        
-        {
-            name: "tableStyleType",
-            baseName: "TableStyleType",
-            type: "string",
-        },        
+            name: "autoFilter",
+            baseName: "AutoFilter",
+            type: "AutoFilter",
+        },
         {
             name: "displayName",
             baseName: "DisplayName",
             type: "string",
-        },        
-        {
-            name: "showHeaderRow",
-            baseName: "ShowHeaderRow",
-            type: "boolean",
-        },        
+        },
         {
             name: "startColumn",
             baseName: "StartColumn",
             type: "number",
-        },        
-        {
-            name: "showTableStyleLastColumn",
-            baseName: "ShowTableStyleLastColumn",
-            type: "boolean",
-        },        
-        {
-            name: "showTableStyleColumnStripes",
-            baseName: "ShowTableStyleColumnStripes",
-            type: "boolean",
-        },        
-        {
-            name: "showTableStyleFirstColumn",
-            baseName: "ShowTableStyleFirstColumn",
-            type: "boolean",
-        },        
+        },
         {
             name: "startRow",
             baseName: "StartRow",
             type: "number",
-        },        
-        {
-            name: "autoFilter",
-            baseName: "AutoFilter",
-            type: "AutoFilter",
-        },        
-        {
-            name: "showTableStyleRowStripes",
-            baseName: "ShowTableStyleRowStripes",
-            type: "boolean",
-        },        
+        },
         {
             name: "endColumn",
             baseName: "EndColumn",
             type: "number",
-        },        
-        {
-            name: "tableStyleName",
-            baseName: "TableStyleName",
-            type: "string",
-        },        
-        {
-            name: "listColumns",
-            baseName: "ListColumns",
-            type: "Array<ListColumn>",
-        },        
+        },
         {
             name: "endRow",
             baseName: "EndRow",
             type: "number",
-        }    ];
-
+        },
+        {
+            name: "listColumns",
+            baseName: "ListColumns",
+            type: "Array<ListColumn>",
+        },
+        {
+            name: "showHeaderRow",
+            baseName: "ShowHeaderRow",
+            type: "boolean",
+        },
+        {
+            name: "showTableStyleColumnStripes",
+            baseName: "ShowTableStyleColumnStripes",
+            type: "boolean",
+        },
+        {
+            name: "showTableStyleFirstColumn",
+            baseName: "ShowTableStyleFirstColumn",
+            type: "boolean",
+        },
+        {
+            name: "showTableStyleLastColumn",
+            baseName: "ShowTableStyleLastColumn",
+            type: "boolean",
+        },
+        {
+            name: "showTableStyleRowStripes",
+            baseName: "ShowTableStyleRowStripes",
+            type: "boolean",
+        },
+        {
+            name: "showTotals",
+            baseName: "ShowTotals",
+            type: "boolean",
+        },
+        {
+            name: "tableStyleName",
+            baseName: "TableStyleName",
+            type: "string",
+        },
+        {
+            name: "tableStyleType",
+            baseName: "TableStyleType",
+            type: "string",
+        },
+        {
+            name: "dataRange",
+            baseName: "DataRange",
+            type: "Range",
+        },
+        {
+            name: "dataSourceType",
+            baseName: "DataSourceType",
+            type: "string",
+        },
+        {
+            name: "comment",
+            baseName: "Comment",
+            type: "string",
+        },
+        {
+            name: "xmlMap",
+            baseName: "XmlMap",
+            type: "XmlMap",
+        },
+        {
+            name: "alternativeText",
+            baseName: "AlternativeText",
+            type: "string",
+        },
+        {
+            name: "alternativeDescription",
+            baseName: "AlternativeDescription",
+            type: "string",
+        }
+    ];
     /**
      * Returns attribute type map
      */
     public static getAttributeTypeMap() {
-        return ListObject.attributeTypeMap;
+        return super.getAttributeTypeMap().concat(ListObject.attributeTypeMap) ;
+
     }
 
-    public link: Link;
-    
-    /**
-     * Gets and sets whether this ListObject show total row.
-     */
-    public showTotals: boolean;
-    
-    /**
-     * Gets and the built-in table style.
-     */
-    public tableStyleType: string;
-    
-    /**
-     * Gets and sets the display name.Gets the data range of the ListObject.
-     */
-    public displayName: string;
-    
-    /**
-     * Gets and sets whether this ListObject show header row.             
-     */
-    public showHeaderRow: boolean;
-    
-    /**
-     * Gets the start column of the range.
-     */
-    public startColumn: number;
-    
-    /**
-     * Indicates whether the last column in the table should have the style applied.
-     */
-    public showTableStyleLastColumn: boolean;
-    
-    /**
-     * Indicates whether column stripe formatting is applied.
-     */
-    public showTableStyleColumnStripes: boolean;
-    
-    /**
-     * Inidicates whether the first column in the table should have the style applied.
-     */
-    public showTableStyleFirstColumn: boolean;
-    
-    /**
-     * Gets the start row of the range.
-     */
-    public startRow: number;
-    
-    /**
-     * Gets auto filter.             
-     */
     public autoFilter: AutoFilter;
-    
-    /**
-     * Indicates whether row stripe formatting is applied.
-     */
-    public showTableStyleRowStripes: boolean;
-    
-    /**
-     * Gets the end column of the range.
-     */
+    public displayName: string;
+    public startColumn: number;
+    public startRow: number;
     public endColumn: number;
-    
-    /**
-     * Gets and sets the table style name.
-     */
-    public tableStyleName: string;
-    
-    /**
-     * Gets ListColumns of the ListObject.
-     */
-    public listColumns: Array<ListColumn>;
-    
-    /**
-     * Gets the end row of the range.
-     */
     public endRow: number;
-    
-    public constructor(init?: Partial<ListObject>) {
-        
+    public listColumns: Array<ListColumn>;
+    public showHeaderRow: boolean;
+    public showTableStyleColumnStripes: boolean;
+    public showTableStyleFirstColumn: boolean;
+    public showTableStyleLastColumn: boolean;
+    public showTableStyleRowStripes: boolean;
+    public showTotals: boolean;
+    public tableStyleName: string;
+    public tableStyleType: string;
+    public dataRange: Range;
+    public dataSourceType: string;
+    public comment: string;
+    public xmlMap: XmlMap;
+    public alternativeText: string;
+    public alternativeDescription: string;
+
+    public constructor(init?: Partial< ListObject >) {  
+         super(init);     
         Object.assign(this, init);
-    }        
+    } 
 }
 
 export class ListObjectOperateParameter extends OperateParameter {
@@ -13673,6 +14033,56 @@ export class RangesResponse extends CellsCloudResponse {
     }        
 }
 
+export class QueryTable  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "connectionId",
+            baseName: "ConnectionId",
+            type: "number",
+        },
+        {
+            name: "name",
+            baseName: "Name",
+            type: "string",
+        },
+        {
+            name: "resultRange",
+            baseName: "ResultRange",
+            type: "Range",
+        },
+        {
+            name: "preserveFormatting",
+            baseName: "PreserveFormatting",
+            type: "boolean",
+        },
+        {
+            name: "adjustColumnWidth",
+            baseName: "AdjustColumnWidth",
+            type: "boolean",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return  QueryTable.attributeTypeMap;
+
+    }
+
+    public connectionId: number;
+    public name: string;
+    public resultRange: Range;
+    public preserveFormatting: boolean;
+    public adjustColumnWidth: boolean;
+
+    public constructor(init?: Partial< QueryTable >) {  
+    
+        Object.assign(this, init);
+    } 
+}
 export class Row {
 
     /**
@@ -17516,6 +17926,75 @@ export class ProtectWorkbookRequst  {
         Object.assign(this, init);
     } 
 }
+/// Represents Xml Data Binding information.
+///     
+export class XmlDataBinding  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "url",
+            baseName: "Url",
+            type: "string",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return  XmlDataBinding.attributeTypeMap;
+
+    }
+
+    public url: string;
+
+    public constructor(init?: Partial< XmlDataBinding >) {  
+    
+        Object.assign(this, init);
+    } 
+}
+/// Represents Xml map information.
+///     
+export class XmlMap  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "name",
+            baseName: "Name",
+            type: "string",
+        },
+        {
+            name: "rootElementName",
+            baseName: "RootElementName",
+            type: "string",
+        },
+        {
+            name: "dataBinding",
+            baseName: "DataBinding",
+            type: "XmlDataBinding",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return  XmlMap.attributeTypeMap;
+
+    }
+
+    public name: string;
+    public rootElementName: string;
+    public dataBinding: XmlDataBinding;
+
+    public constructor(init?: Partial< XmlMap >) {  
+    
+        Object.assign(this, init);
+    } 
+}
+ 
 
 const enumsMap = {
 };
@@ -17523,6 +18002,8 @@ const enumsMap = {
 const typeMap = {
     Point,
     AboveAverage,
+    AbstractCalculationEngine,
+    AbstractCalculationMonitor,
     AccessTokenResponse,
     Area,
     AutoFitterOptions,
@@ -17577,6 +18058,7 @@ const typeMap = {
     Link,
     LinkElement,
     ListColumn,
+    QueryTable,
     ImportXMLRequest,
     MatchConditionRequest,
     MultipleFilter,
@@ -17625,12 +18107,19 @@ const typeMap = {
     TilePicOption,
     Top10,
     Top10Filter,
+    ChartGlobalizationSettings,
+    PivotGlobalizationSettings,
+    GlobalizationSettings,
+    FormulaFormatCondition,
+    FormulaSettings,
     ValueType,
     VerticalPageBreak,
     Workbook,
     WorkbookEncryptionRequest,
     WorkbookProtectionRequest,
     WorkbookSettings,
+    RangeSortRequest,
+    WriteProtection,
     Worksheet,
     WorksheetMovingRequest,
     AutoFilter,
@@ -17796,6 +18285,8 @@ const typeMap = {
     OleObject,
     Picture,
     Title,
+    XmlDataBinding,
+    XmlMap,
 };
 
 
@@ -24571,6 +25062,7 @@ export class CellsRanges_PostWorksheetCellsRangeMoveToRequest {
         Object.assign(this, init);
     } 
 }
+
 
 /**
  * Request model for CellsRanges_PostWorksheetCellsRangeOutlineBorder operation.
@@ -36129,6 +36621,115 @@ export class PostWorksheetListColumnRequest  {
     }
 
 }
+
+/// Remove duplicates on list object.   
+export class PostWorksheetListObjectRemoveDuplicatesRequest  {
+      
+    public name: string;
+      
+    public sheetName: string;
+      
+    public listObjectIndex: number;
+      
+    public folder: string;
+      
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< PostWorksheetListObjectRemoveDuplicatesRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/listobjects/{listObjectIndex}/RemoveDuplicates".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "listObjectIndex" + "}", String(this.listObjectIndex));
+        const queryParameters: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Insert slicer for list object.   
+export class PostWorksheetListObjectInsertSlicerRequest  {
+      
+    public name: string;
+      
+    public sheetName: string;
+      
+    public listObjectIndex: number;
+      
+    public columnIndex: number;
+      
+    public destCellName: string;
+      
+    public folder: string;
+      
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< PostWorksheetListObjectInsertSlicerRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/listobjects/{listObjectIndex}/InsertSlicer".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "listObjectIndex" + "}", String(this.listObjectIndex));
+        const queryParameters: any = {};
+         
+        // verify required parameter 'columnIndex' is not null or undefined
+        if (this.columnIndex === null || this.columnIndex === undefined) {
+            throw new Error('Required parameter "columnIndex" was null or undefined when calling PostWorksheetListObjectInsertSlicer.');
+        }
+         
+        // verify required parameter 'destCellName' is not null or undefined
+        if (this.destCellName === null || this.destCellName === undefined) {
+            throw new Error('Required parameter "destCellName" was null or undefined when calling PostWorksheetListObjectInsertSlicer.');
+        }
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "columnIndex", this.columnIndex);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "destCellName", this.destCellName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
 /// Update table total of list columns.   
 export class PostWorksheetListColumnsTotalRequest  {
     /// The workbook name.  
@@ -39346,6 +39947,54 @@ export class PostWorksheetCellsRangeMoveToRequest  {
     }
 
 }
+
+/// Sets outline border around a range of cells.   
+export class PostWorksheetCellsRangeSortRequest  {
+    /// The workbook name.  
+    public name: string;
+    /// The worksheet name.  
+    public sheetName: string;
+    /// Range Set OutlineBorder Request   
+    public rangeOperate: RangeSortRequest;
+    /// Original workbook folder.  
+    public folder: string;
+    /// Storage name.  
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< PostWorksheetCellsRangeSortRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/ranges/sort".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
+        const queryParameters: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        const bodyParameter = (this.rangeOperate == null) ? null :   ObjectSerializer.serialize( this.rangeOperate,this.rangeOperate.constructor.name);
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+            body:bodyParameter,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+
 /// Sets outline border around a range of cells.   
 export class PostWorksheetCellsRangeOutlineBorderRequest  {
     /// The workbook name.  

@@ -2256,7 +2256,37 @@ export class CellsApi {
         const result =  ObjectSerializer.deserialize(response.body, "CellsCloudResponse");
         return Promise.resolve({body: result, response});
     }
+    /// <summary>
+    /// Remove duplicates on list object.
+    /// </summary>
+    /// <param name="request">Request. <see cref="PostWorksheetListObjectRemoveDuplicatesRequest" /></param>
+    public async postWorksheetListObjectRemoveDuplicates(requestObj:model.PostWorksheetListObjectRemoveDuplicatesRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling postWorksheetListObjectRemoveDuplicates.');
+        }
 
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "CellsCloudResponse");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// Insert slicer for list object.
+    /// </summary>
+    /// <param name="request">Request. <see cref="PostWorksheetListObjectInsertSlicerRequest" /></param>
+    public async postWorksheetListObjectInsertSlicer(requestObj:model.PostWorksheetListObjectInsertSlicerRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling postWorksheetListObjectInsertSlicer.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "CellsCloudResponse");
+        return Promise.resolve({body: result, response});
+    }
     /// <summary>
     /// </summary>
     /// <param name="request">Request. <see cref="PostWorksheetListColumnRequest" /></param>
@@ -3235,6 +3265,21 @@ export class CellsApi {
     {
         if (requestObj === null || requestObj === undefined) {
             throw new Error('Required parameter "requestObj" was null or undefined when calling postWorksheetCellsRangeMoveTo.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "CellsCloudResponse");
+        return Promise.resolve({body: result, response});
+    }
+    /// <summary>
+    /// Sets outline border around a range of cells.
+    /// </summary>
+    /// <param name="request">Request. <see cref="PostWorksheetCellsRangeSortRequest" /></param>
+    public async postWorksheetCellsRangeSort(requestObj:model.PostWorksheetCellsRangeSortRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling postWorksheetCellsRangeSort.');
         }
 
         const requestOptions = await requestObj.createRequestOptions(this.configuration);
