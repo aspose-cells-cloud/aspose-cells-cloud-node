@@ -18,27 +18,28 @@ describe('LightCells test', function() {
     this.timeout(200000);
     const cellsApi = new api.CellsApi(clientId, clientSecret,"v3.0",ApiURL);
 
-    describe('post_metadata test', function(){
-      it("should call PostMetadata successfully" , function(){
+    describe('convert_workbook_csv test', function(){
+      it("should call PutConvertWorkbook successfully" , function(){
+        var remoteFolder = "htmlToExcelFilesData/"
       
-        var book1Xlsx = "Book1.xlsx"
-
+        var localName = "ToxXlsx.html"
+        var remoteName = "output-fje5tj.xlsx"
      
+        var format = "html"
+
         var mapFiles = {};           
 
-        var cellsDocumentscellsDocument0 = new model.CellsDocumentProperty();
-        cellsDocumentscellsDocument0.name = "Author"  ;
-        cellsDocumentscellsDocument0.value = "roy.wang"  ;
-        var cellsDocuments = new Array<model.CellsDocumentProperty>();
-        cellsDocuments.push(cellsDocumentscellsDocument0);
-        mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
+        mapFiles[localName]= fs.createReadStream(localPath  +localName) ;
 
-        var request = new model.PostMetadataRequest();
+        var request = new model.PutConvertWorkbookRequest();
         request.file =  mapFiles;
-        request.cellsDocuments =  cellsDocuments;
-        return cellsApi.postMetadata(request).then((result) => {
+        request.format = "xlsx";
+        request.streamFormat =  format;
+        request.outPath = remoteFolder + remoteName;
+        return cellsApi.putConvertWorkbook(request).then((result) => {
+            expect(result.response.statusCode).to.equal(200);
         });
       });
-    });
+    }); 
 
 });
