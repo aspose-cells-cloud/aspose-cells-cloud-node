@@ -326,4 +326,56 @@ describe('ListObjectsController test', function() {
         });
       });
     }); 
+    describe('post_worksheet_list_object_remove_duplicates test', function(){
+      it("should call PostWorksheetListObjectRemoveDuplicates successfully" , function(){
+        var remoteFolder = "TestData/In"
+      
+        var localName = "TestTables.xlsx"
+        var remoteName = "TestTables.xlsx"
+
+        var localNameRequest = new  model.UploadFileRequest();
+        localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
+        localNameRequest.path = remoteFolder + "/" + remoteName ;
+        localNameRequest.storageName ="";
+        cellsApi.uploadFile(localNameRequest );
+     
+
+        var request = new model.PostWorksheetListObjectRemoveDuplicatesRequest();
+        request.name =  remoteName;
+        request.sheetName =  "Sheet2";
+        request.listObjectIndex =  0;
+        request.folder =  remoteFolder;
+        request.storageName =  "";
+        return cellsApi.postWorksheetListObjectRemoveDuplicates(request).then((result) => {
+            expect(result.response.statusCode).to.equal(200);
+        });
+      });
+    }); 
+    describe('post_worksheet_list_object_insert_slicer test', function(){
+      it("should call PostWorksheetListObjectInsertSlicer successfully" , function(){
+        var remoteFolder = "TestData/In"
+      
+        var localName = "TestTables.xlsx"
+        var remoteName = "TestTables.xlsx"
+
+        var localNameRequest = new  model.UploadFileRequest();
+        localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
+        localNameRequest.path = remoteFolder + "/" + remoteName ;
+        localNameRequest.storageName ="";
+        cellsApi.uploadFile(localNameRequest );
+     
+
+        var request = new model.PostWorksheetListObjectInsertSlicerRequest();
+        request.name =  remoteName;
+        request.sheetName =  "Sheet1";
+        request.listObjectIndex =  0;
+        request.columnIndex =  2;
+        request.destCellName =  "j9";
+        request.folder =  remoteFolder;
+        request.storageName =  "";
+        return cellsApi.postWorksheetListObjectInsertSlicer(request).then((result) => {
+            expect(result.response.statusCode).to.equal(200);
+        });
+      });
+    }); 
 });

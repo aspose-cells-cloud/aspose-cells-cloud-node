@@ -401,4 +401,39 @@ describe('RangesController test', function() {
         });
       });
     }); 
+    describe('post_worksheet_cells_range_sort test', function(){
+      it("should call PostWorksheetCellsRangeSort successfully" , function(){
+        var remoteFolder = "TestData/In"
+      
+        var localName = "Group.xlsx"
+        var remoteName = "Group.xlsx"
+
+        var localNameRequest = new  model.UploadFileRequest();
+        localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
+        localNameRequest.path = remoteFolder + "/" + remoteName ;
+        localNameRequest.storageName ="";
+        cellsApi.uploadFile(localNameRequest );
+     
+        var rangeOperateDataSorter = new model.DataSorter();
+         rangeOperateDataSorter.caseSensitive = true  ;
+        var rangeOperateCellArea = new model.Range();
+         rangeOperateCellArea.columnCount = 3  ;
+         rangeOperateCellArea.firstColumn = 0  ;
+         rangeOperateCellArea.firstRow = 0  ;
+         rangeOperateCellArea.rowCount = 15  ;
+        var rangeOperate = new model.RangeSortRequest();
+         rangeOperate.dataSorter = rangeOperateDataSorter  ;
+         rangeOperate.cellArea = rangeOperateCellArea  ;
+
+        var request = new model.PostWorksheetCellsRangeSortRequest();
+        request.name =  remoteName;
+        request.sheetName =  "book1";
+        request.rangeOperate =  rangeOperate;
+        request.folder =  remoteFolder;
+        request.storageName =  "";
+        return cellsApi.postWorksheetCellsRangeSort(request).then((result) => {
+            expect(result.response.statusCode).to.equal(200);
+        });
+      });
+    }); 
 });
