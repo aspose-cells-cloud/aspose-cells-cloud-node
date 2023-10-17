@@ -46,13 +46,13 @@ describe('RangesController test', function() {
          rangeOperate.source = rangeOperateSource  ;
          rangeOperate.target = rangeOperateTarget  ;
 
-        var request = new model.PostWorksheetCellsRangesRequest();
+        var request = new model.PostWorksheetCellsRangesCopyRequest();
         request.name =  remoteName;
         request.sheetName =  "Sheet1";
         request.rangeOperate =  rangeOperate;
         request.folder =  remoteFolder;
         request.storageName =  "";
-        return cellsApi.postWorksheetCellsRanges(request).then((result) => {
+        return cellsApi.postWorksheetCellsRangesCopy(request).then((result) => {
             expect(result.response.statusCode).to.equal(200);
         });
       });

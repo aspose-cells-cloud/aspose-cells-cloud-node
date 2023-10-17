@@ -922,7 +922,7 @@ describe('WorksheetController test', function() {
         cellsApi.uploadFile(localNameRequest );
      
         var sheet = new model.Worksheet();
-         sheet.name = "sheet65"  ;
+         sheet.name = "sheet6"  ;
          sheet.isGridlinesVisible = true  ;
 
         var request = new model.PostUpdateWorksheetPropertyRequest();
