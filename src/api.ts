@@ -3171,7 +3171,7 @@ export class CellsApi {
     /// <summary>
     /// </summary>
     /// <param name="request">Request. <see cref="PostWorksheetCellsRangesRequest" /></param>
-    public async postWorksheetCellsRanges(requestObj:model.PostWorksheetCellsRangesRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
+    public async postWorksheetCellsRangesCopy(requestObj:model.PostWorksheetCellsRangesCopyRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
     {
         if (requestObj === null || requestObj === undefined) {
             throw new Error('Required parameter "requestObj" was null or undefined when calling postWorksheetCellsRanges.');

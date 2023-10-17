@@ -17870,14 +17870,14 @@ export class Protection  {
     } 
 }
    
-export class ProtectWorkbookRequst  {
+export class ProtectWorkbookRequest  {
     /**
      * Attribute type map
      */
     public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            name: "awaysOpenOnlyReady",
-            baseName: "AwaysOpenOnlyReady",
+            name: "awaysOpenReadOnly",
+            baseName: "AwaysOpenReadOnly",
             type: "boolean",
         },
         {
@@ -17910,18 +17910,18 @@ export class ProtectWorkbookRequst  {
      * Returns attribute type map
      */
     public static getAttributeTypeMap() {
-        return  ProtectWorkbookRequst.attributeTypeMap;
+        return  ProtectWorkbookRequest.attributeTypeMap;
 
     }
 
-    public awaysOpenOnlyReady: boolean;
+    public awaysOpenReadOnly: boolean;
     public encryptWithPassword: string;
     public protectCurrentSheet: Protection;
     public protectWorkbookStructure: string;
     public digitalSignature: DigitalSignature;
     public markAsFinal: boolean;
 
-    public constructor(init?: Partial< ProtectWorkbookRequst >) {  
+    public constructor(init?: Partial< ProtectWorkbookRequest >) {  
     
         Object.assign(this, init);
     } 
@@ -18167,7 +18167,7 @@ const typeMap = {
     HorizontalPageBreaksResponse,
     ImageOrPrintOptions,
     Protection,
-    ProtectWorkbookRequst,
+    ProtectWorkbookRequest,
     DigitalSignature,
     HtmlSaveOptions,
     Hyperlink,
@@ -35402,7 +35402,7 @@ export class PostProtectRequest  {
     /// File to upload  
     public file: any;
       
-    public protectWorkbookRequst: ProtectWorkbookRequst;
+    public ProtectWorkbookRequest: ProtectWorkbookRequest;
       
     public password: string;
     /// extend query parameter
@@ -35429,7 +35429,7 @@ export class PostProtectRequest  {
             }
         }
 
-        formParams["ProtectWorkbookRequst"] =JSON.stringify(this.protectWorkbookRequst );    
+        formParams["ProtectWorkbookRequest"] =JSON.stringify(this.ProtectWorkbookRequest );    
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -39581,7 +39581,7 @@ export class DeleteDocumentPropertiesRequest  {
 
 }
 /// Copys content to destination range from source range in worksheet.   
-export class PostWorksheetCellsRangesRequest  {
+export class PostWorksheetCellsRangesCopyRequest  {
     /// The workbook name.  
     public name: string;
     /// The worksheet name.  
@@ -39595,7 +39595,7 @@ export class PostWorksheetCellsRangesRequest  {
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostWorksheetCellsRangesRequest >) {  
+    public constructor(init?: Partial< PostWorksheetCellsRangesCopyRequest >) {  
         Object.assign(this, init);
     } 
 
@@ -41192,7 +41192,7 @@ export class DeleteUnProtectWorkbookRequest  {
     /// The workbook name.  
     public name: string;
     /// Protection settings, only password can be specified.  
-    public protection: WorkbookProtectionRequest;
+    public password: string;
     /// Original workbook folder.  
     public folder: string;
     /// Storage name.  
@@ -41208,6 +41208,7 @@ export class DeleteUnProtectWorkbookRequest  {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/protection".replace("{" + "name" + "}", String(this.name));
         const queryParameters: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "passwrod", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
         if(this.extendQueryParameterMap !== undefined){
@@ -41215,15 +41216,11 @@ export class DeleteUnProtectWorkbookRequest  {
                 localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
             }
         }
-
-
-        const bodyParameter = (this.protection == null) ? null :   ObjectSerializer.serialize( this.protection,this.protection.constructor.name);
         const requestOptions: request.Options = {
             method: "DELETE",
             qs: queryParameters,
             uri: localVarPath,
             json: true,
-            body:bodyParameter,
         };
 
         return Promise.resolve(requestOptions);

@@ -4451,7 +4451,8 @@ describe('LightCells test', function() {
         var request = new model.PostProtectRequest();
         request.file =  mapFiles;
         request.password =  "123456";
-        request.protectWorkbookRequst = new  model.ProtectWorkbookRequst();
+        request.ProtectWorkbookRequest = new  model.ProtectWorkbookRequest();
+        request.ProtectWorkbookRequest.awaysOpenReadOnly = true;
         return cellsApi.postProtect(request).then((result) => {
             expect(result.response.statusCode).to.equal(200);
         });
