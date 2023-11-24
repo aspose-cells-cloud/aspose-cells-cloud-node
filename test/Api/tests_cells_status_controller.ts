@@ -20,10 +20,10 @@ describe('CellsStatusController test', function() {
 
     describe('get_cells_cloud_services_health_check test', function(){
       it("should call GetCellsCloudServicesHealthCheck successfully" , function(){
-        var remoteFolder = "TestData/In"
+        var remoteFolder = "TestData/In";
       
-        var localName = "Book1.xlsx"
-        var remoteName = "Book1.xlsx"
+        var localName = "Book1.xlsx";
+        var remoteName = "Book1.xlsx";
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -40,10 +40,10 @@ describe('CellsStatusController test', function() {
     }); 
     describe('get_cells_cloud_service_status test', function(){
       it("should call GetCellsCloudServiceStatus successfully" , function(){
-        var remoteFolder = "TestData/In"
+        var remoteFolder = "TestData/In";
       
-        var localName = "Book1.xlsx"
-        var remoteName = "Book1.xlsx"
+        var localName = "Book1.xlsx";
+        var remoteName = "Book1.xlsx";
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};

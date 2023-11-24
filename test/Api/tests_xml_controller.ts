@@ -20,10 +20,10 @@ describe('XmlController test', function() {
 
     describe('post_workbook_export_xml test', function(){
       it("should call PostWorkbookExportXML successfully" , function(){
-        var remoteFolder = "TestData/In"
+        var remoteFolder = "TestData/In";
       
-        var localName = "Template.xlsx"
-        var remoteName = "Template.xlsx"
+        var localName = "Template.xlsx";
+        var remoteName = "Template.xlsx";
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -43,11 +43,11 @@ describe('XmlController test', function() {
     }); 
     describe('post_workbook_import_xml test', function(){
       it("should call PostWorkbookImportXML successfully" , function(){
-        var remoteFolder = "TestData/In"
+        var remoteFolder = "TestData/In";
       
-        var localName = "Template.xlsx"
-        var dataXML = "data.xml"
-        var remoteName = "Template.xlsx"
+        var localName = "Template.xlsx";
+        var dataXML = "data.xml";
+        var remoteName = "Template.xlsx";
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -72,8 +72,8 @@ describe('XmlController test', function() {
          importXMLRequest.importPosition = importXMLRequestImportPosition  ;
 
         var request = new model.PostWorkbookImportXMLRequest();
-        request.importXMLRequest = importXMLRequest;
         request.name =  remoteName;
+        request.importXMLRequest =  importXMLRequest;
         request.folder =  remoteFolder;
         request.storageName =  "";
         return cellsApi.postWorkbookImportXML(request).then((result) => {

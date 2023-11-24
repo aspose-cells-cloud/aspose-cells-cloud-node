@@ -20,10 +20,10 @@ describe('ChartAreaController test', function() {
 
     describe('get_chart_area test', function(){
       it("should call GetChartArea successfully" , function(){
-        var remoteFolder = "TestData/In"
+        var remoteFolder = "TestData/In";
       
-        var localName = "Book1.xlsx"
-        var remoteName = "Book1.xlsx"
+        var localName = "Book1.xlsx";
+        var remoteName = "Book1.xlsx";
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -45,10 +45,10 @@ describe('ChartAreaController test', function() {
     }); 
     describe('get_chart_area_fill_format test', function(){
       it("should call GetChartAreaFillFormat successfully" , function(){
-        var remoteFolder = "TestData/In"
+        var remoteFolder = "TestData/In";
       
-        var localName = "Book1.xlsx"
-        var remoteName = "Book1.xlsx"
+        var localName = "Book1.xlsx";
+        var remoteName = "Book1.xlsx";
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -70,10 +70,10 @@ describe('ChartAreaController test', function() {
     }); 
     describe('get_chart_area_border test', function(){
       it("should call GetChartAreaBorder successfully" , function(){
-        var remoteFolder = "TestData/In"
+        var remoteFolder = "TestData/In";
       
-        var localName = "Book1.xlsx"
-        var remoteName = "Book1.xlsx"
+        var localName = "Book1.xlsx";
+        var remoteName = "Book1.xlsx";
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};

@@ -18,12 +18,12 @@ describe('HypelinksController test', function() {
     this.timeout(200000);
     const cellsApi = new api.CellsApi(clientId, clientSecret,"v3.0",ApiURL);
 
-    describe('get_work_sheet_hyperlinks test', function(){
-      it("should call GetWorkSheetHyperlinks successfully" , function(){
-        var remoteFolder = "TestData/In"
+    describe('get_worksheet_hyperlinks test', function(){
+      it("should call GetWorksheetHyperlinks successfully" , function(){
+        var remoteFolder = "TestData/In";
       
-        var localName = "Book1.xlsx"
-        var remoteName = "Book1.xlsx"
+        var localName = "Book1.xlsx";
+        var remoteName = "Book1.xlsx";
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -32,22 +32,22 @@ describe('HypelinksController test', function() {
         cellsApi.uploadFile(localNameRequest );
      
 
-        var request = new model.GetWorkSheetHyperlinksRequest();
+        var request = new model.GetWorksheetHyperlinksRequest();
         request.name =  remoteName;
         request.sheetName =  "Sheet1";
         request.folder =  remoteFolder;
         request.storageName =  "";
-        return cellsApi.getWorkSheetHyperlinks(request).then((result) => {
+        return cellsApi.getWorksheetHyperlinks(request).then((result) => {
             expect(result.response.statusCode).to.equal(200);
         });
       });
     }); 
-    describe('get_work_sheet_hyperlink test', function(){
-      it("should call GetWorkSheetHyperlink successfully" , function(){
-        var remoteFolder = "TestData/In"
+    describe('get_worksheet_hyperlink test', function(){
+      it("should call GetWorksheetHyperlink successfully" , function(){
+        var remoteFolder = "TestData/In";
       
-        var localName = "Book1.xlsx"
-        var remoteName = "Book1.xlsx"
+        var localName = "Book1.xlsx";
+        var remoteName = "Book1.xlsx";
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -56,48 +56,48 @@ describe('HypelinksController test', function() {
         cellsApi.uploadFile(localNameRequest );
      
 
-        var request = new model.GetWorkSheetHyperlinkRequest();
-        request.name =  remoteName;
-        request.sheetName =  "Sheet1";
-        request.hyperlinkIndex =  0;
-        request.folder =  remoteFolder;
-        request.storageName =  "";
-        return cellsApi.getWorkSheetHyperlink(request).then((result) => {
-            expect(result.response.statusCode).to.equal(200);
-        });
-      });
-    }); 
-    describe('delete_work_sheet_hyperlink test', function(){
-      it("should call DeleteWorkSheetHyperlink successfully" , function(){
-        var remoteFolder = "TestData/In"
-      
-        var localName = "Book1.xlsx"
-        var remoteName = "Book1.xlsx"
-
-        var localNameRequest = new  model.UploadFileRequest();
-        localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
-        localNameRequest.path = remoteFolder + "/" + remoteName ;
-        localNameRequest.storageName ="";
-        cellsApi.uploadFile(localNameRequest );
-     
-
-        var request = new model.DeleteWorkSheetHyperlinkRequest();
+        var request = new model.GetWorksheetHyperlinkRequest();
         request.name =  remoteName;
         request.sheetName =  "Sheet1";
         request.hyperlinkIndex =  0;
         request.folder =  remoteFolder;
         request.storageName =  "";
-        return cellsApi.deleteWorkSheetHyperlink(request).then((result) => {
+        return cellsApi.getWorksheetHyperlink(request).then((result) => {
             expect(result.response.statusCode).to.equal(200);
         });
       });
     }); 
-    describe('post_work_sheet_hyperlink test', function(){
-      it("should call PostWorkSheetHyperlink successfully" , function(){
-        var remoteFolder = "TestData/In"
+    describe('delete_worksheet_hyperlink test', function(){
+      it("should call DeleteWorksheetHyperlink successfully" , function(){
+        var remoteFolder = "TestData/In";
       
-        var localName = "Book1.xlsx"
-        var remoteName = "Book1.xlsx"
+        var localName = "Book1.xlsx";
+        var remoteName = "Book1.xlsx";
+
+        var localNameRequest = new  model.UploadFileRequest();
+        localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
+        localNameRequest.path = remoteFolder + "/" + remoteName ;
+        localNameRequest.storageName ="";
+        cellsApi.uploadFile(localNameRequest );
+     
+
+        var request = new model.DeleteWorksheetHyperlinkRequest();
+        request.name =  remoteName;
+        request.sheetName =  "Sheet1";
+        request.hyperlinkIndex =  0;
+        request.folder =  remoteFolder;
+        request.storageName =  "";
+        return cellsApi.deleteWorksheetHyperlink(request).then((result) => {
+            expect(result.response.statusCode).to.equal(200);
+        });
+      });
+    }); 
+    describe('post_worksheet_hyperlink test', function(){
+      it("should call PostWorksheetHyperlink successfully" , function(){
+        var remoteFolder = "TestData/In";
+      
+        var localName = "Book1.xlsx";
+        var remoteName = "Book1.xlsx";
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -108,24 +108,24 @@ describe('HypelinksController test', function() {
         var hyperlink = new model.Hyperlink();
          hyperlink.address = "https://products.aspose.cloud/cells/"  ;
 
-        var request = new model.PostWorkSheetHyperlinkRequest();
+        var request = new model.PostWorksheetHyperlinkRequest();
         request.name =  remoteName;
         request.sheetName =  "Sheet1";
         request.hyperlinkIndex =  0;
         request.hyperlink =  hyperlink;
         request.folder =  remoteFolder;
         request.storageName =  "";
-        return cellsApi.postWorkSheetHyperlink(request).then((result) => {
+        return cellsApi.postWorksheetHyperlink(request).then((result) => {
             expect(result.response.statusCode).to.equal(200);
         });
       });
     }); 
-    describe('put_work_sheet_hyperlink test', function(){
-      it("should call PutWorkSheetHyperlink successfully" , function(){
-        var remoteFolder = "TestData/In"
+    describe('put_worksheet_hyperlink test', function(){
+      it("should call PutWorksheetHyperlink successfully" , function(){
+        var remoteFolder = "TestData/In";
       
-        var localName = "Book1.xlsx"
-        var remoteName = "Book1.xlsx"
+        var localName = "Book1.xlsx";
+        var remoteName = "Book1.xlsx";
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -134,7 +134,7 @@ describe('HypelinksController test', function() {
         cellsApi.uploadFile(localNameRequest );
      
 
-        var request = new model.PutWorkSheetHyperlinkRequest();
+        var request = new model.PutWorksheetHyperlinkRequest();
         request.name =  remoteName;
         request.sheetName =  "Sheet1";
         request.firstRow =  1;
@@ -144,17 +144,17 @@ describe('HypelinksController test', function() {
         request.address =  "https://products.aspose.cloud/cells/";
         request.folder =  remoteFolder;
         request.storageName =  "";
-        return cellsApi.putWorkSheetHyperlink(request).then((result) => {
+        return cellsApi.putWorksheetHyperlink(request).then((result) => {
             expect(result.response.statusCode).to.equal(200);
         });
       });
     }); 
-    describe('delete_work_sheet_hyperlinks test', function(){
-      it("should call DeleteWorkSheetHyperlinks successfully" , function(){
-        var remoteFolder = "TestData/In"
+    describe('delete_worksheet_hyperlinks test', function(){
+      it("should call DeleteWorksheetHyperlinks successfully" , function(){
+        var remoteFolder = "TestData/In";
       
-        var localName = "Book1.xlsx"
-        var remoteName = "Book1.xlsx"
+        var localName = "Book1.xlsx";
+        var remoteName = "Book1.xlsx";
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -163,12 +163,12 @@ describe('HypelinksController test', function() {
         cellsApi.uploadFile(localNameRequest );
      
 
-        var request = new model.DeleteWorkSheetHyperlinksRequest();
+        var request = new model.DeleteWorksheetHyperlinksRequest();
         request.name =  remoteName;
         request.sheetName =  "Sheet1";
         request.folder =  remoteFolder;
         request.storageName =  "";
-        return cellsApi.deleteWorkSheetHyperlinks(request).then((result) => {
+        return cellsApi.deleteWorksheetHyperlinks(request).then((result) => {
             expect(result.response.statusCode).to.equal(200);
         });
       });

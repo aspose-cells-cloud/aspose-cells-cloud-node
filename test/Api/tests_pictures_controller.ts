@@ -20,10 +20,10 @@ describe('PicturesController test', function() {
 
     describe('get_worksheet_pictures test', function(){
       it("should call GetWorksheetPictures successfully" , function(){
-        var remoteFolder = "TestData/In"
+        var remoteFolder = "TestData/In";
       
-        var localName = "Book1.xlsx"
-        var remoteName = "Book1.xlsx"
+        var localName = "Book1.xlsx";
+        var remoteName = "Book1.xlsx";
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -44,10 +44,10 @@ describe('PicturesController test', function() {
     }); 
     describe('get_worksheet_picture_with_format test', function(){
       it("should call GetWorksheetPictureWithFormat successfully" , function(){
-        var remoteFolder = "TestData/In"
+        var remoteFolder = "TestData/In";
       
-        var localName = "Book1.xlsx"
-        var remoteName = "Book1.xlsx"
+        var localName = "Book1.xlsx";
+        var remoteName = "Book1.xlsx";
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -70,11 +70,11 @@ describe('PicturesController test', function() {
     }); 
     describe('put_worksheet_add_picture test', function(){
       it("should call PutWorksheetAddPicture successfully" , function(){
-        var remoteFolder = "TestData/In"
+        var remoteFolder = "TestData/In";
       
-        var localName = "Book1.xlsx"
-        var waterMarkPNG = "WaterMark.png"
-        var remoteName = "Book1.xlsx"
+        var localName = "Book1.xlsx";
+        var waterMarkPNG = "WaterMark.png";
+        var remoteName = "Book1.xlsx";
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -103,12 +103,12 @@ describe('PicturesController test', function() {
         });
       });
     }); 
-    describe('post_work_sheet_picture test', function(){
-      it("should call PostWorkSheetPicture successfully" , function(){
-        var remoteFolder = "TestData/In"
+    describe('post_worksheet_picture test', function(){
+      it("should call PostWorksheetPicture successfully" , function(){
+        var remoteFolder = "TestData/In";
       
-        var localName = "Book1.xlsx"
-        var remoteName = "Book1.xlsx"
+        var localName = "Book1.xlsx";
+        var remoteName = "Book1.xlsx";
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -120,24 +120,24 @@ describe('PicturesController test', function() {
          picture.left = 10  ;
          picture.bottom = 10  ;
 
-        var request = new model.PostWorkSheetPictureRequest();
+        var request = new model.PostWorksheetPictureRequest();
         request.name =  remoteName;
         request.sheetName =  "Sheet6";
         request.pictureIndex =  0;
         request.picture =  picture;
         request.folder =  remoteFolder;
         request.storageName =  "";
-        return cellsApi.postWorkSheetPicture(request).then((result) => {
+        return cellsApi.postWorksheetPicture(request).then((result) => {
             expect(result.response.statusCode).to.equal(200);
         });
       });
     }); 
     describe('delete_worksheet_picture test', function(){
       it("should call DeleteWorksheetPicture successfully" , function(){
-        var remoteFolder = "TestData/In"
+        var remoteFolder = "TestData/In";
       
-        var localName = "Book1.xlsx"
-        var remoteName = "Book1.xlsx"
+        var localName = "Book1.xlsx";
+        var remoteName = "Book1.xlsx";
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -157,12 +157,12 @@ describe('PicturesController test', function() {
         });
       });
     }); 
-    describe('delete_work_sheet_pictures test', function(){
-      it("should call DeleteWorkSheetPictures successfully" , function(){
-        var remoteFolder = "TestData/In"
+    describe('delete_worksheet_pictures test', function(){
+      it("should call DeleteWorksheetPictures successfully" , function(){
+        var remoteFolder = "TestData/In";
       
-        var localName = "Book1.xlsx"
-        var remoteName = "Book1.xlsx"
+        var localName = "Book1.xlsx";
+        var remoteName = "Book1.xlsx";
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -171,12 +171,12 @@ describe('PicturesController test', function() {
         cellsApi.uploadFile(localNameRequest );
      
 
-        var request = new model.DeleteWorkSheetPicturesRequest();
+        var request = new model.DeleteWorksheetPicturesRequest();
         request.name =  remoteName;
         request.sheetName =  "Sheet6";
         request.folder =  remoteFolder;
         request.storageName =  "";
-        return cellsApi.deleteWorkSheetPictures(request).then((result) => {
+        return cellsApi.deleteWorksheetPictures(request).then((result) => {
             expect(result.response.statusCode).to.equal(200);
         });
       });

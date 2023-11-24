@@ -20,10 +20,10 @@ describe('StorageController test', function() {
 
     describe('storage_exists test', function(){
       it("should call StorageExists successfully" , function(){
-        var remoteFolder = "TestData/In"
+        var remoteFolder = "TestData/In";
       
-        var localName = "Book1.xlsx"
-        var remoteName = "Book1.xlsx"
+        var localName = "Book1.xlsx";
+        var remoteName = "Book1.xlsx";
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -41,10 +41,10 @@ describe('StorageController test', function() {
     }); 
     describe('object_exists test', function(){
       it("should call ObjectExists successfully" , function(){
-        var remoteFolder = "TestData/In"
+        var remoteFolder = "TestData/In";
       
-        var localName = "Book1.xlsx"
-        var remoteName = "Book1.xlsx"
+        var localName = "Book1.xlsx";
+        var remoteName = "Book1.xlsx";
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -64,10 +64,10 @@ describe('StorageController test', function() {
     }); 
     describe('get_disc_usage test', function(){
       it("should call GetDiscUsage successfully" , function(){
-        var remoteFolder = "TestData/In"
+        var remoteFolder = "TestData/In";
       
-        var localName = "Book1.xlsx"
-        var remoteName = "Book1.xlsx"
+        var localName = "Book1.xlsx";
+        var remoteName = "Book1.xlsx";
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -85,10 +85,10 @@ describe('StorageController test', function() {
     }); 
     describe('get_file_versions test', function(){
       it("should call GetFileVersions successfully" , function(){
-        var remoteFolder = "TestData/In"
+        var remoteFolder = "TestData/In";
       
-        var localName = "Book1.xlsx"
-        var remoteName = "Book1.xlsx"
+        var localName = "Book1.xlsx";
+        var remoteName = "Book1.xlsx";
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};

@@ -20,10 +20,10 @@ describe('PivotTablesController test', function() {
 
     describe('get_worksheet_pivot_tables test', function(){
       it("should call GetWorksheetPivotTables successfully" , function(){
-        var remoteFolder = "TestData/In"
+        var remoteFolder = "TestData/In";
       
-        var localName = "TestCase.xlsx"
-        var remoteName = "TestCase.xlsx"
+        var localName = "TestCase.xlsx";
+        var remoteName = "TestCase.xlsx";
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -44,10 +44,10 @@ describe('PivotTablesController test', function() {
     }); 
     describe('get_worksheet_pivot_table test', function(){
       it("should call GetWorksheetPivotTable successfully" , function(){
-        var remoteFolder = "TestData/In"
+        var remoteFolder = "TestData/In";
       
-        var localName = "TestCase.xlsx"
-        var remoteName = "TestCase.xlsx"
+        var localName = "TestCase.xlsx";
+        var remoteName = "TestCase.xlsx";
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -69,10 +69,10 @@ describe('PivotTablesController test', function() {
     }); 
     describe('get_pivot_table_field test', function(){
       it("should call GetPivotTableField successfully" , function(){
-        var remoteFolder = "TestData/In"
+        var remoteFolder = "TestData/In";
       
-        var localName = "TestCase.xlsx"
-        var remoteName = "TestCase.xlsx"
+        var localName = "TestCase.xlsx";
+        var remoteName = "TestCase.xlsx";
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -96,10 +96,10 @@ describe('PivotTablesController test', function() {
     }); 
     describe('get_worksheet_pivot_table_filters test', function(){
       it("should call GetWorksheetPivotTableFilters successfully" , function(){
-        var remoteFolder = "TestData/In"
+        var remoteFolder = "TestData/In";
       
-        var localName = "TestCase.xlsx"
-        var remoteName = "TestCase.xlsx"
+        var localName = "TestCase.xlsx";
+        var remoteName = "TestCase.xlsx";
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -110,7 +110,7 @@ describe('PivotTablesController test', function() {
 
         var request = new model.GetWorksheetPivotTableFiltersRequest();
         request.name =  remoteName;
-        request.sheetName =  "Sheet3";
+        request.sheetName =  "Sheet4";
         request.pivotTableIndex =  0;
         request.folder =  remoteFolder;
         request.storageName =  "";
@@ -121,10 +121,10 @@ describe('PivotTablesController test', function() {
     }); 
     describe('get_worksheet_pivot_table_filter test', function(){
       it("should call GetWorksheetPivotTableFilter successfully" , function(){
-        var remoteFolder = "TestData/In"
+        var remoteFolder = "TestData/In";
       
-        var localName = "TestCase.xlsx"
-        var remoteName = "TestCase.xlsx"
+        var localName = "TestCase.xlsx";
+        var remoteName = "TestCase.xlsx";
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -147,10 +147,10 @@ describe('PivotTablesController test', function() {
     }); 
     describe('put_worksheet_pivot_table test', function(){
       it("should call PutWorksheetPivotTable successfully" , function(){
-        var remoteFolder = "TestData/In"
+        var remoteFolder = "TestData/In";
       
-        var localName = "TestCase.xlsx"
-        var remoteName = "TestCase.xlsx"
+        var localName = "TestCase.xlsx";
+        var remoteName = "TestCase.xlsx";
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -161,7 +161,7 @@ describe('PivotTablesController test', function() {
 
         var request = new model.PutWorksheetPivotTableRequest();
         request.name =  remoteName;
-        request.sheetName =  "Sheet3";
+        request.sheetName =  "Sheet4";
         request.folder =  remoteFolder;
         request.sourceData =  "=Sheet1!C6:E13";
         request.destCellName =  "C1";
@@ -175,10 +175,10 @@ describe('PivotTablesController test', function() {
     }); 
     describe('put_pivot_table_field test', function(){
       it("should call PutPivotTableField successfully" , function(){
-        var remoteFolder = "TestData/In"
+        var remoteFolder = "TestData/In";
       
-        var localName = "TestCase.xlsx"
-        var remoteName = "TestCase.xlsx"
+        var localName = "TestCase.xlsx";
+        var remoteName = "TestCase.xlsx";
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -206,10 +206,10 @@ describe('PivotTablesController test', function() {
     }); 
     describe('put_worksheet_pivot_table_filter test', function(){
       it("should call PutWorksheetPivotTableFilter successfully" , function(){
-        var remoteFolder = "TestData/In"
+        var remoteFolder = "TestData/In";
       
-        var localName = "TestCase.xlsx"
-        var remoteName = "TestCase.xlsx"
+        var localName = "TestCase.xlsx";
+        var remoteName = "TestCase.xlsx";
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -236,10 +236,10 @@ describe('PivotTablesController test', function() {
     }); 
     describe('post_pivot_table_field_hide_item test', function(){
       it("should call PostPivotTableFieldHideItem successfully" , function(){
-        var remoteFolder = "TestData/In"
+        var remoteFolder = "TestData/In";
       
-        var localName = "TestCase.xlsx"
-        var remoteName = "TestCase.xlsx"
+        var localName = "TestCase.xlsx";
+        var remoteName = "TestCase.xlsx";
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -266,10 +266,10 @@ describe('PivotTablesController test', function() {
     }); 
     describe('post_pivot_table_field_move_to test', function(){
       it("should call PostPivotTableFieldMoveTo successfully" , function(){
-        var remoteFolder = "TestData/In"
+        var remoteFolder = "TestData/In";
       
-        var localName = "TestCase.xlsx"
-        var remoteName = "TestCase.xlsx"
+        var localName = "TestCase.xlsx";
+        var remoteName = "TestCase.xlsx";
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -294,10 +294,10 @@ describe('PivotTablesController test', function() {
     }); 
     describe('post_pivot_table_cell_style test', function(){
       it("should call PostPivotTableCellStyle successfully" , function(){
-        var remoteFolder = "TestData/In"
+        var remoteFolder = "TestData/In";
       
-        var localName = "TestCase.xlsx"
-        var remoteName = "TestCase.xlsx"
+        var localName = "TestCase.xlsx";
+        var remoteName = "TestCase.xlsx";
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -327,10 +327,10 @@ describe('PivotTablesController test', function() {
     }); 
     describe('post_pivot_table_style test', function(){
       it("should call PostPivotTableStyle successfully" , function(){
-        var remoteFolder = "TestData/In"
+        var remoteFolder = "TestData/In";
       
-        var localName = "TestCase.xlsx"
-        var remoteName = "TestCase.xlsx"
+        var localName = "TestCase.xlsx";
+        var remoteName = "TestCase.xlsx";
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -358,10 +358,10 @@ describe('PivotTablesController test', function() {
     }); 
     describe('post_pivot_table_update_pivot_fields test', function(){
       it("should call PostPivotTableUpdatePivotFields successfully" , function(){
-        var remoteFolder = "TestData/In"
+        var remoteFolder = "TestData/In";
       
-        var localName = "TestCase.xlsx"
-        var remoteName = "TestCase.xlsx"
+        var localName = "TestCase.xlsx";
+        var remoteName = "TestCase.xlsx";
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -388,10 +388,10 @@ describe('PivotTablesController test', function() {
     }); 
     describe('post_pivot_table_update_pivot_field test', function(){
       it("should call PostPivotTableUpdatePivotField successfully" , function(){
-        var remoteFolder = "TestData/In"
+        var remoteFolder = "TestData/In";
       
-        var localName = "TestCase.xlsx"
-        var remoteName = "TestCase.xlsx"
+        var localName = "TestCase.xlsx";
+        var remoteName = "TestCase.xlsx";
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -419,10 +419,10 @@ describe('PivotTablesController test', function() {
     }); 
     describe('post_worksheet_pivot_table_calculate test', function(){
       it("should call PostWorksheetPivotTableCalculate successfully" , function(){
-        var remoteFolder = "TestData/In"
+        var remoteFolder = "TestData/In";
       
-        var localName = "TestCase.xlsx"
-        var remoteName = "TestCase.xlsx"
+        var localName = "TestCase.xlsx";
+        var remoteName = "TestCase.xlsx";
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -444,10 +444,10 @@ describe('PivotTablesController test', function() {
     }); 
     describe('post_worksheet_pivot_table_move test', function(){
       it("should call PostWorksheetPivotTableMove successfully" , function(){
-        var remoteFolder = "TestData/In"
+        var remoteFolder = "TestData/In";
       
-        var localName = "TestCase.xlsx"
-        var remoteName = "TestCase.xlsx"
+        var localName = "TestCase.xlsx";
+        var remoteName = "TestCase.xlsx";
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -472,10 +472,10 @@ describe('PivotTablesController test', function() {
     }); 
     describe('delete_worksheet_pivot_tables test', function(){
       it("should call DeleteWorksheetPivotTables successfully" , function(){
-        var remoteFolder = "TestData/In"
+        var remoteFolder = "TestData/In";
       
-        var localName = "TestCase.xlsx"
-        var remoteName = "TestCase.xlsx"
+        var localName = "TestCase.xlsx";
+        var remoteName = "TestCase.xlsx";
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -496,10 +496,10 @@ describe('PivotTablesController test', function() {
     }); 
     describe('delete_worksheet_pivot_table test', function(){
       it("should call DeleteWorksheetPivotTable successfully" , function(){
-        var remoteFolder = "TestData/In"
+        var remoteFolder = "TestData/In";
       
-        var localName = "TestCase.xlsx"
-        var remoteName = "TestCase.xlsx"
+        var localName = "TestCase.xlsx";
+        var remoteName = "TestCase.xlsx";
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -521,10 +521,10 @@ describe('PivotTablesController test', function() {
     }); 
     describe('delete_pivot_table_field test', function(){
       it("should call DeletePivotTableField successfully" , function(){
-        var remoteFolder = "TestData/In"
+        var remoteFolder = "TestData/In";
       
-        var localName = "TestCase.xlsx"
-        var remoteName = "TestCase.xlsx"
+        var localName = "TestCase.xlsx";
+        var remoteName = "TestCase.xlsx";
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -551,10 +551,10 @@ describe('PivotTablesController test', function() {
     }); 
     describe('delete_worksheet_pivot_table_filters test', function(){
       it("should call DeleteWorksheetPivotTableFilters successfully" , function(){
-        var remoteFolder = "TestData/In"
+        var remoteFolder = "TestData/In";
       
-        var localName = "TestCase.xlsx"
-        var remoteName = "TestCase.xlsx"
+        var localName = "TestCase.xlsx";
+        var remoteName = "TestCase.xlsx";
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -577,10 +577,10 @@ describe('PivotTablesController test', function() {
     }); 
     describe('delete_worksheet_pivot_table_filter test', function(){
       it("should call DeleteWorksheetPivotTableFilter successfully" , function(){
-        var remoteFolder = "TestData/In"
+        var remoteFolder = "TestData/In";
       
-        var localName = "TestCase.xlsx"
-        var remoteName = "TestCase.xlsx"
+        var localName = "TestCase.xlsx";
+        var remoteName = "TestCase.xlsx";
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};

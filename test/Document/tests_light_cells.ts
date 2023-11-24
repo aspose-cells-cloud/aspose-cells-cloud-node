@@ -21,11 +21,11 @@ describe('LightCells test', function() {
     describe('post_split_csv test', function(){
       it("should call PostSplit successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var dataSourceXlsx = "datasource.xlsx";
 
      
-        var format = "csv"
+        var format = "csv";
 
         var mapFiles = {};           
 
@@ -43,11 +43,11 @@ describe('LightCells test', function() {
     describe('post_split_xls test', function(){
       it("should call PostSplit successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var dataSourceXlsx = "datasource.xlsx";
 
      
-        var format = "xls"
+        var format = "xls";
 
         var mapFiles = {};           
 
@@ -65,11 +65,11 @@ describe('LightCells test', function() {
     describe('post_split_html test', function(){
       it("should call PostSplit successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var dataSourceXlsx = "datasource.xlsx";
 
      
-        var format = "html"
+        var format = "html";
 
         var mapFiles = {};           
 
@@ -87,11 +87,11 @@ describe('LightCells test', function() {
     describe('post_split_mhtml test', function(){
       it("should call PostSplit successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var dataSourceXlsx = "datasource.xlsx";
 
      
-        var format = "mhtml"
+        var format = "mhtml";
 
         var mapFiles = {};           
 
@@ -109,11 +109,11 @@ describe('LightCells test', function() {
     describe('post_split_ods test', function(){
       it("should call PostSplit successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var dataSourceXlsx = "datasource.xlsx";
 
      
-        var format = "ods"
+        var format = "ods";
 
         var mapFiles = {};           
 
@@ -131,11 +131,11 @@ describe('LightCells test', function() {
     describe('post_split_pdf test', function(){
       it("should call PostSplit successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var dataSourceXlsx = "datasource.xlsx";
 
      
-        var format = "pdf"
+        var format = "pdf";
 
         var mapFiles = {};           
 
@@ -153,11 +153,11 @@ describe('LightCells test', function() {
     describe('post_split_xml test', function(){
       it("should call PostSplit successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var dataSourceXlsx = "datasource.xlsx";
 
      
-        var format = "xml"
+        var format = "xml";
 
         var mapFiles = {};           
 
@@ -175,11 +175,11 @@ describe('LightCells test', function() {
     describe('post_split_txt test', function(){
       it("should call PostSplit successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var dataSourceXlsx = "datasource.xlsx";
 
      
-        var format = "txt"
+        var format = "txt";
 
         var mapFiles = {};           
 
@@ -197,11 +197,11 @@ describe('LightCells test', function() {
     describe('post_split_tif test', function(){
       it("should call PostSplit successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var dataSourceXlsx = "datasource.xlsx";
 
      
-        var format = "tif"
+        var format = "tif";
 
         var mapFiles = {};           
 
@@ -219,11 +219,11 @@ describe('LightCells test', function() {
     describe('post_split_xlsb test', function(){
       it("should call PostSplit successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var dataSourceXlsx = "datasource.xlsx";
 
      
-        var format = "xlsb"
+        var format = "xlsb";
 
         var mapFiles = {};           
 
@@ -241,11 +241,11 @@ describe('LightCells test', function() {
     describe('post_split_xlsm test', function(){
       it("should call PostSplit successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var dataSourceXlsx = "datasource.xlsx";
 
      
-        var format = "xlsm"
+        var format = "xlsm";
 
         var mapFiles = {};           
 
@@ -263,11 +263,11 @@ describe('LightCells test', function() {
     describe('post_split_xlsx test', function(){
       it("should call PostSplit successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var dataSourceXlsx = "datasource.xlsx";
 
      
-        var format = "xlsx"
+        var format = "xlsx";
 
         var mapFiles = {};           
 
@@ -285,11 +285,11 @@ describe('LightCells test', function() {
     describe('post_split_xltm test', function(){
       it("should call PostSplit successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var dataSourceXlsx = "datasource.xlsx";
 
      
-        var format = "xltm"
+        var format = "xltm";
 
         var mapFiles = {};           
 
@@ -307,11 +307,11 @@ describe('LightCells test', function() {
     describe('post_split_xltx test', function(){
       it("should call PostSplit successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var dataSourceXlsx = "datasource.xlsx";
 
      
-        var format = "xltx"
+        var format = "xltx";
 
         var mapFiles = {};           
 
@@ -329,11 +329,11 @@ describe('LightCells test', function() {
     describe('post_split_xps test', function(){
       it("should call PostSplit successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var dataSourceXlsx = "datasource.xlsx";
 
      
-        var format = "xps"
+        var format = "xps";
 
         var mapFiles = {};           
 
@@ -351,11 +351,11 @@ describe('LightCells test', function() {
     describe('post_split_png test', function(){
       it("should call PostSplit successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var dataSourceXlsx = "datasource.xlsx";
 
      
-        var format = "png"
+        var format = "png";
 
         var mapFiles = {};           
 
@@ -373,11 +373,11 @@ describe('LightCells test', function() {
     describe('post_split_jpg test', function(){
       it("should call PostSplit successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var dataSourceXlsx = "datasource.xlsx";
 
      
-        var format = "jpg"
+        var format = "jpg";
 
         var mapFiles = {};           
 
@@ -395,11 +395,11 @@ describe('LightCells test', function() {
     describe('post_split_gif test', function(){
       it("should call PostSplit successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var dataSourceXlsx = "datasource.xlsx";
 
      
-        var format = "gif"
+        var format = "gif";
 
         var mapFiles = {};           
 
@@ -417,11 +417,11 @@ describe('LightCells test', function() {
     describe('post_split_emf test', function(){
       it("should call PostSplit successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var dataSourceXlsx = "datasource.xlsx";
 
      
-        var format = "emf"
+        var format = "emf";
 
         var mapFiles = {};           
 
@@ -439,11 +439,11 @@ describe('LightCells test', function() {
     describe('post_split_bmp test', function(){
       it("should call PostSplit successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var dataSourceXlsx = "datasource.xlsx";
 
      
-        var format = "bmp"
+        var format = "bmp";
 
         var mapFiles = {};           
 
@@ -461,11 +461,11 @@ describe('LightCells test', function() {
     describe('post_split_md test', function(){
       it("should call PostSplit successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var dataSourceXlsx = "datasource.xlsx";
 
      
-        var format = "md"
+        var format = "md";
 
         var mapFiles = {};           
 
@@ -483,11 +483,11 @@ describe('LightCells test', function() {
     describe('post_split_numbers test', function(){
       it("should call PostSplit successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var dataSourceXlsx = "datasource.xlsx";
 
      
-        var format = "numbers"
+        var format = "numbers";
 
         var mapFiles = {};           
 
@@ -505,11 +505,11 @@ describe('LightCells test', function() {
     describe('post_split_wmf test', function(){
       it("should call PostSplit successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var dataSourceXlsx = "datasource.xlsx";
 
      
-        var format = "wmf"
+        var format = "wmf";
 
         var mapFiles = {};           
 
@@ -527,11 +527,11 @@ describe('LightCells test', function() {
     describe('post_split_svg test', function(){
       it("should call PostSplit successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var dataSourceXlsx = "datasource.xlsx";
 
      
-        var format = "svg"
+        var format = "svg";
 
         var mapFiles = {};           
 
@@ -549,11 +549,11 @@ describe('LightCells test', function() {
     describe('post_split_docx test', function(){
       it("should call PostSplit successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var dataSourceXlsx = "datasource.xlsx";
 
      
-        var format = "docx"
+        var format = "docx";
 
         var mapFiles = {};           
 
@@ -571,11 +571,11 @@ describe('LightCells test', function() {
     describe('post_split_pptx test', function(){
       it("should call PostSplit successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var dataSourceXlsx = "datasource.xlsx";
 
      
-        var format = "pptx"
+        var format = "pptx";
 
         var mapFiles = {};           
 
@@ -593,11 +593,11 @@ describe('LightCells test', function() {
     describe('post_split_json test', function(){
       it("should call PostSplit successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var dataSourceXlsx = "datasource.xlsx";
 
      
-        var format = "json"
+        var format = "json";
 
         var mapFiles = {};           
 
@@ -615,11 +615,11 @@ describe('LightCells test', function() {
     describe('post_split_sql test', function(){
       it("should call PostSplit successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var dataSourceXlsx = "datasource.xlsx";
 
      
-        var format = "sql"
+        var format = "sql";
 
         var mapFiles = {};           
 
@@ -637,11 +637,11 @@ describe('LightCells test', function() {
     describe('post_assemble_csv test', function(){
       it("should call PostAssemble successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var dataSourceXlsx = "datasource.xlsx";
 
      
-        var format = "csv"
+        var format = "csv";
 
         var mapFiles = {};           
 
@@ -660,11 +660,11 @@ describe('LightCells test', function() {
     describe('post_assemble_xls test', function(){
       it("should call PostAssemble successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var dataSourceXlsx = "datasource.xlsx";
 
      
-        var format = "xls"
+        var format = "xls";
 
         var mapFiles = {};           
 
@@ -683,11 +683,11 @@ describe('LightCells test', function() {
     describe('post_assemble_html test', function(){
       it("should call PostAssemble successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var dataSourceXlsx = "datasource.xlsx";
 
      
-        var format = "html"
+        var format = "html";
 
         var mapFiles = {};           
 
@@ -706,11 +706,11 @@ describe('LightCells test', function() {
     describe('post_assemble_mhtml test', function(){
       it("should call PostAssemble successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var dataSourceXlsx = "datasource.xlsx";
 
      
-        var format = "mhtml"
+        var format = "mhtml";
 
         var mapFiles = {};           
 
@@ -729,11 +729,11 @@ describe('LightCells test', function() {
     describe('post_assemble_ods test', function(){
       it("should call PostAssemble successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var dataSourceXlsx = "datasource.xlsx";
 
      
-        var format = "ods"
+        var format = "ods";
 
         var mapFiles = {};           
 
@@ -752,11 +752,11 @@ describe('LightCells test', function() {
     describe('post_assemble_pdf test', function(){
       it("should call PostAssemble successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var dataSourceXlsx = "datasource.xlsx";
 
      
-        var format = "pdf"
+        var format = "pdf";
 
         var mapFiles = {};           
 
@@ -775,11 +775,11 @@ describe('LightCells test', function() {
     describe('post_assemble_xml test', function(){
       it("should call PostAssemble successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var dataSourceXlsx = "datasource.xlsx";
 
      
-        var format = "xml"
+        var format = "xml";
 
         var mapFiles = {};           
 
@@ -798,11 +798,11 @@ describe('LightCells test', function() {
     describe('post_assemble_txt test', function(){
       it("should call PostAssemble successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var dataSourceXlsx = "datasource.xlsx";
 
      
-        var format = "txt"
+        var format = "txt";
 
         var mapFiles = {};           
 
@@ -821,11 +821,11 @@ describe('LightCells test', function() {
     describe('post_assemble_tif test', function(){
       it("should call PostAssemble successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var dataSourceXlsx = "datasource.xlsx";
 
      
-        var format = "tif"
+        var format = "tif";
 
         var mapFiles = {};           
 
@@ -844,11 +844,11 @@ describe('LightCells test', function() {
     describe('post_assemble_xlsb test', function(){
       it("should call PostAssemble successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var dataSourceXlsx = "datasource.xlsx";
 
      
-        var format = "xlsb"
+        var format = "xlsb";
 
         var mapFiles = {};           
 
@@ -867,11 +867,11 @@ describe('LightCells test', function() {
     describe('post_assemble_xlsm test', function(){
       it("should call PostAssemble successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var dataSourceXlsx = "datasource.xlsx";
 
      
-        var format = "xlsm"
+        var format = "xlsm";
 
         var mapFiles = {};           
 
@@ -890,11 +890,11 @@ describe('LightCells test', function() {
     describe('post_assemble_xlsx test', function(){
       it("should call PostAssemble successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var dataSourceXlsx = "datasource.xlsx";
 
      
-        var format = "xlsx"
+        var format = "xlsx";
 
         var mapFiles = {};           
 
@@ -913,11 +913,11 @@ describe('LightCells test', function() {
     describe('post_assemble_xltm test', function(){
       it("should call PostAssemble successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var dataSourceXlsx = "datasource.xlsx";
 
      
-        var format = "xltm"
+        var format = "xltm";
 
         var mapFiles = {};           
 
@@ -936,11 +936,11 @@ describe('LightCells test', function() {
     describe('post_assemble_xltx test', function(){
       it("should call PostAssemble successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var dataSourceXlsx = "datasource.xlsx";
 
      
-        var format = "xltx"
+        var format = "xltx";
 
         var mapFiles = {};           
 
@@ -959,11 +959,11 @@ describe('LightCells test', function() {
     describe('post_assemble_xps test', function(){
       it("should call PostAssemble successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var dataSourceXlsx = "datasource.xlsx";
 
      
-        var format = "xps"
+        var format = "xps";
 
         var mapFiles = {};           
 
@@ -982,11 +982,11 @@ describe('LightCells test', function() {
     describe('post_assemble_png test', function(){
       it("should call PostAssemble successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var dataSourceXlsx = "datasource.xlsx";
 
      
-        var format = "png"
+        var format = "png";
 
         var mapFiles = {};           
 
@@ -1005,11 +1005,11 @@ describe('LightCells test', function() {
     describe('post_assemble_jpg test', function(){
       it("should call PostAssemble successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var dataSourceXlsx = "datasource.xlsx";
 
      
-        var format = "jpg"
+        var format = "jpg";
 
         var mapFiles = {};           
 
@@ -1028,11 +1028,11 @@ describe('LightCells test', function() {
     describe('post_assemble_gif test', function(){
       it("should call PostAssemble successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var dataSourceXlsx = "datasource.xlsx";
 
      
-        var format = "gif"
+        var format = "gif";
 
         var mapFiles = {};           
 
@@ -1051,11 +1051,11 @@ describe('LightCells test', function() {
     describe('post_assemble_emf test', function(){
       it("should call PostAssemble successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var dataSourceXlsx = "datasource.xlsx";
 
      
-        var format = "emf"
+        var format = "emf";
 
         var mapFiles = {};           
 
@@ -1074,11 +1074,11 @@ describe('LightCells test', function() {
     describe('post_assemble_bmp test', function(){
       it("should call PostAssemble successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var dataSourceXlsx = "datasource.xlsx";
 
      
-        var format = "bmp"
+        var format = "bmp";
 
         var mapFiles = {};           
 
@@ -1097,11 +1097,11 @@ describe('LightCells test', function() {
     describe('post_assemble_md test', function(){
       it("should call PostAssemble successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var dataSourceXlsx = "datasource.xlsx";
 
      
-        var format = "md"
+        var format = "md";
 
         var mapFiles = {};           
 
@@ -1120,11 +1120,11 @@ describe('LightCells test', function() {
     describe('post_assemble_numbers test', function(){
       it("should call PostAssemble successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var dataSourceXlsx = "datasource.xlsx";
 
      
-        var format = "numbers"
+        var format = "numbers";
 
         var mapFiles = {};           
 
@@ -1143,11 +1143,11 @@ describe('LightCells test', function() {
     describe('post_assemble_wmf test', function(){
       it("should call PostAssemble successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var dataSourceXlsx = "datasource.xlsx";
 
      
-        var format = "wmf"
+        var format = "wmf";
 
         var mapFiles = {};           
 
@@ -1166,11 +1166,11 @@ describe('LightCells test', function() {
     describe('post_assemble_svg test', function(){
       it("should call PostAssemble successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var dataSourceXlsx = "datasource.xlsx";
 
      
-        var format = "svg"
+        var format = "svg";
 
         var mapFiles = {};           
 
@@ -1189,11 +1189,11 @@ describe('LightCells test', function() {
     describe('post_assemble_docx test', function(){
       it("should call PostAssemble successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var dataSourceXlsx = "datasource.xlsx";
 
      
-        var format = "docx"
+        var format = "docx";
 
         var mapFiles = {};           
 
@@ -1212,11 +1212,11 @@ describe('LightCells test', function() {
     describe('post_assemble_pptx test', function(){
       it("should call PostAssemble successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var dataSourceXlsx = "datasource.xlsx";
 
      
-        var format = "pptx"
+        var format = "pptx";
 
         var mapFiles = {};           
 
@@ -1235,11 +1235,11 @@ describe('LightCells test', function() {
     describe('post_assemble_json test', function(){
       it("should call PostAssemble successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var dataSourceXlsx = "datasource.xlsx";
 
      
-        var format = "json"
+        var format = "json";
 
         var mapFiles = {};           
 
@@ -1258,11 +1258,11 @@ describe('LightCells test', function() {
     describe('post_assemble_sql test', function(){
       it("should call PostAssemble successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var dataSourceXlsx = "datasource.xlsx";
 
      
-        var format = "sql"
+        var format = "sql";
 
         var mapFiles = {};           
 
@@ -1281,12 +1281,12 @@ describe('LightCells test', function() {
     describe('post_export_csv_workbook test', function(){
       it("should call PostExport successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var format = "csv"
-        var objectType = "workbook"
+        var format = "csv";
+        var objectType = "workbook";
 
         var mapFiles = {};           
 
@@ -1305,12 +1305,12 @@ describe('LightCells test', function() {
     describe('post_export_xls_workbook test', function(){
       it("should call PostExport successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var format = "xls"
-        var objectType = "workbook"
+        var format = "xls";
+        var objectType = "workbook";
 
         var mapFiles = {};           
 
@@ -1329,12 +1329,12 @@ describe('LightCells test', function() {
     describe('post_export_html_workbook test', function(){
       it("should call PostExport successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var format = "html"
-        var objectType = "workbook"
+        var format = "html";
+        var objectType = "workbook";
 
         var mapFiles = {};           
 
@@ -1353,12 +1353,12 @@ describe('LightCells test', function() {
     describe('post_export_mhtml_workbook test', function(){
       it("should call PostExport successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var format = "mhtml"
-        var objectType = "workbook"
+        var format = "mhtml";
+        var objectType = "workbook";
 
         var mapFiles = {};           
 
@@ -1377,12 +1377,12 @@ describe('LightCells test', function() {
     describe('post_export_ods_workbook test', function(){
       it("should call PostExport successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var format = "ods"
-        var objectType = "workbook"
+        var format = "ods";
+        var objectType = "workbook";
 
         var mapFiles = {};           
 
@@ -1401,12 +1401,12 @@ describe('LightCells test', function() {
     describe('post_export_pdf_workbook test', function(){
       it("should call PostExport successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var format = "pdf"
-        var objectType = "workbook"
+        var format = "pdf";
+        var objectType = "workbook";
 
         var mapFiles = {};           
 
@@ -1425,12 +1425,12 @@ describe('LightCells test', function() {
     describe('post_export_xml_workbook test', function(){
       it("should call PostExport successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var format = "xml"
-        var objectType = "workbook"
+        var format = "xml";
+        var objectType = "workbook";
 
         var mapFiles = {};           
 
@@ -1449,12 +1449,12 @@ describe('LightCells test', function() {
     describe('post_export_txt_workbook test', function(){
       it("should call PostExport successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var format = "txt"
-        var objectType = "workbook"
+        var format = "txt";
+        var objectType = "workbook";
 
         var mapFiles = {};           
 
@@ -1473,12 +1473,12 @@ describe('LightCells test', function() {
     describe('post_export_tif_workbook test', function(){
       it("should call PostExport successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var format = "tif"
-        var objectType = "workbook"
+        var format = "tif";
+        var objectType = "workbook";
 
         var mapFiles = {};           
 
@@ -1497,12 +1497,12 @@ describe('LightCells test', function() {
     describe('post_export_xlsb_workbook test', function(){
       it("should call PostExport successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var format = "xlsb"
-        var objectType = "workbook"
+        var format = "xlsb";
+        var objectType = "workbook";
 
         var mapFiles = {};           
 
@@ -1521,12 +1521,12 @@ describe('LightCells test', function() {
     describe('post_export_xlsm_workbook test', function(){
       it("should call PostExport successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var format = "xlsm"
-        var objectType = "workbook"
+        var format = "xlsm";
+        var objectType = "workbook";
 
         var mapFiles = {};           
 
@@ -1545,12 +1545,12 @@ describe('LightCells test', function() {
     describe('post_export_xlsx_workbook test', function(){
       it("should call PostExport successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var format = "xlsx"
-        var objectType = "workbook"
+        var format = "xlsx";
+        var objectType = "workbook";
 
         var mapFiles = {};           
 
@@ -1569,12 +1569,12 @@ describe('LightCells test', function() {
     describe('post_export_xltm_workbook test', function(){
       it("should call PostExport successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var format = "xltm"
-        var objectType = "workbook"
+        var format = "xltm";
+        var objectType = "workbook";
 
         var mapFiles = {};           
 
@@ -1593,12 +1593,12 @@ describe('LightCells test', function() {
     describe('post_export_xltx_workbook test', function(){
       it("should call PostExport successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var format = "xltx"
-        var objectType = "workbook"
+        var format = "xltx";
+        var objectType = "workbook";
 
         var mapFiles = {};           
 
@@ -1617,12 +1617,12 @@ describe('LightCells test', function() {
     describe('post_export_xps_workbook test', function(){
       it("should call PostExport successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var format = "xps"
-        var objectType = "workbook"
+        var format = "xps";
+        var objectType = "workbook";
 
         var mapFiles = {};           
 
@@ -1641,12 +1641,12 @@ describe('LightCells test', function() {
     describe('post_export_png_workbook test', function(){
       it("should call PostExport successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var format = "png"
-        var objectType = "workbook"
+        var format = "png";
+        var objectType = "workbook";
 
         var mapFiles = {};           
 
@@ -1665,12 +1665,12 @@ describe('LightCells test', function() {
     describe('post_export_jpg_workbook test', function(){
       it("should call PostExport successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var format = "jpg"
-        var objectType = "workbook"
+        var format = "jpg";
+        var objectType = "workbook";
 
         var mapFiles = {};           
 
@@ -1689,12 +1689,12 @@ describe('LightCells test', function() {
     describe('post_export_gif_workbook test', function(){
       it("should call PostExport successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var format = "gif"
-        var objectType = "workbook"
+        var format = "gif";
+        var objectType = "workbook";
 
         var mapFiles = {};           
 
@@ -1713,12 +1713,12 @@ describe('LightCells test', function() {
     describe('post_export_emf_workbook test', function(){
       it("should call PostExport successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var format = "emf"
-        var objectType = "workbook"
+        var format = "emf";
+        var objectType = "workbook";
 
         var mapFiles = {};           
 
@@ -1737,12 +1737,12 @@ describe('LightCells test', function() {
     describe('post_export_bmp_workbook test', function(){
       it("should call PostExport successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var format = "bmp"
-        var objectType = "workbook"
+        var format = "bmp";
+        var objectType = "workbook";
 
         var mapFiles = {};           
 
@@ -1761,12 +1761,12 @@ describe('LightCells test', function() {
     describe('post_export_md_workbook test', function(){
       it("should call PostExport successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var format = "md"
-        var objectType = "workbook"
+        var format = "md";
+        var objectType = "workbook";
 
         var mapFiles = {};           
 
@@ -1785,12 +1785,12 @@ describe('LightCells test', function() {
     describe('post_export_numbers_workbook test', function(){
       it("should call PostExport successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var format = "numbers"
-        var objectType = "workbook"
+        var format = "numbers";
+        var objectType = "workbook";
 
         var mapFiles = {};           
 
@@ -1809,12 +1809,12 @@ describe('LightCells test', function() {
     describe('post_export_wmf_workbook test', function(){
       it("should call PostExport successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var format = "wmf"
-        var objectType = "workbook"
+        var format = "wmf";
+        var objectType = "workbook";
 
         var mapFiles = {};           
 
@@ -1833,12 +1833,12 @@ describe('LightCells test', function() {
     describe('post_export_svg_workbook test', function(){
       it("should call PostExport successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var format = "svg"
-        var objectType = "workbook"
+        var format = "svg";
+        var objectType = "workbook";
 
         var mapFiles = {};           
 
@@ -1857,12 +1857,12 @@ describe('LightCells test', function() {
     describe('post_export_docx_workbook test', function(){
       it("should call PostExport successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var format = "docx"
-        var objectType = "workbook"
+        var format = "docx";
+        var objectType = "workbook";
 
         var mapFiles = {};           
 
@@ -1881,12 +1881,12 @@ describe('LightCells test', function() {
     describe('post_export_pptx_workbook test', function(){
       it("should call PostExport successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var format = "pptx"
-        var objectType = "workbook"
+        var format = "pptx";
+        var objectType = "workbook";
 
         var mapFiles = {};           
 
@@ -1905,12 +1905,12 @@ describe('LightCells test', function() {
     describe('post_export_json_workbook test', function(){
       it("should call PostExport successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var format = "json"
-        var objectType = "workbook"
+        var format = "json";
+        var objectType = "workbook";
 
         var mapFiles = {};           
 
@@ -1929,12 +1929,12 @@ describe('LightCells test', function() {
     describe('post_export_sql_workbook test', function(){
       it("should call PostExport successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var format = "sql"
-        var objectType = "workbook"
+        var format = "sql";
+        var objectType = "workbook";
 
         var mapFiles = {};           
 
@@ -1953,12 +1953,12 @@ describe('LightCells test', function() {
     describe('post_export_csv_worksheet test', function(){
       it("should call PostExport successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var format = "csv"
-        var objectType = "worksheet"
+        var format = "csv";
+        var objectType = "worksheet";
 
         var mapFiles = {};           
 
@@ -1977,12 +1977,12 @@ describe('LightCells test', function() {
     describe('post_export_xls_worksheet test', function(){
       it("should call PostExport successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var format = "xls"
-        var objectType = "worksheet"
+        var format = "xls";
+        var objectType = "worksheet";
 
         var mapFiles = {};           
 
@@ -2001,12 +2001,12 @@ describe('LightCells test', function() {
     describe('post_export_html_worksheet test', function(){
       it("should call PostExport successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var format = "html"
-        var objectType = "worksheet"
+        var format = "html";
+        var objectType = "worksheet";
 
         var mapFiles = {};           
 
@@ -2025,12 +2025,12 @@ describe('LightCells test', function() {
     describe('post_export_mhtml_worksheet test', function(){
       it("should call PostExport successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var format = "mhtml"
-        var objectType = "worksheet"
+        var format = "mhtml";
+        var objectType = "worksheet";
 
         var mapFiles = {};           
 
@@ -2049,12 +2049,12 @@ describe('LightCells test', function() {
     describe('post_export_ods_worksheet test', function(){
       it("should call PostExport successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var format = "ods"
-        var objectType = "worksheet"
+        var format = "ods";
+        var objectType = "worksheet";
 
         var mapFiles = {};           
 
@@ -2073,12 +2073,12 @@ describe('LightCells test', function() {
     describe('post_export_pdf_worksheet test', function(){
       it("should call PostExport successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var format = "pdf"
-        var objectType = "worksheet"
+        var format = "pdf";
+        var objectType = "worksheet";
 
         var mapFiles = {};           
 
@@ -2097,12 +2097,12 @@ describe('LightCells test', function() {
     describe('post_export_xml_worksheet test', function(){
       it("should call PostExport successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var format = "xml"
-        var objectType = "worksheet"
+        var format = "xml";
+        var objectType = "worksheet";
 
         var mapFiles = {};           
 
@@ -2121,12 +2121,12 @@ describe('LightCells test', function() {
     describe('post_export_txt_worksheet test', function(){
       it("should call PostExport successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var format = "txt"
-        var objectType = "worksheet"
+        var format = "txt";
+        var objectType = "worksheet";
 
         var mapFiles = {};           
 
@@ -2145,12 +2145,12 @@ describe('LightCells test', function() {
     describe('post_export_tif_worksheet test', function(){
       it("should call PostExport successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var format = "tif"
-        var objectType = "worksheet"
+        var format = "tif";
+        var objectType = "worksheet";
 
         var mapFiles = {};           
 
@@ -2169,12 +2169,12 @@ describe('LightCells test', function() {
     describe('post_export_xlsb_worksheet test', function(){
       it("should call PostExport successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var format = "xlsb"
-        var objectType = "worksheet"
+        var format = "xlsb";
+        var objectType = "worksheet";
 
         var mapFiles = {};           
 
@@ -2193,12 +2193,12 @@ describe('LightCells test', function() {
     describe('post_export_xlsm_worksheet test', function(){
       it("should call PostExport successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var format = "xlsm"
-        var objectType = "worksheet"
+        var format = "xlsm";
+        var objectType = "worksheet";
 
         var mapFiles = {};           
 
@@ -2217,12 +2217,12 @@ describe('LightCells test', function() {
     describe('post_export_xlsx_worksheet test', function(){
       it("should call PostExport successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var format = "xlsx"
-        var objectType = "worksheet"
+        var format = "xlsx";
+        var objectType = "worksheet";
 
         var mapFiles = {};           
 
@@ -2241,12 +2241,12 @@ describe('LightCells test', function() {
     describe('post_export_xltm_worksheet test', function(){
       it("should call PostExport successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var format = "xltm"
-        var objectType = "worksheet"
+        var format = "xltm";
+        var objectType = "worksheet";
 
         var mapFiles = {};           
 
@@ -2265,12 +2265,12 @@ describe('LightCells test', function() {
     describe('post_export_xltx_worksheet test', function(){
       it("should call PostExport successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var format = "xltx"
-        var objectType = "worksheet"
+        var format = "xltx";
+        var objectType = "worksheet";
 
         var mapFiles = {};           
 
@@ -2289,12 +2289,12 @@ describe('LightCells test', function() {
     describe('post_export_xps_worksheet test', function(){
       it("should call PostExport successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var format = "xps"
-        var objectType = "worksheet"
+        var format = "xps";
+        var objectType = "worksheet";
 
         var mapFiles = {};           
 
@@ -2313,12 +2313,12 @@ describe('LightCells test', function() {
     describe('post_export_png_worksheet test', function(){
       it("should call PostExport successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var format = "png"
-        var objectType = "worksheet"
+        var format = "png";
+        var objectType = "worksheet";
 
         var mapFiles = {};           
 
@@ -2337,12 +2337,12 @@ describe('LightCells test', function() {
     describe('post_export_jpg_worksheet test', function(){
       it("should call PostExport successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var format = "jpg"
-        var objectType = "worksheet"
+        var format = "jpg";
+        var objectType = "worksheet";
 
         var mapFiles = {};           
 
@@ -2361,12 +2361,12 @@ describe('LightCells test', function() {
     describe('post_export_gif_worksheet test', function(){
       it("should call PostExport successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var format = "gif"
-        var objectType = "worksheet"
+        var format = "gif";
+        var objectType = "worksheet";
 
         var mapFiles = {};           
 
@@ -2385,12 +2385,12 @@ describe('LightCells test', function() {
     describe('post_export_emf_worksheet test', function(){
       it("should call PostExport successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var format = "emf"
-        var objectType = "worksheet"
+        var format = "emf";
+        var objectType = "worksheet";
 
         var mapFiles = {};           
 
@@ -2409,12 +2409,12 @@ describe('LightCells test', function() {
     describe('post_export_bmp_worksheet test', function(){
       it("should call PostExport successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var format = "bmp"
-        var objectType = "worksheet"
+        var format = "bmp";
+        var objectType = "worksheet";
 
         var mapFiles = {};           
 
@@ -2433,12 +2433,12 @@ describe('LightCells test', function() {
     describe('post_export_md_worksheet test', function(){
       it("should call PostExport successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var format = "md"
-        var objectType = "worksheet"
+        var format = "md";
+        var objectType = "worksheet";
 
         var mapFiles = {};           
 
@@ -2457,12 +2457,12 @@ describe('LightCells test', function() {
     describe('post_export_numbers_worksheet test', function(){
       it("should call PostExport successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var format = "numbers"
-        var objectType = "worksheet"
+        var format = "numbers";
+        var objectType = "worksheet";
 
         var mapFiles = {};           
 
@@ -2481,12 +2481,12 @@ describe('LightCells test', function() {
     describe('post_export_wmf_worksheet test', function(){
       it("should call PostExport successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var format = "wmf"
-        var objectType = "worksheet"
+        var format = "wmf";
+        var objectType = "worksheet";
 
         var mapFiles = {};           
 
@@ -2505,12 +2505,12 @@ describe('LightCells test', function() {
     describe('post_export_svg_worksheet test', function(){
       it("should call PostExport successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var format = "svg"
-        var objectType = "worksheet"
+        var format = "svg";
+        var objectType = "worksheet";
 
         var mapFiles = {};           
 
@@ -2529,12 +2529,12 @@ describe('LightCells test', function() {
     describe('post_export_docx_worksheet test', function(){
       it("should call PostExport successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var format = "docx"
-        var objectType = "worksheet"
+        var format = "docx";
+        var objectType = "worksheet";
 
         var mapFiles = {};           
 
@@ -2553,12 +2553,12 @@ describe('LightCells test', function() {
     describe('post_export_pptx_worksheet test', function(){
       it("should call PostExport successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var format = "pptx"
-        var objectType = "worksheet"
+        var format = "pptx";
+        var objectType = "worksheet";
 
         var mapFiles = {};           
 
@@ -2577,12 +2577,12 @@ describe('LightCells test', function() {
     describe('post_export_json_worksheet test', function(){
       it("should call PostExport successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var format = "json"
-        var objectType = "worksheet"
+        var format = "json";
+        var objectType = "worksheet";
 
         var mapFiles = {};           
 
@@ -2601,12 +2601,12 @@ describe('LightCells test', function() {
     describe('post_export_sql_worksheet test', function(){
       it("should call PostExport successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var format = "sql"
-        var objectType = "worksheet"
+        var format = "sql";
+        var objectType = "worksheet";
 
         var mapFiles = {};           
 
@@ -2625,12 +2625,12 @@ describe('LightCells test', function() {
     describe('post_export_pdf_chart test', function(){
       it("should call PostExport successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var format = "pdf"
-        var objectType = "chart"
+        var format = "pdf";
+        var objectType = "chart";
 
         var mapFiles = {};           
 
@@ -2649,12 +2649,12 @@ describe('LightCells test', function() {
     describe('post_export_tif_chart test', function(){
       it("should call PostExport successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var format = "tif"
-        var objectType = "chart"
+        var format = "tif";
+        var objectType = "chart";
 
         var mapFiles = {};           
 
@@ -2673,12 +2673,12 @@ describe('LightCells test', function() {
     describe('post_export_png_chart test', function(){
       it("should call PostExport successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var format = "png"
-        var objectType = "chart"
+        var format = "png";
+        var objectType = "chart";
 
         var mapFiles = {};           
 
@@ -2697,12 +2697,12 @@ describe('LightCells test', function() {
     describe('post_export_jpg_chart test', function(){
       it("should call PostExport successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var format = "jpg"
-        var objectType = "chart"
+        var format = "jpg";
+        var objectType = "chart";
 
         var mapFiles = {};           
 
@@ -2721,12 +2721,12 @@ describe('LightCells test', function() {
     describe('post_export_gif_chart test', function(){
       it("should call PostExport successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var format = "gif"
-        var objectType = "chart"
+        var format = "gif";
+        var objectType = "chart";
 
         var mapFiles = {};           
 
@@ -2745,12 +2745,12 @@ describe('LightCells test', function() {
     describe('post_export_emf_chart test', function(){
       it("should call PostExport successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var format = "emf"
-        var objectType = "chart"
+        var format = "emf";
+        var objectType = "chart";
 
         var mapFiles = {};           
 
@@ -2769,12 +2769,12 @@ describe('LightCells test', function() {
     describe('post_export_bmp_chart test', function(){
       it("should call PostExport successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var format = "bmp"
-        var objectType = "chart"
+        var format = "bmp";
+        var objectType = "chart";
 
         var mapFiles = {};           
 
@@ -2793,12 +2793,12 @@ describe('LightCells test', function() {
     describe('post_export_png_picture test', function(){
       it("should call PostExport successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var format = "png"
-        var objectType = "picture"
+        var format = "png";
+        var objectType = "picture";
 
         var mapFiles = {};           
 
@@ -2817,12 +2817,12 @@ describe('LightCells test', function() {
     describe('post_export_jpg_picture test', function(){
       it("should call PostExport successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var format = "jpg"
-        var objectType = "picture"
+        var format = "jpg";
+        var objectType = "picture";
 
         var mapFiles = {};           
 
@@ -2841,12 +2841,12 @@ describe('LightCells test', function() {
     describe('post_export_gif_picture test', function(){
       it("should call PostExport successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var format = "gif"
-        var objectType = "picture"
+        var format = "gif";
+        var objectType = "picture";
 
         var mapFiles = {};           
 
@@ -2865,12 +2865,12 @@ describe('LightCells test', function() {
     describe('post_export_emf_picture test', function(){
       it("should call PostExport successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var format = "emf"
-        var objectType = "picture"
+        var format = "emf";
+        var objectType = "picture";
 
         var mapFiles = {};           
 
@@ -2889,12 +2889,12 @@ describe('LightCells test', function() {
     describe('post_export_bmp_picture test', function(){
       it("should call PostExport successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var format = "bmp"
-        var objectType = "picture"
+        var format = "bmp";
+        var objectType = "picture";
 
         var mapFiles = {};           
 
@@ -2913,12 +2913,12 @@ describe('LightCells test', function() {
     describe('post_export_csv_listobject test', function(){
       it("should call PostExport successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var format = "csv"
-        var objectType = "listobject"
+        var format = "csv";
+        var objectType = "listobject";
 
         var mapFiles = {};           
 
@@ -2937,12 +2937,12 @@ describe('LightCells test', function() {
     describe('post_export_xls_listobject test', function(){
       it("should call PostExport successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var format = "xls"
-        var objectType = "listobject"
+        var format = "xls";
+        var objectType = "listobject";
 
         var mapFiles = {};           
 
@@ -2961,12 +2961,12 @@ describe('LightCells test', function() {
     describe('post_export_html_listobject test', function(){
       it("should call PostExport successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var format = "html"
-        var objectType = "listobject"
+        var format = "html";
+        var objectType = "listobject";
 
         var mapFiles = {};           
 
@@ -2985,12 +2985,12 @@ describe('LightCells test', function() {
     describe('post_export_mhtml_listobject test', function(){
       it("should call PostExport successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var format = "mhtml"
-        var objectType = "listobject"
+        var format = "mhtml";
+        var objectType = "listobject";
 
         var mapFiles = {};           
 
@@ -3009,12 +3009,12 @@ describe('LightCells test', function() {
     describe('post_export_ods_listobject test', function(){
       it("should call PostExport successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var format = "ods"
-        var objectType = "listobject"
+        var format = "ods";
+        var objectType = "listobject";
 
         var mapFiles = {};           
 
@@ -3033,12 +3033,12 @@ describe('LightCells test', function() {
     describe('post_export_pdf_listobject test', function(){
       it("should call PostExport successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var format = "pdf"
-        var objectType = "listobject"
+        var format = "pdf";
+        var objectType = "listobject";
 
         var mapFiles = {};           
 
@@ -3057,12 +3057,12 @@ describe('LightCells test', function() {
     describe('post_export_xml_listobject test', function(){
       it("should call PostExport successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var format = "xml"
-        var objectType = "listobject"
+        var format = "xml";
+        var objectType = "listobject";
 
         var mapFiles = {};           
 
@@ -3081,12 +3081,12 @@ describe('LightCells test', function() {
     describe('post_export_txt_listobject test', function(){
       it("should call PostExport successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var format = "txt"
-        var objectType = "listobject"
+        var format = "txt";
+        var objectType = "listobject";
 
         var mapFiles = {};           
 
@@ -3105,12 +3105,12 @@ describe('LightCells test', function() {
     describe('post_export_tif_listobject test', function(){
       it("should call PostExport successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var format = "tif"
-        var objectType = "listobject"
+        var format = "tif";
+        var objectType = "listobject";
 
         var mapFiles = {};           
 
@@ -3129,12 +3129,12 @@ describe('LightCells test', function() {
     describe('post_export_xlsb_listobject test', function(){
       it("should call PostExport successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var format = "xlsb"
-        var objectType = "listobject"
+        var format = "xlsb";
+        var objectType = "listobject";
 
         var mapFiles = {};           
 
@@ -3153,12 +3153,12 @@ describe('LightCells test', function() {
     describe('post_export_xlsm_listobject test', function(){
       it("should call PostExport successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var format = "xlsm"
-        var objectType = "listobject"
+        var format = "xlsm";
+        var objectType = "listobject";
 
         var mapFiles = {};           
 
@@ -3177,12 +3177,12 @@ describe('LightCells test', function() {
     describe('post_export_xlsx_listobject test', function(){
       it("should call PostExport successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var format = "xlsx"
-        var objectType = "listobject"
+        var format = "xlsx";
+        var objectType = "listobject";
 
         var mapFiles = {};           
 
@@ -3201,12 +3201,12 @@ describe('LightCells test', function() {
     describe('post_export_xltm_listobject test', function(){
       it("should call PostExport successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var format = "xltm"
-        var objectType = "listobject"
+        var format = "xltm";
+        var objectType = "listobject";
 
         var mapFiles = {};           
 
@@ -3225,12 +3225,12 @@ describe('LightCells test', function() {
     describe('post_export_xltx_listobject test', function(){
       it("should call PostExport successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var format = "xltx"
-        var objectType = "listobject"
+        var format = "xltx";
+        var objectType = "listobject";
 
         var mapFiles = {};           
 
@@ -3249,12 +3249,12 @@ describe('LightCells test', function() {
     describe('post_export_xps_listobject test', function(){
       it("should call PostExport successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var format = "xps"
-        var objectType = "listobject"
+        var format = "xps";
+        var objectType = "listobject";
 
         var mapFiles = {};           
 
@@ -3273,12 +3273,12 @@ describe('LightCells test', function() {
     describe('post_export_png_listobject test', function(){
       it("should call PostExport successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var format = "png"
-        var objectType = "listobject"
+        var format = "png";
+        var objectType = "listobject";
 
         var mapFiles = {};           
 
@@ -3297,12 +3297,12 @@ describe('LightCells test', function() {
     describe('post_export_jpg_listobject test', function(){
       it("should call PostExport successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var format = "jpg"
-        var objectType = "listobject"
+        var format = "jpg";
+        var objectType = "listobject";
 
         var mapFiles = {};           
 
@@ -3321,12 +3321,12 @@ describe('LightCells test', function() {
     describe('post_export_gif_listobject test', function(){
       it("should call PostExport successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var format = "gif"
-        var objectType = "listobject"
+        var format = "gif";
+        var objectType = "listobject";
 
         var mapFiles = {};           
 
@@ -3345,12 +3345,12 @@ describe('LightCells test', function() {
     describe('post_export_emf_listobject test', function(){
       it("should call PostExport successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var format = "emf"
-        var objectType = "listobject"
+        var format = "emf";
+        var objectType = "listobject";
 
         var mapFiles = {};           
 
@@ -3369,12 +3369,12 @@ describe('LightCells test', function() {
     describe('post_export_bmp_listobject test', function(){
       it("should call PostExport successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var format = "bmp"
-        var objectType = "listobject"
+        var format = "bmp";
+        var objectType = "listobject";
 
         var mapFiles = {};           
 
@@ -3393,12 +3393,12 @@ describe('LightCells test', function() {
     describe('post_export_md_listobject test', function(){
       it("should call PostExport successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var format = "md"
-        var objectType = "listobject"
+        var format = "md";
+        var objectType = "listobject";
 
         var mapFiles = {};           
 
@@ -3417,12 +3417,12 @@ describe('LightCells test', function() {
     describe('post_export_numbers_listobject test', function(){
       it("should call PostExport successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var format = "numbers"
-        var objectType = "listobject"
+        var format = "numbers";
+        var objectType = "listobject";
 
         var mapFiles = {};           
 
@@ -3441,12 +3441,12 @@ describe('LightCells test', function() {
     describe('post_export_wmf_listobject test', function(){
       it("should call PostExport successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var format = "wmf"
-        var objectType = "listobject"
+        var format = "wmf";
+        var objectType = "listobject";
 
         var mapFiles = {};           
 
@@ -3465,12 +3465,12 @@ describe('LightCells test', function() {
     describe('post_export_svg_listobject test', function(){
       it("should call PostExport successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var format = "svg"
-        var objectType = "listobject"
+        var format = "svg";
+        var objectType = "listobject";
 
         var mapFiles = {};           
 
@@ -3489,12 +3489,12 @@ describe('LightCells test', function() {
     describe('post_export_docx_listobject test', function(){
       it("should call PostExport successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var format = "docx"
-        var objectType = "listobject"
+        var format = "docx";
+        var objectType = "listobject";
 
         var mapFiles = {};           
 
@@ -3513,12 +3513,12 @@ describe('LightCells test', function() {
     describe('post_export_pptx_listobject test', function(){
       it("should call PostExport successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var format = "pptx"
-        var objectType = "listobject"
+        var format = "pptx";
+        var objectType = "listobject";
 
         var mapFiles = {};           
 
@@ -3537,12 +3537,12 @@ describe('LightCells test', function() {
     describe('post_export_json_listobject test', function(){
       it("should call PostExport successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var format = "json"
-        var objectType = "listobject"
+        var format = "json";
+        var objectType = "listobject";
 
         var mapFiles = {};           
 
@@ -3561,12 +3561,12 @@ describe('LightCells test', function() {
     describe('post_export_sql_listobject test', function(){
       it("should call PostExport successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var format = "sql"
-        var objectType = "listobject"
+        var format = "sql";
+        var objectType = "listobject";
 
         var mapFiles = {};           
 
@@ -3585,12 +3585,12 @@ describe('LightCells test', function() {
     describe('post_export_png_oleobject test', function(){
       it("should call PostExport successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var format = "png"
-        var objectType = "oleobject"
+        var format = "png";
+        var objectType = "oleobject";
 
         var mapFiles = {};           
 
@@ -3609,12 +3609,12 @@ describe('LightCells test', function() {
     describe('post_export_jpg_oleobject test', function(){
       it("should call PostExport successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var format = "jpg"
-        var objectType = "oleobject"
+        var format = "jpg";
+        var objectType = "oleobject";
 
         var mapFiles = {};           
 
@@ -3633,12 +3633,12 @@ describe('LightCells test', function() {
     describe('post_export_gif_oleobject test', function(){
       it("should call PostExport successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var format = "gif"
-        var objectType = "oleobject"
+        var format = "gif";
+        var objectType = "oleobject";
 
         var mapFiles = {};           
 
@@ -3657,12 +3657,12 @@ describe('LightCells test', function() {
     describe('post_export_emf_oleobject test', function(){
       it("should call PostExport successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var format = "emf"
-        var objectType = "oleobject"
+        var format = "emf";
+        var objectType = "oleobject";
 
         var mapFiles = {};           
 
@@ -3681,12 +3681,12 @@ describe('LightCells test', function() {
     describe('post_export_bmp_oleobject test', function(){
       it("should call PostExport successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var format = "bmp"
-        var objectType = "oleobject"
+        var format = "bmp";
+        var objectType = "oleobject";
 
         var mapFiles = {};           
 
@@ -3705,11 +3705,11 @@ describe('LightCells test', function() {
     describe('post_compress_50 test', function(){
       it("should call PostCompress successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var dataSourceXlsx = "datasource.xlsx";
 
      
-        var compressLevel = 50
+        var compressLevel = 50;
 
         var mapFiles = {};           
 
@@ -3727,11 +3727,11 @@ describe('LightCells test', function() {
     describe('post_compress_90 test', function(){
       it("should call PostCompress successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var dataSourceXlsx = "datasource.xlsx";
 
      
-        var compressLevel = 90
+        var compressLevel = 90;
 
         var mapFiles = {};           
 
@@ -3749,12 +3749,12 @@ describe('LightCells test', function() {
     describe('post_merge_csv_true test', function(){
       it("should call PostMerge successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var dataSourceXlsx = "datasource.xlsx";
 
      
-        var format = "csv"
-        var mergeToOneSheet = true
+        var format = "csv";
+        var mergeToOneSheet = true;
 
         var mapFiles = {};           
 
@@ -3773,12 +3773,12 @@ describe('LightCells test', function() {
     describe('post_merge_xls_true test', function(){
       it("should call PostMerge successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var dataSourceXlsx = "datasource.xlsx";
 
      
-        var format = "xls"
-        var mergeToOneSheet = true
+        var format = "xls";
+        var mergeToOneSheet = true;
 
         var mapFiles = {};           
 
@@ -3797,12 +3797,12 @@ describe('LightCells test', function() {
     describe('post_merge_html_true test', function(){
       it("should call PostMerge successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var dataSourceXlsx = "datasource.xlsx";
 
      
-        var format = "html"
-        var mergeToOneSheet = true
+        var format = "html";
+        var mergeToOneSheet = true;
 
         var mapFiles = {};           
 
@@ -3821,12 +3821,12 @@ describe('LightCells test', function() {
     describe('post_merge_mhtml_true test', function(){
       it("should call PostMerge successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var dataSourceXlsx = "datasource.xlsx";
 
      
-        var format = "mhtml"
-        var mergeToOneSheet = true
+        var format = "mhtml";
+        var mergeToOneSheet = true;
 
         var mapFiles = {};           
 
@@ -3845,12 +3845,12 @@ describe('LightCells test', function() {
     describe('post_merge_ods_true test', function(){
       it("should call PostMerge successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var dataSourceXlsx = "datasource.xlsx";
 
      
-        var format = "ods"
-        var mergeToOneSheet = true
+        var format = "ods";
+        var mergeToOneSheet = true;
 
         var mapFiles = {};           
 
@@ -3869,12 +3869,12 @@ describe('LightCells test', function() {
     describe('post_merge_pdf_true test', function(){
       it("should call PostMerge successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var dataSourceXlsx = "datasource.xlsx";
 
      
-        var format = "pdf"
-        var mergeToOneSheet = true
+        var format = "pdf";
+        var mergeToOneSheet = true;
 
         var mapFiles = {};           
 
@@ -3893,12 +3893,12 @@ describe('LightCells test', function() {
     describe('post_merge_xml_true test', function(){
       it("should call PostMerge successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var dataSourceXlsx = "datasource.xlsx";
 
      
-        var format = "xml"
-        var mergeToOneSheet = true
+        var format = "xml";
+        var mergeToOneSheet = true;
 
         var mapFiles = {};           
 
@@ -3917,12 +3917,12 @@ describe('LightCells test', function() {
     describe('post_merge_txt_true test', function(){
       it("should call PostMerge successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var dataSourceXlsx = "datasource.xlsx";
 
      
-        var format = "txt"
-        var mergeToOneSheet = true
+        var format = "txt";
+        var mergeToOneSheet = true;
 
         var mapFiles = {};           
 
@@ -3941,12 +3941,12 @@ describe('LightCells test', function() {
     describe('post_merge_tif_true test', function(){
       it("should call PostMerge successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var dataSourceXlsx = "datasource.xlsx";
 
      
-        var format = "tif"
-        var mergeToOneSheet = true
+        var format = "tif";
+        var mergeToOneSheet = true;
 
         var mapFiles = {};           
 
@@ -3965,12 +3965,12 @@ describe('LightCells test', function() {
     describe('post_merge_xlsb_true test', function(){
       it("should call PostMerge successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var dataSourceXlsx = "datasource.xlsx";
 
      
-        var format = "xlsb"
-        var mergeToOneSheet = true
+        var format = "xlsb";
+        var mergeToOneSheet = true;
 
         var mapFiles = {};           
 
@@ -3989,12 +3989,12 @@ describe('LightCells test', function() {
     describe('post_merge_xlsm_true test', function(){
       it("should call PostMerge successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var dataSourceXlsx = "datasource.xlsx";
 
      
-        var format = "xlsm"
-        var mergeToOneSheet = true
+        var format = "xlsm";
+        var mergeToOneSheet = true;
 
         var mapFiles = {};           
 
@@ -4013,12 +4013,12 @@ describe('LightCells test', function() {
     describe('post_merge_xlsx_true test', function(){
       it("should call PostMerge successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var dataSourceXlsx = "datasource.xlsx";
 
      
-        var format = "xlsx"
-        var mergeToOneSheet = true
+        var format = "xlsx";
+        var mergeToOneSheet = true;
 
         var mapFiles = {};           
 
@@ -4037,12 +4037,12 @@ describe('LightCells test', function() {
     describe('post_merge_xltm_true test', function(){
       it("should call PostMerge successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var dataSourceXlsx = "datasource.xlsx";
 
      
-        var format = "xltm"
-        var mergeToOneSheet = true
+        var format = "xltm";
+        var mergeToOneSheet = true;
 
         var mapFiles = {};           
 
@@ -4061,12 +4061,12 @@ describe('LightCells test', function() {
     describe('post_merge_xltx_true test', function(){
       it("should call PostMerge successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var dataSourceXlsx = "datasource.xlsx";
 
      
-        var format = "xltx"
-        var mergeToOneSheet = true
+        var format = "xltx";
+        var mergeToOneSheet = true;
 
         var mapFiles = {};           
 
@@ -4085,12 +4085,12 @@ describe('LightCells test', function() {
     describe('post_merge_xps_true test', function(){
       it("should call PostMerge successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var dataSourceXlsx = "datasource.xlsx";
 
      
-        var format = "xps"
-        var mergeToOneSheet = true
+        var format = "xps";
+        var mergeToOneSheet = true;
 
         var mapFiles = {};           
 
@@ -4109,12 +4109,12 @@ describe('LightCells test', function() {
     describe('post_merge_png_true test', function(){
       it("should call PostMerge successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var dataSourceXlsx = "datasource.xlsx";
 
      
-        var format = "png"
-        var mergeToOneSheet = true
+        var format = "png";
+        var mergeToOneSheet = true;
 
         var mapFiles = {};           
 
@@ -4133,12 +4133,12 @@ describe('LightCells test', function() {
     describe('post_merge_jpg_true test', function(){
       it("should call PostMerge successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var dataSourceXlsx = "datasource.xlsx";
 
      
-        var format = "jpg"
-        var mergeToOneSheet = true
+        var format = "jpg";
+        var mergeToOneSheet = true;
 
         var mapFiles = {};           
 
@@ -4157,12 +4157,12 @@ describe('LightCells test', function() {
     describe('post_merge_gif_true test', function(){
       it("should call PostMerge successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var dataSourceXlsx = "datasource.xlsx";
 
      
-        var format = "gif"
-        var mergeToOneSheet = true
+        var format = "gif";
+        var mergeToOneSheet = true;
 
         var mapFiles = {};           
 
@@ -4181,12 +4181,12 @@ describe('LightCells test', function() {
     describe('post_merge_emf_true test', function(){
       it("should call PostMerge successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var dataSourceXlsx = "datasource.xlsx";
 
      
-        var format = "emf"
-        var mergeToOneSheet = true
+        var format = "emf";
+        var mergeToOneSheet = true;
 
         var mapFiles = {};           
 
@@ -4205,12 +4205,12 @@ describe('LightCells test', function() {
     describe('post_merge_bmp_true test', function(){
       it("should call PostMerge successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var dataSourceXlsx = "datasource.xlsx";
 
      
-        var format = "bmp"
-        var mergeToOneSheet = true
+        var format = "bmp";
+        var mergeToOneSheet = true;
 
         var mapFiles = {};           
 
@@ -4229,12 +4229,12 @@ describe('LightCells test', function() {
     describe('post_merge_md_true test', function(){
       it("should call PostMerge successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var dataSourceXlsx = "datasource.xlsx";
 
      
-        var format = "md"
-        var mergeToOneSheet = true
+        var format = "md";
+        var mergeToOneSheet = true;
 
         var mapFiles = {};           
 
@@ -4253,12 +4253,12 @@ describe('LightCells test', function() {
     describe('post_merge_numbers_true test', function(){
       it("should call PostMerge successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var dataSourceXlsx = "datasource.xlsx";
 
      
-        var format = "numbers"
-        var mergeToOneSheet = true
+        var format = "numbers";
+        var mergeToOneSheet = true;
 
         var mapFiles = {};           
 
@@ -4277,12 +4277,12 @@ describe('LightCells test', function() {
     describe('post_merge_wmf_true test', function(){
       it("should call PostMerge successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var dataSourceXlsx = "datasource.xlsx";
 
      
-        var format = "wmf"
-        var mergeToOneSheet = true
+        var format = "wmf";
+        var mergeToOneSheet = true;
 
         var mapFiles = {};           
 
@@ -4301,12 +4301,12 @@ describe('LightCells test', function() {
     describe('post_merge_svg_true test', function(){
       it("should call PostMerge successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var dataSourceXlsx = "datasource.xlsx";
 
      
-        var format = "svg"
-        var mergeToOneSheet = true
+        var format = "svg";
+        var mergeToOneSheet = true;
 
         var mapFiles = {};           
 
@@ -4325,12 +4325,12 @@ describe('LightCells test', function() {
     describe('post_merge_docx_false test', function(){
       it("should call PostMerge successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var dataSourceXlsx = "datasource.xlsx";
 
      
-        var format = "docx"
-        var mergeToOneSheet = false
+        var format = "docx";
+        var mergeToOneSheet = false;
 
         var mapFiles = {};           
 
@@ -4349,12 +4349,12 @@ describe('LightCells test', function() {
     describe('post_merge_pptx_false test', function(){
       it("should call PostMerge successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var dataSourceXlsx = "datasource.xlsx";
 
      
-        var format = "pptx"
-        var mergeToOneSheet = false
+        var format = "pptx";
+        var mergeToOneSheet = false;
 
         var mapFiles = {};           
 
@@ -4373,12 +4373,12 @@ describe('LightCells test', function() {
     describe('post_merge_json_false test', function(){
       it("should call PostMerge successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var dataSourceXlsx = "datasource.xlsx";
 
      
-        var format = "json"
-        var mergeToOneSheet = false
+        var format = "json";
+        var mergeToOneSheet = false;
 
         var mapFiles = {};           
 
@@ -4397,12 +4397,12 @@ describe('LightCells test', function() {
     describe('post_merge_sql_false test', function(){
       it("should call PostMerge successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var dataSourceXlsx = "datasource.xlsx";
 
      
-        var format = "sql"
-        var mergeToOneSheet = false
+        var format = "sql";
+        var mergeToOneSheet = false;
 
         var mapFiles = {};           
 
@@ -4421,7 +4421,7 @@ describe('LightCells test', function() {
     describe('post_unlock test', function(){
       it("should call PostUnlock successfully" , function(){
       
-        var needUnlockXlsx = "needUnlock.xlsx"
+        var needUnlockXlsx = "needUnlock.xlsx";
 
      
         var mapFiles = {};           
@@ -4439,20 +4439,45 @@ describe('LightCells test', function() {
     describe('post_protect test', function(){
       it("should call PostProtect successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var dataSourceXlsx = "datasource.xlsx";
 
      
         var mapFiles = {};           
 
+        var protectWorkbookRequest = new model.ProtectWorkbookRequest();
+         protectWorkbookRequest.awaysOpenReadOnly = true  ;
+         protectWorkbookRequest.encryptWithPassword = "123456"  ;
          mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
          mapFiles[dataSourceXlsx]= fs.createReadStream(localPath  +dataSourceXlsx) ;
 
         var request = new model.PostProtectRequest();
         request.file =  mapFiles;
+        request.protectWorkbookRequest =  protectWorkbookRequest;
         request.password =  "123456";
-        request.ProtectWorkbookRequest = new  model.ProtectWorkbookRequest();
-        request.ProtectWorkbookRequest.awaysOpenReadOnly = true;
+        return cellsApi.postProtect(request).then((result) => {
+            expect(result.response.statusCode).to.equal(200);
+        });
+      });
+    }); 
+    describe('post_protect__protect_workbook_request test', function(){
+      it("should call PostProtect successfully" , function(){
+      
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var dataSourceXlsx = "datasource.xlsx";
+
+     
+        var mapFiles = {};           
+
+        var protectWorkbookRequest = new model.ProtectWorkbookRequest();
+         protectWorkbookRequest.awaysOpenReadOnly = true  ;
+         protectWorkbookRequest.encryptWithPassword = "123456"  ;
+         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
+         mapFiles[dataSourceXlsx]= fs.createReadStream(localPath  +dataSourceXlsx) ;
+
+        var request = new model.PostProtectRequest();
+        request.file =  mapFiles;
+        request.protectWorkbookRequest =  protectWorkbookRequest;
         return cellsApi.postProtect(request).then((result) => {
             expect(result.response.statusCode).to.equal(200);
         });
@@ -4461,8 +4486,8 @@ describe('LightCells test', function() {
     describe('post_search test', function(){
       it("should call PostSearch successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var dataSourceXlsx = "datasource.xlsx";
 
      
         var mapFiles = {};           
@@ -4481,8 +4506,8 @@ describe('LightCells test', function() {
     describe('post_replace test', function(){
       it("should call PostReplace successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var dataSourceXlsx = "datasource.xlsx";
 
      
         var mapFiles = {};           
@@ -4502,8 +4527,8 @@ describe('LightCells test', function() {
     describe('post_replace_only_sheetname test', function(){
       it("should call PostReplace successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var dataSourceXlsx = "datasource.xlsx";
 
      
         var mapFiles = {};           
@@ -4524,8 +4549,8 @@ describe('LightCells test', function() {
     describe('post_watermark test', function(){
       it("should call PostWatermark successfully" , function(){
       
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var assemblyTestXlsx = "assemblytest.xlsx";
+        var dataSourceXlsx = "datasource.xlsx";
 
      
         var mapFiles = {};           
@@ -4545,11 +4570,11 @@ describe('LightCells test', function() {
     describe('post_clear_objects_chart test', function(){
       it("should call PostClearObjects successfully" , function(){
       
-        var book1Xlsx = "Book1.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var book1Xlsx = "Book1.xlsx";
+        var dataSourceXlsx = "datasource.xlsx";
 
      
-        var objecttype = "chart"
+        var objecttype = "chart";
 
         var mapFiles = {};           
 
@@ -4567,11 +4592,11 @@ describe('LightCells test', function() {
     describe('post_clear_objects_comment test', function(){
       it("should call PostClearObjects successfully" , function(){
       
-        var book1Xlsx = "Book1.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var book1Xlsx = "Book1.xlsx";
+        var dataSourceXlsx = "datasource.xlsx";
 
      
-        var objecttype = "comment"
+        var objecttype = "comment";
 
         var mapFiles = {};           
 
@@ -4589,11 +4614,11 @@ describe('LightCells test', function() {
     describe('post_clear_objects_picture test', function(){
       it("should call PostClearObjects successfully" , function(){
       
-        var book1Xlsx = "Book1.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var book1Xlsx = "Book1.xlsx";
+        var dataSourceXlsx = "datasource.xlsx";
 
      
-        var objecttype = "picture"
+        var objecttype = "picture";
 
         var mapFiles = {};           
 
@@ -4611,11 +4636,11 @@ describe('LightCells test', function() {
     describe('post_clear_objects_shape test', function(){
       it("should call PostClearObjects successfully" , function(){
       
-        var book1Xlsx = "Book1.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var book1Xlsx = "Book1.xlsx";
+        var dataSourceXlsx = "datasource.xlsx";
 
      
-        var objecttype = "shape"
+        var objecttype = "shape";
 
         var mapFiles = {};           
 
@@ -4633,11 +4658,11 @@ describe('LightCells test', function() {
     describe('post_clear_objects_listobject test', function(){
       it("should call PostClearObjects successfully" , function(){
       
-        var book1Xlsx = "Book1.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var book1Xlsx = "Book1.xlsx";
+        var dataSourceXlsx = "datasource.xlsx";
 
      
-        var objecttype = "listobject"
+        var objecttype = "listobject";
 
         var mapFiles = {};           
 
@@ -4655,11 +4680,11 @@ describe('LightCells test', function() {
     describe('post_clear_objects_hyperlink test', function(){
       it("should call PostClearObjects successfully" , function(){
       
-        var book1Xlsx = "Book1.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var book1Xlsx = "Book1.xlsx";
+        var dataSourceXlsx = "datasource.xlsx";
 
      
-        var objecttype = "hyperlink"
+        var objecttype = "hyperlink";
 
         var mapFiles = {};           
 
@@ -4677,11 +4702,11 @@ describe('LightCells test', function() {
     describe('post_clear_objects_oleobject test', function(){
       it("should call PostClearObjects successfully" , function(){
       
-        var book1Xlsx = "Book1.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var book1Xlsx = "Book1.xlsx";
+        var dataSourceXlsx = "datasource.xlsx";
 
      
-        var objecttype = "oleobject"
+        var objecttype = "oleobject";
 
         var mapFiles = {};           
 
@@ -4699,11 +4724,11 @@ describe('LightCells test', function() {
     describe('post_clear_objects_pivottable test', function(){
       it("should call PostClearObjects successfully" , function(){
       
-        var book1Xlsx = "Book1.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var book1Xlsx = "Book1.xlsx";
+        var dataSourceXlsx = "datasource.xlsx";
 
      
-        var objecttype = "pivottable"
+        var objecttype = "pivottable";
 
         var mapFiles = {};           
 
@@ -4721,11 +4746,11 @@ describe('LightCells test', function() {
     describe('post_clear_objects_validation test', function(){
       it("should call PostClearObjects successfully" , function(){
       
-        var book1Xlsx = "Book1.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var book1Xlsx = "Book1.xlsx";
+        var dataSourceXlsx = "datasource.xlsx";
 
      
-        var objecttype = "validation"
+        var objecttype = "validation";
 
         var mapFiles = {};           
 
@@ -4743,11 +4768,11 @@ describe('LightCells test', function() {
     describe('post_clear_objects__background test', function(){
       it("should call PostClearObjects successfully" , function(){
       
-        var book1Xlsx = "Book1.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var book1Xlsx = "Book1.xlsx";
+        var dataSourceXlsx = "datasource.xlsx";
 
      
-        var objecttype = "Background"
+        var objecttype = "Background";
 
         var mapFiles = {};           
 
@@ -4765,10 +4790,10 @@ describe('LightCells test', function() {
     describe('post_repair_xlsx test', function(){
       it("should call PostRepair successfully" , function(){
       
-        var book1Xlsx = "Book1.xlsx"
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var format = "xlsx"
+        var format = "xlsx";
 
         var mapFiles = {};           
 
@@ -4785,10 +4810,10 @@ describe('LightCells test', function() {
     describe('post_repair_pdf test', function(){
       it("should call PostRepair successfully" , function(){
       
-        var book1Xlsx = "Book1.xlsx"
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var format = "pdf"
+        var format = "pdf";
 
         var mapFiles = {};           
 
@@ -4805,10 +4830,10 @@ describe('LightCells test', function() {
     describe('post_repair_csv test', function(){
       it("should call PostRepair successfully" , function(){
       
-        var book1Xlsx = "Book1.xlsx"
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var format = "csv"
+        var format = "csv";
 
         var mapFiles = {};           
 
@@ -4825,10 +4850,10 @@ describe('LightCells test', function() {
     describe('post_repair_png test', function(){
       it("should call PostRepair successfully" , function(){
       
-        var book1Xlsx = "Book1.xlsx"
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var format = "png"
+        var format = "png";
 
         var mapFiles = {};           
 
@@ -4845,11 +4870,11 @@ describe('LightCells test', function() {
     describe('post_reverse_rows_pdf test', function(){
       it("should call PostReverse successfully" , function(){
       
-        var book1Xlsx = "Book1.xlsx"
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var rotateType = "rows"
-        var format = "pdf"
+        var rotateType = "rows";
+        var format = "pdf";
 
         var mapFiles = {};           
 
@@ -4867,11 +4892,11 @@ describe('LightCells test', function() {
     describe('post_reverse_cols_pdf test', function(){
       it("should call PostReverse successfully" , function(){
       
-        var book1Xlsx = "Book1.xlsx"
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var rotateType = "cols"
-        var format = "pdf"
+        var rotateType = "cols";
+        var format = "pdf";
 
         var mapFiles = {};           
 
@@ -4889,11 +4914,11 @@ describe('LightCells test', function() {
     describe('post_reverse_both_pdf test', function(){
       it("should call PostReverse successfully" , function(){
       
-        var book1Xlsx = "Book1.xlsx"
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var rotateType = "both"
-        var format = "pdf"
+        var rotateType = "both";
+        var format = "pdf";
 
         var mapFiles = {};           
 
@@ -4911,11 +4936,11 @@ describe('LightCells test', function() {
     describe('post_reverse_rows_csv test', function(){
       it("should call PostReverse successfully" , function(){
       
-        var book1Xlsx = "Book1.xlsx"
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var rotateType = "rows"
-        var format = "csv"
+        var rotateType = "rows";
+        var format = "csv";
 
         var mapFiles = {};           
 
@@ -4933,11 +4958,11 @@ describe('LightCells test', function() {
     describe('post_reverse_cols_png test', function(){
       it("should call PostReverse successfully" , function(){
       
-        var book1Xlsx = "Book1.xlsx"
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var rotateType = "cols"
-        var format = "png"
+        var rotateType = "cols";
+        var format = "png";
 
         var mapFiles = {};           
 
@@ -4955,11 +4980,11 @@ describe('LightCells test', function() {
     describe('post_reverse_both_xlsx test', function(){
       it("should call PostReverse successfully" , function(){
       
-        var book1Xlsx = "Book1.xlsx"
+        var book1Xlsx = "Book1.xlsx";
 
      
-        var rotateType = "both"
-        var format = "xlsx"
+        var rotateType = "both";
+        var format = "xlsx";
 
         var mapFiles = {};           
 
@@ -4977,7 +5002,7 @@ describe('LightCells test', function() {
     describe('get_metadata test', function(){
       it("should call GetMetadata successfully" , function(){
       
-        var book1Xlsx = "Book1.xlsx"
+        var book1Xlsx = "Book1.xlsx";
 
      
         var mapFiles = {};           
@@ -4995,7 +5020,7 @@ describe('LightCells test', function() {
     describe('delete_metadata test', function(){
       it("should call DeleteMetadata successfully" , function(){
       
-        var book1Xlsx = "Book1.xlsx"
+        var book1Xlsx = "Book1.xlsx";
 
      
         var mapFiles = {};           
@@ -5013,17 +5038,16 @@ describe('LightCells test', function() {
     describe('post_metadata test', function(){
       it("should call PostMetadata successfully" , function(){
       
-        var book1Xlsx = "Book1.xlsx"
+        var book1Xlsx = "Book1.xlsx";
 
      
         var mapFiles = {};           
 
         var cellsDocumentscellsDocument0 = new model.CellsDocumentProperty();
-        cellsDocumentscellsDocument0.name = "Author"  ;
-        cellsDocumentscellsDocument0.value = "roy.wang"  ;
-        var cellsDocuments = new Array<model.CellsDocumentProperty>();
-        cellsDocuments.push(cellsDocumentscellsDocument0);
-        mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
+         cellsDocumentscellsDocument0.name = "Author"  ;
+         cellsDocumentscellsDocument0.value = "roy.wang"  ;
+        var cellsDocuments = new Array<model.CellsDocumentProperty>();cellsDocuments.push(cellsDocumentscellsDocument0);
+         mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostMetadataRequest();
         request.file =  mapFiles;

@@ -20,12 +20,12 @@ describe('BatchController test', function() {
 
     describe('post_batch_convert test', function(){
       it("should call PostBatchConvert successfully" , function(){
-        var remoteFolder = "TestData/In"
+        var remoteFolder = "TestData/In";
       
-        var localBook1 = "Book1.xlsx"
-        var remoteBook1 = "Book1.xlsx"
-        var localMyDoc = "myDocument.xlsx"
-        var remoteMyDoc = "myDocument.xlsx"
+        var localBook1 = "Book1.xlsx";
+        var remoteBook1 = "Book1.xlsx";
+        var localMyDoc = "myDocument.xlsx";
+        var remoteMyDoc = "myDocument.xlsx";
 
         var localBook1Request = new  model.UploadFileRequest();
         localBook1Request.uploadFiles ={localBook1:fs.createReadStream(localPath  + localBook1)};
@@ -45,7 +45,7 @@ describe('BatchController test', function() {
          batchConvertRequest.format = "pdf"  ;
          batchConvertRequest.outFolder = "TestResult"  ;
          batchConvertRequest.matchCondition = batchConvertRequestMatchCondition  ;
-        console.log(batchConvertRequest);
+
         var request = new model.PostBatchConvertRequest();
         request.batchConvertRequest =  batchConvertRequest;
         return cellsApi.postBatchConvert(request).then((result) => {
@@ -55,12 +55,12 @@ describe('BatchController test', function() {
     }); 
     describe('post_batch_protect test', function(){
       it("should call PostBatchProtect successfully" , function(){
-        var remoteFolder = "TestData/In"
+        var remoteFolder = "TestData/In";
       
-        var localBook1 = "Book1.xlsx"
-        var remoteBook1 = "Book1.xlsx"
-        var localMyDoc = "myDocument.xlsx"
-        var remoteMyDoc = "myDocument.xlsx"
+        var localBook1 = "Book1.xlsx";
+        var remoteBook1 = "Book1.xlsx";
+        var localMyDoc = "myDocument.xlsx";
+        var remoteMyDoc = "myDocument.xlsx";
 
         var localBook1Request = new  model.UploadFileRequest();
         localBook1Request.uploadFiles ={localBook1:fs.createReadStream(localPath  + localBook1)};
@@ -91,12 +91,12 @@ describe('BatchController test', function() {
     }); 
     describe('post_batch_lock test', function(){
       it("should call PostBatchLock successfully" , function(){
-        var remoteFolder = "TestData/In"
+        var remoteFolder = "TestData/In";
       
-        var localBook1 = "Book1.xlsx"
-        var remoteBook1 = "Book1.xlsx"
-        var localMyDoc = "myDocument.xlsx"
-        var remoteMyDoc = "myDocument.xlsx"
+        var localBook1 = "Book1.xlsx";
+        var remoteBook1 = "Book1.xlsx";
+        var localMyDoc = "myDocument.xlsx";
+        var remoteMyDoc = "myDocument.xlsx";
 
         var localBook1Request = new  model.UploadFileRequest();
         localBook1Request.uploadFiles ={localBook1:fs.createReadStream(localPath  + localBook1)};
@@ -126,12 +126,12 @@ describe('BatchController test', function() {
     }); 
     describe('post_batch_unlock test', function(){
       it("should call PostBatchUnlock successfully" , function(){
-        var remoteFolder = "TestData/In"
+        var remoteFolder = "TestData/In";
       
-        var localBook1 = "Book1.xlsx"
-        var remoteBook1 = "Book1.xlsx"
-        var localMyDoc = "myDocument.xlsx"
-        var remoteMyDoc = "myDocument.xlsx"
+        var localBook1 = "Book1.xlsx";
+        var remoteBook1 = "Book1.xlsx";
+        var localMyDoc = "myDocument.xlsx";
+        var remoteMyDoc = "myDocument.xlsx";
 
         var localBook1Request = new  model.UploadFileRequest();
         localBook1Request.uploadFiles ={localBook1:fs.createReadStream(localPath  + localBook1)};

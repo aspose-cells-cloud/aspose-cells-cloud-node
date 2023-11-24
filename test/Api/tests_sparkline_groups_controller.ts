@@ -20,10 +20,10 @@ describe('SparklineGroupsController test', function() {
 
     describe('get_worksheet_sparkline_groups test', function(){
       it("should call GetWorksheetSparklineGroups successfully" , function(){
-        var remoteFolder = "TestData/In"
+        var remoteFolder = "TestData/In";
       
-        var localName = "TestCase.xlsx"
-        var remoteName = "TestCase.xlsx"
+        var localName = "TestCase.xlsx";
+        var remoteName = "TestCase.xlsx";
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -44,10 +44,10 @@ describe('SparklineGroupsController test', function() {
     }); 
     describe('get_worksheet_sparkline_group test', function(){
       it("should call GetWorksheetSparklineGroup successfully" , function(){
-        var remoteFolder = "TestData/In"
+        var remoteFolder = "TestData/In";
       
-        var localName = "TestCase.xlsx"
-        var remoteName = "TestCase.xlsx"
+        var localName = "TestCase.xlsx";
+        var remoteName = "TestCase.xlsx";
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -69,10 +69,10 @@ describe('SparklineGroupsController test', function() {
     }); 
     describe('delete_worksheet_sparkline_groups test', function(){
       it("should call DeleteWorksheetSparklineGroups successfully" , function(){
-        var remoteFolder = "TestData/In"
+        var remoteFolder = "TestData/In";
       
-        var localName = "TestCase.xlsx"
-        var remoteName = "TestCase.xlsx"
+        var localName = "TestCase.xlsx";
+        var remoteName = "TestCase.xlsx";
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -93,10 +93,10 @@ describe('SparklineGroupsController test', function() {
     }); 
     describe('delete_worksheet_sparkline_group test', function(){
       it("should call DeleteWorksheetSparklineGroup successfully" , function(){
-        var remoteFolder = "TestData/In"
+        var remoteFolder = "TestData/In";
       
-        var localName = "TestCase.xlsx"
-        var remoteName = "TestCase.xlsx"
+        var localName = "TestCase.xlsx";
+        var remoteName = "TestCase.xlsx";
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -118,10 +118,10 @@ describe('SparklineGroupsController test', function() {
     }); 
     describe('put_worksheet_sparkline_group test', function(){
       it("should call PutWorksheetSparklineGroup successfully" , function(){
-        var remoteFolder = "TestData/In"
+        var remoteFolder = "TestData/In";
       
-        var localName = "TestCase.xlsx"
-        var remoteName = "TestCase.xlsx"
+        var localName = "TestCase.xlsx";
+        var remoteName = "TestCase.xlsx";
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -146,10 +146,10 @@ describe('SparklineGroupsController test', function() {
     }); 
     describe('post_worksheet_sparkline_group test', function(){
       it("should call PostWorksheetSparklineGroup successfully" , function(){
-        var remoteFolder = "TestData/In"
+        var remoteFolder = "TestData/In";
       
-        var localName = "TestCase.xlsx"
-        var remoteName = "TestCase.xlsx"
+        var localName = "TestCase.xlsx";
+        var remoteName = "TestCase.xlsx";
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};

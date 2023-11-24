@@ -1,4 +1,4 @@
-![](https://img.shields.io/badge/REST%20API-v3.0-lightgrey) ![npm](https://img.shields.io/npm/v/asposecellscloud) ![node-current](https://img.shields.io/node/v/asposecellscloud) [![GitHub license](https://img.shields.io/github/license/aspose-cells-cloud/aspose-cells-cloud-node)](https://github.com/aspose-cells-cloud/aspose-cells-cloud-node/blob/master/LICENSE) ![GitHub commits since latest release (by date)](https://img.shields.io/github/commits-since/aspose-cells-cloud/aspose-cells-cloud-node/23.10)
+![](https://img.shields.io/badge/REST%20API-v3.0-lightgrey) ![npm](https://img.shields.io/npm/v/asposecellscloud) ![node-current](https://img.shields.io/node/v/asposecellscloud) [![GitHub license](https://img.shields.io/github/license/aspose-cells-cloud/aspose-cells-cloud-node)](https://github.com/aspose-cells-cloud/aspose-cells-cloud-node/blob/master/LICENSE) ![GitHub commits since latest release (by date)](https://img.shields.io/github/commits-since/aspose-cells-cloud/aspose-cells-cloud-node/23.11)
 
 # Process Excel® Files in the Cloud with Node.js
 
@@ -20,13 +20,13 @@
 - Fetch the required shape from worksheet.
 - Leverage the power of named ranges.
 
-## Feature & Enhancements in Version 23.10
+## Feature & Enhancements in Version 23.11
 
 Full list of issues covering all changes in this release:
 
-- Fix protect workbook request.
-- Fix range copy API.
-- Optimize workbook protect API.
+- Optimize import xml data into Excel file.
+- Optimize import json data into Excel file.
+- **Remove deprecated functions, class and test case**.
 
  
 ## Read & Write Spreadsheet Formats
@@ -72,30 +72,25 @@ First, create an account at [Aspose for Cloud](https://dashboard.aspose.cloud/#/
 var fs = require('fs');
 var path = require('path');
 var assert = require('assert');
-const localPath = "../TestData/";
-describe('cellsWorkbookPutConvertWorkbook', function() {
-  it('should call cellsWorkbookPutConvertWorkbook successfully', function() {
-    const cellsApi =new api.CellsApi(clientId, clientSecret);
-    const filename = "Book1.xlsx";
-    var data =fs.createReadStream(localPath  + filename);
-    var req = new model.UploadFileRequest();
-    req.path = "Temp/" + filename;
-    req.file = data;
+describe('convert_workbook_csv test', function(){
+      it("should call PutConvertWorkbook successfully" , function(){
+        
+        var localName = "Book1.xlsx";
+        var localPath = "TestData/";   
+        var format = "pdf";
 
-    return cellsApi.uploadFile(req)
-      .then(() => {
-        var req = new model.CellsWorkbook_PutConvertWorkbookRequest({
-          workbook : fs.createReadStream(localPath  + filename),
-          format : "pdf",
+        var mapFiles = {};           
+
+         mapFiles[localName]= fs.createReadStream(localPath  +localName) ;
+
+        var request = new model.PutConvertWorkbookRequest();
+        request.file =  mapFiles;
+        request.format =  format;
+        return cellsApi.putConvertWorkbook(request).then((result) => {
+            expect(result.response.statusCode).to.equal(200);
         });
-
-        return cellsApi.cellsWorkbookPutConvertWorkbook(req)
-          .then((result) => {
-            expect(result.body.toString().length).to.greaterThan(0);
-          });
       });
-  });
-});
+    }); 
 ```
 
 ## Hide Excel Columns via Node.js

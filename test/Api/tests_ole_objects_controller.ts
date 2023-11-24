@@ -20,10 +20,10 @@ describe('OleObjectsController test', function() {
 
     describe('get_worksheet_ole_objects test', function(){
       it("should call GetWorksheetOleObjects successfully" , function(){
-        var remoteFolder = "TestData/In"
+        var remoteFolder = "TestData/In";
       
-        var localName = "Book1.xlsx"
-        var remoteName = "Book1.xlsx"
+        var localName = "Book1.xlsx";
+        var remoteName = "Book1.xlsx";
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -44,10 +44,10 @@ describe('OleObjectsController test', function() {
     }); 
     describe('get_worksheet_ole_object test', function(){
       it("should call GetWorksheetOleObject successfully" , function(){
-        var remoteFolder = "TestData/In"
+        var remoteFolder = "TestData/In";
       
-        var localName = "Book1.xlsx"
-        var remoteName = "Book1.xlsx"
+        var localName = "Book1.xlsx";
+        var remoteName = "Book1.xlsx";
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -70,10 +70,10 @@ describe('OleObjectsController test', function() {
     }); 
     describe('delete_worksheet_ole_objects test', function(){
       it("should call DeleteWorksheetOleObjects successfully" , function(){
-        var remoteFolder = "TestData/In"
+        var remoteFolder = "TestData/In";
       
-        var localName = "Book1.xlsx"
-        var remoteName = "Book1.xlsx"
+        var localName = "Book1.xlsx";
+        var remoteName = "Book1.xlsx";
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -94,10 +94,10 @@ describe('OleObjectsController test', function() {
     }); 
     describe('delete_worksheet_ole_object test', function(){
       it("should call DeleteWorksheetOleObject successfully" , function(){
-        var remoteFolder = "TestData/In"
+        var remoteFolder = "TestData/In";
       
-        var localName = "Book1.xlsx"
-        var remoteName = "Book1.xlsx"
+        var localName = "Book1.xlsx";
+        var remoteName = "Book1.xlsx";
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -119,10 +119,10 @@ describe('OleObjectsController test', function() {
     }); 
     describe('post_update_worksheet_ole_object test', function(){
       it("should call PostUpdateWorksheetOleObject successfully" , function(){
-        var remoteFolder = "TestData/In"
+        var remoteFolder = "TestData/In";
       
-        var localName = "Book1.xlsx"
-        var remoteName = "Book1.xlsx"
+        var localName = "Book1.xlsx";
+        var remoteName = "Book1.xlsx";
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -150,12 +150,12 @@ describe('OleObjectsController test', function() {
     }); 
     describe('put_worksheet_ole_object test', function(){
       it("should call PutWorksheetOleObject successfully" , function(){
-        var remoteFolder = "TestData/In"
+        var remoteFolder = "TestData/In";
       
-        var localName = "Book1.xlsx"
-        var oLEDoc = "OLEDoc.docx"
-        var wordJPG = "word.jpg"
-        var remoteName = "Book1.xlsx"
+        var localName = "Book1.xlsx";
+        var oLEDoc = "OLEDoc.docx";
+        var wordJPG = "word.jpg";
+        var remoteName = "Book1.xlsx";
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
