@@ -1,6 +1,6 @@
 import request from "request";
 import { Configuration } from "../internal/configuration";
-import { addQueryParameterToUrl, invokeApiMethod } from "../internal/requestHelper";
+import { addQueryParameterToUrl } from "../internal/requestHelper";
 import { ObjectSerializer } from "../internal/objectSerializer";
 
 export class ValueType {
