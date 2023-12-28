@@ -1,6 +1,6 @@
 import request from "request";
 import { Configuration } from "../internal/configuration";
-import { addQueryParameterToUrl } from "../internal/requestHelper";
+import { addQueryParameterToUrl, invokeApiMethod } from "../internal/requestHelper";
 import { ObjectSerializer } from "../internal/objectSerializer";
 
 export class ValueType {
@@ -6450,6 +6450,11 @@ export class ConvertTaskParameter  extends TaskParameter  {
             type: "string",
         },
         {
+            name: "region",
+            baseName: "Region",
+            type: "string",
+        },
+        {
             name: "saveOptions",
             baseName: "SaveOptions",
             type: "SaveOptions",
@@ -6465,6 +6470,7 @@ export class ConvertTaskParameter  extends TaskParameter  {
 
     public workbook: FileSource;
     public destinationFile: string;
+    public region: string;
     public saveOptions: SaveOptions;
 
     public constructor(init?: Partial< ConvertTaskParameter >) {  
@@ -9694,72 +9700,6 @@ export class AxisResponse  extends CellsCloudResponse  {
 
     public constructor(init?: Partial< AxisResponse >) {  
          super(init);     
-        Object.assign(this, init);
-    } 
-}
-///    
-export class BarcodeResponse  {
-    /**
-     * Attribute type map
-     */
-    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
-        {
-            name: "barcodeValue",
-            baseName: "BarcodeValue",
-            type: "string",
-        },
-        {
-            name: "barcodeType",
-            baseName: "BarcodeType",
-            type: "string",
-        },
-        {
-            name: "region",
-            baseName: "Region",
-            type: "Array<Point>",
-        },
-        {
-            name: "checksum",
-            baseName: "Checksum",
-            type: "string",
-        }
-    ];
-    /**
-     * Returns attribute type map
-     */
-    public static getAttributeTypeMap() {
-        return  BarcodeResponse.attributeTypeMap;
-
-    }
-
-    public barcodeValue: string;
-    public barcodeType: string;
-    public region: Array<Point>;
-    public checksum: string;
-
-    public constructor(init?: Partial< BarcodeResponse >) {  
-    
-        Object.assign(this, init);
-    } 
-}
-///    
-export class BarcodeResponseList  {
-    /**
-     * Attribute type map
-     */
-    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
-    ];
-    /**
-     * Returns attribute type map
-     */
-    public static getAttributeTypeMap() {
-        return  BarcodeResponseList.attributeTypeMap;
-
-    }
-
-
-    public constructor(init?: Partial< BarcodeResponseList >) {  
-    
         Object.assign(this, init);
     } 
 }
@@ -16491,6 +16431,11 @@ export class BatchConvertRequest  {
             type: "string",
         },
         {
+            name: "region",
+            baseName: "Region",
+            type: "string",
+        },
+        {
             name: "saveOptions",
             baseName: "SaveOptions",
             type: "SaveOptions",
@@ -16510,6 +16455,7 @@ export class BatchConvertRequest  {
     public format: string;
     public outFolder: string;
     public outStorage: string;
+    public region: string;
     public saveOptions: SaveOptions;
 
     public constructor(init?: Partial< BatchConvertRequest >) {  
@@ -16684,6 +16630,11 @@ export class BatchSplitRequest  {
             type: "string",
         },
         {
+            name: "region",
+            baseName: "Region",
+            type: "string",
+        },
+        {
             name: "saveOptions",
             baseName: "SaveOptions",
             type: "SaveOptions",
@@ -16705,6 +16656,7 @@ export class BatchSplitRequest  {
     public toIndex: number;
     public outFolder: string;
     public outStorage: string;
+    public region: string;
     public saveOptions: SaveOptions;
 
     public constructor(init?: Partial< BatchSplitRequest >) {  
@@ -18719,8 +18671,6 @@ const typeMap = {
     AutoShapeResponse,
     AutoShapesResponse,
     AxisResponse,
-    BarcodeResponse,
-    BarcodeResponseList,
     BorderResponse,
     ButtonResponse,
     CalculateFormulaResponse,
@@ -18945,15 +18895,15 @@ const typeMap = {
 
 export {enumsMap, typeMap};
 
-/// Get auto filters description in worksheet.   
+/// Retrieve the description of auto filters from a worksheet.   
 export class GetWorksheetAutoFilterRequest  {
     /// The workbook name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -18989,9 +18939,9 @@ export class GetWorksheetAutoFilterRequest  {
     }
 
 }
-/// Adds date filter in worksheet.   
+/// Apply a date filter in the worksheet.   
 export class PutWorksheetDateFilterRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
@@ -18999,7 +18949,7 @@ export class PutWorksheetDateFilterRequest  {
     public range: string;
     /// The integer offset of the field on which you want to base the filter (from the left of the list; the leftmost field is field 0).  
     public fieldIndex: number;
-    /// Specifies how to group dateTime values(Day,Hour,Minute,Month,Second,Year).  
+    /// Specifies how to group dateTime values (Day, Hour, Minute, Month, Second, Year).  
     public dateTimeGroupingType: string;
     /// The year.  
     public year: number;
@@ -19013,13 +18963,13 @@ export class PutWorksheetDateFilterRequest  {
     public minute: number;
     /// The second.  
     public second: number;
-    /// Match all blank or not blank cell in the list.(true/false)  
+    /// Match all blank cell in the list.  
     public matchBlanks: boolean;
-    /// If true, hide the filtered rows.  
+    /// Refresh auto filters to hide or unhide the rows.  
     public refresh: boolean;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -19042,7 +18992,7 @@ export class PutWorksheetDateFilterRequest  {
         if (this.fieldIndex === null || this.fieldIndex === undefined) {
             throw new Error('Required parameter "fieldIndex" was null or undefined when calling PutWorksheetDateFilter.');
         }
-        /// Specifies how to group dateTime values(Day,Hour,Minute,Month,Second,Year). 
+        /// Specifies how to group dateTime values (Day, Hour, Minute, Month, Second, Year). 
         // verify required parameter 'dateTimeGroupingType' is not null or undefined
         if (this.dateTimeGroupingType === null || this.dateTimeGroupingType === undefined) {
             throw new Error('Required parameter "dateTimeGroupingType" was null or undefined when calling PutWorksheetDateFilter.');
@@ -19081,10 +19031,9 @@ export class PutWorksheetDateFilterRequest  {
     }
 
 }
-/// Adds a filter for a filter column in worksheet.
-///                
+/// Add a filter for a column in the worksheet.   
 export class PutWorksheetFilterRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
@@ -19094,13 +19043,13 @@ export class PutWorksheetFilterRequest  {
     public fieldIndex: number;
     /// The custom criteria.  
     public criteria: string;
-    /// Match all blank or  not blank cell in the list.(true/false)  
+    /// Match all blank cell in the list.  
     public matchBlanks: boolean;
-    /// If true, hide the filtered rows.  
+    /// Refresh auto filters to hide or unhide the rows.  
     public refresh: boolean;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -19156,9 +19105,9 @@ export class PutWorksheetFilterRequest  {
     }
 
 }
-/// Adds an icon filter in worksheet.   
+/// Add an icon filter in the worksheet.   
 export class PutWorksheetIconFilterRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
@@ -19170,13 +19119,13 @@ export class PutWorksheetIconFilterRequest  {
     public iconSetType: string;
     /// The icon id.  
     public iconId: number;
-    /// Match all blank or  not blank cell in the list.(true/false)  
+    /// Match all blank cell in the list.  
     public matchBlanks: boolean;
-    /// If true, hide the filtered rows.  
+    /// Refresh auto filters to hide or unhide the rows.  
     public refresh: boolean;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -19238,8 +19187,7 @@ export class PutWorksheetIconFilterRequest  {
     }
 
 }
-/// Filters a list with a custom criteria in worksheet.
-///                
+/// Filter a list with custom criteria in the worksheet.   
 export class PutWorksheetCustomFilterRequest  {
     /// The workbook name.  
     public name: string;
@@ -19259,13 +19207,13 @@ export class PutWorksheetCustomFilterRequest  {
     public operatorType2: string;
     /// The custom criteria.  
     public criteria2: string;
-    /// Match all blank or  not blank cell in the list.(true/false)  
+    /// Match all blank cell in the list.  
     public matchBlanks: boolean;
-    /// If true, hide the filtered rows.  
+    /// Refresh auto filters to hide or unhide the rows.  
     public refresh: boolean;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -19330,7 +19278,7 @@ export class PutWorksheetCustomFilterRequest  {
     }
 
 }
-/// Adds a dynamic filter in worksheet.   
+/// Add a dynamic filter in the worksheet.   
 export class PutWorksheetDynamicFilterRequest  {
     /// The workbook name.  
     public name: string;
@@ -19342,13 +19290,13 @@ export class PutWorksheetDynamicFilterRequest  {
     public fieldIndex: number;
     /// Dynamic filter type.  
     public dynamicFilterType: string;
-    /// Match all blank or  not blank cell in the list.(true/false)  
+    /// Match all blank cell in the list.  
     public matchBlanks: boolean;
-    /// If true, hide the filtered rows.  
+    /// Refresh auto filters to hide or unhide the rows.  
     public refresh: boolean;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -19404,7 +19352,7 @@ export class PutWorksheetDynamicFilterRequest  {
     }
 
 }
-/// Filters the top 10 item in the list in worksheet   
+/// Filter the top 10 items in the list in the worksheet.   
 export class PutWorksheetFilterTop10Request  {
     /// The workbook name.  
     public name: string;
@@ -19420,13 +19368,13 @@ export class PutWorksheetFilterTop10Request  {
     public isPercent: boolean;
     /// The item count  
     public itemCount: number;
-    /// Match all blank or  not blank cell in the list.(true/false)  
+    /// Match all blank cell in the list.  
     public matchBlanks: boolean;
-    /// If true, hide the filtered rows.  
+    /// Refresh auto filters to hide or unhide the rows.  
     public refresh: boolean;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -19494,7 +19442,7 @@ export class PutWorksheetFilterTop10Request  {
     }
 
 }
-/// Adds a color filter in worksheet.   
+/// Add a color filter in the worksheet.   
 export class PutWorksheetColorFilterRequest  {
     /// The workbook name.  
     public name: string;
@@ -19506,13 +19454,13 @@ export class PutWorksheetColorFilterRequest  {
     public fieldIndex: number;
     /// color filter request.  
     public colorFilter: ColorFilterRequest;
-    /// Match all blank or  not blank cell in the list.(true/false)  
+    /// Match all blank cell in the list.  
     public matchBlanks: boolean;
-    /// If true, hide the filtered rows.  
+    /// Refresh auto filters to hide or unhide the rows.  
     public refresh: boolean;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -19562,7 +19510,7 @@ export class PutWorksheetColorFilterRequest  {
     }
 
 }
-/// Match all blank cell in the list.   
+/// Match all blank cells in the list.   
 export class PostWorksheetMatchBlanksRequest  {
     /// The workbook name.  
     public name: string;
@@ -19570,9 +19518,9 @@ export class PostWorksheetMatchBlanksRequest  {
     public sheetName: string;
     /// The integer offset of the field on which you want to base the filter (from the left of the list; the leftmost field is field 0).  
     public fieldIndex: number;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -19614,8 +19562,7 @@ export class PostWorksheetMatchBlanksRequest  {
     }
 
 }
-/// Match all not blank cell in the list.
-///                
+/// Match all not blank cells in the list.   
 export class PostWorksheetMatchNonBlanksRequest  {
     /// The workbook name.  
     public name: string;
@@ -19623,9 +19570,9 @@ export class PostWorksheetMatchNonBlanksRequest  {
     public sheetName: string;
     /// The integer offset of the field on which you want to base the filter (from the left of the list; the leftmost field is field 0).  
     public fieldIndex: number;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -19667,15 +19614,15 @@ export class PostWorksheetMatchNonBlanksRequest  {
     }
 
 }
-/// Refresh auto filters in worksheet.   
+/// Refresh auto filters in the worksheet.   
 export class PostWorksheetAutoFilterRefreshRequest  {
     /// The workbook name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -19711,8 +19658,7 @@ export class PostWorksheetAutoFilterRefreshRequest  {
     }
 
 }
-/// Removes a date filter in worksheet.
-///                
+/// Remove a date filter in the worksheet.   
 export class DeleteWorksheetDateFilterRequest  {
     /// The workbook name.  
     public name: string;
@@ -19734,9 +19680,9 @@ export class DeleteWorksheetDateFilterRequest  {
     public minute: number;
     /// The second.  
     public second: number;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -19790,8 +19736,7 @@ export class DeleteWorksheetDateFilterRequest  {
     }
 
 }
-/// Deletes a filter for a filter column in worksheet.
-///                
+/// Delete a filter for a column in the worksheet.   
 export class DeleteWorksheetFilterRequest  {
     /// The workbook name.  
     public name: string;
@@ -19801,9 +19746,9 @@ export class DeleteWorksheetFilterRequest  {
     public fieldIndex: number;
     /// The custom criteria.  
     public criteria: string;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -19939,9 +19884,9 @@ export class GetWorksheetAutoshapeWithFormatRequest  {
     }
 
 }
-   
+/// Batch converting files that meet specific matching conditions.   
 export class PostBatchConvertRequest  {
-      
+    /// BatchConvertRequest Batch conversion file request.   
     public batchConvertRequest: BatchConvertRequest;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -19975,9 +19920,9 @@ export class PostBatchConvertRequest  {
     }
 
 }
-   
+/// Batch protecting files that meet specific matching conditions.   
 export class PostBatchProtectRequest  {
-      
+    /// BatchProtectRequest Batch protection file request.    
     public batchProtectRequest: BatchProtectRequest;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -20011,9 +19956,9 @@ export class PostBatchProtectRequest  {
     }
 
 }
-   
+/// Batch locking files that meet specific matching conditions.   
 export class PostBatchLockRequest  {
-      
+    /// BatchLockRequest Batch locking file request.    
     public batchLockRequest: BatchLockRequest;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -20047,9 +19992,9 @@ export class PostBatchLockRequest  {
     }
 
 }
-   
+/// Batch unlocking files that meet specific matching conditions.   
 export class PostBatchUnlockRequest  {
-      
+    /// BatchLockRequest Batch locking file request.    
     public batchLockRequest: BatchLockRequest;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -20083,9 +20028,9 @@ export class PostBatchUnlockRequest  {
     }
 
 }
-   
+/// Batch splitting files that meet specific matching conditions.   
 export class PostBatchSplitRequest  {
-      
+    /// BatchSplitRequest Batch splitting file request.    
     public batchSplitRequest: BatchSplitRequest;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -20119,25 +20064,25 @@ export class PostBatchSplitRequest  {
     }
 
 }
-/// Clear cells contents in worksheet.   
+/// Clear cell area contents in the worksheet.   
 export class PostClearContentsRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
     /// Represents the range to which the specified cells applies.  
     public range: string;
-    /// The start row.  
+    /// The start row index.  
     public startRow: number;
-    /// The start column.  
+    /// The start column index.  
     public startColumn: number;
-    /// The end row.  
+    /// The end row index.  
     public endRow: number;
-    /// The end column.  
+    /// The end column index.  
     public endColumn: number;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -20178,25 +20123,25 @@ export class PostClearContentsRequest  {
     }
 
 }
-/// Clear cells formats in worksheet.   
+/// Clear cell formats in the worksheet.   
 export class PostClearFormatsRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
     /// Represents the range to which the specified cells applies.  
     public range: string;
-    /// The start row.  
+    /// The start row index.  
     public startRow: number;
-    /// The start column.  
+    /// The start column index.  
     public startColumn: number;
-    /// The end row.  
+    /// The end row index.  
     public endRow: number;
-    /// The end column.  
+    /// The end column index.  
     public endColumn: number;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -20237,9 +20182,9 @@ export class PostClearFormatsRequest  {
     }
 
 }
-/// Updates cell's range style in worksheet.   
+/// Update cell range styles in the worksheet.   
 export class PostUpdateWorksheetRangeStyleRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
@@ -20247,9 +20192,9 @@ export class PostUpdateWorksheetRangeStyleRequest  {
     public range: string;
     /// Style with update style settings.  
     public style: Style;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -20291,23 +20236,23 @@ export class PostUpdateWorksheetRangeStyleRequest  {
     }
 
 }
-/// Merge cells in worksheet.   
+/// Merge cells in the worksheet.   
 export class PostWorksheetMergeRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
-    /// The start row.  
+    /// The start row index.  
     public startRow: number;
-    /// The start column.  
+    /// The start column index.  
     public startColumn: number;
-    /// The total rows  
+    /// The total rows number.  
     public totalRows: number;
-    /// The total columns.  
+    /// The total columns number.  
     public totalColumns: number;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -20320,22 +20265,22 @@ export class PostWorksheetMergeRequest  {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/cells/merge".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
         const queryParameters: any = {};
-        /// The start row. 
+        /// The start row index. 
         // verify required parameter 'startRow' is not null or undefined
         if (this.startRow === null || this.startRow === undefined) {
             throw new Error('Required parameter "startRow" was null or undefined when calling PostWorksheetMerge.');
         }
-        /// The start column. 
+        /// The start column index. 
         // verify required parameter 'startColumn' is not null or undefined
         if (this.startColumn === null || this.startColumn === undefined) {
             throw new Error('Required parameter "startColumn" was null or undefined when calling PostWorksheetMerge.');
         }
-        /// The total rows 
+        /// The total rows number. 
         // verify required parameter 'totalRows' is not null or undefined
         if (this.totalRows === null || this.totalRows === undefined) {
             throw new Error('Required parameter "totalRows" was null or undefined when calling PostWorksheetMerge.');
         }
-        /// The total columns. 
+        /// The total columns number. 
         // verify required parameter 'totalColumns' is not null or undefined
         if (this.totalColumns === null || this.totalColumns === undefined) {
             throw new Error('Required parameter "totalColumns" was null or undefined when calling PostWorksheetMerge.');
@@ -20367,23 +20312,23 @@ export class PostWorksheetMergeRequest  {
     }
 
 }
-/// Unmerge cells in worksheet.   
+/// Unmerge cells in the worksheet.   
 export class PostWorksheetUnmergeRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
-    /// The start row.  
+    /// The start row index.  
     public startRow: number;
-    /// The start column.  
+    /// The start column index.  
     public startColumn: number;
-    /// The total rows  
+    /// The total rows number.  
     public totalRows: number;
-    /// The total columns.  
+    /// The total columns number.  
     public totalColumns: number;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -20396,22 +20341,22 @@ export class PostWorksheetUnmergeRequest  {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/cells/unmerge".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
         const queryParameters: any = {};
-        /// The start row. 
+        /// The start row index. 
         // verify required parameter 'startRow' is not null or undefined
         if (this.startRow === null || this.startRow === undefined) {
             throw new Error('Required parameter "startRow" was null or undefined when calling PostWorksheetUnmerge.');
         }
-        /// The start column. 
+        /// The start column index. 
         // verify required parameter 'startColumn' is not null or undefined
         if (this.startColumn === null || this.startColumn === undefined) {
             throw new Error('Required parameter "startColumn" was null or undefined when calling PostWorksheetUnmerge.');
         }
-        /// The total rows 
+        /// The total rows number. 
         // verify required parameter 'totalRows' is not null or undefined
         if (this.totalRows === null || this.totalRows === undefined) {
             throw new Error('Required parameter "totalRows" was null or undefined when calling PostWorksheetUnmerge.');
         }
-        /// The total columns. 
+        /// The total columns number. 
         // verify required parameter 'totalColumns' is not null or undefined
         if (this.totalColumns === null || this.totalColumns === undefined) {
             throw new Error('Required parameter "totalColumns" was null or undefined when calling PostWorksheetUnmerge.');
@@ -20443,9 +20388,9 @@ export class PostWorksheetUnmergeRequest  {
     }
 
 }
-/// Gets cells description in some format.   
+/// Retrieve cell descriptions in a specified format.   
 export class GetWorksheetCellsRequest  {
-    /// Document name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
@@ -20453,9 +20398,9 @@ export class GetWorksheetCellsRequest  {
     public offest: number;
     /// Maximum amount of cells in the response.  
     public count: number;
-    /// Document's folder name.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -20493,17 +20438,17 @@ export class GetWorksheetCellsRequest  {
     }
 
 }
-/// Gets cell data by cell or method name in worksheet.   
+/// Retrieve cell data using either cell reference or method name in the worksheet.   
 export class GetWorksheetCellRequest  {
-    /// Document name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
     /// The cell's or method name. (Method name like firstcell, endcell etc.)  
     public cellOrMethodName: string;
-    /// Document's folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -20539,17 +20484,17 @@ export class GetWorksheetCellRequest  {
     }
 
 }
-/// Gets cell's style description in worksheet.   
+/// Retrieve cell style descriptions in the worksheet.   
 export class GetWorksheetCellStyleRequest  {
-    /// Document name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
     /// Cell's name.  
     public cellName: string;
-    /// Document's folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -20585,9 +20530,9 @@ export class GetWorksheetCellStyleRequest  {
     }
 
 }
-/// Sets cell value by cell name in worksheet.   
+/// Set cell value using cell name in the worksheet.   
 export class PostWorksheetCellSetValueRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
@@ -20599,9 +20544,9 @@ export class PostWorksheetCellSetValueRequest  {
     public type: string;
     /// Formula for cell  
     public formula: string;
-    /// The document folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -20640,9 +20585,9 @@ export class PostWorksheetCellSetValueRequest  {
     }
 
 }
-/// Sets cell's style by cell name in worksheet.   
+/// Set cell style using cell name in the worksheet.   
 export class PostUpdateWorksheetCellStyleRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
@@ -20650,9 +20595,9 @@ export class PostUpdateWorksheetCellStyleRequest  {
     public cellName: string;
     /// Style with update style settings.  
     public style: Style;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -20688,9 +20633,9 @@ export class PostUpdateWorksheetCellStyleRequest  {
     }
 
 }
-/// Sets the value of the range in worksheet.   
+/// Set the value of the range in the worksheet.   
 export class PostSetCellRangeValueRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
@@ -20700,9 +20645,9 @@ export class PostSetCellRangeValueRequest  {
     public value: string;
     /// Value data type (like "int")  
     public type: string;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -20756,25 +20701,25 @@ export class PostSetCellRangeValueRequest  {
     }
 
 }
-/// Copies data to destination cell from a source cell in worksheet.   
+/// Copy data from a source cell to a destination cell in the worksheet.   
 export class PostCopyCellIntoCellRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
-    /// Destination cell name  
+    /// The destination cell name.  
     public destCellName: string;
-    /// Destination worksheet name.  
+    /// The destination worksheet name.  
     public sheetName: string;
-    /// Source worksheet name.  
+    /// The source worksheet name.  
     public worksheet: string;
-    /// Source cell name  
+    /// The source cell name.  
     public cellname: string;
-    /// Source row  
+    /// The source row index.  
     public row: number;
-    /// Source column  
+    /// The source column index.  
     public column: number;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -20787,7 +20732,7 @@ export class PostCopyCellIntoCellRequest  {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/cells/{destCellName}/copy".replace("{" + "name" + "}", String(this.name)).replace("{" + "destCellName" + "}", String(this.destCellName)).replace("{" + "sheetName" + "}", String(this.sheetName));
         const queryParameters: any = {};
-        /// Source worksheet name. 
+        /// The source worksheet name. 
         // verify required parameter 'worksheet' is not null or undefined
         if (this.worksheet === null || this.worksheet === undefined) {
             throw new Error('Required parameter "worksheet" was null or undefined when calling PostCopyCellIntoCell.');
@@ -20819,17 +20764,17 @@ export class PostCopyCellIntoCellRequest  {
     }
 
 }
-/// Gets the html string which contains data and some formats in this cell.   
+/// Retrieve the HTML string containing data and specific formats in this cell.   
 export class GetCellHtmlStringRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
     /// The cell name.  
     public cellName: string;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -20865,17 +20810,17 @@ export class GetCellHtmlStringRequest  {
     }
 
 }
-/// Sets the html string which contains data and some formats in this cell.   
+/// Set the HTML string containing data and specific formats in this cell.   
 export class PostSetCellHtmlStringRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
     /// The cell name.  
     public cellName: string;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -20911,9 +20856,9 @@ export class PostSetCellHtmlStringRequest  {
     }
 
 }
-/// Calculates cell formula in worksheet.   
+/// Calculate cell formula in the worksheet.   
 export class PostCellCalculateRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
@@ -20921,9 +20866,9 @@ export class PostCellCalculateRequest  {
     public cellName: string;
     /// Calculation Options  
     public options: CalculationOptions;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -20959,9 +20904,9 @@ export class PostCellCalculateRequest  {
     }
 
 }
-/// Sets cell characters in worksheet.   
+/// Set cell characters in the worksheet.   
 export class PostCellCharactersRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
@@ -20969,9 +20914,9 @@ export class PostCellCharactersRequest  {
     public cellName: string;
       
     public options: Array<FontSetting>;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -22320,8 +22265,7 @@ export class PostCopyWorksheetRowsRequest  {
     }
 
 }
-/// Applies formats for a whole row in worksheet.
-///                
+/// Applies formats for a whole row in worksheet.   
 export class PostRowStyleRequest  {
     /// The workbook name.  
     public name: string;
@@ -22369,7 +22313,7 @@ export class PostRowStyleRequest  {
     }
 
 }
-/// Gets cells description in some format.   
+/// Retrieve cell descriptions in a specified format.   
 export class GetCellsCloudServicesHealthCheckRequest  {
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -22403,7 +22347,7 @@ export class GetCellsCloudServicesHealthCheckRequest  {
     }
 
 }
-/// Aspose.Cells Cloud service health status check(old).    
+/// Aspose.Cells Cloud service health status check.   
 export class GetCellsCloudServiceStatusRequest  {
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -22437,17 +22381,17 @@ export class GetCellsCloudServiceStatusRequest  {
     }
 
 }
-/// Gets chart area description in worksheet.   
+/// Retrieve chart area description in the worksheet.   
 export class GetChartAreaRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
     /// The chart index.  
     public chartIndex: number;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-      
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -22483,17 +22427,17 @@ export class GetChartAreaRequest  {
     }
 
 }
-/// Gets chart area fill format description in worksheet.   
+/// Retrieve chart area fill format description in the worksheet.   
 export class GetChartAreaFillFormatRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
     /// The chart index.  
     public chartIndex: number;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-      
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -22529,17 +22473,17 @@ export class GetChartAreaFillFormatRequest  {
     }
 
 }
-/// Gets chart area border description.   
+/// Retrieve chart area border description.   
 export class GetChartAreaBorderRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
     /// The chart index.  
     public chartIndex: number;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-      
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -22575,15 +22519,15 @@ export class GetChartAreaBorderRequest  {
     }
 
 }
-/// Get worksheet charts description.   
+/// Retrieve descriptions of charts in the worksheet.   
 export class GetWorksheetChartsRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -22619,9 +22563,9 @@ export class GetWorksheetChartsRequest  {
     }
 
 }
-/// Gets chart in some format.   
+/// Retrieve the chart in a specified format.   
 export class GetWorksheetChartRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
@@ -22629,9 +22573,9 @@ export class GetWorksheetChartRequest  {
     public chartNumber: number;
     /// Chart conversion format.(PNG/TIFF/JPEG/GIF/EMF/BMP)  
     public format: string;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -22668,43 +22612,43 @@ export class GetWorksheetChartRequest  {
     }
 
 }
-/// Adds new chart in worksheet.   
+/// Add a new chart in the worksheet.   
 export class PutWorksheetAddChartRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
     /// Chart type, please refer property Type in chart resource.  
     public chartType: string;
-    /// New chart upper left row.  
+    /// Upper-left row for the new chart.  
     public upperLeftRow: number;
-    /// New chart upperleft column.  
+    /// Upper-left column for the new chart.  
     public upperLeftColumn: number;
-    /// New chart lower right row.  
+    /// Lower-left row for the new chart.  
     public lowerRightRow: number;
-    /// New chart lower right column.  
+    /// Lower-left column for the new chart.  
     public lowerRightColumn: number;
-    /// Specifies values from which to plot the data series.   
+    /// Specify the values from which to plot the data series.  
     public area: string;
-    /// Specifies whether to plot the series from a range of cell values by row or by column.   
+    /// Specify whether to plot the series from a range of cell values by row or by column.   
     public isVertical: boolean;
-    /// Gets or sets the range of category Axis values. It can be a range of cells (such as, "d1:e10").   
+    /// Get or set the range of category axis values. It can be a range of cells (e.g., "D1:E10").  
     public categoryData: string;
-    /// Specifies whether auto update serial name.   
+    /// Specify whether to auto-update the serial name.  
     public isAutoGetSerialName: boolean;
-    /// Specifies chart title name.  
+    /// Specify the chart title name.  
     public title: string;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Represents a specified chart's data label values display behavior. True displays the values. False to hide.  
+    /// Represents the specified chart's data label values display behavior. True to display the values, False to hide them.  
     public dataLabels: boolean;
-    /// Represents data label position(Center/InsideBase/InsideEnd/OutsideEnd/Above/Below/Left/Right/BestFit/Moved).  
+    /// Represents data label position (Center/InsideBase/InsideEnd/OutsideEnd/Above/Below/Left/Right/BestFit/Moved).  
     public dataLabelsPosition: string;
-    /// The source is the data of the pivotTable. If PivotSource is not empty ,the chart is PivotChart.  
+    /// The source is the data of the pivotTable. If PivotSource is not empty, the chart is a PivotChart.  
     public pivotTableSheet: string;
-    /// The source is the data of the pivotTable.  
+    /// The pivot table name.  
     public pivotTableName: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -22759,17 +22703,17 @@ export class PutWorksheetAddChartRequest  {
     }
 
 }
-/// Deletes a chart by index in worksheet.   
+/// Delete a chart by index in the worksheet.   
 export class DeleteWorksheetDeleteChartRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
     /// The chart index.  
     public chartIndex: number;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -22805,19 +22749,19 @@ export class DeleteWorksheetDeleteChartRequest  {
     }
 
 }
-/// Update chart propreties in worksheet.   
+/// Update chart properties in the worksheet.   
 export class PostWorksheetChartRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
     /// The chart index.  
     public chartIndex: number;
-    /// Represents a specified chart.  
+    /// Chart Represents a specified chart.  
     public chart: Chart;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -22853,17 +22797,17 @@ export class PostWorksheetChartRequest  {
     }
 
 }
-/// Gets chart legend description in worksheet.   
+/// Retrieve chart legend description in the worksheet.   
 export class GetWorksheetChartLegendRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
     /// The chart index.  
     public chartIndex: number;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -22899,9 +22843,9 @@ export class GetWorksheetChartLegendRequest  {
     }
 
 }
-/// Updates chart legend in worksheet.   
+/// Update chart legend in the worksheet.   
 export class PostWorksheetChartLegendRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
@@ -22909,9 +22853,9 @@ export class PostWorksheetChartLegendRequest  {
     public chartIndex: number;
       
     public legend: Legend;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -22949,15 +22893,15 @@ export class PostWorksheetChartLegendRequest  {
 }
 /// Show chart legend in worksheet.   
 export class PutWorksheetChartLegendRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
     /// The chart index.  
     public chartIndex: number;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -22995,15 +22939,15 @@ export class PutWorksheetChartLegendRequest  {
 }
 /// Hides chart legend in worksheet.   
 export class DeleteWorksheetChartLegendRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
     /// The chart index.  
     public chartIndex: number;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -23041,13 +22985,13 @@ export class DeleteWorksheetChartLegendRequest  {
 }
 /// Clear the charts in worksheets.   
 export class DeleteWorksheetClearChartsRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -23085,15 +23029,15 @@ export class DeleteWorksheetClearChartsRequest  {
 }
 /// Gets chart title description in worksheet.   
 export class GetWorksheetChartTitleRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
     /// The chart index.  
     public chartIndex: number;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -23131,7 +23075,7 @@ export class GetWorksheetChartTitleRequest  {
 }
 /// Update chart title in worksheet.   
 export class PostWorksheetChartTitleRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
@@ -23139,9 +23083,9 @@ export class PostWorksheetChartTitleRequest  {
     public chartIndex: number;
     /// Chart title  
     public title: Title;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -23179,7 +23123,7 @@ export class PostWorksheetChartTitleRequest  {
 }
 /// Add chart title / Set chart title visible   
 export class PutWorksheetChartTitleRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
@@ -23187,9 +23131,9 @@ export class PutWorksheetChartTitleRequest  {
     public chartIndex: number;
     /// Chart title.  
     public title: Title;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -23227,15 +23171,15 @@ export class PutWorksheetChartTitleRequest  {
 }
 /// Hides chart title in worksheet.   
 export class DeleteWorksheetChartTitleRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
     /// The chart index.  
     public chartIndex: number;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -23273,15 +23217,15 @@ export class DeleteWorksheetChartTitleRequest  {
 }
    
 export class GetChartSeriesAxisRequest  {
-      
+    /// The file name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// The chart index.  
     public chartIndex: number;
-      
+    /// The folder where the file is situated.  
     public folder: string;
-      
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -23319,15 +23263,15 @@ export class GetChartSeriesAxisRequest  {
 }
    
 export class GetChartCategoryAxisRequest  {
-      
+    /// The file name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// The chart index.  
     public chartIndex: number;
-      
+    /// The folder where the file is situated.  
     public folder: string;
-      
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -23365,15 +23309,15 @@ export class GetChartCategoryAxisRequest  {
 }
    
 export class GetChartValueAxisRequest  {
-      
+    /// The file name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// The chart index.  
     public chartIndex: number;
-      
+    /// The folder where the file is situated.  
     public folder: string;
-      
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -23411,15 +23355,15 @@ export class GetChartValueAxisRequest  {
 }
    
 export class GetChartSecondCategoryAxisRequest  {
-      
+    /// The file name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// The chart index.  
     public chartIndex: number;
-      
+    /// The folder where the file is situated.  
     public folder: string;
-      
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -23457,15 +23401,15 @@ export class GetChartSecondCategoryAxisRequest  {
 }
    
 export class GetChartSecondValueAxisRequest  {
-      
+    /// The file name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// The chart index.  
     public chartIndex: number;
-      
+    /// The folder where the file is situated.  
     public folder: string;
-      
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -23503,17 +23447,17 @@ export class GetChartSecondValueAxisRequest  {
 }
    
 export class PostChartSeriesAxisRequest  {
-      
+    /// The file name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// The chart index.  
     public chartIndex: number;
-      
+    /// Axis   
     public axis: Axis;
-      
+    /// The folder where the file is situated.  
     public folder: string;
-      
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -23551,17 +23495,17 @@ export class PostChartSeriesAxisRequest  {
 }
    
 export class PostChartCategoryAxisRequest  {
-      
+    /// The file name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// The chart index.  
     public chartIndex: number;
-      
+    /// Axis   
     public axis: Axis;
-      
+    /// The folder where the file is situated.  
     public folder: string;
-      
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -23599,17 +23543,17 @@ export class PostChartCategoryAxisRequest  {
 }
    
 export class PostChartValueAxisRequest  {
-      
+    /// The file name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// The chart index.  
     public chartIndex: number;
-      
+    /// Axis   
     public axis: Axis;
-      
+    /// The folder where the file is situated.  
     public folder: string;
-      
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -23647,17 +23591,17 @@ export class PostChartValueAxisRequest  {
 }
    
 export class PostChartSecondCategoryAxisRequest  {
-      
+    /// The file name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// The chart index.  
     public chartIndex: number;
-      
+    /// Axis   
     public axis: Axis;
-      
+    /// The folder where the file is situated.  
     public folder: string;
-      
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -23695,17 +23639,17 @@ export class PostChartSecondCategoryAxisRequest  {
 }
    
 export class PostChartSecondValueAxisRequest  {
-      
+    /// The file name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// The chart index.  
     public chartIndex: number;
-      
+    /// Axis   
     public axis: Axis;
-      
+    /// The folder where the file is situated.  
     public folder: string;
-      
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -24269,28 +24213,30 @@ export class DeleteWorksheetConditionalFormattingAreaRequest  {
     }
 
 }
-/// Exports workbook to some format.   
+/// Retrieve workbooks in various formats.   
 export class GetWorkbookRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The conversion format(CSV/XLS/HTML/MHTML/ODS/PDF/XML/TXT/TIFF/XLSB/XLSM/XLSX/XLTM/XLTX/XPS/PNG/JPG/JPEG/GIF/EMF/BMP/MD[Markdown]/Numbers).  
     public format: string;
-    /// The excel password.  
+    /// The password needed to open an Excel file.  
     public password: string;
     /// Specifies whether set workbook rows to be autofit.  
     public isAutoFit: boolean;
     /// Specifies whether only save table data.Only use pdf to excel.  
     public onlySaveTable: boolean;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Path to save result  
+    /// Path to save the result. If it's a single file, the `outPath` should encompass both the filename and extension. In the case of multiple files, the `outPath` should only include the folder.  
     public outPath: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
-    /// Storage name.  
+    /// The storage name where the output file is situated.  
     public outStorageName: string;
-      
+    /// Whether check restriction of excel file when user modify cells related objects.  
     public checkExcelRestriction: boolean;
+    /// The regional settings for workbook.  
+    public region: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -24311,6 +24257,7 @@ export class GetWorkbookRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", this.checkExcelRestriction);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         if(this.extendQueryParameterMap !== undefined){
             for (var key in this.extendQueryParameterMap){
                 localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
@@ -24332,22 +24279,24 @@ export class GetWorkbookRequest  {
     }
 
 }
-/// Converts workbook from request content to some format.   
+/// Convert the workbook from the requested content into files in different formats.   
 export class PutConvertWorkbookRequest  {
     /// The format to convert(CSV/XLS/HTML/MHTML/ODS/PDF/XML/TXT/TIFF/XLSB/XLSM/XLSX/XLTM/XLTX/XPS/PNG/JPG/JPEG/GIF/EMF/BMP/MD[Markdown]/Numbers).  
     public file: any;
     /// The format to convert(CSV/XLS/HTML/MHTML/ODS/PDF/XML/TXT/TIFF/XLSB/XLSM/XLSX/XLTM/XLTX/XPS/PNG/JPG/JPEG/GIF/EMF/BMP/MD[Markdown]/Numbers).  
     public format: string;
-    /// The workbook password.  
+    /// The password needed to open an Excel file.  
     public password: string;
-    /// Path to save result  
+    /// Path to save the result. If it's a single file, the `outPath` should encompass both the filename and extension. In the case of multiple files, the `outPath` should only include the folder.  
     public outPath: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
-      
+    /// Whether check restriction of excel file when user modify cells related objects.  
     public checkExcelRestriction: boolean;
-      
+    /// The format of the input file stream.   
     public streamFormat: string;
+    /// The regional settings for workbook.  
+    public region: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -24366,6 +24315,7 @@ export class PutConvertWorkbookRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", this.checkExcelRestriction);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "streamFormat", this.streamFormat);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         if(this.extendQueryParameterMap !== undefined){
             for (var key in this.extendQueryParameterMap){
                 localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
@@ -24393,11 +24343,11 @@ export class PutConvertWorkbookRequest  {
     }
 
 }
-/// Converts document and saves result to storage.   
+/// Save an Excel file in various formats.   
 export class PostWorkbookSaveAsRequest  {
     /// The workbook name.  
     public name: string;
-    /// The new file name.  
+    /// newfilename to save the result.The `newfilename` should encompass both the filename and extension.  
     public newfilename: string;
       
     public saveOptions: SaveOptions;
@@ -24405,14 +24355,16 @@ export class PostWorkbookSaveAsRequest  {
     public isAutoFitRows: boolean;
     /// Indicates if Autofit columns in workbook.  
     public isAutoFitColumns: boolean;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
-      
+    /// The storage name where the output file is situated.  
     public outStorageName: string;
-      
+    /// Whether check restriction of excel file when user modify cells related objects.  
     public checkExcelRestriction: boolean;
+    /// The regional settings for workbook.  
+    public region: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -24424,7 +24376,7 @@ export class PostWorkbookSaveAsRequest  {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/SaveAs".replace("{" + "name" + "}", String(this.name));
         const queryParameters: any = {};
-        /// The new file name. 
+        /// newfilename to save the result.The `newfilename` should encompass both the filename and extension. 
         // verify required parameter 'newfilename' is not null or undefined
         if (this.newfilename === null || this.newfilename === undefined) {
             throw new Error('Required parameter "newfilename" was null or undefined when calling PostWorkbookSaveAs.');
@@ -24436,6 +24388,7 @@ export class PostWorkbookSaveAsRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", this.checkExcelRestriction);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         if(this.extendQueryParameterMap !== undefined){
             for (var key in this.extendQueryParameterMap){
                 localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
@@ -24457,14 +24410,16 @@ export class PostWorkbookSaveAsRequest  {
     }
 
 }
-   
+/// Convert Excel file to PDF files.   
 export class PostConvertWorkbookToPDFRequest  {
-    /// File to upload  
+    /// The password needed to open an Excel file.  
     public file: any;
-      
+    /// The password needed to open an Excel file.  
     public password: string;
-      
+    /// Whether check restriction of excel file when user modify cells related objects.  
     public checkExcelRestriction: boolean;
+    /// The regional settings for workbook.  
+    public region: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -24479,6 +24434,7 @@ export class PostConvertWorkbookToPDFRequest  {
         const formParams: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", this.checkExcelRestriction);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         if(this.extendQueryParameterMap !== undefined){
             for (var key in this.extendQueryParameterMap){
                 localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
@@ -24506,14 +24462,16 @@ export class PostConvertWorkbookToPDFRequest  {
     }
 
 }
-   
+/// Convert Excel file to PNG files.   
 export class PostConvertWorkbookToPNGRequest  {
-    /// File to upload  
+    /// The password needed to open an Excel file.  
     public file: any;
-      
+    /// The password needed to open an Excel file.  
     public password: string;
-      
+    /// Whether check restriction of excel file when user modify cells related objects.  
     public checkExcelRestriction: boolean;
+    /// The regional settings for workbook.  
+    public region: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -24528,6 +24486,7 @@ export class PostConvertWorkbookToPNGRequest  {
         const formParams: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", this.checkExcelRestriction);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         if(this.extendQueryParameterMap !== undefined){
             for (var key in this.extendQueryParameterMap){
                 localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
@@ -24555,14 +24514,16 @@ export class PostConvertWorkbookToPNGRequest  {
     }
 
 }
-   
+/// Convert Excel file to Docx files.   
 export class PostConvertWorkbookToDocxRequest  {
-    /// File to upload  
+    /// The password needed to open an Excel file.  
     public file: any;
-      
+    /// The password needed to open an Excel file.  
     public password: string;
-      
+    /// Whether check restriction of excel file when user modify cells related objects.  
     public checkExcelRestriction: boolean;
+    /// The regional settings for workbook.  
+    public region: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -24577,6 +24538,7 @@ export class PostConvertWorkbookToDocxRequest  {
         const formParams: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", this.checkExcelRestriction);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         if(this.extendQueryParameterMap !== undefined){
             for (var key in this.extendQueryParameterMap){
                 localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
@@ -24604,14 +24566,16 @@ export class PostConvertWorkbookToDocxRequest  {
     }
 
 }
-   
+/// Convert Excel file to Pptx files.   
 export class PostConvertWorkbookToPptxRequest  {
-    /// File to upload  
+    /// The password needed to open an Excel file.  
     public file: any;
-      
+    /// The password needed to open an Excel file.  
     public password: string;
-      
+    /// Whether check restriction of excel file when user modify cells related objects.  
     public checkExcelRestriction: boolean;
+    /// The regional settings for workbook.  
+    public region: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -24626,6 +24590,7 @@ export class PostConvertWorkbookToPptxRequest  {
         const formParams: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", this.checkExcelRestriction);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         if(this.extendQueryParameterMap !== undefined){
             for (var key in this.extendQueryParameterMap){
                 localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
@@ -24653,14 +24618,16 @@ export class PostConvertWorkbookToPptxRequest  {
     }
 
 }
-   
+/// Convert Excel file to HTML files.   
 export class PostConvertWorkbookToHtmlRequest  {
-    /// File to upload  
+    /// The password needed to open an Excel file.  
     public file: any;
-      
+    /// The password needed to open an Excel file.  
     public password: string;
-      
+    /// Whether check restriction of excel file when user modify cells related objects.  
     public checkExcelRestriction: boolean;
+    /// The regional settings for workbook.  
+    public region: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -24675,6 +24642,7 @@ export class PostConvertWorkbookToHtmlRequest  {
         const formParams: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", this.checkExcelRestriction);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         if(this.extendQueryParameterMap !== undefined){
             for (var key in this.extendQueryParameterMap){
                 localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
@@ -24702,14 +24670,16 @@ export class PostConvertWorkbookToHtmlRequest  {
     }
 
 }
-   
+/// Convert Excel file to Markdown files.   
 export class PostConvertWorkbookToMarkdownRequest  {
-    /// File to upload  
+    /// The password needed to open an Excel file.  
     public file: any;
-      
+    /// The password needed to open an Excel file.  
     public password: string;
-      
+    /// Whether check restriction of excel file when user modify cells related objects.  
     public checkExcelRestriction: boolean;
+    /// The regional settings for workbook.  
+    public region: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -24724,6 +24694,7 @@ export class PostConvertWorkbookToMarkdownRequest  {
         const formParams: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", this.checkExcelRestriction);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         if(this.extendQueryParameterMap !== undefined){
             for (var key in this.extendQueryParameterMap){
                 localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
@@ -24751,14 +24722,16 @@ export class PostConvertWorkbookToMarkdownRequest  {
     }
 
 }
-   
+/// Convert Excel file to Json files.   
 export class PostConvertWorkbookToJsonRequest  {
-    /// File to upload  
+    /// The password needed to open an Excel file.  
     public file: any;
-      
+    /// The password needed to open an Excel file.  
     public password: string;
-      
+    /// Whether check restriction of excel file when user modify cells related objects.  
     public checkExcelRestriction: boolean;
+    /// The regional settings for workbook.  
+    public region: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -24773,6 +24746,7 @@ export class PostConvertWorkbookToJsonRequest  {
         const formParams: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", this.checkExcelRestriction);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         if(this.extendQueryParameterMap !== undefined){
             for (var key in this.extendQueryParameterMap){
                 localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
@@ -24800,14 +24774,16 @@ export class PostConvertWorkbookToJsonRequest  {
     }
 
 }
-   
+/// Convert Excel file to SQL Script files.   
 export class PostConvertWorkbookToSQLRequest  {
-    /// File to upload  
+    /// The password needed to open an Excel file.  
     public file: any;
-      
+    /// The password needed to open an Excel file.  
     public password: string;
-      
+    /// Whether check restriction of excel file when user modify cells related objects.  
     public checkExcelRestriction: boolean;
+    /// The regional settings for workbook.  
+    public region: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -24822,6 +24798,7 @@ export class PostConvertWorkbookToSQLRequest  {
         const formParams: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", this.checkExcelRestriction);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         if(this.extendQueryParameterMap !== undefined){
             for (var key in this.extendQueryParameterMap){
                 localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
@@ -24849,14 +24826,16 @@ export class PostConvertWorkbookToSQLRequest  {
     }
 
 }
-   
+/// Convert Excel file to Csv files.   
 export class PostConvertWorkbookToCSVRequest  {
-    /// File to upload  
+    /// The password needed to open an Excel file.  
     public file: any;
-      
+    /// The password needed to open an Excel file.  
     public password: string;
-      
+    /// Whether check restriction of excel file when user modify cells related objects.  
     public checkExcelRestriction: boolean;
+    /// The regional settings for workbook.  
+    public region: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -24871,6 +24850,7 @@ export class PostConvertWorkbookToCSVRequest  {
         const formParams: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", this.checkExcelRestriction);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         if(this.extendQueryParameterMap !== undefined){
             for (var key in this.extendQueryParameterMap){
                 localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
@@ -24898,18 +24878,20 @@ export class PostConvertWorkbookToCSVRequest  {
     }
 
 }
-/// Export excel internal elements or itself to kinds of format files.   
+/// Export Excel internal elements or the workbook itself to various format files.   
 export class PostExportRequest  {
-    /// workbook/worksheet/chart/comment/picture/shape/listobject/oleobject  
+    /// Exported object type:workbook/worksheet/chart/comment/picture/shape/listobject/oleobject.  
     public file: any;
-    /// workbook/worksheet/chart/comment/picture/shape/listobject/oleobject  
+    /// Exported object type:workbook/worksheet/chart/comment/picture/shape/listobject/oleobject.  
     public objectType: string;
-    /// The format to convert(CSV/XLS/HTML/MHTML/ODS/PDF/XML/TXT/TIFF/XLSB/XLSM/XLSX/XLTM/XLTX/XPS/PNG/JPG/JPEG/GIF/EMF/BMP/MD[Markdown]/Numbers)  
+    /// The conversion format(CSV/XLS/HTML/MHTML/ODS/PDF/XML/TXT/TIFF/XLSB/XLSM/XLSX/XLTM/XLTX/XPS/PNG/JPG/JPEG/GIF/EMF/BMP/MD[Markdown]/Numbers).  
     public format: string;
-      
+    /// The password needed to open an Excel file.  
     public password: string;
-      
+    /// Whether check restriction of excel file when user modify cells related objects.  
     public checkExcelRestriction: boolean;
+    /// The regional settings for workbook.  
+    public region: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -24926,6 +24908,7 @@ export class PostExportRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "format", this.format);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", this.checkExcelRestriction);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         if(this.extendQueryParameterMap !== undefined){
             for (var key in this.extendQueryParameterMap){
                 localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
@@ -24953,24 +24936,25 @@ export class PostExportRequest  {
     }
 
 }
-/// Export XML data from Excel file. 
-/// When there are Xml Maps in Excel file, export xml data. 
-/// When there is not xml map in Excel file, convert Excel file to xml file.    
+/// Export XML data from an Excel file.
+/// When there are XML Maps in an Excel file, export XML data. When there is no XML map in the Excel file, convert the Excel file to an XML file.   
 export class PostWorkbookExportXMLRequest  {
-    /// The workbook(Excel/ODS/...) name.  
+    /// The file name.  
     public name: string;
-    /// password  
+    /// The password needed to open an Excel file.  
     public password: string;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
-    /// Output file path.  
+    /// Path to save the result. If it's a single file, the `outPath` should encompass both the filename and extension. In the case of multiple files, the `outPath` should only include the folder.  
     public outPath: string;
-    /// Storage name for output file.  
+    /// The storage name where the output file is situated.  
     public outStorageName: string;
-    /// check excel restriction.  
+    /// Whether check restriction of excel file when user modify cells related objects.  
     public checkExcelRestriction: boolean;
+    /// The regional settings for workbook.  
+    public region: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -24988,6 +24972,7 @@ export class PostWorkbookExportXMLRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", this.checkExcelRestriction);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         if(this.extendQueryParameterMap !== undefined){
             for (var key in this.extendQueryParameterMap){
                 localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
@@ -25009,25 +24994,26 @@ export class PostWorkbookExportXMLRequest  {
     }
 
 }
-/// Imports/Updates an XML data file into the workbook.
-/// The XML data file can be a cloud file or HTTP URI data.   
+/// Import a JSON data file into the workbook. The JSON data file can either be a cloud file or data from an HTTP URI.   
 export class PostWorkbookImportJsonRequest  {
-    /// The workbook(Excel/ODS/...) name.  
+    /// The file name.  
     public name: string;
-      
+    /// Import Json request.  
     public importJsonRequest: ImportJsonRequest;
-    /// password  
+    /// The password needed to open an Excel file.  
     public password: string;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
-    /// Output file path.  
+    /// Path to save the result. If it's a single file, the `outPath` should encompass both the filename and extension. In the case of multiple files, the `outPath` should only include the folder.  
     public outPath: string;
-    /// Storage name for output file.  
+    /// The storage name where the output file is situated.  
     public outStorageName: string;
-    /// check Excel restriction.  
+    /// Whether check restriction of excel file when user modify cells related objects.  
     public checkExcelRestriction: boolean;
+    /// The regional settings for workbook.  
+    public region: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -25045,6 +25031,7 @@ export class PostWorkbookImportJsonRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", this.checkExcelRestriction);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         if(this.extendQueryParameterMap !== undefined){
             for (var key in this.extendQueryParameterMap){
                 localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
@@ -25066,25 +25053,26 @@ export class PostWorkbookImportJsonRequest  {
     }
 
 }
-/// Imports/Updates an XML data file into the workbook.
-/// The XML data file can be a cloud file or HTTP URI data.   
+/// Import an XML data file into an Excel file. The XML data file can either be a cloud file or data from an HTTP URI.   
 export class PostWorkbookImportXMLRequest  {
-    /// The workbook(Excel/ODS/...) name.  
+    /// The file name.  
     public name: string;
-      
+    /// Import XML request.  
     public importXMLRequest: ImportXMLRequest;
-    /// password  
+    /// The password needed to open an Excel file.  
     public password: string;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
-    /// Output file path.  
+    /// Path to save the result. If it's a single file, the `outPath` should encompass both the filename and extension. In the case of multiple files, the `outPath` should only include the folder.  
     public outPath: string;
-    /// Storage name for output file.  
+    /// The storage name where the output file is situated.  
     public outStorageName: string;
-    /// check Excel restriction.  
+    /// Whether check restriction of excel file when user modify cells related objects.  
     public checkExcelRestriction: boolean;
+    /// The regional settings for workbook.  
+    public region: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -25102,6 +25090,7 @@ export class PostWorkbookImportXMLRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", this.checkExcelRestriction);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         if(this.extendQueryParameterMap !== undefined){
             for (var key in this.extendQueryParameterMap){
                 localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
@@ -25123,16 +25112,18 @@ export class PostWorkbookImportXMLRequest  {
     }
 
 }
-/// Imports data into workbook.   
+/// Import data into the Excel file.   
 export class PostImportDataRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
-      
+    /// Import option. They are include of ImportCSVDataOption, ImportBatchDataOption, ImportPictureOption, ImportStringArrayOption, Import2DimensionStringArrayOption, and so on.    
     public importOption: ImportOption;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
+    /// The regional settings for workbook.  
+    public region: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -25146,6 +25137,7 @@ export class PostImportDataRequest  {
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         if(this.extendQueryParameterMap !== undefined){
             for (var key in this.extendQueryParameterMap){
                 localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
@@ -25479,7 +25471,7 @@ export class DeleteWorksheetHyperlinksRequest  {
     }
 
 }
-/// Combine data files and template files to kinds of format files.    
+/// Assemble data files with template files to generate files in various formats.   
 export class PostAssembleRequest  {
     /// The format to convert(CSV/XLS/HTML/MHTML/ODS/PDF/XML/TXT/TIFF/XLSB/XLSM/XLSX/XLTM/XLTX/XPS/PNG/JPG/JPEG/GIF/EMF/BMP/MD[Markdown]/Numbers)  
     public file: any;
@@ -25487,10 +25479,12 @@ export class PostAssembleRequest  {
     public datasource: string;
     /// The format to convert(CSV/XLS/HTML/MHTML/ODS/PDF/XML/TXT/TIFF/XLSB/XLSM/XLSX/XLTM/XLTX/XPS/PNG/JPG/JPEG/GIF/EMF/BMP/MD[Markdown]/Numbers)  
     public format: string;
-      
+    /// The password needed to open an Excel file.  
     public password: string;
-      
+    /// Whether check restriction of excel file when user modify cells related objects.  
     public checkExcelRestriction: boolean;
+    /// The regional settings for workbook.  
+    public region: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -25512,6 +25506,7 @@ export class PostAssembleRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "format", this.format);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", this.checkExcelRestriction);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         if(this.extendQueryParameterMap !== undefined){
             for (var key in this.extendQueryParameterMap){
                 localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
@@ -25539,15 +25534,15 @@ export class PostAssembleRequest  {
     }
 
 }
-/// Compress XLS, XLSX, XLSM, XLSB, ODS and more   
+/// Compress files and generate target files in various formats, supported file formats are include Xls, Xlsx, Xlsm, Xlsb, Ods and more.   
 export class PostCompressRequest  {
-    /// File to upload  
+    /// Compress level. The compression ratio 1-100.  
     public file: any;
-      
+    /// Compress level. The compression ratio 1-100.  
     public compressLevel: number;
-      
+    /// The password needed to open an Excel file.  
     public password: string;
-      
+    /// Whether check restriction of excel file when user modify cells related objects.  
     public checkExcelRestriction: boolean;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -25591,18 +25586,20 @@ export class PostCompressRequest  {
     }
 
 }
-/// Merge cells in worksheet.   
+/// Merge cells in the worksheet.   
 export class PostMergeRequest  {
-    /// The format to convert(CSV/XLS/HTML/MHTML/ODS/PDF/XML/TXT/TIFF/XLSB/XLSM/XLSX/XLTM/XLTX/XPS/PNG/JPG/JPEG/GIF/EMF/BMP/MD[Markdown]/Numbers)  
+    /// The output data file format.(CSV/XLS/HTML/MHTML/ODS/PDF/XML/TXT/TIFF/XLSB/XLSM/XLSX/XLTM/XLTX/XPS/PNG/JPG/JPEG/GIF/EMF/BMP/MD[Markdown]/Numbers)  
     public file: any;
-      
-    public format: string;
-      
+    /// The password needed to open an Excel file.  
+    public outFormat: string;
+    /// Whether check restriction of excel file when user modify cells related objects.  
     public mergeToOneSheet: boolean;
-      
+    /// The regional settings for workbook.  
     public password: string;
-      
+    /// Upload files.  
     public checkExcelRestriction: boolean;
+      
+    public region: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -25615,10 +25612,11 @@ export class PostMergeRequest  {
         let localVarPath = configuration.getApiBaseUrl() + "/cells/merge";
         const queryParameters: any = {};
         const formParams: any = {};
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "format", this.format);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outFormat", this.outFormat);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "mergeToOneSheet", this.mergeToOneSheet);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", this.checkExcelRestriction);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         if(this.extendQueryParameterMap !== undefined){
             for (var key in this.extendQueryParameterMap){
                 localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
@@ -25646,20 +25644,22 @@ export class PostMergeRequest  {
     }
 
 }
-/// Split Excel spreadsheet files by worksheet, save as kinds of format files.   
+/// Split Excel spreadsheet files based on worksheets and create output files in various formats.   
 export class PostSplitRequest  {
-    /// The format to convert(CSV/XLS/HTML/MHTML/ODS/PDF/XML/TXT/TIFF/XLSB/XLSM/XLSX/XLTM/XLTX/XPS/PNG/JPG/JPEG/GIF/EMF/BMP/MD[Markdown]/Numbers)  
+    /// The output data file format.(CSV/XLS/HTML/MHTML/ODS/PDF/XML/TXT/TIFF/XLSB/XLSM/XLSX/XLTM/XLTX/XPS/PNG/JPG/JPEG/GIF/EMF/BMP/MD[Markdown]/Numbers)  
     public file: any;
-    /// The format to convert(CSV/XLS/HTML/MHTML/ODS/PDF/XML/TXT/TIFF/XLSB/XLSM/XLSX/XLTM/XLTX/XPS/PNG/JPG/JPEG/GIF/EMF/BMP/MD[Markdown]/Numbers)  
-    public format: string;
-      
+    /// The output data file format.(CSV/XLS/HTML/MHTML/ODS/PDF/XML/TXT/TIFF/XLSB/XLSM/XLSX/XLTM/XLTX/XPS/PNG/JPG/JPEG/GIF/EMF/BMP/MD[Markdown]/Numbers)  
+    public outFormat: string;
+    /// The password needed to open an Excel file.  
     public password: string;
     /// sheet index  
     public from: number;
     /// sheet index  
     public to: number;
-      
+    /// Whether check restriction of excel file when user modify cells related objects.  
     public checkExcelRestriction: boolean;
+    /// The regional settings for workbook.  
+    public region: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -25672,16 +25672,17 @@ export class PostSplitRequest  {
         let localVarPath = configuration.getApiBaseUrl() + "/cells/split";
         const queryParameters: any = {};
         const formParams: any = {};
-        /// The format to convert(CSV/XLS/HTML/MHTML/ODS/PDF/XML/TXT/TIFF/XLSB/XLSM/XLSX/XLTM/XLTX/XPS/PNG/JPG/JPEG/GIF/EMF/BMP/MD[Markdown]/Numbers) 
-        // verify required parameter 'format' is not null or undefined
-        if (this.format === null || this.format === undefined) {
-            throw new Error('Required parameter "format" was null or undefined when calling PostSplit.');
+        /// The output data file format.(CSV/XLS/HTML/MHTML/ODS/PDF/XML/TXT/TIFF/XLSB/XLSM/XLSX/XLTM/XLTX/XPS/PNG/JPG/JPEG/GIF/EMF/BMP/MD[Markdown]/Numbers) 
+        // verify required parameter 'outFormat' is not null or undefined
+        if (this.outFormat === null || this.outFormat === undefined) {
+            throw new Error('Required parameter "outFormat" was null or undefined when calling PostSplit.');
         }
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "format", this.format);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outFormat", this.outFormat);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "from", this.from);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "to", this.to);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", this.checkExcelRestriction);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         if(this.extendQueryParameterMap !== undefined){
             for (var key in this.extendQueryParameterMap){
                 localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
@@ -25709,17 +25710,17 @@ export class PostSplitRequest  {
     }
 
 }
-/// Search specify the text from excel files.   
+/// Search for specified text within Excel files.   
 export class PostSearchRequest  {
-    /// File to upload  
+    /// Find content  
     public file: any;
-      
+    /// Find content  
     public text: string;
-      
+    /// The password needed to open an Excel file.  
     public password: string;
-      
+    /// The worksheet name. Locate the specified text content in the worksheet.  
     public sheetname: string;
-      
+    /// Whether check restriction of excel file when user modify cells related objects.  
     public checkExcelRestriction: boolean;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -25733,7 +25734,7 @@ export class PostSearchRequest  {
         let localVarPath = configuration.getApiBaseUrl() + "/cells/search";
         const queryParameters: any = {};
         const formParams: any = {};
-         
+        /// Find content 
         // verify required parameter 'text' is not null or undefined
         if (this.text === null || this.text === undefined) {
             throw new Error('Required parameter "text" was null or undefined when calling PostSearch.');
@@ -25769,19 +25770,19 @@ export class PostSearchRequest  {
     }
 
 }
-/// Use new text to replace specify the text from excel files.   
+/// Replace specified text with new text in Excel files.   
 export class PostReplaceRequest  {
-    /// File to upload  
+    /// Find content  
     public file: any;
-      
+    /// Find content  
     public text: string;
-      
+    /// Replace content  
     public newtext: string;
-      
+    /// The password needed to open an Excel file.  
     public password: string;
-      
+    /// The worksheet name. Locate the specified text content in the worksheet.  
     public sheetname: string;
-      
+    /// Whether check restriction of excel file when user modify cells related objects.  
     public checkExcelRestriction: boolean;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -25795,12 +25796,12 @@ export class PostReplaceRequest  {
         let localVarPath = configuration.getApiBaseUrl() + "/cells/replace";
         const queryParameters: any = {};
         const formParams: any = {};
-         
+        /// Find content 
         // verify required parameter 'text' is not null or undefined
         if (this.text === null || this.text === undefined) {
             throw new Error('Required parameter "text" was null or undefined when calling PostReplace.');
         }
-         
+        /// Replace content 
         // verify required parameter 'newtext' is not null or undefined
         if (this.newtext === null || this.newtext === undefined) {
             throw new Error('Required parameter "newtext" was null or undefined when calling PostReplace.');
@@ -25837,10 +25838,18 @@ export class PostReplaceRequest  {
     }
 
 }
-/// Import data into excel file.   
+/// Import data into an Excel file and generate output files in various formats.   
 export class PostImportRequest  {
-    /// File to upload  
+    /// The output data file format.(CSV/XLS/HTML/MHTML/ODS/PDF/XML/TXT/TIFF/XLSB/XLSM/XLSX/XLTM/XLTX/XPS/PNG/JPG/JPEG/GIF/EMF/BMP/MD[Markdown]/Numbers)  
     public file: any;
+    /// The output data file format.(CSV/XLS/HTML/MHTML/ODS/PDF/XML/TXT/TIFF/XLSB/XLSM/XLSX/XLTM/XLTX/XPS/PNG/JPG/JPEG/GIF/EMF/BMP/MD[Markdown]/Numbers)  
+    public outFormat: string;
+    /// The password needed to open an Excel file.  
+    public password: string;
+    /// Whether check restriction of excel file when user modify cells related objects.  
+    public checkExcelRestriction: boolean;
+    /// The regional settings for workbook.  
+    public region: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -25853,6 +25862,10 @@ export class PostImportRequest  {
         let localVarPath = configuration.getApiBaseUrl() + "/cells/import";
         const queryParameters: any = {};
         const formParams: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outFormat", this.outFormat);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", this.checkExcelRestriction);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         if(this.extendQueryParameterMap !== undefined){
             for (var key in this.extendQueryParameterMap){
                 localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
@@ -25880,7 +25893,7 @@ export class PostImportRequest  {
     }
 
 }
-/// Add Text Watermark to Excel files.   
+/// Add Text Watermark to Excel files and generate output files in various formats.   
 export class PostWatermarkRequest  {
     /// e.g. #1032ff  
     public file: any;
@@ -25888,10 +25901,14 @@ export class PostWatermarkRequest  {
     public text: string;
     /// e.g. #1032ff  
     public color: string;
-      
+    /// The output data file format.(CSV/XLS/HTML/MHTML/ODS/PDF/XML/TXT/TIFF/XLSB/XLSM/XLSX/XLTM/XLTX/XPS/PNG/JPG/JPEG/GIF/EMF/BMP/MD[Markdown]/Numbers)  
+    public outFormat: string;
+    /// The password needed to open an Excel file.  
     public password: string;
-      
+    /// Whether check restriction of excel file when user modify cells related objects.  
     public checkExcelRestriction: boolean;
+    /// The regional settings for workbook.  
+    public region: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -25916,8 +25933,10 @@ export class PostWatermarkRequest  {
         }
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "text", this.text);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "color", this.color);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outFormat", this.outFormat);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", this.checkExcelRestriction);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         if(this.extendQueryParameterMap !== undefined){
             for (var key in this.extendQueryParameterMap){
                 localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
@@ -25945,20 +25964,22 @@ export class PostWatermarkRequest  {
     }
 
 }
-/// Clear excel internal elements for excel files   
+/// Clear internal elements in Excel files and generate output files in various formats.   
 export class PostClearObjectsRequest  {
     /// chart/comment/picture/shape/listobject/hyperlink/oleobject/pivottable/validation/Background  
     public file: any;
     /// chart/comment/picture/shape/listobject/hyperlink/oleobject/pivottable/validation/Background  
     public objecttype: string;
-      
+    /// The worksheet name, specify the scope of the deletion.  
     public sheetname: string;
-      
+    /// The output data file format.(CSV/XLS/HTML/MHTML/ODS/PDF/XML/TXT/TIFF/XLSB/XLSM/XLSX/XLTM/XLTX/XPS/PNG/JPG/JPEG/GIF/EMF/BMP/MD[Markdown]/Numbers)  
     public outFormat: string;
-      
+    /// The password needed to open an Excel file.  
     public password: string;
-      
+    /// Whether check restriction of excel file when user modify cells related objects.  
     public checkExcelRestriction: boolean;
+    /// The regional settings for workbook.  
+    public region: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -25981,6 +26002,7 @@ export class PostClearObjectsRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outFormat", this.outFormat);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", this.checkExcelRestriction);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         if(this.extendQueryParameterMap !== undefined){
             for (var key in this.extendQueryParameterMap){
                 localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
@@ -26008,18 +26030,20 @@ export class PostClearObjectsRequest  {
     }
 
 }
-/// Reverse rows or columns of Excel files, save as kinds of format files.   
+/// Reverse rows or columns in Excel files and create output files in various formats.   
 export class PostReverseRequest  {
     /// rows/cols/both  
     public file: any;
     /// rows/cols/both  
     public rotateType: string;
-    /// CSV/XLS/HTML/MHTML/ODS/PDF/XML/TXT/TIFF/XLSB/XLSM/XLSX/XLTM/XLTX/XPS/PNG/JPG/JPEG/GIF/EMF/BMP/MD[Markdown]/Numbers  
-    public format: string;
-      
+    /// The output data file format.(CSV/XLS/HTML/MHTML/ODS/PDF/XML/TXT/TIFF/XLSB/XLSM/XLSX/XLTM/XLTX/XPS/PNG/JPG/JPEG/GIF/EMF/BMP/MD[Markdown]/Numbers)  
+    public outFormat: string;
+    /// The password needed to open an Excel file.  
     public password: string;
-      
+    /// Whether check restriction of excel file when user modify cells related objects.  
     public checkExcelRestriction: boolean;
+    /// The regional settings for workbook.  
+    public region: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -26038,9 +26062,10 @@ export class PostReverseRequest  {
             throw new Error('Required parameter "rotateType" was null or undefined when calling PostReverse.');
         }
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "rotateType", this.rotateType);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "format", this.format);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outFormat", this.outFormat);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", this.checkExcelRestriction);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         if(this.extendQueryParameterMap !== undefined){
             for (var key in this.extendQueryParameterMap){
                 localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
@@ -26068,12 +26093,12 @@ export class PostReverseRequest  {
     }
 
 }
-   
+/// Repair abnormal files and generate files in various formats.   
 export class PostRepairRequest  {
-    /// File to upload  
+    /// The output data file format.(CSV/XLS/HTML/MHTML/ODS/PDF/XML/TXT/TIFF/XLSB/XLSM/XLSX/XLTM/XLTX/XPS/PNG/JPG/JPEG/GIF/EMF/BMP/MD[Markdown]/Numbers)  
     public file: any;
-      
-    public format: string;
+    /// The output data file format.(CSV/XLS/HTML/MHTML/ODS/PDF/XML/TXT/TIFF/XLSB/XLSM/XLSX/XLTM/XLTX/XPS/PNG/JPG/JPEG/GIF/EMF/BMP/MD[Markdown]/Numbers)  
+    public outFormat: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -26086,7 +26111,7 @@ export class PostRepairRequest  {
         let localVarPath = configuration.getApiBaseUrl() + "/cells/repair";
         const queryParameters: any = {};
         const formParams: any = {};
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "format", this.format);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outFormat", this.outFormat);
         if(this.extendQueryParameterMap !== undefined){
             for (var key in this.extendQueryParameterMap){
                 localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
@@ -26114,18 +26139,20 @@ export class PostRepairRequest  {
     }
 
 }
-/// Reverse rows or columns of Excel files, save as kinds of format files.   
+/// Rotate rows, columns, or other objects in Excel files and save them in various formats.   
 export class PostRotateRequest  {
     /// 270/90/row/col/row2col  
     public file: any;
     /// 270/90/row/col/row2col  
     public rotateType: string;
-    /// CSV/XLS/HTML/MHTML/ODS/PDF/XML/TXT/TIFF/XLSB/XLSM/XLSX/XLTM/XLTX/XPS/PNG/JPG/JPEG/GIF/EMF/BMP/MD[Markdown]/Numbers  
-    public format: string;
-      
+    /// The output data file format.(CSV/XLS/HTML/MHTML/ODS/PDF/XML/TXT/TIFF/XLSB/XLSM/XLSX/XLTM/XLTX/XPS/PNG/JPG/JPEG/GIF/EMF/BMP/MD[Markdown]/Numbers)  
+    public outFormat: string;
+    /// The password needed to open an Excel file.  
     public password: string;
-      
+    /// Whether check restriction of excel file when user modify cells related objects.  
     public checkExcelRestriction: boolean;
+    /// The regional settings for workbook.  
+    public region: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -26144,9 +26171,10 @@ export class PostRotateRequest  {
             throw new Error('Required parameter "rotateType" was null or undefined when calling PostRotate.');
         }
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "rotateType", this.rotateType);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "format", this.format);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outFormat", this.outFormat);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", this.checkExcelRestriction);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         if(this.extendQueryParameterMap !== undefined){
             for (var key in this.extendQueryParameterMap){
                 localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
@@ -26174,16 +26202,20 @@ export class PostRotateRequest  {
     }
 
 }
-   
+/// Update document properties in Excel file, and save them is various formats.   
 export class PostMetadataRequest  {
-    /// File to upload  
+    /// document properties  
     public file: any;
-      
+    /// document properties  
     public cellsDocuments: Array<CellsDocumentProperty>;
-      
+    /// The password needed to open an Excel file.  
     public password: string;
-      
+    /// Whether check restriction of excel file when user modify cells related objects.  
     public checkExcelRestriction: boolean;
+    /// The output data file format.(CSV/XLS/HTML/MHTML/ODS/PDF/XML/TXT/TIFF/XLSB/XLSM/XLSX/XLTM/XLTX/XPS/PNG/JPG/JPEG/GIF/EMF/BMP/MD[Markdown]/Numbers)  
+    public outFormat: string;
+    /// The regional settings for workbook.  
+    public region: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -26198,6 +26230,8 @@ export class PostMetadataRequest  {
         const formParams: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", this.checkExcelRestriction);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outFormat", this.outFormat);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         if(this.extendQueryParameterMap !== undefined){
             for (var key in this.extendQueryParameterMap){
                 localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
@@ -26225,15 +26259,15 @@ export class PostMetadataRequest  {
     }
 
 }
-   
+/// Get cells document properties.   
 export class GetMetadataRequest  {
-    /// File to upload  
+    /// Cells document property name.  
     public file: any;
-      
+    /// Cells document property name.  
     public type: string;
-      
+    /// The password needed to open an Excel file.  
     public password: string;
-      
+    /// Whether check restriction of excel file when user modify cells related objects.  
     public checkExcelRestriction: boolean;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -26277,15 +26311,17 @@ export class GetMetadataRequest  {
     }
 
 }
-   
+/// Delete cells document properties in Excel file, and save them is various formats.   
 export class DeleteMetadataRequest  {
-    /// File to upload  
+    /// Cells document property name.  
     public file: any;
-      
+    /// Cells document property name.  
     public type: string;
-      
+    /// The output data file format.(CSV/XLS/HTML/MHTML/ODS/PDF/XML/TXT/TIFF/XLSB/XLSM/XLSX/XLTM/XLTX/XPS/PNG/JPG/JPEG/GIF/EMF/BMP/MD[Markdown]/Numbers)  
+    public outFormat: string;
+    /// The password needed to open an Excel file.  
     public password: string;
-      
+    /// Whether check restriction of excel file when user modify cells related objects.  
     public checkExcelRestriction: boolean;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -26300,6 +26336,7 @@ export class DeleteMetadataRequest  {
         const queryParameters: any = {};
         const formParams: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "type", this.type);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outFormat", this.outFormat);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", this.checkExcelRestriction);
         if(this.extendQueryParameterMap !== undefined){
@@ -27936,7 +27973,7 @@ export class GetHeaderRequest  {
     }
 
 }
-/// Updates page header in worksheet.    
+/// Updates page header in worksheet.   
 export class PostHeaderRequest  {
     /// The workbook name.  
     public name: string;
@@ -28048,7 +28085,7 @@ export class GetFooterRequest  {
     }
 
 }
-/// Update  page footer description in worksheet.    
+/// Update  page footer description in worksheet.   
 export class PostFooterRequest  {
     /// The workbook name.  
     public name: string;
@@ -29783,17 +29820,17 @@ export class DeleteDocumentPropertiesRequest  {
     }
 
 }
-/// Digital Signature.   
+/// Excel file digital signature.   
 export class PostDigitalSignatureRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
-    /// Digital signature file parameters.  
+    /// The digital signature file path should include both the folder and the file name, along with the extension.  
     public digitalsignaturefile: string;
-      
+    /// The password needed to open an Excel file.  
     public password: string;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -29806,12 +29843,12 @@ export class PostDigitalSignatureRequest  {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/digitalsignature".replace("{" + "name" + "}", String(this.name));
         const queryParameters: any = {};
-        /// Digital signature file parameters. 
+        /// The digital signature file path should include both the folder and the file name, along with the extension. 
         // verify required parameter 'digitalsignaturefile' is not null or undefined
         if (this.digitalsignaturefile === null || this.digitalsignaturefile === undefined) {
             throw new Error('Required parameter "digitalsignaturefile" was null or undefined when calling PostDigitalSignature.');
         }
-         
+        /// The password needed to open an Excel file. 
         // verify required parameter 'password' is not null or undefined
         if (this.password === null || this.password === undefined) {
             throw new Error('Required parameter "password" was null or undefined when calling PostDigitalSignature.');
@@ -29841,15 +29878,15 @@ export class PostDigitalSignatureRequest  {
     }
 
 }
-/// Encripts workbook.   
+/// Excel Encryption.   
 export class PostEncryptWorkbookRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
-    /// Encryption parameters.  
+    /// WorkbookEncryptionRequestEncryption parameters.  
     public encryption: WorkbookEncryptionRequest;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -29885,15 +29922,15 @@ export class PostEncryptWorkbookRequest  {
     }
 
 }
-/// Decrypts workbook.   
+/// Excel files decryption.   
 export class DeleteDecryptWorkbookRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
-    /// Encryption settings, only password can be specified.  
+    /// WorkbookEncryptionRequestEncryption parameters.  
     public encryption: WorkbookEncryptionRequest;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -29929,15 +29966,15 @@ export class DeleteDecryptWorkbookRequest  {
     }
 
 }
-/// Protects workbook.   
+/// Excel protection.   
 export class PostProtectWorkbookRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The protection settings.  
     public protectWorkbookRequest: ProtectWorkbookRequest;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -29973,15 +30010,15 @@ export class PostProtectWorkbookRequest  {
     }
 
 }
-/// Unprotects workbook.   
+/// Excel unprotection.   
 export class DeleteUnProtectWorkbookRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// Protection settings, only password can be specified.  
     public password: string;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -30023,15 +30060,15 @@ export class DeleteUnProtectWorkbookRequest  {
     }
 
 }
-/// Protects document from changes.   
+/// Excel file write protection.   
 export class PutDocumentProtectFromChangesRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
-    /// Modification password.  
+    /// The password needed to open an Excel file.  
     public password: PasswordRequest;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -30067,13 +30104,13 @@ export class PutDocumentProtectFromChangesRequest  {
     }
 
 }
-/// Unprotects document from changes.   
+/// Excel file cancel write protection.   
 export class DeleteDocumentUnProtectFromChangesRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -30109,11 +30146,11 @@ export class DeleteDocumentUnProtectFromChangesRequest  {
     }
 
 }
-/// Unprotect password protected Excel file.   
+/// Unlock Excel files.   
 export class PostUnlockRequest  {
-    /// File to upload  
+    /// The password needed to open an Excel file.  
     public file: any;
-      
+    /// The password needed to open an Excel file.  
     public password: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -30127,7 +30164,7 @@ export class PostUnlockRequest  {
         let localVarPath = configuration.getApiBaseUrl() + "/cells/unlock";
         const queryParameters: any = {};
         const formParams: any = {};
-         
+        /// The password needed to open an Excel file. 
         // verify required parameter 'password' is not null or undefined
         if (this.password === null || this.password === undefined) {
             throw new Error('Required parameter "password" was null or undefined when calling PostUnlock.');
@@ -30160,11 +30197,11 @@ export class PostUnlockRequest  {
     }
 
 }
-/// Setting access password.   
+/// Lock Excel files.   
 export class PostLockRequest  {
-    /// File to upload  
+    /// The password needed to open an Excel file.  
     public file: any;
-      
+    /// The password needed to open an Excel file.  
     public password: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -30178,7 +30215,7 @@ export class PostLockRequest  {
         let localVarPath = configuration.getApiBaseUrl() + "/cells/lock";
         const queryParameters: any = {};
         const formParams: any = {};
-         
+        /// The password needed to open an Excel file. 
         // verify required parameter 'password' is not null or undefined
         if (this.password === null || this.password === undefined) {
             throw new Error('Required parameter "password" was null or undefined when calling PostLock.');
@@ -30211,13 +30248,13 @@ export class PostLockRequest  {
     }
 
 }
-/// Protect MS Excel and OpenDocument Spreadsheet by making them password protected.   
+/// Excel files encryption.   
 export class PostProtectRequest  {
-    /// File to upload  
+    /// The password needed to open an Excel file.  
     public file: any;
       
     public protectWorkbookRequest: ProtectWorkbookRequest;
-      
+    /// The password needed to open an Excel file.  
     public password: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -30305,7 +30342,7 @@ export class PostWorksheetCellsRangesCopyRequest  {
     }
 
 }
-/// Combines a range of cells into a single cell.    
+/// Combines a range of cells into a single cell.   
 export class PostWorksheetCellsRangeMergeRequest  {
     /// The workbook name.  
     public name: string;
@@ -30502,8 +30539,7 @@ export class GetWorksheetCellsRangeValueRequest  {
     }
 
 }
-/// Puts a value into the range, if appropriate the value will be converted to other data type and cell's number format will be reset.
-///                
+/// Puts a value into the range, if appropriate the value will be converted to other data type and cell's number format will be reset.   
 export class PostWorksheetCellsRangeValueRequest  {
     /// The workbook name.  
     public name: string;
@@ -30563,8 +30599,7 @@ export class PostWorksheetCellsRangeValueRequest  {
     }
 
 }
-/// Moves the current range to the dest range.
-///                
+/// Moves the current range to the dest range.   
 export class PostWorksheetCellsRangeMoveToRequest  {
     /// The workbook name.  
     public name: string;
@@ -30626,7 +30661,7 @@ export class PostWorksheetCellsRangeMoveToRequest  {
     }
 
 }
-/// Sets outline border around a range of cells.   
+/// Sets data sort around a range of cells.   
 export class PostWorksheetCellsRangeSortRequest  {
     /// The workbook name.  
     public name: string;
@@ -30826,8 +30861,7 @@ export class PostWorksheetCellsRangeRowHeightRequest  {
     }
 
 }
-/// Inserts a range of cells and shift cells according to the shift option.
-///                
+/// Inserts a range of cells and shift cells according to the shift option.   
 export class PutWorksheetCellsRangeRequest  {
     /// The workbook name.  
     public name: string;
@@ -31888,7 +31922,7 @@ export class GetWorkbookNameRequest  {
     }
 
 }
-/// Update workbook's name.    
+/// Update workbook's name.   
 export class PostWorkbookNameRequest  {
     /// The workbook name.  
     public name: string;

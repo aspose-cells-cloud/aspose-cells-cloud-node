@@ -20,10 +20,10 @@ describe('WorksheetValidationsController test', function() {
 
     describe('get_worksheet_validations test', function(){
       it("should call GetWorksheetValidations successfully" , function(){
-        var remoteFolder = "TestData/In";
+        var remoteFolder = "TestData/In"
       
-        var localName = "Book1.xlsx";
-        var remoteName = "Book1.xlsx";
+        var localName = "Book1.xlsx"
+        var remoteName = "Book1.xlsx"
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -44,10 +44,10 @@ describe('WorksheetValidationsController test', function() {
     }); 
     describe('get_worksheet_validation test', function(){
       it("should call GetWorksheetValidation successfully" , function(){
-        var remoteFolder = "TestData/In";
+        var remoteFolder = "TestData/In"
       
-        var localName = "Book1.xlsx";
-        var remoteName = "Book1.xlsx";
+        var localName = "Book1.xlsx"
+        var remoteName = "Book1.xlsx"
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -69,10 +69,10 @@ describe('WorksheetValidationsController test', function() {
     }); 
     describe('put_worksheet_validation test', function(){
       it("should call PutWorksheetValidation successfully" , function(){
-        var remoteFolder = "TestData/In";
+        var remoteFolder = "TestData/In"
       
-        var localName = "Book1.xlsx";
-        var remoteName = "Book1.xlsx";
+        var localName = "Book1.xlsx"
+        var remoteName = "Book1.xlsx"
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -94,10 +94,10 @@ describe('WorksheetValidationsController test', function() {
     }); 
     describe('post_worksheet_validation test', function(){
       it("should call PostWorksheetValidation successfully" , function(){
-        var remoteFolder = "TestData/In";
+        var remoteFolder = "TestData/In"
       
-        var localName = "Book1.xlsx";
-        var remoteName = "Book1.xlsx";
+        var localName = "Book1.xlsx"
+        var remoteName = "Book1.xlsx"
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -123,10 +123,10 @@ describe('WorksheetValidationsController test', function() {
     }); 
     describe('delete_worksheet_validation test', function(){
       it("should call DeleteWorksheetValidation successfully" , function(){
-        var remoteFolder = "TestData/In";
+        var remoteFolder = "TestData/In"
       
-        var localName = "Book1.xlsx";
-        var remoteName = "Book1.xlsx";
+        var localName = "Book1.xlsx"
+        var remoteName = "Book1.xlsx"
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -148,10 +148,10 @@ describe('WorksheetValidationsController test', function() {
     }); 
     describe('delete_worksheet_validations test', function(){
       it("should call DeleteWorksheetValidations successfully" , function(){
-        var remoteFolder = "TestData/In";
+        var remoteFolder = "TestData/In"
       
-        var localName = "Book1.xlsx";
-        var remoteName = "Book1.xlsx";
+        var localName = "Book1.xlsx"
+        var remoteName = "Book1.xlsx"
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};

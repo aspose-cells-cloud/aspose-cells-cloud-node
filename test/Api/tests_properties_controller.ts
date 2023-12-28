@@ -20,10 +20,10 @@ describe('PropertiesController test', function() {
 
     describe('get_document_properties test', function(){
       it("should call GetDocumentProperties successfully" , function(){
-        var remoteFolder = "TestData/In";
+        var remoteFolder = "TestData/In"
       
-        var localName = "Book1.xlsx";
-        var remoteName = "Book1.xlsx";
+        var localName = "Book1.xlsx"
+        var remoteName = "Book1.xlsx"
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -44,10 +44,10 @@ describe('PropertiesController test', function() {
     }); 
     describe('get_document_property test', function(){
       it("should call GetDocumentProperty successfully" , function(){
-        var remoteFolder = "TestData/In";
+        var remoteFolder = "TestData/In"
       
-        var localName = "Book1.xlsx";
-        var remoteName = "Book1.xlsx";
+        var localName = "Book1.xlsx"
+        var remoteName = "Book1.xlsx"
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -68,10 +68,10 @@ describe('PropertiesController test', function() {
     }); 
     describe('put_document_property test', function(){
       it("should call PutDocumentProperty successfully" , function(){
-        var remoteFolder = "TestData/In";
+        var remoteFolder = "TestData/In"
       
-        var localName = "Book1.xlsx";
-        var remoteName = "Book1.xlsx";
+        var localName = "Book1.xlsx"
+        var remoteName = "Book1.xlsx"
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -95,10 +95,10 @@ describe('PropertiesController test', function() {
     }); 
     describe('delete_document_property test', function(){
       it("should call DeleteDocumentProperty successfully" , function(){
-        var remoteFolder = "TestData/In";
+        var remoteFolder = "TestData/In"
       
-        var localName = "Book1.xlsx";
-        var remoteName = "Book1.xlsx";
+        var localName = "Book1.xlsx"
+        var remoteName = "Book1.xlsx"
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -120,10 +120,10 @@ describe('PropertiesController test', function() {
     }); 
     describe('delete_document_properties test', function(){
       it("should call DeleteDocumentProperties successfully" , function(){
-        var remoteFolder = "TestData/In";
+        var remoteFolder = "TestData/In"
       
-        var localName = "Book1.xlsx";
-        var remoteName = "Book1.xlsx";
+        var localName = "Book1.xlsx"
+        var remoteName = "Book1.xlsx"
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};

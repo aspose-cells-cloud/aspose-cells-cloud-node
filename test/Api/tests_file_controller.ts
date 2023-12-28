@@ -20,10 +20,10 @@ describe('FileController test', function() {
 
     describe('download_file test', function(){
       it("should call DownloadFile successfully" , function(){
-        var remoteFolder = "TestData/In";
+        var remoteFolder = "TestData/In"
       
-        var localName = "Book1.xlsx";
-        var remoteName = "Book1.xlsx";
+        var localName = "Book1.xlsx"
+        var remoteName = "Book1.xlsx"
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -43,10 +43,10 @@ describe('FileController test', function() {
     }); 
     describe('upload_file test', function(){
       it("should call UploadFile successfully" , function(){
-        var remoteFolder = "TestData/In";
+        var remoteFolder = "TestData/In"
       
-        var localName = "Book1.xlsx";
-        var remoteName = "Book1.xlsx";
+        var localName = "Book1.xlsx"
+        var remoteName = "Book1.xlsx"
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -69,10 +69,10 @@ describe('FileController test', function() {
     }); 
     describe('copy_file test', function(){
       it("should call CopyFile successfully" , function(){
-        var remoteFolder = "TestData/In";
+        var remoteFolder = "TestData/In"
       
-        var localName = "Book1.xlsx";
-        var remoteName = "Book1.xlsx";
+        var localName = "Book1.xlsx"
+        var remoteName = "Book1.xlsx"
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -94,10 +94,10 @@ describe('FileController test', function() {
     }); 
     describe('move_file test', function(){
       it("should call MoveFile successfully" , function(){
-        var remoteFolder = "TestData/In";
+        var remoteFolder = "TestData/In"
       
-        var localName = "Book1.xlsx";
-        var remoteName = "Book1.xlsx";
+        var localName = "Book1.xlsx"
+        var remoteName = "Book1.xlsx"
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -119,10 +119,10 @@ describe('FileController test', function() {
     }); 
     describe('delete_file test', function(){
       it("should call DeleteFile successfully" , function(){
-        var remoteFolder = "TestData/In";
+        var remoteFolder = "TestData/In"
       
-        var localName = "Book1.xlsx";
-        var remoteName = "Book1.xlsx";
+        var localName = "Book1.xlsx"
+        var remoteName = "Book1.xlsx"
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};

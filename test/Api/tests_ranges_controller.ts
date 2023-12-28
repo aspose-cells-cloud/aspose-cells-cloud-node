@@ -20,10 +20,10 @@ describe('RangesController test', function() {
 
     describe('post_worksheet_cells_ranges_copy test', function(){
       it("should call PostWorksheetCellsRangesCopy successfully" , function(){
-        var remoteFolder = "TestData/In";
+        var remoteFolder = "TestData/In"
       
-        var localName = "Book1.xlsx";
-        var remoteName = "Book1.xlsx";
+        var localName = "Book1.xlsx"
+        var remoteName = "Book1.xlsx"
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -59,10 +59,10 @@ describe('RangesController test', function() {
     }); 
     describe('post_worksheet_cells_range_merge test', function(){
       it("should call PostWorksheetCellsRangeMerge successfully" , function(){
-        var remoteFolder = "TestData/In";
+        var remoteFolder = "TestData/In"
       
-        var localName = "Book1.xlsx";
-        var remoteName = "Book1.xlsx";
+        var localName = "Book1.xlsx"
+        var remoteName = "Book1.xlsx"
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -89,10 +89,10 @@ describe('RangesController test', function() {
     }); 
     describe('post_worksheet_cells_range_un_merge test', function(){
       it("should call PostWorksheetCellsRangeUnMerge successfully" , function(){
-        var remoteFolder = "TestData/In";
+        var remoteFolder = "TestData/In"
       
-        var localName = "Book1.xlsx";
-        var remoteName = "Book1.xlsx";
+        var localName = "Book1.xlsx"
+        var remoteName = "Book1.xlsx"
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -119,10 +119,10 @@ describe('RangesController test', function() {
     }); 
     describe('post_worksheet_cells_range_style test', function(){
       it("should call PostWorksheetCellsRangeStyle successfully" , function(){
-        var remoteFolder = "TestData/In";
+        var remoteFolder = "TestData/In"
       
-        var localName = "Book1.xlsx";
-        var remoteName = "Book1.xlsx";
+        var localName = "Book1.xlsx"
+        var remoteName = "Book1.xlsx"
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -156,10 +156,10 @@ describe('RangesController test', function() {
     }); 
     describe('get_worksheet_cells_range_value test', function(){
       it("should call GetWorksheetCellsRangeValue successfully" , function(){
-        var remoteFolder = "TestData/In";
+        var remoteFolder = "TestData/In"
       
-        var localName = "Book1.xlsx";
-        var remoteName = "Book1.xlsx";
+        var localName = "Book1.xlsx"
+        var remoteName = "Book1.xlsx"
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -185,10 +185,10 @@ describe('RangesController test', function() {
     }); 
     describe('post_worksheet_cells_range_value test', function(){
       it("should call PostWorksheetCellsRangeValue successfully" , function(){
-        var remoteFolder = "TestData/In";
+        var remoteFolder = "TestData/In"
       
-        var localName = "Book1.xlsx";
-        var remoteName = "Book1.xlsx";
+        var localName = "Book1.xlsx"
+        var remoteName = "Book1.xlsx"
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -218,10 +218,10 @@ describe('RangesController test', function() {
     }); 
     describe('post_worksheet_cells_range_move_to test', function(){
       it("should call PostWorksheetCellsRangeMoveTo successfully" , function(){
-        var remoteFolder = "TestData/In";
+        var remoteFolder = "TestData/In"
       
-        var localName = "Book1.xlsx";
-        var remoteName = "Book1.xlsx";
+        var localName = "Book1.xlsx"
+        var remoteName = "Book1.xlsx"
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -250,10 +250,10 @@ describe('RangesController test', function() {
     }); 
     describe('post_worksheet_cells_range_outline_border test', function(){
       it("should call PostWorksheetCellsRangeOutlineBorder successfully" , function(){
-        var remoteFolder = "TestData/In";
+        var remoteFolder = "TestData/In"
       
-        var localName = "Book1.xlsx";
-        var remoteName = "Book1.xlsx";
+        var localName = "Book1.xlsx"
+        var remoteName = "Book1.xlsx"
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -289,10 +289,10 @@ describe('RangesController test', function() {
     }); 
     describe('post_worksheet_cells_range_column_width test', function(){
       it("should call PostWorksheetCellsRangeColumnWidth successfully" , function(){
-        var remoteFolder = "TestData/In";
+        var remoteFolder = "TestData/In"
       
-        var localName = "Book1.xlsx";
-        var remoteName = "Book1.xlsx";
+        var localName = "Book1.xlsx"
+        var remoteName = "Book1.xlsx"
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -320,10 +320,10 @@ describe('RangesController test', function() {
     }); 
     describe('post_worksheet_cells_range_row_height test', function(){
       it("should call PostWorksheetCellsRangeRowHeight successfully" , function(){
-        var remoteFolder = "TestData/In";
+        var remoteFolder = "TestData/In"
       
-        var localName = "Book1.xlsx";
-        var remoteName = "Book1.xlsx";
+        var localName = "Book1.xlsx"
+        var remoteName = "Book1.xlsx"
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -351,10 +351,10 @@ describe('RangesController test', function() {
     }); 
     describe('put_worksheet_cells_range test', function(){
       it("should call PutWorksheetCellsRange successfully" , function(){
-        var remoteFolder = "TestData/In";
+        var remoteFolder = "TestData/In"
       
-        var localName = "Book1.xlsx";
-        var remoteName = "Book1.xlsx";
+        var localName = "Book1.xlsx"
+        var remoteName = "Book1.xlsx"
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -377,10 +377,10 @@ describe('RangesController test', function() {
     }); 
     describe('delete_worksheet_cells_range test', function(){
       it("should call DeleteWorksheetCellsRange successfully" , function(){
-        var remoteFolder = "TestData/In";
+        var remoteFolder = "TestData/In"
       
-        var localName = "Book1.xlsx";
-        var remoteName = "Book1.xlsx";
+        var localName = "Book1.xlsx"
+        var remoteName = "Book1.xlsx"
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -403,10 +403,10 @@ describe('RangesController test', function() {
     }); 
     describe('post_worksheet_cells_range_sort test', function(){
       it("should call PostWorksheetCellsRangeSort successfully" , function(){
-        var remoteFolder = "TestData/In";
+        var remoteFolder = "TestData/In"
       
-        var localName = "Group.xlsx";
-        var remoteName = "Group.xlsx";
+        var localName = "Group.xlsx"
+        var remoteName = "Group.xlsx"
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};

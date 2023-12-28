@@ -20,10 +20,10 @@ describe('ConversionJson test', function() {
 
     describe('convert_workbook_csv test', function(){
       it("should call PutConvertWorkbook successfully" , function(){
-        var remoteFolder = "TestData/In";
+        var remoteFolder = "TestData/In"
       
-        var localName = "codegen-spec.json";
-        var remoteName = "codegen-spec.json";
+        var localName = "codegen-spec.json"
+        var remoteName = "codegen-spec.json"
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -31,7 +31,7 @@ describe('ConversionJson test', function() {
         localNameRequest.storageName ="";
         cellsApi.uploadFile(localNameRequest );
      
-        var format = "csv";
+        var format = "csv"
 
         var mapFiles = {};           
 
@@ -47,10 +47,10 @@ describe('ConversionJson test', function() {
     }); 
     describe('convert_workbook_xls test', function(){
       it("should call PutConvertWorkbook successfully" , function(){
-        var remoteFolder = "TestData/In";
+        var remoteFolder = "TestData/In"
       
-        var localName = "codegen-spec.json";
-        var remoteName = "codegen-spec.json";
+        var localName = "codegen-spec.json"
+        var remoteName = "codegen-spec.json"
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -58,7 +58,7 @@ describe('ConversionJson test', function() {
         localNameRequest.storageName ="";
         cellsApi.uploadFile(localNameRequest );
      
-        var format = "xls";
+        var format = "xls"
 
         var mapFiles = {};           
 
@@ -74,10 +74,10 @@ describe('ConversionJson test', function() {
     }); 
     describe('convert_workbook_html test', function(){
       it("should call PutConvertWorkbook successfully" , function(){
-        var remoteFolder = "TestData/In";
+        var remoteFolder = "TestData/In"
       
-        var localName = "codegen-spec.json";
-        var remoteName = "codegen-spec.json";
+        var localName = "codegen-spec.json"
+        var remoteName = "codegen-spec.json"
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -85,7 +85,7 @@ describe('ConversionJson test', function() {
         localNameRequest.storageName ="";
         cellsApi.uploadFile(localNameRequest );
      
-        var format = "html";
+        var format = "html"
 
         var mapFiles = {};           
 
@@ -101,10 +101,10 @@ describe('ConversionJson test', function() {
     }); 
     describe('convert_workbook_mhtml test', function(){
       it("should call PutConvertWorkbook successfully" , function(){
-        var remoteFolder = "TestData/In";
+        var remoteFolder = "TestData/In"
       
-        var localName = "codegen-spec.json";
-        var remoteName = "codegen-spec.json";
+        var localName = "codegen-spec.json"
+        var remoteName = "codegen-spec.json"
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -112,7 +112,7 @@ describe('ConversionJson test', function() {
         localNameRequest.storageName ="";
         cellsApi.uploadFile(localNameRequest );
      
-        var format = "mhtml";
+        var format = "mhtml"
 
         var mapFiles = {};           
 
@@ -128,10 +128,10 @@ describe('ConversionJson test', function() {
     }); 
     describe('convert_workbook_ods test', function(){
       it("should call PutConvertWorkbook successfully" , function(){
-        var remoteFolder = "TestData/In";
+        var remoteFolder = "TestData/In"
       
-        var localName = "codegen-spec.json";
-        var remoteName = "codegen-spec.json";
+        var localName = "codegen-spec.json"
+        var remoteName = "codegen-spec.json"
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -139,7 +139,7 @@ describe('ConversionJson test', function() {
         localNameRequest.storageName ="";
         cellsApi.uploadFile(localNameRequest );
      
-        var format = "ods";
+        var format = "ods"
 
         var mapFiles = {};           
 
@@ -155,10 +155,10 @@ describe('ConversionJson test', function() {
     }); 
     describe('convert_workbook_pdf test', function(){
       it("should call PutConvertWorkbook successfully" , function(){
-        var remoteFolder = "TestData/In";
+        var remoteFolder = "TestData/In"
       
-        var localName = "codegen-spec.json";
-        var remoteName = "codegen-spec.json";
+        var localName = "codegen-spec.json"
+        var remoteName = "codegen-spec.json"
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -166,7 +166,7 @@ describe('ConversionJson test', function() {
         localNameRequest.storageName ="";
         cellsApi.uploadFile(localNameRequest );
      
-        var format = "pdf";
+        var format = "pdf"
 
         var mapFiles = {};           
 
@@ -182,10 +182,10 @@ describe('ConversionJson test', function() {
     }); 
     describe('convert_workbook_xml test', function(){
       it("should call PutConvertWorkbook successfully" , function(){
-        var remoteFolder = "TestData/In";
+        var remoteFolder = "TestData/In"
       
-        var localName = "codegen-spec.json";
-        var remoteName = "codegen-spec.json";
+        var localName = "codegen-spec.json"
+        var remoteName = "codegen-spec.json"
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -193,7 +193,7 @@ describe('ConversionJson test', function() {
         localNameRequest.storageName ="";
         cellsApi.uploadFile(localNameRequest );
      
-        var format = "xml";
+        var format = "xml"
 
         var mapFiles = {};           
 
@@ -209,10 +209,10 @@ describe('ConversionJson test', function() {
     }); 
     describe('convert_workbook_txt test', function(){
       it("should call PutConvertWorkbook successfully" , function(){
-        var remoteFolder = "TestData/In";
+        var remoteFolder = "TestData/In"
       
-        var localName = "codegen-spec.json";
-        var remoteName = "codegen-spec.json";
+        var localName = "codegen-spec.json"
+        var remoteName = "codegen-spec.json"
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -220,7 +220,7 @@ describe('ConversionJson test', function() {
         localNameRequest.storageName ="";
         cellsApi.uploadFile(localNameRequest );
      
-        var format = "txt";
+        var format = "txt"
 
         var mapFiles = {};           
 
@@ -236,10 +236,10 @@ describe('ConversionJson test', function() {
     }); 
     describe('convert_workbook_xlsb test', function(){
       it("should call PutConvertWorkbook successfully" , function(){
-        var remoteFolder = "TestData/In";
+        var remoteFolder = "TestData/In"
       
-        var localName = "codegen-spec.json";
-        var remoteName = "codegen-spec.json";
+        var localName = "codegen-spec.json"
+        var remoteName = "codegen-spec.json"
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -247,34 +247,7 @@ describe('ConversionJson test', function() {
         localNameRequest.storageName ="";
         cellsApi.uploadFile(localNameRequest );
      
-        var format = "xlsb";
-
-        var mapFiles = {};           
-
-         mapFiles[localName]= fs.createReadStream(localPath  +localName) ;
-
-        var request = new model.PutConvertWorkbookRequest();
-        request.file =  mapFiles;
-        request.format =  format;
-        return cellsApi.putConvertWorkbook(request).then((result) => {
-            expect(result.response.statusCode).to.equal(200);
-        });
-      });
-    }); 
-    describe('convert_workbook_xlsx test', function(){
-      it("should call PutConvertWorkbook successfully" , function(){
-        var remoteFolder = "TestData/In";
-      
-        var localName = "codegen-spec.json";
-        var remoteName = "codegen-spec.json";
-
-        var localNameRequest = new  model.UploadFileRequest();
-        localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
-        localNameRequest.path = remoteFolder + "/" + remoteName ;
-        localNameRequest.storageName ="";
-        cellsApi.uploadFile(localNameRequest );
-     
-        var format = "xlsx";
+        var format = "xlsb"
 
         var mapFiles = {};           
 
@@ -290,10 +263,10 @@ describe('ConversionJson test', function() {
     }); 
     describe('convert_workbook_xps test', function(){
       it("should call PutConvertWorkbook successfully" , function(){
-        var remoteFolder = "TestData/In";
+        var remoteFolder = "TestData/In"
       
-        var localName = "codegen-spec.json";
-        var remoteName = "codegen-spec.json";
+        var localName = "codegen-spec.json"
+        var remoteName = "codegen-spec.json"
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -301,34 +274,7 @@ describe('ConversionJson test', function() {
         localNameRequest.storageName ="";
         cellsApi.uploadFile(localNameRequest );
      
-        var format = "xps";
-
-        var mapFiles = {};           
-
-         mapFiles[localName]= fs.createReadStream(localPath  +localName) ;
-
-        var request = new model.PutConvertWorkbookRequest();
-        request.file =  mapFiles;
-        request.format =  format;
-        return cellsApi.putConvertWorkbook(request).then((result) => {
-            expect(result.response.statusCode).to.equal(200);
-        });
-      });
-    }); 
-    describe('convert_workbook_png test', function(){
-      it("should call PutConvertWorkbook successfully" , function(){
-        var remoteFolder = "TestData/In";
-      
-        var localName = "codegen-spec.json";
-        var remoteName = "codegen-spec.json";
-
-        var localNameRequest = new  model.UploadFileRequest();
-        localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
-        localNameRequest.path = remoteFolder + "/" + remoteName ;
-        localNameRequest.storageName ="";
-        cellsApi.uploadFile(localNameRequest );
-     
-        var format = "png";
+        var format = "xps"
 
         var mapFiles = {};           
 
@@ -344,10 +290,10 @@ describe('ConversionJson test', function() {
     }); 
     describe('convert_workbook_md test', function(){
       it("should call PutConvertWorkbook successfully" , function(){
-        var remoteFolder = "TestData/In";
+        var remoteFolder = "TestData/In"
       
-        var localName = "codegen-spec.json";
-        var remoteName = "codegen-spec.json";
+        var localName = "codegen-spec.json"
+        var remoteName = "codegen-spec.json"
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -355,7 +301,7 @@ describe('ConversionJson test', function() {
         localNameRequest.storageName ="";
         cellsApi.uploadFile(localNameRequest );
      
-        var format = "md";
+        var format = "md"
 
         var mapFiles = {};           
 
@@ -371,10 +317,10 @@ describe('ConversionJson test', function() {
     }); 
     describe('convert_workbook_numbers test', function(){
       it("should call PutConvertWorkbook successfully" , function(){
-        var remoteFolder = "TestData/In";
+        var remoteFolder = "TestData/In"
       
-        var localName = "codegen-spec.json";
-        var remoteName = "codegen-spec.json";
+        var localName = "codegen-spec.json"
+        var remoteName = "codegen-spec.json"
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -382,7 +328,7 @@ describe('ConversionJson test', function() {
         localNameRequest.storageName ="";
         cellsApi.uploadFile(localNameRequest );
      
-        var format = "numbers";
+        var format = "numbers"
 
         var mapFiles = {};           
 
@@ -398,10 +344,10 @@ describe('ConversionJson test', function() {
     }); 
     describe('convert_workbook_svg test', function(){
       it("should call PutConvertWorkbook successfully" , function(){
-        var remoteFolder = "TestData/In";
+        var remoteFolder = "TestData/In"
       
-        var localName = "codegen-spec.json";
-        var remoteName = "codegen-spec.json";
+        var localName = "codegen-spec.json"
+        var remoteName = "codegen-spec.json"
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -409,7 +355,7 @@ describe('ConversionJson test', function() {
         localNameRequest.storageName ="";
         cellsApi.uploadFile(localNameRequest );
      
-        var format = "svg";
+        var format = "svg"
 
         var mapFiles = {};           
 
@@ -425,10 +371,10 @@ describe('ConversionJson test', function() {
     }); 
     describe('convert_workbook_docx test', function(){
       it("should call PutConvertWorkbook successfully" , function(){
-        var remoteFolder = "TestData/In";
+        var remoteFolder = "TestData/In"
       
-        var localName = "codegen-spec.json";
-        var remoteName = "codegen-spec.json";
+        var localName = "codegen-spec.json"
+        var remoteName = "codegen-spec.json"
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -436,7 +382,7 @@ describe('ConversionJson test', function() {
         localNameRequest.storageName ="";
         cellsApi.uploadFile(localNameRequest );
      
-        var format = "docx";
+        var format = "docx"
 
         var mapFiles = {};           
 
@@ -452,10 +398,10 @@ describe('ConversionJson test', function() {
     }); 
     describe('convert_workbook_pptx test', function(){
       it("should call PutConvertWorkbook successfully" , function(){
-        var remoteFolder = "TestData/In";
+        var remoteFolder = "TestData/In"
       
-        var localName = "codegen-spec.json";
-        var remoteName = "codegen-spec.json";
+        var localName = "codegen-spec.json"
+        var remoteName = "codegen-spec.json"
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -463,7 +409,7 @@ describe('ConversionJson test', function() {
         localNameRequest.storageName ="";
         cellsApi.uploadFile(localNameRequest );
      
-        var format = "pptx";
+        var format = "pptx"
 
         var mapFiles = {};           
 
@@ -479,10 +425,10 @@ describe('ConversionJson test', function() {
     }); 
     describe('convert_workbook_json test', function(){
       it("should call PutConvertWorkbook successfully" , function(){
-        var remoteFolder = "TestData/In";
+        var remoteFolder = "TestData/In"
       
-        var localName = "codegen-spec.json";
-        var remoteName = "codegen-spec.json";
+        var localName = "codegen-spec.json"
+        var remoteName = "codegen-spec.json"
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -490,7 +436,7 @@ describe('ConversionJson test', function() {
         localNameRequest.storageName ="";
         cellsApi.uploadFile(localNameRequest );
      
-        var format = "json";
+        var format = "json"
 
         var mapFiles = {};           
 
@@ -506,10 +452,10 @@ describe('ConversionJson test', function() {
     }); 
     describe('convert_workbook_sql test', function(){
       it("should call PutConvertWorkbook successfully" , function(){
-        var remoteFolder = "TestData/In";
+        var remoteFolder = "TestData/In"
       
-        var localName = "codegen-spec.json";
-        var remoteName = "codegen-spec.json";
+        var localName = "codegen-spec.json"
+        var remoteName = "codegen-spec.json"
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -517,7 +463,7 @@ describe('ConversionJson test', function() {
         localNameRequest.storageName ="";
         cellsApi.uploadFile(localNameRequest );
      
-        var format = "sql";
+        var format = "sql"
 
         var mapFiles = {};           
 

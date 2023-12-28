@@ -20,11 +20,11 @@ describe('WorkbookController test', function() {
 
     describe('post_digital_signature test', function(){
       it("should call PostDigitalSignature successfully" , function(){
-        var remoteFolder = "TestData/In";
+        var remoteFolder = "TestData/In"
       
-        var localName = "Book1.xlsx";
-        var roywangPFX = "roywang.pfx";
-        var remoteName = "Book1.xlsx";
+        var localName = "Book1.xlsx"
+        var roywangPFX = "roywang.pfx"
+        var remoteName = "Book1.xlsx"
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -51,10 +51,10 @@ describe('WorkbookController test', function() {
     }); 
     describe('post_encrypt_workbook test', function(){
       it("should call PostEncryptWorkbook successfully" , function(){
-        var remoteFolder = "TestData/In";
+        var remoteFolder = "TestData/In"
       
-        var localName = "Book1.xlsx";
-        var remoteName = "Book1.xlsx";
+        var localName = "Book1.xlsx"
+        var remoteName = "Book1.xlsx"
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -79,10 +79,10 @@ describe('WorkbookController test', function() {
     }); 
     describe('delete_decrypt_workbook test', function(){
       it("should call DeleteDecryptWorkbook successfully" , function(){
-        var remoteFolder = "TestData/In";
+        var remoteFolder = "TestData/In"
       
-        var localName = "Book1.xlsx";
-        var remoteName = "Book1.xlsx";
+        var localName = "Book1.xlsx"
+        var remoteName = "Book1.xlsx"
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -107,10 +107,10 @@ describe('WorkbookController test', function() {
     }); 
     describe('post_protect_workbook test', function(){
       it("should call PostProtectWorkbook successfully" , function(){
-        var remoteFolder = "TestData/In";
+        var remoteFolder = "TestData/In"
       
-        var localName = "Book1.xlsx";
-        var remoteName = "Book1.xlsx";
+        var localName = "Book1.xlsx"
+        var remoteName = "Book1.xlsx"
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -134,10 +134,10 @@ describe('WorkbookController test', function() {
     }); 
     describe('delete_un_protect_workbook test', function(){
       it("should call DeleteUnProtectWorkbook successfully" , function(){
-        var remoteFolder = "TestData/In";
+        var remoteFolder = "TestData/In"
       
-        var localName = "Book1.xlsx";
-        var remoteName = "Book1.xlsx";
+        var localName = "Book1.xlsx"
+        var remoteName = "Book1.xlsx"
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -158,10 +158,10 @@ describe('WorkbookController test', function() {
     }); 
     describe('get_workbook_default_style test', function(){
       it("should call GetWorkbookDefaultStyle successfully" , function(){
-        var remoteFolder = "TestData/In";
+        var remoteFolder = "TestData/In"
       
-        var localName = "Book1.xlsx";
-        var remoteName = "Book1.xlsx";
+        var localName = "Book1.xlsx"
+        var remoteName = "Book1.xlsx"
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -181,10 +181,10 @@ describe('WorkbookController test', function() {
     }); 
     describe('get_workbook_text_items test', function(){
       it("should call GetWorkbookTextItems successfully" , function(){
-        var remoteFolder = "TestData/In";
+        var remoteFolder = "TestData/In"
       
-        var localName = "Book1.xlsx";
-        var remoteName = "Book1.xlsx";
+        var localName = "Book1.xlsx"
+        var remoteName = "Book1.xlsx"
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -204,10 +204,10 @@ describe('WorkbookController test', function() {
     }); 
     describe('get_workbook_names test', function(){
       it("should call GetWorkbookNames successfully" , function(){
-        var remoteFolder = "TestData/In";
+        var remoteFolder = "TestData/In"
       
-        var localName = "Book1.xlsx";
-        var remoteName = "Book1.xlsx";
+        var localName = "Book1.xlsx"
+        var remoteName = "Book1.xlsx"
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -227,10 +227,10 @@ describe('WorkbookController test', function() {
     }); 
     describe('put_workbook_name test', function(){
       it("should call PutWorkbookName successfully" , function(){
-        var remoteFolder = "TestData/In";
+        var remoteFolder = "TestData/In"
       
-        var localName = "Book1.xlsx";
-        var remoteName = "Book1.xlsx";
+        var localName = "Book1.xlsx"
+        var remoteName = "Book1.xlsx"
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -255,10 +255,10 @@ describe('WorkbookController test', function() {
     }); 
     describe('get_workbook_name test', function(){
       it("should call GetWorkbookName successfully" , function(){
-        var remoteFolder = "TestData/In";
+        var remoteFolder = "TestData/In"
       
-        var localName = "Book1.xlsx";
-        var remoteName = "Book1.xlsx";
+        var localName = "Book1.xlsx"
+        var remoteName = "Book1.xlsx"
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -279,10 +279,10 @@ describe('WorkbookController test', function() {
     }); 
     describe('post_workbook_name test', function(){
       it("should call PostWorkbookName successfully" , function(){
-        var remoteFolder = "TestData/In";
+        var remoteFolder = "TestData/In"
       
-        var localName = "Book1.xlsx";
-        var remoteName = "Book1.xlsx";
+        var localName = "Book1.xlsx"
+        var remoteName = "Book1.xlsx"
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -308,10 +308,10 @@ describe('WorkbookController test', function() {
     }); 
     describe('get_workbook_name_value test', function(){
       it("should call GetWorkbookNameValue successfully" , function(){
-        var remoteFolder = "TestData/In";
+        var remoteFolder = "TestData/In"
       
-        var localName = "Book1.xlsx";
-        var remoteName = "Book1.xlsx";
+        var localName = "Book1.xlsx"
+        var remoteName = "Book1.xlsx"
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -332,10 +332,10 @@ describe('WorkbookController test', function() {
     }); 
     describe('delete_workbook_names test', function(){
       it("should call DeleteWorkbookNames successfully" , function(){
-        var remoteFolder = "TestData/In";
+        var remoteFolder = "TestData/In"
       
-        var localName = "Book1.xlsx";
-        var remoteName = "Book1.xlsx";
+        var localName = "Book1.xlsx"
+        var remoteName = "Book1.xlsx"
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -355,10 +355,10 @@ describe('WorkbookController test', function() {
     }); 
     describe('delete_workbook_name test', function(){
       it("should call DeleteWorkbookName successfully" , function(){
-        var remoteFolder = "TestData/In";
+        var remoteFolder = "TestData/In"
       
-        var localName = "Book1.xlsx";
-        var remoteName = "Book1.xlsx";
+        var localName = "Book1.xlsx"
+        var remoteName = "Book1.xlsx"
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -379,10 +379,10 @@ describe('WorkbookController test', function() {
     }); 
     describe('put_document_protect_from_changes test', function(){
       it("should call PutDocumentProtectFromChanges successfully" , function(){
-        var remoteFolder = "TestData/In";
+        var remoteFolder = "TestData/In"
       
-        var localName = "Book1.xlsx";
-        var remoteName = "Book1.xlsx";
+        var localName = "Book1.xlsx"
+        var remoteName = "Book1.xlsx"
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -405,10 +405,10 @@ describe('WorkbookController test', function() {
     }); 
     describe('delete_document_un_protect_from_changes test', function(){
       it("should call DeleteDocumentUnProtectFromChanges successfully" , function(){
-        var remoteFolder = "TestData/In";
+        var remoteFolder = "TestData/In"
       
-        var localName = "Book1.xlsx";
-        var remoteName = "Book1.xlsx";
+        var localName = "Book1.xlsx"
+        var remoteName = "Book1.xlsx"
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -428,11 +428,11 @@ describe('WorkbookController test', function() {
     }); 
     describe('post_workbooks_merge test', function(){
       it("should call PostWorkbooksMerge successfully" , function(){
-        var remoteFolder = "TestData/In";
+        var remoteFolder = "TestData/In"
       
-        var localName = "Book1.xlsx";
-        var myDocumentXLSX = "myDocument.xlsx";
-        var remoteName = "Book1.xlsx";
+        var localName = "Book1.xlsx"
+        var myDocumentXLSX = "myDocument.xlsx"
+        var remoteName = "Book1.xlsx"
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -459,10 +459,10 @@ describe('WorkbookController test', function() {
     }); 
     describe('post_workbooks_text_search test', function(){
       it("should call PostWorkbooksTextSearch successfully" , function(){
-        var remoteFolder = "TestData/In";
+        var remoteFolder = "TestData/In"
       
-        var localName = "Book1.xlsx";
-        var remoteName = "Book1.xlsx";
+        var localName = "Book1.xlsx"
+        var remoteName = "Book1.xlsx"
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -483,10 +483,10 @@ describe('WorkbookController test', function() {
     }); 
     describe('post_workbook_text_replace test', function(){
       it("should call PostWorkbookTextReplace successfully" , function(){
-        var remoteFolder = "TestData/In";
+        var remoteFolder = "TestData/In"
       
-        var localName = "Book1.xlsx";
-        var remoteName = "Book1.xlsx";
+        var localName = "Book1.xlsx"
+        var remoteName = "Book1.xlsx"
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -508,11 +508,11 @@ describe('WorkbookController test', function() {
     }); 
     describe('post_workbook_get_smart_marker_result test', function(){
       it("should call PostWorkbookGetSmartMarkerResult successfully" , function(){
-        var remoteFolder = "TestData/In";
+        var remoteFolder = "TestData/In"
       
-        var localName = "Book1.xlsx";
-        var reportDataXML = "ReportData.xml";
-        var remoteName = "Book1.xlsx";
+        var localName = "Book1.xlsx"
+        var reportDataXML = "ReportData.xml"
+        var remoteName = "Book1.xlsx"
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -540,11 +540,11 @@ describe('WorkbookController test', function() {
     }); 
     describe('put_workbook_create test', function(){
       it("should call PutWorkbookCreate successfully" , function(){
-        var remoteFolder = "TestData/In";
+        var remoteFolder = "TestData/In"
       
-        var localName = "Book1.xlsx";
-        var reportDataXML = "ReportData.xml";
-        var remoteName = "Book1.xlsx";
+        var localName = "Book1.xlsx"
+        var reportDataXML = "ReportData.xml"
+        var remoteName = "Book1.xlsx"
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -573,10 +573,10 @@ describe('WorkbookController test', function() {
     }); 
     describe('post_workbook_split test', function(){
       it("should call PostWorkbookSplit successfully" , function(){
-        var remoteFolder = "TestData/In";
+        var remoteFolder = "TestData/In"
       
-        var localName = "Book1.xlsx";
-        var remoteName = "Book1.xlsx";
+        var localName = "Book1.xlsx"
+        var remoteName = "Book1.xlsx"
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -591,6 +591,8 @@ describe('WorkbookController test', function() {
         request.outFolder =  "OutResult";
         request.from =  1;
         request.to =  5;
+        request.horizontalResolution =  96;
+        request.verticalResolution =  96;
         request.splitNameRule =  "sheetname";
         request.folder =  remoteFolder;
         request.storageName =  "";
@@ -602,10 +604,10 @@ describe('WorkbookController test', function() {
     }); 
     describe('post_import_data test', function(){
       it("should call PostImportData successfully" , function(){
-        var remoteFolder = "TestData/In";
+        var remoteFolder = "TestData/In"
       
-        var localName = "Book1.xlsx";
-        var remoteName = "Book1.xlsx";
+        var localName = "Book1.xlsx"
+        var remoteName = "Book1.xlsx"
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -638,10 +640,10 @@ describe('WorkbookController test', function() {
     }); 
     describe('post_workbook_calculate_formula test', function(){
       it("should call PostWorkbookCalculateFormula successfully" , function(){
-        var remoteFolder = "TestData/In";
+        var remoteFolder = "TestData/In"
       
-        var localName = "Book1.xlsx";
-        var remoteName = "Book1.xlsx";
+        var localName = "Book1.xlsx"
+        var remoteName = "Book1.xlsx"
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -666,10 +668,10 @@ describe('WorkbookController test', function() {
     }); 
     describe('post_autofit_workbook_rows test', function(){
       it("should call PostAutofitWorkbookRows successfully" , function(){
-        var remoteFolder = "TestData/In";
+        var remoteFolder = "TestData/In"
       
-        var localName = "Book1.xlsx";
-        var remoteName = "Book1.xlsx";
+        var localName = "Book1.xlsx"
+        var remoteName = "Book1.xlsx"
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -692,10 +694,10 @@ describe('WorkbookController test', function() {
     }); 
     describe('post_autofit_workbook_columns test', function(){
       it("should call PostAutofitWorkbookColumns successfully" , function(){
-        var remoteFolder = "TestData/In";
+        var remoteFolder = "TestData/In"
       
-        var localName = "Book1.xlsx";
-        var remoteName = "Book1.xlsx";
+        var localName = "Book1.xlsx"
+        var remoteName = "Book1.xlsx"
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -717,10 +719,10 @@ describe('WorkbookController test', function() {
     }); 
     describe('get_workbook_settings test', function(){
       it("should call GetWorkbookSettings successfully" , function(){
-        var remoteFolder = "TestData/In";
+        var remoteFolder = "TestData/In"
       
-        var localName = "Book1.xlsx";
-        var remoteName = "Book1.xlsx";
+        var localName = "Book1.xlsx"
+        var remoteName = "Book1.xlsx"
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -740,10 +742,10 @@ describe('WorkbookController test', function() {
     }); 
     describe('post_workbook_settings test', function(){
       it("should call PostWorkbookSettings successfully" , function(){
-        var remoteFolder = "TestData/In";
+        var remoteFolder = "TestData/In"
       
-        var localName = "Book1.xlsx";
-        var remoteName = "Book1.xlsx";
+        var localName = "Book1.xlsx"
+        var remoteName = "Book1.xlsx"
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -767,11 +769,11 @@ describe('WorkbookController test', function() {
     }); 
     describe('put_workbook_background test', function(){
       it("should call PutWorkbookBackground successfully" , function(){
-        var remoteFolder = "TestData/In";
+        var remoteFolder = "TestData/In"
       
-        var localName = "Book1.xlsx";
-        var waterMarkPNG = "WaterMark.png";
-        var remoteName = "Book1.xlsx";
+        var localName = "Book1.xlsx"
+        var waterMarkPNG = "WaterMark.png"
+        var remoteName = "Book1.xlsx"
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -797,10 +799,10 @@ describe('WorkbookController test', function() {
     }); 
     describe('delete_workbook_background test', function(){
       it("should call DeleteWorkbookBackground successfully" , function(){
-        var remoteFolder = "TestData/In";
+        var remoteFolder = "TestData/In"
       
-        var localName = "Book1.xlsx";
-        var remoteName = "Book1.xlsx";
+        var localName = "Book1.xlsx"
+        var remoteName = "Book1.xlsx"
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -820,10 +822,10 @@ describe('WorkbookController test', function() {
     }); 
     describe('put_workbook_water_marker test', function(){
       it("should call PutWorkbookWaterMarker successfully" , function(){
-        var remoteFolder = "TestData/In";
+        var remoteFolder = "TestData/In"
       
-        var localName = "Book1.xlsx";
-        var remoteName = "Book1.xlsx";
+        var localName = "Book1.xlsx"
+        var remoteName = "Book1.xlsx"
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
@@ -847,10 +849,10 @@ describe('WorkbookController test', function() {
     }); 
     describe('get_page_count test', function(){
       it("should call GetPageCount successfully" , function(){
-        var remoteFolder = "TestData/In";
+        var remoteFolder = "TestData/In"
       
-        var localName = "Book1.xlsx";
-        var remoteName = "Book1.xlsx";
+        var localName = "Book1.xlsx"
+        var remoteName = "Book1.xlsx"
 
         var localNameRequest = new  model.UploadFileRequest();
         localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
