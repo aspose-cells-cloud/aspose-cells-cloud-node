@@ -24,11 +24,11 @@
 
 
 import http = require("http");
-//import request = require("request");
+import request = require("request");
 
 import { Configuration } from "./internal/configuration";
 import { ObjectSerializer } from "./internal/objectSerializer";
-//import { addQueryParameterToUrl, invokeApiMethod } from "./internal/requestHelper";
+import { invokeApiMethod } from "./internal/requestHelper";
 import * as model from "./model/model";
 
 export * from "./model/model";
