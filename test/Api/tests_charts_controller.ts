@@ -68,8 +68,8 @@ describe('ChartsController test', function() {
         });
       });
     }); 
-    describe('put_worksheet_add_chart test', function(){
-      it("should call PutWorksheetAddChart successfully" , function(){
+    describe('put_worksheet_chart test', function(){
+      it("should call PutWorksheetChart successfully" , function(){
         var remoteFolder = "TestData/In"
       
         var localName = "Book1.xlsx"
@@ -82,7 +82,7 @@ describe('ChartsController test', function() {
         cellsApi.uploadFile(localNameRequest );
      
 
-        var request = new model.PutWorksheetAddChartRequest();
+        var request = new model.PutWorksheetChartRequest();
         request.name =  remoteName;
         request.sheetName =  "Sheet4";
         request.chartType =  "Pie";
@@ -95,13 +95,13 @@ describe('ChartsController test', function() {
         request.title =  "Aspose Chart";
         request.folder =  remoteFolder;
         request.storageName =  "";
-        return cellsApi.putWorksheetAddChart(request).then((result) => {
+        return cellsApi.putWorksheetChart(request).then((result) => {
             expect(result.response.statusCode).to.equal(200);
         });
       });
     }); 
-    describe('delete_worksheet_delete_chart test', function(){
-      it("should call DeleteWorksheetDeleteChart successfully" , function(){
+    describe('delete_worksheet_chart test', function(){
+      it("should call DeleteWorksheetChart successfully" , function(){
         var remoteFolder = "TestData/In"
       
         var localName = "Book1.xlsx"
@@ -114,13 +114,13 @@ describe('ChartsController test', function() {
         cellsApi.uploadFile(localNameRequest );
      
 
-        var request = new model.DeleteWorksheetDeleteChartRequest();
+        var request = new model.DeleteWorksheetChartRequest();
         request.name =  remoteName;
         request.sheetName =  "Sheet4";
         request.chartIndex =  0;
         request.folder =  remoteFolder;
         request.storageName =  "";
-        return cellsApi.deleteWorksheetDeleteChart(request).then((result) => {
+        return cellsApi.deleteWorksheetChart(request).then((result) => {
             expect(result.response.statusCode).to.equal(200);
         });
       });
@@ -257,8 +257,8 @@ describe('ChartsController test', function() {
         });
       });
     }); 
-    describe('delete_worksheet_clear_charts test', function(){
-      it("should call DeleteWorksheetClearCharts successfully" , function(){
+    describe('delete_worksheet_charts test', function(){
+      it("should call DeleteWorksheetCharts successfully" , function(){
         var remoteFolder = "TestData/In"
       
         var localName = "Book1.xlsx"
@@ -271,12 +271,12 @@ describe('ChartsController test', function() {
         cellsApi.uploadFile(localNameRequest );
      
 
-        var request = new model.DeleteWorksheetClearChartsRequest();
+        var request = new model.DeleteWorksheetChartsRequest();
         request.name =  remoteName;
         request.sheetName =  "Sheet4";
         request.folder =  remoteFolder;
         request.storageName =  "";
-        return cellsApi.deleteWorksheetClearCharts(request).then((result) => {
+        return cellsApi.deleteWorksheetCharts(request).then((result) => {
             expect(result.response.statusCode).to.equal(200);
         });
       });

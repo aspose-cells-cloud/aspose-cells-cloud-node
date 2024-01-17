@@ -1,0 +1,14 @@
+<testsuites name="Mocha Tests">
+  <testsuite name="ListObjectsController test delete_worksheet_list_object test" tests="1" errors="0" failures="0" skipped="0" timestamp="2024-01-17T10:02:15" time="1.606">
+    <testcase classname="ListObjectsController test delete_worksheet_list_object test" name="should call DeleteWorksheetListObject successfully" time="1.602">
+    </testcase>
+  </testsuite>
+  <testsuite name="ListObjectsController test post_worksheet_list_object test" tests="1" errors="0" failures="0" skipped="0" timestamp="2024-01-17T10:02:16" time="0.433">
+    <testcase classname="ListObjectsController test post_worksheet_list_object test" name="should call PostWorksheetListObject successfully" time="0.431">
+    </testcase>
+  </testsuite>
+  <testsuite name="OleObjectsController test delete_worksheet_ole_object test" tests="1" errors="0" failures="0" skipped="0" timestamp="2024-01-17T10:02:17" time="1.185">
+    <testcase classname="OleObjectsController test delete_worksheet_ole_object test" name="should call DeleteWorksheetOleObject successfully" time="1.184">
+    </testcase>
+  </testsuite>
+</testsuites>

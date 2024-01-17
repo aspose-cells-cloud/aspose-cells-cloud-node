@@ -607,8 +607,8 @@ describe('WorksheetController test', function() {
         });
       });
     }); 
-    describe('post_worsheet_text_replace test', function(){
-      it("should call PostWorsheetTextReplace successfully" , function(){
+    describe('post_worksheet_text_replace test', function(){
+      it("should call PostWorksheetTextReplace successfully" , function(){
         var remoteFolder = "TestData/In"
       
         var localName = "Book1.xlsx"
@@ -621,14 +621,14 @@ describe('WorksheetController test', function() {
         cellsApi.uploadFile(localNameRequest );
      
 
-        var request = new model.PostWorsheetTextReplaceRequest();
+        var request = new model.PostWorksheetTextReplaceRequest();
         request.name =  remoteName;
         request.sheetName =  "Sheet1";
         request.oldValue =  "123";
         request.newValue =  "456";
         request.folder =  remoteFolder;
         request.storageName =  "";
-        return cellsApi.postWorsheetTextReplace(request).then((result) => {
+        return cellsApi.postWorksheetTextReplace(request).then((result) => {
             expect(result.response.statusCode).to.equal(200);
         });
       });

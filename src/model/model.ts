@@ -1,6 +1,6 @@
 import request from "request";
 import { Configuration } from "../internal/configuration";
-import { addQueryParameterToUrl } from "../internal/requestHelper";
+import { addQueryParameterToUrl, invokeApiMethod } from "../internal/requestHelper";
 import { ObjectSerializer } from "../internal/objectSerializer";
 
 export class ValueType {
@@ -4798,6 +4798,204 @@ export class SaveResult  {
         Object.assign(this, init);
     } 
 }
+/// Represents all save options   
+export class SaveOptions  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "saveFormat",
+            baseName: "SaveFormat",
+            type: "string",
+        },
+        {
+            name: "cachedFileFolder",
+            baseName: "CachedFileFolder",
+            type: "string",
+        },
+        {
+            name: "clearData",
+            baseName: "ClearData",
+            type: "boolean",
+        },
+        {
+            name: "createDirectory",
+            baseName: "CreateDirectory",
+            type: "boolean",
+        },
+        {
+            name: "enableHTTPCompression",
+            baseName: "EnableHTTPCompression",
+            type: "boolean",
+        },
+        {
+            name: "refreshChartCache",
+            baseName: "RefreshChartCache",
+            type: "boolean",
+        },
+        {
+            name: "sortNames",
+            baseName: "SortNames",
+            type: "boolean",
+        },
+        {
+            name: "validateMergedAreas",
+            baseName: "ValidateMergedAreas",
+            type: "boolean",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return  SaveOptions.attributeTypeMap;
+
+    }
+
+    public saveFormat: string;
+    public cachedFileFolder: string;
+    public clearData: boolean;
+    public createDirectory: boolean;
+    public enableHTTPCompression: boolean;
+    public refreshChartCache: boolean;
+    public sortNames: boolean;
+    public validateMergedAreas: boolean;
+
+    public constructor(init?: Partial< SaveOptions >) {  
+    
+        Object.assign(this, init);
+    } 
+}
+/// Represents the options for pagination.   
+export class PaginatedSaveOptions  extends SaveOptions  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "defaultFont",
+            baseName: "DefaultFont",
+            type: "string",
+        },
+        {
+            name: "checkWorkbookDefaultFont",
+            baseName: "CheckWorkbookDefaultFont",
+            type: "boolean",
+        },
+        {
+            name: "checkFontCompatibility",
+            baseName: "CheckFontCompatibility",
+            type: "boolean",
+        },
+        {
+            name: "isFontSubstitutionCharGranularity",
+            baseName: "IsFontSubstitutionCharGranularity",
+            type: "boolean",
+        },
+        {
+            name: "onePagePerSheet",
+            baseName: "OnePagePerSheet",
+            type: "boolean",
+        },
+        {
+            name: "allColumnsInOnePagePerSheet",
+            baseName: "AllColumnsInOnePagePerSheet",
+            type: "boolean",
+        },
+        {
+            name: "ignoreError",
+            baseName: "IgnoreError",
+            type: "boolean",
+        },
+        {
+            name: "outputBlankPageWhenNothingToPrint",
+            baseName: "OutputBlankPageWhenNothingToPrint",
+            type: "boolean",
+        },
+        {
+            name: "pageIndex",
+            baseName: "PageIndex",
+            type: "number",
+        },
+        {
+            name: "pageCount",
+            baseName: "PageCount",
+            type: "number",
+        },
+        {
+            name: "printingPageType",
+            baseName: "PrintingPageType",
+            type: "string",
+        },
+        {
+            name: "gridlineType",
+            baseName: "GridlineType",
+            type: "string",
+        },
+        {
+            name: "textCrossType",
+            baseName: "TextCrossType",
+            type: "string",
+        },
+        {
+            name: "defaultEditLanguage",
+            baseName: "DefaultEditLanguage",
+            type: "string",
+        },
+        {
+            name: "emfRenderSetting",
+            baseName: "EmfRenderSetting",
+            type: "string",
+        },
+        {
+            name: "mergeAreas",
+            baseName: "MergeAreas",
+            type: "boolean",
+        },
+        {
+            name: "sortExternalNames",
+            baseName: "SortExternalNames",
+            type: "boolean",
+        },
+        {
+            name: "updateSmartArt",
+            baseName: "UpdateSmartArt",
+            type: "boolean",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return super.getAttributeTypeMap().concat(PaginatedSaveOptions.attributeTypeMap) ;
+
+    }
+
+    public defaultFont: string;
+    public checkWorkbookDefaultFont: boolean;
+    public checkFontCompatibility: boolean;
+    public isFontSubstitutionCharGranularity: boolean;
+    public onePagePerSheet: boolean;
+    public allColumnsInOnePagePerSheet: boolean;
+    public ignoreError: boolean;
+    public outputBlankPageWhenNothingToPrint: boolean;
+    public pageIndex: number;
+    public pageCount: number;
+    public printingPageType: string;
+    public gridlineType: string;
+    public textCrossType: string;
+    public defaultEditLanguage: string;
+    public emfRenderSetting: string;
+    public mergeAreas: boolean;
+    public sortExternalNames: boolean;
+    public updateSmartArt: boolean;
+
+    public constructor(init?: Partial< PaginatedSaveOptions >) {  
+         super(init);     
+        Object.assign(this, init);
+    } 
+}
    
 export class SingleValue  {
     /**
@@ -6364,75 +6562,6 @@ export class CellsObjectOperateTaskParameter  extends TaskParameter  {
         Object.assign(this, init);
     } 
 }
-/// Represents all save options   
-export class SaveOptions  {
-    /**
-     * Attribute type map
-     */
-    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
-        {
-            name: "saveFormat",
-            baseName: "SaveFormat",
-            type: "string",
-        },
-        {
-            name: "cachedFileFolder",
-            baseName: "CachedFileFolder",
-            type: "string",
-        },
-        {
-            name: "clearData",
-            baseName: "ClearData",
-            type: "boolean",
-        },
-        {
-            name: "createDirectory",
-            baseName: "CreateDirectory",
-            type: "boolean",
-        },
-        {
-            name: "enableHTTPCompression",
-            baseName: "EnableHTTPCompression",
-            type: "boolean",
-        },
-        {
-            name: "refreshChartCache",
-            baseName: "RefreshChartCache",
-            type: "boolean",
-        },
-        {
-            name: "sortNames",
-            baseName: "SortNames",
-            type: "boolean",
-        },
-        {
-            name: "validateMergedAreas",
-            baseName: "ValidateMergedAreas",
-            type: "boolean",
-        }
-    ];
-    /**
-     * Returns attribute type map
-     */
-    public static getAttributeTypeMap() {
-        return  SaveOptions.attributeTypeMap;
-
-    }
-
-    public saveFormat: string;
-    public cachedFileFolder: string;
-    public clearData: boolean;
-    public createDirectory: boolean;
-    public enableHTTPCompression: boolean;
-    public refreshChartCache: boolean;
-    public sortNames: boolean;
-    public validateMergedAreas: boolean;
-
-    public constructor(init?: Partial< SaveOptions >) {  
-    
-        Object.assign(this, init);
-    } 
-}
 ///    
 export class ConvertTaskParameter  extends TaskParameter  {
     /**
@@ -7901,7 +8030,7 @@ export class DifSaveOptions  extends SaveOptions  {
     } 
 }
 /// Represents options of saving .docx file.   
-export class DocxSaveOptions  extends SaveOptions  {
+export class DocxSaveOptions  extends PaginatedSaveOptions  {
     /**
      * Attribute type map
      */
@@ -8906,11 +9035,26 @@ export class PdfSaveOptions  extends SaveOptions  {
     } 
 }
 /// Represents the options of saving pptx file.   
-export class PptxSaveOptions  extends SaveOptions  {
+export class PptxSaveOptions  extends PaginatedSaveOptions  {
     /**
      * Attribute type map
      */
     public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "ignoreHiddenRows",
+            baseName: "IgnoreHiddenRows",
+            type: "boolean",
+        },
+        {
+            name: "adjustFontSizeForRowType",
+            baseName: "AdjustFontSizeForRowType",
+            type: "string",
+        },
+        {
+            name: "exportViewType",
+            baseName: "ExportViewType",
+            type: "string",
+        }
     ];
     /**
      * Returns attribute type map
@@ -8920,6 +9064,9 @@ export class PptxSaveOptions  extends SaveOptions  {
 
     }
 
+    public ignoreHiddenRows: boolean;
+    public adjustFontSizeForRowType: string;
+    public exportViewType: string;
 
     public constructor(init?: Partial< PptxSaveOptions >) {  
          super(init);     
@@ -9185,7 +9332,7 @@ export class XlsSaveOptions  extends SaveOptions  {
     } 
 }
 /// Represents the options of saving .xps file.   
-export class XpsSaveOptions  extends SaveOptions  {
+export class XpsSaveOptions  extends PaginatedSaveOptions  {
     /**
      * Attribute type map
      */
@@ -16436,6 +16583,16 @@ export class BatchConvertRequest  {
             type: "string",
         },
         {
+            name: "pageWideFitOnPerSheet",
+            baseName: "PageWideFitOnPerSheet",
+            type: "boolean",
+        },
+        {
+            name: "pageTallFitOnPerSheet",
+            baseName: "PageTallFitOnPerSheet",
+            type: "boolean",
+        },
+        {
             name: "saveOptions",
             baseName: "SaveOptions",
             type: "SaveOptions",
@@ -16456,6 +16613,8 @@ export class BatchConvertRequest  {
     public outFolder: string;
     public outStorage: string;
     public region: string;
+    public pageWideFitOnPerSheet: boolean;
+    public pageTallFitOnPerSheet: boolean;
     public saveOptions: SaveOptions;
 
     public constructor(init?: Partial< BatchConvertRequest >) {  
@@ -18590,6 +18749,7 @@ const typeMap = {
     Row,
     Rows,
     SaveResult,
+    PaginatedSaveOptions,
     SingleValue,
     SortKey,
     SplitResult,
@@ -20952,15 +21112,15 @@ export class PostCellCharactersRequest  {
     }
 
 }
-/// Get worksheet columns description.   
+/// Retrieve descriptions of worksheet columns.   
 export class GetWorksheetColumnsRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public offset: number;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public count: number;
     /// The workdook folder.  
     public folder: string;
@@ -21002,9 +21162,9 @@ export class GetWorksheetColumnsRequest  {
     }
 
 }
-/// Sets worksheet column width.   
+/// Set worksheet column width.   
 export class PostSetWorksheetColumnWidthRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
@@ -21014,9 +21174,9 @@ export class PostSetWorksheetColumnWidthRequest  {
     public width: number;
       
     public count: number;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -21059,17 +21219,17 @@ export class PostSetWorksheetColumnWidthRequest  {
     }
 
 }
-/// Gets worksheet column data by column's index.   
+/// Retrieve worksheet column data by column index.   
 export class GetWorksheetColumnRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
     /// The column index.  
     public columnIndex: number;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -21105,9 +21265,9 @@ export class GetWorksheetColumnRequest  {
     }
 
 }
-/// Insert worksheet columns.   
+/// Insert worksheet columns in the worksheet.   
 export class PutInsertWorksheetColumnsRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
@@ -21117,9 +21277,9 @@ export class PutInsertWorksheetColumnsRequest  {
     public columns: number;
     /// Indicates if references in other worksheets will be updated.  
     public updateReference: boolean;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -21162,9 +21322,9 @@ export class PutInsertWorksheetColumnsRequest  {
     }
 
 }
-/// Delete worksheet columns.   
+/// Delete worksheet columns in the worksheet.   
 export class DeleteWorksheetColumnsRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
@@ -21174,9 +21334,9 @@ export class DeleteWorksheetColumnsRequest  {
     public columns: number;
     /// Indicates if references in other worksheets will be updated.  
     public updateReference: boolean;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -21224,9 +21384,9 @@ export class DeleteWorksheetColumnsRequest  {
     }
 
 }
-/// Hide worksheet columns.   
+/// Hide worksheet columns in the worksheet.   
 export class PostHideWorksheetColumnsRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
@@ -21234,9 +21394,9 @@ export class PostHideWorksheetColumnsRequest  {
     public startColumn: number;
     /// Number of columns to be operated.  
     public totalColumns: number;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -21284,9 +21444,9 @@ export class PostHideWorksheetColumnsRequest  {
     }
 
 }
-/// Unhide worksheet columns.   
+/// Unhide worksheet columns in the worksheet.   
 export class PostUnhideWorksheetColumnsRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
@@ -21296,9 +21456,9 @@ export class PostUnhideWorksheetColumnsRequest  {
     public totalColumns: number;
     /// Gets and sets the column width in unit of characters.  
     public width: number;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -21347,9 +21507,9 @@ export class PostUnhideWorksheetColumnsRequest  {
     }
 
 }
-/// Group worksheet columns.   
+/// Group worksheet columns in the worksheet.   
 export class PostGroupWorksheetColumnsRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
@@ -21359,9 +21519,9 @@ export class PostGroupWorksheetColumnsRequest  {
     public lastIndex: number;
     /// columns visible state  
     public hide: boolean;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -21412,7 +21572,7 @@ export class PostGroupWorksheetColumnsRequest  {
 }
 /// Ungroup worksheet columns.   
 export class PostUngroupWorksheetColumnsRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
@@ -21420,9 +21580,9 @@ export class PostUngroupWorksheetColumnsRequest  {
     public firstIndex: number;
     /// The last column index to be operated.  
     public lastIndex: number;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -21470,9 +21630,9 @@ export class PostUngroupWorksheetColumnsRequest  {
     }
 
 }
-/// Copy data to destination columns from source columns in worksheet.   
+/// Copy data from source columns to destination columns in the worksheet.   
 export class PostCopyWorksheetColumnsRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
@@ -21484,9 +21644,9 @@ export class PostCopyWorksheetColumnsRequest  {
     public columnNumber: number;
     /// The destination worksheet name.  
     public worksheet: string;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -21541,9 +21701,9 @@ export class PostCopyWorksheetColumnsRequest  {
     }
 
 }
-/// Sets column style in worksheet.   
+/// Set column style in the worksheet.   
 export class PostColumnStyleRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
@@ -21551,9 +21711,9 @@ export class PostColumnStyleRequest  {
     public columnIndex: number;
     /// Represents display style of excel document,such as font,color,alignment,border,etc.  
     public style: Style;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -21589,19 +21749,19 @@ export class PostColumnStyleRequest  {
     }
 
 }
-/// Get rows description in worksheet.   
+/// Retrieve descriptions of rows in the worksheet.   
 export class GetWorksheetRowsRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
-    /// Original workbook folder.  
+    /// Row offset.  
     public offset: number;
-    /// Storage name.  
+    /// Display rows number.  
     public count: number;
-      
+    /// The folder where the file is situated.  
     public folder: string;
-      
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -21639,17 +21799,17 @@ export class GetWorksheetRowsRequest  {
     }
 
 }
-/// Gets row data by row's index in worksheet.   
+/// Retrieve row data by the row's index in the worksheet.   
 export class GetWorksheetRowRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
     /// The row index.  
     public rowIndex: number;
-    /// The workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -21685,17 +21845,17 @@ export class GetWorksheetRowRequest  {
     }
 
 }
-/// Deletes row in worksheet.   
+/// Delete a row in the worksheet.   
 export class DeleteWorksheetRowRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
     /// The row index.  
     public rowIndex: number;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -21731,9 +21891,9 @@ export class DeleteWorksheetRowRequest  {
     }
 
 }
-/// Delete several rows in worksheet.   
+/// Delete several rows in the worksheet.   
 export class DeleteWorksheetRowsRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
@@ -21743,9 +21903,9 @@ export class DeleteWorksheetRowsRequest  {
     public totalRows: number;
     /// Indicates if update references in other worksheets.  
     public updateReference: boolean;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -21789,9 +21949,9 @@ export class DeleteWorksheetRowsRequest  {
     }
 
 }
-/// Insert several new rows in worksheet.   
+/// Insert several new rows in the worksheet.   
 export class PutInsertWorksheetRowsRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
@@ -21801,9 +21961,9 @@ export class PutInsertWorksheetRowsRequest  {
     public totalRows: number;
     /// Indicates if update references in other worksheets.  
     public updateReference: boolean;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -21847,17 +22007,17 @@ export class PutInsertWorksheetRowsRequest  {
     }
 
 }
-/// Inserts new row in worksheet.   
+/// Insert a new row in the worksheet.   
 export class PutInsertWorksheetRowRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
     /// The new row index.  
     public rowIndex: number;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -21893,9 +22053,9 @@ export class PutInsertWorksheetRowRequest  {
     }
 
 }
-/// Updates row in worksheet.   
+/// Update height of rows in the worksheet.   
 export class PostUpdateWorksheetRowRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
@@ -21905,9 +22065,9 @@ export class PostUpdateWorksheetRowRequest  {
     public height: number;
       
     public count: number;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -21947,7 +22107,7 @@ export class PostUpdateWorksheetRowRequest  {
 }
 /// Hide rows in worksheet.   
 export class PostHideWorksheetRowsRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
@@ -21955,9 +22115,9 @@ export class PostHideWorksheetRowsRequest  {
     public startrow: number;
     /// Number of rows to be operated.  
     public totalRows: number;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -22005,9 +22165,9 @@ export class PostHideWorksheetRowsRequest  {
     }
 
 }
-/// Unhide rows in worksheet.   
+/// Unhide rows in the worksheet.   
 export class PostUnhideWorksheetRowsRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
@@ -22017,9 +22177,9 @@ export class PostUnhideWorksheetRowsRequest  {
     public totalRows: number;
     /// The new row height.  
     public height: number;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -22068,9 +22228,9 @@ export class PostUnhideWorksheetRowsRequest  {
     }
 
 }
-/// Group rows in worksheet.   
+/// Group rows in the worksheet.   
 export class PostGroupWorksheetRowsRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
@@ -22080,9 +22240,9 @@ export class PostGroupWorksheetRowsRequest  {
     public lastIndex: number;
     /// rows visible state  
     public hide: boolean;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -22131,9 +22291,9 @@ export class PostGroupWorksheetRowsRequest  {
     }
 
 }
-/// Ungroup rows in worksheet.   
+/// Ungroup rows in the worksheet.   
 export class PostUngroupWorksheetRowsRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
@@ -22143,9 +22303,9 @@ export class PostUngroupWorksheetRowsRequest  {
     public lastIndex: number;
     /// Is all row to be operated  
     public isAll: boolean;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -22194,9 +22354,9 @@ export class PostUngroupWorksheetRowsRequest  {
     }
 
 }
-/// Copies data and formats of some whole rows in worksheet.   
+/// Copy data and formats from specific entire rows in the worksheet.   
 export class PostCopyWorksheetRowsRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
@@ -22208,9 +22368,9 @@ export class PostCopyWorksheetRowsRequest  {
     public rowNumber: number;
     /// The worksheet name.  
     public worksheet: string;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -22265,9 +22425,9 @@ export class PostCopyWorksheetRowsRequest  {
     }
 
 }
-/// Applies formats for a whole row in worksheet.   
+/// Apply formats to an entire row in the worksheet.   
 export class PostRowStyleRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
@@ -22275,9 +22435,9 @@ export class PostRowStyleRequest  {
     public rowIndex: number;
     /// Style description.  
     public style: Style;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -22613,7 +22773,7 @@ export class GetWorksheetChartRequest  {
 
 }
 /// Add a new chart in the worksheet.   
-export class PutWorksheetAddChartRequest  {
+export class PutWorksheetChartRequest  {
     /// The file name.  
     public name: string;
     /// The worksheet name.  
@@ -22653,7 +22813,7 @@ export class PutWorksheetAddChartRequest  {
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PutWorksheetAddChartRequest >) {  
+    public constructor(init?: Partial< PutWorksheetChartRequest >) {  
         Object.assign(this, init);
     } 
 
@@ -22664,7 +22824,7 @@ export class PutWorksheetAddChartRequest  {
         /// Chart type, please refer property Type in chart resource. 
         // verify required parameter 'chartType' is not null or undefined
         if (this.chartType === null || this.chartType === undefined) {
-            throw new Error('Required parameter "chartType" was null or undefined when calling PutWorksheetAddChart.');
+            throw new Error('Required parameter "chartType" was null or undefined when calling PutWorksheetChart.');
         }
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "chartType", this.chartType);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "upperLeftRow", this.upperLeftRow);
@@ -22704,7 +22864,7 @@ export class PutWorksheetAddChartRequest  {
 
 }
 /// Delete a chart by index in the worksheet.   
-export class DeleteWorksheetDeleteChartRequest  {
+export class DeleteWorksheetChartRequest  {
     /// The file name.  
     public name: string;
     /// The worksheet name.  
@@ -22718,7 +22878,7 @@ export class DeleteWorksheetDeleteChartRequest  {
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< DeleteWorksheetDeleteChartRequest >) {  
+    public constructor(init?: Partial< DeleteWorksheetChartRequest >) {  
         Object.assign(this, init);
     } 
 
@@ -22891,7 +23051,7 @@ export class PostWorksheetChartLegendRequest  {
     }
 
 }
-/// Show chart legend in worksheet.   
+/// Show chart legend in the worksheet.   
 export class PutWorksheetChartLegendRequest  {
     /// The file name.  
     public name: string;
@@ -22937,7 +23097,7 @@ export class PutWorksheetChartLegendRequest  {
     }
 
 }
-/// Hides chart legend in worksheet.   
+/// Hides chart legend in the worksheet.   
 export class DeleteWorksheetChartLegendRequest  {
     /// The file name.  
     public name: string;
@@ -22983,8 +23143,8 @@ export class DeleteWorksheetChartLegendRequest  {
     }
 
 }
-/// Clear the charts in worksheets.   
-export class DeleteWorksheetClearChartsRequest  {
+/// Clear the charts in the worksheets.   
+export class DeleteWorksheetChartsRequest  {
     /// The file name.  
     public name: string;
     /// The worksheet name.  
@@ -22996,7 +23156,7 @@ export class DeleteWorksheetClearChartsRequest  {
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< DeleteWorksheetClearChartsRequest >) {  
+    public constructor(init?: Partial< DeleteWorksheetChartsRequest >) {  
         Object.assign(this, init);
     } 
 
@@ -23027,7 +23187,7 @@ export class DeleteWorksheetClearChartsRequest  {
     }
 
 }
-/// Gets chart title description in worksheet.   
+/// Retrieve chart title description in the worksheet.   
 export class GetWorksheetChartTitleRequest  {
     /// The file name.  
     public name: string;
@@ -23073,7 +23233,7 @@ export class GetWorksheetChartTitleRequest  {
     }
 
 }
-/// Update chart title in worksheet.   
+/// Update chart title in the worksheet.   
 export class PostWorksheetChartTitleRequest  {
     /// The file name.  
     public name: string;
@@ -23081,7 +23241,7 @@ export class PostWorksheetChartTitleRequest  {
     public sheetName: string;
     /// The chart index.  
     public chartIndex: number;
-    /// Chart title  
+    /// TitleChart title  
     public title: Title;
     /// The folder where the file is situated.  
     public folder: string;
@@ -23121,7 +23281,7 @@ export class PostWorksheetChartTitleRequest  {
     }
 
 }
-/// Add chart title / Set chart title visible   
+/// Set chart title in the worksheet.   
 export class PutWorksheetChartTitleRequest  {
     /// The file name.  
     public name: string;
@@ -23129,7 +23289,7 @@ export class PutWorksheetChartTitleRequest  {
     public sheetName: string;
     /// The chart index.  
     public chartIndex: number;
-    /// Chart title.  
+    /// TitleChart title.  
     public title: Title;
     /// The folder where the file is situated.  
     public folder: string;
@@ -23169,7 +23329,7 @@ export class PutWorksheetChartTitleRequest  {
     }
 
 }
-/// Hides chart title in worksheet.   
+/// Hide chart title in the worksheet.   
 export class DeleteWorksheetChartTitleRequest  {
     /// The file name.  
     public name: string;
@@ -23215,7 +23375,7 @@ export class DeleteWorksheetChartTitleRequest  {
     }
 
 }
-   
+/// Retrieve descriptions of chart seriesaxis in the chart.   
 export class GetChartSeriesAxisRequest  {
     /// The file name.  
     public name: string;
@@ -23261,7 +23421,7 @@ export class GetChartSeriesAxisRequest  {
     }
 
 }
-   
+/// Retrieve descriptions of chart series axis in the chart.   
 export class GetChartCategoryAxisRequest  {
     /// The file name.  
     public name: string;
@@ -23307,7 +23467,7 @@ export class GetChartCategoryAxisRequest  {
     }
 
 }
-   
+/// Retrieve chart value axis in the chart.   
 export class GetChartValueAxisRequest  {
     /// The file name.  
     public name: string;
@@ -23353,7 +23513,7 @@ export class GetChartValueAxisRequest  {
     }
 
 }
-   
+/// Retrieve chart second category axis in the chart   
 export class GetChartSecondCategoryAxisRequest  {
     /// The file name.  
     public name: string;
@@ -23399,7 +23559,7 @@ export class GetChartSecondCategoryAxisRequest  {
     }
 
 }
-   
+/// Retrieve chart second value axis in the chart.   
 export class GetChartSecondValueAxisRequest  {
     /// The file name.  
     public name: string;
@@ -23445,7 +23605,7 @@ export class GetChartSecondValueAxisRequest  {
     }
 
 }
-   
+/// Update chart series axis in the chart.   
 export class PostChartSeriesAxisRequest  {
     /// The file name.  
     public name: string;
@@ -23493,7 +23653,7 @@ export class PostChartSeriesAxisRequest  {
     }
 
 }
-   
+/// Update chart category axis in the chart.   
 export class PostChartCategoryAxisRequest  {
     /// The file name.  
     public name: string;
@@ -23541,7 +23701,7 @@ export class PostChartCategoryAxisRequest  {
     }
 
 }
-   
+/// Update chart value axis in the chart.   
 export class PostChartValueAxisRequest  {
     /// The file name.  
     public name: string;
@@ -23589,7 +23749,7 @@ export class PostChartValueAxisRequest  {
     }
 
 }
-   
+/// Update chart sencond category axis in the chart.   
 export class PostChartSecondCategoryAxisRequest  {
     /// The file name.  
     public name: string;
@@ -23637,7 +23797,7 @@ export class PostChartSecondCategoryAxisRequest  {
     }
 
 }
-   
+/// Update chart sencond value axis in the chart.   
 export class PostChartSecondValueAxisRequest  {
     /// The file name.  
     public name: string;
@@ -23685,15 +23845,15 @@ export class PostChartSecondValueAxisRequest  {
     }
 
 }
-/// Get conditional formattings description.   
+/// Retrieve descriptions of conditional formattings in a worksheet.   
 export class GetWorksheetConditionalFormattingsRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -23729,17 +23889,17 @@ export class GetWorksheetConditionalFormattingsRequest  {
     }
 
 }
-/// Gets conditional formatting description in worksheet.   
+/// Retrieve conditional formatting descriptions in the worksheet.   
 export class GetWorksheetConditionalFormattingRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
     /// The conditional formatting index.  
     public index: number;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -23775,9 +23935,9 @@ export class GetWorksheetConditionalFormattingRequest  {
     }
 
 }
-/// Adds a condition formatting in worksheet.   
+/// Add conditional formatting in the worksheet.   
 export class PutWorksheetConditionalFormattingRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
@@ -23785,9 +23945,9 @@ export class PutWorksheetConditionalFormattingRequest  {
     public formatcondition: FormatCondition;
     /// Adds a conditional formatted cell range.  
     public cellArea: string;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -23829,9 +23989,9 @@ export class PutWorksheetConditionalFormattingRequest  {
     }
 
 }
-/// Adds a format condition in worksheet.   
+/// Add a format condition in the worksheet.   
 export class PutWorksheetFormatConditionRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
@@ -23847,9 +24007,9 @@ export class PutWorksheetFormatConditionRequest  {
     public formula1: string;
     /// The value or expression associated with conditional formatting.  
     public formula2: string;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -23915,9 +24075,9 @@ export class PutWorksheetFormatConditionRequest  {
     }
 
 }
-/// Adds a cell area for format condition.   
+/// Add a cell area for the format condition in the worksheet.   
 export class PutWorksheetFormatConditionAreaRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
@@ -23925,9 +24085,9 @@ export class PutWorksheetFormatConditionAreaRequest  {
     public index: number;
     /// Adds a conditional formatted cell range.  
     public cellArea: string;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -23969,9 +24129,9 @@ export class PutWorksheetFormatConditionAreaRequest  {
     }
 
 }
-/// Adds a condition for format condition.   
+/// Add a condition for the format condition in the worksheet.   
 export class PutWorksheetFormatConditionConditionRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
@@ -23985,9 +24145,9 @@ export class PutWorksheetFormatConditionConditionRequest  {
     public formula1: string;
     /// The value or expression associated with conditional formatting.  
     public formula2: string;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -24047,15 +24207,15 @@ export class PutWorksheetFormatConditionConditionRequest  {
     }
 
 }
-/// Clear all condition formattings.   
+/// Clear all conditional formattings in the worksheet.   
 export class DeleteWorksheetConditionalFormattingsRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -24093,15 +24253,15 @@ export class DeleteWorksheetConditionalFormattingsRequest  {
 }
 /// Remove a conditional formatting.   
 export class DeleteWorksheetConditionalFormattingRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
     /// Gets the Conditional Formatting element at the specified index.  
     public index: number;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -24137,9 +24297,9 @@ export class DeleteWorksheetConditionalFormattingRequest  {
     }
 
 }
-/// Removes cell area from conditional formatting.   
+/// Remove cell area from conditional formatting.   
 export class DeleteWorksheetConditionalFormattingAreaRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
@@ -24151,9 +24311,9 @@ export class DeleteWorksheetConditionalFormattingAreaRequest  {
     public totalRows: number;
     /// The number of columns of the range.  
     public totalColumns: number;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -24237,6 +24397,10 @@ export class GetWorkbookRequest  {
     public checkExcelRestriction: boolean;
     /// The regional settings for workbook.  
     public region: string;
+    /// The page wide fit on worksheet.  
+    public pageWideFitOnPerSheet: boolean;
+    /// The page tall fit on worksheet.  
+    public pageTallFitOnPerSheet: boolean;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -24258,6 +24422,8 @@ export class GetWorkbookRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", this.checkExcelRestriction);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "pageWideFitOnPerSheet", this.pageWideFitOnPerSheet);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "pageTallFitOnPerSheet", this.pageTallFitOnPerSheet);
         if(this.extendQueryParameterMap !== undefined){
             for (var key in this.extendQueryParameterMap){
                 localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
@@ -24297,6 +24463,10 @@ export class PutConvertWorkbookRequest  {
     public streamFormat: string;
     /// The regional settings for workbook.  
     public region: string;
+    /// The page wide fit on worksheet.  
+    public pageWideFitOnPerSheet: boolean;
+    /// The page tall fit on worksheet.  
+    public pageTallFitOnPerSheet: boolean;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -24316,6 +24486,8 @@ export class PutConvertWorkbookRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", this.checkExcelRestriction);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "streamFormat", this.streamFormat);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "pageWideFitOnPerSheet", this.pageWideFitOnPerSheet);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "pageTallFitOnPerSheet", this.pageTallFitOnPerSheet);
         if(this.extendQueryParameterMap !== undefined){
             for (var key in this.extendQueryParameterMap){
                 localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
@@ -24365,6 +24537,10 @@ export class PostWorkbookSaveAsRequest  {
     public checkExcelRestriction: boolean;
     /// The regional settings for workbook.  
     public region: string;
+    /// The page wide fit on worksheet.  
+    public pageWideFitOnPerSheet: boolean;
+    /// The page tall fit on worksheet.  
+    public pageTallFitOnPerSheet: boolean;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -24389,6 +24565,8 @@ export class PostWorkbookSaveAsRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", this.checkExcelRestriction);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "pageWideFitOnPerSheet", this.pageWideFitOnPerSheet);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "pageTallFitOnPerSheet", this.pageTallFitOnPerSheet);
         if(this.extendQueryParameterMap !== undefined){
             for (var key in this.extendQueryParameterMap){
                 localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
@@ -25159,15 +25337,15 @@ export class PostImportDataRequest  {
     }
 
 }
-/// Get hyperlinks description in worksheet.   
+/// Retrieve descriptions of hyperlinks in the worksheet.   
 export class GetWorksheetHyperlinksRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -25203,17 +25381,17 @@ export class GetWorksheetHyperlinksRequest  {
     }
 
 }
-/// Gets hyperlink description by index in worksheet.   
+/// Retrieve hyperlink description by index in the worksheet.   
 export class GetWorksheetHyperlinkRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
     /// The hyperlink's index.  
     public hyperlinkIndex: number;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -25249,17 +25427,17 @@ export class GetWorksheetHyperlinkRequest  {
     }
 
 }
-/// Deletes hyperlink by index in worksheet.   
+/// Delete hyperlink by index in the worksheet.   
 export class DeleteWorksheetHyperlinkRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
     /// The hyperlink's index.  
     public hyperlinkIndex: number;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -25295,9 +25473,9 @@ export class DeleteWorksheetHyperlinkRequest  {
     }
 
 }
-/// Updates hyperlink by index in worksheet.   
+/// Update hyperlink by index in the worksheet.   
 export class PostWorksheetHyperlinkRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
@@ -25305,9 +25483,9 @@ export class PostWorksheetHyperlinkRequest  {
     public hyperlinkIndex: number;
     /// Hyperlink object  
     public hyperlink: Hyperlink;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -25343,9 +25521,9 @@ export class PostWorksheetHyperlinkRequest  {
     }
 
 }
-/// Adds hyperlink in worksheet.   
+/// Add hyperlink in the worksheet.   
 export class PutWorksheetHyperlinkRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
@@ -25359,9 +25537,9 @@ export class PutWorksheetHyperlinkRequest  {
     public totalColumns: number;
     /// Address of the hyperlink.  
     public address: string;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -25427,15 +25605,15 @@ export class PutWorksheetHyperlinkRequest  {
     }
 
 }
-/// Delete all hyperlinks in worksheet.   
+/// Delete all hyperlinks in the worksheet.   
 export class DeleteWorksheetHyperlinksRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -25478,7 +25656,7 @@ export class PostAssembleRequest  {
       
     public datasource: string;
     /// The format to convert(CSV/XLS/HTML/MHTML/ODS/PDF/XML/TXT/TIFF/XLSB/XLSM/XLSX/XLTM/XLTX/XPS/PNG/JPG/JPEG/GIF/EMF/BMP/MD[Markdown]/Numbers)  
-    public format: string;
+    public outFormat: string;
     /// The password needed to open an Excel file.  
     public password: string;
     /// Whether check restriction of excel file when user modify cells related objects.  
@@ -25503,7 +25681,7 @@ export class PostAssembleRequest  {
             throw new Error('Required parameter "datasource" was null or undefined when calling PostAssemble.');
         }
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "datasource", this.datasource);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "format", this.format);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outFormat", this.outFormat);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", this.checkExcelRestriction);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
@@ -26366,15 +26544,15 @@ export class DeleteMetadataRequest  {
     }
 
 }
-/// Get listobjects description in worksheet.   
+/// Retrieve descriptions of ListObjects in the worksheet.   
 export class GetWorksheetListObjectsRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -26410,9 +26588,9 @@ export class GetWorksheetListObjectsRequest  {
     }
 
 }
-/// Gets list object description by index in worksheet.   
+/// Retrieve list object description by index in the worksheet.   
 export class GetWorksheetListObjectRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
@@ -26420,9 +26598,9 @@ export class GetWorksheetListObjectRequest  {
     public listobjectindex: number;
       
     public format: string;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -26459,29 +26637,29 @@ export class GetWorksheetListObjectRequest  {
     }
 
 }
-/// Adds a list object in worksheet.   
+/// Add a ListObject in the worksheet.   
 export class PutWorksheetListObjectRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
     /// The start row of the list range.  
     public startRow: number;
-    /// The start row of the list range.  
+    /// The start column of the list range.  
     public startColumn: number;
     /// The start row of the list range.  
     public endRow: number;
-    /// The start row of the list range.  
+    /// The start column of the list range.  
     public endColumn: number;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Whether the range has headers.  
+    /// Indicate whether the range has headers.  
     public hasHeaders: boolean;
-      
+    /// Indicate whether display name.  
     public displayName: string;
-      
+    /// Indicate whether show totals.  
     public showTotals: boolean;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -26524,15 +26702,15 @@ export class PutWorksheetListObjectRequest  {
     }
 
 }
-/// Delete worksheet list objects in worksheet.   
+/// Delete ListObjects in the worksheet.   
 export class DeleteWorksheetListObjectsRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -26568,17 +26746,17 @@ export class DeleteWorksheetListObjectsRequest  {
     }
 
 }
-/// Deletes list object by index in worksheet.   
+/// Delete list object by index in the worksheet.   
 export class DeleteWorksheetListObjectRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
     /// List object index.  
     public listObjectIndex: number;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -26614,9 +26792,9 @@ export class DeleteWorksheetListObjectRequest  {
     }
 
 }
-/// Updates list object in worksheet.   
+/// Update list object by index in the worksheet.   
 export class PostWorksheetListObjectRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
@@ -26624,9 +26802,9 @@ export class PostWorksheetListObjectRequest  {
     public listObjectIndex: number;
     /// listObject dto in request body.  
     public listObject: ListObject;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -26662,17 +26840,17 @@ export class PostWorksheetListObjectRequest  {
     }
 
 }
-/// Converts list object to range in worksheet.   
+/// Convert list object to range in the worksheet.   
 export class PostWorksheetListObjectConvertToRangeRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
     /// List object index.  
     public listObjectIndex: number;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -26708,21 +26886,21 @@ export class PostWorksheetListObjectConvertToRangeRequest  {
     }
 
 }
-/// Creates pivot table with list object in worksheet.   
+/// Create a pivot table with a list object in the worksheet.   
 export class PostWorksheetListObjectSummarizeWithPivotTableRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
-    /// List object index.  
+    /// The list object index.  
     public listObjectIndex: number;
-    /// Target work sheet name.  
+    /// The target worksheet name.  
     public destsheetName: string;
     /// Create pivot table request.  
     public createPivotTableRequest: CreatePivotTableRequest;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -26735,7 +26913,7 @@ export class PostWorksheetListObjectSummarizeWithPivotTableRequest  {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/listobjects/{listObjectIndex}/SummarizeWithPivotTable".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "listObjectIndex" + "}", String(this.listObjectIndex));
         const queryParameters: any = {};
-        /// Target work sheet name. 
+        /// The target worksheet name. 
         // verify required parameter 'destsheetName' is not null or undefined
         if (this.destsheetName === null || this.destsheetName === undefined) {
             throw new Error('Required parameter "destsheetName" was null or undefined when calling PostWorksheetListObjectSummarizeWithPivotTable.');
@@ -26764,19 +26942,19 @@ export class PostWorksheetListObjectSummarizeWithPivotTableRequest  {
     }
 
 }
-/// Sorts list object in worksheet.   
+/// Sort list object in the worksheet.   
 export class PostWorksheetListObjectSortTableRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
-    /// List object index.  
+    /// The list object index.  
     public listObjectIndex: number;
     /// Represents sort order for the data range.  
     public dataSorter: DataSorter;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -26812,17 +26990,17 @@ export class PostWorksheetListObjectSortTableRequest  {
     }
 
 }
-/// Remove duplicates on list object.   
+/// Remove duplicates in list object.   
 export class PostWorksheetListObjectRemoveDuplicatesRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
-    /// List object index.  
+    /// The list object index.  
     public listObjectIndex: number;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -26860,7 +27038,7 @@ export class PostWorksheetListObjectRemoveDuplicatesRequest  {
 }
 /// Insert slicer for list object.   
 export class PostWorksheetListObjectInsertSlicerRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
@@ -26870,9 +27048,9 @@ export class PostWorksheetListObjectInsertSlicerRequest  {
     public columnIndex: number;
     /// The cell in the upper-left corner of the Slicer range.   
     public destCellName: string;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -26920,21 +27098,21 @@ export class PostWorksheetListObjectInsertSlicerRequest  {
     }
 
 }
-/// Update list column properties.   
+/// Update list column in list object.   
 export class PostWorksheetListColumnRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
-    /// List object index.  
+    /// The list object index.  
     public listObjectIndex: number;
     /// Represents table column index.  
     public columnIndex: number;
     /// Represents table column description.  
     public listColumn: ListColumn;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -26970,9 +27148,9 @@ export class PostWorksheetListColumnRequest  {
     }
 
 }
-/// Update table total of list columns.   
+/// Update total of list columns in the table.   
 export class PostWorksheetListColumnsTotalRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
@@ -26980,9 +27158,9 @@ export class PostWorksheetListColumnsTotalRequest  {
     public listObjectIndex: number;
     /// Represents table column description.  
     public tableTotalRequests: Array<TableTotalRequest>;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -27018,15 +27196,15 @@ export class PostWorksheetListColumnsTotalRequest  {
     }
 
 }
-/// Get OLE objects description in worksheet.   
+/// Retrieve descriptions of OLE objects in the worksheet.   
 export class GetWorksheetOleObjectsRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
-    /// Document's folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -27062,9 +27240,9 @@ export class GetWorksheetOleObjectsRequest  {
     }
 
 }
-/// Gets OLE object info or get the OLE object in some format.   
+/// Retrieve the OLE object in a specified format in the worksheet.   
 export class GetWorksheetOleObjectRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
@@ -27072,9 +27250,9 @@ export class GetWorksheetOleObjectRequest  {
     public objectNumber: number;
     /// Object conversion format(PNG/TIFF/JPEG/GIF/EMF/BMP).  
     public format: string;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -27111,15 +27289,15 @@ export class GetWorksheetOleObjectRequest  {
     }
 
 }
-/// Delete all OLE objects in  worksheet.   
+/// Delete all OLE objects in the worksheet.   
 export class DeleteWorksheetOleObjectsRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worsheet name.  
     public sheetName: string;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -27155,17 +27333,17 @@ export class DeleteWorksheetOleObjectsRequest  {
     }
 
 }
-/// Deletes an OLE object in worksheet.   
+/// Delete an OLE object in the worksheet.   
 export class DeleteWorksheetOleObjectRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worsheet name.  
     public sheetName: string;
     /// Ole object index.  
     public oleObjectIndex: number;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -27203,7 +27381,7 @@ export class DeleteWorksheetOleObjectRequest  {
 }
 /// Update an OLE object in worksheet.   
 export class PostUpdateWorksheetOleObjectRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worsheet name.  
     public sheetName: string;
@@ -27211,9 +27389,9 @@ export class PostUpdateWorksheetOleObjectRequest  {
     public oleObjectIndex: number;
     /// Ole Object description.  
     public ole: OleObject;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -27249,9 +27427,9 @@ export class PostUpdateWorksheetOleObjectRequest  {
     }
 
 }
-/// Add an OLE object in worksheet.   
+/// Add an OLE object in the worksheet.   
 export class PutWorksheetOleObjectRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worsheet name.  
     public sheetName: string;
@@ -27263,13 +27441,13 @@ export class PutWorksheetOleObjectRequest  {
     public height: number;
     /// Width of oleObject, in unit of pixel  
     public width: number;
-    /// OLE filename(full file name).  
+    /// OLE filename path(full file name).  
     public oleFile: string;
-    /// Image filename(full file name).  
+    /// Image filename path(full file name).  
     public imageFile: string;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -27311,15 +27489,15 @@ export class PutWorksheetOleObjectRequest  {
     }
 
 }
-/// Get vertical page breaks description in worksheet.   
+/// Retrieve descriptions of vertical page breaks in the worksheet.   
 export class GetVerticalPageBreaksRequest  {
     /// The workbook name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -27355,15 +27533,15 @@ export class GetVerticalPageBreaksRequest  {
     }
 
 }
-/// Get horizontal page breaks descripton in worksheet.   
+/// Retrieve descriptions of horizontal page breaks in the worksheet.   
 export class GetHorizontalPageBreaksRequest  {
     /// The workbook name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -27399,7 +27577,7 @@ export class GetHorizontalPageBreaksRequest  {
     }
 
 }
-/// Gets a vertical page break description in worksheet.   
+/// Retrieve a vertical page break description in the worksheet.   
 export class GetVerticalPageBreakRequest  {
     /// The workbook name.  
     public name: string;
@@ -27407,9 +27585,9 @@ export class GetVerticalPageBreakRequest  {
     public sheetName: string;
     /// The zero based index of the element.  
     public index: number;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -27445,7 +27623,7 @@ export class GetVerticalPageBreakRequest  {
     }
 
 }
-/// Gets a horizontal page breaks descripton in worksheet.   
+/// Retrieve a horizontal page break descripton in the worksheet.   
 export class GetHorizontalPageBreakRequest  {
     /// The workbook name.  
     public name: string;
@@ -27453,9 +27631,9 @@ export class GetHorizontalPageBreakRequest  {
     public sheetName: string;
     /// The zero based index of the element.  
     public index: number;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -27491,7 +27669,7 @@ export class GetHorizontalPageBreakRequest  {
     }
 
 }
-/// Adds a vertical page break in worksheet.   
+/// Add a vertical page break in the worksheet.   
 export class PutVerticalPageBreakRequest  {
     /// The workbook name.  
     public name: string;
@@ -27507,9 +27685,9 @@ export class PutVerticalPageBreakRequest  {
     public startRow: number;
     /// End row index, zero based.  
     public endRow: number;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -27550,7 +27728,7 @@ export class PutVerticalPageBreakRequest  {
     }
 
 }
-/// Adds a horizontal page breaks in worksheet.   
+/// Add a horizontal page breaks in the worksheet.   
 export class PutHorizontalPageBreakRequest  {
     /// The workbook name.  
     public name: string;
@@ -27566,9 +27744,9 @@ export class PutHorizontalPageBreakRequest  {
     public startColumn: number;
     /// End column index, zero based.  
     public endColumn: number;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -27609,7 +27787,7 @@ export class PutHorizontalPageBreakRequest  {
     }
 
 }
-/// Delete vertical page breaks in worksheet.   
+/// Delete vertical page breaks in the worksheet.   
 export class DeleteVerticalPageBreaksRequest  {
     /// The workbook name.  
     public name: string;
@@ -27617,9 +27795,9 @@ export class DeleteVerticalPageBreaksRequest  {
     public sheetName: string;
     /// Column index, zero based.  
     public column: number;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -27656,7 +27834,7 @@ export class DeleteVerticalPageBreaksRequest  {
     }
 
 }
-/// Delete horizontal page breaks in worksheet.   
+/// Delete horizontal page breaks in the worksheet.   
 export class DeleteHorizontalPageBreaksRequest  {
     /// The workbook name.  
     public name: string;
@@ -27664,9 +27842,9 @@ export class DeleteHorizontalPageBreaksRequest  {
     public sheetName: string;
     /// Row index, zero based.  
     public row: number;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -27703,17 +27881,17 @@ export class DeleteHorizontalPageBreaksRequest  {
     }
 
 }
-/// Delete a vertical page breaks in worksheet.   
+/// Delete a vertical page break in the worksheet.   
 export class DeleteVerticalPageBreakRequest  {
     /// The workbook name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
-    /// Removes the VPageBreak element at a specified name. Element index, zero based.  
+    /// Removes the vertical page break element at a specified name. Element index, zero based.  
     public index: number;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -27749,17 +27927,17 @@ export class DeleteVerticalPageBreakRequest  {
     }
 
 }
-/// Delete a horizontal page breaks in worksheet.   
+/// Delete a horizontal page break in the worksheet.   
 export class DeleteHorizontalPageBreakRequest  {
     /// The workbook name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
-    /// Removes the HPageBreak element at a specified name. Element index, zero based.  
+    /// Removes the horizontal page break element at a specified name. Element index, zero based.  
     public index: number;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -27795,15 +27973,15 @@ export class DeleteHorizontalPageBreakRequest  {
     }
 
 }
-/// Gets page setup description in worksheet.   
+/// Retrieve page setup description in the worksheet.   
 export class GetPageSetupRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -27839,17 +28017,17 @@ export class GetPageSetupRequest  {
     }
 
 }
-/// Updates page setup in worksheet.   
+/// Update page setup in the worksheet.   
 export class PostPageSetupRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
-    /// Page Setup description.  
+    /// PageSetup Page Setup description.  
     public pageSetup: PageSetup;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -27885,15 +28063,15 @@ export class PostPageSetupRequest  {
     }
 
 }
-/// Clears header footer in worksheet.   
+/// Clear header and footer in the worksheet.   
 export class DeleteHeaderFooterRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -27929,15 +28107,15 @@ export class DeleteHeaderFooterRequest  {
     }
 
 }
-/// Gets page header description in worksheet.   
+/// Retrieve page header description in the worksheet.   
 export class GetHeaderRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -27973,9 +28151,9 @@ export class GetHeaderRequest  {
     }
 
 }
-/// Updates page header in worksheet.   
+/// Update page header in the worksheet.   
 export class PostHeaderRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
@@ -27985,9 +28163,9 @@ export class PostHeaderRequest  {
     public script: string;
     /// Is first page(true/false).  
     public isFirstPage: boolean;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -28041,15 +28219,15 @@ export class PostHeaderRequest  {
     }
 
 }
-/// Gets page footer description in worksheet.   
+/// Retrieve page footer description in the worksheet.   
 export class GetFooterRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -28085,9 +28263,9 @@ export class GetFooterRequest  {
     }
 
 }
-/// Update  page footer description in worksheet.   
+/// Update page footer in the worksheet.   
 export class PostFooterRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
@@ -28097,9 +28275,9 @@ export class PostFooterRequest  {
     public script: string;
     /// Is first page(true/false).  
     public isFirstPage: boolean;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -28153,15 +28331,103 @@ export class PostFooterRequest  {
     }
 
 }
-/// Get pictures description in worksheet.   
-export class GetWorksheetPicturesRequest  {
-    /// The workbook name.  
+/// Set the scale at which the page will fit wide when printed on the sheet.   
+export class PostFitWideToPagesRequest  {
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< PostFitWideToPagesRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/pagesetup/fitwidetopages".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
+        const queryParameters: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Set the scale at which the page will fit tall when printed on the sheet.   
+export class PostFitTallToPagesRequest  {
+    /// The file name.  
+    public name: string;
+    /// The worksheet name.  
+    public sheetName: string;
+    /// The folder where the file is situated.  
+    public folder: string;
+    /// The storage name where the file is situated.  
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< PostFitTallToPagesRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/pagesetup/fittalltopages".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
+        const queryParameters: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Retrieve descriptions of pictures in the worksheet.   
+export class GetWorksheetPicturesRequest  {
+    /// The file name.  
+    public name: string;
+    /// The worksheet name.  
+    public sheetName: string;
+    /// The folder where the file is situated.  
+    public folder: string;
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -28197,19 +28463,19 @@ export class GetWorksheetPicturesRequest  {
     }
 
 }
-/// Gets a picture by number in worksheet.   
+/// Retrieve a picture by number in the worksheet.   
 export class GetWorksheetPictureWithFormatRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
-    /// The picture number.  
+    /// The picture index.  
     public pictureNumber: number;
     /// Picture conversion format(PNG/TIFF/JPEG/GIF/EMF/BMP).  
     public format: string;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -28251,9 +28517,9 @@ export class GetWorksheetPictureWithFormatRequest  {
     }
 
 }
-/// Adds a new picture in worksheet.   
+/// Add a new picture in the worksheet.   
 export class PutWorksheetAddPictureRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worsheet name.  
     public sheetName: string;
@@ -28269,9 +28535,9 @@ export class PutWorksheetAddPictureRequest  {
     public lowerRightColumn: number;
     /// The picture path, if not provided the picture data is inspected in the request body.  
     public picturePath: string;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -28312,9 +28578,9 @@ export class PutWorksheetAddPictureRequest  {
     }
 
 }
-/// Updates a picture by index in worksheet.   
+/// Update a picture by index in the worksheet.   
 export class PostWorksheetPictureRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
@@ -28322,9 +28588,9 @@ export class PostWorksheetPictureRequest  {
     public pictureIndex: number;
     /// Picture object description.  
     public picture: Picture;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -28360,17 +28626,17 @@ export class PostWorksheetPictureRequest  {
     }
 
 }
-/// Deletes a picture object in worksheet   
+/// Delete a picture object by index in the worksheet.   
 export class DeleteWorksheetPictureRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worsheet name.  
     public sheetName: string;
     /// Picture index.  
     public pictureIndex: number;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -28406,15 +28672,15 @@ export class DeleteWorksheetPictureRequest  {
     }
 
 }
-/// Delete all pictures in worksheet.   
+/// Delete all pictures in the worksheet.   
 export class DeleteWorksheetPicturesRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -28450,15 +28716,15 @@ export class DeleteWorksheetPicturesRequest  {
     }
 
 }
-/// Get worksheet pivottables description.   
+/// Retrieve descriptions of pivottables  in the worksheet.   
 export class GetWorksheetPivotTablesRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -28494,17 +28760,17 @@ export class GetWorksheetPivotTablesRequest  {
     }
 
 }
-/// Gets a pivottable info by index in worksheet.   
+/// Retrieve PivotTable information by index in the worksheet.   
 export class GetWorksheetPivotTableRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
     /// Gets the PivotTable report by index.  
     public pivottableIndex: number;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -28540,21 +28806,21 @@ export class GetWorksheetPivotTableRequest  {
     }
 
 }
-/// Gets pivot field description in pivot table.   
+/// Retrieve descriptions of pivot fields in the PivotTable.   
 export class GetPivotTableFieldRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
-    /// Gets the PivotTable report by index.  
+    /// The PivotTable index.  
     public pivotTableIndex: number;
-    /// The field index in the base fields.  
+    /// The pivot field index of PivotTable.  
     public pivotFieldIndex: number;
-    /// The fields area type(column/row).  
+    /// The field area type(column/row).  
     public pivotFieldType: string;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -28567,12 +28833,12 @@ export class GetPivotTableFieldRequest  {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/pivottables/{pivotTableIndex}/PivotField".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "pivotTableIndex" + "}", String(this.pivotTableIndex));
         const queryParameters: any = {};
-        /// The field index in the base fields. 
+        /// The pivot field index of PivotTable. 
         // verify required parameter 'pivotFieldIndex' is not null or undefined
         if (this.pivotFieldIndex === null || this.pivotFieldIndex === undefined) {
             throw new Error('Required parameter "pivotFieldIndex" was null or undefined when calling GetPivotTableField.');
         }
-        /// The fields area type(column/row). 
+        /// The field area type(column/row). 
         // verify required parameter 'pivotFieldType' is not null or undefined
         if (this.pivotFieldType === null || this.pivotFieldType === undefined) {
             throw new Error('Required parameter "pivotFieldType" was null or undefined when calling GetPivotTableField.');
@@ -28602,17 +28868,17 @@ export class GetPivotTableFieldRequest  {
     }
 
 }
-/// Gets pivot table filters in worksheet.   
+/// Gets PivotTable filters in worksheet.   
 export class GetWorksheetPivotTableFiltersRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
-    /// Gets the PivotTable report by index.  
+    /// The PivotTable index.  
     public pivotTableIndex: number;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -28648,19 +28914,19 @@ export class GetWorksheetPivotTableFiltersRequest  {
     }
 
 }
-/// Gets pivot table filters in worksheet.   
+/// Retrieve PivotTable filters in the worksheet.   
 export class GetWorksheetPivotTableFilterRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
-    /// Gets the PivotTable report by index.  
+    /// The PivotTable index in the worksheet.  
     public pivotTableIndex: number;
-    /// Gets the pivotfilter object at the specific index.  
+    /// The pivot filter index of PivotTable.  
     public filterIndex: number;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -28696,23 +28962,23 @@ export class GetWorksheetPivotTableFilterRequest  {
     }
 
 }
-/// Adds a pivot table in worksheet.   
+/// Add a PivotTable in the worksheet.   
 export class PutWorksheetPivotTableRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
     /// The data for the new PivotTable cache.  
     public sourceData: string;
-    /// The cell in the upper-left corner of the PivotTable report's destination range.  
+    /// The cell in the upper-left corner of the destination range for the PivotTable report.  
     public destCellName: string;
-    /// The name of the new PivotTable report.  
+    /// The name of the new PivotTable.  
     public tableName: string;
-    /// Indicates whether using same data source when another existing pivot table has used this data source. If the property is true, it will save memory.  
+    /// Indicates whether using same data source when another existing PivotTable has used this data source. If the property is true, it will save memory.  
     public useSameSource: boolean;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -28752,23 +29018,23 @@ export class PutWorksheetPivotTableRequest  {
     }
 
 }
-/// Adds a pivot field in pivot table   
+/// Add a pivot field in the PivotTable.   
 export class PutPivotTableFieldRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
-    /// Gets the PivotTable report by index.  
+    /// The PivotTable index.  
     public pivotTableIndex: number;
     /// The fields area type.  
     public pivotFieldType: string;
-    /// Dto that conrains field indexes  
+    /// PivotTableFieldRequest The PivotTable field request.  
     public pivotTableFieldRequest: PivotTableFieldRequest;
-    /// Whether the specific pivot table calculate(true/false).  
+    /// Whether the specific PivotTable calculate(true/false).  
     public needReCalculate: boolean;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -28811,21 +29077,21 @@ export class PutPivotTableFieldRequest  {
     }
 
 }
-/// Adds a pivot filter for piovt table index   
+/// Add a pivot filter to the PivotTable.   
 export class PutWorksheetPivotTableFilterRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
     /// Gets the PivotTable report by index.  
     public pivotTableIndex: number;
-    /// Pivot filter description.  
+    /// PivotFilter Pivot filter description.  
     public filter: PivotFilter;
-    /// Whether the specific pivot table calculate(true/false).  
+    /// Whether the specific PivotTable calculate(true/false).  
     public needReCalculate: boolean;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -28862,27 +29128,27 @@ export class PutWorksheetPivotTableFilterRequest  {
     }
 
 }
-/// Hides pivot field item in pivot table.   
+/// Hide a pivot field item in the PivotTable.   
 export class PostPivotTableFieldHideItemRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
-    /// Gets the PivotTable report by index.  
+    /// The PivotTable index.  
     public pivotTableIndex: number;
     /// Represents PivotTable field type(Undefined/Row/Column/Page/Data).  
     public pivotFieldType: string;
-    /// Gets the PivotField Object at the specific index.  
+    /// The pivot field index.  
     public fieldIndex: number;
-    /// The index of the pivotItem in the pivotField.  
+    /// The index of the pivot item in the pivot field.  
     public itemIndex: number;
     /// Whether the specific PivotItem is hidden(true/false).  
     public isHide: boolean;
-    /// Whether the specific pivot table calculate(true/false).  
+    /// Whether the specific PivotTable calculate(true/false).  
     public needReCalculate: boolean;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -28900,12 +29166,12 @@ export class PostPivotTableFieldHideItemRequest  {
         if (this.pivotFieldType === null || this.pivotFieldType === undefined) {
             throw new Error('Required parameter "pivotFieldType" was null or undefined when calling PostPivotTableFieldHideItem.');
         }
-        /// Gets the PivotField Object at the specific index. 
+        /// The pivot field index. 
         // verify required parameter 'fieldIndex' is not null or undefined
         if (this.fieldIndex === null || this.fieldIndex === undefined) {
             throw new Error('Required parameter "fieldIndex" was null or undefined when calling PostPivotTableFieldHideItem.');
         }
-        /// The index of the pivotItem in the pivotField. 
+        /// The index of the pivot item in the pivot field. 
         // verify required parameter 'itemIndex' is not null or undefined
         if (this.itemIndex === null || this.itemIndex === undefined) {
             throw new Error('Required parameter "itemIndex" was null or undefined when calling PostPivotTableFieldHideItem.');
@@ -28943,23 +29209,23 @@ export class PostPivotTableFieldHideItemRequest  {
     }
 
 }
-/// Moves pivot field in pivot table.   
+/// Move a pivot field in the PivotTable.   
 export class PostPivotTableFieldMoveToRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
-    /// Gets the PivotTable report by index.  
+    /// The PivotTable index.  
     public pivotTableIndex: number;
-    /// Gets the PivotField Object at the specific index.  
+    /// The pivot field index.  
     public fieldIndex: number;
     /// The fields area type(Column/Row/Page/Data/Undefined).  
     public from: string;
     /// The fields area type(Column/Row/Page/Data/Undefined).  
     public to: string;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -28972,7 +29238,7 @@ export class PostPivotTableFieldMoveToRequest  {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/pivottables/{pivotTableIndex}/PivotField/Move".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "pivotTableIndex" + "}", String(this.pivotTableIndex));
         const queryParameters: any = {};
-        /// Gets the PivotField Object at the specific index. 
+        /// The pivot field index. 
         // verify required parameter 'fieldIndex' is not null or undefined
         if (this.fieldIndex === null || this.fieldIndex === undefined) {
             throw new Error('Required parameter "fieldIndex" was null or undefined when calling PostPivotTableFieldMoveTo.');
@@ -29013,25 +29279,25 @@ export class PostPivotTableFieldMoveToRequest  {
     }
 
 }
-/// Updates cell style in pivot table.   
+/// Update cell style in the PivotTable.   
 export class PostPivotTableCellStyleRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
-    /// Gets the PivotTable report by index.  
+    /// The PivotTable index.  
     public pivotTableIndex: number;
-    /// Column index of the cell.  
+    /// The column index of the cell.  
     public column: number;
-    /// RowIndex of the cell.  
+    /// The row index of the cell.  
     public row: number;
-    /// Style description in request body.  
+    /// Style Style description in request body.  
     public style: Style;
-    /// Whether the specific pivot table calculate(true/false).  
+    /// Whether the specific PivotTable calculate(true/false).  
     public needReCalculate: boolean;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -29044,12 +29310,12 @@ export class PostPivotTableCellStyleRequest  {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/pivottables/{pivotTableIndex}/Format".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "pivotTableIndex" + "}", String(this.pivotTableIndex));
         const queryParameters: any = {};
-        /// Column index of the cell. 
+        /// The column index of the cell. 
         // verify required parameter 'column' is not null or undefined
         if (this.column === null || this.column === undefined) {
             throw new Error('Required parameter "column" was null or undefined when calling PostPivotTableCellStyle.');
         }
-        /// RowIndex of the cell. 
+        /// The row index of the cell. 
         // verify required parameter 'row' is not null or undefined
         if (this.row === null || this.row === undefined) {
             throw new Error('Required parameter "row" was null or undefined when calling PostPivotTableCellStyle.');
@@ -29080,21 +29346,21 @@ export class PostPivotTableCellStyleRequest  {
     }
 
 }
-/// Updates style in pivot table.   
+/// Update style in the PivotTable.   
 export class PostPivotTableStyleRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
-    /// Gets the PivotTable report by index.  
+    /// The PivotTable index.  
     public pivotTableIndex: number;
-    /// Style description in request body.  
+    /// StyleStyle description in request body.  
     public style: Style;
-    /// Whether the specific pivot table calculate(true/false).  
+    /// Whether the specific PivotTable calculate(true/false).  
     public needReCalculate: boolean;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -29131,23 +29397,23 @@ export class PostPivotTableStyleRequest  {
     }
 
 }
-   
+/// Update pivot fields in the PivotTable.   
 export class PostPivotTableUpdatePivotFieldsRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
-    /// Gets the PivotTable report by index.  
+    /// The PivotTable index.  
     public pivotTableIndex: number;
     /// Represents PivotTable field type(Undefined/Row/Column/Page/Data).  
     public pivotFieldType: string;
-    /// Represents pivot field.  
+    /// PivotFieldRepresents pivot field.  
     public pivotField: PivotField;
-    /// Whether the specific pivot table calculate(true/false).  
+    /// Whether the specific PivotTable calculate(true/false).  
     public needReCalculate: boolean;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -29190,25 +29456,25 @@ export class PostPivotTableUpdatePivotFieldsRequest  {
     }
 
 }
-   
+/// Update pivot field in the PivotTable.   
 export class PostPivotTableUpdatePivotFieldRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
-    /// Gets the PivotTable report by index.  
+    /// The PivotTable index.  
     public pivotTableIndex: number;
-    /// Gets the PivotField Object at the specific index.  
+    /// The pivot field index.  
     public pivotFieldIndex: number;
     /// Represents PivotTable field type(Undefined/Row/Column/Page/Data).  
     public pivotFieldType: string;
     /// Represents pivot field.  
     public pivotField: PivotField;
-    /// Whether the specific pivot table calculate(true/false).  
+    /// Whether the specific PivotTable calculate(true/false).  
     public needReCalculate: boolean;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -29251,17 +29517,17 @@ export class PostPivotTableUpdatePivotFieldRequest  {
     }
 
 }
-/// Calculates pivottable's data to cells.   
+/// Calculate pivottable's data to cells.   
 export class PostWorksheetPivotTableCalculateRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
     /// Gets the PivotTable report by index.  
     public pivotTableIndex: number;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -29297,9 +29563,9 @@ export class PostWorksheetPivotTableCalculateRequest  {
     }
 
 }
-/// Moves pivot table in worksheet.   
+/// Move PivotTable in the worksheet.   
 export class PostWorksheetPivotTableMoveRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
@@ -29311,9 +29577,9 @@ export class PostWorksheetPivotTableMoveRequest  {
     public column: number;
     /// The dest cell name.  
     public destCellName: string;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -29352,15 +29618,15 @@ export class PostWorksheetPivotTableMoveRequest  {
     }
 
 }
-/// Delete pivot tables in worksheet.   
+/// Delete PivotTables in the worksheet.   
 export class DeleteWorksheetPivotTablesRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -29396,17 +29662,17 @@ export class DeleteWorksheetPivotTablesRequest  {
     }
 
 }
-/// Deletes  pivot table by index in worksheet.   
+/// Delete PivotTable by index in the worksheet.   
 export class DeleteWorksheetPivotTableRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
     /// Gets the PivotTable report by index.  
     public pivotTableIndex: number;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -29442,9 +29708,9 @@ export class DeleteWorksheetPivotTableRequest  {
     }
 
 }
-/// Deletes pivot field in pivot table.   
+/// Delete a pivot field in the PivotTable.   
 export class DeletePivotTableFieldRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
@@ -29452,11 +29718,11 @@ export class DeletePivotTableFieldRequest  {
     public pivotTableIndex: number;
     /// The fields area type.  
     public pivotFieldType: string;
-    /// Pivot table field request.  
+    /// PivotTableFieldRequest PivotTable field request.  
     public pivotTableFieldRequest: PivotTableFieldRequest;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -29498,19 +29764,19 @@ export class DeletePivotTableFieldRequest  {
     }
 
 }
-/// Delete all pivot filters in piovt table.   
+/// Delete all pivot filters in the PivotTable.   
 export class DeleteWorksheetPivotTableFiltersRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
-    /// Gets the PivotTable report by index.  
+    /// The PivotTable index.  
     public pivotTableIndex: number;
-    /// Whether the specific pivot table calculate(true/false).  
+    /// Whether the specific PivotTable calculate(true/false).  
     public needReCalculate: boolean;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -29547,9 +29813,9 @@ export class DeleteWorksheetPivotTableFiltersRequest  {
     }
 
 }
-/// Deletes a pivot filter in piovt table.   
+/// Delete a pivot filter in the PivotTable.   
 export class DeleteWorksheetPivotTableFilterRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
@@ -29557,11 +29823,11 @@ export class DeleteWorksheetPivotTableFilterRequest  {
     public pivotTableIndex: number;
     /// Gets the PivotField Object at the specific index.  
     public fieldIndex: number;
-    /// Whether the specific pivot table calculate(true/false).  
+    /// Whether the specific PivotTable calculate(true/false).  
     public needReCalculate: boolean;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -29598,15 +29864,15 @@ export class DeleteWorksheetPivotTableFilterRequest  {
     }
 
 }
-/// Get document properties description.   
+/// Retrieve descriptions of Excel file properties.   
 export class GetDocumentPropertiesRequest  {
     /// The workbook name.  
     public name: string;
-      
+    /// Excel property type.  
     public type: string;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -29643,15 +29909,15 @@ export class GetDocumentPropertiesRequest  {
     }
 
 }
-/// Sets/creates a sdocument property.   
+/// Set or add an Excel property.   
 export class PutDocumentPropertyRequest  {
     /// The workbook name.  
     public name: string;
-    /// Gets or sets the value of the property.  
+    /// Get or set the value of the property.  
     public property: CellsDocumentProperty;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -29687,15 +29953,15 @@ export class PutDocumentPropertyRequest  {
     }
 
 }
-/// Gets document property by name.   
+/// Get Excel property by name.   
 export class GetDocumentPropertyRequest  {
     /// The workbook name.  
     public name: string;
     /// The property name.  
     public propertyName: string;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -29731,7 +29997,7 @@ export class GetDocumentPropertyRequest  {
     }
 
 }
-/// Deletes a document property.   
+/// Delete an Excel property.   
 export class DeleteDocumentPropertyRequest  {
     /// The workbook name.  
     public name: string;
@@ -29739,9 +30005,9 @@ export class DeleteDocumentPropertyRequest  {
     public propertyName: string;
       
     public type: string;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -29778,13 +30044,13 @@ export class DeleteDocumentPropertyRequest  {
     }
 
 }
-/// Delete all custom document properties and clean built-in ones.   
+/// Delete all custom document properties and reset built-in ones.   
 export class DeleteDocumentPropertiesRequest  {
     /// The workbook name.  
     public name: string;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -30296,13 +30562,13 @@ export class PostProtectRequest  {
     }
 
 }
-/// Copys content to destination range from source range in worksheet.   
+/// Copy content from the source range to the destination range in the worksheet.   
 export class PostWorksheetCellsRangesCopyRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
-    /// copydata,copystyle,copyto,copyvalue  
+    /// RangeCopyRequestcopydata,copystyle,copyto,copyvalue  
     public rangeOperate: RangeCopyRequest;
     /// Original workbook folder.  
     public folder: string;
@@ -30342,13 +30608,13 @@ export class PostWorksheetCellsRangesCopyRequest  {
     }
 
 }
-/// Combines a range of cells into a single cell.   
+/// Merge a range of cells into a single cell.   
 export class PostWorksheetCellsRangeMergeRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
-    /// range description.  
+    /// Rangerange description.  
     public range: Range;
     /// Original workbook folder.  
     public folder: string;
@@ -30388,13 +30654,13 @@ export class PostWorksheetCellsRangeMergeRequest  {
     }
 
 }
-/// Unmerges merged cells of this range.   
+/// Unmerge merged cells within this range.   
 export class PostWorksheetCellsRangeUnMergeRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
-    /// range description.  
+    /// Range range description.  
     public range: Range;
     /// Original workbook folder.  
     public folder: string;
@@ -30434,13 +30700,13 @@ export class PostWorksheetCellsRangeUnMergeRequest  {
     }
 
 }
-/// Sets the style of the range.   
+/// Set the style for the specified range.   
 export class PostWorksheetCellsRangeStyleRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
-    /// Range Set Style Request   
+    /// RangeSetStyleRequest Range Set Style Request   
     public rangeOperate: RangeSetStyleRequest;
     /// Original workbook folder.  
     public folder: string;
@@ -30480,13 +30746,13 @@ export class PostWorksheetCellsRangeStyleRequest  {
     }
 
 }
-/// Get the value of cells in range.   
+/// Retrieve the values of cells within the specified range.   
 export class GetWorksheetCellsRangeValueRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
-    /// range name.  
+    /// The range name.  
     public namerange: string;
     /// Gets the index of the first row of the range.  
     public firstRow: number;
@@ -30539,19 +30805,19 @@ export class GetWorksheetCellsRangeValueRequest  {
     }
 
 }
-/// Puts a value into the range, if appropriate the value will be converted to other data type and cell's number format will be reset.   
+/// Assign a value to the range; if necessary, the value will be converted to another data type, and the cell's number format will be reset.   
 export class PostWorksheetCellsRangeValueRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
-    /// range in worksheet   
+    /// The range in worksheet.   
     public range: Range;
-    /// Input value  
+    /// Input value.  
     public value: string;
     /// True: converted to other data type if appropriate.  
     public isConverted: boolean;
-    /// True: set the number format to cell's style when converting to other data type  
+    /// True: set the number format to cell's style when converting to other data type.  
     public setStyle: boolean;
     /// Original workbook folder.  
     public folder: string;
@@ -30568,7 +30834,7 @@ export class PostWorksheetCellsRangeValueRequest  {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/ranges/value".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
         const queryParameters: any = {};
-        /// Input value 
+        /// Input value. 
         // verify required parameter 'value' is not null or undefined
         if (this.value === null || this.value === undefined) {
             throw new Error('Required parameter "value" was null or undefined when calling PostWorksheetCellsRangeValue.');
@@ -30599,9 +30865,9 @@ export class PostWorksheetCellsRangeValueRequest  {
     }
 
 }
-/// Moves the current range to the dest range.   
+/// Move the current range to the destination range.   
 export class PostWorksheetCellsRangeMoveToRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
@@ -30661,13 +30927,13 @@ export class PostWorksheetCellsRangeMoveToRequest  {
     }
 
 }
-/// Sets data sort around a range of cells.   
+/// Perform data sorting around a range of cells.   
 export class PostWorksheetCellsRangeSortRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
-    /// Range Sort Request   
+    /// RangeSortRequest Range Sort Request   
     public rangeSortRequest: RangeSortRequest;
     /// Original workbook folder.  
     public folder: string;
@@ -30707,13 +30973,13 @@ export class PostWorksheetCellsRangeSortRequest  {
     }
 
 }
-/// Sets outline border around a range of cells.   
+/// Apply an outline border around a range of cells.   
 export class PostWorksheetCellsRangeOutlineBorderRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
-    /// Range Set OutlineBorder Request.  
+    /// RangeSetOutlineBorderRequest Range Set OutlineBorder Request.  
     public rangeOperate: RangeSetOutlineBorderRequest;
     /// Original workbook folder.  
     public folder: string;
@@ -30753,13 +31019,13 @@ export class PostWorksheetCellsRangeOutlineBorderRequest  {
     }
 
 }
-/// Sets column width of range.   
+/// Set the column width of the specified range.   
 export class PostWorksheetCellsRangeColumnWidthRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
-    /// The range object.  
+    /// Range The range object.  
     public range: Range;
     /// Sets the column width of this range.  
     public value: number;
@@ -30809,7 +31075,7 @@ export class PostWorksheetCellsRangeColumnWidthRequest  {
 }
 /// Sets row height of range.   
 export class PostWorksheetCellsRangeRowHeightRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
@@ -30861,9 +31127,9 @@ export class PostWorksheetCellsRangeRowHeightRequest  {
     }
 
 }
-/// Inserts a range of cells and shift cells according to the shift option.   
+/// Insert a range of cells and shift existing cells based on the specified shift option.   
 export class PutWorksheetCellsRangeRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
@@ -30921,9 +31187,9 @@ export class PutWorksheetCellsRangeRequest  {
     }
 
 }
-/// Deletes a range of cells and shift cells according to the shift option.   
+/// Delete a range of cells and shift existing cells based on the specified shift option.   
 export class DeleteWorksheetCellsRangeRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
@@ -30981,15 +31247,15 @@ export class DeleteWorksheetCellsRangeRequest  {
     }
 
 }
-/// Get shapes description in worksheet.   
+/// Retrieve descriptions of shapes in the worksheet.   
 export class GetWorksheetShapesRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -31025,17 +31291,17 @@ export class GetWorksheetShapesRequest  {
     }
 
 }
-/// Gets shape description in worksheet.   
+/// Retrieve description of shape in the worksheet.   
 export class GetWorksheetShapeRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
     /// shape index in worksheet shapes.  
     public shapeindex: number;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -31071,15 +31337,15 @@ export class GetWorksheetShapeRequest  {
     }
 
 }
-/// Adds shape in worksheet.   
+/// Add a shape in the worksheet.   
 export class PutWorksheetShapeRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
       
     public shapeDTO: Shape;
-    /// shape object type  
+    /// Shape object type  
     public drawingType: string;
     /// Upper left row index.  
     public upperLeftRow: number;
@@ -31093,9 +31359,9 @@ export class PutWorksheetShapeRequest  {
     public width: number;
     /// Represents the width of Spinner, in unit of pixel.  
     public height: number;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -31138,15 +31404,15 @@ export class PutWorksheetShapeRequest  {
     }
 
 }
-/// delete all shapes in worksheet.   
+/// Delete all shapes in the worksheet.   
 export class DeleteWorksheetShapesRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -31182,17 +31448,17 @@ export class DeleteWorksheetShapesRequest  {
     }
 
 }
-/// Deletes a shape in worksheet.   
+/// Delete a shape in the worksheet.   
 export class DeleteWorksheetShapeRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
     /// shape index in worksheet shapes.  
     public shapeindex: number;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -31228,9 +31494,9 @@ export class DeleteWorksheetShapeRequest  {
     }
 
 }
-/// Updates a shape in worksheet.   
+/// Update a shape in the worksheet.   
 export class PostWorksheetShapeRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
@@ -31238,9 +31504,9 @@ export class PostWorksheetShapeRequest  {
     public shapeindex: number;
     /// The shape description.  
     public dto: Shape;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -31276,17 +31542,17 @@ export class PostWorksheetShapeRequest  {
     }
 
 }
-   
+/// Group shapes in the worksheet.   
 export class PostWorksheetGroupShapeRequest  {
-      
+    /// The file name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// Shape index array.  
     public listShape: Array<number>;
-      
+    /// The folder where the file is situated.  
     public folder: string;
-      
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -31322,17 +31588,17 @@ export class PostWorksheetGroupShapeRequest  {
     }
 
 }
-   
+/// Ungroup shapes in the worksheet.   
 export class PostWorksheetUngroupShapeRequest  {
-      
+    /// The file name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
       
     public shapeindex: number;
-      
+    /// The folder where the file is situated.  
     public folder: string;
-      
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -31368,15 +31634,15 @@ export class PostWorksheetUngroupShapeRequest  {
     }
 
 }
-/// Get worksheet sparkline groups description.   
+/// Retrieve descriptions of sparkline groups in the worksheet.   
 export class GetWorksheetSparklineGroupsRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -31412,17 +31678,17 @@ export class GetWorksheetSparklineGroupsRequest  {
     }
 
 }
-/// Get worksheet sparkline group description.   
+/// Retrieve description of a sparkline group in the worksheet.   
 export class GetWorksheetSparklineGroupRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
     /// The zero based index of the element.  
     public sparklineIndex: number;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -31458,15 +31724,15 @@ export class GetWorksheetSparklineGroupRequest  {
     }
 
 }
-/// Delete worksheet sparkline groups description.   
+/// Delete sparkline groups in the worksheet.   
 export class DeleteWorksheetSparklineGroupsRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -31502,17 +31768,17 @@ export class DeleteWorksheetSparklineGroupsRequest  {
     }
 
 }
-/// Delete worksheet sparkline group description.   
+/// Delete a sparkline group in the worksheet.   
 export class DeleteWorksheetSparklineGroupRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
     /// The zero based index of the element.  
     public sparklineIndex: number;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -31548,9 +31814,9 @@ export class DeleteWorksheetSparklineGroupRequest  {
     }
 
 }
-/// Put worksheet sparkline group description.   
+/// Add a sparkline group in the worksheet.   
 export class PutWorksheetSparklineGroupRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
@@ -31562,9 +31828,9 @@ export class PutWorksheetSparklineGroupRequest  {
     public isVertical: boolean;
     /// Specifies where the sparklines to be placed.  
     public locationRange: string;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -31624,9 +31890,9 @@ export class PutWorksheetSparklineGroupRequest  {
     }
 
 }
-/// Post worksheet sparkline group description.   
+/// Update a sparkline group in the worksheet.   
 export class PostWorksheetSparklineGroupRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
@@ -31634,9 +31900,9 @@ export class PostWorksheetSparklineGroupRequest  {
     public sparklineGroupIndex: number;
     /// Spark line group description.  
     public sparklineGroup: SparklineGroup;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -31708,13 +31974,13 @@ export class PostRunTaskRequest  {
     }
 
 }
-/// Gets workbook default style description.   
+/// Retrieve the description of the default style for the workbook.   
 export class GetWorkbookDefaultStyleRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -31750,13 +32016,13 @@ export class GetWorkbookDefaultStyleRequest  {
     }
 
 }
-/// Get workbook's text items.   
+/// Retrieve text items in the workbook.   
 export class GetWorkbookTextItemsRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -31792,13 +32058,13 @@ export class GetWorkbookTextItemsRequest  {
     }
 
 }
-/// Get workbook's names.   
+/// Retrieve named ranges in the workbook.   
 export class GetWorkbookNamesRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -31834,15 +32100,15 @@ export class GetWorkbookNamesRequest  {
     }
 
 }
-/// Defines a new name in workbook.   
+/// Define a new name in the workbook.   
 export class PutWorkbookNameRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
-      
+    /// Name  
     public newName: Name;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -31878,15 +32144,15 @@ export class PutWorkbookNameRequest  {
     }
 
 }
-/// Gets workbook's name description.   
+/// Retrieve description of a named range in the workbook.   
 export class GetWorkbookNameRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The name.  
     public nameName: string;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -31922,17 +32188,17 @@ export class GetWorkbookNameRequest  {
     }
 
 }
-/// Update workbook's name.   
+/// Update a named range in the workbook.   
 export class PostWorkbookNameRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// the Aspose.Cells.Name element name.  
     public nameName: string;
-    /// new name.  
+    /// Namenew name.  
     public newName: Name;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -31968,15 +32234,15 @@ export class PostWorkbookNameRequest  {
     }
 
 }
-/// Gets workbook's name value.   
+/// Retrieve the value of a named range in the workbook.   
 export class GetWorkbookNameValueRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// the Aspose.Cells.Name element name.  
     public nameName: string;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -32012,13 +32278,13 @@ export class GetWorkbookNameValueRequest  {
     }
 
 }
-/// Delete workbook's names.   
+/// Delete all named ranges in the workbook.   
 export class DeleteWorkbookNamesRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -32054,15 +32320,15 @@ export class DeleteWorkbookNamesRequest  {
     }
 
 }
-/// Gets workbook's name description.   
+/// Delete a named range in the workbook.   
 export class DeleteWorkbookNameRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// the Aspose.Cells.Name element name.  
     public nameName: string;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -32098,15 +32364,15 @@ export class DeleteWorkbookNameRequest  {
     }
 
 }
-/// Merge workbooks.   
+/// Merge a workbook into the existing workbook.   
 export class PostWorkbooksMergeRequest  {
-    /// Workbook name.  
+    /// The file name.  
     public name: string;
     /// The workbook to merge with.  
     public mergeWith: string;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// Storage name.  
     public mergedStorageName: string;
@@ -32151,15 +32417,15 @@ export class PostWorkbooksMergeRequest  {
     }
 
 }
-/// Search text in workbook.   
+/// Search for text in the workbook.   
 export class PostWorkbooksTextSearchRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// Text sample.  
     public text: string;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -32201,17 +32467,17 @@ export class PostWorkbooksTextSearchRequest  {
     }
 
 }
-/// Replaces text in workbook.   
+/// Replace text in the workbook.   
 export class PostWorkbookTextReplaceRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The old value.  
     public oldValue: string;
     /// The new value.  
     public newValue: string;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -32259,19 +32525,19 @@ export class PostWorkbookTextReplaceRequest  {
     }
 
 }
-/// Smart marker processing result.   
+/// Smart marker processing.   
 export class PostWorkbookGetSmartMarkerResultRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The xml file full path, if empty the data is read from request body.  
     public xmlFile: string;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Path to save result  
+    /// The path to save result  
     public outPath: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
-    /// Storage name.  
+    /// The storage name where the result file is situated.  
     public outStorageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -32310,7 +32576,7 @@ export class PostWorkbookGetSmartMarkerResultRequest  {
     }
 
 }
-/// Creates new workbook using deferent methods.   
+/// Create a new workbook using different methods.   
 export class PutWorkbookCreateRequest  {
     /// The new document name.  
     public name: string;
@@ -32320,9 +32586,9 @@ export class PutWorkbookCreateRequest  {
     public dataFile: string;
     /// Specifies whether to write over targer file.  
     public isWriteOver: boolean;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
       
     public checkExcelRestriction: boolean;
@@ -32364,9 +32630,9 @@ export class PutWorkbookCreateRequest  {
     }
 
 }
-/// Splits workbook.   
+/// Split the workbook with a specific format.   
 export class PostWorkbookSplitRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// Split format.  
     public format: string;
@@ -32382,9 +32648,9 @@ export class PostWorkbookSplitRequest  {
     public verticalResolution: number;
     /// rule name : sheetname  newguid   
     public splitNameRule: string;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
       
     public outStorageName: string;
@@ -32430,17 +32696,17 @@ export class PostWorkbookSplitRequest  {
     }
 
 }
-/// Calculate all formulas in workbook.   
+/// Calculate all formulas in the workbook.   
 export class PostWorkbookCalculateFormulaRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
-    /// Calculation Options.  
+    /// CalculationOptions Calculation Options.  
     public options: CalculationOptions;
     /// ignore Error.  
     public ignoreError: boolean;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -32477,9 +32743,9 @@ export class PostWorkbookCalculateFormulaRequest  {
     }
 
 }
-/// Autofit workbook rows.   
+/// Autofit rows in the workbook.   
 export class PostAutofitWorkbookRowsRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// Start row.  
     public startRow: number;
@@ -32487,9 +32753,9 @@ export class PostAutofitWorkbookRowsRequest  {
     public endRow: number;
     /// Only auto.  
     public onlyAuto: boolean;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -32528,17 +32794,17 @@ export class PostAutofitWorkbookRowsRequest  {
     }
 
 }
-   
+/// Autofit columns in the workbook.   
 export class PostAutofitWorkbookColumnsRequest  {
       
     public name: string;
-      
+    /// The start column index.  
     public startColumn: number;
-      
+    /// The end column index.  
     public endColumn: number;
-      
+    /// The folder where the file is situated.  
     public folder: string;
-      
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -32576,13 +32842,13 @@ export class PostAutofitWorkbookColumnsRequest  {
     }
 
 }
-/// Gets workbook settings description.   
+/// Retrieve descriptions of workbook settings.   
 export class GetWorkbookSettingsRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -32618,15 +32884,15 @@ export class GetWorkbookSettingsRequest  {
     }
 
 }
-/// Updates workbook setting.   
+/// Update setting in the workbook.   
 export class PostWorkbookSettingsRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// Workbook Setting description.  
     public settings: WorkbookSettings;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -32662,15 +32928,15 @@ export class PostWorkbookSettingsRequest  {
     }
 
 }
-/// Set workbook background.   
+/// Set background in the workbook.   
 export class PutWorkbookBackgroundRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
-    /// picture full path.  
+    /// The picture full path.  
     public picPath: string;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// File to upload  
     public file: any;
@@ -32716,13 +32982,13 @@ export class PutWorkbookBackgroundRequest  {
     }
 
 }
-/// Delete workbook background.   
+/// Delete background in the workbook.   
 export class DeleteWorkbookBackgroundRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -32758,15 +33024,15 @@ export class DeleteWorkbookBackgroundRequest  {
     }
 
 }
-/// Set workbook water marker.   
+/// Set water marker in the workbook.   
 export class PutWorkbookWaterMarkerRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// Text water marker request  
     public textWaterMarkerRequest: TextWaterMarkerRequest;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -32802,13 +33068,13 @@ export class PutWorkbookWaterMarkerRequest  {
     }
 
 }
-   
+/// Get page count in the workbook.   
 export class GetPageCountRequest  {
-      
+    /// The file name.  
     public name: string;
-      
+    /// The folder where the file is situated.  
     public folder: string;
-      
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -32844,13 +33110,13 @@ export class GetPageCountRequest  {
     }
 
 }
-/// Get worksheets description.   
+/// Retrieve the description of worksheets from a workbook.   
 export class GetWorksheetsRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -32886,9 +33152,9 @@ export class GetWorksheetsRequest  {
     }
 
 }
-/// Gets worksheet in some format.   
+/// Retrieve the worksheet in a specified format from the workbook.   
 export class GetWorksheetWithFormatRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
@@ -32902,9 +33168,9 @@ export class GetWorksheetWithFormatRequest  {
     public area: string;
     /// Represents the page to be printed  
     public pageIndex: number;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -32945,17 +33211,17 @@ export class GetWorksheetWithFormatRequest  {
     }
 
 }
-/// Changes worksheet visibility.   
+/// Change worksheet visibility in the workbook.   
 export class PutChangeVisibilityWorksheetRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// Worksheet name.  
     public sheetName: string;
     /// New worksheet visibility value.  
     public isVisible: boolean;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -32997,15 +33263,15 @@ export class PutChangeVisibilityWorksheetRequest  {
     }
 
 }
-/// Active sheet   
+/// Set active worksheet index in the workbook.   
 export class PutActiveWorksheetRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -33041,9 +33307,9 @@ export class PutActiveWorksheetRequest  {
     }
 
 }
-/// Inserts new worksheet in workbook.   
+/// Insert a new worksheet in the workbook.   
 export class PutInsertNewWorksheetRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
@@ -33053,9 +33319,9 @@ export class PutInsertNewWorksheetRequest  {
     public sheettype: string;
       
     public newsheetname: string;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -33110,9 +33376,9 @@ export class PutInsertNewWorksheetRequest  {
     }
 
 }
-/// Adds new worksheet in workbook.   
+/// Add a new worksheet in the workbook.   
 export class PutAddNewWorksheetRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The new sheet name.  
     public sheetName: string;
@@ -33120,9 +33386,9 @@ export class PutAddNewWorksheetRequest  {
     public position: number;
     /// Specifies the worksheet type(VB/Worksheet/Chart/BIFF4Macro/InternationalMacro/Other/Dialog).  
     public sheettype: string;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -33160,15 +33426,15 @@ export class PutAddNewWorksheetRequest  {
     }
 
 }
-/// Deletes a worksheet in workbook.   
+/// Delete a worksheet in the workbook.   
 export class DeleteWorksheetRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -33204,15 +33470,15 @@ export class DeleteWorksheetRequest  {
     }
 
 }
-   
+/// Delete matched worksheets in the workbook.   
 export class DeleteWorksheetsRequest  {
       
     public name: string;
       
     public matchCondition: MatchConditionRequest;
-      
+    /// The folder where the file is situated.  
     public folder: string;
-      
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -33248,17 +33514,17 @@ export class DeleteWorksheetsRequest  {
     }
 
 }
-/// Move worksheet in workbook.   
+/// Move worksheet in the workbook.   
 export class PostMoveWorksheetRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
     /// WorksheetMovingRequest with moving parameters.  
     public moving: WorksheetMovingRequest;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -33294,17 +33560,17 @@ export class PostMoveWorksheetRequest  {
     }
 
 }
-/// Protects worksheet.   
+/// Protect worksheet.   
 export class PutProtectWorksheetRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
     /// ProtectSheetParameter with protection settings.  
     public protectParameter: ProtectSheetParameter;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -33340,17 +33606,17 @@ export class PutProtectWorksheetRequest  {
     }
 
 }
-/// Unprotects worksheet.   
+/// Unprotect worksheet.   
 export class DeleteUnprotectWorksheetRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
     /// WorksheetResponse with protection settings. Only password is used here.  
     public protectParameter: ProtectSheetParameter;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -33386,15 +33652,15 @@ export class DeleteUnprotectWorksheetRequest  {
     }
 
 }
-/// Get text items in worksheet.   
+/// Retrieve text items in the worksheet.   
 export class GetWorksheetTextItemsRequest  {
     /// Workbook name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
-    /// The workbook's folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -33430,15 +33696,15 @@ export class GetWorksheetTextItemsRequest  {
     }
 
 }
-/// Get comments description in worksheet.   
+/// Retrieve the description of comments in the worksheet.   
 export class GetWorksheetCommentsRequest  {
-    /// Workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -33474,17 +33740,17 @@ export class GetWorksheetCommentsRequest  {
     }
 
 }
-/// Gets comment by cell name in worksheet.   
+/// Retrieve the description of comment in the worksheet.   
 export class GetWorksheetCommentRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
     /// The cell name  
     public cellName: string;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -33520,9 +33786,9 @@ export class GetWorksheetCommentRequest  {
     }
 
 }
-/// Adds cell comment in worksheet.   
+/// Add cell comment in the worksheet.   
 export class PutWorksheetCommentRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
@@ -33530,9 +33796,9 @@ export class PutWorksheetCommentRequest  {
     public cellName: string;
     /// Comment object.  
     public comment: Comment;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -33568,9 +33834,9 @@ export class PutWorksheetCommentRequest  {
     }
 
 }
-/// Updates cell comment in worksheet.   
+/// Update cell comment in the worksheet.   
 export class PostWorksheetCommentRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
@@ -33578,9 +33844,9 @@ export class PostWorksheetCommentRequest  {
     public cellName: string;
     /// Comment object.  
     public comment: Comment;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -33616,17 +33882,17 @@ export class PostWorksheetCommentRequest  {
     }
 
 }
-/// Deletes cell comment in worksheet.   
+/// Delete cell comment in the worksheet.   
 export class DeleteWorksheetCommentRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
     /// The cell name.  
     public cellName: string;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -33662,15 +33928,15 @@ export class DeleteWorksheetCommentRequest  {
     }
 
 }
-/// Delete all comments in worksheet.   
+/// Delete all comments in the worksheet.   
 export class DeleteWorksheetCommentsRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -33708,13 +33974,13 @@ export class DeleteWorksheetCommentsRequest  {
 }
 /// Get worksheet merged cells.   
 export class GetWorksheetMergedCellsRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The workseet name.  
     public sheetName: string;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -33750,17 +34016,17 @@ export class GetWorksheetMergedCellsRequest  {
     }
 
 }
-/// Gets merged cell description by its index in worksheet.   
+/// Retrieve description of a merged cell by its index in the worksheet.   
 export class GetWorksheetMergedCellRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// Worksheet name.  
     public sheetName: string;
     /// Merged cell index.  
     public mergedCellIndex: number;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -33796,17 +34062,17 @@ export class GetWorksheetMergedCellRequest  {
     }
 
 }
-/// Calculates formula value in worksheet.   
+/// Calculate formula in the worksheet.   
 export class GetWorksheetCalculateFormulaRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
-    /// Worksheet name.  
+    /// The worksheet name.  
     public sheetName: string;
     /// The formula.  
     public formula: string;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -33848,17 +34114,17 @@ export class GetWorksheetCalculateFormulaRequest  {
     }
 
 }
-/// Calculates formula value in worksheet.   
+/// Calculate formula in the worksheet.   
 export class PostWorksheetCalculateFormulaRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// Worksheet name.  
     public sheetName: string;
     /// The formula.  
     public formula: string;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -33900,9 +34166,9 @@ export class PostWorksheetCalculateFormulaRequest  {
     }
 
 }
-/// Searchs text in worksheet.   
+/// Search for text in the worksheet.   
 export class PostWorksheetTextSearchRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
@@ -33952,9 +34218,9 @@ export class PostWorksheetTextSearchRequest  {
     }
 
 }
-/// Replaces text in worksheet.   
-export class PostWorsheetTextReplaceRequest  {
-    /// The workbook name.  
+/// Replace old text with new text in the worksheet.   
+export class PostWorksheetTextReplaceRequest  {
+    /// The file name.  
     public name: string;
     /// Worksheet name.  
     public sheetName: string;
@@ -33962,14 +34228,14 @@ export class PostWorsheetTextReplaceRequest  {
     public oldValue: string;
     /// The new text to replace by.  
     public newValue: string;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostWorsheetTextReplaceRequest >) {  
+    public constructor(init?: Partial< PostWorksheetTextReplaceRequest >) {  
         Object.assign(this, init);
     } 
 
@@ -33980,12 +34246,12 @@ export class PostWorsheetTextReplaceRequest  {
         /// The old text to replace. 
         // verify required parameter 'oldValue' is not null or undefined
         if (this.oldValue === null || this.oldValue === undefined) {
-            throw new Error('Required parameter "oldValue" was null or undefined when calling PostWorsheetTextReplace.');
+            throw new Error('Required parameter "oldValue" was null or undefined when calling PostWorksheetTextReplace.');
         }
         /// The new text to replace by. 
         // verify required parameter 'newValue' is not null or undefined
         if (this.newValue === null || this.newValue === undefined) {
-            throw new Error('Required parameter "newValue" was null or undefined when calling PostWorsheetTextReplace.');
+            throw new Error('Required parameter "newValue" was null or undefined when calling PostWorksheetTextReplace.');
         }
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "oldValue", this.oldValue);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "newValue", this.newValue);
@@ -34012,9 +34278,9 @@ export class PostWorsheetTextReplaceRequest  {
     }
 
 }
-/// Sorts range in worksheet.   
+/// Sort a range in the worksheet.   
 export class PostWorksheetRangeSortRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
@@ -34022,9 +34288,9 @@ export class PostWorksheetRangeSortRequest  {
     public cellArea: string;
     /// DataSorter with sorting settings.  
     public dataSorter: DataSorter;
-    /// The workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -34066,21 +34332,21 @@ export class PostWorksheetRangeSortRequest  {
     }
 
 }
-/// Autofits row in worksheet.   
+/// Autofit a row in the worksheet.   
 export class PostAutofitWorksheetRowRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
-    /// Row index.  
+    /// The row index.  
     public rowIndex: number;
-    /// First column index.  
+    /// The first column index.  
     public firstColumn: number;
-    /// Last column index.  
+    /// The last column index.  
     public lastColumn: number;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -34093,17 +34359,17 @@ export class PostAutofitWorksheetRowRequest  {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/autofitrow".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
         const queryParameters: any = {};
-        /// Row index. 
+        /// The row index. 
         // verify required parameter 'rowIndex' is not null or undefined
         if (this.rowIndex === null || this.rowIndex === undefined) {
             throw new Error('Required parameter "rowIndex" was null or undefined when calling PostAutofitWorksheetRow.');
         }
-        /// First column index. 
+        /// The first column index. 
         // verify required parameter 'firstColumn' is not null or undefined
         if (this.firstColumn === null || this.firstColumn === undefined) {
             throw new Error('Required parameter "firstColumn" was null or undefined when calling PostAutofitWorksheetRow.');
         }
-        /// Last column index. 
+        /// The last column index. 
         // verify required parameter 'lastColumn' is not null or undefined
         if (this.lastColumn === null || this.lastColumn === undefined) {
             throw new Error('Required parameter "lastColumn" was null or undefined when calling PostAutofitWorksheetRow.');
@@ -34134,21 +34400,21 @@ export class PostAutofitWorksheetRowRequest  {
     }
 
 }
-/// Autofit rows in worksheet.   
+/// Autofit rows in the worksheet.   
 export class PostAutofitWorksheetRowsRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
-    /// Start row index.  
+    /// The start row index.  
     public startRow: number;
-    /// End row index.  
+    /// The end row index.  
     public endRow: number;
     /// Autofits all rows in this worksheet.  
     public onlyAuto: boolean;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -34187,21 +34453,21 @@ export class PostAutofitWorksheetRowsRequest  {
     }
 
 }
-   
+/// Autofit columns in the worksheet.   
 export class PostAutofitWorksheetColumnsRequest  {
-      
+    /// The file name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// The start column index.  
     public startColumn: number;
-      
+    /// The end column index.  
     public endColumn: number;
       
     public onlyAuto: boolean;
-      
+    /// The folder where the file is situated.  
     public folder: string;
-      
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -34240,17 +34506,17 @@ export class PostAutofitWorksheetColumnsRequest  {
     }
 
 }
-/// Sets background image in worksheet.   
+/// Set background image in the worksheet.   
 export class PutWorksheetBackgroundRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
     /// picture full filename.  
     public picPath: string;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// File to upload  
     public file: any;
@@ -34296,15 +34562,15 @@ export class PutWorksheetBackgroundRequest  {
     }
 
 }
-/// Delete background image in worksheet.   
+/// Delete background image in the worksheet.   
 export class DeleteWorksheetBackgroundRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -34340,9 +34606,9 @@ export class DeleteWorksheetBackgroundRequest  {
     }
 
 }
-/// Sets freeze panes in worksheet.   
+/// Set freeze panes in the worksheet.   
 export class PutWorksheetFreezePanesRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
@@ -34354,9 +34620,9 @@ export class PutWorksheetFreezePanesRequest  {
     public freezedRows: number;
     /// Number of visible columns in left pane, no more than column index.  
     public freezedColumns: number;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -34416,9 +34682,9 @@ export class PutWorksheetFreezePanesRequest  {
     }
 
 }
-/// Unfreezes panes in worksheet.   
+/// Unfreeze panes in worksheet.   
 export class DeleteWorksheetFreezePanesRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
@@ -34430,9 +34696,9 @@ export class DeleteWorksheetFreezePanesRequest  {
     public freezedRows: number;
     /// Number of visible columns in left pane, no more than column index.  
     public freezedColumns: number;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -34492,9 +34758,9 @@ export class DeleteWorksheetFreezePanesRequest  {
     }
 
 }
-/// Copies contents and formats from another worksheet.   
+/// Copy contents and formats from another worksheet.   
 export class PostCopyWorksheetRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
@@ -34506,9 +34772,9 @@ export class PostCopyWorksheetRequest  {
     public sourceWorkbook: string;
     /// Original workbook folder.  
     public sourceFolder: string;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -34552,17 +34818,17 @@ export class PostCopyWorksheetRequest  {
     }
 
 }
-/// Rename worksheet.   
+/// Rename worksheet in the workbook.   
 export class PostRenameWorksheetRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
     /// New worksheet name.  
     public newname: string;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -34604,17 +34870,17 @@ export class PostRenameWorksheetRequest  {
     }
 
 }
-/// Update worksheet properties.   
+/// Update worksheet properties in the workbook.   
 export class PostUpdateWorksheetPropertyRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
     /// The worksheet description.  
     public sheet: Worksheet;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -34650,13 +34916,13 @@ export class PostUpdateWorksheetPropertyRequest  {
     }
 
 }
-/// Get worksheets ranges description.   
+/// Retrieve descriptions of ranges in the worksheets.   
 export class GetNamedRangesRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -34692,15 +34958,15 @@ export class GetNamedRangesRequest  {
     }
 
 }
-/// Get range values.   
+/// Retrieve values in range.   
 export class GetNamedRangeValueRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// Range name.  
     public namerange: string;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -34736,17 +35002,17 @@ export class GetNamedRangeValueRequest  {
     }
 
 }
-/// Updates worksheet zoom.   
+/// Update the scaling percentage in the worksheet. It should be between 10 and 400.   
 export class PostUpdateWorksheetZoomRequest  {
-    /// The workbook name.  
+    /// The file name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
     /// Represents the scaling factor in percentage. It should be between 10 and 400.  
     public value: number;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -34788,15 +35054,15 @@ export class PostUpdateWorksheetZoomRequest  {
     }
 
 }
-   
+/// Get page count in the worksheet.   
 export class GetWorksheetPageCountRequest  {
-      
+    /// The file name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// The folder where the file is situated.  
     public folder: string;
-      
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -34832,15 +35098,15 @@ export class GetWorksheetPageCountRequest  {
     }
 
 }
-/// Get validations description in worksheet.   
+/// Retrieve descriptions of validations in the worksheet.   
 export class GetWorksheetValidationsRequest  {
     /// The workbook name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -34876,7 +35142,7 @@ export class GetWorksheetValidationsRequest  {
     }
 
 }
-/// Gets a validation by index in worksheet.   
+/// Retrieve a validation by its index in the worksheet.   
 export class GetWorksheetValidationRequest  {
     /// The workbook name.  
     public name: string;
@@ -34884,9 +35150,9 @@ export class GetWorksheetValidationRequest  {
     public sheetName: string;
     /// The validation index.  
     public validationIndex: number;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -34922,7 +35188,7 @@ export class GetWorksheetValidationRequest  {
     }
 
 }
-/// Adds a validation at index in worksheet.   
+/// Add a validation at index in the worksheet.   
 export class PutWorksheetValidationRequest  {
     /// The workbook name.  
     public name: string;
@@ -34930,9 +35196,9 @@ export class PutWorksheetValidationRequest  {
     public sheetName: string;
     /// Specified cells area  
     public range: string;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -34969,7 +35235,7 @@ export class PutWorksheetValidationRequest  {
     }
 
 }
-/// Updates a validation by index in worksheet.   
+/// Update a validation by index in the worksheet.   
 export class PostWorksheetValidationRequest  {
     /// The workbook name.  
     public name: string;
@@ -34979,9 +35245,9 @@ export class PostWorksheetValidationRequest  {
     public validationIndex: number;
     /// Validation description.  
     public validation: Validation;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -35017,7 +35283,7 @@ export class PostWorksheetValidationRequest  {
     }
 
 }
-/// Deletes a validation by index in worksheet.   
+/// Delete a validation by index in worksheet.   
 export class DeleteWorksheetValidationRequest  {
     /// The workbook name.  
     public name: string;
@@ -35025,9 +35291,9 @@ export class DeleteWorksheetValidationRequest  {
     public sheetName: string;
     /// The validation index.  
     public validationIndex: number;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -35063,15 +35329,15 @@ export class DeleteWorksheetValidationRequest  {
     }
 
 }
-/// Delete all validations in worksheet.   
+/// Delete all validations in the worksheet.   
 export class DeleteWorksheetValidationsRequest  {
     /// The workbook name.  
     public name: string;
     /// The worksheet name.  
     public sheetName: string;
-    /// Original workbook folder.  
+    /// The folder where the file is situated.  
     public folder: string;
-    /// Storage name.  
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;

@@ -497,7 +497,7 @@ describe('LightCells test', function() {
         var request = new model.PostAssembleRequest();
         request.file =  mapFiles;
         request.datasource =  "ds";
-        request.format =  format;
+        request.outFormat =  format;
         return cellsApi.postAssemble(request).then((result) => {
             expect(result.response.statusCode).to.equal(200);
         });
@@ -520,7 +520,7 @@ describe('LightCells test', function() {
         var request = new model.PostAssembleRequest();
         request.file =  mapFiles;
         request.datasource =  "ds";
-        request.format =  format;
+        request.outFormat =  format;
         return cellsApi.postAssemble(request).then((result) => {
             expect(result.response.statusCode).to.equal(200);
         });
@@ -543,7 +543,7 @@ describe('LightCells test', function() {
         var request = new model.PostAssembleRequest();
         request.file =  mapFiles;
         request.datasource =  "ds";
-        request.format =  format;
+        request.outFormat =  format;
         return cellsApi.postAssemble(request).then((result) => {
             expect(result.response.statusCode).to.equal(200);
         });
@@ -566,7 +566,7 @@ describe('LightCells test', function() {
         var request = new model.PostAssembleRequest();
         request.file =  mapFiles;
         request.datasource =  "ds";
-        request.format =  format;
+        request.outFormat =  format;
         return cellsApi.postAssemble(request).then((result) => {
             expect(result.response.statusCode).to.equal(200);
         });
@@ -589,7 +589,7 @@ describe('LightCells test', function() {
         var request = new model.PostAssembleRequest();
         request.file =  mapFiles;
         request.datasource =  "ds";
-        request.format =  format;
+        request.outFormat =  format;
         return cellsApi.postAssemble(request).then((result) => {
             expect(result.response.statusCode).to.equal(200);
         });
@@ -612,7 +612,7 @@ describe('LightCells test', function() {
         var request = new model.PostAssembleRequest();
         request.file =  mapFiles;
         request.datasource =  "ds";
-        request.format =  format;
+        request.outFormat =  format;
         return cellsApi.postAssemble(request).then((result) => {
             expect(result.response.statusCode).to.equal(200);
         });
@@ -635,7 +635,7 @@ describe('LightCells test', function() {
         var request = new model.PostAssembleRequest();
         request.file =  mapFiles;
         request.datasource =  "ds";
-        request.format =  format;
+        request.outFormat =  format;
         return cellsApi.postAssemble(request).then((result) => {
             expect(result.response.statusCode).to.equal(200);
         });
@@ -658,7 +658,7 @@ describe('LightCells test', function() {
         var request = new model.PostAssembleRequest();
         request.file =  mapFiles;
         request.datasource =  "ds";
-        request.format =  format;
+        request.outFormat =  format;
         return cellsApi.postAssemble(request).then((result) => {
             expect(result.response.statusCode).to.equal(200);
         });
@@ -681,7 +681,7 @@ describe('LightCells test', function() {
         var request = new model.PostAssembleRequest();
         request.file =  mapFiles;
         request.datasource =  "ds";
-        request.format =  format;
+        request.outFormat =  format;
         return cellsApi.postAssemble(request).then((result) => {
             expect(result.response.statusCode).to.equal(200);
         });
@@ -704,7 +704,7 @@ describe('LightCells test', function() {
         var request = new model.PostAssembleRequest();
         request.file =  mapFiles;
         request.datasource =  "ds";
-        request.format =  format;
+        request.outFormat =  format;
         return cellsApi.postAssemble(request).then((result) => {
             expect(result.response.statusCode).to.equal(200);
         });
@@ -727,7 +727,7 @@ describe('LightCells test', function() {
         var request = new model.PostAssembleRequest();
         request.file =  mapFiles;
         request.datasource =  "ds";
-        request.format =  format;
+        request.outFormat =  format;
         return cellsApi.postAssemble(request).then((result) => {
             expect(result.response.statusCode).to.equal(200);
         });
@@ -750,7 +750,7 @@ describe('LightCells test', function() {
         var request = new model.PostAssembleRequest();
         request.file =  mapFiles;
         request.datasource =  "ds";
-        request.format =  format;
+        request.outFormat =  format;
         return cellsApi.postAssemble(request).then((result) => {
             expect(result.response.statusCode).to.equal(200);
         });
@@ -773,7 +773,7 @@ describe('LightCells test', function() {
         var request = new model.PostAssembleRequest();
         request.file =  mapFiles;
         request.datasource =  "ds";
-        request.format =  format;
+        request.outFormat =  format;
         return cellsApi.postAssemble(request).then((result) => {
             expect(result.response.statusCode).to.equal(200);
         });
@@ -796,7 +796,7 @@ describe('LightCells test', function() {
         var request = new model.PostAssembleRequest();
         request.file =  mapFiles;
         request.datasource =  "ds";
-        request.format =  format;
+        request.outFormat =  format;
         return cellsApi.postAssemble(request).then((result) => {
             expect(result.response.statusCode).to.equal(200);
         });
@@ -819,7 +819,7 @@ describe('LightCells test', function() {
         var request = new model.PostAssembleRequest();
         request.file =  mapFiles;
         request.datasource =  "ds";
-        request.format =  format;
+        request.outFormat =  format;
         return cellsApi.postAssemble(request).then((result) => {
             expect(result.response.statusCode).to.equal(200);
         });
@@ -842,7 +842,7 @@ describe('LightCells test', function() {
         var request = new model.PostAssembleRequest();
         request.file =  mapFiles;
         request.datasource =  "ds";
-        request.format =  format;
+        request.outFormat =  format;
         return cellsApi.postAssemble(request).then((result) => {
             expect(result.response.statusCode).to.equal(200);
         });
@@ -865,7 +865,7 @@ describe('LightCells test', function() {
         var request = new model.PostAssembleRequest();
         request.file =  mapFiles;
         request.datasource =  "ds";
-        request.format =  format;
+        request.outFormat =  format;
         return cellsApi.postAssemble(request).then((result) => {
             expect(result.response.statusCode).to.equal(200);
         });
@@ -888,7 +888,7 @@ describe('LightCells test', function() {
         var request = new model.PostAssembleRequest();
         request.file =  mapFiles;
         request.datasource =  "ds";
-        request.format =  format;
+        request.outFormat =  format;
         return cellsApi.postAssemble(request).then((result) => {
             expect(result.response.statusCode).to.equal(200);
         });
@@ -911,7 +911,7 @@ describe('LightCells test', function() {
         var request = new model.PostAssembleRequest();
         request.file =  mapFiles;
         request.datasource =  "ds";
-        request.format =  format;
+        request.outFormat =  format;
         return cellsApi.postAssemble(request).then((result) => {
             expect(result.response.statusCode).to.equal(200);
         });
@@ -934,7 +934,7 @@ describe('LightCells test', function() {
         var request = new model.PostAssembleRequest();
         request.file =  mapFiles;
         request.datasource =  "ds";
-        request.format =  format;
+        request.outFormat =  format;
         return cellsApi.postAssemble(request).then((result) => {
             expect(result.response.statusCode).to.equal(200);
         });
@@ -957,7 +957,7 @@ describe('LightCells test', function() {
         var request = new model.PostAssembleRequest();
         request.file =  mapFiles;
         request.datasource =  "ds";
-        request.format =  format;
+        request.outFormat =  format;
         return cellsApi.postAssemble(request).then((result) => {
             expect(result.response.statusCode).to.equal(200);
         });
@@ -980,7 +980,7 @@ describe('LightCells test', function() {
         var request = new model.PostAssembleRequest();
         request.file =  mapFiles;
         request.datasource =  "ds";
-        request.format =  format;
+        request.outFormat =  format;
         return cellsApi.postAssemble(request).then((result) => {
             expect(result.response.statusCode).to.equal(200);
         });
@@ -1003,7 +1003,7 @@ describe('LightCells test', function() {
         var request = new model.PostAssembleRequest();
         request.file =  mapFiles;
         request.datasource =  "ds";
-        request.format =  format;
+        request.outFormat =  format;
         return cellsApi.postAssemble(request).then((result) => {
             expect(result.response.statusCode).to.equal(200);
         });
@@ -1026,7 +1026,7 @@ describe('LightCells test', function() {
         var request = new model.PostAssembleRequest();
         request.file =  mapFiles;
         request.datasource =  "ds";
-        request.format =  format;
+        request.outFormat =  format;
         return cellsApi.postAssemble(request).then((result) => {
             expect(result.response.statusCode).to.equal(200);
         });
@@ -1049,7 +1049,7 @@ describe('LightCells test', function() {
         var request = new model.PostAssembleRequest();
         request.file =  mapFiles;
         request.datasource =  "ds";
-        request.format =  format;
+        request.outFormat =  format;
         return cellsApi.postAssemble(request).then((result) => {
             expect(result.response.statusCode).to.equal(200);
         });
@@ -1072,7 +1072,7 @@ describe('LightCells test', function() {
         var request = new model.PostAssembleRequest();
         request.file =  mapFiles;
         request.datasource =  "ds";
-        request.format =  format;
+        request.outFormat =  format;
         return cellsApi.postAssemble(request).then((result) => {
             expect(result.response.statusCode).to.equal(200);
         });
@@ -1095,7 +1095,7 @@ describe('LightCells test', function() {
         var request = new model.PostAssembleRequest();
         request.file =  mapFiles;
         request.datasource =  "ds";
-        request.format =  format;
+        request.outFormat =  format;
         return cellsApi.postAssemble(request).then((result) => {
             expect(result.response.statusCode).to.equal(200);
         });
@@ -1118,7 +1118,7 @@ describe('LightCells test', function() {
         var request = new model.PostAssembleRequest();
         request.file =  mapFiles;
         request.datasource =  "ds";
-        request.format =  format;
+        request.outFormat =  format;
         return cellsApi.postAssemble(request).then((result) => {
             expect(result.response.statusCode).to.equal(200);
         });

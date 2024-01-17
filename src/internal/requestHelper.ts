@@ -1,7 +1,7 @@
 /*
 * MIT License
 * 
-* Copyright (c) 2023 Aspose.Cells Cloud
+* Copyright (c) 2024 Aspose.Cells Cloud
 * Permission is hereby granted, free of charge, to any person obtaining a copy
 * of this software and associated documentation files (the "Software"), to deal
 * in the Software without restriction, including without limitation the rights
@@ -94,7 +94,7 @@ async function invokeApiMethodInternal(requestOptions: request.Options, confgura
     // requestOptions.rejectUnauthorized=false;
 
     requestOptions.headers["x-aspose-client"] = "nodejs sdk";
-    requestOptions.headers["x-aspose-client-version"] = "23.12.1";
+    requestOptions.headers["x-aspose-client-version"] = "24.1.1";
     requestOptions.headers["Content-Type"] = "application/json";
     const auth = confguration.authentication;
     if (!notApplyAuthToRequest) {

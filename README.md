@@ -1,4 +1,4 @@
-![](https://img.shields.io/badge/REST%20API-v3.0-lightgrey) ![npm](https://img.shields.io/npm/v/asposecellscloud) ![node-current](https://img.shields.io/node/v/asposecellscloud) [![GitHub license](https://img.shields.io/github/license/aspose-cells-cloud/aspose-cells-cloud-node)](https://github.com/aspose-cells-cloud/aspose-cells-cloud-node/blob/master/LICENSE) ![GitHub commits since latest release (by date)](https://img.shields.io/github/commits-since/aspose-cells-cloud/aspose-cells-cloud-node/23.12.0)
+![](https://img.shields.io/badge/REST%20API-v3.0-lightgrey) ![npm](https://img.shields.io/npm/v/asposecellscloud) ![node-current](https://img.shields.io/node/v/asposecellscloud) [![GitHub license](https://img.shields.io/github/license/aspose-cells-cloud/aspose-cells-cloud-node)](https://github.com/aspose-cells-cloud/aspose-cells-cloud-node/blob/master/LICENSE) ![GitHub commits since latest release (by date)](https://img.shields.io/github/commits-since/aspose-cells-cloud/aspose-cells-cloud-node/24.1.1)
 
 # Process Excel® Files in the Cloud with Node.js
 
@@ -20,21 +20,14 @@
 - Fetch the required shape from worksheet.
 - Leverage the power of named ranges.
 
-
-## Feature & Enhancements in Version 23.12.0
+## Feature & Enhancements in Version 24.1.1
 
 Full list of issues covering all changes in this release:
 
-- Conversion APIs add region parameter.
-- Protection APIs add region parameter.
-- Assemble data API adds region parameter.
-- Merge files API adds region parameter.
-- Split files API adds region parameter.
-- Import data API adds region parameter.
-- Watermark API adds region parameter.
-- Clear object API adds region parameter.
-- Reverse data API adds region parameter.
-- Rotate data API adds region parameter.
+- Fixed spelling mistakes for several functions.
+- Add the PostFitTallToPages method for page setup controller.
+- Add the PostFitWideToPages method for page setup controller.
+- Optimize save options about paginated.
 
 ## Read & Write Spreadsheet Formats
 

@@ -1,7 +1,7 @@
 /*
 * MIT License
 * 
-* Copyright (c) 2023 Aspose.Cells Cloud
+* Copyright (c) 2024 Aspose.Cells Cloud
 * Permission is hereby granted, free of charge, to any person obtaining a copy
 * of this software and associated documentation files (the "Software"), to deal
 * in the Software without restriction, including without limitation the rights
@@ -24,10 +24,11 @@
 
 
 import http = require("http");
+import request = require("request");
 
 import { Configuration } from "./internal/configuration";
 import { ObjectSerializer } from "./internal/objectSerializer";
-import {  invokeApiMethod } from "./internal/requestHelper";
+import { addQueryParameterToUrl, invokeApiMethod } from "./internal/requestHelper";
 import * as model from "./model/model";
 
 export * from "./model/model";
@@ -629,7 +630,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Get worksheet columns description.
+    /// Retrieve descriptions of worksheet columns.
     /// </summary>
     /// <param name="request">Request. <see cref="GetWorksheetColumnsRequest" /></param>
     public async getWorksheetColumns(requestObj:model.GetWorksheetColumnsRequest ): Promise<{response: http.ClientResponse, body: model.ColumnsResponse}>
@@ -645,7 +646,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Sets worksheet column width.
+    /// Set worksheet column width.
     /// </summary>
     /// <param name="request">Request. <see cref="PostSetWorksheetColumnWidthRequest" /></param>
     public async postSetWorksheetColumnWidth(requestObj:model.PostSetWorksheetColumnWidthRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -661,7 +662,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Gets worksheet column data by column's index.
+    /// Retrieve worksheet column data by column index.
     /// </summary>
     /// <param name="request">Request. <see cref="GetWorksheetColumnRequest" /></param>
     public async getWorksheetColumn(requestObj:model.GetWorksheetColumnRequest ): Promise<{response: http.ClientResponse, body: model.ColumnResponse}>
@@ -677,7 +678,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Insert worksheet columns.
+    /// Insert worksheet columns in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="PutInsertWorksheetColumnsRequest" /></param>
     public async putInsertWorksheetColumns(requestObj:model.PutInsertWorksheetColumnsRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -693,7 +694,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Delete worksheet columns.
+    /// Delete worksheet columns in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="DeleteWorksheetColumnsRequest" /></param>
     public async deleteWorksheetColumns(requestObj:model.DeleteWorksheetColumnsRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -709,7 +710,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Hide worksheet columns.
+    /// Hide worksheet columns in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="PostHideWorksheetColumnsRequest" /></param>
     public async postHideWorksheetColumns(requestObj:model.PostHideWorksheetColumnsRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -725,7 +726,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Unhide worksheet columns.
+    /// Unhide worksheet columns in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="PostUnhideWorksheetColumnsRequest" /></param>
     public async postUnhideWorksheetColumns(requestObj:model.PostUnhideWorksheetColumnsRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -741,7 +742,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Group worksheet columns.
+    /// Group worksheet columns in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="PostGroupWorksheetColumnsRequest" /></param>
     public async postGroupWorksheetColumns(requestObj:model.PostGroupWorksheetColumnsRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -773,7 +774,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Copy data to destination columns from source columns in worksheet.
+    /// Copy data from source columns to destination columns in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="PostCopyWorksheetColumnsRequest" /></param>
     public async postCopyWorksheetColumns(requestObj:model.PostCopyWorksheetColumnsRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -789,7 +790,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Sets column style in worksheet.
+    /// Set column style in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="PostColumnStyleRequest" /></param>
     public async postColumnStyle(requestObj:model.PostColumnStyleRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -805,7 +806,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Get rows description in worksheet.
+    /// Retrieve descriptions of rows in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="GetWorksheetRowsRequest" /></param>
     public async getWorksheetRows(requestObj:model.GetWorksheetRowsRequest ): Promise<{response: http.ClientResponse, body: model.RowsResponse}>
@@ -821,7 +822,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Gets row data by row's index in worksheet.
+    /// Retrieve row data by the row's index in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="GetWorksheetRowRequest" /></param>
     public async getWorksheetRow(requestObj:model.GetWorksheetRowRequest ): Promise<{response: http.ClientResponse, body: model.RowResponse}>
@@ -837,7 +838,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Deletes row in worksheet.
+    /// Delete a row in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="DeleteWorksheetRowRequest" /></param>
     public async deleteWorksheetRow(requestObj:model.DeleteWorksheetRowRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -853,7 +854,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Delete several rows in worksheet.
+    /// Delete several rows in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="DeleteWorksheetRowsRequest" /></param>
     public async deleteWorksheetRows(requestObj:model.DeleteWorksheetRowsRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -869,7 +870,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Insert several new rows in worksheet.
+    /// Insert several new rows in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="PutInsertWorksheetRowsRequest" /></param>
     public async putInsertWorksheetRows(requestObj:model.PutInsertWorksheetRowsRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -885,7 +886,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Inserts new row in worksheet.
+    /// Insert a new row in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="PutInsertWorksheetRowRequest" /></param>
     public async putInsertWorksheetRow(requestObj:model.PutInsertWorksheetRowRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -901,7 +902,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Updates row in worksheet.
+    /// Update height of rows in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="PostUpdateWorksheetRowRequest" /></param>
     public async postUpdateWorksheetRow(requestObj:model.PostUpdateWorksheetRowRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -933,7 +934,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Unhide rows in worksheet.
+    /// Unhide rows in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="PostUnhideWorksheetRowsRequest" /></param>
     public async postUnhideWorksheetRows(requestObj:model.PostUnhideWorksheetRowsRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -949,7 +950,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Group rows in worksheet.
+    /// Group rows in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="PostGroupWorksheetRowsRequest" /></param>
     public async postGroupWorksheetRows(requestObj:model.PostGroupWorksheetRowsRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -965,7 +966,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Ungroup rows in worksheet.
+    /// Ungroup rows in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="PostUngroupWorksheetRowsRequest" /></param>
     public async postUngroupWorksheetRows(requestObj:model.PostUngroupWorksheetRowsRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -981,7 +982,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Copies data and formats of some whole rows in worksheet.
+    /// Copy data and formats from specific entire rows in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="PostCopyWorksheetRowsRequest" /></param>
     public async postCopyWorksheetRows(requestObj:model.PostCopyWorksheetRowsRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -997,7 +998,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Applies formats for a whole row in worksheet.
+    /// Apply formats to an entire row in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="PostRowStyleRequest" /></param>
     public async postRowStyle(requestObj:model.PostRowStyleRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -1127,11 +1128,11 @@ export class CellsApi {
     /// <summary>
     /// Add a new chart in the worksheet.
     /// </summary>
-    /// <param name="request">Request. <see cref="PutWorksheetAddChartRequest" /></param>
-    public async putWorksheetAddChart(requestObj:model.PutWorksheetAddChartRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
+    /// <param name="request">Request. <see cref="PutWorksheetChartRequest" /></param>
+    public async putWorksheetChart(requestObj:model.PutWorksheetChartRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
     {
         if (requestObj === null || requestObj === undefined) {
-            throw new Error('Required parameter "requestObj" was null or undefined when calling putWorksheetAddChart.');
+            throw new Error('Required parameter "requestObj" was null or undefined when calling putWorksheetChart.');
         }
 
         const requestOptions = await requestObj.createRequestOptions(this.configuration);
@@ -1143,11 +1144,11 @@ export class CellsApi {
     /// <summary>
     /// Delete a chart by index in the worksheet.
     /// </summary>
-    /// <param name="request">Request. <see cref="DeleteWorksheetDeleteChartRequest" /></param>
-    public async deleteWorksheetDeleteChart(requestObj:model.DeleteWorksheetDeleteChartRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
+    /// <param name="request">Request. <see cref="DeleteWorksheetChartRequest" /></param>
+    public async deleteWorksheetChart(requestObj:model.DeleteWorksheetChartRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
     {
         if (requestObj === null || requestObj === undefined) {
-            throw new Error('Required parameter "requestObj" was null or undefined when calling deleteWorksheetDeleteChart.');
+            throw new Error('Required parameter "requestObj" was null or undefined when calling deleteWorksheetChart.');
         }
 
         const requestOptions = await requestObj.createRequestOptions(this.configuration);
@@ -1205,7 +1206,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Show chart legend in worksheet.
+    /// Show chart legend in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="PutWorksheetChartLegendRequest" /></param>
     public async putWorksheetChartLegend(requestObj:model.PutWorksheetChartLegendRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -1221,7 +1222,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Hides chart legend in worksheet.
+    /// Hides chart legend in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="DeleteWorksheetChartLegendRequest" /></param>
     public async deleteWorksheetChartLegend(requestObj:model.DeleteWorksheetChartLegendRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -1237,13 +1238,13 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Clear the charts in worksheets.
+    /// Clear the charts in the worksheets.
     /// </summary>
-    /// <param name="request">Request. <see cref="DeleteWorksheetClearChartsRequest" /></param>
-    public async deleteWorksheetClearCharts(requestObj:model.DeleteWorksheetClearChartsRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
+    /// <param name="request">Request. <see cref="DeleteWorksheetChartsRequest" /></param>
+    public async deleteWorksheetCharts(requestObj:model.DeleteWorksheetChartsRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
     {
         if (requestObj === null || requestObj === undefined) {
-            throw new Error('Required parameter "requestObj" was null or undefined when calling deleteWorksheetClearCharts.');
+            throw new Error('Required parameter "requestObj" was null or undefined when calling deleteWorksheetCharts.');
         }
 
         const requestOptions = await requestObj.createRequestOptions(this.configuration);
@@ -1253,7 +1254,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Gets chart title description in worksheet.
+    /// Retrieve chart title description in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="GetWorksheetChartTitleRequest" /></param>
     public async getWorksheetChartTitle(requestObj:model.GetWorksheetChartTitleRequest ): Promise<{response: http.ClientResponse, body: model.TitleResponse}>
@@ -1269,7 +1270,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Update chart title in worksheet.
+    /// Update chart title in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="PostWorksheetChartTitleRequest" /></param>
     public async postWorksheetChartTitle(requestObj:model.PostWorksheetChartTitleRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -1285,7 +1286,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Add chart title / Set chart title visible
+    /// Set chart title in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="PutWorksheetChartTitleRequest" /></param>
     public async putWorksheetChartTitle(requestObj:model.PutWorksheetChartTitleRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -1301,7 +1302,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Hides chart title in worksheet.
+    /// Hide chart title in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="DeleteWorksheetChartTitleRequest" /></param>
     public async deleteWorksheetChartTitle(requestObj:model.DeleteWorksheetChartTitleRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -1317,6 +1318,7 @@ export class CellsApi {
     }
 
     /// <summary>
+    /// Retrieve descriptions of chart seriesaxis in the chart.
     /// </summary>
     /// <param name="request">Request. <see cref="GetChartSeriesAxisRequest" /></param>
     public async getChartSeriesAxis(requestObj:model.GetChartSeriesAxisRequest ): Promise<{response: http.ClientResponse, body: model.AxisResponse}>
@@ -1332,6 +1334,7 @@ export class CellsApi {
     }
 
     /// <summary>
+    /// Retrieve descriptions of chart series axis in the chart.
     /// </summary>
     /// <param name="request">Request. <see cref="GetChartCategoryAxisRequest" /></param>
     public async getChartCategoryAxis(requestObj:model.GetChartCategoryAxisRequest ): Promise<{response: http.ClientResponse, body: model.AxisResponse}>
@@ -1347,6 +1350,7 @@ export class CellsApi {
     }
 
     /// <summary>
+    /// Retrieve chart value axis in the chart.
     /// </summary>
     /// <param name="request">Request. <see cref="GetChartValueAxisRequest" /></param>
     public async getChartValueAxis(requestObj:model.GetChartValueAxisRequest ): Promise<{response: http.ClientResponse, body: model.AxisResponse}>
@@ -1362,6 +1366,7 @@ export class CellsApi {
     }
 
     /// <summary>
+    /// Retrieve chart second category axis in the chart
     /// </summary>
     /// <param name="request">Request. <see cref="GetChartSecondCategoryAxisRequest" /></param>
     public async getChartSecondCategoryAxis(requestObj:model.GetChartSecondCategoryAxisRequest ): Promise<{response: http.ClientResponse, body: model.AxisResponse}>
@@ -1377,6 +1382,7 @@ export class CellsApi {
     }
 
     /// <summary>
+    /// Retrieve chart second value axis in the chart.
     /// </summary>
     /// <param name="request">Request. <see cref="GetChartSecondValueAxisRequest" /></param>
     public async getChartSecondValueAxis(requestObj:model.GetChartSecondValueAxisRequest ): Promise<{response: http.ClientResponse, body: model.AxisResponse}>
@@ -1392,6 +1398,7 @@ export class CellsApi {
     }
 
     /// <summary>
+    /// Update chart series axis in the chart.
     /// </summary>
     /// <param name="request">Request. <see cref="PostChartSeriesAxisRequest" /></param>
     public async postChartSeriesAxis(requestObj:model.PostChartSeriesAxisRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -1407,6 +1414,7 @@ export class CellsApi {
     }
 
     /// <summary>
+    /// Update chart category axis in the chart.
     /// </summary>
     /// <param name="request">Request. <see cref="PostChartCategoryAxisRequest" /></param>
     public async postChartCategoryAxis(requestObj:model.PostChartCategoryAxisRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -1422,6 +1430,7 @@ export class CellsApi {
     }
 
     /// <summary>
+    /// Update chart value axis in the chart.
     /// </summary>
     /// <param name="request">Request. <see cref="PostChartValueAxisRequest" /></param>
     public async postChartValueAxis(requestObj:model.PostChartValueAxisRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -1437,6 +1446,7 @@ export class CellsApi {
     }
 
     /// <summary>
+    /// Update chart sencond category axis in the chart.
     /// </summary>
     /// <param name="request">Request. <see cref="PostChartSecondCategoryAxisRequest" /></param>
     public async postChartSecondCategoryAxis(requestObj:model.PostChartSecondCategoryAxisRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -1452,6 +1462,7 @@ export class CellsApi {
     }
 
     /// <summary>
+    /// Update chart sencond value axis in the chart.
     /// </summary>
     /// <param name="request">Request. <see cref="PostChartSecondValueAxisRequest" /></param>
     public async postChartSecondValueAxis(requestObj:model.PostChartSecondValueAxisRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -1467,7 +1478,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Get conditional formattings description.
+    /// Retrieve descriptions of conditional formattings in a worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="GetWorksheetConditionalFormattingsRequest" /></param>
     public async getWorksheetConditionalFormattings(requestObj:model.GetWorksheetConditionalFormattingsRequest ): Promise<{response: http.ClientResponse, body: model.ConditionalFormattingsResponse}>
@@ -1483,7 +1494,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Gets conditional formatting description in worksheet.
+    /// Retrieve conditional formatting descriptions in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="GetWorksheetConditionalFormattingRequest" /></param>
     public async getWorksheetConditionalFormatting(requestObj:model.GetWorksheetConditionalFormattingRequest ): Promise<{response: http.ClientResponse, body: model.ConditionalFormattingResponse}>
@@ -1499,7 +1510,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Adds a condition formatting in worksheet.
+    /// Add conditional formatting in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="PutWorksheetConditionalFormattingRequest" /></param>
     public async putWorksheetConditionalFormatting(requestObj:model.PutWorksheetConditionalFormattingRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -1515,7 +1526,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Adds a format condition in worksheet.
+    /// Add a format condition in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="PutWorksheetFormatConditionRequest" /></param>
     public async putWorksheetFormatCondition(requestObj:model.PutWorksheetFormatConditionRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -1531,7 +1542,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Adds a cell area for format condition.
+    /// Add a cell area for the format condition in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="PutWorksheetFormatConditionAreaRequest" /></param>
     public async putWorksheetFormatConditionArea(requestObj:model.PutWorksheetFormatConditionAreaRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -1547,7 +1558,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Adds a condition for format condition.
+    /// Add a condition for the format condition in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="PutWorksheetFormatConditionConditionRequest" /></param>
     public async putWorksheetFormatConditionCondition(requestObj:model.PutWorksheetFormatConditionConditionRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -1563,7 +1574,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Clear all condition formattings.
+    /// Clear all conditional formattings in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="DeleteWorksheetConditionalFormattingsRequest" /></param>
     public async deleteWorksheetConditionalFormattings(requestObj:model.DeleteWorksheetConditionalFormattingsRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -1595,7 +1606,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Removes cell area from conditional formatting.
+    /// Remove cell area from conditional formatting.
     /// </summary>
     /// <param name="request">Request. <see cref="DeleteWorksheetConditionalFormattingAreaRequest" /></param>
     public async deleteWorksheetConditionalFormattingArea(requestObj:model.DeleteWorksheetConditionalFormattingAreaRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -1884,7 +1895,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Get hyperlinks description in worksheet.
+    /// Retrieve descriptions of hyperlinks in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="GetWorksheetHyperlinksRequest" /></param>
     public async getWorksheetHyperlinks(requestObj:model.GetWorksheetHyperlinksRequest ): Promise<{response: http.ClientResponse, body: model.HyperlinksResponse}>
@@ -1900,7 +1911,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Gets hyperlink description by index in worksheet.
+    /// Retrieve hyperlink description by index in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="GetWorksheetHyperlinkRequest" /></param>
     public async getWorksheetHyperlink(requestObj:model.GetWorksheetHyperlinkRequest ): Promise<{response: http.ClientResponse, body: model.HyperlinkResponse}>
@@ -1916,7 +1927,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Deletes hyperlink by index in worksheet.
+    /// Delete hyperlink by index in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="DeleteWorksheetHyperlinkRequest" /></param>
     public async deleteWorksheetHyperlink(requestObj:model.DeleteWorksheetHyperlinkRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -1932,7 +1943,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Updates hyperlink by index in worksheet.
+    /// Update hyperlink by index in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="PostWorksheetHyperlinkRequest" /></param>
     public async postWorksheetHyperlink(requestObj:model.PostWorksheetHyperlinkRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -1948,7 +1959,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Adds hyperlink in worksheet.
+    /// Add hyperlink in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="PutWorksheetHyperlinkRequest" /></param>
     public async putWorksheetHyperlink(requestObj:model.PutWorksheetHyperlinkRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -1964,7 +1975,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Delete all hyperlinks in worksheet.
+    /// Delete all hyperlinks in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="DeleteWorksheetHyperlinksRequest" /></param>
     public async deleteWorksheetHyperlinks(requestObj:model.DeleteWorksheetHyperlinksRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -2220,7 +2231,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Get listobjects description in worksheet.
+    /// Retrieve descriptions of ListObjects in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="GetWorksheetListObjectsRequest" /></param>
     public async getWorksheetListObjects(requestObj:model.GetWorksheetListObjectsRequest ): Promise<{response: http.ClientResponse, body: model.ListObjectsResponse}>
@@ -2236,7 +2247,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Gets list object description by index in worksheet.
+    /// Retrieve list object description by index in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="GetWorksheetListObjectRequest" /></param>
     public async getWorksheetListObject(requestObj:model.GetWorksheetListObjectRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
@@ -2252,7 +2263,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Adds a list object in worksheet.
+    /// Add a ListObject in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="PutWorksheetListObjectRequest" /></param>
     public async putWorksheetListObject(requestObj:model.PutWorksheetListObjectRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -2268,7 +2279,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Delete worksheet list objects in worksheet.
+    /// Delete ListObjects in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="DeleteWorksheetListObjectsRequest" /></param>
     public async deleteWorksheetListObjects(requestObj:model.DeleteWorksheetListObjectsRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -2284,7 +2295,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Deletes list object by index in worksheet.
+    /// Delete list object by index in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="DeleteWorksheetListObjectRequest" /></param>
     public async deleteWorksheetListObject(requestObj:model.DeleteWorksheetListObjectRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -2300,7 +2311,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Updates list object in worksheet.
+    /// Update list object by index in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="PostWorksheetListObjectRequest" /></param>
     public async postWorksheetListObject(requestObj:model.PostWorksheetListObjectRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -2316,7 +2327,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Converts list object to range in worksheet.
+    /// Convert list object to range in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="PostWorksheetListObjectConvertToRangeRequest" /></param>
     public async postWorksheetListObjectConvertToRange(requestObj:model.PostWorksheetListObjectConvertToRangeRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -2332,7 +2343,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Creates pivot table with list object in worksheet.
+    /// Create a pivot table with a list object in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="PostWorksheetListObjectSummarizeWithPivotTableRequest" /></param>
     public async postWorksheetListObjectSummarizeWithPivotTable(requestObj:model.PostWorksheetListObjectSummarizeWithPivotTableRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -2348,7 +2359,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Sorts list object in worksheet.
+    /// Sort list object in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="PostWorksheetListObjectSortTableRequest" /></param>
     public async postWorksheetListObjectSortTable(requestObj:model.PostWorksheetListObjectSortTableRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -2364,7 +2375,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Remove duplicates on list object.
+    /// Remove duplicates in list object.
     /// </summary>
     /// <param name="request">Request. <see cref="PostWorksheetListObjectRemoveDuplicatesRequest" /></param>
     public async postWorksheetListObjectRemoveDuplicates(requestObj:model.PostWorksheetListObjectRemoveDuplicatesRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -2396,7 +2407,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Update list column properties.
+    /// Update list column in list object.
     /// </summary>
     /// <param name="request">Request. <see cref="PostWorksheetListColumnRequest" /></param>
     public async postWorksheetListColumn(requestObj:model.PostWorksheetListColumnRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -2412,7 +2423,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Update table total of list columns.
+    /// Update total of list columns in the table.
     /// </summary>
     /// <param name="request">Request. <see cref="PostWorksheetListColumnsTotalRequest" /></param>
     public async postWorksheetListColumnsTotal(requestObj:model.PostWorksheetListColumnsTotalRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -2428,7 +2439,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Get OLE objects description in worksheet.
+    /// Retrieve descriptions of OLE objects in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="GetWorksheetOleObjectsRequest" /></param>
     public async getWorksheetOleObjects(requestObj:model.GetWorksheetOleObjectsRequest ): Promise<{response: http.ClientResponse, body: model.OleObjectsResponse}>
@@ -2444,7 +2455,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Gets OLE object info or get the OLE object in some format.
+    /// Retrieve the OLE object in a specified format in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="GetWorksheetOleObjectRequest" /></param>
     public async getWorksheetOleObject(requestObj:model.GetWorksheetOleObjectRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
@@ -2460,7 +2471,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Delete all OLE objects in  worksheet.
+    /// Delete all OLE objects in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="DeleteWorksheetOleObjectsRequest" /></param>
     public async deleteWorksheetOleObjects(requestObj:model.DeleteWorksheetOleObjectsRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -2476,7 +2487,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Deletes an OLE object in worksheet.
+    /// Delete an OLE object in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="DeleteWorksheetOleObjectRequest" /></param>
     public async deleteWorksheetOleObject(requestObj:model.DeleteWorksheetOleObjectRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -2508,7 +2519,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Add an OLE object in worksheet.
+    /// Add an OLE object in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="PutWorksheetOleObjectRequest" /></param>
     public async putWorksheetOleObject(requestObj:model.PutWorksheetOleObjectRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -2524,7 +2535,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Get vertical page breaks description in worksheet.
+    /// Retrieve descriptions of vertical page breaks in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="GetVerticalPageBreaksRequest" /></param>
     public async getVerticalPageBreaks(requestObj:model.GetVerticalPageBreaksRequest ): Promise<{response: http.ClientResponse, body: model.VerticalPageBreaksResponse}>
@@ -2540,7 +2551,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Get horizontal page breaks descripton in worksheet.
+    /// Retrieve descriptions of horizontal page breaks in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="GetHorizontalPageBreaksRequest" /></param>
     public async getHorizontalPageBreaks(requestObj:model.GetHorizontalPageBreaksRequest ): Promise<{response: http.ClientResponse, body: model.HorizontalPageBreaksResponse}>
@@ -2556,7 +2567,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Gets a vertical page break description in worksheet.
+    /// Retrieve a vertical page break description in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="GetVerticalPageBreakRequest" /></param>
     public async getVerticalPageBreak(requestObj:model.GetVerticalPageBreakRequest ): Promise<{response: http.ClientResponse, body: model.VerticalPageBreakResponse}>
@@ -2572,7 +2583,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Gets a horizontal page breaks descripton in worksheet.
+    /// Retrieve a horizontal page break descripton in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="GetHorizontalPageBreakRequest" /></param>
     public async getHorizontalPageBreak(requestObj:model.GetHorizontalPageBreakRequest ): Promise<{response: http.ClientResponse, body: model.HorizontalPageBreakResponse}>
@@ -2588,7 +2599,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Adds a vertical page break in worksheet.
+    /// Add a vertical page break in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="PutVerticalPageBreakRequest" /></param>
     public async putVerticalPageBreak(requestObj:model.PutVerticalPageBreakRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -2604,7 +2615,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Adds a horizontal page breaks in worksheet.
+    /// Add a horizontal page breaks in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="PutHorizontalPageBreakRequest" /></param>
     public async putHorizontalPageBreak(requestObj:model.PutHorizontalPageBreakRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -2620,7 +2631,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Delete vertical page breaks in worksheet.
+    /// Delete vertical page breaks in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="DeleteVerticalPageBreaksRequest" /></param>
     public async deleteVerticalPageBreaks(requestObj:model.DeleteVerticalPageBreaksRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -2636,7 +2647,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Delete horizontal page breaks in worksheet.
+    /// Delete horizontal page breaks in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="DeleteHorizontalPageBreaksRequest" /></param>
     public async deleteHorizontalPageBreaks(requestObj:model.DeleteHorizontalPageBreaksRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -2652,7 +2663,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Delete a vertical page breaks in worksheet.
+    /// Delete a vertical page break in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="DeleteVerticalPageBreakRequest" /></param>
     public async deleteVerticalPageBreak(requestObj:model.DeleteVerticalPageBreakRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -2668,7 +2679,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Delete a horizontal page breaks in worksheet.
+    /// Delete a horizontal page break in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="DeleteHorizontalPageBreakRequest" /></param>
     public async deleteHorizontalPageBreak(requestObj:model.DeleteHorizontalPageBreakRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -2684,7 +2695,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Gets page setup description in worksheet.
+    /// Retrieve page setup description in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="GetPageSetupRequest" /></param>
     public async getPageSetup(requestObj:model.GetPageSetupRequest ): Promise<{response: http.ClientResponse, body: model.PageSetupResponse}>
@@ -2700,7 +2711,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Updates page setup in worksheet.
+    /// Update page setup in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="PostPageSetupRequest" /></param>
     public async postPageSetup(requestObj:model.PostPageSetupRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -2716,7 +2727,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Clears header footer in worksheet.
+    /// Clear header and footer in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="DeleteHeaderFooterRequest" /></param>
     public async deleteHeaderFooter(requestObj:model.DeleteHeaderFooterRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -2732,7 +2743,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Gets page header description in worksheet.
+    /// Retrieve page header description in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="GetHeaderRequest" /></param>
     public async getHeader(requestObj:model.GetHeaderRequest ): Promise<{response: http.ClientResponse, body: model.PageSectionsResponse}>
@@ -2748,7 +2759,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Updates page header in worksheet.
+    /// Update page header in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="PostHeaderRequest" /></param>
     public async postHeader(requestObj:model.PostHeaderRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -2764,7 +2775,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Gets page footer description in worksheet.
+    /// Retrieve page footer description in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="GetFooterRequest" /></param>
     public async getFooter(requestObj:model.GetFooterRequest ): Promise<{response: http.ClientResponse, body: model.PageSectionsResponse}>
@@ -2780,7 +2791,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Update  page footer description in worksheet.
+    /// Update page footer in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="PostFooterRequest" /></param>
     public async postFooter(requestObj:model.PostFooterRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -2796,7 +2807,39 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Get pictures description in worksheet.
+    /// Set the scale at which the page will fit wide when printed on the sheet.
+    /// </summary>
+    /// <param name="request">Request. <see cref="PostFitWideToPagesRequest" /></param>
+    public async postFitWideToPages(requestObj:model.PostFitWideToPagesRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling postFitWideToPages.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "CellsCloudResponse");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// Set the scale at which the page will fit tall when printed on the sheet.
+    /// </summary>
+    /// <param name="request">Request. <see cref="PostFitTallToPagesRequest" /></param>
+    public async postFitTallToPages(requestObj:model.PostFitTallToPagesRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling postFitTallToPages.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "CellsCloudResponse");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// Retrieve descriptions of pictures in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="GetWorksheetPicturesRequest" /></param>
     public async getWorksheetPictures(requestObj:model.GetWorksheetPicturesRequest ): Promise<{response: http.ClientResponse, body: model.PicturesResponse}>
@@ -2812,7 +2855,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Gets a picture by number in worksheet.
+    /// Retrieve a picture by number in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="GetWorksheetPictureWithFormatRequest" /></param>
     public async getWorksheetPictureWithFormat(requestObj:model.GetWorksheetPictureWithFormatRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
@@ -2828,7 +2871,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Adds a new picture in worksheet.
+    /// Add a new picture in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="PutWorksheetAddPictureRequest" /></param>
     public async putWorksheetAddPicture(requestObj:model.PutWorksheetAddPictureRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -2844,7 +2887,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Updates a picture by index in worksheet.
+    /// Update a picture by index in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="PostWorksheetPictureRequest" /></param>
     public async postWorksheetPicture(requestObj:model.PostWorksheetPictureRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -2860,7 +2903,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Deletes a picture object in worksheet
+    /// Delete a picture object by index in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="DeleteWorksheetPictureRequest" /></param>
     public async deleteWorksheetPicture(requestObj:model.DeleteWorksheetPictureRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -2876,7 +2919,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Delete all pictures in worksheet.
+    /// Delete all pictures in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="DeleteWorksheetPicturesRequest" /></param>
     public async deleteWorksheetPictures(requestObj:model.DeleteWorksheetPicturesRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -2892,7 +2935,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Get worksheet pivottables description.
+    /// Retrieve descriptions of pivottables  in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="GetWorksheetPivotTablesRequest" /></param>
     public async getWorksheetPivotTables(requestObj:model.GetWorksheetPivotTablesRequest ): Promise<{response: http.ClientResponse, body: model.PivotTablesResponse}>
@@ -2908,7 +2951,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Gets a pivottable info by index in worksheet.
+    /// Retrieve PivotTable information by index in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="GetWorksheetPivotTableRequest" /></param>
     public async getWorksheetPivotTable(requestObj:model.GetWorksheetPivotTableRequest ): Promise<{response: http.ClientResponse, body: model.PivotTableResponse}>
@@ -2924,7 +2967,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Gets pivot field description in pivot table.
+    /// Retrieve descriptions of pivot fields in the PivotTable.
     /// </summary>
     /// <param name="request">Request. <see cref="GetPivotTableFieldRequest" /></param>
     public async getPivotTableField(requestObj:model.GetPivotTableFieldRequest ): Promise<{response: http.ClientResponse, body: model.PivotFieldResponse}>
@@ -2940,7 +2983,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Gets pivot table filters in worksheet.
+    /// Gets PivotTable filters in worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="GetWorksheetPivotTableFiltersRequest" /></param>
     public async getWorksheetPivotTableFilters(requestObj:model.GetWorksheetPivotTableFiltersRequest ): Promise<{response: http.ClientResponse, body: model.PivotFiltersResponse}>
@@ -2956,7 +2999,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Gets pivot table filters in worksheet.
+    /// Retrieve PivotTable filters in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="GetWorksheetPivotTableFilterRequest" /></param>
     public async getWorksheetPivotTableFilter(requestObj:model.GetWorksheetPivotTableFilterRequest ): Promise<{response: http.ClientResponse, body: model.PivotFilterResponse}>
@@ -2972,7 +3015,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Adds a pivot table in worksheet.
+    /// Add a PivotTable in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="PutWorksheetPivotTableRequest" /></param>
     public async putWorksheetPivotTable(requestObj:model.PutWorksheetPivotTableRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -2988,7 +3031,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Adds a pivot field in pivot table
+    /// Add a pivot field in the PivotTable.
     /// </summary>
     /// <param name="request">Request. <see cref="PutPivotTableFieldRequest" /></param>
     public async putPivotTableField(requestObj:model.PutPivotTableFieldRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -3004,7 +3047,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Adds a pivot filter for piovt table index
+    /// Add a pivot filter to the PivotTable.
     /// </summary>
     /// <param name="request">Request. <see cref="PutWorksheetPivotTableFilterRequest" /></param>
     public async putWorksheetPivotTableFilter(requestObj:model.PutWorksheetPivotTableFilterRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -3020,7 +3063,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Hides pivot field item in pivot table.
+    /// Hide a pivot field item in the PivotTable.
     /// </summary>
     /// <param name="request">Request. <see cref="PostPivotTableFieldHideItemRequest" /></param>
     public async postPivotTableFieldHideItem(requestObj:model.PostPivotTableFieldHideItemRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -3036,7 +3079,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Moves pivot field in pivot table.
+    /// Move a pivot field in the PivotTable.
     /// </summary>
     /// <param name="request">Request. <see cref="PostPivotTableFieldMoveToRequest" /></param>
     public async postPivotTableFieldMoveTo(requestObj:model.PostPivotTableFieldMoveToRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -3052,7 +3095,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Updates cell style in pivot table.
+    /// Update cell style in the PivotTable.
     /// </summary>
     /// <param name="request">Request. <see cref="PostPivotTableCellStyleRequest" /></param>
     public async postPivotTableCellStyle(requestObj:model.PostPivotTableCellStyleRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -3068,7 +3111,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Updates style in pivot table.
+    /// Update style in the PivotTable.
     /// </summary>
     /// <param name="request">Request. <see cref="PostPivotTableStyleRequest" /></param>
     public async postPivotTableStyle(requestObj:model.PostPivotTableStyleRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -3084,6 +3127,7 @@ export class CellsApi {
     }
 
     /// <summary>
+    /// Update pivot fields in the PivotTable.
     /// </summary>
     /// <param name="request">Request. <see cref="PostPivotTableUpdatePivotFieldsRequest" /></param>
     public async postPivotTableUpdatePivotFields(requestObj:model.PostPivotTableUpdatePivotFieldsRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -3099,6 +3143,7 @@ export class CellsApi {
     }
 
     /// <summary>
+    /// Update pivot field in the PivotTable.
     /// </summary>
     /// <param name="request">Request. <see cref="PostPivotTableUpdatePivotFieldRequest" /></param>
     public async postPivotTableUpdatePivotField(requestObj:model.PostPivotTableUpdatePivotFieldRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -3114,7 +3159,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Calculates pivottable's data to cells.
+    /// Calculate pivottable's data to cells.
     /// </summary>
     /// <param name="request">Request. <see cref="PostWorksheetPivotTableCalculateRequest" /></param>
     public async postWorksheetPivotTableCalculate(requestObj:model.PostWorksheetPivotTableCalculateRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -3130,7 +3175,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Moves pivot table in worksheet.
+    /// Move PivotTable in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="PostWorksheetPivotTableMoveRequest" /></param>
     public async postWorksheetPivotTableMove(requestObj:model.PostWorksheetPivotTableMoveRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -3146,7 +3191,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Delete pivot tables in worksheet.
+    /// Delete PivotTables in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="DeleteWorksheetPivotTablesRequest" /></param>
     public async deleteWorksheetPivotTables(requestObj:model.DeleteWorksheetPivotTablesRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -3162,7 +3207,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Deletes  pivot table by index in worksheet.
+    /// Delete PivotTable by index in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="DeleteWorksheetPivotTableRequest" /></param>
     public async deleteWorksheetPivotTable(requestObj:model.DeleteWorksheetPivotTableRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -3178,7 +3223,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Deletes pivot field in pivot table.
+    /// Delete a pivot field in the PivotTable.
     /// </summary>
     /// <param name="request">Request. <see cref="DeletePivotTableFieldRequest" /></param>
     public async deletePivotTableField(requestObj:model.DeletePivotTableFieldRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -3194,7 +3239,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Delete all pivot filters in piovt table.
+    /// Delete all pivot filters in the PivotTable.
     /// </summary>
     /// <param name="request">Request. <see cref="DeleteWorksheetPivotTableFiltersRequest" /></param>
     public async deleteWorksheetPivotTableFilters(requestObj:model.DeleteWorksheetPivotTableFiltersRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -3210,7 +3255,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Deletes a pivot filter in piovt table.
+    /// Delete a pivot filter in the PivotTable.
     /// </summary>
     /// <param name="request">Request. <see cref="DeleteWorksheetPivotTableFilterRequest" /></param>
     public async deleteWorksheetPivotTableFilter(requestObj:model.DeleteWorksheetPivotTableFilterRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -3226,7 +3271,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Get document properties description.
+    /// Retrieve descriptions of Excel file properties.
     /// </summary>
     /// <param name="request">Request. <see cref="GetDocumentPropertiesRequest" /></param>
     public async getDocumentProperties(requestObj:model.GetDocumentPropertiesRequest ): Promise<{response: http.ClientResponse, body: model.CellsDocumentPropertiesResponse}>
@@ -3242,7 +3287,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Sets/creates a sdocument property.
+    /// Set or add an Excel property.
     /// </summary>
     /// <param name="request">Request. <see cref="PutDocumentPropertyRequest" /></param>
     public async putDocumentProperty(requestObj:model.PutDocumentPropertyRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -3258,7 +3303,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Gets document property by name.
+    /// Get Excel property by name.
     /// </summary>
     /// <param name="request">Request. <see cref="GetDocumentPropertyRequest" /></param>
     public async getDocumentProperty(requestObj:model.GetDocumentPropertyRequest ): Promise<{response: http.ClientResponse, body: model.CellsDocumentPropertyResponse}>
@@ -3274,7 +3319,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Deletes a document property.
+    /// Delete an Excel property.
     /// </summary>
     /// <param name="request">Request. <see cref="DeleteDocumentPropertyRequest" /></param>
     public async deleteDocumentProperty(requestObj:model.DeleteDocumentPropertyRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -3290,7 +3335,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Delete all custom document properties and clean built-in ones.
+    /// Delete all custom document properties and reset built-in ones.
     /// </summary>
     /// <param name="request">Request. <see cref="DeleteDocumentPropertiesRequest" /></param>
     public async deleteDocumentProperties(requestObj:model.DeleteDocumentPropertiesRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -3466,7 +3511,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Copys content to destination range from source range in worksheet.
+    /// Copy content from the source range to the destination range in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="PostWorksheetCellsRangesCopyRequest" /></param>
     public async postWorksheetCellsRangesCopy(requestObj:model.PostWorksheetCellsRangesCopyRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -3482,7 +3527,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Combines a range of cells into a single cell.
+    /// Merge a range of cells into a single cell.
     /// </summary>
     /// <param name="request">Request. <see cref="PostWorksheetCellsRangeMergeRequest" /></param>
     public async postWorksheetCellsRangeMerge(requestObj:model.PostWorksheetCellsRangeMergeRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -3498,7 +3543,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Unmerges merged cells of this range.
+    /// Unmerge merged cells within this range.
     /// </summary>
     /// <param name="request">Request. <see cref="PostWorksheetCellsRangeUnMergeRequest" /></param>
     public async postWorksheetCellsRangeUnMerge(requestObj:model.PostWorksheetCellsRangeUnMergeRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -3514,7 +3559,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Sets the style of the range.
+    /// Set the style for the specified range.
     /// </summary>
     /// <param name="request">Request. <see cref="PostWorksheetCellsRangeStyleRequest" /></param>
     public async postWorksheetCellsRangeStyle(requestObj:model.PostWorksheetCellsRangeStyleRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -3530,7 +3575,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Get the value of cells in range.
+    /// Retrieve the values of cells within the specified range.
     /// </summary>
     /// <param name="request">Request. <see cref="GetWorksheetCellsRangeValueRequest" /></param>
     public async getWorksheetCellsRangeValue(requestObj:model.GetWorksheetCellsRangeValueRequest ): Promise<{response: http.ClientResponse, body: model.RangeValueResponse}>
@@ -3546,7 +3591,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Puts a value into the range, if appropriate the value will be converted to other data type and cell's number format will be reset.
+    /// Assign a value to the range; if necessary, the value will be converted to another data type, and the cell's number format will be reset.
     /// </summary>
     /// <param name="request">Request. <see cref="PostWorksheetCellsRangeValueRequest" /></param>
     public async postWorksheetCellsRangeValue(requestObj:model.PostWorksheetCellsRangeValueRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -3562,7 +3607,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Moves the current range to the dest range.
+    /// Move the current range to the destination range.
     /// </summary>
     /// <param name="request">Request. <see cref="PostWorksheetCellsRangeMoveToRequest" /></param>
     public async postWorksheetCellsRangeMoveTo(requestObj:model.PostWorksheetCellsRangeMoveToRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -3578,7 +3623,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Sets data sort around a range of cells.
+    /// Perform data sorting around a range of cells.
     /// </summary>
     /// <param name="request">Request. <see cref="PostWorksheetCellsRangeSortRequest" /></param>
     public async postWorksheetCellsRangeSort(requestObj:model.PostWorksheetCellsRangeSortRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -3594,7 +3639,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Sets outline border around a range of cells.
+    /// Apply an outline border around a range of cells.
     /// </summary>
     /// <param name="request">Request. <see cref="PostWorksheetCellsRangeOutlineBorderRequest" /></param>
     public async postWorksheetCellsRangeOutlineBorder(requestObj:model.PostWorksheetCellsRangeOutlineBorderRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -3610,7 +3655,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Sets column width of range.
+    /// Set the column width of the specified range.
     /// </summary>
     /// <param name="request">Request. <see cref="PostWorksheetCellsRangeColumnWidthRequest" /></param>
     public async postWorksheetCellsRangeColumnWidth(requestObj:model.PostWorksheetCellsRangeColumnWidthRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -3642,7 +3687,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Inserts a range of cells and shift cells according to the shift option.
+    /// Insert a range of cells and shift existing cells based on the specified shift option.
     /// </summary>
     /// <param name="request">Request. <see cref="PutWorksheetCellsRangeRequest" /></param>
     public async putWorksheetCellsRange(requestObj:model.PutWorksheetCellsRangeRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -3658,7 +3703,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Deletes a range of cells and shift cells according to the shift option.
+    /// Delete a range of cells and shift existing cells based on the specified shift option.
     /// </summary>
     /// <param name="request">Request. <see cref="DeleteWorksheetCellsRangeRequest" /></param>
     public async deleteWorksheetCellsRange(requestObj:model.DeleteWorksheetCellsRangeRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -3674,7 +3719,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Get shapes description in worksheet.
+    /// Retrieve descriptions of shapes in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="GetWorksheetShapesRequest" /></param>
     public async getWorksheetShapes(requestObj:model.GetWorksheetShapesRequest ): Promise<{response: http.ClientResponse, body: model.ShapesResponse}>
@@ -3690,7 +3735,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Gets shape description in worksheet.
+    /// Retrieve description of shape in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="GetWorksheetShapeRequest" /></param>
     public async getWorksheetShape(requestObj:model.GetWorksheetShapeRequest ): Promise<{response: http.ClientResponse, body: model.ShapeResponse}>
@@ -3706,7 +3751,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Adds shape in worksheet.
+    /// Add a shape in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="PutWorksheetShapeRequest" /></param>
     public async putWorksheetShape(requestObj:model.PutWorksheetShapeRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -3722,7 +3767,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// delete all shapes in worksheet.
+    /// Delete all shapes in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="DeleteWorksheetShapesRequest" /></param>
     public async deleteWorksheetShapes(requestObj:model.DeleteWorksheetShapesRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -3738,7 +3783,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Deletes a shape in worksheet.
+    /// Delete a shape in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="DeleteWorksheetShapeRequest" /></param>
     public async deleteWorksheetShape(requestObj:model.DeleteWorksheetShapeRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -3754,7 +3799,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Updates a shape in worksheet.
+    /// Update a shape in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="PostWorksheetShapeRequest" /></param>
     public async postWorksheetShape(requestObj:model.PostWorksheetShapeRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -3770,6 +3815,7 @@ export class CellsApi {
     }
 
     /// <summary>
+    /// Group shapes in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="PostWorksheetGroupShapeRequest" /></param>
     public async postWorksheetGroupShape(requestObj:model.PostWorksheetGroupShapeRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -3785,6 +3831,7 @@ export class CellsApi {
     }
 
     /// <summary>
+    /// Ungroup shapes in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="PostWorksheetUngroupShapeRequest" /></param>
     public async postWorksheetUngroupShape(requestObj:model.PostWorksheetUngroupShapeRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -3800,7 +3847,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Get worksheet sparkline groups description.
+    /// Retrieve descriptions of sparkline groups in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="GetWorksheetSparklineGroupsRequest" /></param>
     public async getWorksheetSparklineGroups(requestObj:model.GetWorksheetSparklineGroupsRequest ): Promise<{response: http.ClientResponse, body: model.SparklineGroupsResponse}>
@@ -3816,7 +3863,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Get worksheet sparkline group description.
+    /// Retrieve description of a sparkline group in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="GetWorksheetSparklineGroupRequest" /></param>
     public async getWorksheetSparklineGroup(requestObj:model.GetWorksheetSparklineGroupRequest ): Promise<{response: http.ClientResponse, body: model.SparklineGroupResponse}>
@@ -3832,7 +3879,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Delete worksheet sparkline groups description.
+    /// Delete sparkline groups in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="DeleteWorksheetSparklineGroupsRequest" /></param>
     public async deleteWorksheetSparklineGroups(requestObj:model.DeleteWorksheetSparklineGroupsRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -3848,7 +3895,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Delete worksheet sparkline group description.
+    /// Delete a sparkline group in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="DeleteWorksheetSparklineGroupRequest" /></param>
     public async deleteWorksheetSparklineGroup(requestObj:model.DeleteWorksheetSparklineGroupRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -3864,7 +3911,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Put worksheet sparkline group description.
+    /// Add a sparkline group in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="PutWorksheetSparklineGroupRequest" /></param>
     public async putWorksheetSparklineGroup(requestObj:model.PutWorksheetSparklineGroupRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -3880,7 +3927,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Post worksheet sparkline group description.
+    /// Update a sparkline group in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="PostWorksheetSparklineGroupRequest" /></param>
     public async postWorksheetSparklineGroup(requestObj:model.PostWorksheetSparklineGroupRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -3912,7 +3959,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Gets workbook default style description.
+    /// Retrieve the description of the default style for the workbook.
     /// </summary>
     /// <param name="request">Request. <see cref="GetWorkbookDefaultStyleRequest" /></param>
     public async getWorkbookDefaultStyle(requestObj:model.GetWorkbookDefaultStyleRequest ): Promise<{response: http.ClientResponse, body: model.StyleResponse}>
@@ -3928,7 +3975,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Get workbook's text items.
+    /// Retrieve text items in the workbook.
     /// </summary>
     /// <param name="request">Request. <see cref="GetWorkbookTextItemsRequest" /></param>
     public async getWorkbookTextItems(requestObj:model.GetWorkbookTextItemsRequest ): Promise<{response: http.ClientResponse, body: model.TextItemsResponse}>
@@ -3944,7 +3991,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Get workbook's names.
+    /// Retrieve named ranges in the workbook.
     /// </summary>
     /// <param name="request">Request. <see cref="GetWorkbookNamesRequest" /></param>
     public async getWorkbookNames(requestObj:model.GetWorkbookNamesRequest ): Promise<{response: http.ClientResponse, body: model.NamesResponse}>
@@ -3960,7 +4007,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Defines a new name in workbook.
+    /// Define a new name in the workbook.
     /// </summary>
     /// <param name="request">Request. <see cref="PutWorkbookNameRequest" /></param>
     public async putWorkbookName(requestObj:model.PutWorkbookNameRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -3976,7 +4023,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Gets workbook's name description.
+    /// Retrieve description of a named range in the workbook.
     /// </summary>
     /// <param name="request">Request. <see cref="GetWorkbookNameRequest" /></param>
     public async getWorkbookName(requestObj:model.GetWorkbookNameRequest ): Promise<{response: http.ClientResponse, body: model.NameResponse}>
@@ -3992,7 +4039,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Update workbook's name.
+    /// Update a named range in the workbook.
     /// </summary>
     /// <param name="request">Request. <see cref="PostWorkbookNameRequest" /></param>
     public async postWorkbookName(requestObj:model.PostWorkbookNameRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -4008,7 +4055,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Gets workbook's name value.
+    /// Retrieve the value of a named range in the workbook.
     /// </summary>
     /// <param name="request">Request. <see cref="GetWorkbookNameValueRequest" /></param>
     public async getWorkbookNameValue(requestObj:model.GetWorkbookNameValueRequest ): Promise<{response: http.ClientResponse, body: model.RangeValueResponse}>
@@ -4024,7 +4071,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Delete workbook's names.
+    /// Delete all named ranges in the workbook.
     /// </summary>
     /// <param name="request">Request. <see cref="DeleteWorkbookNamesRequest" /></param>
     public async deleteWorkbookNames(requestObj:model.DeleteWorkbookNamesRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -4040,7 +4087,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Gets workbook's name description.
+    /// Delete a named range in the workbook.
     /// </summary>
     /// <param name="request">Request. <see cref="DeleteWorkbookNameRequest" /></param>
     public async deleteWorkbookName(requestObj:model.DeleteWorkbookNameRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -4056,7 +4103,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Merge workbooks.
+    /// Merge a workbook into the existing workbook.
     /// </summary>
     /// <param name="request">Request. <see cref="PostWorkbooksMergeRequest" /></param>
     public async postWorkbooksMerge(requestObj:model.PostWorkbooksMergeRequest ): Promise<{response: http.ClientResponse, body: model.WorkbookResponse}>
@@ -4072,7 +4119,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Search text in workbook.
+    /// Search for text in the workbook.
     /// </summary>
     /// <param name="request">Request. <see cref="PostWorkbooksTextSearchRequest" /></param>
     public async postWorkbooksTextSearch(requestObj:model.PostWorkbooksTextSearchRequest ): Promise<{response: http.ClientResponse, body: model.TextItemsResponse}>
@@ -4088,7 +4135,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Replaces text in workbook.
+    /// Replace text in the workbook.
     /// </summary>
     /// <param name="request">Request. <see cref="PostWorkbookTextReplaceRequest" /></param>
     public async postWorkbookTextReplace(requestObj:model.PostWorkbookTextReplaceRequest ): Promise<{response: http.ClientResponse, body: model.WorkbookReplaceResponse}>
@@ -4104,7 +4151,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Smart marker processing result.
+    /// Smart marker processing.
     /// </summary>
     /// <param name="request">Request. <see cref="PostWorkbookGetSmartMarkerResultRequest" /></param>
     public async postWorkbookGetSmartMarkerResult(requestObj:model.PostWorkbookGetSmartMarkerResultRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
@@ -4120,7 +4167,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Creates new workbook using deferent methods.
+    /// Create a new workbook using different methods.
     /// </summary>
     /// <param name="request">Request. <see cref="PutWorkbookCreateRequest" /></param>
     public async putWorkbookCreate(requestObj:model.PutWorkbookCreateRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -4136,7 +4183,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Splits workbook.
+    /// Split the workbook with a specific format.
     /// </summary>
     /// <param name="request">Request. <see cref="PostWorkbookSplitRequest" /></param>
     public async postWorkbookSplit(requestObj:model.PostWorkbookSplitRequest ): Promise<{response: http.ClientResponse, body: model.SplitResultResponse}>
@@ -4152,7 +4199,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Calculate all formulas in workbook.
+    /// Calculate all formulas in the workbook.
     /// </summary>
     /// <param name="request">Request. <see cref="PostWorkbookCalculateFormulaRequest" /></param>
     public async postWorkbookCalculateFormula(requestObj:model.PostWorkbookCalculateFormulaRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -4168,7 +4215,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Autofit workbook rows.
+    /// Autofit rows in the workbook.
     /// </summary>
     /// <param name="request">Request. <see cref="PostAutofitWorkbookRowsRequest" /></param>
     public async postAutofitWorkbookRows(requestObj:model.PostAutofitWorkbookRowsRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -4184,6 +4231,7 @@ export class CellsApi {
     }
 
     /// <summary>
+    /// Autofit columns in the workbook.
     /// </summary>
     /// <param name="request">Request. <see cref="PostAutofitWorkbookColumnsRequest" /></param>
     public async postAutofitWorkbookColumns(requestObj:model.PostAutofitWorkbookColumnsRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -4199,7 +4247,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Gets workbook settings description.
+    /// Retrieve descriptions of workbook settings.
     /// </summary>
     /// <param name="request">Request. <see cref="GetWorkbookSettingsRequest" /></param>
     public async getWorkbookSettings(requestObj:model.GetWorkbookSettingsRequest ): Promise<{response: http.ClientResponse, body: model.WorkbookSettingsResponse}>
@@ -4215,7 +4263,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Updates workbook setting.
+    /// Update setting in the workbook.
     /// </summary>
     /// <param name="request">Request. <see cref="PostWorkbookSettingsRequest" /></param>
     public async postWorkbookSettings(requestObj:model.PostWorkbookSettingsRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -4231,7 +4279,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Set workbook background.
+    /// Set background in the workbook.
     /// </summary>
     /// <param name="request">Request. <see cref="PutWorkbookBackgroundRequest" /></param>
     public async putWorkbookBackground(requestObj:model.PutWorkbookBackgroundRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -4247,7 +4295,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Delete workbook background.
+    /// Delete background in the workbook.
     /// </summary>
     /// <param name="request">Request. <see cref="DeleteWorkbookBackgroundRequest" /></param>
     public async deleteWorkbookBackground(requestObj:model.DeleteWorkbookBackgroundRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -4263,7 +4311,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Set workbook water marker.
+    /// Set water marker in the workbook.
     /// </summary>
     /// <param name="request">Request. <see cref="PutWorkbookWaterMarkerRequest" /></param>
     public async putWorkbookWaterMarker(requestObj:model.PutWorkbookWaterMarkerRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -4279,6 +4327,7 @@ export class CellsApi {
     }
 
     /// <summary>
+    /// Get page count in the workbook.
     /// </summary>
     /// <param name="request">Request. <see cref="GetPageCountRequest" /></param>
     public async getPageCount(requestObj:model.GetPageCountRequest ): Promise<{response: http.ClientResponse, body: number}>
@@ -4294,7 +4343,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Get worksheets description.
+    /// Retrieve the description of worksheets from a workbook.
     /// </summary>
     /// <param name="request">Request. <see cref="GetWorksheetsRequest" /></param>
     public async getWorksheets(requestObj:model.GetWorksheetsRequest ): Promise<{response: http.ClientResponse, body: model.WorksheetsResponse}>
@@ -4310,7 +4359,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Gets worksheet in some format.
+    /// Retrieve the worksheet in a specified format from the workbook.
     /// </summary>
     /// <param name="request">Request. <see cref="GetWorksheetWithFormatRequest" /></param>
     public async getWorksheetWithFormat(requestObj:model.GetWorksheetWithFormatRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
@@ -4326,7 +4375,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Changes worksheet visibility.
+    /// Change worksheet visibility in the workbook.
     /// </summary>
     /// <param name="request">Request. <see cref="PutChangeVisibilityWorksheetRequest" /></param>
     public async putChangeVisibilityWorksheet(requestObj:model.PutChangeVisibilityWorksheetRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -4342,7 +4391,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Active sheet
+    /// Set active worksheet index in the workbook.
     /// </summary>
     /// <param name="request">Request. <see cref="PutActiveWorksheetRequest" /></param>
     public async putActiveWorksheet(requestObj:model.PutActiveWorksheetRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -4358,7 +4407,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Inserts new worksheet in workbook.
+    /// Insert a new worksheet in the workbook.
     /// </summary>
     /// <param name="request">Request. <see cref="PutInsertNewWorksheetRequest" /></param>
     public async putInsertNewWorksheet(requestObj:model.PutInsertNewWorksheetRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -4374,7 +4423,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Adds new worksheet in workbook.
+    /// Add a new worksheet in the workbook.
     /// </summary>
     /// <param name="request">Request. <see cref="PutAddNewWorksheetRequest" /></param>
     public async putAddNewWorksheet(requestObj:model.PutAddNewWorksheetRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -4390,7 +4439,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Deletes a worksheet in workbook.
+    /// Delete a worksheet in the workbook.
     /// </summary>
     /// <param name="request">Request. <see cref="DeleteWorksheetRequest" /></param>
     public async deleteWorksheet(requestObj:model.DeleteWorksheetRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -4406,6 +4455,7 @@ export class CellsApi {
     }
 
     /// <summary>
+    /// Delete matched worksheets in the workbook.
     /// </summary>
     /// <param name="request">Request. <see cref="DeleteWorksheetsRequest" /></param>
     public async deleteWorksheets(requestObj:model.DeleteWorksheetsRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -4421,7 +4471,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Move worksheet in workbook.
+    /// Move worksheet in the workbook.
     /// </summary>
     /// <param name="request">Request. <see cref="PostMoveWorksheetRequest" /></param>
     public async postMoveWorksheet(requestObj:model.PostMoveWorksheetRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -4437,7 +4487,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Protects worksheet.
+    /// Protect worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="PutProtectWorksheetRequest" /></param>
     public async putProtectWorksheet(requestObj:model.PutProtectWorksheetRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -4453,7 +4503,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Unprotects worksheet.
+    /// Unprotect worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="DeleteUnprotectWorksheetRequest" /></param>
     public async deleteUnprotectWorksheet(requestObj:model.DeleteUnprotectWorksheetRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -4469,7 +4519,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Get text items in worksheet.
+    /// Retrieve text items in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="GetWorksheetTextItemsRequest" /></param>
     public async getWorksheetTextItems(requestObj:model.GetWorksheetTextItemsRequest ): Promise<{response: http.ClientResponse, body: model.TextItemsResponse}>
@@ -4485,7 +4535,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Get comments description in worksheet.
+    /// Retrieve the description of comments in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="GetWorksheetCommentsRequest" /></param>
     public async getWorksheetComments(requestObj:model.GetWorksheetCommentsRequest ): Promise<{response: http.ClientResponse, body: model.CommentsResponse}>
@@ -4501,7 +4551,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Gets comment by cell name in worksheet.
+    /// Retrieve the description of comment in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="GetWorksheetCommentRequest" /></param>
     public async getWorksheetComment(requestObj:model.GetWorksheetCommentRequest ): Promise<{response: http.ClientResponse, body: model.CommentResponse}>
@@ -4517,7 +4567,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Adds cell comment in worksheet.
+    /// Add cell comment in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="PutWorksheetCommentRequest" /></param>
     public async putWorksheetComment(requestObj:model.PutWorksheetCommentRequest ): Promise<{response: http.ClientResponse, body: model.CommentResponse}>
@@ -4533,7 +4583,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Updates cell comment in worksheet.
+    /// Update cell comment in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="PostWorksheetCommentRequest" /></param>
     public async postWorksheetComment(requestObj:model.PostWorksheetCommentRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -4549,7 +4599,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Deletes cell comment in worksheet.
+    /// Delete cell comment in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="DeleteWorksheetCommentRequest" /></param>
     public async deleteWorksheetComment(requestObj:model.DeleteWorksheetCommentRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -4565,7 +4615,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Delete all comments in worksheet.
+    /// Delete all comments in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="DeleteWorksheetCommentsRequest" /></param>
     public async deleteWorksheetComments(requestObj:model.DeleteWorksheetCommentsRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -4597,7 +4647,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Gets merged cell description by its index in worksheet.
+    /// Retrieve description of a merged cell by its index in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="GetWorksheetMergedCellRequest" /></param>
     public async getWorksheetMergedCell(requestObj:model.GetWorksheetMergedCellRequest ): Promise<{response: http.ClientResponse, body: model.MergedCellResponse}>
@@ -4613,7 +4663,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Calculates formula value in worksheet.
+    /// Calculate formula in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="GetWorksheetCalculateFormulaRequest" /></param>
     public async getWorksheetCalculateFormula(requestObj:model.GetWorksheetCalculateFormulaRequest ): Promise<{response: http.ClientResponse, body: model.SingleValueResponse}>
@@ -4629,7 +4679,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Calculates formula value in worksheet.
+    /// Calculate formula in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="PostWorksheetCalculateFormulaRequest" /></param>
     public async postWorksheetCalculateFormula(requestObj:model.PostWorksheetCalculateFormulaRequest ): Promise<{response: http.ClientResponse, body: model.SingleValueResponse}>
@@ -4645,7 +4695,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Searchs text in worksheet.
+    /// Search for text in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="PostWorksheetTextSearchRequest" /></param>
     public async postWorksheetTextSearch(requestObj:model.PostWorksheetTextSearchRequest ): Promise<{response: http.ClientResponse, body: model.TextItemsResponse}>
@@ -4661,13 +4711,13 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Replaces text in worksheet.
+    /// Replace old text with new text in the worksheet.
     /// </summary>
-    /// <param name="request">Request. <see cref="PostWorsheetTextReplaceRequest" /></param>
-    public async postWorsheetTextReplace(requestObj:model.PostWorsheetTextReplaceRequest ): Promise<{response: http.ClientResponse, body: model.WorksheetReplaceResponse}>
+    /// <param name="request">Request. <see cref="PostWorksheetTextReplaceRequest" /></param>
+    public async postWorksheetTextReplace(requestObj:model.PostWorksheetTextReplaceRequest ): Promise<{response: http.ClientResponse, body: model.WorksheetReplaceResponse}>
     {
         if (requestObj === null || requestObj === undefined) {
-            throw new Error('Required parameter "requestObj" was null or undefined when calling postWorsheetTextReplace.');
+            throw new Error('Required parameter "requestObj" was null or undefined when calling postWorksheetTextReplace.');
         }
 
         const requestOptions = await requestObj.createRequestOptions(this.configuration);
@@ -4677,7 +4727,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Sorts range in worksheet.
+    /// Sort a range in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="PostWorksheetRangeSortRequest" /></param>
     public async postWorksheetRangeSort(requestObj:model.PostWorksheetRangeSortRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -4693,7 +4743,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Autofits row in worksheet.
+    /// Autofit a row in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="PostAutofitWorksheetRowRequest" /></param>
     public async postAutofitWorksheetRow(requestObj:model.PostAutofitWorksheetRowRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -4709,7 +4759,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Autofit rows in worksheet.
+    /// Autofit rows in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="PostAutofitWorksheetRowsRequest" /></param>
     public async postAutofitWorksheetRows(requestObj:model.PostAutofitWorksheetRowsRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -4725,6 +4775,7 @@ export class CellsApi {
     }
 
     /// <summary>
+    /// Autofit columns in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="PostAutofitWorksheetColumnsRequest" /></param>
     public async postAutofitWorksheetColumns(requestObj:model.PostAutofitWorksheetColumnsRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -4740,7 +4791,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Sets background image in worksheet.
+    /// Set background image in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="PutWorksheetBackgroundRequest" /></param>
     public async putWorksheetBackground(requestObj:model.PutWorksheetBackgroundRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -4756,7 +4807,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Delete background image in worksheet.
+    /// Delete background image in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="DeleteWorksheetBackgroundRequest" /></param>
     public async deleteWorksheetBackground(requestObj:model.DeleteWorksheetBackgroundRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -4772,7 +4823,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Sets freeze panes in worksheet.
+    /// Set freeze panes in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="PutWorksheetFreezePanesRequest" /></param>
     public async putWorksheetFreezePanes(requestObj:model.PutWorksheetFreezePanesRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -4788,7 +4839,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Unfreezes panes in worksheet.
+    /// Unfreeze panes in worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="DeleteWorksheetFreezePanesRequest" /></param>
     public async deleteWorksheetFreezePanes(requestObj:model.DeleteWorksheetFreezePanesRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -4804,7 +4855,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Copies contents and formats from another worksheet.
+    /// Copy contents and formats from another worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="PostCopyWorksheetRequest" /></param>
     public async postCopyWorksheet(requestObj:model.PostCopyWorksheetRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -4820,7 +4871,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Rename worksheet.
+    /// Rename worksheet in the workbook.
     /// </summary>
     /// <param name="request">Request. <see cref="PostRenameWorksheetRequest" /></param>
     public async postRenameWorksheet(requestObj:model.PostRenameWorksheetRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -4836,7 +4887,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Update worksheet properties.
+    /// Update worksheet properties in the workbook.
     /// </summary>
     /// <param name="request">Request. <see cref="PostUpdateWorksheetPropertyRequest" /></param>
     public async postUpdateWorksheetProperty(requestObj:model.PostUpdateWorksheetPropertyRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -4852,7 +4903,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Get worksheets ranges description.
+    /// Retrieve descriptions of ranges in the worksheets.
     /// </summary>
     /// <param name="request">Request. <see cref="GetNamedRangesRequest" /></param>
     public async getNamedRanges(requestObj:model.GetNamedRangesRequest ): Promise<{response: http.ClientResponse, body: model.RangesResponse}>
@@ -4868,7 +4919,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Get range values.
+    /// Retrieve values in range.
     /// </summary>
     /// <param name="request">Request. <see cref="GetNamedRangeValueRequest" /></param>
     public async getNamedRangeValue(requestObj:model.GetNamedRangeValueRequest ): Promise<{response: http.ClientResponse, body: model.RangeValueResponse}>
@@ -4884,7 +4935,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Updates worksheet zoom.
+    /// Update the scaling percentage in the worksheet. It should be between 10 and 400.
     /// </summary>
     /// <param name="request">Request. <see cref="PostUpdateWorksheetZoomRequest" /></param>
     public async postUpdateWorksheetZoom(requestObj:model.PostUpdateWorksheetZoomRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -4900,6 +4951,7 @@ export class CellsApi {
     }
 
     /// <summary>
+    /// Get page count in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="GetWorksheetPageCountRequest" /></param>
     public async getWorksheetPageCount(requestObj:model.GetWorksheetPageCountRequest ): Promise<{response: http.ClientResponse, body: number}>
@@ -4915,7 +4967,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Get validations description in worksheet.
+    /// Retrieve descriptions of validations in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="GetWorksheetValidationsRequest" /></param>
     public async getWorksheetValidations(requestObj:model.GetWorksheetValidationsRequest ): Promise<{response: http.ClientResponse, body: model.ValidationsResponse}>
@@ -4931,7 +4983,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Gets a validation by index in worksheet.
+    /// Retrieve a validation by its index in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="GetWorksheetValidationRequest" /></param>
     public async getWorksheetValidation(requestObj:model.GetWorksheetValidationRequest ): Promise<{response: http.ClientResponse, body: model.ValidationResponse}>
@@ -4947,7 +4999,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Adds a validation at index in worksheet.
+    /// Add a validation at index in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="PutWorksheetValidationRequest" /></param>
     public async putWorksheetValidation(requestObj:model.PutWorksheetValidationRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -4963,7 +5015,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Updates a validation by index in worksheet.
+    /// Update a validation by index in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="PostWorksheetValidationRequest" /></param>
     public async postWorksheetValidation(requestObj:model.PostWorksheetValidationRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -4979,7 +5031,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Deletes a validation by index in worksheet.
+    /// Delete a validation by index in worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="DeleteWorksheetValidationRequest" /></param>
     public async deleteWorksheetValidation(requestObj:model.DeleteWorksheetValidationRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -4995,7 +5047,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Delete all validations in worksheet.
+    /// Delete all validations in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="DeleteWorksheetValidationsRequest" /></param>
     public async deleteWorksheetValidations(requestObj:model.DeleteWorksheetValidationsRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
