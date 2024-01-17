@@ -24,7 +24,6 @@
 
 
 import http = require("http");
-import request = require("request");
 
 import { Configuration } from "./internal/configuration";
 import { ObjectSerializer } from "./internal/objectSerializer";
