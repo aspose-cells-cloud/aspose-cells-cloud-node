@@ -197,4 +197,52 @@ describe('PageSetupController test', function() {
         });
       });
     }); 
+    describe('post_fit_wide_to_pages test', function(){
+      it("should call PostFitWideToPages successfully" , function(){
+        var remoteFolder = "TestData/In"
+      
+        var localName = "Book1.xlsx"
+        var remoteName = "Book1.xlsx"
+
+        var localNameRequest = new  model.UploadFileRequest();
+        localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
+        localNameRequest.path = remoteFolder + "/" + remoteName ;
+        localNameRequest.storageName ="";
+        cellsApi.uploadFile(localNameRequest );
+     
+
+        var request = new model.PostFitWideToPagesRequest();
+        request.name =  remoteName;
+        request.sheetName =  "Sheet1";
+        request.folder =  remoteFolder;
+        request.storageName =  "";
+        return cellsApi.postFitWideToPages(request).then((result) => {
+            expect(result.response.statusCode).to.equal(200);
+        });
+      });
+    }); 
+    describe('post_fit_tall_to_pages test', function(){
+      it("should call PostFitTallToPages successfully" , function(){
+        var remoteFolder = "TestData/In"
+      
+        var localName = "Book1.xlsx"
+        var remoteName = "Book1.xlsx"
+
+        var localNameRequest = new  model.UploadFileRequest();
+        localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
+        localNameRequest.path = remoteFolder + "/" + remoteName ;
+        localNameRequest.storageName ="";
+        cellsApi.uploadFile(localNameRequest );
+     
+
+        var request = new model.PostFitTallToPagesRequest();
+        request.name =  remoteName;
+        request.sheetName =  "Sheet1";
+        request.folder =  remoteFolder;
+        request.storageName =  "";
+        return cellsApi.postFitTallToPages(request).then((result) => {
+            expect(result.response.statusCode).to.equal(200);
+        });
+      });
+    }); 
 });

@@ -1,10 +1,11 @@
-# **cellsDocumentProperties**
+# **excelDataStatistics**
 
-Excel properties 
+ 
 
 ## **Properties**
 
 | Property Name | Property Type | Nullable |  ReadOnly | DefaultValue | Description | 
 | :- | :- | :- |:- |  :- | :- |
-|DocumentPropertyList|Container|true|false |  |Document property list.|
+|WorksheetDataStatistics|Container|true|false |  ||
+|NamesCount|Integer|true|false |  ||
 
