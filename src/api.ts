@@ -1910,6 +1910,118 @@ export class CellsApi {
     }
 
     /// <summary>
+    /// Data cleaning of spreadsheet files is a data management process used to identify, correct, and remove errors, incompleteness, duplicates, or inaccuracies in tables and ranges.
+    /// </summary>
+    /// <param name="request">Request. <see cref="PostWorkbookDataCleansingRequest" /></param>
+    public async postWorkbookDataCleansing(requestObj:model.PostWorkbookDataCleansingRequest ): Promise<{response: http.ClientResponse, body: model.FileInfo}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling postWorkbookDataCleansing.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "FileInfo");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// Data cleansing of spreadsheet files is a data management process used to identify, correct, and remove errors, incompleteness, duplicates, or inaccuracies in tables and ranges.
+    /// </summary>
+    /// <param name="request">Request. <see cref="PostDataCleansingRequest" /></param>
+    public async postDataCleansing(requestObj:model.PostDataCleansingRequest ): Promise<{response: http.ClientResponse, body: model.FileInfo}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling postDataCleansing.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "FileInfo");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// Data deduplication of spreadsheet files is mainly used to eliminate duplicate data in tables and ranges.
+    /// </summary>
+    /// <param name="request">Request. <see cref="PostWorkbookDataDeduplicationRequest" /></param>
+    public async postWorkbookDataDeduplication(requestObj:model.PostWorkbookDataDeduplicationRequest ): Promise<{response: http.ClientResponse, body: model.FileInfo}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling postWorkbookDataDeduplication.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "FileInfo");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// Data deduplication of spreadsheet files is mainly used to eliminate duplicate data in tables and ranges.
+    /// </summary>
+    /// <param name="request">Request. <see cref="PostDataDeduplicationRequest" /></param>
+    public async postDataDeduplication(requestObj:model.PostDataDeduplicationRequest ): Promise<{response: http.ClientResponse, body: model.FileInfo}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling postDataDeduplication.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "FileInfo");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// Data filling for spreadsheet files is primarily used to fill empty data in tables and ranges.
+    /// </summary>
+    /// <param name="request">Request. <see cref="PostWorkbookDataFillRequest" /></param>
+    public async postWorkbookDataFill(requestObj:model.PostWorkbookDataFillRequest ): Promise<{response: http.ClientResponse, body: model.FileInfo}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling postWorkbookDataFill.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "FileInfo");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// Data filling for spreadsheet files is primarily used to fill empty data in tables and ranges.
+    /// </summary>
+    /// <param name="request">Request. <see cref="PostDataFillRequest" /></param>
+    public async postDataFill(requestObj:model.PostDataFillRequest ): Promise<{response: http.ClientResponse, body: model.FileInfo}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling postDataFill.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "FileInfo");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// Deleting incomplete rows of spreadsheet files is mainly used to eliminate incomplete rows in tables and ranges.
+    /// </summary>
+    /// <param name="request">Request. <see cref="PostDeleteIncompleteRowsRequest" /></param>
+    public async postDeleteIncompleteRows(requestObj:model.PostDeleteIncompleteRowsRequest ): Promise<{response: http.ClientResponse, body: model.FileInfo}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling postDeleteIncompleteRows.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "FileInfo");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
     /// Retrieve descriptions of hyperlinks in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="GetWorksheetHyperlinksRequest" /></param>

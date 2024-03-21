@@ -2397,6 +2397,243 @@ export class DataBar  {
         Object.assign(this, init);
     } 
 }
+   
+export class DataFill  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "ranges",
+            baseName: "Ranges",
+            type: "Array<Range>",
+        },
+        {
+            name: "dataFillDefaultValue",
+            baseName: "DataFillDefaultValue",
+            type: "DataFillValue",
+        },
+        {
+            name: "dataColumnFillValueList",
+            baseName: "DataColumnFillValueList",
+            type: "Array<DataColumnFillValue>",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return  DataFill.attributeTypeMap;
+
+    }
+
+    public ranges: Array<Range>;
+    public dataFillDefaultValue: DataFillValue;
+    public dataColumnFillValueList: Array<DataColumnFillValue>;
+
+    public constructor(init?: Partial< DataFill >) {  
+    
+        Object.assign(this, init);
+    } 
+}
+   
+export class Range  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "columnCount",
+            baseName: "ColumnCount",
+            type: "number",
+        },
+        {
+            name: "columnWidth",
+            baseName: "ColumnWidth",
+            type: "number",
+        },
+        {
+            name: "firstColumn",
+            baseName: "FirstColumn",
+            type: "number",
+        },
+        {
+            name: "firstRow",
+            baseName: "FirstRow",
+            type: "number",
+        },
+        {
+            name: "name",
+            baseName: "Name",
+            type: "string",
+        },
+        {
+            name: "refersTo",
+            baseName: "RefersTo",
+            type: "string",
+        },
+        {
+            name: "rowCount",
+            baseName: "RowCount",
+            type: "number",
+        },
+        {
+            name: "rowHeight",
+            baseName: "RowHeight",
+            type: "number",
+        },
+        {
+            name: "worksheet",
+            baseName: "Worksheet",
+            type: "string",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return  Range.attributeTypeMap;
+
+    }
+
+    public columnCount: number;
+    public columnWidth: number;
+    public firstColumn: number;
+    public firstRow: number;
+    public name: string;
+    public refersTo: string;
+    public rowCount: number;
+    public rowHeight: number;
+    public worksheet: string;
+
+    public constructor(init?: Partial< Range >) {  
+    
+        Object.assign(this, init);
+    } 
+}
+/// Data Cleansing   
+export class DataCleansing  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "ranges",
+            baseName: "Ranges",
+            type: "Array<Range>",
+        },
+        {
+            name: "needFillData",
+            baseName: "NeedFillData",
+            type: "boolean",
+        },
+        {
+            name: "dataFill",
+            baseName: "DataFill",
+            type: "DataFill",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return  DataCleansing.attributeTypeMap;
+
+    }
+
+    public ranges: Array<Range>;
+    public needFillData: boolean;
+    public dataFill: DataFill;
+
+    public constructor(init?: Partial< DataCleansing >) {  
+    
+        Object.assign(this, init);
+    } 
+}
+   
+export class DataFillValue  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "defaultBoolean",
+            baseName: "DefaultBoolean",
+            type: "boolean",
+        },
+        {
+            name: "defaultString",
+            baseName: "DefaultString",
+            type: "string",
+        },
+        {
+            name: "defaultNumber",
+            baseName: "DefaultNumber",
+            type: "number",
+        },
+        {
+            name: "defaultDouble",
+            baseName: "DefaultDouble",
+            type: "number",
+        },
+        {
+            name: "defaultDate",
+            baseName: "DefaultDate",
+            type: "string",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return  DataFillValue.attributeTypeMap;
+
+    }
+
+    public defaultBoolean: boolean;
+    public defaultString: string;
+    public defaultNumber: number;
+    public defaultDouble: number;
+    public defaultDate: string;
+
+    public constructor(init?: Partial< DataFillValue >) {  
+    
+        Object.assign(this, init);
+    } 
+}
+   
+export class DataColumnFillValue  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "columnIndex",
+            baseName: "ColumnIndex",
+            type: "number",
+        },
+        {
+            name: "dataFillValue",
+            baseName: "DataFillValue",
+            type: "DataFillValue",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return  DataColumnFillValue.attributeTypeMap;
+
+    }
+
+    public columnIndex: number;
+    public dataFillValue: DataFillValue;
+
+    public constructor(init?: Partial< DataColumnFillValue >) {  
+    
+        Object.assign(this, init);
+    } 
+}
 /// Represents the key of the data sorter.
 ///     
 export class DataSorterKey  {
@@ -2576,6 +2813,39 @@ export class DateTimeGroupItem  extends MultipleFilter  {
     } 
 }
    
+export class DeduplicationRegion  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "ranges",
+            baseName: "Ranges",
+            type: "Array<Range>",
+        },
+        {
+            name: "worksheetNameList",
+            baseName: "WorksheetNameList",
+            type: "Array<string>",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return  DeduplicationRegion.attributeTypeMap;
+
+    }
+
+    public ranges: Array<Range>;
+    public worksheetNameList: Array<string>;
+
+    public constructor(init?: Partial< DeduplicationRegion >) {  
+    
+        Object.assign(this, init);
+    } 
+}
+   
 export class DynamicFilter  {
     /**
      * Attribute type map
@@ -2614,7 +2884,7 @@ export class DynamicFilter  {
         Object.assign(this, init);
     } 
 }
-   
+/// File Information   
 export class FileInfo  {
     /**
      * Attribute type map
@@ -4504,81 +4774,6 @@ export class ProtectSheetParameter  {
         Object.assign(this, init);
     } 
 }
-   
-export class Range  {
-    /**
-     * Attribute type map
-     */
-    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
-        {
-            name: "columnCount",
-            baseName: "ColumnCount",
-            type: "number",
-        },
-        {
-            name: "columnWidth",
-            baseName: "ColumnWidth",
-            type: "number",
-        },
-        {
-            name: "firstColumn",
-            baseName: "FirstColumn",
-            type: "number",
-        },
-        {
-            name: "firstRow",
-            baseName: "FirstRow",
-            type: "number",
-        },
-        {
-            name: "name",
-            baseName: "Name",
-            type: "string",
-        },
-        {
-            name: "refersTo",
-            baseName: "RefersTo",
-            type: "string",
-        },
-        {
-            name: "rowCount",
-            baseName: "RowCount",
-            type: "number",
-        },
-        {
-            name: "rowHeight",
-            baseName: "RowHeight",
-            type: "number",
-        },
-        {
-            name: "worksheet",
-            baseName: "Worksheet",
-            type: "string",
-        }
-    ];
-    /**
-     * Returns attribute type map
-     */
-    public static getAttributeTypeMap() {
-        return  Range.attributeTypeMap;
-
-    }
-
-    public columnCount: number;
-    public columnWidth: number;
-    public firstColumn: number;
-    public firstRow: number;
-    public name: string;
-    public refersTo: string;
-    public rowCount: number;
-    public rowHeight: number;
-    public worksheet: string;
-
-    public constructor(init?: Partial< Range >) {  
-    
-        Object.assign(this, init);
-    } 
-}
 /// Represents QueryTable information.   
 export class QueryTable  {
     /**
@@ -5717,11 +5912,6 @@ export class WorkbookSettings  {
             type: "string",
         },
         {
-            name: "calcStackSize",
-            baseName: "CalcStackSize",
-            type: "number",
-        },
-        {
             name: "calculationId",
             baseName: "CalculationId",
             type: "string",
@@ -6024,7 +6214,6 @@ export class WorkbookSettings  {
     public autoRecover: boolean;
     public buildVersion: string;
     public calcMode: string;
-    public calcStackSize: number;
     public calculationId: string;
     public checkComptiliblity: boolean;
     public checkExcelRestriction: boolean;
@@ -17081,6 +17270,210 @@ export class CreatePivotTableRequest  {
         Object.assign(this, init);
     } 
 }
+/// A data cleansing request for an Spreadsheet file.   
+export class DataCleansingRequest  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "file",
+            baseName: "File",
+            type: "FileInfo",
+        },
+        {
+            name: "checkExcelRestriction",
+            baseName: "CheckExcelRestriction",
+            type: "boolean",
+        },
+        {
+            name: "region",
+            baseName: "Region",
+            type: "string",
+        },
+        {
+            name: "outFileFormat",
+            baseName: "OutFileFormat",
+            type: "string",
+        },
+        {
+            name: "dataCleansing",
+            baseName: "DataCleansing",
+            type: "DataCleansing",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return  DataCleansingRequest.attributeTypeMap;
+
+    }
+
+    public file: FileInfo;
+    public checkExcelRestriction: boolean;
+    public region: string;
+    public outFileFormat: string;
+    public dataCleansing: DataCleansing;
+
+    public constructor(init?: Partial< DataCleansingRequest >) {  
+    
+        Object.assign(this, init);
+    } 
+}
+   
+export class DataDeduplicationRequest  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "file",
+            baseName: "File",
+            type: "FileInfo",
+        },
+        {
+            name: "deduplicationRegion",
+            baseName: "DeduplicationRegion",
+            type: "DeduplicationRegion",
+        },
+        {
+            name: "outFileFormat",
+            baseName: "OutFileFormat",
+            type: "string",
+        },
+        {
+            name: "checkExcelRestriction",
+            baseName: "CheckExcelRestriction",
+            type: "boolean",
+        },
+        {
+            name: "region",
+            baseName: "Region",
+            type: "string",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return  DataDeduplicationRequest.attributeTypeMap;
+
+    }
+
+    public file: FileInfo;
+    public deduplicationRegion: DeduplicationRegion;
+    public outFileFormat: string;
+    public checkExcelRestriction: boolean;
+    public region: string;
+
+    public constructor(init?: Partial< DataDeduplicationRequest >) {  
+    
+        Object.assign(this, init);
+    } 
+}
+   
+export class DataFillRequest  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "file",
+            baseName: "File",
+            type: "FileInfo",
+        },
+        {
+            name: "outFileFormat",
+            baseName: "OutFileFormat",
+            type: "string",
+        },
+        {
+            name: "checkExcelRestriction",
+            baseName: "CheckExcelRestriction",
+            type: "boolean",
+        },
+        {
+            name: "region",
+            baseName: "Region",
+            type: "string",
+        },
+        {
+            name: "dataFill",
+            baseName: "DataFill",
+            type: "DataFill",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return  DataFillRequest.attributeTypeMap;
+
+    }
+
+    public file: FileInfo;
+    public outFileFormat: string;
+    public checkExcelRestriction: boolean;
+    public region: string;
+    public dataFill: DataFill;
+
+    public constructor(init?: Partial< DataFillRequest >) {  
+    
+        Object.assign(this, init);
+    } 
+}
+   
+export class DeleteIncompleteRowsRequest  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "file",
+            baseName: "File",
+            type: "FileInfo",
+        },
+        {
+            name: "outFileFormat",
+            baseName: "OutFileFormat",
+            type: "string",
+        },
+        {
+            name: "checkExcelRestriction",
+            baseName: "CheckExcelRestriction",
+            type: "boolean",
+        },
+        {
+            name: "region",
+            baseName: "Region",
+            type: "string",
+        },
+        {
+            name: "ranges",
+            baseName: "Ranges",
+            type: "Array<Range>",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return  DeleteIncompleteRowsRequest.attributeTypeMap;
+
+    }
+
+    public file: FileInfo;
+    public outFileFormat: string;
+    public checkExcelRestriction: boolean;
+    public region: string;
+    public ranges: Array<Range>;
+
+    public constructor(init?: Partial< DeleteIncompleteRowsRequest >) {  
+    
+        Object.assign(this, init);
+    } 
+}
    
 export class ImportPosition  {
     /**
@@ -19315,9 +19708,14 @@ const typeMap = {
     CustomFilter,
     DataBar,
     DataBarBorder,
+    DataCleansing,
+    DataColumnFillValue,
+    DataFill,
+    DataFillValue,
     DataSorter,
     DataSorterKey,
     DateTimeGroupItem,
+    DeduplicationRegion,
     DynamicFilter,
     FileInfo,
     FilesResult,
@@ -19552,6 +19950,10 @@ const typeMap = {
     ColorFilterRequest,
     ConvertParameter,
     CreatePivotTableRequest,
+    DataCleansingRequest,
+    DataDeduplicationRequest,
+    DataFillRequest,
+    DeleteIncompleteRowsRequest,
     ImportJsonRequest,
     ImportXMLRequest,
     MatchConditionRequest,
@@ -25977,6 +26379,309 @@ export class PostImportDataRequest  {
 
 
         const bodyParameter = (this.importOption == null) ? null :   ObjectSerializer.serialize( this.importOption,this.importOption.constructor.name);
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+            body:bodyParameter,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Data cleaning of spreadsheet files is a data management process used to identify, correct, and remove errors, incompleteness, duplicates, or inaccuracies in tables and ranges.   
+export class PostWorkbookDataCleansingRequest  {
+    /// The file name.  
+    public name: string;
+    /// data cleansing content.  
+    public dataCleansing: DataCleansing;
+    /// The folder where the file is situated.  
+    public folder: string;
+    /// The storage name where the file is situated.  
+    public storageName: string;
+    /// The file password.   
+    public password: string;
+    /// The regional settings for workbook.  
+    public region: string;
+      
+    public checkExcelRestriction: boolean;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< PostWorkbookDataCleansingRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/datacleansing".replace("{" + "name" + "}", String(this.name));
+        const queryParameters: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", this.checkExcelRestriction);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        const bodyParameter = (this.dataCleansing == null) ? null :   ObjectSerializer.serialize( this.dataCleansing,this.dataCleansing.constructor.name);
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+            body:bodyParameter,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Data cleansing of spreadsheet files is a data management process used to identify, correct, and remove errors, incompleteness, duplicates, or inaccuracies in tables and ranges.   
+export class PostDataCleansingRequest  {
+      
+    public dataCleansingRequest: DataCleansingRequest;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< PostDataCleansingRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/datacleansing";
+        const queryParameters: any = {};
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        const bodyParameter = (this.dataCleansingRequest == null) ? null :   ObjectSerializer.serialize( this.dataCleansingRequest,this.dataCleansingRequest.constructor.name);
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+            body:bodyParameter,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Data deduplication of spreadsheet files is mainly used to eliminate duplicate data in tables and ranges.   
+export class PostWorkbookDataDeduplicationRequest  {
+      
+    public name: string;
+      
+    public deduplicationRegion: DeduplicationRegion;
+      
+    public folder: string;
+      
+    public storageName: string;
+      
+    public password: string;
+      
+    public region: string;
+      
+    public checkExcelRestriction: boolean;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< PostWorkbookDataDeduplicationRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/datadeduplication".replace("{" + "name" + "}", String(this.name));
+        const queryParameters: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", this.checkExcelRestriction);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        const bodyParameter = (this.deduplicationRegion == null) ? null :   ObjectSerializer.serialize( this.deduplicationRegion,this.deduplicationRegion.constructor.name);
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+            body:bodyParameter,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Data deduplication of spreadsheet files is mainly used to eliminate duplicate data in tables and ranges.   
+export class PostDataDeduplicationRequest  {
+      
+    public dataDeduplicationRequest: DataDeduplicationRequest;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< PostDataDeduplicationRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/datadeduplication";
+        const queryParameters: any = {};
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        const bodyParameter = (this.dataDeduplicationRequest == null) ? null :   ObjectSerializer.serialize( this.dataDeduplicationRequest,this.dataDeduplicationRequest.constructor.name);
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+            body:bodyParameter,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Data filling for spreadsheet files is primarily used to fill empty data in tables and ranges.   
+export class PostWorkbookDataFillRequest  {
+      
+    public name: string;
+      
+    public dataFill: DataFill;
+      
+    public folder: string;
+      
+    public storageName: string;
+      
+    public password: string;
+      
+    public region: string;
+      
+    public checkExcelRestriction: boolean;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< PostWorkbookDataFillRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/datafill".replace("{" + "name" + "}", String(this.name));
+        const queryParameters: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", this.checkExcelRestriction);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        const bodyParameter = (this.dataFill == null) ? null :   ObjectSerializer.serialize( this.dataFill,this.dataFill.constructor.name);
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+            body:bodyParameter,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Data filling for spreadsheet files is primarily used to fill empty data in tables and ranges.   
+export class PostDataFillRequest  {
+      
+    public dataFillRequest: DataFillRequest;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< PostDataFillRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/datafill";
+        const queryParameters: any = {};
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        const bodyParameter = (this.dataFillRequest == null) ? null :   ObjectSerializer.serialize( this.dataFillRequest,this.dataFillRequest.constructor.name);
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+            body:bodyParameter,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Deleting incomplete rows of spreadsheet files is mainly used to eliminate incomplete rows in tables and ranges.   
+export class PostDeleteIncompleteRowsRequest  {
+      
+    public deleteIncompleteRowsRequest: DeleteIncompleteRowsRequest;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< PostDeleteIncompleteRowsRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/deleteincompleterows";
+        const queryParameters: any = {};
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        const bodyParameter = (this.deleteIncompleteRowsRequest == null) ? null :   ObjectSerializer.serialize( this.deleteIncompleteRowsRequest,this.deleteIncompleteRowsRequest.constructor.name);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
