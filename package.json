@@ -1,11 +1,13 @@
 {
   "name": "asposecellscloud",
   "version": "24.3.1",
-  "description": "Aspose.Cells Cloud SDK for Node.js",
+  "description": "Aspose.Cells Cloud for Node.js to create, repair, merge, parse and convert excel files. Convert excel to PDF, JSON, XML, TSV, HTML and so on.",
   "keywords": [
-    "Aspose",
-    "Cloud",
-    "Cells"
+    "excel",
+    "spreadsheet",
+    "convert",
+    "xlsx"
+    "Aspose Cells Cloud"
   ],
   "author": "Aspose Nanjing Team",
   "license": "MIT",
