@@ -1,8 +1,12 @@
-![](https://img.shields.io/badge/REST%20API-v3.0-lightgrey) ![npm](https://img.shields.io/npm/v/asposecellscloud) ![node-current](https://img.shields.io/node/v/asposecellscloud) [![GitHub license](https://img.shields.io/github/license/aspose-cells-cloud/aspose-cells-cloud-node)](https://github.com/aspose-cells-cloud/aspose-cells-cloud-node/blob/master/LICENSE) ![GitHub commits since latest release (by date)](https://img.shields.io/github/commits-since/aspose-cells-cloud/aspose-cells-cloud-node/24.3)
+![](https://img.shields.io/badge/REST%20API-v3.0-lightgrey) ![npm](https://img.shields.io/npm/v/asposecellscloud) ![node-current](https://img.shields.io/node/v/asposecellscloud) [![GitHub license](https://img.shields.io/github/license/aspose-cells-cloud/aspose-cells-cloud-node)](https://github.com/aspose-cells-cloud/aspose-cells-cloud-node/blob/master/LICENSE) ![GitHub commits since latest release (by date)](https://img.shields.io/github/commits-since/aspose-cells-cloud/aspose-cells-cloud-node/24.3.1)
+
+Node.js Cloud SDK wraps Aspose.Cells REST API so you could seamlessly integrate Microsoft Excel® document generation, manipulation, conversion & inspection features into your own Node.js applications.
 
 # Node.js package for Aspose.Cells Cloud
 
-Enhance your Node.js applications with the [Aspose.Cells Cloud](https://products.aspose.cloud/cells/nodejs) , enabling seamless integration with [Excel, ODS, CSV, Json and other spreadsheet document formats](https://docs.aspose.cloud/cells/supported-file-formats/). With its powerful APIs, developers can effortlessly read, convert, create, edit, and manipulate the contents of Excel documents without the need for any office software installed on the machine
+Aspose.Cells Cloud SDK for Node.js allows you to work with worksheet cell data, cell formatting, formulas, charts, pivot tables,data validation, comments, drawing objects, images, hyperlinks, text and number formatting, rows, columns , and protection settings. It also assists in appending worksheets, splitting worksheets, merging cells, and converting worksheets to other supported file formats.
+
+Feel free to explore the Developer's Guide & API Reference to know all about Aspose.Cells Cloud API.
 
 ## Manipulate Excel and other spreadsheet files in the Cloud
 
