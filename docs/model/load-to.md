@@ -1,10 +1,12 @@
-# **analyzeExcelResponse**
+# **loadTo**
 
-Represents 
+ 
 
 ## **Properties**
 
 | Property Name | Property Type | Nullable |  ReadOnly | DefaultValue | Description | 
 | :- | :- | :- |:- |  :- | :- |
-|Suggestions|Container|true|false |  ||
+|Worksheet|String|true|false |  ||
+|beginRowIndex|Integer|true|false |  ||
+|beginColumnIndex|Integer|true|false |  ||
 

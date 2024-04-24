@@ -60,9 +60,9 @@ describe('XmlController test', function() {
         dataXMLRequest.storageName ="";
         cellsApi.uploadFile(dataXMLRequest );
      
-        var importXMLRequestXMLFileSource = new model.FileSource();
-         importXMLRequestXMLFileSource.fileSourceType = "CloudFileSystem"  ;
-         importXMLRequestXMLFileSource.filePath = remoteFolder + "/data.xml"  ;
+        var importXMLRequestXMLFileSource = new model.DataSource();
+         importXMLRequestXMLFileSource.dataSourceType = "CloudFileSystem"  ;
+         importXMLRequestXMLFileSource.dataPath = remoteFolder + "/data.xml"  ;
         var importXMLRequestImportPosition = new model.ImportPosition();
          importXMLRequestImportPosition.sheetName = "Sheet1"  ;
          importXMLRequestImportPosition.rowIndex = 3  ;

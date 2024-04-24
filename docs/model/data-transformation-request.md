@@ -1,4 +1,4 @@
-# **convertTaskParameter**
+# **dataTransformationRequest**
 
  
 
@@ -6,9 +6,9 @@
 
 | Property Name | Property Type | Nullable |  ReadOnly | DefaultValue | Description | 
 | :- | :- | :- |:- |  :- | :- |
-|DataSource|Class|true|false |  ||
-|Workbook|Class|true|false |  ||
-|DestinationFile|String|true|false |  ||
+|FileInfo|Class|true|false |  ||
+|Transformation|Class|true|false |  ||
+|LoadData|Class|true|false |  ||
 |Region|String|true|false |  ||
-|SaveOptions|Class|true|false |  ||
+|OutFormat|String|true|false |  ||
 

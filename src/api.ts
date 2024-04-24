@@ -2022,6 +2022,22 @@ export class CellsApi {
     }
 
     /// <summary>
+    /// Transform spreadsheet data is mainly used to pivot columns, unpivot columns.
+    /// </summary>
+    /// <param name="request">Request. <see cref="PostDataTransformationRequest" /></param>
+    public async postDataTransformation(requestObj:model.PostDataTransformationRequest ): Promise<{response: http.ClientResponse, body: model.FileInfo}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling postDataTransformation.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "FileInfo");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
     /// Retrieve descriptions of hyperlinks in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="GetWorksheetHyperlinksRequest" /></param>

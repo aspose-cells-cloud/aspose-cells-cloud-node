@@ -1,10 +1,11 @@
-# **analyzeExcelResponse**
+# **dataSource**
 
-Represents 
+ 
 
 ## **Properties**
 
 | Property Name | Property Type | Nullable |  ReadOnly | DefaultValue | Description | 
 | :- | :- | :- |:- |  :- | :- |
-|Suggestions|Container|true|false |  ||
+|DataSourceType|String|true|false |  ||
+|DataPath|String|true|false |  ||
 

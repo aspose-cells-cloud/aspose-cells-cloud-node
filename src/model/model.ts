@@ -508,7 +508,7 @@ export class AbstractCalculationMonitor  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class LinkElement  {
     /**
      * Attribute type map
@@ -592,7 +592,7 @@ export class DataSorter  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class FilterColumn  {
     /**
      * Attribute type map
@@ -667,7 +667,7 @@ export class FilterColumn  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class Link  {
     /**
      * Attribute type map
@@ -712,7 +712,7 @@ export class Link  {
         Object.assign(this, init);
     } 
 }
-   
+/// Represents autofiltering for the specified worksheet.   
 export class AutoFilter  extends LinkElement  {
     /**
      * Attribute type map
@@ -871,7 +871,7 @@ export class Color  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class ThemeColor  {
     /**
      * Attribute type map
@@ -904,7 +904,7 @@ export class ThemeColor  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class Border  {
     /**
      * Attribute type map
@@ -955,7 +955,7 @@ export class Border  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class Workbook  {
     /**
      * Attribute type map
@@ -1042,7 +1042,7 @@ export class Workbook  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class CalculationOptions  {
     /**
      * Attribute type map
@@ -1105,7 +1105,7 @@ export class CalculationOptions  {
         Object.assign(this, init);
     } 
 }
-   
+/// Encapsulates the object that represents a single Workbook cell.   
 export class Cell  extends LinkElement  {
     /**
      * Attribute type map
@@ -1222,7 +1222,7 @@ export class Cell  extends LinkElement  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class CellArea  {
     /**
      * Attribute type map
@@ -1267,7 +1267,7 @@ export class CellArea  {
         Object.assign(this, init);
     } 
 }
-   
+/// Encapsulates a collection of cell relevant objects, such as Aspose.Cells.Cell, Aspose.Cells.Row, ...etc.   
 export class Cells  extends LinkElement  {
     /**
      * Attribute type map
@@ -1369,7 +1369,7 @@ export class CellsCloudFileInfo  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class CellsColor  {
     /**
      * Attribute type map
@@ -1573,7 +1573,7 @@ export class ColorFilter  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class ConditionalFormattingValue  {
     /**
      * Attribute type map
@@ -1671,7 +1671,7 @@ export class ColorScale  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class Column  extends LinkElement  {
     /**
      * Attribute type map
@@ -1722,7 +1722,7 @@ export class Column  extends LinkElement  {
         Object.assign(this, init);
     } 
 }
-   
+/// Columns   
 export class Columns  extends LinkElement  {
     /**
      * Attribute type map
@@ -1761,7 +1761,7 @@ export class Columns  extends LinkElement  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class Comment  extends LinkElement  {
     /**
      * Attribute type map
@@ -1848,7 +1848,7 @@ export class Comment  extends LinkElement  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class Comments  extends LinkElement  {
     /**
      * Attribute type map
@@ -1875,7 +1875,7 @@ export class Comments  extends LinkElement  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class FormatCondition  extends LinkElement  {
     /**
      * Attribute type map
@@ -1980,7 +1980,7 @@ export class FormatCondition  extends LinkElement  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class ConditionalFormatting  extends LinkElement  {
     /**
      * Attribute type map
@@ -2013,7 +2013,7 @@ export class ConditionalFormatting  extends LinkElement  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class ConditionalFormattingIcon  {
     /**
      * Attribute type map
@@ -2052,7 +2052,7 @@ export class ConditionalFormattingIcon  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class ConditionalFormattings  extends LinkElement  {
     /**
      * Attribute type map
@@ -2142,7 +2142,7 @@ export class CopyOptions  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class MultipleFilter  {
     /**
      * Attribute type map
@@ -2190,7 +2190,7 @@ export class CriteriaMultipleFilter  extends MultipleFilter  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class CustomFilter  {
     /**
      * Attribute type map
@@ -2223,7 +2223,7 @@ export class CustomFilter  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class DataBarBorder  {
     /**
      * Attribute type map
@@ -2397,7 +2397,7 @@ export class DataBar  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class DataFill  {
     /**
      * Attribute type map
@@ -2436,7 +2436,7 @@ export class DataFill  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class Range  {
     /**
      * Attribute type map
@@ -2550,7 +2550,7 @@ export class DataCleansing  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class DataFillValue  {
     /**
      * Attribute type map
@@ -2601,7 +2601,7 @@ export class DataFillValue  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class DataColumnFillValue  {
     /**
      * Attribute type map
@@ -2630,6 +2630,39 @@ export class DataColumnFillValue  {
     public dataFillValue: DataFillValue;
 
     public constructor(init?: Partial< DataColumnFillValue >) {  
+    
+        Object.assign(this, init);
+    } 
+}
+///    
+export class DataItem  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "dataItemType",
+            baseName: "DataItemType",
+            type: "string",
+        },
+        {
+            name: "value",
+            baseName: "Value",
+            type: "string",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return  DataItem.attributeTypeMap;
+
+    }
+
+    public dataItemType: string;
+    public value: string;
+
+    public constructor(init?: Partial< DataItem >) {  
     
         Object.assign(this, init);
     } 
@@ -2692,7 +2725,7 @@ export class DataSorterKey  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class SortKey  {
     /**
      * Attribute type map
@@ -2745,6 +2778,39 @@ export class SortKey  {
     public type: string;
 
     public constructor(init?: Partial< SortKey >) {  
+    
+        Object.assign(this, init);
+    } 
+}
+///    
+export class DataSource  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "dataSourceType",
+            baseName: "DataSourceType",
+            type: "string",
+        },
+        {
+            name: "dataPath",
+            baseName: "DataPath",
+            type: "string",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return  DataSource.attributeTypeMap;
+
+    }
+
+    public dataSourceType: string;
+    public dataPath: string;
+
+    public constructor(init?: Partial< DataSource >) {  
     
         Object.assign(this, init);
     } 
@@ -2812,7 +2878,7 @@ export class DateTimeGroupItem  extends MultipleFilter  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class DeduplicationRegion  {
     /**
      * Attribute type map
@@ -2845,7 +2911,7 @@ export class DeduplicationRegion  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class DynamicFilter  {
     /**
      * Attribute type map
@@ -2923,7 +2989,40 @@ export class FileInfo  {
         Object.assign(this, init);
     } 
 }
-   
+///    
+export class FileSource  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "fileSourceType",
+            baseName: "FileSourceType",
+            type: "string",
+        },
+        {
+            name: "filePath",
+            baseName: "FilePath",
+            type: "string",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return  FileSource.attributeTypeMap;
+
+    }
+
+    public fileSourceType: string;
+    public filePath: string;
+
+    public constructor(init?: Partial< FileSource >) {  
+    
+        Object.assign(this, init);
+    } 
+}
+///    
 export class FilesResult  {
     /**
      * Attribute type map
@@ -2950,7 +3049,7 @@ export class FilesResult  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class IconFilter  {
     /**
      * Attribute type map
@@ -2983,7 +3082,7 @@ export class IconFilter  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class MultipleFilters  {
     /**
      * Attribute type map
@@ -3016,7 +3115,7 @@ export class MultipleFilters  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class Top10Filter  {
     /**
      * Attribute type map
@@ -3061,7 +3160,7 @@ export class Top10Filter  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class Font  {
     /**
      * Attribute type map
@@ -3142,7 +3241,7 @@ export class Font  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class TextOptions  extends Font  {
     /**
      * Attribute type map
@@ -3199,7 +3298,7 @@ export class TextOptions  extends Font  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class FontSetting  {
     /**
      * Attribute type map
@@ -3308,7 +3407,7 @@ export class IconSet  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class Style  {
     /**
      * Attribute type map
@@ -3731,7 +3830,7 @@ export class GlobalizationSettings  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class HorizontalPageBreak  {
     /**
      * Attribute type map
@@ -3770,7 +3869,7 @@ export class HorizontalPageBreak  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class HorizontalPageBreaks  extends LinkElement  {
     /**
      * Attribute type map
@@ -3791,7 +3890,7 @@ export class HorizontalPageBreaks  extends LinkElement  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class Hyperlink  extends LinkElement  {
     /**
      * Attribute type map
@@ -3842,7 +3941,7 @@ export class Hyperlink  extends LinkElement  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class Hyperlinks  extends LinkElement  {
     /**
      * Attribute type map
@@ -3962,7 +4061,7 @@ export class LoadOptions  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class MergedCell  extends LinkElement  {
     /**
      * Attribute type map
@@ -4007,7 +4106,7 @@ export class MergedCell  extends LinkElement  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class MergedCells  extends LinkElement  {
     /**
      * Attribute type map
@@ -4040,7 +4139,7 @@ export class MergedCells  extends LinkElement  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class Name  extends LinkElement  {
     /**
      * Attribute type map
@@ -4103,7 +4202,7 @@ export class Name  extends LinkElement  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class Names  extends LinkElement  {
     /**
      * Attribute type map
@@ -4136,7 +4235,7 @@ export class Names  extends LinkElement  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class PageSection  {
     /**
      * Attribute type map
@@ -4187,7 +4286,7 @@ export class PageSection  {
         Object.assign(this, init);
     } 
 }
-   
+/// excel print page setting   
 export class PageSetup  extends LinkElement  {
     /**
      * Attribute type map
@@ -4657,7 +4756,7 @@ export class Protection  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class ProtectSheetParameter  {
     /**
      * Attribute type map
@@ -4774,58 +4873,7 @@ export class ProtectSheetParameter  {
         Object.assign(this, init);
     } 
 }
-/// Represents QueryTable information.   
-export class QueryTable  {
-    /**
-     * Attribute type map
-     */
-    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
-        {
-            name: "connectionId",
-            baseName: "ConnectionId",
-            type: "number",
-        },
-        {
-            name: "name",
-            baseName: "Name",
-            type: "string",
-        },
-        {
-            name: "resultRange",
-            baseName: "ResultRange",
-            type: "Range",
-        },
-        {
-            name: "preserveFormatting",
-            baseName: "PreserveFormatting",
-            type: "boolean",
-        },
-        {
-            name: "adjustColumnWidth",
-            baseName: "AdjustColumnWidth",
-            type: "boolean",
-        }
-    ];
-    /**
-     * Returns attribute type map
-     */
-    public static getAttributeTypeMap() {
-        return  QueryTable.attributeTypeMap;
-
-    }
-
-    public connectionId: number;
-    public name: string;
-    public resultRange: Range;
-    public preserveFormatting: boolean;
-    public adjustColumnWidth: boolean;
-
-    public constructor(init?: Partial< QueryTable >) {  
-    
-        Object.assign(this, init);
-    } 
-}
-   
+///    
 export class Ranges  {
     /**
      * Attribute type map
@@ -4852,7 +4900,7 @@ export class Ranges  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class Row  extends LinkElement  {
     /**
      * Attribute type map
@@ -4915,7 +4963,7 @@ export class Row  extends LinkElement  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class Rows  extends LinkElement  {
     /**
      * Attribute type map
@@ -4954,7 +5002,7 @@ export class Rows  extends LinkElement  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class SaveResult  {
     /**
      * Attribute type map
@@ -5179,7 +5227,7 @@ export class PaginatedSaveOptions  extends SaveOptions  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class SingleValue  {
     /**
      * Attribute type map
@@ -5212,7 +5260,7 @@ export class SingleValue  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class SplitResult  {
     /**
      * Attribute type map
@@ -5341,7 +5389,7 @@ export class TextFormatCondition  extends FormulaFormatCondition  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class TextItem  extends LinkElement  {
     /**
      * Attribute type map
@@ -5368,7 +5416,7 @@ export class TextItem  extends LinkElement  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class TextItems  extends LinkElement  {
     /**
      * Attribute type map
@@ -5395,7 +5443,7 @@ export class TextItems  extends LinkElement  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class FillFormat  {
     /**
      * Attribute type map
@@ -5452,7 +5500,7 @@ export class FillFormat  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class LineFormat  extends FillFormat  {
     /**
      * Attribute type map
@@ -5539,7 +5587,7 @@ export class LineFormat  extends FillFormat  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class ShadowEffect  {
     /**
      * Attribute type map
@@ -5629,7 +5677,7 @@ export class TimePeriodFormatCondition  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class Validation  extends LinkElement  {
     /**
      * Attribute type map
@@ -5746,7 +5794,7 @@ export class Validation  extends LinkElement  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class Validations  extends LinkElement  {
     /**
      * Attribute type map
@@ -5779,7 +5827,7 @@ export class Validations  extends LinkElement  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class VerticalPageBreak  {
     /**
      * Attribute type map
@@ -5818,7 +5866,7 @@ export class VerticalPageBreak  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class VerticalPageBreaks  extends LinkElement  {
     /**
      * Attribute type map
@@ -5885,7 +5933,7 @@ export class WriteProtection  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class WorkbookSettings  {
     /**
      * Attribute type map
@@ -6278,7 +6326,7 @@ export class WorkbookSettings  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class Worksheet  {
     /**
      * Attribute type map
@@ -6491,7 +6539,7 @@ export class Worksheet  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class Worksheets  extends LinkElement  {
     /**
      * Attribute type map
@@ -6607,39 +6655,6 @@ export class TaskParameter  {
         Object.assign(this, init);
     } 
 }
-   
-export class FileSource  {
-    /**
-     * Attribute type map
-     */
-    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
-        {
-            name: "fileSourceType",
-            baseName: "FileSourceType",
-            type: "string",
-        },
-        {
-            name: "filePath",
-            baseName: "FilePath",
-            type: "string",
-        }
-    ];
-    /**
-     * Returns attribute type map
-     */
-    public static getAttributeTypeMap() {
-        return  FileSource.attributeTypeMap;
-
-    }
-
-    public fileSourceType: string;
-    public filePath: string;
-
-    public constructor(init?: Partial< FileSource >) {  
-    
-        Object.assign(this, init);
-    } 
-}
 ///    
 export class OperateObject  {
     /**
@@ -6717,6 +6732,11 @@ export class CellsObjectOperateTaskParameter  extends TaskParameter  {
             type: "OperateParameter",
         },
         {
+            name: "destinatioDataSource",
+            baseName: "DestinatioDataSource",
+            type: "DataSource",
+        },
+        {
             name: "destinationWorkbook",
             baseName: "DestinationWorkbook",
             type: "FileSource",
@@ -6732,6 +6752,7 @@ export class CellsObjectOperateTaskParameter  extends TaskParameter  {
 
     public operateObject: OperateObject;
     public operateParameter: OperateParameter;
+    public destinatioDataSource: DataSource;
     public destinationWorkbook: FileSource;
 
     public constructor(init?: Partial< CellsObjectOperateTaskParameter >) {  
@@ -6745,6 +6766,11 @@ export class ConvertTaskParameter  extends TaskParameter  {
      * Attribute type map
      */
     public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "dataSource",
+            baseName: "DataSource",
+            type: "DataSource",
+        },
         {
             name: "workbook",
             baseName: "Workbook",
@@ -6774,6 +6800,7 @@ export class ConvertTaskParameter  extends TaskParameter  {
 
     }
 
+    public dataSource: DataSource;
     public workbook: FileSource;
     public destinationFile: string;
     public region: string;
@@ -6791,6 +6818,11 @@ export class ConvertWorksheetTaskParameter  extends TaskParameter  {
      */
     public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
+            name: "dataSource",
+            baseName: "DataSource",
+            type: "DataSource",
+        },
+        {
             name: "workbook",
             baseName: "Workbook",
             type: "FileSource",
@@ -6799,6 +6831,11 @@ export class ConvertWorksheetTaskParameter  extends TaskParameter  {
             name: "sheet",
             baseName: "Sheet",
             type: "string",
+        },
+        {
+            name: "targetDataSource",
+            baseName: "TargetDataSource",
+            type: "DataSource",
         },
         {
             name: "target",
@@ -6839,8 +6876,10 @@ export class ConvertWorksheetTaskParameter  extends TaskParameter  {
 
     }
 
+    public dataSource: DataSource;
     public workbook: FileSource;
     public sheet: string;
+    public targetDataSource: DataSource;
     public target: FileSource;
     public format: string;
     public area: string;
@@ -6853,7 +6892,7 @@ export class ConvertWorksheetTaskParameter  extends TaskParameter  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class ImportOption  {
     /**
      * Attribute type map
@@ -6875,6 +6914,11 @@ export class ImportOption  {
             type: "string",
         },
         {
+            name: "dataSource",
+            baseName: "DataSource",
+            type: "DataSource",
+        },
+        {
             name: "source",
             baseName: "Source",
             type: "FileSource",
@@ -6891,6 +6935,7 @@ export class ImportOption  {
     public destinationWorksheet: string;
     public isInsert: boolean;
     public importDataType: string;
+    public dataSource: DataSource;
     public source: FileSource;
 
     public constructor(init?: Partial< ImportOption >) {  
@@ -6905,6 +6950,11 @@ export class ImportDataTaskParameter  extends TaskParameter  {
      */
     public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
+            name: "dataSource",
+            baseName: "DataSource",
+            type: "DataSource",
+        },
+        {
             name: "workbook",
             baseName: "Workbook",
             type: "FileSource",
@@ -6913,6 +6963,11 @@ export class ImportDataTaskParameter  extends TaskParameter  {
             name: "importOption",
             baseName: "ImportOption",
             type: "ImportOption",
+        },
+        {
+            name: "targetDataSource",
+            baseName: "TargetDataSource",
+            type: "DataSource",
         },
         {
             name: "destinationWorkbook",
@@ -6928,8 +6983,10 @@ export class ImportDataTaskParameter  extends TaskParameter  {
 
     }
 
+    public dataSource: DataSource;
     public workbook: FileSource;
     public importOption: ImportOption;
+    public targetDataSource: DataSource;
     public destinationWorkbook: FileSource;
 
     public constructor(init?: Partial< ImportDataTaskParameter >) {  
@@ -6990,7 +7047,7 @@ export class TaskRunResult  {
         {
             name: "outFileList",
             baseName: "OutFileList",
-            type: "Array<FileSource>",
+            type: "Array<DataSource>",
         }
     ];
     /**
@@ -7002,7 +7059,7 @@ export class TaskRunResult  {
     }
 
     public description: string;
-    public outFileList: Array<FileSource>;
+    public outFileList: Array<DataSource>;
 
     public constructor(init?: Partial< TaskRunResult >) {  
     
@@ -7089,6 +7146,21 @@ export class SmartMarkerTaskParameter  extends TaskParameter  {
             name: "xmlFile",
             baseName: "xmlFile",
             type: "FileSource",
+        },
+        {
+            name: "dataSource",
+            baseName: "DataSource",
+            type: "DataSource",
+        },
+        {
+            name: "targetDataSource",
+            baseName: "TargetDataSource",
+            type: "DataSource",
+        },
+        {
+            name: "xMLFileDataSource",
+            baseName: "XMLFileDataSource",
+            type: "DataSource",
         }
     ];
     /**
@@ -7102,6 +7174,9 @@ export class SmartMarkerTaskParameter  extends TaskParameter  {
     public sourceWorkbook: FileSource;
     public destinationWorkbook: FileSource;
     public xmlFile: FileSource;
+    public dataSource: DataSource;
+    public targetDataSource: DataSource;
+    public xMLFileDataSource: DataSource;
 
     public constructor(init?: Partial< SmartMarkerTaskParameter >) {  
          super(init);     
@@ -7123,6 +7198,16 @@ export class SplitWorkbookTaskParameter  extends TaskParameter  {
             name: "destinationFilePosition",
             baseName: "DestinationFilePosition",
             type: "FileSource",
+        },
+        {
+            name: "dataSource",
+            baseName: "DataSource",
+            type: "DataSource",
+        },
+        {
+            name: "targetDataSource",
+            baseName: "TargetDataSource",
+            type: "DataSource",
         },
         {
             name: "destinationFileFormat",
@@ -7155,6 +7240,8 @@ export class SplitWorkbookTaskParameter  extends TaskParameter  {
 
     public workbook: FileSource;
     public destinationFilePosition: FileSource;
+    public dataSource: DataSource;
+    public targetDataSource: DataSource;
     public destinationFileFormat: string;
     public splitNameRule: string;
     public verticalResolution: number;
@@ -7333,7 +7420,7 @@ export class ChartOperateParameter  extends OperateParameter  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class ListObject  extends LinkElement  {
     /**
      * Attribute type map
@@ -7514,6 +7601,11 @@ export class OperateObjectPosition  {
      */
     public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
+            name: "dataSource",
+            baseName: "DataSource",
+            type: "DataSource",
+        },
+        {
             name: "workbook",
             baseName: "Workbook",
             type: "FileSource",
@@ -7552,6 +7644,7 @@ export class OperateObjectPosition  {
 
     }
 
+    public dataSource: DataSource;
     public workbook: FileSource;
     public sheetName: string;
     public chartIndex: number;
@@ -7717,7 +7810,7 @@ export class PivotTableOperateParameter  extends OperateParameter  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class Shape  extends LinkElement  {
     /**
      * Attribute type map
@@ -8107,7 +8200,7 @@ export class WorksheetOperateParameter  extends OperateParameter  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class ListColumn  {
     /**
      * Attribute type map
@@ -8158,7 +8251,7 @@ export class ListColumn  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class ListObjects  extends LinkElement  {
     /**
      * Attribute type map
@@ -9598,7 +9691,7 @@ export class AnalyzeSuggestion  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents   
 export class AnalyzeExcelResponse  {
     /**
      * Attribute type map
@@ -9625,7 +9718,7 @@ export class AnalyzeExcelResponse  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class CellsCloudResponse  {
     /**
      * Attribute type map
@@ -9742,7 +9835,7 @@ export class ArcShapeResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class AutoFilterResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -9871,7 +9964,7 @@ export class AutoShapesResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class Axis  extends LinkElement  {
     /**
      * Attribute type map
@@ -10096,7 +10189,7 @@ export class Axis  extends LinkElement  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class AxisResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -10225,7 +10318,7 @@ export class CalculateFormulaResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class CellResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -10252,7 +10345,7 @@ export class CellResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class CellsCloudFileInfoResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -10279,7 +10372,7 @@ export class CellsCloudFileInfoResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class CellsDocumentPropertiesResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -10306,7 +10399,7 @@ export class CellsDocumentPropertiesResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class CellsDocumentPropertyResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -10381,7 +10474,7 @@ export class CellsDrawingResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class CellsResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -10408,7 +10501,7 @@ export class CellsResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class ChartFrame  {
     /**
      * Attribute type map
@@ -10507,7 +10600,7 @@ export class ChartFrame  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class ChartArea  extends ChartFrame  {
     /**
      * Attribute type map
@@ -10528,7 +10621,7 @@ export class ChartArea  extends ChartFrame  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class ChartAreaResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -10801,7 +10894,7 @@ export class ChartPointsResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class Chart  extends LinkElement  {
     /**
      * Attribute type map
@@ -11107,7 +11200,7 @@ export class ChartResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class Charts  extends LinkElement  {
     /**
      * Attribute type map
@@ -11134,7 +11227,7 @@ export class Charts  extends LinkElement  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class ChartsResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -11227,7 +11320,7 @@ export class CheckBoxResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class ColumnResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -11254,7 +11347,7 @@ export class ColumnResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class ColumnsResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -11365,7 +11458,7 @@ export class ComboBoxResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class CommentResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -11446,7 +11539,7 @@ export class CommentShapeResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class CommentsResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -11473,7 +11566,7 @@ export class CommentsResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class ConditionalFormattingResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -11500,7 +11593,7 @@ export class ConditionalFormattingResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class ConditionalFormattingsResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -12058,7 +12151,7 @@ export class ErrorBarResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class FillFormatResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -12118,7 +12211,7 @@ export class FindResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class Area  {
     /**
      * Attribute type map
@@ -12493,7 +12586,7 @@ export class GroupBoxResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class HorizontalPageBreakResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -12520,7 +12613,7 @@ export class HorizontalPageBreakResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class HorizontalPageBreaksResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -12547,7 +12640,7 @@ export class HorizontalPageBreaksResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class HyperlinkResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -12574,7 +12667,7 @@ export class HyperlinkResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class HyperlinksResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -12775,7 +12868,7 @@ export class LegendEntryResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class Legend  extends ChartFrame  {
     /**
      * Attribute type map
@@ -12808,7 +12901,7 @@ export class Legend  extends ChartFrame  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class LegendResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -12835,7 +12928,7 @@ export class LegendResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class LineResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -13063,7 +13156,7 @@ export class ListObjectResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class ListObjectsResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -13090,7 +13183,7 @@ export class ListObjectsResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class MergedCellResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -13117,7 +13210,7 @@ export class MergedCellResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class MergedCellsResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -13144,7 +13237,7 @@ export class MergedCellsResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class NameResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -13171,7 +13264,7 @@ export class NameResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class NamesResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -13198,7 +13291,7 @@ export class NamesResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class OleObject  extends Shape  {
     /**
      * Attribute type map
@@ -13288,7 +13381,7 @@ export class OleObjectResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class OleObjects  extends LinkElement  {
     /**
      * Attribute type map
@@ -13315,7 +13408,7 @@ export class OleObjects  extends LinkElement  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class OleObjectsResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -13390,7 +13483,7 @@ export class OvalResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class PageSectionsResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -13417,7 +13510,7 @@ export class PageSectionsResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class PageSetupResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -13444,7 +13537,7 @@ export class PageSetupResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class Picture  extends Shape  {
     /**
      * Attribute type map
@@ -13528,7 +13621,7 @@ export class PictureResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class Pictures  extends LinkElement  {
     /**
      * Attribute type map
@@ -13555,7 +13648,7 @@ export class Pictures  extends LinkElement  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class PicturesResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -13582,7 +13675,7 @@ export class PicturesResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class PivotField  {
     /**
      * Attribute type map
@@ -13837,7 +13930,7 @@ export class PivotField  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class PivotFieldResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -13939,7 +14032,7 @@ export class PivotFilter  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class PivotFilterResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -13966,7 +14059,7 @@ export class PivotFilterResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class PivotFiltersResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -13993,7 +14086,7 @@ export class PivotFiltersResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class PivotTable  extends LinkElement  {
     /**
      * Attribute type map
@@ -14422,7 +14515,7 @@ export class PivotTable  extends LinkElement  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class PivotTableResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -14449,7 +14542,7 @@ export class PivotTableResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class PivotTables  extends LinkElement  {
     /**
      * Attribute type map
@@ -14476,7 +14569,7 @@ export class PivotTables  extends LinkElement  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class PivotTablesResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -14668,7 +14761,7 @@ export class RangeResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class RangesResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -14695,7 +14788,7 @@ export class RangesResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class RangeValueResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -14770,7 +14863,7 @@ export class RectangleShapeResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class RowResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -14797,7 +14890,7 @@ export class RowResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class RowsResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -14851,7 +14944,7 @@ export class SaveFilesToCloudResultResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class SaveResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -15376,7 +15469,7 @@ export class SeriesResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class ShapeResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -15403,7 +15496,7 @@ export class ShapeResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class Shapes  extends LinkElement  {
     /**
      * Attribute type map
@@ -15430,7 +15523,7 @@ export class Shapes  extends LinkElement  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class ShapesResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -15457,7 +15550,7 @@ export class ShapesResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class SingleValueResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -15484,7 +15577,7 @@ export class SingleValueResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class SparklineGroup  {
     /**
      * Attribute type map
@@ -15667,7 +15760,7 @@ export class SparklineGroup  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class SparklineGroupResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -15722,7 +15815,7 @@ export class SparklineGroups  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class SparklineGroupsResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -15827,7 +15920,7 @@ export class SpinnerResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class SplitResultResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -15854,7 +15947,7 @@ export class SplitResultResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class StyleResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -15983,7 +16076,7 @@ export class TextItemResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class TextItemsResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -16010,7 +16103,7 @@ export class TextItemsResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class TickLabels  extends LinkElement  {
     /**
      * Attribute type map
@@ -16124,7 +16217,7 @@ export class TickLabelsResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class Title  extends ChartFrame  {
     /**
      * Attribute type map
@@ -16187,7 +16280,7 @@ export class Title  extends ChartFrame  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class TitleResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -16394,7 +16487,7 @@ export class TrendlinesResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class ValidationResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -16421,7 +16514,7 @@ export class ValidationResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class ValidationsResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -16448,7 +16541,7 @@ export class ValidationsResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class VerticalPageBreakResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -16475,7 +16568,7 @@ export class VerticalPageBreakResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class VerticalPageBreaksResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -16580,7 +16673,7 @@ export class WallsResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class WorkbookReplaceResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -16613,7 +16706,7 @@ export class WorkbookReplaceResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class WorkbookResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -16640,7 +16733,7 @@ export class WorkbookResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class WorkbookSettingsResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -16694,7 +16787,7 @@ export class WorkbooksResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class WorksheetReplaceResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -16754,7 +16847,7 @@ export class WorksheetResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class WorksheetsResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -16781,7 +16874,7 @@ export class WorksheetsResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class AnalyzeExcelRequest  {
     /**
      * Attribute type map
@@ -17054,7 +17147,7 @@ export class BatchProtectRequest  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class BatchSplitRequest  {
     /**
      * Attribute type map
@@ -17321,7 +17414,7 @@ export class DataCleansingRequest  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class DataDeduplicationRequest  {
     /**
      * Attribute type map
@@ -17372,7 +17465,7 @@ export class DataDeduplicationRequest  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class DataFillRequest  {
     /**
      * Attribute type map
@@ -17423,7 +17516,136 @@ export class DataFillRequest  {
         Object.assign(this, init);
     } 
 }
-   
+/// Loading data information.   
+export class LoadData  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "loadTo",
+            baseName: "LoadTo",
+            type: "LoadTo",
+        },
+        {
+            name: "dataSource",
+            baseName: "DataSource",
+            type: "DataSource",
+        },
+        {
+            name: "fileInfo",
+            baseName: "FileInfo",
+            type: "FileInfo",
+        },
+        {
+            name: "dataItem",
+            baseName: "DataItem",
+            type: "DataItem",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return  LoadData.attributeTypeMap;
+
+    }
+
+    public loadTo: LoadTo;
+    public dataSource: DataSource;
+    public fileInfo: FileInfo;
+    public dataItem: DataItem;
+
+    public constructor(init?: Partial< LoadData >) {  
+    
+        Object.assign(this, init);
+    } 
+}
+///    
+export class Transformation  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "pivotColumn",
+            baseName: "PivotColumn",
+            type: "PivotColumn",
+        },
+        {
+            name: "unpivotColumn",
+            baseName: "UnpivotColumn",
+            type: "UnpivotColumn",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return  Transformation.attributeTypeMap;
+
+    }
+
+    public pivotColumn: PivotColumn;
+    public unpivotColumn: UnpivotColumn;
+
+    public constructor(init?: Partial< Transformation >) {  
+    
+        Object.assign(this, init);
+    } 
+}
+///    
+export class DataTransformationRequest  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "fileInfo",
+            baseName: "FileInfo",
+            type: "FileInfo",
+        },
+        {
+            name: "transformation",
+            baseName: "Transformation",
+            type: "Transformation",
+        },
+        {
+            name: "loadData",
+            baseName: "LoadData",
+            type: "LoadData",
+        },
+        {
+            name: "region",
+            baseName: "Region",
+            type: "string",
+        },
+        {
+            name: "outFormat",
+            baseName: "OutFormat",
+            type: "string",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return  DataTransformationRequest.attributeTypeMap;
+
+    }
+
+    public fileInfo: FileInfo;
+    public transformation: Transformation;
+    public loadData: LoadData;
+    public region: string;
+    public outFormat: string;
+
+    public constructor(init?: Partial< DataTransformationRequest >) {  
+    
+        Object.assign(this, init);
+    } 
+}
+///    
 export class DeleteIncompleteRowsRequest  {
     /**
      * Attribute type map
@@ -17474,7 +17696,7 @@ export class DeleteIncompleteRowsRequest  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class ImportPosition  {
     /**
      * Attribute type map
@@ -17522,7 +17744,7 @@ export class ImportJsonRequest  {
         {
             name: "jsonFileSource",
             baseName: "JsonFileSource",
-            type: "FileSource",
+            type: "DataSource",
         },
         {
             name: "importPosition",
@@ -17543,7 +17765,7 @@ export class ImportJsonRequest  {
 
     }
 
-    public jsonFileSource: FileSource;
+    public jsonFileSource: DataSource;
     public importPosition: ImportPosition;
     public jsonContent: string;
 
@@ -17561,7 +17783,7 @@ export class ImportXMLRequest  {
         {
             name: "xMLFileSource",
             baseName: "XMLFileSource",
-            type: "FileSource",
+            type: "DataSource",
         },
         {
             name: "importPosition",
@@ -17582,7 +17804,7 @@ export class ImportXMLRequest  {
 
     }
 
-    public xMLFileSource: FileSource;
+    public xMLFileSource: DataSource;
     public importPosition: ImportPosition;
     public xMLContent: string;
 
@@ -18141,7 +18363,208 @@ export class RenderingFont  {
         Object.assign(this, init);
     } 
 }
-   
+///    
+export class LoadTo  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "worksheet",
+            baseName: "Worksheet",
+            type: "string",
+        },
+        {
+            name: "beginRowIndex",
+            baseName: "beginRowIndex",
+            type: "number",
+        },
+        {
+            name: "beginColumnIndex",
+            baseName: "beginColumnIndex",
+            type: "number",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return  LoadTo.attributeTypeMap;
+
+    }
+
+    public worksheet: string;
+    public beginRowIndex: number;
+    public beginColumnIndex: number;
+
+    public constructor(init?: Partial< LoadTo >) {  
+    
+        Object.assign(this, init);
+    } 
+}
+///    
+export class PivotColumn  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "pivotColumnName",
+            baseName: "PivotColumnName",
+            type: "string",
+        },
+        {
+            name: "valueColumnNames",
+            baseName: "ValueColumnNames",
+            type: "Array<string>",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return  PivotColumn.attributeTypeMap;
+
+    }
+
+    public pivotColumnName: string;
+    public valueColumnNames: Array<string>;
+
+    public constructor(init?: Partial< PivotColumn >) {  
+    
+        Object.assign(this, init);
+    } 
+}
+///    
+export class QueryDataSource  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "dataSourceDataType",
+            baseName: "DataSourceDataType",
+            type: "string",
+        },
+        {
+            name: "dataFile",
+            baseName: "DataFile",
+            type: "DataSource",
+        },
+        {
+            name: "dataSource",
+            baseName: "DataSource",
+            type: "string",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return  QueryDataSource.attributeTypeMap;
+
+    }
+
+    public dataSourceDataType: string;
+    public dataFile: DataSource;
+    public dataSource: string;
+
+    public constructor(init?: Partial< QueryDataSource >) {  
+    
+        Object.assign(this, init);
+    } 
+}
+/// Represents QueryTable information.   
+export class QueryTable  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "connectionId",
+            baseName: "ConnectionId",
+            type: "number",
+        },
+        {
+            name: "name",
+            baseName: "Name",
+            type: "string",
+        },
+        {
+            name: "resultRange",
+            baseName: "ResultRange",
+            type: "Range",
+        },
+        {
+            name: "preserveFormatting",
+            baseName: "PreserveFormatting",
+            type: "boolean",
+        },
+        {
+            name: "adjustColumnWidth",
+            baseName: "AdjustColumnWidth",
+            type: "boolean",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return  QueryTable.attributeTypeMap;
+
+    }
+
+    public connectionId: number;
+    public name: string;
+    public resultRange: Range;
+    public preserveFormatting: boolean;
+    public adjustColumnWidth: boolean;
+
+    public constructor(init?: Partial< QueryTable >) {  
+    
+        Object.assign(this, init);
+    } 
+}
+///    
+export class UnpivotColumn  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "unpivotColumnNames",
+            baseName: "UnpivotColumnNames",
+            type: "Array<string>",
+        },
+        {
+            name: "columnMapName",
+            baseName: "ColumnMapName",
+            type: "string",
+        },
+        {
+            name: "valueMapName",
+            baseName: "ValueMapName",
+            type: "string",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return  UnpivotColumn.attributeTypeMap;
+
+    }
+
+    public unpivotColumnNames: Array<string>;
+    public columnMapName: string;
+    public valueMapName: string;
+
+    public constructor(init?: Partial< UnpivotColumn >) {  
+    
+        Object.assign(this, init);
+    } 
+}
+///    
 export class PivotItem  {
     /**
      * Attribute type map
@@ -18675,7 +19098,7 @@ export class ImportStringArrayOption  extends ImportOption  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class GradientFill  {
     /**
      * Attribute type map
@@ -18720,7 +19143,7 @@ export class GradientFill  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class PatternFill  {
     /**
      * Attribute type map
@@ -18783,7 +19206,7 @@ export class PatternFill  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class SolidFill  {
     /**
      * Attribute type map
@@ -18822,7 +19245,7 @@ export class SolidFill  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class TextureFill  {
     /**
      * Attribute type map
@@ -18879,7 +19302,7 @@ export class TextureFill  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class GradientFillStop  {
     /**
      * Attribute type map
@@ -18939,7 +19362,7 @@ export class GroupShape  extends Shape  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class PicFormatOption  {
     /**
      * Attribute type map
@@ -18996,7 +19419,7 @@ export class PicFormatOption  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class TilePicOption  {
     /**
      * Attribute type map
@@ -19712,12 +20135,15 @@ const typeMap = {
     DataColumnFillValue,
     DataFill,
     DataFillValue,
+    DataItem,
     DataSorter,
     DataSorterKey,
+    DataSource,
     DateTimeGroupItem,
     DeduplicationRegion,
     DynamicFilter,
     FileInfo,
+    FileSource,
     FilesResult,
     FilterColumn,
     Font,
@@ -19748,7 +20174,6 @@ const typeMap = {
     PdfSecurityOptions,
     Protection,
     ProtectSheetParameter,
-    QueryTable,
     Range,
     Ranges,
     Row,
@@ -19784,7 +20209,6 @@ const typeMap = {
     CellsObjectOperateTaskParameter,
     ConvertTaskParameter,
     ConvertWorksheetTaskParameter,
-    FileSource,
     ImportDataTaskParameter,
     ResultDestination,
     SaveFilesToCloudResult,
@@ -19953,6 +20377,7 @@ const typeMap = {
     DataCleansingRequest,
     DataDeduplicationRequest,
     DataFillRequest,
+    DataTransformationRequest,
     DeleteIncompleteRowsRequest,
     ImportJsonRequest,
     ImportXMLRequest,
@@ -19972,6 +20397,13 @@ const typeMap = {
     ImageOrPrintOptions,
     RenderingFont,
     RenderingWatermark,
+    LoadData,
+    LoadTo,
+    PivotColumn,
+    QueryDataSource,
+    QueryTable,
+    Transformation,
+    UnpivotColumn,
     PivotField,
     PivotFilter,
     PivotItem,
@@ -26682,6 +27114,42 @@ export class PostDeleteIncompleteRowsRequest  {
 
 
         const bodyParameter = (this.deleteIncompleteRowsRequest == null) ? null :   ObjectSerializer.serialize( this.deleteIncompleteRowsRequest,this.deleteIncompleteRowsRequest.constructor.name);
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+            body:bodyParameter,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Transform spreadsheet data is mainly used to pivot columns, unpivot columns.   
+export class PostDataTransformationRequest  {
+      
+    public dataTransformationRequest: DataTransformationRequest;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< PostDataTransformationRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/datatransformation";
+        const queryParameters: any = {};
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        const bodyParameter = (this.dataTransformationRequest == null) ? null :   ObjectSerializer.serialize( this.dataTransformationRequest,this.dataTransformationRequest.constructor.name);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
