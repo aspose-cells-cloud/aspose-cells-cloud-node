@@ -4,9 +4,8 @@ Node.js Cloud SDK wraps Aspose.Cells REST API so you could seamlessly integrate 
 
 # Node.js package for Aspose.Cells Cloud
 
-Aspose.Cells Cloud SDK for Node.js allows you to work with worksheet cell data, cell formatting, formulas, charts, pivot tables,data validation, comments, drawing objects, images, hyperlinks, text and number formatting, rows, columns , and protection settings. It also assists in appending worksheets, splitting worksheets, merging cells, and converting worksheets to other supported file formats.
-
-Feel free to explore the Developer's Guide & API Reference to know all about Aspose.Cells Cloud API.
+This repository contains Aspose.Cells Cloud SDK for Node.js source code. This SDK enables you to engage with various aspects of worksheets such as cell data, cell formatting, formulas, charts, pivot tables, data validation, comments, drawing objects, images, hyperlinks, as well as text and number formatting. Additionally, it offers functionalities for manipulating rows, columns, and protection settings. With Aspose.Cells Cloud SDK for Node.js, you can extend your applications to append and split worksheets, merge cells, and convert worksheets to a range of supported file formats, seamlessly integrating with the powerful Aspose.Cells Cloud REST APIs.
+We encourage you to dive into the Developer's Guide & API Reference for a comprehensive insight into everything Aspose.Cells Cloud API can offer. Enhance your Node.js applications today by leveraging the full suite of features aimed at making worksheet management as efficient as possible.
 
 ## Manipulate Excel and other spreadsheet files in the Cloud
 
