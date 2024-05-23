@@ -592,7 +592,8 @@ export class DataSorter  {
         Object.assign(this, init);
     } 
 }
-///    
+///            Represents a filter for a single column. The Filter object is a member of the Filters collection
+///               
 export class FilterColumn  {
     /**
      * Attribute type map
@@ -757,7 +758,7 @@ export class AutoFilter  extends LinkElement  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents all auto fitter options.   
 export class AutoFitterOptions  {
     /**
      * Attribute type map
@@ -871,7 +872,8 @@ export class Color  {
         Object.assign(this, init);
     } 
 }
-///    
+///            Represents a theme color.
+///               
 export class ThemeColor  {
     /**
      * Attribute type map
@@ -904,7 +906,8 @@ export class ThemeColor  {
         Object.assign(this, init);
     } 
 }
-///    
+///            Encapsulates the object that represents the cell border.
+///               
 export class Border  {
     /**
      * Attribute type map
@@ -955,7 +958,8 @@ export class Border  {
         Object.assign(this, init);
     } 
 }
-///    
+///            Represents a root object to create an Excel spreadsheet.
+///               
 export class Workbook  {
     /**
      * Attribute type map
@@ -1042,7 +1046,8 @@ export class Workbook  {
         Object.assign(this, init);
     } 
 }
-///    
+///            Represents options for calculation.
+///               
 export class CalculationOptions  {
     /**
      * Attribute type map
@@ -1222,7 +1227,8 @@ export class Cell  extends LinkElement  {
         Object.assign(this, init);
     } 
 }
-///    
+///            Represent an area of cells.
+///               
 export class CellArea  {
     /**
      * Attribute type map
@@ -1369,7 +1375,8 @@ export class CellsCloudFileInfo  {
         Object.assign(this, init);
     } 
 }
-///    
+///            Represents all types of color.
+///               
 export class CellsColor  {
     /**
      * Attribute type map
@@ -1573,7 +1580,8 @@ export class ColorFilter  {
         Object.assign(this, init);
     } 
 }
-///    
+///            Describes the values of the interpolation points in a gradient scale, dataBar or iconSet.
+///               
 export class ConditionalFormattingValue  {
     /**
      * Attribute type map
@@ -1671,7 +1679,7 @@ export class ColorScale  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents a single column in a worksheet.   
 export class Column  extends LinkElement  {
     /**
      * Attribute type map
@@ -1761,7 +1769,7 @@ export class Columns  extends LinkElement  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Encapsulates the object that represents a cell comment.   
 export class Comment  extends LinkElement  {
     /**
      * Attribute type map
@@ -1848,7 +1856,7 @@ export class Comment  extends LinkElement  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Encapsulates a collection of  objects.   
 export class Comments  extends LinkElement  {
     /**
      * Attribute type map
@@ -1875,7 +1883,7 @@ export class Comments  extends LinkElement  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents conditional formatting condition.   
 export class FormatCondition  extends LinkElement  {
     /**
      * Attribute type map
@@ -2013,7 +2021,8 @@ export class ConditionalFormatting  extends LinkElement  {
         Object.assign(this, init);
     } 
 }
-///    
+///            Represents  the custom  icon of conditional formatting rule.
+///               
 export class ConditionalFormattingIcon  {
     /**
      * Attribute type map
@@ -2052,7 +2061,7 @@ export class ConditionalFormattingIcon  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Encapsulates a collection of  objects.   
 export class ConditionalFormattings  extends LinkElement  {
     /**
      * Attribute type map
@@ -2190,7 +2199,8 @@ export class CriteriaMultipleFilter  extends MultipleFilter  {
         Object.assign(this, init);
     } 
 }
-///    
+///            Represents the custom filter.
+///               
 export class CustomFilter  {
     /**
      * Attribute type map
@@ -2223,7 +2233,8 @@ export class CustomFilter  {
         Object.assign(this, init);
     } 
 }
-///    
+///            Represents the border of the data bars specified by a conditional formatting rule.
+///               
 export class DataBarBorder  {
     /**
      * Attribute type map
@@ -2397,7 +2408,7 @@ export class DataBar  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents data filling.   
 export class DataFill  {
     /**
      * Attribute type map
@@ -2436,7 +2447,8 @@ export class DataFill  {
         Object.assign(this, init);
     } 
 }
-///    
+///            Encapsulates the object that represents a range of cells within a spreadsheet.
+///               
 export class Range  {
     /**
      * Attribute type map
@@ -2511,7 +2523,7 @@ export class Range  {
         Object.assign(this, init);
     } 
 }
-/// Data Cleansing   
+/// Represents data cleansing.   
 export class DataCleansing  {
     /**
      * Attribute type map
@@ -2550,7 +2562,7 @@ export class DataCleansing  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents that the data is populated with the specified value.   
 export class DataFillValue  {
     /**
      * Attribute type map
@@ -2601,7 +2613,7 @@ export class DataFillValue  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents that the data column is populated with the specified value.   
 export class DataColumnFillValue  {
     /**
      * Attribute type map
@@ -2634,7 +2646,7 @@ export class DataColumnFillValue  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents data item.   
 export class DataItem  {
     /**
      * Attribute type map
@@ -2725,7 +2737,7 @@ export class DataSorterKey  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents sort key.   
 export class SortKey  {
     /**
      * Attribute type map
@@ -2782,7 +2794,7 @@ export class SortKey  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents data source.   
 export class DataSource  {
     /**
      * Attribute type map
@@ -2815,7 +2827,7 @@ export class DataSource  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the datetime's group setting.   
 export class DateTimeGroupItem  extends MultipleFilter  {
     /**
      * Attribute type map
@@ -2878,7 +2890,7 @@ export class DateTimeGroupItem  extends MultipleFilter  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents data deduplication region.   
 export class DeduplicationRegion  {
     /**
      * Attribute type map
@@ -2911,7 +2923,8 @@ export class DeduplicationRegion  {
         Object.assign(this, init);
     } 
 }
-///    
+///            Represents the dynamic filter.
+///               
 export class DynamicFilter  {
     /**
      * Attribute type map
@@ -2950,7 +2963,7 @@ export class DynamicFilter  {
         Object.assign(this, init);
     } 
 }
-/// File Information   
+/// Represents file information.   
 export class FileInfo  {
     /**
      * Attribute type map
@@ -3049,7 +3062,8 @@ export class FilesResult  {
         Object.assign(this, init);
     } 
 }
-///    
+///            Represents icon filter.
+///               
 export class IconFilter  {
     /**
      * Attribute type map
@@ -3082,7 +3096,8 @@ export class IconFilter  {
         Object.assign(this, init);
     } 
 }
-///    
+///            Represents the multiple filter collection.
+///               
 export class MultipleFilters  {
     /**
      * Attribute type map
@@ -3115,7 +3130,8 @@ export class MultipleFilters  {
         Object.assign(this, init);
     } 
 }
-///    
+///            Represents the top 10 filter.
+///               
 export class Top10Filter  {
     /**
      * Attribute type map
@@ -3160,7 +3176,8 @@ export class Top10Filter  {
         Object.assign(this, init);
     } 
 }
-///    
+///            Encapsulates the font object used in a spreadsheet.
+///               
 export class Font  {
     /**
      * Attribute type map
@@ -3241,7 +3258,7 @@ export class Font  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the text options.   
 export class TextOptions  extends Font  {
     /**
      * Attribute type map
@@ -3298,7 +3315,8 @@ export class TextOptions  extends Font  {
         Object.assign(this, init);
     } 
 }
-///    
+///            Represents a range of characters within the cell text.
+///               
 export class FontSetting  {
     /**
      * Attribute type map
@@ -3407,7 +3425,8 @@ export class IconSet  {
         Object.assign(this, init);
     } 
 }
-///    
+///            Represents display style of excel document,such as font,color,alignment,border,etc.            The Style object contains all style attributes (font, number format, alignment, and so on) as properties.
+///               
 export class Style  {
     /**
      * Attribute type map
@@ -3830,7 +3849,8 @@ export class GlobalizationSettings  {
         Object.assign(this, init);
     } 
 }
-///    
+///            Encapsulates the object that represents a horizontal page break.
+///               
 export class HorizontalPageBreak  {
     /**
      * Attribute type map
@@ -3869,7 +3889,7 @@ export class HorizontalPageBreak  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Encapsulates a collection of  objects.   
 export class HorizontalPageBreaks  extends LinkElement  {
     /**
      * Attribute type map
@@ -3890,7 +3910,7 @@ export class HorizontalPageBreaks  extends LinkElement  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Encapsulates the object that represents a hyperlink.   
 export class Hyperlink  extends LinkElement  {
     /**
      * Attribute type map
@@ -3941,7 +3961,7 @@ export class Hyperlink  extends LinkElement  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Encapsulates a collection of  objects.   
 export class Hyperlinks  extends LinkElement  {
     /**
      * Attribute type map
@@ -3974,7 +3994,7 @@ export class Hyperlinks  extends LinkElement  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the options of loading the file.   
 export class LoadOptions  {
     /**
      * Attribute type map
@@ -4139,7 +4159,7 @@ export class MergedCells  extends LinkElement  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents a defined name for a range of cells.   
 export class Name  extends LinkElement  {
     /**
      * Attribute type map
@@ -4202,7 +4222,7 @@ export class Name  extends LinkElement  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents a collection of all the  objects in the spreadsheet.   
 export class Names  extends LinkElement  {
     /**
      * Attribute type map
@@ -4557,7 +4577,7 @@ export class PasteOptions  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Options for encrypting and access permissions for a PDF document.            PDF/A does not allow security setting.   
 export class PdfSecurityOptions  {
     /**
      * Attribute type map
@@ -4873,7 +4893,8 @@ export class ProtectSheetParameter  {
         Object.assign(this, init);
     } 
 }
-///    
+///            Encapsulates a collection of  objects.
+///               
 export class Ranges  {
     /**
      * Attribute type map
@@ -4900,7 +4921,7 @@ export class Ranges  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents a single row in a worksheet.   
 export class Row  extends LinkElement  {
     /**
      * Attribute type map
@@ -4963,7 +4984,7 @@ export class Row  extends LinkElement  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Collects the  objects that represent the individual rows in a worksheet.   
 export class Rows  extends LinkElement  {
     /**
      * Attribute type map
@@ -5002,7 +5023,7 @@ export class Rows  extends LinkElement  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents save result.   
 export class SaveResult  {
     /**
      * Attribute type map
@@ -5227,7 +5248,7 @@ export class PaginatedSaveOptions  extends SaveOptions  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents single value.   
 export class SingleValue  {
     /**
      * Attribute type map
@@ -5260,7 +5281,7 @@ export class SingleValue  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the result of the file split.   
 export class SplitResult  {
     /**
      * Attribute type map
@@ -5287,34 +5308,7 @@ export class SplitResult  {
         Object.assign(this, init);
     } 
 }
-///    
-export class SplitResultDocument  extends LinkElement  {
-    /**
-     * Attribute type map
-     */
-    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
-        {
-            name: "id",
-            baseName: "Id",
-            type: "number",
-        }
-    ];
-    /**
-     * Returns attribute type map
-     */
-    public static getAttributeTypeMap() {
-        return super.getAttributeTypeMap().concat(SplitResultDocument.attributeTypeMap) ;
-
-    }
-
-    public id: number;
-
-    public constructor(init?: Partial< SplitResultDocument >) {  
-         super(init);     
-        Object.assign(this, init);
-    } 
-}
-///    
+/// Represents style format condition.   
 export class StyleFormatCondition  extends FormatCondition  {
     /**
      * Attribute type map
@@ -5335,7 +5329,7 @@ export class StyleFormatCondition  extends FormatCondition  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents data style collection.   
 export class Styles  extends LinkElement  {
     /**
      * Attribute type map
@@ -5362,7 +5356,7 @@ export class Styles  extends LinkElement  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents text format condition.   
 export class TextFormatCondition  extends FormulaFormatCondition  {
     /**
      * Attribute type map
@@ -5389,7 +5383,7 @@ export class TextFormatCondition  extends FormulaFormatCondition  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents text item.   
 export class TextItem  extends LinkElement  {
     /**
      * Attribute type map
@@ -5416,7 +5410,7 @@ export class TextItem  extends LinkElement  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents text item collection.   
 export class TextItems  extends LinkElement  {
     /**
      * Attribute type map
@@ -5443,7 +5437,8 @@ export class TextItems  extends LinkElement  {
         Object.assign(this, init);
     } 
 }
-///    
+///            Encapsulates the object that represents fill formatting for a shape.
+///               
 export class FillFormat  {
     /**
      * Attribute type map
@@ -5500,7 +5495,7 @@ export class FillFormat  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents all setting of the line.   
 export class LineFormat  extends FillFormat  {
     /**
      * Attribute type map
@@ -5587,7 +5582,8 @@ export class LineFormat  extends FillFormat  {
         Object.assign(this, init);
     } 
 }
-///    
+///            This class specifies the shadow effect of the chart element or shape.
+///               
 export class ShadowEffect  {
     /**
      * Attribute type map
@@ -5650,7 +5646,7 @@ export class ShadowEffect  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents time period format condition.   
 export class TimePeriodFormatCondition  {
     /**
      * Attribute type map
@@ -5677,7 +5673,7 @@ export class TimePeriodFormatCondition  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents data validation.settings.   
 export class Validation  extends LinkElement  {
     /**
      * Attribute type map
@@ -5794,7 +5790,7 @@ export class Validation  extends LinkElement  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents data validation collection.   
 export class Validations  extends LinkElement  {
     /**
      * Attribute type map
@@ -5827,7 +5823,8 @@ export class Validations  extends LinkElement  {
         Object.assign(this, init);
     } 
 }
-///    
+///            Encapsulates the object that represents a vertical page break.
+///               
 export class VerticalPageBreak  {
     /**
      * Attribute type map
@@ -5866,7 +5863,7 @@ export class VerticalPageBreak  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Encapsulates a collection of  objects.   
 export class VerticalPageBreaks  extends LinkElement  {
     /**
      * Attribute type map
@@ -5933,7 +5930,8 @@ export class WriteProtection  {
         Object.assign(this, init);
     } 
 }
-///    
+///            Represents all settings of the workbook.
+///               
 export class WorkbookSettings  {
     /**
      * Attribute type map
@@ -6326,7 +6324,8 @@ export class WorkbookSettings  {
         Object.assign(this, init);
     } 
 }
-///    
+///            Encapsulates the object that represents a single worksheet.
+///               
 export class Worksheet  {
     /**
      * Attribute type map
@@ -6539,7 +6538,7 @@ export class Worksheet  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Encapsulates a collection of  objects.   
 export class Worksheets  extends LinkElement  {
     /**
      * Attribute type map
@@ -6634,7 +6633,7 @@ export class XmlMap  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents task parameter.   
 export class TaskParameter  {
     /**
      * Attribute type map
@@ -6655,7 +6654,7 @@ export class TaskParameter  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents operate object.   
 export class OperateObject  {
     /**
      * Attribute type map
@@ -6688,7 +6687,7 @@ export class OperateObject  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents operate parameter.   
 export class OperateParameter  {
     /**
      * Attribute type map
@@ -6715,7 +6714,7 @@ export class OperateParameter  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents cells object operate task parameter.   
 export class CellsObjectOperateTaskParameter  extends TaskParameter  {
     /**
      * Attribute type map
@@ -6732,8 +6731,8 @@ export class CellsObjectOperateTaskParameter  extends TaskParameter  {
             type: "OperateParameter",
         },
         {
-            name: "destinatioDataSource",
-            baseName: "DestinatioDataSource",
+            name: "destinationDataSource",
+            baseName: "DestinationDataSource",
             type: "DataSource",
         },
         {
@@ -6752,7 +6751,7 @@ export class CellsObjectOperateTaskParameter  extends TaskParameter  {
 
     public operateObject: OperateObject;
     public operateParameter: OperateParameter;
-    public destinatioDataSource: DataSource;
+    public destinationDataSource: DataSource;
     public destinationWorkbook: FileSource;
 
     public constructor(init?: Partial< CellsObjectOperateTaskParameter >) {  
@@ -6760,7 +6759,7 @@ export class CellsObjectOperateTaskParameter  extends TaskParameter  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents convert task parameter.   
 export class ConvertTaskParameter  extends TaskParameter  {
     /**
      * Attribute type map
@@ -6811,7 +6810,7 @@ export class ConvertTaskParameter  extends TaskParameter  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents convert worksheet task parameter.   
 export class ConvertWorksheetTaskParameter  extends TaskParameter  {
     /**
      * Attribute type map
@@ -6943,7 +6942,7 @@ export class ImportOption  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents import data task parameter.   
 export class ImportDataTaskParameter  extends TaskParameter  {
     /**
      * Attribute type map
@@ -6994,7 +6993,7 @@ export class ImportDataTaskParameter  extends TaskParameter  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents result destination.   
 export class ResultDestination  {
     /**
      * Attribute type map
@@ -7033,7 +7032,7 @@ export class ResultDestination  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents task run result.   
 export class TaskRunResult  {
     /**
      * Attribute type map
@@ -7066,7 +7065,7 @@ export class TaskRunResult  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents save file to cloud result.   
 export class SaveFilesToCloudResult  extends TaskRunResult  {
     /**
      * Attribute type map
@@ -7093,7 +7092,7 @@ export class SaveFilesToCloudResult  extends TaskRunResult  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents save result task parameter.   
 export class SaveResultTaskParameter  extends TaskParameter  {
     /**
      * Attribute type map
@@ -7126,7 +7125,7 @@ export class SaveResultTaskParameter  extends TaskParameter  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents smart marker task parameter.   
 export class SmartMarkerTaskParameter  extends TaskParameter  {
     /**
      * Attribute type map
@@ -7183,7 +7182,7 @@ export class SmartMarkerTaskParameter  extends TaskParameter  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents split workbook task parameter.   
 export class SplitWorkbookTaskParameter  extends TaskParameter  {
     /**
      * Attribute type map
@@ -7252,7 +7251,7 @@ export class SplitWorkbookTaskParameter  extends TaskParameter  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents task description.   
 export class TaskDescription  {
     /**
      * Attribute type map
@@ -7285,7 +7284,7 @@ export class TaskDescription  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents task data.   
 export class TaskData  {
     /**
      * Attribute type map
@@ -7312,7 +7311,7 @@ export class TaskData  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents task result parameter.   
 export class TaskResultParameter  extends TaskParameter  {
     /**
      * Attribute type map
@@ -7333,7 +7332,7 @@ export class TaskResultParameter  extends TaskParameter  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents chart operate parameter.   
 export class ChartOperateParameter  extends OperateParameter  {
     /**
      * Attribute type map
@@ -7420,7 +7419,7 @@ export class ChartOperateParameter  extends OperateParameter  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents a list object on a worksheet.            The ListObject object is a member of the ListObjects collection.             The ListObjects collection contains all the list objects on a worksheet.   
 export class ListObject  extends LinkElement  {
     /**
      * Attribute type map
@@ -7567,7 +7566,7 @@ export class ListObject  extends LinkElement  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents list object operate parameter.   
 export class ListObjectOperateParameter  extends OperateParameter  {
     /**
      * Attribute type map
@@ -7594,7 +7593,7 @@ export class ListObjectOperateParameter  extends OperateParameter  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents operate object position.   
 export class OperateObjectPosition  {
     /**
      * Attribute type map
@@ -7657,7 +7656,7 @@ export class OperateObjectPosition  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents page break operate parameter.   
 export class PageBreakOperateParameter  extends OperateParameter  {
     /**
      * Attribute type map
@@ -7714,7 +7713,7 @@ export class PageBreakOperateParameter  extends OperateParameter  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents page setup operate parameter.   
 export class PageSetupOperateParameter  extends OperateParameter  {
     /**
      * Attribute type map
@@ -7741,7 +7740,7 @@ export class PageSetupOperateParameter  extends OperateParameter  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents pivot table operate parameter.   
 export class PivotTableOperateParameter  extends OperateParameter  {
     /**
      * Attribute type map
@@ -7810,7 +7809,7 @@ export class PivotTableOperateParameter  extends OperateParameter  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the msodrawing object.   
 export class Shape  extends LinkElement  {
     /**
      * Attribute type map
@@ -8047,7 +8046,7 @@ export class Shape  extends LinkElement  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents shape operate parameter.   
 export class ShapeOperateParameter  extends OperateParameter  {
     /**
      * Attribute type map
@@ -8074,7 +8073,7 @@ export class ShapeOperateParameter  extends OperateParameter  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents workbook operate parameter.   
 export class WorkbookOperateParameter  extends OperateParameter  {
     /**
      * Attribute type map
@@ -8095,7 +8094,7 @@ export class WorkbookOperateParameter  extends OperateParameter  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents workbook setting operate parameter.   
 export class WorkbookSettingsOperateParameter  extends OperateParameter  {
     /**
      * Attribute type map
@@ -8155,7 +8154,7 @@ export class WorksheetMovingRequest  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents worksheet operate parameter.   
 export class WorksheetOperateParameter  extends OperateParameter  {
     /**
      * Attribute type map
@@ -8200,7 +8199,8 @@ export class WorksheetOperateParameter  extends OperateParameter  {
         Object.assign(this, init);
     } 
 }
-///    
+///            Represents a column in a Table.
+///               
 export class ListColumn  {
     /**
      * Attribute type map
@@ -8251,7 +8251,7 @@ export class ListColumn  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents a collection of  objects in the worksheet.   
 export class ListObjects  extends LinkElement  {
     /**
      * Attribute type map
@@ -8320,7 +8320,7 @@ export class DocxSaveOptions  extends PaginatedSaveOptions  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Allows to specify options when rendering worksheet to images, printing worksheet or rendering chart to image.   
 export class ImageOrPrintOptions  {
     /**
      * Attribute type map
@@ -9082,7 +9082,7 @@ export class OoxmlSaveOptions  extends SaveOptions  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Watermark for rendering.   
 export class RenderingWatermark  {
     /**
      * Attribute type map
@@ -9622,103 +9622,8 @@ export class XpsSaveOptions  extends PaginatedSaveOptions  {
         Object.assign(this, init);
     } 
 }
-///    
-export class AnalyzeSuggestion  {
-    /**
-     * Attribute type map
-     */
-    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
-        {
-            name: "name",
-            baseName: "Name",
-            type: "string",
-        },
-        {
-            name: "filename",
-            baseName: "Filename",
-            type: "string",
-        },
-        {
-            name: "sheetName",
-            baseName: "SheetName",
-            type: "string",
-        },
-        {
-            name: "dateSourceType",
-            baseName: "DateSourceType",
-            type: "string",
-        },
-        {
-            name: "suggestedOutputType",
-            baseName: "SuggestedOutputType",
-            type: "string",
-        },
-        {
-            name: "description",
-            baseName: "Description",
-            type: "string",
-        },
-        {
-            name: "dataSouceThumbnail",
-            baseName: "DataSouceThumbnail",
-            type: "string",
-        },
-        {
-            name: "thumbnail",
-            baseName: "Thumbnail",
-            type: "string",
-        }
-    ];
-    /**
-     * Returns attribute type map
-     */
-    public static getAttributeTypeMap() {
-        return  AnalyzeSuggestion.attributeTypeMap;
-
-    }
-
-    public name: string;
-    public filename: string;
-    public sheetName: string;
-    public dateSourceType: string;
-    public suggestedOutputType: string;
-    public description: string;
-    public dataSouceThumbnail: string;
-    public thumbnail: string;
-
-    public constructor(init?: Partial< AnalyzeSuggestion >) {  
-    
-        Object.assign(this, init);
-    } 
-}
-/// Represents   
-export class AnalyzeExcelResponse  {
-    /**
-     * Attribute type map
-     */
-    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
-        {
-            name: "suggestions",
-            baseName: "Suggestions",
-            type: "Array<AnalyzeSuggestion>",
-        }
-    ];
-    /**
-     * Returns attribute type map
-     */
-    public static getAttributeTypeMap() {
-        return  AnalyzeExcelResponse.attributeTypeMap;
-
-    }
-
-    public suggestions: Array<AnalyzeSuggestion>;
-
-    public constructor(init?: Partial< AnalyzeExcelResponse >) {  
-    
-        Object.assign(this, init);
-    } 
-}
-///    
+///            Represents the CellsCloud Response.
+///               
 export class CellsCloudResponse  {
     /**
      * Attribute type map
@@ -9751,7 +9656,7 @@ export class CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the arc shape.   
 export class ArcShape  extends Shape  {
     /**
      * Attribute type map
@@ -9808,7 +9713,7 @@ export class ArcShape  extends Shape  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the ArcShape Response.   
 export class ArcShapeResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -9835,7 +9740,7 @@ export class ArcShapeResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the AutoFilter Response.   
 export class AutoFilterResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -9862,7 +9767,7 @@ export class AutoFilterResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents an AutoShape.   
 export class AutoShape  extends Shape  {
     /**
      * Attribute type map
@@ -9883,7 +9788,7 @@ export class AutoShape  extends Shape  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the AutoShape Response.   
 export class AutoShapeResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -9937,7 +9842,7 @@ export class AutoShapes  extends LinkElement  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the AutoShapes Response.   
 export class AutoShapesResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -9964,7 +9869,7 @@ export class AutoShapesResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Encapsulates the object that represents an axis of chart.   
 export class Axis  extends LinkElement  {
     /**
      * Attribute type map
@@ -10013,7 +9918,7 @@ export class Axis  extends LinkElement  {
         {
             name: "displayUnitLabel",
             baseName: "DisplayUnitLabel",
-            type: "LinkElement",
+            type: "DisplayUnitLabel",
         },
         {
             name: "hasMultiLevelLabels",
@@ -10157,7 +10062,7 @@ export class Axis  extends LinkElement  {
     public crossAt: number;
     public crossType: string;
     public displayUnit: string;
-    public displayUnitLabel: LinkElement;
+    public displayUnitLabel: DisplayUnitLabel;
     public hasMultiLevelLabels: boolean;
     public isAutomaticMajorUnit: boolean;
     public isAutomaticMaxValue: boolean;
@@ -10189,7 +10094,7 @@ export class Axis  extends LinkElement  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the Axis Response.   
 export class AxisResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -10216,7 +10121,7 @@ export class AxisResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the Border Response.   
 export class BorderResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -10243,7 +10148,7 @@ export class BorderResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the Forms control: Button   
 export class Button  extends Shape  {
     /**
      * Attribute type map
@@ -10264,7 +10169,7 @@ export class Button  extends Shape  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the Button Response.   
 export class ButtonResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -10291,7 +10196,7 @@ export class ButtonResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the CalculateFormula Response.   
 export class CalculateFormulaResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -10318,7 +10223,7 @@ export class CalculateFormulaResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the Cell Response.   
 export class CellResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -10345,7 +10250,7 @@ export class CellResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the CellsCloudFileInfo Response.   
 export class CellsCloudFileInfoResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -10372,7 +10277,7 @@ export class CellsCloudFileInfoResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the CellsDocumentProperties Response.   
 export class CellsDocumentPropertiesResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -10399,7 +10304,7 @@ export class CellsDocumentPropertiesResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the CellsDocumentProperty Response.   
 export class CellsDocumentPropertyResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -10426,7 +10331,7 @@ export class CellsDocumentPropertyResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the auto shape and drawing object.   
 export class CellsDrawing  extends Shape  {
     /**
      * Attribute type map
@@ -10447,7 +10352,7 @@ export class CellsDrawing  extends Shape  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the CellsDrawing Response.   
 export class CellsDrawingResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -10474,7 +10379,7 @@ export class CellsDrawingResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the Cells Response.   
 export class CellsResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -10501,7 +10406,8 @@ export class CellsResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-///    
+///            Encapsulates the object that represents the frame object in a chart.
+///               
 export class ChartFrame  {
     /**
      * Attribute type map
@@ -10548,11 +10454,6 @@ export class ChartFrame  {
             type: "boolean",
         },
         {
-            name: "shapeProperties",
-            baseName: "ShapeProperties",
-            type: "Array<LinkElement>",
-        },
-        {
             name: "width",
             baseName: "Width",
             type: "number",
@@ -10589,7 +10490,6 @@ export class ChartFrame  {
     public isAutomaticSize: boolean;
     public isInnerMode: boolean;
     public shadow: boolean;
-    public shapeProperties: Array<LinkElement>;
     public width: number;
     public height: number;
     public x: number;
@@ -10600,7 +10500,7 @@ export class ChartFrame  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Encapsulates the object that represents the chart area in the worksheet.   
 export class ChartArea  extends ChartFrame  {
     /**
      * Attribute type map
@@ -10621,7 +10521,7 @@ export class ChartArea  extends ChartFrame  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the ChartArea Response.   
 export class ChartAreaResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -10648,7 +10548,7 @@ export class ChartAreaResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents a chart data table.   
 export class ChartDataTable  extends LinkElement  {
     /**
      * Attribute type map
@@ -10717,7 +10617,7 @@ export class ChartDataTable  extends LinkElement  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the ChartDataTable Response.   
 export class ChartDataTableResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -10744,7 +10644,7 @@ export class ChartDataTableResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents a single point in a series in a chart.   
 export class ChartPoint  extends LinkElement  {
     /**
      * Attribute type map
@@ -10783,12 +10683,17 @@ export class ChartPoint  extends LinkElement  {
         {
             name: "xValue",
             baseName: "XValue",
-            type: "string",
+            type: "Object",
         },
         {
             name: "yValue",
             baseName: "YValue",
-            type: "string",
+            type: "Object",
+        },
+        {
+            name: "isInSecondaryPlot",
+            baseName: "IsInSecondaryPlot",
+            type: "boolean",
         }
     ];
     /**
@@ -10805,15 +10710,16 @@ export class ChartPoint  extends LinkElement  {
     public explosion: number;
     public marker: Marker;
     public shadow: boolean;
-    public xValue: string;
-    public yValue: string;
+    public xValue: Object;
+    public yValue: Object;
+    public isInSecondaryPlot: boolean;
 
     public constructor(init?: Partial< ChartPoint >) {  
          super(init);     
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the ChartPoint Response.   
 export class ChartPointResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -10840,7 +10746,7 @@ export class ChartPointResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents a collection that contains all the points in one series.   
 export class ChartPoints  extends LinkElement  {
     /**
      * Attribute type map
@@ -10849,7 +10755,7 @@ export class ChartPoints  extends LinkElement  {
         {
             name: "chartPointList",
             baseName: "ChartPointList",
-            type: "Array<LinkElement>",
+            type: "Array<ChartPoint>",
         }
     ];
     /**
@@ -10860,14 +10766,14 @@ export class ChartPoints  extends LinkElement  {
 
     }
 
-    public chartPointList: Array<LinkElement>;
+    public chartPointList: Array<ChartPoint>;
 
     public constructor(init?: Partial< ChartPoints >) {  
          super(init);     
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the ChartPoints Response.   
 export class ChartPointsResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -10894,7 +10800,7 @@ export class ChartPointsResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Encapsulates the object that represents a single Excel chart.   
 export class Chart  extends LinkElement  {
     /**
      * Attribute type map
@@ -10908,22 +10814,22 @@ export class Chart  extends LinkElement  {
         {
             name: "backWall",
             baseName: "BackWall",
-            type: "LinkElement",
+            type: "Walls",
         },
         {
             name: "categoryAxis",
             baseName: "CategoryAxis",
-            type: "LinkElement",
+            type: "Axis",
         },
         {
             name: "chartArea",
             baseName: "ChartArea",
-            type: "LinkElement",
+            type: "ChartArea",
         },
         {
             name: "chartDataTable",
             baseName: "ChartDataTable",
-            type: "LinkElement",
+            type: "ChartDataTable",
         },
         {
             name: "chartObject",
@@ -10948,7 +10854,7 @@ export class Chart  extends LinkElement  {
         {
             name: "floor",
             baseName: "Floor",
-            type: "LinkElement",
+            type: "Floor",
         },
         {
             name: "gapDepth",
@@ -10983,7 +10889,7 @@ export class Chart  extends LinkElement  {
         {
             name: "legend",
             baseName: "Legend",
-            type: "LinkElement",
+            type: "Legend",
         },
         {
             name: "name",
@@ -10993,7 +10899,7 @@ export class Chart  extends LinkElement  {
         {
             name: "nSeries",
             baseName: "NSeries",
-            type: "LinkElement",
+            type: "SeriesItems",
         },
         {
             name: "pageSetup",
@@ -11018,7 +10924,7 @@ export class Chart  extends LinkElement  {
         {
             name: "plotArea",
             baseName: "PlotArea",
-            type: "LinkElement",
+            type: "PlotArea",
         },
         {
             name: "plotEmptyCellsType",
@@ -11103,7 +11009,7 @@ export class Chart  extends LinkElement  {
         {
             name: "valueAxis",
             baseName: "ValueAxis",
-            type: "LinkElement",
+            type: "Axis",
         },
         {
             name: "walls",
@@ -11125,29 +11031,29 @@ export class Chart  extends LinkElement  {
     }
 
     public autoScaling: boolean;
-    public backWall: LinkElement;
-    public categoryAxis: LinkElement;
-    public chartArea: LinkElement;
-    public chartDataTable: LinkElement;
+    public backWall: Walls;
+    public categoryAxis: Axis;
+    public chartArea: ChartArea;
+    public chartDataTable: ChartDataTable;
     public chartObject: LinkElement;
     public depthPercent: number;
     public elevation: number;
     public firstSliceAngle: number;
-    public floor: LinkElement;
+    public floor: Floor;
     public gapDepth: number;
     public gapWidth: number;
     public heightPercent: number;
     public hidePivotFieldButtons: boolean;
     public is3D: boolean;
     public isRectangularCornered: boolean;
-    public legend: LinkElement;
+    public legend: Legend;
     public name: string;
-    public nSeries: LinkElement;
+    public nSeries: SeriesItems;
     public pageSetup: LinkElement;
     public perspective: number;
     public pivotSource: string;
     public placement: string;
-    public plotArea: LinkElement;
+    public plotArea: PlotArea;
     public plotEmptyCellsType: string;
     public plotVisibleCells: boolean;
     public printSize: string;
@@ -11164,7 +11070,7 @@ export class Chart  extends LinkElement  {
     public style: number;
     public title: LinkElement;
     public type: string;
-    public valueAxis: LinkElement;
+    public valueAxis: Axis;
     public walls: LinkElement;
     public wallsAndGridlines2D: boolean;
 
@@ -11173,7 +11079,7 @@ export class Chart  extends LinkElement  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the Chart Response.   
 export class ChartResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -11200,7 +11106,7 @@ export class ChartResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Encapsulates a collection of  objects.   
 export class Charts  extends LinkElement  {
     /**
      * Attribute type map
@@ -11227,7 +11133,7 @@ export class Charts  extends LinkElement  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the Charts Response.   
 export class ChartsResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -11254,7 +11160,7 @@ export class ChartsResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents a check box object in a worksheet.   
 export class CheckBox  extends Shape  {
     /**
      * Attribute type map
@@ -11293,7 +11199,7 @@ export class CheckBox  extends Shape  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the CheckBox Response.   
 export class CheckBoxResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -11320,7 +11226,7 @@ export class CheckBoxResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the Column Response.   
 export class ColumnResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -11347,7 +11253,7 @@ export class ColumnResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the Columns Response.   
 export class ColumnsResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -11374,7 +11280,7 @@ export class ColumnsResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the control form ComboBox.   
 export class ComboBox  extends Shape  {
     /**
      * Attribute type map
@@ -11431,7 +11337,7 @@ export class ComboBox  extends Shape  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the ComboBox Response.   
 export class ComboBoxResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -11458,7 +11364,7 @@ export class ComboBoxResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the Comment Response.   
 export class CommentResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -11485,7 +11391,7 @@ export class CommentResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the shape of the comment.   
 export class CommentShape  extends Shape  {
     /**
      * Attribute type map
@@ -11512,7 +11418,7 @@ export class CommentShape  extends Shape  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the CommentShape Response.   
 export class CommentShapeResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -11539,7 +11445,7 @@ export class CommentShapeResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the Comments Response.   
 export class CommentsResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -11566,7 +11472,7 @@ export class CommentsResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the ConditionalFormatting Response.   
 export class ConditionalFormattingResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -11593,7 +11499,7 @@ export class ConditionalFormattingResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the ConditionalFormattings Response.   
 export class ConditionalFormattingsResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -11620,7 +11526,7 @@ export class ConditionalFormattingsResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Encapsulates a collection of all the DataLabel objects for the specified Series.   
 export class DataLabels  extends ChartFrame  {
     /**
      * Attribute type map
@@ -11755,7 +11661,7 @@ export class DataLabels  extends ChartFrame  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the DataLabels Response.   
 export class DataLabelsResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -11782,7 +11688,7 @@ export class DataLabelsResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the display unit label.   
 export class DisplayUnitLabel  extends ChartFrame  {
     /**
      * Attribute type map
@@ -11801,11 +11707,6 @@ export class DisplayUnitLabel  extends ChartFrame  {
         {
             name: "text",
             baseName: "Text",
-            type: "string",
-        },
-        {
-            name: "textDirection",
-            baseName: "TextDirection",
             type: "string",
         },
         {
@@ -11830,7 +11731,6 @@ export class DisplayUnitLabel  extends ChartFrame  {
     public linkedSource: string;
     public rotationAngle: number;
     public text: string;
-    public textDirection: string;
     public textHorizontalAlignment: string;
     public textVerticalAlignment: string;
 
@@ -11839,7 +11739,7 @@ export class DisplayUnitLabel  extends ChartFrame  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the DisplayUnitLabel Response.   
 export class DisplayUnitLabelResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -11866,7 +11766,7 @@ export class DisplayUnitLabelResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the up/down bars in a chart.   
 export class DropBars  extends LinkElement  {
     /**
      * Attribute type map
@@ -11899,7 +11799,7 @@ export class DropBars  extends LinkElement  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the DropBars Response.   
 export class DropBarsResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -12061,7 +11961,7 @@ export class Line  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents error bar of data series.   
 export class ErrorBar  extends Line  {
     /**
      * Attribute type map
@@ -12124,7 +12024,7 @@ export class ErrorBar  extends Line  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the ErrorBar Response.   
 export class ErrorBarResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -12151,7 +12051,7 @@ export class ErrorBarResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the FillFormat Response.   
 export class FillFormatResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -12178,7 +12078,7 @@ export class FillFormatResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the Find Response.   
 export class FindResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -12211,7 +12111,8 @@ export class FindResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-///    
+///            Encapsulates the object that represents an area format.
+///               
 export class Area  {
     /**
      * Attribute type map
@@ -12268,7 +12169,7 @@ export class Area  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Encapsulates the object that represents the floor of a 3-D chart.   
 export class Floor  extends Area  {
     /**
      * Attribute type map
@@ -12295,7 +12196,7 @@ export class Floor  extends Area  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the Floor Response.   
 export class FloorResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -12451,7 +12352,7 @@ export class Form  extends Shape  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the Form Response.   
 export class FormResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -12505,7 +12406,7 @@ export class Forms  extends LinkElement  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the Forms Response.   
 export class FormsResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -12532,7 +12433,7 @@ export class FormsResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Encapsulates the object that represents a groupbox in a spreadsheet.   
 export class GroupBox  extends Shape  {
     /**
      * Attribute type map
@@ -12559,7 +12460,7 @@ export class GroupBox  extends Shape  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the GroupBox Response.   
 export class GroupBoxResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -12586,7 +12487,7 @@ export class GroupBoxResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the HorizontalPageBreak Response.   
 export class HorizontalPageBreakResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -12613,7 +12514,7 @@ export class HorizontalPageBreakResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the HorizontalPageBreaks Response.   
 export class HorizontalPageBreaksResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -12640,7 +12541,7 @@ export class HorizontalPageBreaksResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the Hyperlink Response.   
 export class HyperlinkResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -12667,7 +12568,7 @@ export class HyperlinkResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the Hyperlinks Response.   
 export class HyperlinksResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -12694,7 +12595,7 @@ export class HyperlinksResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Encapsulates the object that represents a label in a spreadsheet.   
 export class Label  extends Shape  {
     /**
      * Attribute type map
@@ -12715,7 +12616,7 @@ export class Label  extends Shape  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the Label Response.   
 export class LabelResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -12769,7 +12670,7 @@ export class LegendEntries  extends LinkElement  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the LegendEntries Response.   
 export class LegendEntriesResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -12796,7 +12697,7 @@ export class LegendEntriesResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents a legend entry in a chart legend.   
 export class LegendEntry  extends LinkElement  {
     /**
      * Attribute type map
@@ -12805,7 +12706,7 @@ export class LegendEntry  extends LinkElement  {
         {
             name: "autoScaleFont",
             baseName: "AutoScaleFont",
-            type: "string",
+            type: "boolean",
         },
         {
             name: "backgroundMode",
@@ -12820,7 +12721,7 @@ export class LegendEntry  extends LinkElement  {
         {
             name: "isDeleted",
             baseName: "IsDeleted",
-            type: "string",
+            type: "boolean",
         }
     ];
     /**
@@ -12831,17 +12732,17 @@ export class LegendEntry  extends LinkElement  {
 
     }
 
-    public autoScaleFont: string;
+    public autoScaleFont: boolean;
     public backgroundMode: string;
     public font: Font;
-    public isDeleted: string;
+    public isDeleted: boolean;
 
     public constructor(init?: Partial< LegendEntry >) {  
          super(init);     
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the LegendEntry Response.   
 export class LegendEntryResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -12868,7 +12769,7 @@ export class LegendEntryResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Encapsulates the object that represents the chart legend.   
 export class Legend  extends ChartFrame  {
     /**
      * Attribute type map
@@ -12901,7 +12802,7 @@ export class Legend  extends ChartFrame  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the Legend Response.   
 export class LegendResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -12928,7 +12829,7 @@ export class LegendResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the Line Response.   
 export class LineResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -12955,7 +12856,7 @@ export class LineResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the line shape.   
 export class LineShape  extends Shape  {
     /**
      * Attribute type map
@@ -13012,7 +12913,7 @@ export class LineShape  extends Shape  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the LineShape Response.   
 export class LineShapeResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -13039,7 +12940,7 @@ export class LineShapeResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents a list box object.   
 export class ListBox  extends Shape  {
     /**
      * Attribute type map
@@ -13102,7 +13003,7 @@ export class ListBox  extends Shape  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the ListBox Response.   
 export class ListBoxResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -13129,7 +13030,7 @@ export class ListBoxResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the ListObject Response.   
 export class ListObjectResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -13156,7 +13057,7 @@ export class ListObjectResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the ListObjects Response.   
 export class ListObjectsResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -13183,7 +13084,7 @@ export class ListObjectsResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the MergedCell Response.   
 export class MergedCellResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -13210,7 +13111,7 @@ export class MergedCellResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the MergedCells Response.   
 export class MergedCellsResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -13237,7 +13138,7 @@ export class MergedCellsResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the Name Response.   
 export class NameResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -13264,7 +13165,7 @@ export class NameResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the Names Response.   
 export class NamesResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -13291,7 +13192,7 @@ export class NamesResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents an OleObject in a worksheet.   
 export class OleObject  extends Shape  {
     /**
      * Attribute type map
@@ -13354,7 +13255,7 @@ export class OleObject  extends Shape  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the OleObject Response.   
 export class OleObjectResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -13381,7 +13282,7 @@ export class OleObjectResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents embedded OLE objects.   
 export class OleObjects  extends LinkElement  {
     /**
      * Attribute type map
@@ -13408,7 +13309,7 @@ export class OleObjects  extends LinkElement  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the OleObjects Response.   
 export class OleObjectsResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -13435,7 +13336,7 @@ export class OleObjectsResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the oval shape.   
 export class Oval  extends Shape  {
     /**
      * Attribute type map
@@ -13456,7 +13357,7 @@ export class Oval  extends Shape  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the Oval Response.   
 export class OvalResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -13483,7 +13384,7 @@ export class OvalResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the PageSections Response.   
 export class PageSectionsResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -13510,7 +13411,7 @@ export class PageSectionsResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the PageSetup Response.   
 export class PageSetupResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -13537,7 +13438,7 @@ export class PageSetupResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Encapsulates the object that represents a single picture in a spreadsheet.   
 export class Picture  extends Shape  {
     /**
      * Attribute type map
@@ -13594,7 +13495,7 @@ export class Picture  extends Shape  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the Picture Response.   
 export class PictureResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -13621,7 +13522,7 @@ export class PictureResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Encapsulates a collection of  objects.   
 export class Pictures  extends LinkElement  {
     /**
      * Attribute type map
@@ -13648,7 +13549,7 @@ export class Pictures  extends LinkElement  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the Pictures Response.   
 export class PicturesResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -13675,7 +13576,8 @@ export class PicturesResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-///    
+///            Represents a field in a PivotTable report.
+///               
 export class PivotField  {
     /**
      * Attribute type map
@@ -13930,7 +13832,7 @@ export class PivotField  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the PivotField Response.   
 export class PivotFieldResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -14032,7 +13934,7 @@ export class PivotFilter  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the PivotFilter Response.   
 export class PivotFilterResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -14059,7 +13961,7 @@ export class PivotFilterResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the PivotFilters Response.   
 export class PivotFiltersResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -14086,7 +13988,7 @@ export class PivotFiltersResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Summary description for PivotTable.   
 export class PivotTable  extends LinkElement  {
     /**
      * Attribute type map
@@ -14515,7 +14417,7 @@ export class PivotTable  extends LinkElement  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the PivotTable Response.   
 export class PivotTableResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -14542,7 +14444,7 @@ export class PivotTableResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the collection of all the PivotTable objects on the specified worksheet.   
 export class PivotTables  extends LinkElement  {
     /**
      * Attribute type map
@@ -14569,7 +14471,7 @@ export class PivotTables  extends LinkElement  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the PivotTables Response.   
 export class PivotTablesResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -14596,7 +14498,7 @@ export class PivotTablesResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Encapsulates the object that represents the plot area in a chart.   
 export class PlotArea  extends ChartFrame  {
     /**
      * Attribute type map
@@ -14641,7 +14543,7 @@ export class PlotArea  extends ChartFrame  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the PlotArea Response.   
 export class PlotAreaResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -14668,7 +14570,7 @@ export class PlotAreaResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents a radio button.   
 export class RadioButton  extends Shape  {
     /**
      * Attribute type map
@@ -14707,7 +14609,7 @@ export class RadioButton  extends Shape  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the RadioButton Response.   
 export class RadioButtonResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -14734,7 +14636,7 @@ export class RadioButtonResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the Range Response.   
 export class RangeResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -14761,7 +14663,7 @@ export class RangeResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the Ranges Response.   
 export class RangesResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -14788,7 +14690,7 @@ export class RangesResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the RangeValue Response.   
 export class RangeValueResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -14815,7 +14717,7 @@ export class RangeValueResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the rectangle shape.   
 export class RectangleShape  extends Shape  {
     /**
      * Attribute type map
@@ -14836,7 +14738,7 @@ export class RectangleShape  extends Shape  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the RectangleShape Response.   
 export class RectangleShapeResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -14863,7 +14765,7 @@ export class RectangleShapeResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the Row Response.   
 export class RowResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -14890,7 +14792,7 @@ export class RowResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the Rows Response.   
 export class RowsResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -14917,7 +14819,7 @@ export class RowsResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the SaveFilesToCloudResult Response.   
 export class SaveFilesToCloudResultResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -14944,7 +14846,7 @@ export class SaveFilesToCloudResultResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the Save Response.   
 export class SaveResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -14971,7 +14873,7 @@ export class SaveResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents a scroll bar object.   
 export class ScrollBar  extends Shape  {
     /**
      * Attribute type map
@@ -15034,7 +14936,7 @@ export class ScrollBar  extends Shape  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the ScrollBar Response.   
 export class ScrollBarResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -15085,7 +14987,7 @@ export class SeriesItems  extends LinkElement  {
         {
             name: "seriesList",
             baseName: "SeriesList",
-            type: "Array<LinkElement>",
+            type: "Array<Series>",
         }
     ];
     /**
@@ -15099,14 +15001,14 @@ export class SeriesItems  extends LinkElement  {
     public categoryData: string;
     public isColorVaried: boolean;
     public secondCatergoryData: string;
-    public seriesList: Array<LinkElement>;
+    public seriesList: Array<Series>;
 
     public constructor(init?: Partial< SeriesItems >) {  
          super(init);     
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the Serieses Response.   
 export class SeriesesResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -15133,7 +15035,7 @@ export class SeriesesResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Encapsulates the object that represents a single data series in a chart.   
 export class Series  extends LinkElement  {
     /**
      * Attribute type map
@@ -15172,7 +15074,7 @@ export class Series  extends LinkElement  {
         {
             name: "dataLabels",
             baseName: "DataLabels",
-            type: "LinkElement",
+            type: "DataLabels",
         },
         {
             name: "displayName",
@@ -15187,7 +15089,7 @@ export class Series  extends LinkElement  {
         {
             name: "downBars",
             baseName: "DownBars",
-            type: "LinkElement",
+            type: "DropBars",
         },
         {
             name: "dropLines",
@@ -15267,12 +15169,7 @@ export class Series  extends LinkElement  {
         {
             name: "legendEntry",
             baseName: "LegendEntry",
-            type: "LinkElement",
-        },
-        {
-            name: "line",
-            baseName: "Line",
-            type: "Line",
+            type: "LegendEntry",
         },
         {
             name: "marker",
@@ -15315,11 +15212,6 @@ export class Series  extends LinkElement  {
             type: "boolean",
         },
         {
-            name: "shapeProperties",
-            baseName: "ShapeProperties",
-            type: "LinkElement",
-        },
-        {
             name: "showNegativeBubbles",
             baseName: "ShowNegativeBubbles",
             type: "boolean",
@@ -15347,7 +15239,7 @@ export class Series  extends LinkElement  {
         {
             name: "trendLines",
             baseName: "TrendLines",
-            type: "LinkElement",
+            type: "Trendlines",
         },
         {
             name: "type",
@@ -15357,7 +15249,7 @@ export class Series  extends LinkElement  {
         {
             name: "upBars",
             baseName: "UpBars",
-            type: "LinkElement",
+            type: "DropBars",
         },
         {
             name: "values",
@@ -15367,7 +15259,7 @@ export class Series  extends LinkElement  {
         {
             name: "xErrorBar",
             baseName: "XErrorBar",
-            type: "LinkElement",
+            type: "ErrorBar",
         },
         {
             name: "xValues",
@@ -15377,7 +15269,7 @@ export class Series  extends LinkElement  {
         {
             name: "yErrorBar",
             baseName: "YErrorBar",
-            type: "LinkElement",
+            type: "ErrorBar",
         }
     ];
     /**
@@ -15394,10 +15286,10 @@ export class Series  extends LinkElement  {
     public bubbleScale: number;
     public bubbleSizes: string;
     public countOfDataValues: number;
-    public dataLabels: LinkElement;
+    public dataLabels: DataLabels;
     public displayName: string;
     public doughnutHoleSize: number;
-    public downBars: LinkElement;
+    public downBars: DropBars;
     public dropLines: Line;
     public explosion: number;
     public firstSliceAngle: number;
@@ -15413,8 +15305,7 @@ export class Series  extends LinkElement  {
     public isAutoSplit: boolean;
     public isColorVaried: boolean;
     public leaderLines: Line;
-    public legendEntry: LinkElement;
-    public line: Line;
+    public legendEntry: LegendEntry;
     public marker: Marker;
     public name: string;
     public overlap: number;
@@ -15423,26 +15314,25 @@ export class Series  extends LinkElement  {
     public secondPlotSize: number;
     public seriesLines: Line;
     public shadow: boolean;
-    public shapeProperties: LinkElement;
     public showNegativeBubbles: boolean;
     public sizeRepresents: string;
     public smooth: boolean;
     public splitType: string;
     public splitValue: number;
-    public trendLines: LinkElement;
+    public trendLines: Trendlines;
     public type: string;
-    public upBars: LinkElement;
+    public upBars: DropBars;
     public values: string;
-    public xErrorBar: LinkElement;
+    public xErrorBar: ErrorBar;
     public xValues: string;
-    public yErrorBar: LinkElement;
+    public yErrorBar: ErrorBar;
 
     public constructor(init?: Partial< Series >) {  
          super(init);     
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the Series Response.   
 export class SeriesResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -15469,7 +15359,7 @@ export class SeriesResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the Shape Response.   
 export class ShapeResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -15496,7 +15386,7 @@ export class ShapeResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents all the shape in a worksheet/chart.   
 export class Shapes  extends LinkElement  {
     /**
      * Attribute type map
@@ -15523,7 +15413,7 @@ export class Shapes  extends LinkElement  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the Shapes Response.   
 export class ShapesResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -15550,7 +15440,7 @@ export class ShapesResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the SingleValue Response.   
 export class SingleValueResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -15577,7 +15467,8 @@ export class SingleValueResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-///    
+///            is organized into sparkline group. A SparklineGroup contains a variable number of sparkline items.             A sparkline group specifies the type, display settings and axis settings for the sparklines.
+///               
 export class SparklineGroup  {
     /**
      * Attribute type map
@@ -15760,7 +15651,7 @@ export class SparklineGroup  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the SparklineGroup Response.   
 export class SparklineGroupResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -15815,7 +15706,7 @@ export class SparklineGroups  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the SparklineGroups Response.   
 export class SparklineGroupsResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -15842,7 +15733,7 @@ export class SparklineGroupsResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the Forms control: Spinner.   
 export class Spinner  extends Shape  {
     /**
      * Attribute type map
@@ -15893,7 +15784,7 @@ export class Spinner  extends Shape  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the Spinner Response.   
 export class SpinnerResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -15920,7 +15811,7 @@ export class SpinnerResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the SplitResult Response.   
 export class SplitResultResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -15947,7 +15838,7 @@ export class SplitResultResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the Style Response.   
 export class StyleResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -15974,7 +15865,7 @@ export class StyleResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the TaskRunResult Response.   
 export class TaskRunResultResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -16001,7 +15892,7 @@ export class TaskRunResultResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Encapsulates the object that represents a textbox in a spreadsheet.   
 export class TextBox  extends Shape  {
     /**
      * Attribute type map
@@ -16022,7 +15913,7 @@ export class TextBox  extends Shape  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the TextBox Response.   
 export class TextBoxResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -16049,7 +15940,7 @@ export class TextBoxResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the TextItem Response.   
 export class TextItemResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -16076,7 +15967,7 @@ export class TextItemResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the TextItems Response.   
 export class TextItemsResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -16103,7 +15994,7 @@ export class TextItemsResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the tick-mark labels associated with tick marks on a chart axis.   
 export class TickLabels  extends LinkElement  {
     /**
      * Attribute type map
@@ -16190,7 +16081,7 @@ export class TickLabels  extends LinkElement  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the TickLabels Response.   
 export class TickLabelsResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -16217,7 +16108,7 @@ export class TickLabelsResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Encapsulates the object that represents the title of chart or axis.   
 export class Title  extends ChartFrame  {
     /**
      * Attribute type map
@@ -16280,7 +16171,7 @@ export class Title  extends ChartFrame  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the Title Response.   
 export class TitleResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -16307,7 +16198,7 @@ export class TitleResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents a trendline in a chart.   
 export class Trendline  extends Line  {
     /**
      * Attribute type map
@@ -16326,7 +16217,7 @@ export class Trendline  extends Line  {
         {
             name: "dataLabels",
             baseName: "DataLabels",
-            type: "LinkElement",
+            type: "DataLabels",
         },
         {
             name: "displayEquation",
@@ -16356,7 +16247,7 @@ export class Trendline  extends Line  {
         {
             name: "legendEntry",
             baseName: "LegendEntry",
-            type: "LinkElement",
+            type: "LegendEntry",
         },
         {
             name: "name",
@@ -16389,13 +16280,13 @@ export class Trendline  extends Line  {
 
     public link: Link;
     public backward: number;
-    public dataLabels: LinkElement;
+    public dataLabels: DataLabels;
     public displayEquation: boolean;
     public displayRSquared: boolean;
     public forward: number;
     public intercept: number;
     public isNameAuto: boolean;
-    public legendEntry: LinkElement;
+    public legendEntry: LegendEntry;
     public name: string;
     public order: number;
     public period: number;
@@ -16406,7 +16297,7 @@ export class Trendline  extends Line  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the Trendline Response.   
 export class TrendlineResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -16433,7 +16324,7 @@ export class TrendlineResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents a collection of all the  objects for the specified data series.   
 export class Trendlines  extends LinkElement  {
     /**
      * Attribute type map
@@ -16442,7 +16333,7 @@ export class Trendlines  extends LinkElement  {
         {
             name: "trendlineList",
             baseName: "TrendlineList",
-            type: "Array<LinkElement>",
+            type: "Array<Trendline>",
         }
     ];
     /**
@@ -16453,14 +16344,14 @@ export class Trendlines  extends LinkElement  {
 
     }
 
-    public trendlineList: Array<LinkElement>;
+    public trendlineList: Array<Trendline>;
 
     public constructor(init?: Partial< Trendlines >) {  
          super(init);     
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the Trendlines Response.   
 export class TrendlinesResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -16487,7 +16378,7 @@ export class TrendlinesResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the Validation Response.   
 export class ValidationResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -16514,7 +16405,7 @@ export class ValidationResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the Validations Response.   
 export class ValidationsResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -16541,7 +16432,7 @@ export class ValidationsResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the VerticalPageBreak Response.   
 export class VerticalPageBreakResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -16568,7 +16459,7 @@ export class VerticalPageBreakResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the VerticalPageBreaks Response.   
 export class VerticalPageBreaksResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -16595,7 +16486,7 @@ export class VerticalPageBreaksResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Encapsulates the object that represents the walls of a 3-D chart.   
 export class Walls  extends Floor  {
     /**
      * Attribute type map
@@ -16646,7 +16537,7 @@ export class Walls  extends Floor  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the Walls Response.   
 export class WallsResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -16673,7 +16564,7 @@ export class WallsResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the WorkbookReplace Response.   
 export class WorkbookReplaceResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -16706,7 +16597,7 @@ export class WorkbookReplaceResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the Workbook Response.   
 export class WorkbookResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -16733,7 +16624,7 @@ export class WorkbookResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the WorkbookSettings Response.   
 export class WorkbookSettingsResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -16760,7 +16651,7 @@ export class WorkbookSettingsResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the Workbooks Response.   
 export class WorkbooksResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -16787,7 +16678,7 @@ export class WorkbooksResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the WorksheetReplace Response.   
 export class WorksheetReplaceResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -16820,7 +16711,7 @@ export class WorksheetReplaceResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the Worksheet Response.   
 export class WorksheetResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -16847,7 +16738,7 @@ export class WorksheetResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the Worksheets Response.   
 export class WorksheetsResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -17541,6 +17432,11 @@ export class LoadData  {
             name: "dataItem",
             baseName: "DataItem",
             type: "DataItem",
+        },
+        {
+            name: "mergeQueries",
+            baseName: "MergeQueries",
+            type: "MergeQueries",
         }
     ];
     /**
@@ -17555,6 +17451,7 @@ export class LoadData  {
     public dataSource: DataSource;
     public fileInfo: FileInfo;
     public dataItem: DataItem;
+    public mergeQueries: MergeQueries;
 
     public constructor(init?: Partial< LoadData >) {  
     
@@ -18312,7 +18209,7 @@ export class WorkbookProtectionRequest  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Font for rendering.   
 export class RenderingFont  {
     /**
      * Attribute type map
@@ -18398,6 +18295,81 @@ export class LoadTo  {
     public beginColumnIndex: number;
 
     public constructor(init?: Partial< LoadTo >) {  
+    
+        Object.assign(this, init);
+    } 
+}
+/// Represents merge quesies.   
+export class MergeQueries  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "dataSourceA",
+            baseName: "DataSourceA",
+            type: "DataSource",
+        },
+        {
+            name: "fileInfoA",
+            baseName: "FileInfoA",
+            type: "FileInfo",
+        },
+        {
+            name: "dataItemA",
+            baseName: "DataItemA",
+            type: "DataItem",
+        },
+        {
+            name: "dataAIndexField",
+            baseName: "DataAIndexField",
+            type: "string",
+        },
+        {
+            name: "dataSourceB",
+            baseName: "DataSourceB",
+            type: "DataSource",
+        },
+        {
+            name: "fileInfoB",
+            baseName: "FileInfoB",
+            type: "FileInfo",
+        },
+        {
+            name: "dataItemB",
+            baseName: "DataItemB",
+            type: "DataItem",
+        },
+        {
+            name: "dataBIndexField",
+            baseName: "DataBIndexField",
+            type: "string",
+        },
+        {
+            name: "joinType",
+            baseName: "JoinType",
+            type: "string",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return  MergeQueries.attributeTypeMap;
+
+    }
+
+    public dataSourceA: DataSource;
+    public fileInfoA: FileInfo;
+    public dataItemA: DataItem;
+    public dataAIndexField: string;
+    public dataSourceB: DataSource;
+    public fileInfoB: FileInfo;
+    public dataItemB: DataItem;
+    public dataBIndexField: string;
+    public joinType: string;
+
+    public constructor(init?: Partial< MergeQueries >) {  
     
         Object.assign(this, init);
     } 
@@ -18564,7 +18536,8 @@ export class UnpivotColumn  {
         Object.assign(this, init);
     } 
 }
-///    
+///            Represents a item in a PivotField report.
+///               
 export class PivotItem  {
     /**
      * Attribute type map
@@ -18605,6 +18578,63 @@ export class PivotItem  {
     public value: string;
 
     public constructor(init?: Partial< PivotItem >) {  
+    
+        Object.assign(this, init);
+    } 
+}
+/// Represents the cell value and corresponding type.   
+export class CellValue  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "rowIndex",
+            baseName: "rowIndex",
+            type: "number",
+        },
+        {
+            name: "columnIndex",
+            baseName: "columnIndex",
+            type: "number",
+        },
+        {
+            name: "type",
+            baseName: "type",
+            type: "string",
+        },
+        {
+            name: "value",
+            baseName: "value",
+            type: "string",
+        },
+        {
+            name: "formula",
+            baseName: "formula",
+            type: "string",
+        },
+        {
+            name: "style",
+            baseName: "style",
+            type: "Style",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return  CellValue.attributeTypeMap;
+
+    }
+
+    public rowIndex: number;
+    public columnIndex: number;
+    public type: string;
+    public value: string;
+    public formula: string;
+    public style: Style;
+
+    public constructor(init?: Partial< CellValue >) {  
     
         Object.assign(this, init);
     } 
@@ -18762,63 +18792,6 @@ export class Import2DimensionStringArrayOption  extends ImportOption  {
 
     public constructor(init?: Partial< Import2DimensionStringArrayOption >) {  
          super(init);     
-        Object.assign(this, init);
-    } 
-}
-///    
-export class CellValue  {
-    /**
-     * Attribute type map
-     */
-    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
-        {
-            name: "rowIndex",
-            baseName: "rowIndex",
-            type: "number",
-        },
-        {
-            name: "columnIndex",
-            baseName: "columnIndex",
-            type: "number",
-        },
-        {
-            name: "type",
-            baseName: "type",
-            type: "string",
-        },
-        {
-            name: "value",
-            baseName: "value",
-            type: "string",
-        },
-        {
-            name: "formula",
-            baseName: "formula",
-            type: "string",
-        },
-        {
-            name: "style",
-            baseName: "style",
-            type: "Style",
-        }
-    ];
-    /**
-     * Returns attribute type map
-     */
-    public static getAttributeTypeMap() {
-        return  CellValue.attributeTypeMap;
-
-    }
-
-    public rowIndex: number;
-    public columnIndex: number;
-    public type: string;
-    public value: string;
-    public formula: string;
-    public style: Style;
-
-    public constructor(init?: Partial< CellValue >) {  
-    
         Object.assign(this, init);
     } 
 }
@@ -19098,7 +19071,8 @@ export class ImportStringArrayOption  extends ImportOption  {
         Object.assign(this, init);
     } 
 }
-///    
+///            Represents the gradient fill.
+///               
 export class GradientFill  {
     /**
      * Attribute type map
@@ -19143,7 +19117,8 @@ export class GradientFill  {
         Object.assign(this, init);
     } 
 }
-///    
+///            Encapsulates the object that represents pattern fill format
+///               
 export class PatternFill  {
     /**
      * Attribute type map
@@ -19206,7 +19181,8 @@ export class PatternFill  {
         Object.assign(this, init);
     } 
 }
-///    
+///            Encapsulates the object that represents solid fill format
+///               
 export class SolidFill  {
     /**
      * Attribute type map
@@ -19245,7 +19221,8 @@ export class SolidFill  {
         Object.assign(this, init);
     } 
 }
-///    
+///            Encapsulates the object that represents texture fill format
+///               
 export class TextureFill  {
     /**
      * Attribute type map
@@ -19341,7 +19318,7 @@ export class GradientFillStop  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents the group shape which contains the individual shapes.   
 export class GroupShape  extends Shape  {
     /**
      * Attribute type map
@@ -19362,7 +19339,8 @@ export class GroupShape  extends Shape  {
         Object.assign(this, init);
     } 
 }
-///    
+///            Represents picture format option
+///               
 export class PicFormatOption  {
     /**
      * Attribute type map
@@ -19419,7 +19397,8 @@ export class PicFormatOption  {
         Object.assign(this, init);
     } 
 }
-///    
+///            Represents tile picture as texture.
+///               
 export class TilePicOption  {
     /**
      * Attribute type map
@@ -19476,7 +19455,8 @@ export class TilePicOption  {
         Object.assign(this, init);
     } 
 }
-///    
+///            Represents the marker in a line chart, scatter chart, or radar chart.
+///               
 export class Marker  {
     /**
      * Attribute type map
@@ -19582,14 +19562,7 @@ export class Sparkline  {
         Object.assign(this, init);
     } 
 }
-/// How to use the properties of each column: currently divided into timeline, product line, numerical statistics line 
-///             How to present the product, a unified plan
-///             How to solve the problem of full digital?
-///             Full text How to solve it?
-///             Two columns: Text, Number is the easiest
-///             Three columns: Text, Text, Number  
-///                   text, number, number --- date date ; Date Numeric ; Numeric Digital 
-///             What about four columns, five columns?   
+/// Represents description of analyzed column.   
 export class AnalyzedColumnDescription  {
     /**
      * Attribute type map
@@ -19664,7 +19637,7 @@ export class AnalyzedColumnDescription  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents analyzed table description.   
 export class AnalyzedTableDescription  {
     /**
      * Attribute type map
@@ -19781,7 +19754,7 @@ export class AnalyzedTableDescription  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents Excel data statistics.   
 export class ExcelDataStatistics  {
     /**
      * Attribute type map
@@ -19791,11 +19764,6 @@ export class ExcelDataStatistics  {
             name: "worksheetDataStatistics",
             baseName: "WorksheetDataStatistics",
             type: "Array<WorksheetDataStatistics>",
-        },
-        {
-            name: "namesCount",
-            baseName: "NamesCount",
-            type: "number",
         }
     ];
     /**
@@ -19807,14 +19775,13 @@ export class ExcelDataStatistics  {
     }
 
     public worksheetDataStatistics: Array<WorksheetDataStatistics>;
-    public namesCount: number;
 
     public constructor(init?: Partial< ExcelDataStatistics >) {  
     
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents results of analyzed data.   
 export class AnalyzedResult  {
     /**
      * Attribute type map
@@ -19865,7 +19832,7 @@ export class AnalyzedResult  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents a chart, which is a chart created based on data analysis of a table.   
 export class DiscoverChart  {
     /**
      * Attribute type map
@@ -19922,7 +19889,7 @@ export class DiscoverChart  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents a pivot table, which is a pivot table created based on data analysis of a table.   
 export class DiscoverPivotTable  {
     /**
      * Attribute type map
@@ -19985,7 +19952,7 @@ export class DiscoverPivotTable  {
         Object.assign(this, init);
     } 
 }
-///    
+/// Represents worksheet data statistics.   
 export class WorksheetDataStatistics  {
     /**
      * Attribute type map
@@ -20183,7 +20150,6 @@ const typeMap = {
     SingleValue,
     SortKey,
     SplitResult,
-    SplitResultDocument,
     Style,
     StyleFormatCondition,
     Styles,
@@ -20255,7 +20221,6 @@ const typeMap = {
     XlsbSaveOptions,
     XlsSaveOptions,
     XpsSaveOptions,
-    AnalyzeExcelResponse,
     ArcShapeResponse,
     AutoFilterResponse,
     AutoShapeResponse,
@@ -20399,6 +20364,7 @@ const typeMap = {
     RenderingWatermark,
     LoadData,
     LoadTo,
+    MergeQueries,
     PivotColumn,
     QueryDataSource,
     QueryTable,
@@ -20409,11 +20375,11 @@ const typeMap = {
     PivotItem,
     PivotTable,
     PivotTables,
+    CellValue,
     CustomParserConfig,
     Import2DimensionDoubleArrayOption,
     Import2DimensionIntArrayOption,
     Import2DimensionStringArrayOption,
-    CellValue,
     ImportBatchDataOption,
     ImportCSVDataOption,
     ImportDoubleArrayOption,
@@ -20495,7 +20461,6 @@ const typeMap = {
     AnalyzedColumnDescription,
     AnalyzedResult,
     AnalyzedTableDescription,
-    AnalyzeSuggestion,
     DiscoverChart,
     DiscoverPivotTable,
     ExcelDataStatistics,
