@@ -17407,6 +17407,39 @@ export class DataFillRequest  {
         Object.assign(this, init);
     } 
 }
+/// Each data manipulation step that is performed when you get the query data.   
+export class AppliedStep  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "stepName",
+            baseName: "StepName",
+            type: "string",
+        },
+        {
+            name: "appliedOperate",
+            baseName: "AppliedOperate",
+            type: "AppliedOperate",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return  AppliedStep.attributeTypeMap;
+
+    }
+
+    public stepName: string;
+    public appliedOperate: AppliedOperate;
+
+    public constructor(init?: Partial< AppliedStep >) {  
+    
+        Object.assign(this, init);
+    } 
+}
 /// Loading data information.   
 export class LoadData  {
     /**
@@ -17419,24 +17452,9 @@ export class LoadData  {
             type: "LoadTo",
         },
         {
-            name: "dataSource",
-            baseName: "DataSource",
-            type: "DataSource",
-        },
-        {
-            name: "fileInfo",
-            baseName: "FileInfo",
-            type: "FileInfo",
-        },
-        {
-            name: "dataItem",
-            baseName: "DataItem",
-            type: "DataItem",
-        },
-        {
-            name: "mergeQueries",
-            baseName: "MergeQueries",
-            type: "MergeQueries",
+            name: "dataQuery",
+            baseName: "DataQuery",
+            type: "DataQuery",
         }
     ];
     /**
@@ -17448,50 +17466,14 @@ export class LoadData  {
     }
 
     public loadTo: LoadTo;
-    public dataSource: DataSource;
-    public fileInfo: FileInfo;
-    public dataItem: DataItem;
-    public mergeQueries: MergeQueries;
+    public dataQuery: DataQuery;
 
     public constructor(init?: Partial< LoadData >) {  
     
         Object.assign(this, init);
     } 
 }
-///    
-export class Transformation  {
-    /**
-     * Attribute type map
-     */
-    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
-        {
-            name: "pivotColumn",
-            baseName: "PivotColumn",
-            type: "PivotColumn",
-        },
-        {
-            name: "unpivotColumn",
-            baseName: "UnpivotColumn",
-            type: "UnpivotColumn",
-        }
-    ];
-    /**
-     * Returns attribute type map
-     */
-    public static getAttributeTypeMap() {
-        return  Transformation.attributeTypeMap;
-
-    }
-
-    public pivotColumn: PivotColumn;
-    public unpivotColumn: UnpivotColumn;
-
-    public constructor(init?: Partial< Transformation >) {  
-    
-        Object.assign(this, init);
-    } 
-}
-///    
+/// Data Transformation Request   
 export class DataTransformationRequest  {
     /**
      * Attribute type map
@@ -17503,14 +17485,19 @@ export class DataTransformationRequest  {
             type: "FileInfo",
         },
         {
-            name: "transformation",
-            baseName: "Transformation",
-            type: "Transformation",
+            name: "dataSource",
+            baseName: "DataSource",
+            type: "DataSource",
         },
         {
             name: "loadData",
             baseName: "LoadData",
             type: "LoadData",
+        },
+        {
+            name: "appliedSteps",
+            baseName: "AppliedSteps",
+            type: "Array<AppliedStep>",
         },
         {
             name: "region",
@@ -17532,8 +17519,9 @@ export class DataTransformationRequest  {
     }
 
     public fileInfo: FileInfo;
-    public transformation: Transformation;
+    public dataSource: DataSource;
     public loadData: LoadData;
+    public appliedSteps: Array<AppliedStep>;
     public region: string;
     public outFormat: string;
 
@@ -18260,7 +18248,85 @@ export class RenderingFont  {
         Object.assign(this, init);
     } 
 }
-///    
+/// A data operation that is used to obtain a query of data.   
+export class AppliedOperate  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "appliedOperateType",
+            baseName: "AppliedOperateType",
+            type: "string",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return  AppliedOperate.attributeTypeMap;
+
+    }
+
+    public appliedOperateType: string;
+
+    public constructor(init?: Partial< AppliedOperate >) {  
+    
+        Object.assign(this, init);
+    } 
+}
+/// Data query.   
+export class DataQuery  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "name",
+            baseName: "Name",
+            type: "string",
+        },
+        {
+            name: "dataSourceDataType",
+            baseName: "DataSourceDataType",
+            type: "string",
+        },
+        {
+            name: "dataSource",
+            baseName: "DataSource",
+            type: "DataSource",
+        },
+        {
+            name: "fileInfo",
+            baseName: "FileInfo",
+            type: "FileInfo",
+        },
+        {
+            name: "dataItem",
+            baseName: "DataItem",
+            type: "DataItem",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return  DataQuery.attributeTypeMap;
+
+    }
+
+    public name: string;
+    public dataSourceDataType: string;
+    public dataSource: DataSource;
+    public fileInfo: FileInfo;
+    public dataItem: DataItem;
+
+    public constructor(init?: Partial< DataQuery >) {  
+    
+        Object.assign(this, init);
+    } 
+}
+/// A description of the location to which the data is mounted.   
 export class LoadTo  {
     /**
      * Attribute type map
@@ -18300,25 +18366,15 @@ export class LoadTo  {
     } 
 }
 /// Represents merge quesies.   
-export class MergeQueries  {
+export class MergeQueries  extends AppliedOperate  {
     /**
      * Attribute type map
      */
     public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            name: "dataSourceA",
-            baseName: "DataSourceA",
-            type: "DataSource",
-        },
-        {
-            name: "fileInfoA",
-            baseName: "FileInfoA",
-            type: "FileInfo",
-        },
-        {
-            name: "dataItemA",
-            baseName: "DataItemA",
-            type: "DataItem",
+            name: "dataQueryNameA",
+            baseName: "DataQueryNameA",
+            type: "string",
         },
         {
             name: "dataAIndexField",
@@ -18326,19 +18382,9 @@ export class MergeQueries  {
             type: "string",
         },
         {
-            name: "dataSourceB",
-            baseName: "DataSourceB",
-            type: "DataSource",
-        },
-        {
-            name: "fileInfoB",
-            baseName: "FileInfoB",
-            type: "FileInfo",
-        },
-        {
-            name: "dataItemB",
-            baseName: "DataItemB",
-            type: "DataItem",
+            name: "dataQueryNameB",
+            baseName: "DataQueryNameB",
+            type: "string",
         },
         {
             name: "dataBIndexField",
@@ -18355,27 +18401,23 @@ export class MergeQueries  {
      * Returns attribute type map
      */
     public static getAttributeTypeMap() {
-        return  MergeQueries.attributeTypeMap;
+        return super.getAttributeTypeMap().concat(MergeQueries.attributeTypeMap) ;
 
     }
 
-    public dataSourceA: DataSource;
-    public fileInfoA: FileInfo;
-    public dataItemA: DataItem;
+    public dataQueryNameA: string;
     public dataAIndexField: string;
-    public dataSourceB: DataSource;
-    public fileInfoB: FileInfo;
-    public dataItemB: DataItem;
+    public dataQueryNameB: string;
     public dataBIndexField: string;
     public joinType: string;
 
     public constructor(init?: Partial< MergeQueries >) {  
-    
+         super(init);     
         Object.assign(this, init);
     } 
 }
-///    
-export class PivotColumn  {
+/// Represents pivot column for data table.   
+export class PivotColumn  extends AppliedOperate  {
     /**
      * Attribute type map
      */
@@ -18395,7 +18437,7 @@ export class PivotColumn  {
      * Returns attribute type map
      */
     public static getAttributeTypeMap() {
-        return  PivotColumn.attributeTypeMap;
+        return super.getAttributeTypeMap().concat(PivotColumn.attributeTypeMap) ;
 
     }
 
@@ -18403,102 +18445,12 @@ export class PivotColumn  {
     public valueColumnNames: Array<string>;
 
     public constructor(init?: Partial< PivotColumn >) {  
-    
+         super(init);     
         Object.assign(this, init);
     } 
 }
-///    
-export class QueryDataSource  {
-    /**
-     * Attribute type map
-     */
-    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
-        {
-            name: "dataSourceDataType",
-            baseName: "DataSourceDataType",
-            type: "string",
-        },
-        {
-            name: "dataFile",
-            baseName: "DataFile",
-            type: "DataSource",
-        },
-        {
-            name: "dataSource",
-            baseName: "DataSource",
-            type: "string",
-        }
-    ];
-    /**
-     * Returns attribute type map
-     */
-    public static getAttributeTypeMap() {
-        return  QueryDataSource.attributeTypeMap;
-
-    }
-
-    public dataSourceDataType: string;
-    public dataFile: DataSource;
-    public dataSource: string;
-
-    public constructor(init?: Partial< QueryDataSource >) {  
-    
-        Object.assign(this, init);
-    } 
-}
-/// Represents QueryTable information.   
-export class QueryTable  {
-    /**
-     * Attribute type map
-     */
-    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
-        {
-            name: "connectionId",
-            baseName: "ConnectionId",
-            type: "number",
-        },
-        {
-            name: "name",
-            baseName: "Name",
-            type: "string",
-        },
-        {
-            name: "resultRange",
-            baseName: "ResultRange",
-            type: "Range",
-        },
-        {
-            name: "preserveFormatting",
-            baseName: "PreserveFormatting",
-            type: "boolean",
-        },
-        {
-            name: "adjustColumnWidth",
-            baseName: "AdjustColumnWidth",
-            type: "boolean",
-        }
-    ];
-    /**
-     * Returns attribute type map
-     */
-    public static getAttributeTypeMap() {
-        return  QueryTable.attributeTypeMap;
-
-    }
-
-    public connectionId: number;
-    public name: string;
-    public resultRange: Range;
-    public preserveFormatting: boolean;
-    public adjustColumnWidth: boolean;
-
-    public constructor(init?: Partial< QueryTable >) {  
-    
-        Object.assign(this, init);
-    } 
-}
-///    
-export class UnpivotColumn  {
+/// Unpivot column.   
+export class UnpivotColumn  extends AppliedOperate  {
     /**
      * Attribute type map
      */
@@ -18523,7 +18475,7 @@ export class UnpivotColumn  {
      * Returns attribute type map
      */
     public static getAttributeTypeMap() {
-        return  UnpivotColumn.attributeTypeMap;
+        return super.getAttributeTypeMap().concat(UnpivotColumn.attributeTypeMap) ;
 
     }
 
@@ -18532,7 +18484,7 @@ export class UnpivotColumn  {
     public valueMapName: string;
 
     public constructor(init?: Partial< UnpivotColumn >) {  
-    
+         super(init);     
         Object.assign(this, init);
     } 
 }
@@ -20362,13 +20314,13 @@ const typeMap = {
     ImageOrPrintOptions,
     RenderingFont,
     RenderingWatermark,
+    AppliedOperate,
+    AppliedStep,
+    DataQuery,
     LoadData,
     LoadTo,
     MergeQueries,
     PivotColumn,
-    QueryDataSource,
-    QueryTable,
-    Transformation,
     UnpivotColumn,
     PivotField,
     PivotFilter,
