@@ -389,6 +389,22 @@ export class CellsApi {
     }
 
     /// <summary>
+    /// Get Access Token Result
+    /// </summary>
+    /// <param name="request">Request. <see cref="PostAccessTokenRequest" /></param>
+    public async postAccessToken(requestObj:model.PostAccessTokenRequest ): Promise<{response: http.ClientResponse, body: string}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling postAccessToken.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "string");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
     /// Clear cell area contents in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="PostClearContentsRequest" /></param>
@@ -4102,7 +4118,22 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Retrieve the description of the default style for the workbook.
+    /// </summary>
+    /// <param name="request">Request. <see cref="PostAddTextContentRequest" /></param>
+    public async postAddTextContent(requestObj:model.PostAddTextContentRequest ): Promise<{response: http.ClientResponse, body: model.FileInfo}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling postAddTextContent.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "FileInfo");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// Retrieve the description of the default style for the workbook .
     /// </summary>
     /// <param name="request">Request. <see cref="GetWorkbookDefaultStyleRequest" /></param>
     public async getWorkbookDefaultStyle(requestObj:model.GetWorkbookDefaultStyleRequest ): Promise<{response: http.ClientResponse, body: model.StyleResponse}>

@@ -18534,6 +18534,102 @@ export class PivotItem  {
         Object.assign(this, init);
     } 
 }
+///    
+export class BaseOperateOptions  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "name",
+            baseName: "Name",
+            type: "string",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return  BaseOperateOptions.attributeTypeMap;
+
+    }
+
+    public name: string;
+
+    public constructor(init?: Partial< BaseOperateOptions >) {  
+    
+        Object.assign(this, init);
+    } 
+}
+///    
+export class AddTextOptions  extends BaseOperateOptions  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "dataSource",
+            baseName: "DataSource",
+            type: "DataSource",
+        },
+        {
+            name: "fileInfo",
+            baseName: "FileInfo",
+            type: "FileInfo",
+        },
+        {
+            name: "text",
+            baseName: "Text",
+            type: "string",
+        },
+        {
+            name: "worksheet",
+            baseName: "Worksheet",
+            type: "string",
+        },
+        {
+            name: "range",
+            baseName: "Range",
+            type: "string",
+        },
+        {
+            name: "selectPoistion",
+            baseName: "SelectPoistion",
+            type: "string",
+        },
+        {
+            name: "selectText",
+            baseName: "SelectText",
+            type: "string",
+        },
+        {
+            name: "skipEmptyCells",
+            baseName: "SkipEmptyCells",
+            type: "boolean",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return super.getAttributeTypeMap().concat(AddTextOptions.attributeTypeMap) ;
+
+    }
+
+    public dataSource: DataSource;
+    public fileInfo: FileInfo;
+    public text: string;
+    public worksheet: string;
+    public range: string;
+    public selectPoistion: string;
+    public selectText: string;
+    public skipEmptyCells: boolean;
+
+    public constructor(init?: Partial< AddTextOptions >) {  
+         super(init);     
+        Object.assign(this, init);
+    } 
+}
 /// Represents the cell value and corresponding type.   
 export class CellValue  {
     /**
@@ -20327,6 +20423,8 @@ const typeMap = {
     PivotItem,
     PivotTable,
     PivotTables,
+    AddTextOptions,
+    BaseOperateOptions,
     CellValue,
     CustomParserConfig,
     Import2DimensionDoubleArrayOption,
@@ -21621,6 +21719,40 @@ export class PostBatchSplitRequest  {
             uri: localVarPath,
             json: true,
             body:bodyParameter,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Get Access Token Result   
+export class PostAccessTokenRequest  {
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< PostAccessTokenRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/connect/token";
+        const queryParameters: any = {};
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
         };
 
         return Promise.resolve(requestOptions);
@@ -33717,7 +33849,43 @@ export class PostRunTaskRequest  {
     }
 
 }
-/// Retrieve the description of the default style for the workbook.   
+   
+export class PostAddTextContentRequest  {
+      
+    public addTextOptions: AddTextOptions;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< PostAddTextContentRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/addtext";
+        const queryParameters: any = {};
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        const bodyParameter = (this.addTextOptions == null) ? null :   ObjectSerializer.serialize( this.addTextOptions,this.addTextOptions.constructor.name);
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+            body:bodyParameter,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Retrieve the description of the default style for the workbook .   
 export class GetWorkbookDefaultStyleRequest  {
     /// The file name.  
     public name: string;

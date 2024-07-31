@@ -155,6 +155,7 @@ describe('DataProcessingController test', function() {
          dataTransformationRequest.appliedSteps = dataTransformationRequestAppliedSteps  ;
 
         var request = new model.PostDataTransformationRequest();
+        request.dataTransformationRequest =  dataTransformationRequest;
         return cellsApi.postDataTransformation(request).then((result) => {
             expect(result.response.statusCode).to.equal(200);
         });
