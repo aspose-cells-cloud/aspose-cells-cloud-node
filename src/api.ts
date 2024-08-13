@@ -4133,6 +4133,21 @@ export class CellsApi {
     }
 
     /// <summary>
+    /// </summary>
+    /// <param name="request">Request. <see cref="PostTrimContentRequest" /></param>
+    public async postTrimContent(requestObj:model.PostTrimContentRequest ): Promise<{response: http.ClientResponse, body: model.FileInfo}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling postTrimContent.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "FileInfo");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
     /// Retrieve the description of the default style for the workbook .
     /// </summary>
     /// <param name="request">Request. <see cref="GetWorkbookDefaultStyleRequest" /></param>

@@ -18630,6 +18630,153 @@ export class AddTextOptions  extends BaseOperateOptions  {
         Object.assign(this, init);
     } 
 }
+   
+export class ScopeItem  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "worksheetName",
+            baseName: "WorksheetName",
+            type: "string",
+        },
+        {
+            name: "ranges",
+            baseName: "Ranges",
+            type: "Array<string>",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return  ScopeItem.attributeTypeMap;
+
+    }
+
+    public worksheetName: string;
+    public ranges: Array<string>;
+
+    public constructor(init?: Partial< ScopeItem >) {  
+    
+        Object.assign(this, init);
+    } 
+}
+   
+export class ScopeOptions  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "scope",
+            baseName: "Scope",
+            type: "string",
+        },
+        {
+            name: "scopeItems",
+            baseName: "ScopeItems",
+            type: "Array<ScopeItem>",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return  ScopeOptions.attributeTypeMap;
+
+    }
+
+    public scope: string;
+    public scopeItems: Array<ScopeItem>;
+
+    public constructor(init?: Partial< ScopeOptions >) {  
+    
+        Object.assign(this, init);
+    } 
+}
+   
+export class TrimContentOptions  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "dataSource",
+            baseName: "DataSource",
+            type: "DataSource",
+        },
+        {
+            name: "fileInfo",
+            baseName: "FileInfo",
+            type: "FileInfo",
+        },
+        {
+            name: "trimContent",
+            baseName: "TrimContent",
+            type: "string",
+        },
+        {
+            name: "trimLeading",
+            baseName: "TrimLeading",
+            type: "boolean",
+        },
+        {
+            name: "trimTrailing",
+            baseName: "TrimTrailing",
+            type: "boolean",
+        },
+        {
+            name: "trimSpaceBetweenWordTo1",
+            baseName: "TrimSpaceBetweenWordTo1",
+            type: "boolean",
+        },
+        {
+            name: "trimNonBreakingSpaces",
+            baseName: "TrimNonBreakingSpaces",
+            type: "boolean",
+        },
+        {
+            name: "removeExtraLineBreaks",
+            baseName: "RemoveExtraLineBreaks",
+            type: "boolean",
+        },
+        {
+            name: "removeAllLineBreaks",
+            baseName: "RemoveAllLineBreaks",
+            type: "boolean",
+        },
+        {
+            name: "scopeOptions",
+            baseName: "ScopeOptions",
+            type: "ScopeOptions",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return  TrimContentOptions.attributeTypeMap;
+
+    }
+
+    public dataSource: DataSource;
+    public fileInfo: FileInfo;
+    public trimContent: string;
+    public trimLeading: boolean;
+    public trimTrailing: boolean;
+    public trimSpaceBetweenWordTo1: boolean;
+    public trimNonBreakingSpaces: boolean;
+    public removeExtraLineBreaks: boolean;
+    public removeAllLineBreaks: boolean;
+    public scopeOptions: ScopeOptions;
+
+    public constructor(init?: Partial< TrimContentOptions >) {  
+    
+        Object.assign(this, init);
+    } 
+}
 /// Represents the cell value and corresponding type.   
 export class CellValue  {
     /**
@@ -20425,6 +20572,9 @@ const typeMap = {
     PivotTables,
     AddTextOptions,
     BaseOperateOptions,
+    ScopeItem,
+    ScopeOptions,
+    TrimContentOptions,
     CellValue,
     CustomParserConfig,
     Import2DimensionDoubleArrayOption,
@@ -33872,6 +34022,42 @@ export class PostAddTextContentRequest  {
 
 
         const bodyParameter = (this.addTextOptions == null) ? null :   ObjectSerializer.serialize( this.addTextOptions,this.addTextOptions.constructor.name);
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+            body:bodyParameter,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+   
+export class PostTrimContentRequest  {
+      
+    public trimContentOptions: TrimContentOptions;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< PostTrimContentRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/trimcontent";
+        const queryParameters: any = {};
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        const bodyParameter = (this.trimContentOptions == null) ? null :   ObjectSerializer.serialize( this.trimContentOptions,this.trimContentOptions.constructor.name);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,

@@ -1,4 +1,4 @@
-![](https://img.shields.io/badge/REST%20API-v3.0-lightgrey) ![npm](https://img.shields.io/npm/v/asposecellscloud) ![node-current](https://img.shields.io/node/v/asposecellscloud) [![GitHub license](https://img.shields.io/github/license/aspose-cells-cloud/aspose-cells-cloud-node)](https://github.com/aspose-cells-cloud/aspose-cells-cloud-node/blob/master/LICENSE) ![GitHub commits since latest release (by date)](https://img.shields.io/github/commits-since/aspose-cells-cloud/aspose-cells-cloud-node/24.7)
+![](https://img.shields.io/badge/REST%20API-v3.0-lightgrey) ![npm](https://img.shields.io/npm/v/asposecellscloud) ![node-current](https://img.shields.io/node/v/asposecellscloud) [![GitHub license](https://img.shields.io/github/license/aspose-cells-cloud/aspose-cells-cloud-node)](https://github.com/aspose-cells-cloud/aspose-cells-cloud-node/blob/master/LICENSE) ![GitHub commits since latest release (by date)](https://img.shields.io/github/commits-since/aspose-cells-cloud/aspose-cells-cloud-node/24.8)
 
 Node.js Cloud SDK wraps Aspose.Cells REST API so you could seamlessly integrate Microsoft Excel® document generation, manipulation, conversion & inspection features into your own Node.js applications.
 
@@ -20,12 +20,11 @@ We encourage you to dive into the Developer's Guide & API Reference for a compre
 - Import/Export: Facilitates importing data from various sources into spreadsheets and exporting spreadsheet data to other formats.
 - Security Management: Offers a range of security features like data encryption, access control, and permission management to safeguard the security and integrity of spreadsheet data.
 
-## Feature & Enhancements in Version 24.7
+## Feature & Enhancements in Version 24.8
 
 Full list of issues covering all changes in this release:
 
-- Add a new feature about adding text content.
-- Add get access token by client id and client secret.
+- Add the text trim feature on Cells Cloud Services.
 
 
 ## Support file format
@@ -113,6 +112,11 @@ describe('cellsWorkbookPutConvertWorkbook', function() {
 [Product Page](https://products.aspose.cloud/cells/net) | [Documentation](https://docs.aspose.cloud/cells/) | [Live Demo](https://products.aspose.app/cells/family) | [API Reference](https://apireference.aspose.cloud/cells/) | [Code Samples](https://github.com/aspose-cells-cloud/aspose-cells-cloud-dotnet/tree/master/Examples) | [Blog](https://blog.aspose.cloud/category/cells/) | [Free Support](https://forum.aspose.cloud/c/cells) | [Free Trial](https://dashboard.aspose.cloud/#/apps)
 
 # Release history version
+
+## Enhancements in Version 24.7.0
+
+- Add a new feature about adding text content.
+- Add get access token by client id and client secret.
 
 ## Enhancements in Version 24.6.0
 
