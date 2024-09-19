@@ -64,8 +64,9 @@ describe('DataProcessingController test', function() {
         localNameRequest.storageName ="";
         cellsApi.uploadFile(localNameRequest );
      
+        var deduplicationRegionRanges = new Array<model.Range>();
         var deduplicationRegion = new model.DeduplicationRegion();
-
+         deduplicationRegion.ranges = deduplicationRegionRanges  ;
 
         var request = new model.PostWorkbookDataDeduplicationRequest();
         request.name =  remoteName;

@@ -8686,6 +8686,11 @@ export class HtmlSaveOptions  extends SaveOptions  {
             name: "parseHtmlTagInCell",
             baseName: "ParseHtmlTagInCell",
             type: "boolean",
+        },
+        {
+            name: "cellNameAttribute",
+            baseName: "CellNameAttribute",
+            type: "string",
         }
     ];
     /**
@@ -8734,6 +8739,7 @@ export class HtmlSaveOptions  extends SaveOptions  {
     public isExpImageToTempDir: boolean;
     public pageTitle: string;
     public parseHtmlTagInCell: boolean;
+    public cellNameAttribute: string;
 
     public constructor(init?: Partial< HtmlSaveOptions >) {  
          super(init);     
@@ -17844,6 +17850,11 @@ export class ProtectWorkbookRequest  {
             type: "Protection",
         },
         {
+            name: "protectAllSheets",
+            baseName: "ProtectAllSheets",
+            type: "Protection",
+        },
+        {
             name: "protectWorkbookStructure",
             baseName: "ProtectWorkbookStructure",
             type: "string",
@@ -17870,6 +17881,7 @@ export class ProtectWorkbookRequest  {
     public awaysOpenReadOnly: boolean;
     public encryptWithPassword: string;
     public protectCurrentSheet: Protection;
+    public protectAllSheets: Protection;
     public protectWorkbookStructure: string;
     public digitalSignature: DigitalSignature;
     public markAsFinal: boolean;
@@ -18104,6 +18116,11 @@ export class TextWaterMarkerRequest  {
             name: "width",
             baseName: "Width",
             type: "number",
+        },
+        {
+            name: "imageAdaptOption",
+            baseName: "ImageAdaptOption",
+            type: "string",
         }
     ];
     /**
@@ -18119,6 +18136,7 @@ export class TextWaterMarkerRequest  {
     public fontSize: number;
     public height: number;
     public width: number;
+    public imageAdaptOption: string;
 
     public constructor(init?: Partial< TextWaterMarkerRequest >) {  
     
@@ -18773,6 +18791,51 @@ export class TrimContentOptions  {
     public scopeOptions: ScopeOptions;
 
     public constructor(init?: Partial< TrimContentOptions >) {  
+    
+        Object.assign(this, init);
+    } 
+}
+   
+export class WordCaseOptions  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "dataSource",
+            baseName: "DataSource",
+            type: "DataSource",
+        },
+        {
+            name: "fileInfo",
+            baseName: "FileInfo",
+            type: "FileInfo",
+        },
+        {
+            name: "wordCaseType",
+            baseName: "WordCaseType",
+            type: "string",
+        },
+        {
+            name: "scopeOptions",
+            baseName: "ScopeOptions",
+            type: "ScopeOptions",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return  WordCaseOptions.attributeTypeMap;
+
+    }
+
+    public dataSource: DataSource;
+    public fileInfo: FileInfo;
+    public wordCaseType: string;
+    public scopeOptions: ScopeOptions;
+
+    public constructor(init?: Partial< WordCaseOptions >) {  
     
         Object.assign(this, init);
     } 
@@ -20575,6 +20638,7 @@ const typeMap = {
     ScopeItem,
     ScopeOptions,
     TrimContentOptions,
+    WordCaseOptions,
     CellValue,
     CustomParserConfig,
     Import2DimensionDoubleArrayOption,
@@ -26153,6 +26217,10 @@ export class PutConvertWorkbookRequest  {
     public pageWideFitOnPerSheet: boolean;
     /// The page tall fit on worksheet.  
     public pageTallFitOnPerSheet: boolean;
+      
+    public sheetName: string;
+      
+    public pageIndex: number;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -26174,6 +26242,8 @@ export class PutConvertWorkbookRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "pageWideFitOnPerSheet", this.pageWideFitOnPerSheet);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "pageTallFitOnPerSheet", this.pageTallFitOnPerSheet);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "sheetName", this.sheetName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "pageIndex", this.pageIndex);
         if(this.extendQueryParameterMap !== undefined){
             for (var key in this.extendQueryParameterMap){
                 localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
@@ -34071,6 +34141,42 @@ export class PostTrimContentRequest  {
     }
 
 }
+   
+export class PostUpdateWordCaseRequest  {
+      
+    public wordCaseOptions: WordCaseOptions;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< PostUpdateWordCaseRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/updatewordcase";
+        const queryParameters: any = {};
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        const bodyParameter = (this.wordCaseOptions == null) ? null :   ObjectSerializer.serialize( this.wordCaseOptions,this.wordCaseOptions.constructor.name);
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+            body:bodyParameter,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
 /// Retrieve the description of the default style for the workbook .   
 export class GetWorkbookDefaultStyleRequest  {
     /// The file name.  
@@ -35031,6 +35137,8 @@ export class PutWorkbookBackgroundRequest  {
     public name: string;
     /// The picture full path.  
     public picPath: string;
+      
+    public imageAdaptOption: string;
     /// The folder where the file is situated.  
     public folder: string;
     /// The storage name where the file is situated.  
@@ -35050,6 +35158,7 @@ export class PutWorkbookBackgroundRequest  {
         const queryParameters: any = {};
         const formParams: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "picPath", this.picPath);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "imageAdaptOption", this.imageAdaptOption);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
         if(this.extendQueryParameterMap !== undefined){
@@ -36611,6 +36720,8 @@ export class PutWorksheetBackgroundRequest  {
     public sheetName: string;
     /// picture full filename.  
     public picPath: string;
+      
+    public imageAdaptOption: string;
     /// The folder where the file is situated.  
     public folder: string;
     /// The storage name where the file is situated.  
@@ -36630,6 +36741,7 @@ export class PutWorksheetBackgroundRequest  {
         const queryParameters: any = {};
         const formParams: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "picPath", this.picPath);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "imageAdaptOption", this.imageAdaptOption);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
         if(this.extendQueryParameterMap !== undefined){
