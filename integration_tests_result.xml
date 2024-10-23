@@ -1,22 +1,10 @@
 <testsuites name="Mocha Tests">
-  <testsuite name="DataProcessing test post_data_transformation test" tests="1" errors="0" failures="1" skipped="0" timestamp="2024-09-19T02:10:15" time="2.28">
-    <testcase classname="DataProcessing test post_data_transformation test" name="should call PostDataTransformation successfully" time="2.271">
+  <testsuite name="DataProcessingController test post_data_transformation test" tests="1" errors="0" failures="1" skipped="0" timestamp="2024-10-23T14:53:19" time="5.076">
+    <testcase classname="DataProcessingController test post_data_transformation test" name="should call PostDataTransformation successfully" time="5.069">
       <failure message="the object {
-  &quot;code&quot;: 500
+  &quot;code&quot;: 404
   &quot;message&quot;: [undefined]
 } was thrown, throw an Error :)"></failure>
-    </testcase>
-  </testsuite>
-  <testsuite name="TextProcessingController test post_add_text_content test" tests="1" errors="0" failures="0" skipped="0" timestamp="2024-09-19T02:10:17" time="2.087">
-    <testcase classname="TextProcessingController test post_add_text_content test" name="should call PostAddTextContent successfully" time="2.085">
-    </testcase>
-  </testsuite>
-  <testsuite name="TextProcessingController test post_trim_content test" tests="1" errors="0" failures="0" skipped="0" timestamp="2024-09-19T02:10:19" time="0.684">
-    <testcase classname="TextProcessingController test post_trim_content test" name="should call PostTrimContent successfully" time="0.682">
-    </testcase>
-  </testsuite>
-  <testsuite name="TextProcessingController test post_update_word_case test" tests="1" errors="0" failures="0" skipped="0" timestamp="2024-09-19T02:10:20" time="0.602">
-    <testcase classname="TextProcessingController test post_update_word_case test" name="should call PostUpdateWordCase successfully" time="0.598">
     </testcase>
   </testsuite>
 </testsuites>

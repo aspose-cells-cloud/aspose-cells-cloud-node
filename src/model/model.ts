@@ -18649,6 +18649,147 @@ export class AddTextOptions  extends BaseOperateOptions  {
     } 
 }
    
+export class RemoveCharactersByCharacter  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "removeTextMethod",
+            baseName: "RemoveTextMethod",
+            type: "string",
+        },
+        {
+            name: "removeCharacters",
+            baseName: "RemoveCharacters",
+            type: "Array<string>",
+        },
+        {
+            name: "removeCharacterSetsType",
+            baseName: "RemoveCharacterSetsType",
+            type: "string",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return  RemoveCharactersByCharacter.attributeTypeMap;
+
+    }
+
+    public removeTextMethod: string;
+    public removeCharacters: Array<string>;
+    public removeCharacterSetsType: string;
+
+    public constructor(init?: Partial< RemoveCharactersByCharacter >) {  
+    
+        Object.assign(this, init);
+    } 
+}
+   
+export class RemoveCharactersByPosition  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "theFirstNCharacters",
+            baseName: "TheFirstNCharacters",
+            type: "number",
+        },
+        {
+            name: "theLastNCharacters",
+            baseName: "TheLastNCharacters",
+            type: "number",
+        },
+        {
+            name: "allCharactersBeforeText",
+            baseName: "AllCharactersBeforeText",
+            type: "string",
+        },
+        {
+            name: "allCharactersAfterText",
+            baseName: "AllCharactersAfterText",
+            type: "string",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return  RemoveCharactersByPosition.attributeTypeMap;
+
+    }
+
+    public theFirstNCharacters: number;
+    public theLastNCharacters: number;
+    public allCharactersBeforeText: string;
+    public allCharactersAfterText: string;
+
+    public constructor(init?: Partial< RemoveCharactersByPosition >) {  
+    
+        Object.assign(this, init);
+    } 
+}
+///    
+export class RemoveCharactersOptions  extends BaseOperateOptions  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "dataSource",
+            baseName: "DataSource",
+            type: "DataSource",
+        },
+        {
+            name: "fileInfo",
+            baseName: "FileInfo",
+            type: "FileInfo",
+        },
+        {
+            name: "worksheet",
+            baseName: "Worksheet",
+            type: "string",
+        },
+        {
+            name: "range",
+            baseName: "Range",
+            type: "string",
+        },
+        {
+            name: "removeCharactersByCharacter",
+            baseName: "RemoveCharactersByCharacter",
+            type: "RemoveCharactersByCharacter",
+        },
+        {
+            name: "removeCharactersByPosition",
+            baseName: "RemoveCharactersByPosition",
+            type: "RemoveCharactersByPosition",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return super.getAttributeTypeMap().concat(RemoveCharactersOptions.attributeTypeMap) ;
+
+    }
+
+    public dataSource: DataSource;
+    public fileInfo: FileInfo;
+    public worksheet: string;
+    public range: string;
+    public removeCharactersByCharacter: RemoveCharactersByCharacter;
+    public removeCharactersByPosition: RemoveCharactersByPosition;
+
+    public constructor(init?: Partial< RemoveCharactersOptions >) {  
+         super(init);     
+        Object.assign(this, init);
+    } 
+}
+   
 export class ScopeItem  {
     /**
      * Attribute type map
@@ -20635,6 +20776,9 @@ const typeMap = {
     PivotTables,
     AddTextOptions,
     BaseOperateOptions,
+    RemoveCharactersByCharacter,
+    RemoveCharactersByPosition,
+    RemoveCharactersOptions,
     ScopeItem,
     ScopeOptions,
     TrimContentOptions,
@@ -34164,6 +34308,42 @@ export class PostUpdateWordCaseRequest  {
 
 
         const bodyParameter = (this.wordCaseOptions == null) ? null :   ObjectSerializer.serialize( this.wordCaseOptions,this.wordCaseOptions.constructor.name);
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+            body:bodyParameter,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+   
+export class PostRemoveCharactersRequest  {
+      
+    public removeCharactersOptions: RemoveCharactersOptions;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< PostRemoveCharactersRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/removecharacters";
+        const queryParameters: any = {};
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        const bodyParameter = (this.removeCharactersOptions == null) ? null :   ObjectSerializer.serialize( this.removeCharactersOptions,this.removeCharactersOptions.constructor.name);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
