@@ -18648,6 +18648,69 @@ export class AddTextOptions  extends BaseOperateOptions  {
         Object.assign(this, init);
     } 
 }
+///    
+export class ConvertTextOptions  extends BaseOperateOptions  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "dataSource",
+            baseName: "DataSource",
+            type: "DataSource",
+        },
+        {
+            name: "fileInfo",
+            baseName: "FileInfo",
+            type: "FileInfo",
+        },
+        {
+            name: "worksheet",
+            baseName: "Worksheet",
+            type: "string",
+        },
+        {
+            name: "range",
+            baseName: "Range",
+            type: "string",
+        },
+        {
+            name: "convertTextType",
+            baseName: "ConvertTextType",
+            type: "string",
+        },
+        {
+            name: "sourceCharacters",
+            baseName: "SourceCharacters",
+            type: "string",
+        },
+        {
+            name: "targetCharacters",
+            baseName: "TargetCharacters",
+            type: "string",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return super.getAttributeTypeMap().concat(ConvertTextOptions.attributeTypeMap) ;
+
+    }
+
+    public dataSource: DataSource;
+    public fileInfo: FileInfo;
+    public worksheet: string;
+    public range: string;
+    public convertTextType: string;
+    public sourceCharacters: string;
+    public targetCharacters: string;
+
+    public constructor(init?: Partial< ConvertTextOptions >) {  
+         super(init);     
+        Object.assign(this, init);
+    } 
+}
    
 export class RemoveCharactersByCharacter  {
     /**
@@ -20776,6 +20839,7 @@ const typeMap = {
     PivotTables,
     AddTextOptions,
     BaseOperateOptions,
+    ConvertTextOptions,
     RemoveCharactersByCharacter,
     RemoveCharactersByPosition,
     RemoveCharactersOptions,
@@ -34344,6 +34408,42 @@ export class PostRemoveCharactersRequest  {
 
 
         const bodyParameter = (this.removeCharactersOptions == null) ? null :   ObjectSerializer.serialize( this.removeCharactersOptions,this.removeCharactersOptions.constructor.name);
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+            body:bodyParameter,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+   
+export class PostConvertTextRequest  {
+      
+    public convertTextOptions: ConvertTextOptions;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< PostConvertTextRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/converttext";
+        const queryParameters: any = {};
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        const bodyParameter = (this.convertTextOptions == null) ? null :   ObjectSerializer.serialize( this.convertTextOptions,this.convertTextOptions.constructor.name);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,

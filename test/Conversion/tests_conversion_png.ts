@@ -7,7 +7,7 @@ const clientId = process.env.CellsCloudClientId;
 const clientSecret = process.env.CellsCloudClientSecret;
 const ApiURL = process.env.CellsCloudApiBaseUrl;
 
-const localPath = "TestData/";
+const localPath = "TestData/CellsCloud/";
 
 var fs = require('fs');
 var path = require('path');
