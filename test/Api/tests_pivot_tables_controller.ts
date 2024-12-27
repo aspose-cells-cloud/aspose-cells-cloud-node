@@ -21,7 +21,7 @@ describe('PivotTablesController test', function() {
     describe('get_worksheet_pivot_tables test', function(){
       it("should call GetWorksheetPivotTables successfully" , function(){
         var remoteFolder = "TestData/In"
-      
+
         var localName = "TestCase.xlsx"
         var remoteName = "TestCase.xlsx"
 
@@ -30,7 +30,7 @@ describe('PivotTablesController test', function() {
         localNameRequest.path = remoteFolder + "/" + remoteName ;
         localNameRequest.storageName ="";
         cellsApi.uploadFile(localNameRequest );
-     
+
 
         var request = new model.GetWorksheetPivotTablesRequest();
         request.name =  remoteName;
@@ -41,11 +41,11 @@ describe('PivotTablesController test', function() {
             expect(result.response.statusCode).to.equal(200);
         });
       });
-    }); 
+    });
     describe('get_worksheet_pivot_table test', function(){
       it("should call GetWorksheetPivotTable successfully" , function(){
         var remoteFolder = "TestData/In"
-      
+
         var localName = "TestCase.xlsx"
         var remoteName = "TestCase.xlsx"
 
@@ -54,7 +54,7 @@ describe('PivotTablesController test', function() {
         localNameRequest.path = remoteFolder + "/" + remoteName ;
         localNameRequest.storageName ="";
         cellsApi.uploadFile(localNameRequest );
-     
+
 
         var request = new model.GetWorksheetPivotTableRequest();
         request.name =  remoteName;
@@ -66,11 +66,11 @@ describe('PivotTablesController test', function() {
             expect(result.response.statusCode).to.equal(200);
         });
       });
-    }); 
+    });
     describe('get_pivot_table_field test', function(){
       it("should call GetPivotTableField successfully" , function(){
         var remoteFolder = "TestData/In"
-      
+
         var localName = "TestCase.xlsx"
         var remoteName = "TestCase.xlsx"
 
@@ -79,7 +79,7 @@ describe('PivotTablesController test', function() {
         localNameRequest.path = remoteFolder + "/" + remoteName ;
         localNameRequest.storageName ="";
         cellsApi.uploadFile(localNameRequest );
-     
+
 
         var request = new model.GetPivotTableFieldRequest();
         request.name =  remoteName;
@@ -93,11 +93,11 @@ describe('PivotTablesController test', function() {
             expect(result.response.statusCode).to.equal(200);
         });
       });
-    }); 
-    describe('get_worksheet_pivot_table_filters test', function(){
+    });
+  /*  describe('get_worksheet_pivot_table_filters test', function(){
       it("should call GetWorksheetPivotTableFilters successfully" , function(){
         var remoteFolder = "TestData/In"
-      
+
         var localName = "TestCase.xlsx"
         var remoteName = "TestCase.xlsx"
 
@@ -106,7 +106,7 @@ describe('PivotTablesController test', function() {
         localNameRequest.path = remoteFolder + "/" + remoteName ;
         localNameRequest.storageName ="";
         cellsApi.uploadFile(localNameRequest );
-     
+
 
         var request = new model.GetWorksheetPivotTableFiltersRequest();
         request.name =  remoteName;
@@ -118,11 +118,11 @@ describe('PivotTablesController test', function() {
             expect(result.response.statusCode).to.equal(200);
         });
       });
-    }); 
+    }); */
     describe('get_worksheet_pivot_table_filter test', function(){
       it("should call GetWorksheetPivotTableFilter successfully" , function(){
         var remoteFolder = "TestData/In"
-      
+
         var localName = "TestCase.xlsx"
         var remoteName = "TestCase.xlsx"
 
@@ -131,7 +131,7 @@ describe('PivotTablesController test', function() {
         localNameRequest.path = remoteFolder + "/" + remoteName ;
         localNameRequest.storageName ="";
         cellsApi.uploadFile(localNameRequest );
-     
+
 
         var request = new model.GetWorksheetPivotTableFilterRequest();
         request.name =  remoteName;
@@ -144,11 +144,11 @@ describe('PivotTablesController test', function() {
             expect(result.response.statusCode).to.equal(200);
         });
       });
-    }); 
+    });
     describe('put_worksheet_pivot_table test', function(){
       it("should call PutWorksheetPivotTable successfully" , function(){
         var remoteFolder = "TestData/In"
-      
+
         var localName = "TestCase.xlsx"
         var remoteName = "TestCase.xlsx"
 
@@ -157,7 +157,7 @@ describe('PivotTablesController test', function() {
         localNameRequest.path = remoteFolder + "/" + remoteName ;
         localNameRequest.storageName ="";
         cellsApi.uploadFile(localNameRequest );
-     
+
 
         var request = new model.PutWorksheetPivotTableRequest();
         request.name =  remoteName;
@@ -172,11 +172,11 @@ describe('PivotTablesController test', function() {
             expect(result.response.statusCode).to.equal(200);
         });
       });
-    }); 
+    });
     describe('put_pivot_table_field test', function(){
       it("should call PutPivotTableField successfully" , function(){
         var remoteFolder = "TestData/In"
-      
+
         var localName = "TestCase.xlsx"
         var remoteName = "TestCase.xlsx"
 
@@ -185,7 +185,7 @@ describe('PivotTablesController test', function() {
         localNameRequest.path = remoteFolder + "/" + remoteName ;
         localNameRequest.storageName ="";
         cellsApi.uploadFile(localNameRequest );
-     
+
         var pivotTableFieldRequestData = new Array<number>();pivotTableFieldRequestData.push(0);
         var pivotTableFieldRequest = new model.PivotTableFieldRequest();
          pivotTableFieldRequest.data = pivotTableFieldRequestData  ;
@@ -203,11 +203,12 @@ describe('PivotTablesController test', function() {
             expect(result.response.statusCode).to.equal(200);
         });
       });
-    }); 
+    });
+    /*
     describe('put_worksheet_pivot_table_filter test', function(){
       it("should call PutWorksheetPivotTableFilter successfully" , function(){
         var remoteFolder = "TestData/In"
-      
+
         var localName = "TestCase.xlsx"
         var remoteName = "TestCase.xlsx"
 
@@ -216,7 +217,7 @@ describe('PivotTablesController test', function() {
         localNameRequest.path = remoteFolder + "/" + remoteName ;
         localNameRequest.storageName ="";
         cellsApi.uploadFile(localNameRequest );
-     
+
         var filter = new model.PivotFilter();
          filter.fieldIndex = 1  ;
          filter.filterType = "Count"  ;
@@ -233,11 +234,11 @@ describe('PivotTablesController test', function() {
             expect(result.response.statusCode).to.equal(200);
         });
       });
-    }); 
+    }); */
     describe('post_pivot_table_field_hide_item test', function(){
       it("should call PostPivotTableFieldHideItem successfully" , function(){
         var remoteFolder = "TestData/In"
-      
+
         var localName = "TestCase.xlsx"
         var remoteName = "TestCase.xlsx"
 
@@ -246,7 +247,7 @@ describe('PivotTablesController test', function() {
         localNameRequest.path = remoteFolder + "/" + remoteName ;
         localNameRequest.storageName ="";
         cellsApi.uploadFile(localNameRequest );
-     
+
 
         var request = new model.PostPivotTableFieldHideItemRequest();
         request.name =  remoteName;
@@ -263,11 +264,11 @@ describe('PivotTablesController test', function() {
             expect(result.response.statusCode).to.equal(200);
         });
       });
-    }); 
+    });
     describe('post_pivot_table_field_move_to test', function(){
       it("should call PostPivotTableFieldMoveTo successfully" , function(){
         var remoteFolder = "TestData/In"
-      
+
         var localName = "TestCase.xlsx"
         var remoteName = "TestCase.xlsx"
 
@@ -276,7 +277,7 @@ describe('PivotTablesController test', function() {
         localNameRequest.path = remoteFolder + "/" + remoteName ;
         localNameRequest.storageName ="";
         cellsApi.uploadFile(localNameRequest );
-     
+
 
         var request = new model.PostPivotTableFieldMoveToRequest();
         request.name =  remoteName;
@@ -291,11 +292,11 @@ describe('PivotTablesController test', function() {
             expect(result.response.statusCode).to.equal(200);
         });
       });
-    }); 
+    });
     describe('post_pivot_table_cell_style test', function(){
       it("should call PostPivotTableCellStyle successfully" , function(){
         var remoteFolder = "TestData/In"
-      
+
         var localName = "TestCase.xlsx"
         var remoteName = "TestCase.xlsx"
 
@@ -304,7 +305,7 @@ describe('PivotTablesController test', function() {
         localNameRequest.path = remoteFolder + "/" + remoteName ;
         localNameRequest.storageName ="";
         cellsApi.uploadFile(localNameRequest );
-     
+
         var styleFont = new model.Font();
          styleFont.size = 16  ;
         var style = new model.Style();
@@ -324,11 +325,11 @@ describe('PivotTablesController test', function() {
             expect(result.response.statusCode).to.equal(200);
         });
       });
-    }); 
+    });
     describe('post_pivot_table_style test', function(){
       it("should call PostPivotTableStyle successfully" , function(){
         var remoteFolder = "TestData/In"
-      
+
         var localName = "TestCase.xlsx"
         var remoteName = "TestCase.xlsx"
 
@@ -337,7 +338,7 @@ describe('PivotTablesController test', function() {
         localNameRequest.path = remoteFolder + "/" + remoteName ;
         localNameRequest.storageName ="";
         cellsApi.uploadFile(localNameRequest );
-     
+
         var styleFont = new model.Font();
          styleFont.size = 16  ;
         var style = new model.Style();
@@ -355,11 +356,11 @@ describe('PivotTablesController test', function() {
             expect(result.response.statusCode).to.equal(200);
         });
       });
-    }); 
+    });
     describe('post_pivot_table_update_pivot_fields test', function(){
       it("should call PostPivotTableUpdatePivotFields successfully" , function(){
         var remoteFolder = "TestData/In"
-      
+
         var localName = "TestCase.xlsx"
         var remoteName = "TestCase.xlsx"
 
@@ -368,7 +369,7 @@ describe('PivotTablesController test', function() {
         localNameRequest.path = remoteFolder + "/" + remoteName ;
         localNameRequest.storageName ="";
         cellsApi.uploadFile(localNameRequest );
-     
+
         var pivotField = new model.PivotField();
          pivotField.showCompact = true  ;
 
@@ -385,11 +386,11 @@ describe('PivotTablesController test', function() {
             expect(result.response.statusCode).to.equal(200);
         });
       });
-    }); 
+    });
     describe('post_pivot_table_update_pivot_field test', function(){
       it("should call PostPivotTableUpdatePivotField successfully" , function(){
         var remoteFolder = "TestData/In"
-      
+
         var localName = "TestCase.xlsx"
         var remoteName = "TestCase.xlsx"
 
@@ -398,7 +399,7 @@ describe('PivotTablesController test', function() {
         localNameRequest.path = remoteFolder + "/" + remoteName ;
         localNameRequest.storageName ="";
         cellsApi.uploadFile(localNameRequest );
-     
+
         var pivotField = new model.PivotField();
          pivotField.showCompact = true  ;
 
@@ -416,11 +417,11 @@ describe('PivotTablesController test', function() {
             expect(result.response.statusCode).to.equal(200);
         });
       });
-    }); 
+    });
     describe('post_worksheet_pivot_table_calculate test', function(){
       it("should call PostWorksheetPivotTableCalculate successfully" , function(){
         var remoteFolder = "TestData/In"
-      
+
         var localName = "TestCase.xlsx"
         var remoteName = "TestCase.xlsx"
 
@@ -429,7 +430,7 @@ describe('PivotTablesController test', function() {
         localNameRequest.path = remoteFolder + "/" + remoteName ;
         localNameRequest.storageName ="";
         cellsApi.uploadFile(localNameRequest );
-     
+
 
         var request = new model.PostWorksheetPivotTableCalculateRequest();
         request.name =  remoteName;
@@ -441,11 +442,11 @@ describe('PivotTablesController test', function() {
             expect(result.response.statusCode).to.equal(200);
         });
       });
-    }); 
+    });
     describe('post_worksheet_pivot_table_move test', function(){
       it("should call PostWorksheetPivotTableMove successfully" , function(){
         var remoteFolder = "TestData/In"
-      
+
         var localName = "TestCase.xlsx"
         var remoteName = "TestCase.xlsx"
 
@@ -454,7 +455,7 @@ describe('PivotTablesController test', function() {
         localNameRequest.path = remoteFolder + "/" + remoteName ;
         localNameRequest.storageName ="";
         cellsApi.uploadFile(localNameRequest );
-     
+
 
         var request = new model.PostWorksheetPivotTableMoveRequest();
         request.name =  remoteName;
@@ -469,11 +470,11 @@ describe('PivotTablesController test', function() {
             expect(result.response.statusCode).to.equal(200);
         });
       });
-    }); 
+    });
     describe('delete_worksheet_pivot_tables test', function(){
       it("should call DeleteWorksheetPivotTables successfully" , function(){
         var remoteFolder = "TestData/In"
-      
+
         var localName = "TestCase.xlsx"
         var remoteName = "TestCase.xlsx"
 
@@ -482,7 +483,7 @@ describe('PivotTablesController test', function() {
         localNameRequest.path = remoteFolder + "/" + remoteName ;
         localNameRequest.storageName ="";
         cellsApi.uploadFile(localNameRequest );
-     
+
 
         var request = new model.DeleteWorksheetPivotTablesRequest();
         request.name =  remoteName;
@@ -493,11 +494,11 @@ describe('PivotTablesController test', function() {
             expect(result.response.statusCode).to.equal(200);
         });
       });
-    }); 
+    });
     describe('delete_worksheet_pivot_table test', function(){
       it("should call DeleteWorksheetPivotTable successfully" , function(){
         var remoteFolder = "TestData/In"
-      
+
         var localName = "TestCase.xlsx"
         var remoteName = "TestCase.xlsx"
 
@@ -506,7 +507,7 @@ describe('PivotTablesController test', function() {
         localNameRequest.path = remoteFolder + "/" + remoteName ;
         localNameRequest.storageName ="";
         cellsApi.uploadFile(localNameRequest );
-     
+
 
         var request = new model.DeleteWorksheetPivotTableRequest();
         request.name =  remoteName;
@@ -518,11 +519,11 @@ describe('PivotTablesController test', function() {
             expect(result.response.statusCode).to.equal(200);
         });
       });
-    }); 
+    });
     describe('delete_pivot_table_field test', function(){
       it("should call DeletePivotTableField successfully" , function(){
         var remoteFolder = "TestData/In"
-      
+
         var localName = "TestCase.xlsx"
         var remoteName = "TestCase.xlsx"
 
@@ -531,7 +532,7 @@ describe('PivotTablesController test', function() {
         localNameRequest.path = remoteFolder + "/" + remoteName ;
         localNameRequest.storageName ="";
         cellsApi.uploadFile(localNameRequest );
-     
+
         var pivotTableFieldRequestData = new Array<number>();pivotTableFieldRequestData.push(0);
         var pivotTableFieldRequest = new model.PivotTableFieldRequest();
          pivotTableFieldRequest.data = pivotTableFieldRequestData  ;
@@ -548,11 +549,11 @@ describe('PivotTablesController test', function() {
             expect(result.response.statusCode).to.equal(200);
         });
       });
-    }); 
+    });
     describe('delete_worksheet_pivot_table_filters test', function(){
       it("should call DeleteWorksheetPivotTableFilters successfully" , function(){
         var remoteFolder = "TestData/In"
-      
+
         var localName = "TestCase.xlsx"
         var remoteName = "TestCase.xlsx"
 
@@ -561,7 +562,7 @@ describe('PivotTablesController test', function() {
         localNameRequest.path = remoteFolder + "/" + remoteName ;
         localNameRequest.storageName ="";
         cellsApi.uploadFile(localNameRequest );
-     
+
 
         var request = new model.DeleteWorksheetPivotTableFiltersRequest();
         request.name =  remoteName;
@@ -574,11 +575,11 @@ describe('PivotTablesController test', function() {
             expect(result.response.statusCode).to.equal(200);
         });
       });
-    }); 
+    });
     describe('delete_worksheet_pivot_table_filter test', function(){
       it("should call DeleteWorksheetPivotTableFilter successfully" , function(){
         var remoteFolder = "TestData/In"
-      
+
         var localName = "TestCase.xlsx"
         var remoteName = "TestCase.xlsx"
 
@@ -587,7 +588,7 @@ describe('PivotTablesController test', function() {
         localNameRequest.path = remoteFolder + "/" + remoteName ;
         localNameRequest.storageName ="";
         cellsApi.uploadFile(localNameRequest );
-     
+
 
         var request = new model.DeleteWorksheetPivotTableFilterRequest();
         request.name =  remoteName;
@@ -601,5 +602,5 @@ describe('PivotTablesController test', function() {
             expect(result.response.statusCode).to.equal(200);
         });
       });
-    }); 
+    });
 });

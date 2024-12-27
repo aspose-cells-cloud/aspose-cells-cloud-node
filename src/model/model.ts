@@ -3138,6 +3138,11 @@ export class Top10Filter  {
      */
     public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
+            name: "fieldIndex",
+            baseName: "FieldIndex",
+            type: "number",
+        },
+        {
             name: "criteria",
             baseName: "Criteria",
             type: "string",
@@ -3166,6 +3171,7 @@ export class Top10Filter  {
 
     }
 
+    public fieldIndex: number;
     public criteria: string;
     public isPercent: boolean;
     public isTop: boolean;
@@ -13892,8 +13898,8 @@ export class PivotFilter  {
             type: "string",
         },
         {
-            name: "measureFldIndex",
-            baseName: "MeasureFldIndex",
+            name: "valueFieldIndex",
+            baseName: "ValueFieldIndex",
             type: "number",
         },
         {
@@ -13915,6 +13921,11 @@ export class PivotFilter  {
             name: "value2",
             baseName: "Value2",
             type: "string",
+        },
+        {
+            name: "top10Filter",
+            baseName: "Top10Filter",
+            type: "Top10Filter",
         }
     ];
     /**
@@ -13929,11 +13940,12 @@ export class PivotFilter  {
     public evaluationOrder: number;
     public fieldIndex: number;
     public filterType: string;
-    public measureFldIndex: number;
+    public valueFieldIndex: number;
     public memberPropertyFieldIndex: number;
     public name: string;
     public value1: string;
     public value2: string;
+    public top10Filter: Top10Filter;
 
     public constructor(init?: Partial< PivotFilter >) {  
     
@@ -18711,6 +18723,87 @@ export class ConvertTextOptions  extends BaseOperateOptions  {
         Object.assign(this, init);
     } 
 }
+///    
+export class ExtractTextOptions  extends BaseOperateOptions  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "dataSource",
+            baseName: "DataSource",
+            type: "DataSource",
+        },
+        {
+            name: "fileInfo",
+            baseName: "FileInfo",
+            type: "FileInfo",
+        },
+        {
+            name: "worksheet",
+            baseName: "Worksheet",
+            type: "string",
+        },
+        {
+            name: "range",
+            baseName: "Range",
+            type: "string",
+        },
+        {
+            name: "extractTextType",
+            baseName: "ExtractTextType",
+            type: "string",
+        },
+        {
+            name: "beforeText",
+            baseName: "BeforeText",
+            type: "string",
+        },
+        {
+            name: "afterText",
+            baseName: "AfterText",
+            type: "string",
+        },
+        {
+            name: "beforePosition",
+            baseName: "BeforePosition",
+            type: "number",
+        },
+        {
+            name: "afterPosition",
+            baseName: "AfterPosition",
+            type: "number",
+        },
+        {
+            name: "outPositionRange",
+            baseName: "OutPositionRange",
+            type: "string",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return super.getAttributeTypeMap().concat(ExtractTextOptions.attributeTypeMap) ;
+
+    }
+
+    public dataSource: DataSource;
+    public fileInfo: FileInfo;
+    public worksheet: string;
+    public range: string;
+    public extractTextType: string;
+    public beforeText: string;
+    public afterText: string;
+    public beforePosition: number;
+    public afterPosition: number;
+    public outPositionRange: string;
+
+    public constructor(init?: Partial< ExtractTextOptions >) {  
+         super(init);     
+        Object.assign(this, init);
+    } 
+}
    
 export class RemoveCharactersByCharacter  {
     /**
@@ -18848,6 +18941,57 @@ export class RemoveCharactersOptions  extends BaseOperateOptions  {
     public removeCharactersByPosition: RemoveCharactersByPosition;
 
     public constructor(init?: Partial< RemoveCharactersOptions >) {  
+         super(init);     
+        Object.assign(this, init);
+    } 
+}
+///    
+export class RemoveDuplicatesOptions  extends BaseOperateOptions  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "dataSource",
+            baseName: "DataSource",
+            type: "DataSource",
+        },
+        {
+            name: "fileInfo",
+            baseName: "FileInfo",
+            type: "FileInfo",
+        },
+        {
+            name: "worksheet",
+            baseName: "Worksheet",
+            type: "string",
+        },
+        {
+            name: "removeDuplicatesArea",
+            baseName: "RemoveDuplicatesArea",
+            type: "string",
+        },
+        {
+            name: "removeDuplicatesAreaValue",
+            baseName: "RemoveDuplicatesAreaValue",
+            type: "string",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return super.getAttributeTypeMap().concat(RemoveDuplicatesOptions.attributeTypeMap) ;
+
+    }
+
+    public dataSource: DataSource;
+    public fileInfo: FileInfo;
+    public worksheet: string;
+    public removeDuplicatesArea: string;
+    public removeDuplicatesAreaValue: string;
+
+    public constructor(init?: Partial< RemoveDuplicatesOptions >) {  
          super(init);     
         Object.assign(this, init);
     } 
@@ -20840,9 +20984,11 @@ const typeMap = {
     AddTextOptions,
     BaseOperateOptions,
     ConvertTextOptions,
+    ExtractTextOptions,
     RemoveCharactersByCharacter,
     RemoveCharactersByPosition,
     RemoveCharactersOptions,
+    RemoveDuplicatesOptions,
     ScopeItem,
     ScopeOptions,
     TrimContentOptions,
@@ -34444,6 +34590,78 @@ export class PostConvertTextRequest  {
 
 
         const bodyParameter = (this.convertTextOptions == null) ? null :   ObjectSerializer.serialize( this.convertTextOptions,this.convertTextOptions.constructor.name);
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+            body:bodyParameter,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+   
+export class PostRemoveDuplicatesRequest  {
+      
+    public removeDuplicatesOptions: RemoveDuplicatesOptions;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< PostRemoveDuplicatesRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/removeduplicates";
+        const queryParameters: any = {};
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        const bodyParameter = (this.removeDuplicatesOptions == null) ? null :   ObjectSerializer.serialize( this.removeDuplicatesOptions,this.removeDuplicatesOptions.constructor.name);
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+            body:bodyParameter,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+   
+export class PostExtractTextRequest  {
+      
+    public extractTextOptions: ExtractTextOptions;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< PostExtractTextRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/extracttext";
+        const queryParameters: any = {};
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        const bodyParameter = (this.extractTextOptions == null) ? null :   ObjectSerializer.serialize( this.extractTextOptions,this.extractTextOptions.constructor.name);
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,

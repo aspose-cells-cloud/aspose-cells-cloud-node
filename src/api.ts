@@ -4193,6 +4193,36 @@ export class CellsApi {
     }
 
     /// <summary>
+    /// </summary>
+    /// <param name="request">Request. <see cref="PostRemoveDuplicatesRequest" /></param>
+    public async postRemoveDuplicates(requestObj:model.PostRemoveDuplicatesRequest ): Promise<{response: http.ClientResponse, body: model.FileInfo}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling postRemoveDuplicates.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "FileInfo");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// </summary>
+    /// <param name="request">Request. <see cref="PostExtractTextRequest" /></param>
+    public async postExtractText(requestObj:model.PostExtractTextRequest ): Promise<{response: http.ClientResponse, body: model.FileInfo}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling postExtractText.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "FileInfo");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
     /// Retrieve the description of the default style for the workbook .
     /// </summary>
     /// <param name="request">Request. <see cref="GetWorkbookDefaultStyleRequest" /></param>
