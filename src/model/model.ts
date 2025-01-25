@@ -508,7 +508,7 @@ export class AbstractCalculationMonitor  {
         Object.assign(this, init);
     } 
 }
-///    
+   
 export class LinkElement  {
     /**
      * Attribute type map
@@ -668,7 +668,7 @@ export class FilterColumn  {
         Object.assign(this, init);
     } 
 }
-///    
+   
 export class Link  {
     /**
      * Attribute type map
@@ -1988,7 +1988,7 @@ export class FormatCondition  extends LinkElement  {
         Object.assign(this, init);
     } 
 }
-///    
+   
 export class ConditionalFormatting  extends LinkElement  {
     /**
      * Attribute type map
@@ -2151,7 +2151,7 @@ export class CopyOptions  {
         Object.assign(this, init);
     } 
 }
-///    
+   
 export class MultipleFilter  {
     /**
      * Attribute type map
@@ -2172,7 +2172,7 @@ export class MultipleFilter  {
         Object.assign(this, init);
     } 
 }
-///    
+   
 export class CriteriaMultipleFilter  extends MultipleFilter  {
     /**
      * Attribute type map
@@ -3002,7 +3002,7 @@ export class FileInfo  {
         Object.assign(this, init);
     } 
 }
-///    
+   
 export class FileSource  {
     /**
      * Attribute type map
@@ -3035,7 +3035,7 @@ export class FileSource  {
         Object.assign(this, init);
     } 
 }
-///    
+   
 export class FilesResult  {
     /**
      * Attribute type map
@@ -3632,7 +3632,7 @@ export class Top10  {
         Object.assign(this, init);
     } 
 }
-///    
+   
 export class FormulaFormatCondition  {
     /**
      * Attribute type map
@@ -4087,7 +4087,7 @@ export class LoadOptions  {
         Object.assign(this, init);
     } 
 }
-///    
+   
 export class MergedCell  extends LinkElement  {
     /**
      * Attribute type map
@@ -4132,7 +4132,7 @@ export class MergedCell  extends LinkElement  {
         Object.assign(this, init);
     } 
 }
-///    
+   
 export class MergedCells  extends LinkElement  {
     /**
      * Attribute type map
@@ -4261,7 +4261,7 @@ export class Names  extends LinkElement  {
         Object.assign(this, init);
     } 
 }
-///    
+   
 export class PageSection  {
     /**
      * Attribute type map
@@ -4782,7 +4782,7 @@ export class Protection  {
         Object.assign(this, init);
     } 
 }
-///    
+   
 export class ProtectSheetParameter  {
     /**
      * Attribute type map
@@ -6897,7 +6897,7 @@ export class ConvertWorksheetTaskParameter  extends TaskParameter  {
         Object.assign(this, init);
     } 
 }
-///    
+   
 export class ImportOption  {
     /**
      * Attribute type map
@@ -9827,7 +9827,7 @@ export class AutoShapeResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-///    
+   
 export class AutoShapes  extends LinkElement  {
     /**
      * Attribute type map
@@ -12235,7 +12235,7 @@ export class FloorResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-///    
+   
 export class Form  extends Shape  {
     /**
      * Attribute type map
@@ -12391,7 +12391,7 @@ export class FormResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-///    
+   
 export class Forms  extends LinkElement  {
     /**
      * Attribute type map
@@ -12655,7 +12655,7 @@ export class LabelResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-///    
+   
 export class LegendEntries  extends LinkElement  {
     /**
      * Attribute type map
@@ -14981,7 +14981,7 @@ export class ScrollBarResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-///    
+   
 export class SeriesItems  extends LinkElement  {
     /**
      * Attribute type map
@@ -16783,7 +16783,7 @@ export class WorksheetsResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-///    
+   
 export class AnalyzeExcelRequest  {
     /**
      * Attribute type map
@@ -17056,7 +17056,7 @@ export class BatchProtectRequest  {
         Object.assign(this, init);
     } 
 }
-///    
+   
 export class BatchSplitRequest  {
     /**
      * Attribute type map
@@ -17323,7 +17323,7 @@ export class DataCleansingRequest  {
         Object.assign(this, init);
     } 
 }
-///    
+   
 export class DataDeduplicationRequest  {
     /**
      * Attribute type map
@@ -17374,7 +17374,7 @@ export class DataDeduplicationRequest  {
         Object.assign(this, init);
     } 
 }
-///    
+   
 export class DataFillRequest  {
     /**
      * Attribute type map
@@ -17548,7 +17548,7 @@ export class DataTransformationRequest  {
         Object.assign(this, init);
     } 
 }
-///    
+   
 export class DeleteIncompleteRowsRequest  {
     /**
      * Attribute type map
@@ -17599,7 +17599,7 @@ export class DeleteIncompleteRowsRequest  {
         Object.assign(this, init);
     } 
 }
-///    
+   
 export class ImportPosition  {
     /**
      * Attribute type map
@@ -18564,7 +18564,7 @@ export class PivotItem  {
         Object.assign(this, init);
     } 
 }
-///    
+   
 export class BaseOperateOptions  {
     /**
      * Attribute type map
@@ -18591,7 +18591,7 @@ export class BaseOperateOptions  {
         Object.assign(this, init);
     } 
 }
-///    
+   
 export class AddTextOptions  extends BaseOperateOptions  {
     /**
      * Attribute type map
@@ -18660,7 +18660,7 @@ export class AddTextOptions  extends BaseOperateOptions  {
         Object.assign(this, init);
     } 
 }
-///    
+   
 export class ConvertTextOptions  extends BaseOperateOptions  {
     /**
      * Attribute type map
@@ -18723,7 +18723,7 @@ export class ConvertTextOptions  extends BaseOperateOptions  {
         Object.assign(this, init);
     } 
 }
-///    
+   
 export class ExtractTextOptions  extends BaseOperateOptions  {
     /**
      * Attribute type map
@@ -18888,7 +18888,7 @@ export class RemoveCharactersByPosition  {
         Object.assign(this, init);
     } 
 }
-///    
+   
 export class RemoveCharactersOptions  extends BaseOperateOptions  {
     /**
      * Attribute type map
@@ -18945,7 +18945,7 @@ export class RemoveCharactersOptions  extends BaseOperateOptions  {
         Object.assign(this, init);
     } 
 }
-///    
+   
 export class RemoveDuplicatesOptions  extends BaseOperateOptions  {
     /**
      * Attribute type map
@@ -19059,6 +19059,81 @@ export class ScopeOptions  {
 
     public constructor(init?: Partial< ScopeOptions >) {  
     
+        Object.assign(this, init);
+    } 
+}
+   
+export class SplitTextOptions  extends BaseOperateOptions  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "dataSource",
+            baseName: "DataSource",
+            type: "DataSource",
+        },
+        {
+            name: "fileInfo",
+            baseName: "FileInfo",
+            type: "FileInfo",
+        },
+        {
+            name: "worksheet",
+            baseName: "Worksheet",
+            type: "string",
+        },
+        {
+            name: "range",
+            baseName: "Range",
+            type: "string",
+        },
+        {
+            name: "splitDelimitersType",
+            baseName: "SplitDelimitersType",
+            type: "string",
+        },
+        {
+            name: "customDelimiter",
+            baseName: "CustomDelimiter",
+            type: "string",
+        },
+        {
+            name: "keepDelimitersInResultingCells",
+            baseName: "KeepDelimitersInResultingCells",
+            type: "boolean",
+        },
+        {
+            name: "keepDelimitersPosition",
+            baseName: "KeepDelimitersPosition",
+            type: "string",
+        },
+        {
+            name: "howToSplit",
+            baseName: "HowToSplit",
+            type: "string",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return super.getAttributeTypeMap().concat(SplitTextOptions.attributeTypeMap) ;
+
+    }
+
+    public dataSource: DataSource;
+    public fileInfo: FileInfo;
+    public worksheet: string;
+    public range: string;
+    public splitDelimitersType: string;
+    public customDelimiter: string;
+    public keepDelimitersInResultingCells: boolean;
+    public keepDelimitersPosition: string;
+    public howToSplit: string;
+
+    public constructor(init?: Partial< SplitTextOptions >) {  
+         super(init);     
         Object.assign(this, init);
     } 
 }
@@ -19245,7 +19320,7 @@ export class CellValue  {
         Object.assign(this, init);
     } 
 }
-///    
+   
 export class CustomParserConfig  {
     /**
      * Attribute type map
@@ -19284,7 +19359,7 @@ export class CustomParserConfig  {
         Object.assign(this, init);
     } 
 }
-///    
+   
 export class Import2DimensionDoubleArrayOption  extends ImportOption  {
     /**
      * Attribute type map
@@ -19323,7 +19398,7 @@ export class Import2DimensionDoubleArrayOption  extends ImportOption  {
         Object.assign(this, init);
     } 
 }
-///    
+   
 export class Import2DimensionIntArrayOption  extends ImportOption  {
     /**
      * Attribute type map
@@ -19362,7 +19437,7 @@ export class Import2DimensionIntArrayOption  extends ImportOption  {
         Object.assign(this, init);
     } 
 }
-///    
+   
 export class Import2DimensionStringArrayOption  extends ImportOption  {
     /**
      * Attribute type map
@@ -19401,7 +19476,7 @@ export class Import2DimensionStringArrayOption  extends ImportOption  {
         Object.assign(this, init);
     } 
 }
-///    
+   
 export class ImportBatchDataOption  extends ImportOption  {
     /**
      * Attribute type map
@@ -19428,7 +19503,7 @@ export class ImportBatchDataOption  extends ImportOption  {
         Object.assign(this, init);
     } 
 }
-///    
+   
 export class ImportCSVDataOption  extends ImportOption  {
     /**
      * Attribute type map
@@ -19485,7 +19560,7 @@ export class ImportCSVDataOption  extends ImportOption  {
         Object.assign(this, init);
     } 
 }
-///    
+   
 export class ImportDoubleArrayOption  extends ImportOption  {
     /**
      * Attribute type map
@@ -19530,7 +19605,7 @@ export class ImportDoubleArrayOption  extends ImportOption  {
         Object.assign(this, init);
     } 
 }
-///    
+   
 export class ImportIntArrayOption  extends ImportOption  {
     /**
      * Attribute type map
@@ -19575,7 +19650,7 @@ export class ImportIntArrayOption  extends ImportOption  {
         Object.assign(this, init);
     } 
 }
-///    
+   
 export class ImportPictureOption  extends ImportOption  {
     /**
      * Attribute type map
@@ -19632,7 +19707,7 @@ export class ImportPictureOption  extends ImportOption  {
         Object.assign(this, init);
     } 
 }
-///    
+   
 export class ImportStringArrayOption  extends ImportOption  {
     /**
      * Attribute type map
@@ -19885,7 +19960,7 @@ export class TextureFill  {
         Object.assign(this, init);
     } 
 }
-///    
+   
 export class GradientFillStop  {
     /**
      * Attribute type map
@@ -20991,6 +21066,7 @@ const typeMap = {
     RemoveDuplicatesOptions,
     ScopeItem,
     ScopeOptions,
+    SplitTextOptions,
     TrimContentOptions,
     WordCaseOptions,
     CellValue,
@@ -21089,9 +21165,9 @@ const typeMap = {
 
 export {enumsMap, typeMap};
 
-/// Perform business analysis of data in Excel files.   
+   
 export class PostAnalyzeExcelRequest  {
-    /// Excel files and analysis output requirements  
+      
     public analyzeExcelRequest: AnalyzeExcelRequest;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -21125,15 +21201,15 @@ export class PostAnalyzeExcelRequest  {
     }
 
 }
-/// Retrieve the description of auto filters from a worksheet.   
+   
 export class GetWorksheetAutoFilterRequest  {
-    /// The workbook name.  
+      
     public name: string;
-    /// The worksheet name.  
+      
     public sheetName: string;
-    /// The folder where the file is situated.  
+      
     public folder: string;
-    /// The storage name where the file is situated.  
+      
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -22021,15 +22097,15 @@ export class DeleteWorksheetFilterRequest  {
     }
 
 }
-/// Get autoshapes description in worksheet.   
+   
 export class GetWorksheetAutoshapesRequest  {
-    /// The workbook name.  
+      
     public name: string;
-    /// The worksheet name.  
+      
     public sheetName: string;
-    /// Document's folder.  
+      
     public folder: string;
-    /// Storage name.  
+      
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -22114,9 +22190,9 @@ export class GetWorksheetAutoshapeWithFormatRequest  {
     }
 
 }
-/// Batch converting files that meet specific matching conditions.   
+   
 export class PostBatchConvertRequest  {
-    /// BatchConvertRequest Batch conversion file request.   
+      
     public batchConvertRequest: BatchConvertRequest;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -22328,25 +22404,25 @@ export class PostAccessTokenRequest  {
     }
 
 }
-/// Clear cell area contents in the worksheet.   
+   
 export class PostClearContentsRequest  {
-    /// The file name.  
+      
     public name: string;
-    /// The worksheet name.  
+      
     public sheetName: string;
-    /// Represents the range to which the specified cells applies.  
+      
     public range: string;
-    /// The start row index.  
+      
     public startRow: number;
-    /// The start column index.  
+      
     public startColumn: number;
-    /// The end row index.  
+      
     public endRow: number;
-    /// The end column index.  
+      
     public endColumn: number;
-    /// The folder where the file is situated.  
+      
     public folder: string;
-    /// The storage name where the file is situated.  
+      
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -23216,19 +23292,19 @@ export class PostCellCharactersRequest  {
     }
 
 }
-/// Retrieve descriptions of worksheet columns.   
+   
 export class GetWorksheetColumnsRequest  {
-    /// The file name.  
+      
     public name: string;
-    /// The worksheet name.  
+      
     public sheetName: string;
-    /// The workdook folder.  
+      
     public offset: number;
       
     public count: number;
-    /// The folder where the file is situated.  
+      
     public folder: string;
-    /// The storage name where the file is situated.  
+      
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -23853,19 +23929,19 @@ export class PostColumnStyleRequest  {
     }
 
 }
-/// Retrieve descriptions of rows in the worksheet.   
+   
 export class GetWorksheetRowsRequest  {
-    /// The file name.  
+      
     public name: string;
-    /// The worksheet name.  
+      
     public sheetName: string;
-    /// Row offset.  
+      
     public offset: number;
-    /// Display rows number.  
+      
     public count: number;
-    /// The folder where the file is situated.  
+      
     public folder: string;
-    /// The storage name where the file is situated.  
+      
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -24645,17 +24721,17 @@ export class GetCellsCloudServiceStatusRequest  {
     }
 
 }
-/// Retrieve chart area description in the worksheet.   
+   
 export class GetChartAreaRequest  {
-    /// The file name.  
+      
     public name: string;
-    /// The worksheet name.  
+      
     public sheetName: string;
-    /// The chart index.  
+      
     public chartIndex: number;
-    /// The folder where the file is situated.  
+      
     public folder: string;
-    /// The storage name where the file is situated.  
+      
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -24783,15 +24859,15 @@ export class GetChartAreaBorderRequest  {
     }
 
 }
-/// Retrieve descriptions of charts in the worksheet.   
+   
 export class GetWorksheetChartsRequest  {
-    /// The file name.  
+      
     public name: string;
-    /// The worksheet name.  
+      
     public sheetName: string;
-    /// The folder where the file is situated.  
+      
     public folder: string;
-    /// The storage name where the file is situated.  
+      
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -25949,15 +26025,15 @@ export class PostChartSecondValueAxisRequest  {
     }
 
 }
-/// Retrieve descriptions of conditional formattings in a worksheet.   
+   
 export class GetWorksheetConditionalFormattingsRequest  {
-    /// The file name.  
+      
     public name: string;
-    /// The worksheet name.  
+      
     public sheetName: string;
-    /// The folder where the file is situated.  
+      
     public folder: string;
-    /// The storage name where the file is situated.  
+      
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -26477,33 +26553,33 @@ export class DeleteWorksheetConditionalFormattingAreaRequest  {
     }
 
 }
-/// Retrieve workbooks in various formats.   
+   
 export class GetWorkbookRequest  {
-    /// The file name.  
+      
     public name: string;
-    /// The conversion format(CSV/XLS/HTML/MHTML/ODS/PDF/XML/TXT/TIFF/XLSB/XLSM/XLSX/XLTM/XLTX/XPS/PNG/JPG/JPEG/GIF/EMF/BMP/MD[Markdown]/Numbers).  
+      
     public format: string;
-    /// The password needed to open an Excel file.  
+      
     public password: string;
-    /// Specifies whether set workbook rows to be autofit.  
+      
     public isAutoFit: boolean;
-    /// Specifies whether only save table data.Only use pdf to excel.  
+      
     public onlySaveTable: boolean;
-    /// The folder where the file is situated.  
+      
     public folder: string;
-    /// Path to save the result. If it's a single file, the `outPath` should encompass both the filename and extension. In the case of multiple files, the `outPath` should only include the folder.  
+      
     public outPath: string;
-    /// The storage name where the file is situated.  
+      
     public storageName: string;
-    /// The storage name where the output file is situated.  
+      
     public outStorageName: string;
-    /// Whether check restriction of excel file when user modify cells related objects.  
+      
     public checkExcelRestriction: boolean;
-    /// The regional settings for workbook.  
+      
     public region: string;
-    /// The page wide fit on worksheet.  
+      
     public pageWideFitOnPerSheet: boolean;
-    /// The page tall fit on worksheet.  
+      
     public pageTallFitOnPerSheet: boolean;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -27166,19 +27242,19 @@ export class PostConvertWorkbookToCSVRequest  {
     }
 
 }
-/// Export Excel internal elements or the workbook itself to various format files.   
+   
 export class PostExportRequest  {
     /// File to upload  
     public file: any;
-    /// Exported object type:workbook/worksheet/chart/comment/picture/shape/listobject/oleobject.  
+      
     public objectType: string;
-    /// The conversion format(CSV/XLS/HTML/MHTML/ODS/PDF/XML/TXT/TIFF/XLSB/XLSM/XLSX/XLTM/XLTX/XPS/PNG/JPG/JPEG/GIF/EMF/BMP/MD[Markdown]/Numbers).  
+      
     public format: string;
-    /// The password needed to open an Excel file.  
+      
     public password: string;
-    /// Whether check restriction of excel file when user modify cells related objects.  
+      
     public checkExcelRestriction: boolean;
-    /// The regional settings for workbook.  
+      
     public region: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -27786,15 +27862,15 @@ export class PostDataTransformationRequest  {
     }
 
 }
-/// Retrieve descriptions of hyperlinks in the worksheet.   
+   
 export class GetWorksheetHyperlinksRequest  {
-    /// The file name.  
+      
     public name: string;
-    /// The worksheet name.  
+      
     public sheetName: string;
-    /// The folder where the file is situated.  
+      
     public folder: string;
-    /// The storage name where the file is situated.  
+      
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -28098,19 +28174,19 @@ export class DeleteWorksheetHyperlinksRequest  {
     }
 
 }
-/// Assemble data files with template files to generate files in various formats.   
+   
 export class PostAssembleRequest  {
     /// File to upload  
     public file: any;
       
     public datasource: string;
-    /// The format to convert(CSV/XLS/HTML/MHTML/ODS/PDF/XML/TXT/TIFF/XLSB/XLSM/XLSX/XLTM/XLTX/XPS/PNG/JPG/JPEG/GIF/EMF/BMP/MD[Markdown]/Numbers)  
+      
     public outFormat: string;
-    /// The password needed to open an Excel file.  
+      
     public password: string;
-    /// Whether check restriction of excel file when user modify cells related objects.  
+      
     public checkExcelRestriction: boolean;
-    /// The regional settings for workbook.  
+      
     public region: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -28993,15 +29069,15 @@ export class DeleteMetadataRequest  {
     }
 
 }
-/// Retrieve descriptions of ListObjects in the worksheet.   
+   
 export class GetWorksheetListObjectsRequest  {
-    /// The file name.  
+      
     public name: string;
-    /// The worksheet name.  
+      
     public sheetName: string;
-    /// The folder where the file is situated.  
+      
     public folder: string;
-    /// The storage name where the file is situated.  
+      
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -29645,15 +29721,15 @@ export class PostWorksheetListColumnsTotalRequest  {
     }
 
 }
-/// Retrieve descriptions of OLE objects in the worksheet.   
+   
 export class GetWorksheetOleObjectsRequest  {
-    /// The file name.  
+      
     public name: string;
-    /// The worksheet name.  
+      
     public sheetName: string;
-    /// The folder where the file is situated.  
+      
     public folder: string;
-    /// The storage name where the file is situated.  
+      
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -29938,15 +30014,15 @@ export class PutWorksheetOleObjectRequest  {
     }
 
 }
-/// Retrieve descriptions of vertical page breaks in the worksheet.   
+   
 export class GetVerticalPageBreaksRequest  {
-    /// The workbook name.  
+      
     public name: string;
-    /// The worksheet name.  
+      
     public sheetName: string;
-    /// The folder where the file is situated.  
+      
     public folder: string;
-    /// The storage name where the file is situated.  
+      
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -30422,15 +30498,15 @@ export class DeleteHorizontalPageBreakRequest  {
     }
 
 }
-/// Retrieve page setup description in the worksheet.   
+   
 export class GetPageSetupRequest  {
-    /// The file name.  
+      
     public name: string;
-    /// The worksheet name.  
+      
     public sheetName: string;
-    /// The folder where the file is situated.  
+      
     public folder: string;
-    /// The storage name where the file is situated.  
+      
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -30868,15 +30944,15 @@ export class PostFitTallToPagesRequest  {
     }
 
 }
-/// Retrieve descriptions of pictures in the worksheet.   
+   
 export class GetWorksheetPicturesRequest  {
-    /// The file name.  
+      
     public name: string;
-    /// The worksheet name.  
+      
     public sheetName: string;
-    /// The folder where the file is situated.  
+      
     public folder: string;
-    /// The storage name where the file is situated.  
+      
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -31165,15 +31241,15 @@ export class DeleteWorksheetPicturesRequest  {
     }
 
 }
-/// Retrieve descriptions of pivottables  in the worksheet.   
+   
 export class GetWorksheetPivotTablesRequest  {
-    /// The file name.  
+      
     public name: string;
-    /// The worksheet name.  
+      
     public sheetName: string;
-    /// The folder where the file is situated.  
+      
     public folder: string;
-    /// The storage name where the file is situated.  
+      
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -32313,15 +32389,15 @@ export class DeleteWorksheetPivotTableFilterRequest  {
     }
 
 }
-/// Retrieve descriptions of Excel file properties.   
+   
 export class GetDocumentPropertiesRequest  {
-    /// The workbook name.  
+      
     public name: string;
-    /// Excel property type.  
+      
     public type: string;
-    /// The folder where the file is situated.  
+      
     public folder: string;
-    /// The storage name where the file is situated.  
+      
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -32535,17 +32611,17 @@ export class DeleteDocumentPropertiesRequest  {
     }
 
 }
-/// Excel file digital signature.   
+   
 export class PostDigitalSignatureRequest  {
-    /// The file name.  
+      
     public name: string;
-    /// The digital signature file path should include both the folder and the file name, along with the extension.  
+      
     public digitalsignaturefile: string;
-    /// The password needed to open an Excel file.  
+      
     public password: string;
-    /// The folder where the file is situated.  
+      
     public folder: string;
-    /// The storage name where the file is situated.  
+      
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -32558,12 +32634,12 @@ export class PostDigitalSignatureRequest  {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/digitalsignature".replace("{" + "name" + "}", String(this.name));
         const queryParameters: any = {};
-        /// The digital signature file path should include both the folder and the file name, along with the extension. 
+         
         // verify required parameter 'digitalsignaturefile' is not null or undefined
         if (this.digitalsignaturefile === null || this.digitalsignaturefile === undefined) {
             throw new Error('Required parameter "digitalsignaturefile" was null or undefined when calling PostDigitalSignature.');
         }
-        /// The password needed to open an Excel file. 
+         
         // verify required parameter 'password' is not null or undefined
         if (this.password === null || this.password === undefined) {
             throw new Error('Required parameter "password" was null or undefined when calling PostDigitalSignature.');
@@ -33011,17 +33087,17 @@ export class PostProtectRequest  {
     }
 
 }
-/// Copy content from the source range to the destination range in the worksheet.   
+   
 export class PostWorksheetCellsRangesCopyRequest  {
-    /// The file name.  
+      
     public name: string;
-    /// The worksheet name.  
+      
     public sheetName: string;
-    /// RangeCopyRequestcopydata,copystyle,copyto,copyvalue  
+      
     public rangeOperate: RangeCopyRequest;
-    /// Original workbook folder.  
+      
     public folder: string;
-    /// Storage name.  
+      
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -33696,15 +33772,15 @@ export class DeleteWorksheetCellsRangeRequest  {
     }
 
 }
-/// Retrieve descriptions of shapes in the worksheet.   
+   
 export class GetWorksheetShapesRequest  {
-    /// The file name.  
+      
     public name: string;
-    /// The worksheet name.  
+      
     public sheetName: string;
-    /// The folder where the file is situated.  
+      
     public folder: string;
-    /// The storage name where the file is situated.  
+      
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -34083,15 +34159,15 @@ export class PostWorksheetUngroupShapeRequest  {
     }
 
 }
-/// Retrieve descriptions of sparkline groups in the worksheet.   
+   
 export class GetWorksheetSparklineGroupsRequest  {
-    /// The file name.  
+      
     public name: string;
-    /// The worksheet name.  
+      
     public sheetName: string;
-    /// The folder where the file is situated.  
+      
     public folder: string;
-    /// The storage name where the file is situated.  
+      
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -34675,13 +34751,49 @@ export class PostExtractTextRequest  {
     }
 
 }
-/// Retrieve the description of the default style for the workbook .   
+   
+export class PostSplitTextRequest  {
+      
+    public splitTextOptions: SplitTextOptions;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< PostSplitTextRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/splittext";
+        const queryParameters: any = {};
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        const bodyParameter = (this.splitTextOptions == null) ? null :   ObjectSerializer.serialize( this.splitTextOptions,this.splitTextOptions.constructor.name);
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+            body:bodyParameter,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+   
 export class GetWorkbookDefaultStyleRequest  {
-    /// The file name.  
+      
     public name: string;
-    /// The folder where the file is situated.  
+      
     public folder: string;
-    /// The storage name where the file is situated.  
+      
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -35814,13 +35926,13 @@ export class GetPageCountRequest  {
     }
 
 }
-/// Retrieve the description of worksheets from a workbook.   
+   
 export class GetWorksheetsRequest  {
-    /// The file name.  
+      
     public name: string;
-    /// The folder where the file is situated.  
+      
     public folder: string;
-    /// The storage name where the file is situated.  
+      
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -37805,15 +37917,15 @@ export class GetWorksheetPageCountRequest  {
     }
 
 }
-/// Retrieve descriptions of validations in the worksheet.   
+   
 export class GetWorksheetValidationsRequest  {
-    /// The workbook name.  
+      
     public name: string;
-    /// The worksheet name.  
+      
     public sheetName: string;
-    /// The folder where the file is situated.  
+      
     public folder: string;
-    /// The storage name where the file is situated.  
+      
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;

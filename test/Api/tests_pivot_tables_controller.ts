@@ -94,7 +94,7 @@ describe('PivotTablesController test', function() {
         });
       });
     });
-  /*  describe('get_worksheet_pivot_table_filters test', function(){
+    describe('get_worksheet_pivot_table_filters test', function(){
       it("should call GetWorksheetPivotTableFilters successfully" , function(){
         var remoteFolder = "TestData/In"
 
@@ -118,7 +118,7 @@ describe('PivotTablesController test', function() {
             expect(result.response.statusCode).to.equal(200);
         });
       });
-    }); */
+    });
     describe('get_worksheet_pivot_table_filter test', function(){
       it("should call GetWorksheetPivotTableFilter successfully" , function(){
         var remoteFolder = "TestData/In"
@@ -204,7 +204,6 @@ describe('PivotTablesController test', function() {
         });
       });
     });
-    /*
     describe('put_worksheet_pivot_table_filter test', function(){
       it("should call PutWorksheetPivotTableFilter successfully" , function(){
         var remoteFolder = "TestData/In"
@@ -218,9 +217,24 @@ describe('PivotTablesController test', function() {
         localNameRequest.storageName ="";
         cellsApi.uploadFile(localNameRequest );
 
+        var top10Filter = new Top10Filter();
+        top10Filter.items = 1;
+        top10Filter.isTop = true;
+        top10Filter.isPercent = true;
+
+        var filterColumn = new FilterColumn();
+        filterColumn.FilterType = "Top10Filter";
+        filterColumn.fieldIndex = 0;
+        filterColumn.top10Filter = top10Filter;
+
+        var autoFilter = new AutoFilter();
+        autoFilter.filterColumns = [filterColumn];
+
+
         var filter = new model.PivotFilter();
-         filter.fieldIndex = 1  ;
+         filter.fieldIndex = 1;
          filter.filterType = "Count"  ;
+         filter.autoFilter = autoFilter;
 
         var request = new model.PutWorksheetPivotTableFilterRequest();
         request.name =  remoteName;
@@ -234,7 +248,7 @@ describe('PivotTablesController test', function() {
             expect(result.response.statusCode).to.equal(200);
         });
       });
-    }); */
+    });
     describe('post_pivot_table_field_hide_item test', function(){
       it("should call PostPivotTableFieldHideItem successfully" , function(){
         var remoteFolder = "TestData/In"

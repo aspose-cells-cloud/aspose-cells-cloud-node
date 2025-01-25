@@ -16,7 +16,7 @@ localNameRequest.storageName ="";
 cellsApi.uploadFile(localNameRequest );
  
 var filter = new model.PivotFilter();
- filter.fieldIndex = 1  ;
+ filter.fieldIndex = 0  ;
  filter.filterType = "Count"  ;
 
 var request = new model.PutWorksheetPivotTableFilterRequest();

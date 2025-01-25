@@ -1,7 +1,7 @@
 /*
 * MIT License
 * 
-* Copyright (c) 2024 Aspose.Cells Cloud
+* Copyright (c) 2025 Aspose.Cells Cloud
 * Permission is hereby granted, free of charge, to any person obtaining a copy
 * of this software and associated documentation files (the "Software"), to deal
 * in the Software without restriction, including without limitation the rights
@@ -53,7 +53,6 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Perform business analysis of data in Excel files.
     /// </summary>
     /// <param name="request">Request. <see cref="PostAnalyzeExcelRequest" /></param>
     public async postAnalyzeExcel(requestObj:model.PostAnalyzeExcelRequest ): Promise<{response: http.ClientResponse, body: Array<model.AnalyzedResult>}>
@@ -69,7 +68,6 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Retrieve the description of auto filters from a worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="GetWorksheetAutoFilterRequest" /></param>
     public async getWorksheetAutoFilter(requestObj:model.GetWorksheetAutoFilterRequest ): Promise<{response: http.ClientResponse, body: model.AutoFilterResponse}>
@@ -277,7 +275,6 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Get autoshapes description in worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="GetWorksheetAutoshapesRequest" /></param>
     public async getWorksheetAutoshapes(requestObj:model.GetWorksheetAutoshapesRequest ): Promise<{response: http.ClientResponse, body: model.AutoShapesResponse}>
@@ -309,7 +306,6 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Batch converting files that meet specific matching conditions.
     /// </summary>
     /// <param name="request">Request. <see cref="PostBatchConvertRequest" /></param>
     public async postBatchConvert(requestObj:model.PostBatchConvertRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
@@ -405,7 +401,6 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Clear cell area contents in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="PostClearContentsRequest" /></param>
     public async postClearContents(requestObj:model.PostClearContentsRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -661,7 +656,6 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Retrieve descriptions of worksheet columns.
     /// </summary>
     /// <param name="request">Request. <see cref="GetWorksheetColumnsRequest" /></param>
     public async getWorksheetColumns(requestObj:model.GetWorksheetColumnsRequest ): Promise<{response: http.ClientResponse, body: model.ColumnsResponse}>
@@ -837,7 +831,6 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Retrieve descriptions of rows in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="GetWorksheetRowsRequest" /></param>
     public async getWorksheetRows(requestObj:model.GetWorksheetRowsRequest ): Promise<{response: http.ClientResponse, body: model.RowsResponse}>
@@ -1077,7 +1070,6 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Retrieve chart area description in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="GetChartAreaRequest" /></param>
     public async getChartArea(requestObj:model.GetChartAreaRequest ): Promise<{response: http.ClientResponse, body: model.ChartAreaResponse}>
@@ -1125,7 +1117,6 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Retrieve descriptions of charts in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="GetWorksheetChartsRequest" /></param>
     public async getWorksheetCharts(requestObj:model.GetWorksheetChartsRequest ): Promise<{response: http.ClientResponse, body: model.ChartsResponse}>
@@ -1509,7 +1500,6 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Retrieve descriptions of conditional formattings in a worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="GetWorksheetConditionalFormattingsRequest" /></param>
     public async getWorksheetConditionalFormattings(requestObj:model.GetWorksheetConditionalFormattingsRequest ): Promise<{response: http.ClientResponse, body: model.ConditionalFormattingsResponse}>
@@ -1653,7 +1643,6 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Retrieve workbooks in various formats.
     /// </summary>
     /// <param name="request">Request. <see cref="GetWorkbookRequest" /></param>
     public async getWorkbook(requestObj:model.GetWorkbookRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
@@ -1845,7 +1834,6 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Export Excel internal elements or the workbook itself to various format files.
     /// </summary>
     /// <param name="request">Request. <see cref="PostExportRequest" /></param>
     public async postExport(requestObj:model.PostExportRequest ): Promise<{response: http.ClientResponse, body: model.FilesResult}>
@@ -2054,7 +2042,6 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Retrieve descriptions of hyperlinks in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="GetWorksheetHyperlinksRequest" /></param>
     public async getWorksheetHyperlinks(requestObj:model.GetWorksheetHyperlinksRequest ): Promise<{response: http.ClientResponse, body: model.HyperlinksResponse}>
@@ -2150,7 +2137,6 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Assemble data files with template files to generate files in various formats.
     /// </summary>
     /// <param name="request">Request. <see cref="PostAssembleRequest" /></param>
     public async postAssemble(requestObj:model.PostAssembleRequest ): Promise<{response: http.ClientResponse, body: model.FilesResult}>
@@ -2390,7 +2376,6 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Retrieve descriptions of ListObjects in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="GetWorksheetListObjectsRequest" /></param>
     public async getWorksheetListObjects(requestObj:model.GetWorksheetListObjectsRequest ): Promise<{response: http.ClientResponse, body: model.ListObjectsResponse}>
@@ -2598,7 +2583,6 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Retrieve descriptions of OLE objects in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="GetWorksheetOleObjectsRequest" /></param>
     public async getWorksheetOleObjects(requestObj:model.GetWorksheetOleObjectsRequest ): Promise<{response: http.ClientResponse, body: model.OleObjectsResponse}>
@@ -2694,7 +2678,6 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Retrieve descriptions of vertical page breaks in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="GetVerticalPageBreaksRequest" /></param>
     public async getVerticalPageBreaks(requestObj:model.GetVerticalPageBreaksRequest ): Promise<{response: http.ClientResponse, body: model.VerticalPageBreaksResponse}>
@@ -2854,7 +2837,6 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Retrieve page setup description in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="GetPageSetupRequest" /></param>
     public async getPageSetup(requestObj:model.GetPageSetupRequest ): Promise<{response: http.ClientResponse, body: model.PageSetupResponse}>
@@ -2998,7 +2980,6 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Retrieve descriptions of pictures in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="GetWorksheetPicturesRequest" /></param>
     public async getWorksheetPictures(requestObj:model.GetWorksheetPicturesRequest ): Promise<{response: http.ClientResponse, body: model.PicturesResponse}>
@@ -3094,7 +3075,6 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Retrieve descriptions of pivottables  in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="GetWorksheetPivotTablesRequest" /></param>
     public async getWorksheetPivotTables(requestObj:model.GetWorksheetPivotTablesRequest ): Promise<{response: http.ClientResponse, body: model.PivotTablesResponse}>
@@ -3430,7 +3410,6 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Retrieve descriptions of Excel file properties.
     /// </summary>
     /// <param name="request">Request. <see cref="GetDocumentPropertiesRequest" /></param>
     public async getDocumentProperties(requestObj:model.GetDocumentPropertiesRequest ): Promise<{response: http.ClientResponse, body: model.CellsDocumentPropertiesResponse}>
@@ -3510,7 +3489,6 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Excel file digital signature.
     /// </summary>
     /// <param name="request">Request. <see cref="PostDigitalSignatureRequest" /></param>
     public async postDigitalSignature(requestObj:model.PostDigitalSignatureRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -3670,7 +3648,6 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Copy content from the source range to the destination range in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="PostWorksheetCellsRangesCopyRequest" /></param>
     public async postWorksheetCellsRangesCopy(requestObj:model.PostWorksheetCellsRangesCopyRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
@@ -3878,7 +3855,6 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Retrieve descriptions of shapes in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="GetWorksheetShapesRequest" /></param>
     public async getWorksheetShapes(requestObj:model.GetWorksheetShapesRequest ): Promise<{response: http.ClientResponse, body: model.ShapesResponse}>
@@ -4006,7 +3982,6 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Retrieve descriptions of sparkline groups in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="GetWorksheetSparklineGroupsRequest" /></param>
     public async getWorksheetSparklineGroups(requestObj:model.GetWorksheetSparklineGroupsRequest ): Promise<{response: http.ClientResponse, body: model.SparklineGroupsResponse}>
@@ -4223,7 +4198,21 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Retrieve the description of the default style for the workbook .
+    /// </summary>
+    /// <param name="request">Request. <see cref="PostSplitTextRequest" /></param>
+    public async postSplitText(requestObj:model.PostSplitTextRequest ): Promise<{response: http.ClientResponse, body: model.FileInfo}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling postSplitText.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "FileInfo");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
     /// </summary>
     /// <param name="request">Request. <see cref="GetWorkbookDefaultStyleRequest" /></param>
     public async getWorkbookDefaultStyle(requestObj:model.GetWorkbookDefaultStyleRequest ): Promise<{response: http.ClientResponse, body: model.StyleResponse}>
@@ -4607,7 +4596,6 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Retrieve the description of worksheets from a workbook.
     /// </summary>
     /// <param name="request">Request. <see cref="GetWorksheetsRequest" /></param>
     public async getWorksheets(requestObj:model.GetWorksheetsRequest ): Promise<{response: http.ClientResponse, body: model.WorksheetsResponse}>
@@ -5231,7 +5219,6 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Retrieve descriptions of validations in the worksheet.
     /// </summary>
     /// <param name="request">Request. <see cref="GetWorksheetValidationsRequest" /></param>
     public async getWorksheetValidations(requestObj:model.GetWorksheetValidationsRequest ): Promise<{response: http.ClientResponse, body: model.ValidationsResponse}>
