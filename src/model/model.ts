@@ -508,7 +508,7 @@ export class AbstractCalculationMonitor  {
         Object.assign(this, init);
     } 
 }
-   
+/// Class summary: The features include automatic emergency braking, lane keeping assist, adaptive cruise control, blind spot monitoring, and rear cross-traffic alert.   
 export class LinkElement  {
     /**
      * Attribute type map
@@ -668,7 +668,7 @@ export class FilterColumn  {
         Object.assign(this, init);
     } 
 }
-   
+/// I'm glad to help! Please provide me with the features you would like me to summarize.   
 export class Link  {
     /**
      * Attribute type map
@@ -1988,7 +1988,7 @@ export class FormatCondition  extends LinkElement  {
         Object.assign(this, init);
     } 
 }
-   
+/// I'm here to help! Please provide me with the features that need to be summarized.   
 export class ConditionalFormatting  extends LinkElement  {
     /**
      * Attribute type map
@@ -2129,6 +2129,11 @@ export class CopyOptions  {
             name: "referToSheetWithSameName",
             baseName: "ReferToSheetWithSameName",
             type: "boolean",
+        },
+        {
+            name: "copyTheme",
+            baseName: "CopyTheme",
+            type: "boolean",
         }
     ];
     /**
@@ -2145,13 +2150,14 @@ export class CopyOptions  {
     public extendToAdjacentRange: boolean;
     public referToDestinationSheet: boolean;
     public referToSheetWithSameName: boolean;
+    public copyTheme: boolean;
 
     public constructor(init?: Partial< CopyOptions >) {  
     
         Object.assign(this, init);
     } 
 }
-   
+/// Class Summary: The features include real-time collaboration, file sharing, scheduling, task tracking, and discussion forums to enhance communication and productivity.   
 export class MultipleFilter  {
     /**
      * Attribute type map
@@ -2172,7 +2178,11 @@ export class MultipleFilter  {
         Object.assign(this, init);
     } 
 }
-   
+/// 1. Collaboration: Students will have the opportunity to work together on group projects and assignments.
+///             2. Critical Thinking: Students will be encouraged to analyze, evaluate, and interpret information in a meaningful way.
+///             3. Hands-on Learning: Students will participate in experiential activities to apply theoretical knowledge in practical settings.
+///             4. Technology Integration: Students will utilize various digital tools and platforms to enhance their learning experience.
+///             5. Communication Skills: Students will develop effective verbal and written communication skills through presentations and written assignments.   
 export class CriteriaMultipleFilter  extends MultipleFilter  {
     /**
      * Attribute type map
@@ -3002,7 +3012,7 @@ export class FileInfo  {
         Object.assign(this, init);
     } 
 }
-   
+/// I'm sorry, I just realized you didn't provide any features for me to summarize. Please provide the features you'd like me to summarize for the class.   
 export class FileSource  {
     /**
      * Attribute type map
@@ -3035,7 +3045,7 @@ export class FileSource  {
         Object.assign(this, init);
     } 
 }
-   
+/// Class features: Weekly lectures, group projects, midterm and final exams, and participation in class discussions.   
 export class FilesResult  {
     /**
      * Attribute type map
@@ -3632,7 +3642,7 @@ export class Top10  {
         Object.assign(this, init);
     } 
 }
-   
+/// Class summary: This class covers various features related to data visualization and graphical representation of data sets.   
 export class FormulaFormatCondition  {
     /**
      * Attribute type map
@@ -4087,7 +4097,7 @@ export class LoadOptions  {
         Object.assign(this, init);
     } 
 }
-   
+/// I'm happy to help! Could you please provide me with the features you would like me to summarize for the class?   
 export class MergedCell  extends LinkElement  {
     /**
      * Attribute type map
@@ -4132,7 +4142,7 @@ export class MergedCell  extends LinkElement  {
         Object.assign(this, init);
     } 
 }
-   
+/// Sure, could you please provide me with the features you would like me to summarize?   
 export class MergedCells  extends LinkElement  {
     /**
      * Attribute type map
@@ -4261,7 +4271,7 @@ export class Names  extends LinkElement  {
         Object.assign(this, init);
     } 
 }
-   
+/// Class summary: Includes interactive discussions, group projects, guest speakers, and practical applications of course material.   
 export class PageSection  {
     /**
      * Attribute type map
@@ -4782,7 +4792,7 @@ export class Protection  {
         Object.assign(this, init);
     } 
 }
-   
+/// Class Summary: The features discussed include natural language processing, image recognition, data visualization, clustering, regression, classification, and recommendation systems.   
 export class ProtectSheetParameter  {
     /**
      * Attribute type map
@@ -6897,7 +6907,7 @@ export class ConvertWorksheetTaskParameter  extends TaskParameter  {
         Object.assign(this, init);
     } 
 }
-   
+/// Class Summary: This class covers the features of artificial intelligence, machine learning, deep learning, and natural language processing.   
 export class ImportOption  {
     /**
      * Attribute type map
@@ -8326,7 +8336,8 @@ export class DocxSaveOptions  extends PaginatedSaveOptions  {
         Object.assign(this, init);
     } 
 }
-/// Allows to specify options when rendering worksheet to images, printing worksheet or rendering chart to image.   
+///            Allows to specify options when rendering worksheet to images, printing worksheet or rendering chart to image.
+///               
 export class ImageOrPrintOptions  {
     /**
      * Attribute type map
@@ -9827,7 +9838,7 @@ export class AutoShapeResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-   
+/// Sure! Just provide me with the features you would like me to summarize into one sentence.   
 export class AutoShapes  extends LinkElement  {
     /**
      * Attribute type map
@@ -12235,7 +12246,7 @@ export class FloorResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-   
+/// I'm happy to help! Please provide the features you would like me to summarize into one sentence for the class.   
 export class Form  extends Shape  {
     /**
      * Attribute type map
@@ -12391,7 +12402,7 @@ export class FormResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-   
+/// "Summary: The class covers a range of features including advanced machine learning techniques, statistical analysis tools, and computer vision algorithms."   
 export class Forms  extends LinkElement  {
     /**
      * Attribute type map
@@ -12655,7 +12666,7 @@ export class LabelResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-   
+/// Sure, please provide me with the features you would like me to summarize in one sentence for the class summary.   
 export class LegendEntries  extends LinkElement  {
     /**
      * Attribute type map
@@ -14981,7 +14992,8 @@ export class ScrollBarResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-   
+/// Class Summary: 
+///             - Features: Active class participation, group projects, quizzes, and final exam.   
 export class SeriesItems  extends LinkElement  {
     /**
      * Attribute type map
@@ -16783,7 +16795,7 @@ export class WorksheetsResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-   
+/// Can you please provide the features that you would like me to summarize for the class?   
 export class AnalyzeExcelRequest  {
     /**
      * Attribute type map
@@ -17056,7 +17068,7 @@ export class BatchProtectRequest  {
         Object.assign(this, init);
     } 
 }
-   
+/// Class summary: Identifying key features of a statistical dataset and methods for data analysis.   
 export class BatchSplitRequest  {
     /**
      * Attribute type map
@@ -17323,7 +17335,7 @@ export class DataCleansingRequest  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class DataDeduplicationRequest  {
     /**
      * Attribute type map
@@ -17374,7 +17386,7 @@ export class DataDeduplicationRequest  {
         Object.assign(this, init);
     } 
 }
-   
+/// I'm happy to help! Please provide the features you would like me to summarize.   
 export class DataFillRequest  {
     /**
      * Attribute type map
@@ -17548,7 +17560,7 @@ export class DataTransformationRequest  {
         Object.assign(this, init);
     } 
 }
-   
+/// I'm here to help! Could you please provide the features you would like me to summarize?   
 export class DeleteIncompleteRowsRequest  {
     /**
      * Attribute type map
@@ -17599,7 +17611,7 @@ export class DeleteIncompleteRowsRequest  {
         Object.assign(this, init);
     } 
 }
-   
+/// I can help with that. Just provide me with the features you'd like me to summarize.   
 export class ImportPosition  {
     /**
      * Attribute type map
@@ -17904,6 +17916,51 @@ export class ProtectWorkbookRequest  {
     } 
 }
 /// Indicates range copy request   
+export class RangeConvertRequest  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "source",
+            baseName: "Source",
+            type: "Range",
+        },
+        {
+            name: "imageType",
+            baseName: "ImageType",
+            type: "string",
+        },
+        {
+            name: "imageOrPrintOptions",
+            baseName: "ImageOrPrintOptions",
+            type: "ImageOrPrintOptions",
+        },
+        {
+            name: "pageSetup",
+            baseName: "PageSetup",
+            type: "PageSetup",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return  RangeConvertRequest.attributeTypeMap;
+
+    }
+
+    public source: Range;
+    public imageType: string;
+    public imageOrPrintOptions: ImageOrPrintOptions;
+    public pageSetup: PageSetup;
+
+    public constructor(init?: Partial< RangeConvertRequest >) {  
+    
+        Object.assign(this, init);
+    } 
+}
+/// Indicates range copy request   
 export class RangeCopyRequest  {
     /**
      * Attribute type map
@@ -17925,6 +17982,11 @@ export class RangeCopyRequest  {
             type: "Range",
         },
         {
+            name: "targetWorkbook",
+            baseName: "TargetWorkbook",
+            type: "string",
+        },
+        {
             name: "pasteOptions",
             baseName: "PasteOptions",
             type: "PasteOptions",
@@ -17941,6 +18003,7 @@ export class RangeCopyRequest  {
     public operate: string;
     public source: Range;
     public target: Range;
+    public targetWorkbook: string;
     public pasteOptions: PasteOptions;
 
     public constructor(init?: Partial< RangeCopyRequest >) {  
@@ -18564,7 +18627,7 @@ export class PivotItem  {
         Object.assign(this, init);
     } 
 }
-   
+///    
 export class BaseOperateOptions  {
     /**
      * Attribute type map
@@ -18591,7 +18654,7 @@ export class BaseOperateOptions  {
         Object.assign(this, init);
     } 
 }
-   
+/// Class summary: The features of this class include hands-on learning activities, group projects, interactive discussions, guest speakers, and field trips to real-world applications.   
 export class AddTextOptions  extends BaseOperateOptions  {
     /**
      * Attribute type map
@@ -18661,6 +18724,102 @@ export class AddTextOptions  extends BaseOperateOptions  {
     } 
 }
    
+export class CharacterCountOptions  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "dataSource",
+            baseName: "DataSource",
+            type: "DataSource",
+        },
+        {
+            name: "fileInfo",
+            baseName: "FileInfo",
+            type: "FileInfo",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return  CharacterCountOptions.attributeTypeMap;
+
+    }
+
+    public dataSource: DataSource;
+    public fileInfo: FileInfo;
+
+    public constructor(init?: Partial< CharacterCountOptions >) {  
+    
+        Object.assign(this, init);
+    } 
+}
+   
+export class CombinationSourceData  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "tag",
+            baseName: "Tag",
+            type: "string",
+        },
+        {
+            name: "dataSource",
+            baseName: "DataSource",
+            type: "DataSource",
+        },
+        {
+            name: "fileInfo",
+            baseName: "FileInfo",
+            type: "FileInfo",
+        },
+        {
+            name: "worksheet",
+            baseName: "Worksheet",
+            type: "string",
+        },
+        {
+            name: "tableName",
+            baseName: "TableName",
+            type: "string",
+        },
+        {
+            name: "cellArea",
+            baseName: "CellArea",
+            type: "string",
+        },
+        {
+            name: "hasHeader",
+            baseName: "HasHeader",
+            type: "boolean",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return  CombinationSourceData.attributeTypeMap;
+
+    }
+
+    public tag: string;
+    public dataSource: DataSource;
+    public fileInfo: FileInfo;
+    public worksheet: string;
+    public tableName: string;
+    public cellArea: string;
+    public hasHeader: boolean;
+
+    public constructor(init?: Partial< CombinationSourceData >) {  
+    
+        Object.assign(this, init);
+    } 
+}
+/// Class summary: The features of the new smartphone include a high-resolution display, multiple camera lenses for versatile photography, a fast processor for seamless performance, and a larger battery for extended usage time.   
 export class ConvertTextOptions  extends BaseOperateOptions  {
     /**
      * Attribute type map
@@ -18724,6 +18883,126 @@ export class ConvertTextOptions  extends BaseOperateOptions  {
     } 
 }
    
+export class ConvertWorksheetOptions  extends BaseOperateOptions  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "dataSource",
+            baseName: "DataSource",
+            type: "DataSource",
+        },
+        {
+            name: "fileInfo",
+            baseName: "FileInfo",
+            type: "FileInfo",
+        },
+        {
+            name: "worksheetName",
+            baseName: "WorksheetName",
+            type: "string",
+        },
+        {
+            name: "pageSetup",
+            baseName: "PageSetup",
+            type: "PageSetup",
+        },
+        {
+            name: "imageOrPrintOptions",
+            baseName: "ImageOrPrintOptions",
+            type: "ImageOrPrintOptions",
+        },
+        {
+            name: "convertFormat",
+            baseName: "ConvertFormat",
+            type: "string",
+        },
+        {
+            name: "checkExcelRestriction",
+            baseName: "CheckExcelRestriction",
+            type: "boolean",
+        },
+        {
+            name: "region",
+            baseName: "Region",
+            type: "string",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return super.getAttributeTypeMap().concat(ConvertWorksheetOptions.attributeTypeMap) ;
+
+    }
+
+    public dataSource: DataSource;
+    public fileInfo: FileInfo;
+    public worksheetName: string;
+    public pageSetup: PageSetup;
+    public imageOrPrintOptions: ImageOrPrintOptions;
+    public convertFormat: string;
+    public checkExcelRestriction: boolean;
+    public region: string;
+
+    public constructor(init?: Partial< ConvertWorksheetOptions >) {  
+         super(init);     
+        Object.assign(this, init);
+    } 
+}
+   
+export class DataOutputLocation  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "dataSource",
+            baseName: "DataSource",
+            type: "DataSource",
+        },
+        {
+            name: "fileInfo",
+            baseName: "FileInfo",
+            type: "FileInfo",
+        },
+        {
+            name: "worksheet",
+            baseName: "Worksheet",
+            type: "string",
+        },
+        {
+            name: "beginRowIndex",
+            baseName: "BeginRowIndex",
+            type: "number",
+        },
+        {
+            name: "beginColumnIndex",
+            baseName: "BeginColumnIndex",
+            type: "number",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return  DataOutputLocation.attributeTypeMap;
+
+    }
+
+    public dataSource: DataSource;
+    public fileInfo: FileInfo;
+    public worksheet: string;
+    public beginRowIndex: number;
+    public beginColumnIndex: number;
+
+    public constructor(init?: Partial< DataOutputLocation >) {  
+    
+        Object.assign(this, init);
+    } 
+}
+/// I'm happy to help! Could you please provide me with the features you would like me to summarize for you?   
 export class ExtractTextOptions  extends BaseOperateOptions  {
     /**
      * Attribute type map
@@ -18805,6 +19084,64 @@ export class ExtractTextOptions  extends BaseOperateOptions  {
     } 
 }
    
+export class MergeTableOptions  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "mainTable",
+            baseName: "MainTable",
+            type: "CombinationSourceData",
+        },
+        {
+            name: "secondaryTable",
+            baseName: "SecondaryTable",
+            type: "CombinationSourceData",
+        },
+        {
+            name: "dataMergeType",
+            baseName: "DataMergeType",
+            type: "string",
+        },
+        {
+            name: "overwriteMainTable",
+            baseName: "OverwriteMainTable",
+            type: "boolean",
+        },
+        {
+            name: "syncDataToTargetWorkbook",
+            baseName: "SyncDataToTargetWorkbook",
+            type: "boolean",
+        },
+        {
+            name: "mergedDataToPosition",
+            baseName: "MergedDataToPosition",
+            type: "DataOutputLocation",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return  MergeTableOptions.attributeTypeMap;
+
+    }
+
+    public mainTable: CombinationSourceData;
+    public secondaryTable: CombinationSourceData;
+    public dataMergeType: string;
+    public overwriteMainTable: boolean;
+    public syncDataToTargetWorkbook: boolean;
+    public mergedDataToPosition: DataOutputLocation;
+
+    public constructor(init?: Partial< MergeTableOptions >) {  
+    
+        Object.assign(this, init);
+    } 
+}
+/// Class summary: The features include fast and reliable performance, high-quality camera with portrait mode, long-lasting battery life, and a durable water-resistant design.
+///                
 export class RemoveCharactersByCharacter  {
     /**
      * Attribute type map
@@ -18843,7 +19180,8 @@ export class RemoveCharactersByCharacter  {
         Object.assign(this, init);
     } 
 }
-   
+/// Class summary: Important features to consider when designing a new website include user-friendly navigation, responsive design for different devices, visually appealing layouts, and fast loading speed.
+///                
 export class RemoveCharactersByPosition  {
     /**
      * Attribute type map
@@ -18888,7 +19226,7 @@ export class RemoveCharactersByPosition  {
         Object.assign(this, init);
     } 
 }
-   
+/// Class summary: The class features discussing effective communication strategies, developing problem-solving skills, and increasing self-awareness for personal growth.   
 export class RemoveCharactersOptions  extends BaseOperateOptions  {
     /**
      * Attribute type map
@@ -18945,7 +19283,7 @@ export class RemoveCharactersOptions  extends BaseOperateOptions  {
         Object.assign(this, init);
     } 
 }
-   
+/// I'm here to help! Just let me know the features you would like me to summarize for you.   
 export class RemoveDuplicatesOptions  extends BaseOperateOptions  {
     /**
      * Attribute type map
@@ -18996,7 +19334,8 @@ export class RemoveDuplicatesOptions  extends BaseOperateOptions  {
         Object.assign(this, init);
     } 
 }
-   
+/// I'm happy to help! Please provide me with the features you would like me to summarize for the class.
+///                
 export class ScopeItem  {
     /**
      * Attribute type map
@@ -19029,7 +19368,8 @@ export class ScopeItem  {
         Object.assign(this, init);
     } 
 }
-   
+/// Here is the class summary: "The features discussed include real-time collaboration, templates for various projects, task assignment and tracking, deadline reminders, and file storage and sharing."
+///                
 export class ScopeOptions  {
     /**
      * Attribute type map
@@ -19063,6 +19403,45 @@ export class ScopeOptions  {
     } 
 }
    
+export class SpecifyWordsCountOptions  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "dataSource",
+            baseName: "DataSource",
+            type: "DataSource",
+        },
+        {
+            name: "fileInfo",
+            baseName: "FileInfo",
+            type: "FileInfo",
+        },
+        {
+            name: "searchWord",
+            baseName: "SearchWord",
+            type: "string",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return  SpecifyWordsCountOptions.attributeTypeMap;
+
+    }
+
+    public dataSource: DataSource;
+    public fileInfo: FileInfo;
+    public searchWord: string;
+
+    public constructor(init?: Partial< SpecifyWordsCountOptions >) {  
+    
+        Object.assign(this, init);
+    } 
+}
+/// Appliance features: 1. Automatic defrost system 2. Energy-efficient LED lighting 3. Adjustable glass shelves 4. Ice and water dispenser with filtration system   
 export class SplitTextOptions  extends BaseOperateOptions  {
     /**
      * Attribute type map
@@ -19138,6 +19517,28 @@ export class SplitTextOptions  extends BaseOperateOptions  {
     } 
 }
    
+export class TablePositionInfo  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return  TablePositionInfo.attributeTypeMap;
+
+    }
+
+
+    public constructor(init?: Partial< TablePositionInfo >) {  
+    
+        Object.assign(this, init);
+    } 
+}
+/// I'm sorry, but you haven't provided any specific content for me to summarize. Please provide the features you would like to be summarized.
+///                
 export class TrimContentOptions  {
     /**
      * Attribute type map
@@ -19218,7 +19619,8 @@ export class TrimContentOptions  {
         Object.assign(this, init);
     } 
 }
-   
+/// I'm here to assist you. Please provide the features you would like me to summarize for the class.
+///                
 export class WordCaseOptions  {
     /**
      * Attribute type map
@@ -19259,6 +19661,39 @@ export class WordCaseOptions  {
     public scopeOptions: ScopeOptions;
 
     public constructor(init?: Partial< WordCaseOptions >) {  
+    
+        Object.assign(this, init);
+    } 
+}
+   
+export class WordsCountOptions  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "dataSource",
+            baseName: "DataSource",
+            type: "DataSource",
+        },
+        {
+            name: "fileInfo",
+            baseName: "FileInfo",
+            type: "FileInfo",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return  WordsCountOptions.attributeTypeMap;
+
+    }
+
+    public dataSource: DataSource;
+    public fileInfo: FileInfo;
+
+    public constructor(init?: Partial< WordsCountOptions >) {  
     
         Object.assign(this, init);
     } 
@@ -19320,7 +19755,7 @@ export class CellValue  {
         Object.assign(this, init);
     } 
 }
-   
+/// I'm happy to help! Please provide me with the features you would like me to summarize for the class.   
 export class CustomParserConfig  {
     /**
      * Attribute type map
@@ -19359,7 +19794,7 @@ export class CustomParserConfig  {
         Object.assign(this, init);
     } 
 }
-   
+/// I can help summarize features, please provide the details you'd like me to summarize.   
 export class Import2DimensionDoubleArrayOption  extends ImportOption  {
     /**
      * Attribute type map
@@ -19398,7 +19833,7 @@ export class Import2DimensionDoubleArrayOption  extends ImportOption  {
         Object.assign(this, init);
     } 
 }
-   
+/// I'm here to help! Please provide the features you'd like me to summarize.   
 export class Import2DimensionIntArrayOption  extends ImportOption  {
     /**
      * Attribute type map
@@ -19437,7 +19872,7 @@ export class Import2DimensionIntArrayOption  extends ImportOption  {
         Object.assign(this, init);
     } 
 }
-   
+/// I'm eager to assist you! Please provide me with the features you would like me to summarize into one sentence for your class summary.   
 export class Import2DimensionStringArrayOption  extends ImportOption  {
     /**
      * Attribute type map
@@ -19476,7 +19911,7 @@ export class Import2DimensionStringArrayOption  extends ImportOption  {
         Object.assign(this, init);
     } 
 }
-   
+/// I'm sorry, but it seems like you haven't provided any features for me to summarize. Could you please share the features you'd like me to summarize into a single sentence for your class?   
 export class ImportBatchDataOption  extends ImportOption  {
     /**
      * Attribute type map
@@ -19503,7 +19938,7 @@ export class ImportBatchDataOption  extends ImportOption  {
         Object.assign(this, init);
     } 
 }
-   
+/// I'm happy to help! Could you please provide me with the features you would like me to summarize into a class summary?   
 export class ImportCSVDataOption  extends ImportOption  {
     /**
      * Attribute type map
@@ -19560,7 +19995,7 @@ export class ImportCSVDataOption  extends ImportOption  {
         Object.assign(this, init);
     } 
 }
-   
+/// Class summary: The features include grammar and spell check, word count, readability analysis, and style suggestions for improving writing.   
 export class ImportDoubleArrayOption  extends ImportOption  {
     /**
      * Attribute type map
@@ -19605,7 +20040,7 @@ export class ImportDoubleArrayOption  extends ImportOption  {
         Object.assign(this, init);
     } 
 }
-   
+/// I'm here to help! Just provide me with the features you'd like to summarize.   
 export class ImportIntArrayOption  extends ImportOption  {
     /**
      * Attribute type map
@@ -19650,7 +20085,7 @@ export class ImportIntArrayOption  extends ImportOption  {
         Object.assign(this, init);
     } 
 }
-   
+/// Class summary: The features of the topic were explored, discussing its components, patterns, and significance.   
 export class ImportPictureOption  extends ImportOption  {
     /**
      * Attribute type map
@@ -19707,7 +20142,7 @@ export class ImportPictureOption  extends ImportOption  {
         Object.assign(this, init);
     } 
 }
-   
+/// I'm happy to help! Could you please provide me with the features you would like me to summarize for the class?   
 export class ImportStringArrayOption  extends ImportOption  {
     /**
      * Attribute type map
@@ -19960,7 +20395,7 @@ export class TextureFill  {
         Object.assign(this, init);
     } 
 }
-   
+/// Class summary: Understanding the various features and tools available in Adobe Illustrator to create dynamic and professional vector graphics, including shapes, text, brushes, gradients, and layers.   
 export class GradientFillStop  {
     /**
      * Attribute type map
@@ -21031,6 +21466,7 @@ const typeMap = {
     PasswordRequest,
     PivotTableFieldRequest,
     ProtectWorkbookRequest,
+    RangeConvertRequest,
     RangeCopyRequest,
     RangeSetOutlineBorderRequest,
     RangeSetStyleRequest,
@@ -21058,17 +21494,25 @@ const typeMap = {
     PivotTables,
     AddTextOptions,
     BaseOperateOptions,
+    CharacterCountOptions,
+    CombinationSourceData,
     ConvertTextOptions,
+    ConvertWorksheetOptions,
+    DataOutputLocation,
     ExtractTextOptions,
+    MergeTableOptions,
     RemoveCharactersByCharacter,
     RemoveCharactersByPosition,
     RemoveCharactersOptions,
     RemoveDuplicatesOptions,
     ScopeItem,
     ScopeOptions,
+    SpecifyWordsCountOptions,
     SplitTextOptions,
+    TablePositionInfo,
     TrimContentOptions,
     WordCaseOptions,
+    WordsCountOptions,
     CellValue,
     CustomParserConfig,
     Import2DimensionDoubleArrayOption,
@@ -27237,6 +27681,42 @@ export class PostConvertWorkbookToCSVRequest  {
         };
 
         (requestOptions as any).formData = formParams;        
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+   
+export class PostConvertWorksheetToImageRequest  {
+      
+    public convertWorksheetOptions: ConvertWorksheetOptions;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< PostConvertWorksheetToImageRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/convertWorksheetToImage";
+        const queryParameters: any = {};
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        const bodyParameter = (this.convertWorksheetOptions == null) ? null :   ObjectSerializer.serialize( this.convertWorksheetOptions,this.convertWorksheetOptions.constructor.name);
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+            body:bodyParameter,
+        };
+
         return Promise.resolve(requestOptions);
 
     }
@@ -33652,6 +34132,52 @@ export class PostWorksheetCellsRangeRowHeightRequest  {
     }
 
 }
+   
+export class PostWorksheetCellsRangeToImageRequest  {
+      
+    public name: string;
+      
+    public sheetName: string;
+      
+    public rangeConvertRequest: RangeConvertRequest;
+      
+    public folder: string;
+      
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< PostWorksheetCellsRangeToImageRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/ranges/convertToImage".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
+        const queryParameters: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        const bodyParameter = (this.rangeConvertRequest == null) ? null :   ObjectSerializer.serialize( this.rangeConvertRequest,this.rangeConvertRequest.constructor.name);
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+            body:bodyParameter,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
 /// Insert a range of cells and shift existing cells based on the specified shift option.   
 export class PutWorksheetCellsRangeRequest  {
     /// The file name.  
@@ -34463,6 +34989,114 @@ export class PostWorksheetSparklineGroupRequest  {
     }
 
 }
+   
+export class PostCharacterCountRequest  {
+      
+    public characterCountOptions: CharacterCountOptions;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< PostCharacterCountRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/charactercount";
+        const queryParameters: any = {};
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        const bodyParameter = (this.characterCountOptions == null) ? null :   ObjectSerializer.serialize( this.characterCountOptions,this.characterCountOptions.constructor.name);
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+            body:bodyParameter,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+   
+export class PostWordsCountRequest  {
+      
+    public wordsCountOptions: WordsCountOptions;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< PostWordsCountRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/wordscount";
+        const queryParameters: any = {};
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        const bodyParameter = (this.wordsCountOptions == null) ? null :   ObjectSerializer.serialize( this.wordsCountOptions,this.wordsCountOptions.constructor.name);
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+            body:bodyParameter,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+   
+export class PostSpecifyWordsCountRequest  {
+      
+    public specifyWordsCountOptions: SpecifyWordsCountOptions;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< PostSpecifyWordsCountRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/specifywordscount";
+        const queryParameters: any = {};
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        const bodyParameter = (this.specifyWordsCountOptions == null) ? null :   ObjectSerializer.serialize( this.specifyWordsCountOptions,this.specifyWordsCountOptions.constructor.name);
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+            body:bodyParameter,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
 /// Run tasks.   
 export class PostRunTaskRequest  {
     /// Task Data Descrition  
@@ -34499,7 +35133,7 @@ export class PostRunTaskRequest  {
     }
 
 }
-   
+/// Adds text content to a workbook at specified positions within cells based on provided options using ASP.NET Core Web API.   
 export class PostAddTextContentRequest  {
       
     public addTextOptions: AddTextOptions;
@@ -35984,6 +36618,10 @@ export class GetWorksheetWithFormatRequest  {
     public area: string;
     /// Represents the page to be printed  
     public pageIndex: number;
+      
+    public onePagePerSheet: boolean;
+      
+    public printHeadings: boolean;
     /// The folder where the file is situated.  
     public folder: string;
     /// The storage name where the file is situated.  
@@ -36004,6 +36642,8 @@ export class GetWorksheetWithFormatRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "horizontalResolution", this.horizontalResolution);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "area", this.area);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "pageIndex", this.pageIndex);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "onePagePerSheet", this.onePagePerSheet);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "printHeadings", this.printHeadings);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
         if(this.extendQueryParameterMap !== undefined){

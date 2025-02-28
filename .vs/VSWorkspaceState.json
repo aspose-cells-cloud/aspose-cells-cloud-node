@@ -3,8 +3,10 @@
     "",
     "\\src",
     "\\src\\internal",
-    "\\src\\model"
+    "\\src\\model",
+    "\\test",
+    "\\test\\Api"
   ],
-  "SelectedNode": "\\src\\internal\\auth.ts",
+  "SelectedNode": "\\test.deprecated",
   "PreviewInSolutionExplorer": false
 }

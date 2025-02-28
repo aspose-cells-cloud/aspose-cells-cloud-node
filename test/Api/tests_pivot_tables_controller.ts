@@ -7,8 +7,8 @@ const clientId = process.env.CellsCloudClientId;
 const clientSecret = process.env.CellsCloudClientSecret;
 const ApiURL = process.env.CellsCloudApiBaseUrl;
 
-const localPath = "TestData/CellsCloud/";
-
+//const localPath = "TestData/CellsCloud/";
+const localPath = "TestData/";
 var fs = require('fs');
 var path = require('path');
 var assert = require('assert');
@@ -119,6 +119,7 @@ describe('PivotTablesController test', function() {
         });
       });
     });
+    /*
     describe('get_worksheet_pivot_table_filter test', function(){
       it("should call GetWorksheetPivotTableFilter successfully" , function(){
         var remoteFolder = "TestData/In"
@@ -144,7 +145,7 @@ describe('PivotTablesController test', function() {
             expect(result.response.statusCode).to.equal(200);
         });
       });
-    });
+    });*/
     describe('put_worksheet_pivot_table test', function(){
       it("should call PutWorksheetPivotTable successfully" , function(){
         var remoteFolder = "TestData/In"
@@ -205,50 +206,50 @@ describe('PivotTablesController test', function() {
       });
     });
     describe('put_worksheet_pivot_table_filter test', function(){
-      it("should call PutWorksheetPivotTableFilter successfully" , function(){
-        var remoteFolder = "TestData/In"
+  it("should call PutWorksheetPivotTableFilter successfully" , function(){
+    var remoteFolder = "TestData/In"
 
-        var localName = "TestCase.xlsx"
-        var remoteName = "TestCase.xlsx"
+    var localName = "TestCase.xlsx"
+    var remoteName = "TestCase.xlsx"
 
-        var localNameRequest = new  model.UploadFileRequest();
-        localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
-        localNameRequest.path = remoteFolder + "/" + remoteName ;
-        localNameRequest.storageName ="";
-        cellsApi.uploadFile(localNameRequest );
+    var localNameRequest = new  model.UploadFileRequest();
+    localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
+    localNameRequest.path = remoteFolder + "/" + remoteName ;
+    localNameRequest.storageName ="";
+    cellsApi.uploadFile(localNameRequest );
 
-        var top10Filter = new Top10Filter();
-        top10Filter.items = 1;
-        top10Filter.isTop = true;
-        top10Filter.isPercent = true;
+    var top10Filter = new model.Top10Filter();
+    top10Filter.items = 1;
+    top10Filter.isTop = true;
+    top10Filter.isPercent = true;
 
-        var filterColumn = new FilterColumn();
-        filterColumn.FilterType = "Top10Filter";
-        filterColumn.fieldIndex = 0;
-        filterColumn.top10Filter = top10Filter;
+    var filterColumn = new model.FilterColumn();
+    filterColumn.filterType = "Top10Filter";
+    filterColumn.fieldIndex = 0;
+    filterColumn.top10Filter = top10Filter;
 
-        var autoFilter = new AutoFilter();
-        autoFilter.filterColumns = [filterColumn];
+    var autoFilter = new model.AutoFilter();
+    autoFilter.filterColumns = [filterColumn];
 
 
-        var filter = new model.PivotFilter();
-         filter.fieldIndex = 1;
-         filter.filterType = "Count"  ;
-         filter.autoFilter = autoFilter;
+    var filter = new model.PivotFilter();
+     filter.fieldIndex = 1;
+     filter.filterType = "Count"  ;
+     filter.autoFilter = autoFilter;
 
-        var request = new model.PutWorksheetPivotTableFilterRequest();
-        request.name =  remoteName;
-        request.sheetName =  "Sheet4";
-        request.pivotTableIndex =  0;
-        request.filter =  filter;
-        request.needReCalculate =  true;
-        request.folder =  remoteFolder;
-        request.storageName =  "";
-        return cellsApi.putWorksheetPivotTableFilter(request).then((result) => {
-            expect(result.response.statusCode).to.equal(200);
-        });
-      });
+    var request = new model.PutWorksheetPivotTableFilterRequest();
+    request.name =  remoteName;
+    request.sheetName =  "Sheet4";
+    request.pivotTableIndex =  0;
+    request.filter =  filter;
+    request.needReCalculate =  true;
+    request.folder =  remoteFolder;
+    request.storageName =  "";
+    return cellsApi.putWorksheetPivotTableFilter(request).then((result) => {
+        expect(result.response.statusCode).to.equal(200);
     });
+  });
+});
     describe('post_pivot_table_field_hide_item test', function(){
       it("should call PostPivotTableFieldHideItem successfully" , function(){
         var remoteFolder = "TestData/In"

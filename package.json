@@ -1,8 +1,8 @@
 {
   "name": "asposecellscloud",
-  "version": "25.1.0",
-  "description": "Aspose.Cells Cloud for Node.js to create, repair, merge, parse and convert excel files. Convert excel to PDF, JSON, XML, TSV, HTML and so on.",
-  "keywords": [
+  "version": "25.2.0",
+  "description": "Aspose.Cells Cloud SDK for Node.js",
+ "keywords": [
     "excel",
     "spreadsheet",
     "convert",
@@ -52,7 +52,7 @@
     "@types/mocha": "^2.2.44",
     "@types/node": "^8.10.66",
     "chai": "^4.3.7",
-    "cross-env": "^5.1.4",
+    "cross-env": "^5.2.1",
     "cucumber": "^3.0.0",
     "del": "^3.0.0",
     "gulp": "^3.9.1",

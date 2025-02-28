@@ -1835,6 +1835,21 @@ export class CellsApi {
 
     /// <summary>
     /// </summary>
+    /// <param name="request">Request. <see cref="PostConvertWorksheetToImageRequest" /></param>
+    public async postConvertWorksheetToImage(requestObj:model.PostConvertWorksheetToImageRequest ): Promise<{response: http.ClientResponse, body: model.FileInfo}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling postConvertWorksheetToImage.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "FileInfo");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// </summary>
     /// <param name="request">Request. <see cref="PostExportRequest" /></param>
     public async postExport(requestObj:model.PostExportRequest ): Promise<{response: http.ClientResponse, body: model.FilesResult}>
     {
@@ -3823,6 +3838,21 @@ export class CellsApi {
     }
 
     /// <summary>
+    /// </summary>
+    /// <param name="request">Request. <see cref="PostWorksheetCellsRangeToImageRequest" /></param>
+    public async postWorksheetCellsRangeToImage(requestObj:model.PostWorksheetCellsRangeToImageRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling postWorksheetCellsRangeToImage.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "CellsCloudResponse");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
     /// Insert a range of cells and shift existing cells based on the specified shift option.
     /// </summary>
     /// <param name="request">Request. <see cref="PutWorksheetCellsRangeRequest" /></param>
@@ -4077,6 +4107,51 @@ export class CellsApi {
     }
 
     /// <summary>
+    /// </summary>
+    /// <param name="request">Request. <see cref="PostCharacterCountRequest" /></param>
+    public async postCharacterCount(requestObj:model.PostCharacterCountRequest ): Promise<{response: http.ClientResponse, body: string}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling postCharacterCount.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "string");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// </summary>
+    /// <param name="request">Request. <see cref="PostWordsCountRequest" /></param>
+    public async postWordsCount(requestObj:model.PostWordsCountRequest ): Promise<{response: http.ClientResponse, body: string}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling postWordsCount.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "string");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// </summary>
+    /// <param name="request">Request. <see cref="PostSpecifyWordsCountRequest" /></param>
+    public async postSpecifyWordsCount(requestObj:model.PostSpecifyWordsCountRequest ): Promise<{response: http.ClientResponse, body: string}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling postSpecifyWordsCount.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "string");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
     /// Run tasks.
     /// </summary>
     /// <param name="request">Request. <see cref="PostRunTaskRequest" /></param>
@@ -4093,6 +4168,7 @@ export class CellsApi {
     }
 
     /// <summary>
+    /// Adds text content to a workbook at specified positions within cells based on provided options using ASP.NET Core Web API.
     /// </summary>
     /// <param name="request">Request. <see cref="PostAddTextContentRequest" /></param>
     public async postAddTextContent(requestObj:model.PostAddTextContentRequest ): Promise<{response: http.ClientResponse, body: model.FileInfo}>
