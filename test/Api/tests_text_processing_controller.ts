@@ -7,8 +7,8 @@ const clientId = process.env.CellsCloudClientId;
 const clientSecret = process.env.CellsCloudClientSecret;
 const ApiURL = process.env.CellsCloudApiBaseUrl;
 
-//const localPath = "TestData/CellsCloud/";
-const localPath = "TestData/";
+const localPath = "TestData/CellsCloud/";
+//const localPath = "TestData/";
 var fs = require('fs');
 var path = require('path');
 var assert = require('assert');
@@ -33,7 +33,7 @@ describe('TextProcessingController test', function() {
 
         var addTextOptionsDataSource = new model.DataSource();
          addTextOptionsDataSource.dataSourceType = "CloudFileSystem"  ;
-         addTextOptionsDataSource.dataPath = remoteFolder + "/" + remoteName ;  ;
+         addTextOptionsDataSource.dataPath = remoteFolder + "/" + remoteName ;
         var addTextOptions = new model.AddTextOptions();
          addTextOptions.dataSource = addTextOptionsDataSource  ;
          addTextOptions.text = "Aspose.Cells Cloud is an excellent product."  ;

@@ -5111,6 +5111,31 @@ export class SaveOptions  {
             name: "validateMergedAreas",
             baseName: "ValidateMergedAreas",
             type: "boolean",
+        },
+        {
+            name: "mergeAreas",
+            baseName: "MergeAreas",
+            type: "boolean",
+        },
+        {
+            name: "sortExternalNames",
+            baseName: "SortExternalNames",
+            type: "boolean",
+        },
+        {
+            name: "checkExcelRestriction",
+            baseName: "CheckExcelRestriction",
+            type: "boolean",
+        },
+        {
+            name: "updateSmartArt",
+            baseName: "UpdateSmartArt",
+            type: "boolean",
+        },
+        {
+            name: "encryptDocumentProperties",
+            baseName: "EncryptDocumentProperties",
+            type: "boolean",
         }
     ];
     /**
@@ -5129,6 +5154,11 @@ export class SaveOptions  {
     public refreshChartCache: boolean;
     public sortNames: boolean;
     public validateMergedAreas: boolean;
+    public mergeAreas: boolean;
+    public sortExternalNames: boolean;
+    public checkExcelRestriction: boolean;
+    public updateSmartArt: boolean;
+    public encryptDocumentProperties: boolean;
 
     public constructor(init?: Partial< SaveOptions >) {  
     
@@ -5215,21 +5245,6 @@ export class PaginatedSaveOptions  extends SaveOptions  {
             name: "emfRenderSetting",
             baseName: "EmfRenderSetting",
             type: "string",
-        },
-        {
-            name: "mergeAreas",
-            baseName: "MergeAreas",
-            type: "boolean",
-        },
-        {
-            name: "sortExternalNames",
-            baseName: "SortExternalNames",
-            type: "boolean",
-        },
-        {
-            name: "updateSmartArt",
-            baseName: "UpdateSmartArt",
-            type: "boolean",
         }
     ];
     /**
@@ -5255,9 +5270,6 @@ export class PaginatedSaveOptions  extends SaveOptions  {
     public textCrossType: string;
     public defaultEditLanguage: string;
     public emfRenderSetting: string;
-    public mergeAreas: boolean;
-    public sortExternalNames: boolean;
-    public updateSmartArt: boolean;
 
     public constructor(init?: Partial< PaginatedSaveOptions >) {  
          super(init);     
@@ -5354,7 +5366,7 @@ export class Styles  extends LinkElement  {
         {
             name: "styleList",
             baseName: "StyleList",
-            type: "Array<LinkElement>",
+            type: "Array<Style>",
         }
     ];
     /**
@@ -5365,7 +5377,7 @@ export class Styles  extends LinkElement  {
 
     }
 
-    public styleList: Array<LinkElement>;
+    public styleList: Array<Style>;
 
     public constructor(init?: Partial< Styles >) {  
          super(init);     
@@ -8947,6 +8959,136 @@ export class MHtmlSaveOptions  extends SaveOptions  {
      */
     public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
+            name: "exportPageHeaders",
+            baseName: "ExportPageHeaders",
+            type: "boolean",
+        },
+        {
+            name: "exportPageFooters",
+            baseName: "ExportPageFooters",
+            type: "boolean",
+        },
+        {
+            name: "exportRowColumnHeadings",
+            baseName: "ExportRowColumnHeadings",
+            type: "boolean",
+        },
+        {
+            name: "showAllSheets",
+            baseName: "ShowAllSheets",
+            type: "boolean",
+        },
+        {
+            name: "imageOptions",
+            baseName: "ImageOptions",
+            type: "ImageOrPrintOptions",
+        },
+        {
+            name: "saveAsSingleFile",
+            baseName: "SaveAsSingleFile",
+            type: "boolean",
+        },
+        {
+            name: "exportHiddenWorksheet",
+            baseName: "ExportHiddenWorksheet",
+            type: "boolean",
+        },
+        {
+            name: "exportGridLines",
+            baseName: "ExportGridLines",
+            type: "boolean",
+        },
+        {
+            name: "presentationPreference",
+            baseName: "PresentationPreference",
+            type: "boolean",
+        },
+        {
+            name: "cellCssPrefix",
+            baseName: "CellCssPrefix",
+            type: "string",
+        },
+        {
+            name: "tableCssId",
+            baseName: "TableCssId",
+            type: "string",
+        },
+        {
+            name: "isFullPathLink",
+            baseName: "IsFullPathLink",
+            type: "boolean",
+        },
+        {
+            name: "exportWorksheetCSSSeparately",
+            baseName: "ExportWorksheetCSSSeparately",
+            type: "boolean",
+        },
+        {
+            name: "exportSimilarBorderStyle",
+            baseName: "ExportSimilarBorderStyle",
+            type: "boolean",
+        },
+        {
+            name: "mergeEmptyTdForcely",
+            baseName: "MergeEmptyTdForcely",
+            type: "boolean",
+        },
+        {
+            name: "exportCellCoordinate",
+            baseName: "ExportCellCoordinate",
+            type: "boolean",
+        },
+        {
+            name: "exportExtraHeadings",
+            baseName: "ExportExtraHeadings",
+            type: "boolean",
+        },
+        {
+            name: "exportHeadings",
+            baseName: "ExportHeadings",
+            type: "boolean",
+        },
+        {
+            name: "exportFormula",
+            baseName: "ExportFormula",
+            type: "boolean",
+        },
+        {
+            name: "addTooltipText",
+            baseName: "AddTooltipText",
+            type: "boolean",
+        },
+        {
+            name: "exportBogusRowData",
+            baseName: "ExportBogusRowData",
+            type: "boolean",
+        },
+        {
+            name: "excludeUnusedStyles",
+            baseName: "ExcludeUnusedStyles",
+            type: "boolean",
+        },
+        {
+            name: "exportDocumentProperties",
+            baseName: "ExportDocumentProperties",
+            type: "boolean",
+        },
+        {
+            name: "exportWorksheetProperties",
+            baseName: "ExportWorksheetProperties",
+            type: "boolean",
+        },
+        {
+            name: "exportWorkbookProperties",
+            baseName: "ExportWorkbookProperties",
+            type: "boolean",
+        },
+        {
+            name: "exportFrameScriptsAndProperties",
+            baseName: "ExportFrameScriptsAndProperties",
+            type: "boolean",
+        },
+        {
             name: "attachedFilesDirectory",
             baseName: "AttachedFilesDirectory",
             type: "string",
@@ -9005,6 +9147,11 @@ export class MHtmlSaveOptions  extends SaveOptions  {
             name: "parseHtmlTagInCell",
             baseName: "ParseHtmlTagInCell",
             type: "boolean",
+        },
+        {
+            name: "cellNameAttribute",
+            baseName: "CellNameAttribute",
+            type: "string",
         }
     ];
     /**
@@ -9015,6 +9162,32 @@ export class MHtmlSaveOptions  extends SaveOptions  {
 
     }
 
+    public exportPageHeaders: boolean;
+    public exportPageFooters: boolean;
+    public exportRowColumnHeadings: boolean;
+    public showAllSheets: boolean;
+    public imageOptions: ImageOrPrintOptions;
+    public saveAsSingleFile: boolean;
+    public exportHiddenWorksheet: boolean;
+    public exportGridLines: boolean;
+    public presentationPreference: boolean;
+    public cellCssPrefix: string;
+    public tableCssId: string;
+    public isFullPathLink: boolean;
+    public exportWorksheetCSSSeparately: boolean;
+    public exportSimilarBorderStyle: boolean;
+    public mergeEmptyTdForcely: boolean;
+    public exportCellCoordinate: boolean;
+    public exportExtraHeadings: boolean;
+    public exportHeadings: boolean;
+    public exportFormula: boolean;
+    public addTooltipText: boolean;
+    public exportBogusRowData: boolean;
+    public excludeUnusedStyles: boolean;
+    public exportDocumentProperties: boolean;
+    public exportWorksheetProperties: boolean;
+    public exportWorkbookProperties: boolean;
+    public exportFrameScriptsAndProperties: boolean;
     public attachedFilesDirectory: string;
     public attachedFilesUrlPrefix: string;
     public encoding: string;
@@ -9027,6 +9200,7 @@ export class MHtmlSaveOptions  extends SaveOptions  {
     public isExpImageToTempDir: boolean;
     public pageTitle: string;
     public parseHtmlTagInCell: boolean;
+    public cellNameAttribute: string;
 
     public constructor(init?: Partial< MHtmlSaveOptions >) {  
          super(init);     
@@ -9039,6 +9213,21 @@ export class OdsSaveOptions  extends SaveOptions  {
      * Attribute type map
      */
     public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "generatorType",
+            baseName: "GeneratorType",
+            type: "string",
+        },
+        {
+            name: "odfStrictVersion",
+            baseName: "OdfStrictVersion",
+            type: "string",
+        },
+        {
+            name: "ignorePivotTables",
+            baseName: "IgnorePivotTables",
+            type: "boolean",
+        }
     ];
     /**
      * Returns attribute type map
@@ -9048,6 +9237,9 @@ export class OdsSaveOptions  extends SaveOptions  {
 
     }
 
+    public generatorType: string;
+    public odfStrictVersion: string;
+    public ignorePivotTables: boolean;
 
     public constructor(init?: Partial< OdsSaveOptions >) {  
          super(init);     
@@ -9520,6 +9712,66 @@ export class SvgSaveOptions  extends SaveOptions  {
             name: "sheetIndex",
             baseName: "SheetIndex",
             type: "number",
+        },
+        {
+            name: "chartImageType",
+            baseName: "ChartImageType",
+            type: "string",
+        },
+        {
+            name: "embededImageNameInSvg",
+            baseName: "EmbededImageNameInSvg",
+            type: "string",
+        },
+        {
+            name: "horizontalResolution",
+            baseName: "HorizontalResolution",
+            type: "number",
+        },
+        {
+            name: "imageFormat",
+            baseName: "ImageFormat",
+            type: "string",
+        },
+        {
+            name: "isCellAutoFit",
+            baseName: "IsCellAutoFit",
+            type: "boolean",
+        },
+        {
+            name: "onePagePerSheet",
+            baseName: "OnePagePerSheet",
+            type: "boolean",
+        },
+        {
+            name: "onlyArea",
+            baseName: "OnlyArea",
+            type: "boolean",
+        },
+        {
+            name: "printingPage",
+            baseName: "PrintingPage",
+            type: "string",
+        },
+        {
+            name: "printWithStatusDialog",
+            baseName: "PrintWithStatusDialog",
+            type: "boolean",
+        },
+        {
+            name: "quality",
+            baseName: "Quality",
+            type: "number",
+        },
+        {
+            name: "tiffCompression",
+            baseName: "TiffCompression",
+            type: "string",
+        },
+        {
+            name: "verticalResolution",
+            baseName: "VerticalResolution",
+            type: "number",
         }
     ];
     /**
@@ -9531,6 +9783,18 @@ export class SvgSaveOptions  extends SaveOptions  {
     }
 
     public sheetIndex: number;
+    public chartImageType: string;
+    public embededImageNameInSvg: string;
+    public horizontalResolution: number;
+    public imageFormat: string;
+    public isCellAutoFit: boolean;
+    public onePagePerSheet: boolean;
+    public onlyArea: boolean;
+    public printingPage: string;
+    public printWithStatusDialog: boolean;
+    public quality: number;
+    public tiffCompression: string;
+    public verticalResolution: number;
 
     public constructor(init?: Partial< SvgSaveOptions >) {  
          super(init);     
@@ -9588,6 +9852,16 @@ export class XlsbSaveOptions  extends SaveOptions  {
      * Attribute type map
      */
     public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "exportAllColumnIndexes",
+            baseName: "ExportAllColumnIndexes",
+            type: "boolean",
+        },
+        {
+            name: "compressionType",
+            baseName: "CompressionType",
+            type: "string",
+        }
     ];
     /**
      * Returns attribute type map
@@ -9597,6 +9871,8 @@ export class XlsbSaveOptions  extends SaveOptions  {
 
     }
 
+    public exportAllColumnIndexes: boolean;
+    public compressionType: string;
 
     public constructor(init?: Partial< XlsbSaveOptions >) {  
          super(init);     
@@ -9609,6 +9885,16 @@ export class XlsSaveOptions  extends SaveOptions  {
      * Attribute type map
      */
     public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "matchColor",
+            baseName: "MatchColor",
+            type: "boolean",
+        },
+        {
+            name: "wpsCompatibility",
+            baseName: "WpsCompatibility",
+            type: "boolean",
+        }
     ];
     /**
      * Returns attribute type map
@@ -9618,6 +9904,8 @@ export class XlsSaveOptions  extends SaveOptions  {
 
     }
 
+    public matchColor: boolean;
+    public wpsCompatibility: boolean;
 
     public constructor(init?: Partial< XlsSaveOptions >) {  
          super(init);     
@@ -15895,6 +16183,33 @@ export class StyleResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
+/// Represents the Styles Response.   
+export class StylesResponse  extends CellsCloudResponse  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "styles",
+            baseName: "Styles",
+            type: "Styles",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return super.getAttributeTypeMap().concat(StylesResponse.attributeTypeMap) ;
+
+    }
+
+    public styles: Styles;
+
+    public constructor(init?: Partial< StylesResponse >) {  
+         super(init);     
+        Object.assign(this, init);
+    } 
+}
 /// Represents the TaskRunResult Response.   
 export class TaskRunResultResponse  extends CellsCloudResponse  {
     /**
@@ -18883,6 +19198,63 @@ export class ConvertTextOptions  extends BaseOperateOptions  {
     } 
 }
    
+export class ConvertWorkbookOptions  extends BaseOperateOptions  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "dataSource",
+            baseName: "DataSource",
+            type: "DataSource",
+        },
+        {
+            name: "fileInfo",
+            baseName: "FileInfo",
+            type: "FileInfo",
+        },
+        {
+            name: "pageSetup",
+            baseName: "PageSetup",
+            type: "PageSetup",
+        },
+        {
+            name: "saveOptions",
+            baseName: "SaveOptions",
+            type: "SaveOptions",
+        },
+        {
+            name: "convertFormat",
+            baseName: "ConvertFormat",
+            type: "string",
+        },
+        {
+            name: "checkExcelRestriction",
+            baseName: "CheckExcelRestriction",
+            type: "boolean",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return super.getAttributeTypeMap().concat(ConvertWorkbookOptions.attributeTypeMap) ;
+
+    }
+
+    public dataSource: DataSource;
+    public fileInfo: FileInfo;
+    public pageSetup: PageSetup;
+    public saveOptions: SaveOptions;
+    public convertFormat: string;
+    public checkExcelRestriction: boolean;
+
+    public constructor(init?: Partial< ConvertWorkbookOptions >) {  
+         super(init);     
+        Object.assign(this, init);
+    } 
+}
+   
 export class ConvertWorksheetOptions  extends BaseOperateOptions  {
     /**
      * Attribute type map
@@ -19398,6 +19770,45 @@ export class ScopeOptions  {
     public scopeItems: Array<ScopeItem>;
 
     public constructor(init?: Partial< ScopeOptions >) {  
+    
+        Object.assign(this, init);
+    } 
+}
+   
+export class SpecifyCellsObject  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "worksheetName",
+            baseName: "WorksheetName",
+            type: "string",
+        },
+        {
+            name: "pageIndex",
+            baseName: "PageIndex",
+            type: "number",
+        },
+        {
+            name: "region",
+            baseName: "Region",
+            type: "string",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return  SpecifyCellsObject.attributeTypeMap;
+
+    }
+
+    public worksheetName: string;
+    public pageIndex: number;
+    public region: string;
+
+    public constructor(init?: Partial< SpecifyCellsObject >) {  
     
         Object.assign(this, init);
     } 
@@ -21427,6 +21838,7 @@ const typeMap = {
     SpinnerResponse,
     SplitResultResponse,
     StyleResponse,
+    StylesResponse,
     TaskRunResultResponse,
     TextBoxResponse,
     TextItemResponse,
@@ -21497,6 +21909,7 @@ const typeMap = {
     CharacterCountOptions,
     CombinationSourceData,
     ConvertTextOptions,
+    ConvertWorkbookOptions,
     ConvertWorksheetOptions,
     DataOutputLocation,
     ExtractTextOptions,
@@ -21507,6 +21920,7 @@ const typeMap = {
     RemoveDuplicatesOptions,
     ScopeItem,
     ScopeOptions,
+    SpecifyCellsObject,
     SpecifyWordsCountOptions,
     SplitTextOptions,
     TablePositionInfo,
@@ -21609,9 +22023,9 @@ const typeMap = {
 
 export {enumsMap, typeMap};
 
-   
+/// Perform business analysis of data in Excel files.   
 export class PostAnalyzeExcelRequest  {
-      
+    /// Excel files and analysis output requirements  
     public analyzeExcelRequest: AnalyzeExcelRequest;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -21645,15 +22059,15 @@ export class PostAnalyzeExcelRequest  {
     }
 
 }
-   
+/// Retrieve the description of auto filters from a worksheet.   
 export class GetWorksheetAutoFilterRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// The folder where the file is situated.  
     public folder: string;
-      
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -22541,15 +22955,15 @@ export class DeleteWorksheetFilterRequest  {
     }
 
 }
-   
+/// Get autoshapes description in worksheet.   
 export class GetWorksheetAutoshapesRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// Document's folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -22634,9 +23048,9 @@ export class GetWorksheetAutoshapeWithFormatRequest  {
     }
 
 }
-   
+/// Batch converting files that meet specific matching conditions.   
 export class PostBatchConvertRequest  {
-      
+    /// BatchConvertRequest Batch conversion file request.   
     public batchConvertRequest: BatchConvertRequest;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -22848,25 +23262,25 @@ export class PostAccessTokenRequest  {
     }
 
 }
-   
+/// Clear cell area contents in the worksheet.   
 export class PostClearContentsRequest  {
-      
+    /// The file name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// Represents the range to which the specified cells applies.  
     public range: string;
-      
+    /// The start row index.  
     public startRow: number;
-      
+    /// The start column index.  
     public startColumn: number;
-      
+    /// The end row index.  
     public endRow: number;
-      
+    /// The end column index.  
     public endColumn: number;
-      
+    /// The folder where the file is situated.  
     public folder: string;
-      
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -23736,19 +24150,19 @@ export class PostCellCharactersRequest  {
     }
 
 }
-   
+/// Retrieve descriptions of worksheet columns.   
 export class GetWorksheetColumnsRequest  {
-      
+    /// The file name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// The workdook folder.  
     public offset: number;
       
     public count: number;
-      
+    /// The folder where the file is situated.  
     public folder: string;
-      
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -24373,19 +24787,19 @@ export class PostColumnStyleRequest  {
     }
 
 }
-   
+/// Retrieve descriptions of rows in the worksheet.   
 export class GetWorksheetRowsRequest  {
-      
+    /// The file name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// Row offset.  
     public offset: number;
-      
+    /// Display rows number.  
     public count: number;
-      
+    /// The folder where the file is situated.  
     public folder: string;
-      
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -25165,17 +25579,17 @@ export class GetCellsCloudServiceStatusRequest  {
     }
 
 }
-   
+/// Retrieve chart area description in the worksheet.   
 export class GetChartAreaRequest  {
-      
+    /// The file name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// The chart index.  
     public chartIndex: number;
-      
+    /// The folder where the file is situated.  
     public folder: string;
-      
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -25303,15 +25717,15 @@ export class GetChartAreaBorderRequest  {
     }
 
 }
-   
+/// Retrieve descriptions of charts in the worksheet.   
 export class GetWorksheetChartsRequest  {
-      
+    /// The file name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// The folder where the file is situated.  
     public folder: string;
-      
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -26469,15 +26883,15 @@ export class PostChartSecondValueAxisRequest  {
     }
 
 }
-   
+/// Retrieve descriptions of conditional formattings in a worksheet.   
 export class GetWorksheetConditionalFormattingsRequest  {
-      
+    /// The file name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// The folder where the file is situated.  
     public folder: string;
-      
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -26997,33 +27411,33 @@ export class DeleteWorksheetConditionalFormattingAreaRequest  {
     }
 
 }
-   
+/// Retrieve workbooks in various formats.   
 export class GetWorkbookRequest  {
-      
+    /// The file name.  
     public name: string;
-      
+    /// The conversion format(CSV/XLS/HTML/MHTML/ODS/PDF/XML/TXT/TIFF/XLSB/XLSM/XLSX/XLTM/XLTX/XPS/PNG/JPG/JPEG/GIF/EMF/BMP/MD[Markdown]/Numbers).  
     public format: string;
-      
+    /// The password needed to open an Excel file.  
     public password: string;
-      
+    /// Specifies whether set workbook rows to be autofit.  
     public isAutoFit: boolean;
-      
+    /// Specifies whether only save table data.Only use pdf to excel.  
     public onlySaveTable: boolean;
-      
+    /// The folder where the file is situated.  
     public folder: string;
-      
+    /// Path to save the result. If it's a single file, the `outPath` should encompass both the filename and extension. In the case of multiple files, the `outPath` should only include the folder.  
     public outPath: string;
-      
+    /// The storage name where the file is situated.  
     public storageName: string;
-      
+    /// The storage name where the output file is situated.  
     public outStorageName: string;
-      
+    /// Whether check restriction of excel file when user modify cells related objects.  
     public checkExcelRestriction: boolean;
-      
+    /// The regional settings for workbook.  
     public region: string;
-      
+    /// The page wide fit on worksheet.  
     public pageWideFitOnPerSheet: boolean;
-      
+    /// The page tall fit on worksheet.  
     public pageTallFitOnPerSheet: boolean;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -27723,18 +28137,54 @@ export class PostConvertWorksheetToImageRequest  {
 
 }
    
+export class PostConvertWorkbookRequest  {
+      
+    public convertWorkbookOptions: ConvertWorkbookOptions;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< PostConvertWorkbookRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/convertWorkbook";
+        const queryParameters: any = {};
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        const bodyParameter = (this.convertWorkbookOptions == null) ? null :   ObjectSerializer.serialize( this.convertWorkbookOptions,this.convertWorkbookOptions.constructor.name);
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+            body:bodyParameter,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Export Excel internal elements or the workbook itself to various format files.   
 export class PostExportRequest  {
     /// File to upload  
     public file: any;
-      
+    /// Exported object type:workbook/worksheet/chart/comment/picture/shape/listobject/oleobject.  
     public objectType: string;
-      
+    /// The conversion format(CSV/XLS/HTML/MHTML/ODS/PDF/XML/TXT/TIFF/XLSB/XLSM/XLSX/XLTM/XLTX/XPS/PNG/JPG/JPEG/GIF/EMF/BMP/MD[Markdown]/Numbers).  
     public format: string;
-      
+    /// The password needed to open an Excel file.  
     public password: string;
-      
+    /// Whether check restriction of excel file when user modify cells related objects.  
     public checkExcelRestriction: boolean;
-      
+    /// The regional settings for workbook.  
     public region: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -28342,15 +28792,15 @@ export class PostDataTransformationRequest  {
     }
 
 }
-   
+/// Retrieve descriptions of hyperlinks in the worksheet.   
 export class GetWorksheetHyperlinksRequest  {
-      
+    /// The file name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// The folder where the file is situated.  
     public folder: string;
-      
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -28654,19 +29104,19 @@ export class DeleteWorksheetHyperlinksRequest  {
     }
 
 }
-   
+/// Assemble data files with template files to generate files in various formats.   
 export class PostAssembleRequest  {
     /// File to upload  
     public file: any;
       
     public datasource: string;
-      
+    /// The format to convert(CSV/XLS/HTML/MHTML/ODS/PDF/XML/TXT/TIFF/XLSB/XLSM/XLSX/XLTM/XLTX/XPS/PNG/JPG/JPEG/GIF/EMF/BMP/MD[Markdown]/Numbers)  
     public outFormat: string;
-      
+    /// The password needed to open an Excel file.  
     public password: string;
-      
+    /// Whether check restriction of excel file when user modify cells related objects.  
     public checkExcelRestriction: boolean;
-      
+    /// The regional settings for workbook.  
     public region: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -29549,15 +29999,15 @@ export class DeleteMetadataRequest  {
     }
 
 }
-   
+/// Retrieve descriptions of ListObjects in the worksheet.   
 export class GetWorksheetListObjectsRequest  {
-      
+    /// The file name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// The folder where the file is situated.  
     public folder: string;
-      
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -30201,15 +30651,15 @@ export class PostWorksheetListColumnsTotalRequest  {
     }
 
 }
-   
+/// Retrieve descriptions of OLE objects in the worksheet.   
 export class GetWorksheetOleObjectsRequest  {
-      
+    /// The file name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// The folder where the file is situated.  
     public folder: string;
-      
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -30494,15 +30944,15 @@ export class PutWorksheetOleObjectRequest  {
     }
 
 }
-   
+/// Retrieve descriptions of vertical page breaks in the worksheet.   
 export class GetVerticalPageBreaksRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// The folder where the file is situated.  
     public folder: string;
-      
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -30978,15 +31428,15 @@ export class DeleteHorizontalPageBreakRequest  {
     }
 
 }
-   
+/// Retrieve page setup description in the worksheet.   
 export class GetPageSetupRequest  {
-      
+    /// The file name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// The folder where the file is situated.  
     public folder: string;
-      
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -31424,15 +31874,15 @@ export class PostFitTallToPagesRequest  {
     }
 
 }
-   
+/// Retrieve descriptions of pictures in the worksheet.   
 export class GetWorksheetPicturesRequest  {
-      
+    /// The file name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// The folder where the file is situated.  
     public folder: string;
-      
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -31583,6 +32033,66 @@ export class PutWorksheetAddPictureRequest  {
     }
 
 }
+/// add new picture in the cells.   
+export class AddPictureInCellRequest  {
+      
+    public name: string;
+      
+    public sheetName: string;
+      
+    public cellName: string;
+      
+    public picturePath: string;
+      
+    public folder: string;
+      
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< AddPictureInCellRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/pictures/addPictureInCell".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
+        const queryParameters: any = {};
+         
+        // verify required parameter 'cellName' is not null or undefined
+        if (this.cellName === null || this.cellName === undefined) {
+            throw new Error('Required parameter "cellName" was null or undefined when calling AddPictureInCell.');
+        }
+         
+        // verify required parameter 'picturePath' is not null or undefined
+        if (this.picturePath === null || this.picturePath === undefined) {
+            throw new Error('Required parameter "picturePath" was null or undefined when calling AddPictureInCell.');
+        }
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "cellName", this.cellName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "picturePath", this.picturePath);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
 /// Update a picture by index in the worksheet.   
 export class PostWorksheetPictureRequest  {
     /// The file name.  
@@ -31721,15 +32231,15 @@ export class DeleteWorksheetPicturesRequest  {
     }
 
 }
-   
+/// Retrieve descriptions of pivottables  in the worksheet.   
 export class GetWorksheetPivotTablesRequest  {
-      
+    /// The file name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// The folder where the file is situated.  
     public folder: string;
-      
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -32869,15 +33379,15 @@ export class DeleteWorksheetPivotTableFilterRequest  {
     }
 
 }
-   
+/// Retrieve descriptions of Excel file properties.   
 export class GetDocumentPropertiesRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// Excel property type.  
     public type: string;
-      
+    /// The folder where the file is situated.  
     public folder: string;
-      
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -33091,17 +33601,17 @@ export class DeleteDocumentPropertiesRequest  {
     }
 
 }
-   
+/// Excel file digital signature.   
 export class PostDigitalSignatureRequest  {
-      
+    /// The file name.  
     public name: string;
-      
+    /// The digital signature file path should include both the folder and the file name, along with the extension.  
     public digitalsignaturefile: string;
-      
+    /// The password needed to open an Excel file.  
     public password: string;
-      
+    /// The folder where the file is situated.  
     public folder: string;
-      
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -33114,12 +33624,12 @@ export class PostDigitalSignatureRequest  {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/digitalsignature".replace("{" + "name" + "}", String(this.name));
         const queryParameters: any = {};
-         
+        /// The digital signature file path should include both the folder and the file name, along with the extension. 
         // verify required parameter 'digitalsignaturefile' is not null or undefined
         if (this.digitalsignaturefile === null || this.digitalsignaturefile === undefined) {
             throw new Error('Required parameter "digitalsignaturefile" was null or undefined when calling PostDigitalSignature.');
         }
-         
+        /// The password needed to open an Excel file. 
         // verify required parameter 'password' is not null or undefined
         if (this.password === null || this.password === undefined) {
             throw new Error('Required parameter "password" was null or undefined when calling PostDigitalSignature.');
@@ -33567,17 +34077,17 @@ export class PostProtectRequest  {
     }
 
 }
-   
+/// Copy content from the source range to the destination range in the worksheet.   
 export class PostWorksheetCellsRangesCopyRequest  {
-      
+    /// The file name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// RangeCopyRequestcopydata,copystyle,copyto,copyvalue  
     public rangeOperate: RangeCopyRequest;
-      
+    /// Original workbook folder.  
     public folder: string;
-      
+    /// Storage name.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -34298,15 +34808,15 @@ export class DeleteWorksheetCellsRangeRequest  {
     }
 
 }
-   
+/// Retrieve descriptions of shapes in the worksheet.   
 export class GetWorksheetShapesRequest  {
-      
+    /// The file name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// The folder where the file is situated.  
     public folder: string;
-      
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -34685,15 +35195,15 @@ export class PostWorksheetUngroupShapeRequest  {
     }
 
 }
-   
+/// Retrieve descriptions of sparkline groups in the worksheet.   
 export class GetWorksheetSparklineGroupsRequest  {
-      
+    /// The file name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// The folder where the file is situated.  
     public folder: string;
-      
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -35421,13 +35931,13 @@ export class PostSplitTextRequest  {
     }
 
 }
-   
+/// Retrieve the description of the default style for the workbook .   
 export class GetWorkbookDefaultStyleRequest  {
-      
+    /// The file name.  
     public name: string;
-      
+    /// The folder where the file is situated.  
     public folder: string;
-      
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -36560,13 +37070,55 @@ export class GetPageCountRequest  {
     }
 
 }
-   
-export class GetWorksheetsRequest  {
+/// Get all style in the workbook.   
+export class GetAllStylesRequest  {
       
     public name: string;
       
     public folder: string;
       
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< GetAllStylesRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/allstyles".replace("{" + "name" + "}", String(this.name));
+        const queryParameters: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "GET",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Retrieve the description of worksheets from a workbook.   
+export class GetWorksheetsRequest  {
+    /// The file name.  
+    public name: string;
+    /// The folder where the file is situated.  
+    public folder: string;
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -38557,15 +39109,15 @@ export class GetWorksheetPageCountRequest  {
     }
 
 }
-   
+/// Retrieve descriptions of validations in the worksheet.   
 export class GetWorksheetValidationsRequest  {
-      
+    /// The workbook name.  
     public name: string;
-      
+    /// The worksheet name.  
     public sheetName: string;
-      
+    /// The folder where the file is situated.  
     public folder: string;
-      
+    /// The storage name where the file is situated.  
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;

@@ -1,4 +1,4 @@
-![](https://img.shields.io/badge/REST%20API-v3.0-lightgrey) ![npm](https://img.shields.io/npm/v/asposecellscloud) ![node-current](https://img.shields.io/node/v/asposecellscloud) [![GitHub license](https://img.shields.io/github/license/aspose-cells-cloud/aspose-cells-cloud-node)](https://github.com/aspose-cells-cloud/aspose-cells-cloud-node/blob/master/LICENSE) ![GitHub commits since latest release (by date)](https://img.shields.io/github/commits-since/aspose-cells-cloud/aspose-cells-cloud-node/25.2.0)
+![](https://img.shields.io/badge/REST%20API-v3.0-lightgrey) ![npm](https://img.shields.io/npm/v/asposecellscloud) ![node-current](https://img.shields.io/node/v/asposecellscloud) [![GitHub license](https://img.shields.io/github/license/aspose-cells-cloud/aspose-cells-cloud-node)](https://github.com/aspose-cells-cloud/aspose-cells-cloud-node/blob/master/LICENSE) ![GitHub commits since latest release (by date)](https://img.shields.io/github/commits-since/aspose-cells-cloud/aspose-cells-cloud-node/25.3.0)
 
 Node.js Cloud SDK wraps Aspose.Cells REST API so you could seamlessly integrate Microsoft Excel® document generation, manipulation, conversion & inspection features into your own Node.js applications.
 
@@ -20,17 +20,15 @@ We encourage you to dive into the Developer's Guide & API Reference for a compre
 - Import/Export: Facilitates importing data from various sources into spreadsheets and exporting spreadsheet data to other formats.
 - Security Management: Offers a range of security features like data encryption, access control, and permission management to safeguard the security and integrity of spreadsheet data.
 
-## Feature & Enhancements in Version 25.2.0
+## Feature & Enhancements in Version 25.3.0
 
 Full list of issues covering all changes in this release:
 
-- Support copying a range from one workbook to another workbook.
-- Add query parameters for image and print options to enhance the Get Worksheet API.
-- Added an API to count the number of Excel characters for cells cloud.
-- Added an API to count the number of Excel words for cells cloud.
-- Added an API to count the number of occurrences of a specified word in Excel for cells cloud
-- Add a new feature to support converting range to images.
-- Add a new feature to support converting worksheets to images
+- Optimized the properties of SaveOptions to enhance performance and flexibility.
+- Optimized the conversion method of Workbook for improved efficiency and reliability.
+- Developed a new API to retrieve a comprehensive list of all styles in a workbook.
+- Enhanced all save options to improve functionality and user experience.
+- Added a new API to insert images into cells.
 
 
 ## Support file format
@@ -118,6 +116,16 @@ describe('cellsWorkbookPutConvertWorkbook', function() {
 [Product Page](https://products.aspose.cloud/cells/net) | [Documentation](https://docs.aspose.cloud/cells/) | [Live Demo](https://products.aspose.app/cells/family) | [API Reference](https://apireference.aspose.cloud/cells/) | [Code Samples](https://github.com/aspose-cells-cloud/aspose-cells-cloud-dotnet/tree/master/Examples) | [Blog](https://blog.aspose.cloud/category/cells/) | [Free Support](https://forum.aspose.cloud/c/cells) | [Free Trial](https://dashboard.aspose.cloud/#/apps)
 
 # Release history version
+
+## Enhancements in Version 25.2.0
+
+- Support copying a range from one workbook to another workbook.
+- Add query parameters for image and print options to enhance the Get Worksheet API.
+- Added an API to count the number of Excel characters for cells cloud.
+- Added an API to count the number of Excel words for cells cloud.
+- Added an API to count the number of occurrences of a specified word in Excel for cells cloud
+- Add a new feature to support converting range to images.
+- Add a new feature to support converting worksheets to images
 
 ## Enhancements in Version 25.1.0
 

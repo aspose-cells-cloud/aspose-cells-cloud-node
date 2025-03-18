@@ -7,8 +7,8 @@ const clientId = process.env.CellsCloudClientId;
 const clientSecret = process.env.CellsCloudClientSecret;
 const ApiURL = process.env.CellsCloudApiBaseUrl;
 
-//const localPath = "TestData/CellsCloud/";
-const localPath = "TestData/";
+const localPath = "TestData/CellsCloud/";
+//const localPath = "TestData/";
 var fs = require('fs');
 var path = require('path');
 var assert = require('assert');
@@ -119,33 +119,7 @@ describe('PivotTablesController test', function() {
         });
       });
     });
-    /*
-    describe('get_worksheet_pivot_table_filter test', function(){
-      it("should call GetWorksheetPivotTableFilter successfully" , function(){
-        var remoteFolder = "TestData/In"
 
-        var localName = "TestCase.xlsx"
-        var remoteName = "TestCase.xlsx"
-
-        var localNameRequest = new  model.UploadFileRequest();
-        localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
-        localNameRequest.path = remoteFolder + "/" + remoteName ;
-        localNameRequest.storageName ="";
-        cellsApi.uploadFile(localNameRequest );
-
-
-        var request = new model.GetWorksheetPivotTableFilterRequest();
-        request.name =  remoteName;
-        request.sheetName =  "Sheet3";
-        request.pivotTableIndex =  0;
-        request.filterIndex =  0;
-        request.folder =  remoteFolder;
-        request.storageName =  "";
-        return cellsApi.getWorksheetPivotTableFilter(request).then((result) => {
-            expect(result.response.statusCode).to.equal(200);
-        });
-      });
-    });*/
     describe('put_worksheet_pivot_table test', function(){
       it("should call PutWorksheetPivotTable successfully" , function(){
         var remoteFolder = "TestData/In"
@@ -205,7 +179,7 @@ describe('PivotTablesController test', function() {
         });
       });
     });
-    describe('put_worksheet_pivot_table_filter test', function(){
+   describe('put_worksheet_pivot_table_filter test', function(){
   it("should call PutWorksheetPivotTableFilter successfully" , function(){
     var remoteFolder = "TestData/In"
 
