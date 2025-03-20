@@ -75,35 +75,37 @@ To get started with Aspose.Cells Cloud for Node.js, follow these steps:
 
 1. Create an account at  [Aspose for Cloud](https://dashboard.aspose.cloud/#/apps) and obtain your application information.
 2. execute `npm install asposecellscloud --save` from the command line to install Aspose.Cells Cloud for Node.js via NPM.
-
+3. You need to set your CellsCloudClientId and CellsCloudClientSecret in the environment variables.
 ```js
-var fs = require('fs');
-var path = require('path');
-var assert = require('assert');
-const localPath = "../TestData/";
-describe('cellsWorkbookPutConvertWorkbook', function() {
-  it('should call cellsWorkbookPutConvertWorkbook successfully', function() {
-    const cellsApi =new api.CellsApi(clientId, clientSecret);
-    const filename = "Book1.xlsx";
-    var data =fs.createReadStream(localPath  + filename);
-    var req = new model.UploadFileRequest();
-    req.path = "Temp/" + filename;
-    req.file = data;
+  import { CellsApi, PutConvertWorkbookRequest, UploadFileRequest } from "asposecellscloud";
+  var fs = require('fs');
+  var path = require('path');
+  var process = require('process');
+  const _ = require('asposecellscloud');
 
-    return cellsApi.uploadFile(req)
-      .then(() => {
-        var req = new model.CellsWorkbook_PutConvertWorkbookRequest({
-          workbook : fs.createReadStream(localPath  + filename),
-          format : "pdf",
-        });
+  const cellsApi = new CellsApi(process.env.CellsCloudClientId, process.env.CellsCloudClientSecret);
 
-        return cellsApi.cellsWorkbookPutConvertWorkbook(req)
-          .then((result) => {
-            expect(result.body.toString().length).to.greaterThan(0);
-          });
-      });
-  });
-});
+  var remoteFolder = "TestData/In"
+  var localPath = "../TestData/CellsCloud/"
+  var localName = "Book1.xlsx"
+  var remoteName = "Book1.xlsx"
+
+  var localNameRequest = new  UploadFileRequest();
+  localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
+  localNameRequest.path = remoteFolder + "/" + remoteName ;
+  localNameRequest.storageName ="";
+  cellsApi.uploadFile(localNameRequest );
+
+  var format = "csv"
+
+  var mapFiles: { [key: string]: any } = {};
+
+  mapFiles[localName]= fs.createReadStream(localPath  +localName) ;
+
+  var request = new PutConvertWorkbookRequest();
+  request.file =  mapFiles;
+  request.format =  format;
+  var response  =  cellsApi.putConvertWorkbook(request);
 ```
 
 ## Aspose.Cells Cloud in Popular Languages
