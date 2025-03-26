@@ -1,6 +1,6 @@
 {
   "name": "asposecellscloud",
-  "version": "25.3.0",
+  "version": "25.3.1",
   "description": "Aspose.Cells Cloud SDK for Node.js",
   "keywords": [
     "Aspose",
@@ -28,6 +28,7 @@
   "dependencies": {
     "@types/jest": "^26.0.24",
     "@types/request": "^2.48.7",
+    "asposecellscloud": "^25.3.0",
     "request": "^2.88.2",
     "request-debug": "^0.2.0"
   },

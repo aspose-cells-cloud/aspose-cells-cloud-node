@@ -1,4 +1,4 @@
-![](https://img.shields.io/badge/REST%20API-v3.0-lightgrey) ![npm](https://img.shields.io/npm/v/asposecellscloud) ![node-current](https://img.shields.io/node/v/asposecellscloud) [![GitHub license](https://img.shields.io/github/license/aspose-cells-cloud/aspose-cells-cloud-node)](https://github.com/aspose-cells-cloud/aspose-cells-cloud-node/blob/master/LICENSE) ![GitHub commits since latest release (by date)](https://img.shields.io/github/commits-since/aspose-cells-cloud/aspose-cells-cloud-node/25.3.0)
+![](https://img.shields.io/badge/REST%20API-v3.0-lightgrey) ![npm](https://img.shields.io/npm/v/asposecellscloud) ![node-current](https://img.shields.io/node/v/asposecellscloud) [![GitHub license](https://img.shields.io/github/license/aspose-cells-cloud/aspose-cells-cloud-node)](https://github.com/aspose-cells-cloud/aspose-cells-cloud-node/blob/master/LICENSE) ![GitHub commits since latest release (by date)](https://img.shields.io/github/commits-since/aspose-cells-cloud/aspose-cells-cloud-node/25.3.1)
 
 Node.js Cloud SDK wraps Aspose.Cells REST API so you could seamlessly integrate Microsoft Excel® document generation, manipulation, conversion & inspection features into your own Node.js applications.
 
@@ -20,7 +20,7 @@ We encourage you to dive into the Developer's Guide & API Reference for a compre
 - Import/Export: Facilitates importing data from various sources into spreadsheets and exporting spreadsheet data to other formats.
 - Security Management: Offers a range of security features like data encryption, access control, and permission management to safeguard the security and integrity of spreadsheet data.
 
-## Feature & Enhancements in Version 25.3.0
+## Feature & Enhancements in Version 25.3.1
 
 Full list of issues covering all changes in this release:
 
@@ -77,35 +77,43 @@ To get started with Aspose.Cells Cloud for Node.js, follow these steps:
 2. execute `npm install asposecellscloud --save` from the command line to install Aspose.Cells Cloud for Node.js via NPM.
 3. You need to set your CellsCloudClientId and CellsCloudClientSecret in the environment variables.
 ```js
+
   import { CellsApi, PutConvertWorkbookRequest, UploadFileRequest } from "asposecellscloud";
-  var fs = require('fs');
-  var path = require('path');
-  var process = require('process');
-  const _ = require('asposecellscloud');
+var fs = require('fs');
+var path = require('path');
+var process = require('process');
+const _ = require('asposecellscloud');
 
-  const cellsApi = new CellsApi(process.env.CellsCloudClientId, process.env.CellsCloudClientSecret);
+const cellsApi = new CellsApi(process.env.CellsCloudClientId, process.env.CellsCloudClientSecret);
 
-  var remoteFolder = "TestData/In"
-  var localPath = "../TestData/CellsCloud/"
-  var localName = "Book1.xlsx"
-  var remoteName = "Book1.xlsx"
+var remoteFolder = "TestData/In"
+var localPath = "TestData/CellsCloud/"
+var localName = "Book1.xlsx"
+var remoteName = "Book1.xlsx"
 
-  var localNameRequest = new  UploadFileRequest();
-  localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
-  localNameRequest.path = remoteFolder + "/" + remoteName ;
-  localNameRequest.storageName ="";
-  cellsApi.uploadFile(localNameRequest );
 
-  var format = "csv"
+describe('quicktest', function(){
+  it("should call quicktest successfully" , function(){
+      var localNameRequest = new  UploadFileRequest();
+      localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
+      localNameRequest.path = remoteFolder + "/" + remoteName ;
+      localNameRequest.storageName ="";
+      cellsApi.uploadFile(localNameRequest );
 
-  var mapFiles: { [key: string]: any } = {};
+      var format = "csv"
 
-  mapFiles[localName]= fs.createReadStream(localPath  +localName) ;
+      var mapFiles: { [key: string]: any } = {};
 
-  var request = new PutConvertWorkbookRequest();
-  request.file =  mapFiles;
-  request.format =  format;
-  var response  =  cellsApi.putConvertWorkbook(request);
+      mapFiles[localName]= fs.createReadStream(localPath  +localName) ;
+
+      var request = new PutConvertWorkbookRequest();
+      request.file =  mapFiles;
+      request.format =  format;
+      var response  =  cellsApi.putConvertWorkbook(request);
+  });
+});
+
+
 ```
 
 ## Aspose.Cells Cloud in Popular Languages
