@@ -1,4 +1,4 @@
-![](https://img.shields.io/badge/REST%20API-v3.0-lightgrey) ![npm](https://img.shields.io/npm/v/asposecellscloud) ![node-current](https://img.shields.io/node/v/asposecellscloud) [![GitHub license](https://img.shields.io/github/license/aspose-cells-cloud/aspose-cells-cloud-node)](https://github.com/aspose-cells-cloud/aspose-cells-cloud-node/blob/master/LICENSE) ![GitHub commits since latest release (by date)](https://img.shields.io/github/commits-since/aspose-cells-cloud/aspose-cells-cloud-node/25.3.1)
+![](https://img.shields.io/badge/REST%20API-v3.0-lightgrey) ![npm](https://img.shields.io/npm/v/asposecellscloud) ![node-current](https://img.shields.io/node/v/asposecellscloud) [![GitHub license](https://img.shields.io/github/license/aspose-cells-cloud/aspose-cells-cloud-node)](https://github.com/aspose-cells-cloud/aspose-cells-cloud-node/blob/master/LICENSE) ![GitHub commits since latest release (by date)](https://img.shields.io/github/commits-since/aspose-cells-cloud/aspose-cells-cloud-node/25.3.2)
 
 Node.js Cloud SDK wraps Aspose.Cells REST API so you could seamlessly integrate Microsoft Excel® document generation, manipulation, conversion & inspection features into your own Node.js applications.
 
@@ -86,19 +86,11 @@ const _ = require('asposecellscloud');
 
 const cellsApi = new CellsApi(process.env.CellsCloudClientId, process.env.CellsCloudClientSecret);
 
-var remoteFolder = "TestData/In"
 var localPath = "TestData/CellsCloud/"
 var localName = "Book1.xlsx"
-var remoteName = "Book1.xlsx"
-
 
 describe('quicktest', function(){
   it("should call quicktest successfully" , function(){
-      var localNameRequest = new  UploadFileRequest();
-      localNameRequest.uploadFiles ={localName:fs.createReadStream(localPath  + localName)};
-      localNameRequest.path = remoteFolder + "/" + remoteName ;
-      localNameRequest.storageName ="";
-      cellsApi.uploadFile(localNameRequest );
 
       var format = "csv"
 
