@@ -7,8 +7,8 @@ const clientId = process.env.CellsCloudClientId;
 const clientSecret = process.env.CellsCloudClientSecret;
 const ApiURL = process.env.CellsCloudApiBaseUrl;
 
-const localPath = "TestData/CellsCloud/";
-//const localPath = "TestData/";
+//const localPath = "TestData/CellsCloud/";
+const localPath = "TestData/";
 var fs = require('fs');
 var path = require('path');
 var assert = require('assert');
@@ -21,16 +21,14 @@ describe('LightCells test', function() {
     describe('post_split_csv test', function(){
       it("should call PostSplit successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var book1Xlsx = "Book1.xlsx"
 
 
         var outFormat = "csv"
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
-         mapFiles[dataSourceXlsx]= fs.createReadStream(localPath  +dataSourceXlsx) ;
+         mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostSplitRequest();
         request.file =  mapFiles;
@@ -43,16 +41,14 @@ describe('LightCells test', function() {
     describe('post_split_xls test', function(){
       it("should call PostSplit successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var book1Xlsx = "Book1.xlsx"
 
 
         var outFormat = "xls"
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
-         mapFiles[dataSourceXlsx]= fs.createReadStream(localPath  +dataSourceXlsx) ;
+         mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostSplitRequest();
         request.file =  mapFiles;
@@ -65,16 +61,14 @@ describe('LightCells test', function() {
     describe('post_split_html test', function(){
       it("should call PostSplit successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var book1Xlsx = "Book1.xlsx"
 
 
         var outFormat = "html"
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
-         mapFiles[dataSourceXlsx]= fs.createReadStream(localPath  +dataSourceXlsx) ;
+         mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostSplitRequest();
         request.file =  mapFiles;
@@ -87,16 +81,14 @@ describe('LightCells test', function() {
     describe('post_split_mhtml test', function(){
       it("should call PostSplit successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var book1Xlsx = "Book1.xlsx"
 
 
         var outFormat = "mhtml"
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
-         mapFiles[dataSourceXlsx]= fs.createReadStream(localPath  +dataSourceXlsx) ;
+         mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostSplitRequest();
         request.file =  mapFiles;
@@ -109,16 +101,14 @@ describe('LightCells test', function() {
     describe('post_split_ods test', function(){
       it("should call PostSplit successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var book1Xlsx = "Book1.xlsx"
 
 
         var outFormat = "ods"
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
-         mapFiles[dataSourceXlsx]= fs.createReadStream(localPath  +dataSourceXlsx) ;
+         mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostSplitRequest();
         request.file =  mapFiles;
@@ -131,16 +121,14 @@ describe('LightCells test', function() {
     describe('post_split_pdf test', function(){
       it("should call PostSplit successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var book1Xlsx = "Book1.xlsx"
 
 
         var outFormat = "pdf"
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
-         mapFiles[dataSourceXlsx]= fs.createReadStream(localPath  +dataSourceXlsx) ;
+         mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostSplitRequest();
         request.file =  mapFiles;
@@ -153,16 +141,14 @@ describe('LightCells test', function() {
     describe('post_split_xml test', function(){
       it("should call PostSplit successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var book1Xlsx = "Book1.xlsx"
 
 
         var outFormat = "xml"
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
-         mapFiles[dataSourceXlsx]= fs.createReadStream(localPath  +dataSourceXlsx) ;
+         mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostSplitRequest();
         request.file =  mapFiles;
@@ -175,16 +161,14 @@ describe('LightCells test', function() {
     describe('post_split_txt test', function(){
       it("should call PostSplit successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var book1Xlsx = "Book1.xlsx"
 
 
         var outFormat = "txt"
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
-         mapFiles[dataSourceXlsx]= fs.createReadStream(localPath  +dataSourceXlsx) ;
+         mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostSplitRequest();
         request.file =  mapFiles;
@@ -197,16 +181,14 @@ describe('LightCells test', function() {
     describe('post_split_tif test', function(){
       it("should call PostSplit successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var book1Xlsx = "Book1.xlsx"
 
 
         var outFormat = "tif"
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
-         mapFiles[dataSourceXlsx]= fs.createReadStream(localPath  +dataSourceXlsx) ;
+         mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostSplitRequest();
         request.file =  mapFiles;
@@ -219,16 +201,14 @@ describe('LightCells test', function() {
     describe('post_split_xlsb test', function(){
       it("should call PostSplit successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var book1Xlsx = "Book1.xlsx"
 
 
         var outFormat = "xlsb"
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
-         mapFiles[dataSourceXlsx]= fs.createReadStream(localPath  +dataSourceXlsx) ;
+         mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostSplitRequest();
         request.file =  mapFiles;
@@ -241,16 +221,14 @@ describe('LightCells test', function() {
     describe('post_split_xlsx test', function(){
       it("should call PostSplit successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var book1Xlsx = "Book1.xlsx"
 
 
         var outFormat = "xlsx"
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
-         mapFiles[dataSourceXlsx]= fs.createReadStream(localPath  +dataSourceXlsx) ;
+         mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostSplitRequest();
         request.file =  mapFiles;
@@ -263,16 +241,14 @@ describe('LightCells test', function() {
     describe('post_split_xps test', function(){
       it("should call PostSplit successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var book1Xlsx = "Book1.xlsx"
 
 
         var outFormat = "xps"
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
-         mapFiles[dataSourceXlsx]= fs.createReadStream(localPath  +dataSourceXlsx) ;
+         mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostSplitRequest();
         request.file =  mapFiles;
@@ -285,16 +261,14 @@ describe('LightCells test', function() {
     describe('post_split_png test', function(){
       it("should call PostSplit successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var book1Xlsx = "Book1.xlsx"
 
 
         var outFormat = "png"
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
-         mapFiles[dataSourceXlsx]= fs.createReadStream(localPath  +dataSourceXlsx) ;
+         mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostSplitRequest();
         request.file =  mapFiles;
@@ -307,16 +281,14 @@ describe('LightCells test', function() {
     describe('post_split_jpg test', function(){
       it("should call PostSplit successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var book1Xlsx = "Book1.xlsx"
 
 
         var outFormat = "jpg"
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
-         mapFiles[dataSourceXlsx]= fs.createReadStream(localPath  +dataSourceXlsx) ;
+         mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostSplitRequest();
         request.file =  mapFiles;
@@ -329,38 +301,14 @@ describe('LightCells test', function() {
     describe('post_split_md test', function(){
       it("should call PostSplit successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var book1Xlsx = "Book1.xlsx"
 
 
         var outFormat = "md"
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
-         mapFiles[dataSourceXlsx]= fs.createReadStream(localPath  +dataSourceXlsx) ;
-
-        var request = new model.PostSplitRequest();
-        request.file =  mapFiles;
-        request.outFormat =  outFormat;
-        return cellsApi.postSplit(request).then((result) => {
-            expect(result.response.statusCode).to.equal(200);
-        });
-      });
-    });
-    describe('post_split_numbers test', function(){
-      it("should call PostSplit successfully" , function(){
-
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
-
-
-        var outFormat = "numbers"
-
-        var mapFiles = {};
-
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
-         mapFiles[dataSourceXlsx]= fs.createReadStream(localPath  +dataSourceXlsx) ;
+         mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostSplitRequest();
         request.file =  mapFiles;
@@ -373,16 +321,14 @@ describe('LightCells test', function() {
     describe('post_split_svg test', function(){
       it("should call PostSplit successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var book1Xlsx = "Book1.xlsx"
 
 
         var outFormat = "svg"
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
-         mapFiles[dataSourceXlsx]= fs.createReadStream(localPath  +dataSourceXlsx) ;
+         mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostSplitRequest();
         request.file =  mapFiles;
@@ -395,16 +341,14 @@ describe('LightCells test', function() {
     describe('post_split_docx test', function(){
       it("should call PostSplit successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var book1Xlsx = "Book1.xlsx"
 
 
         var outFormat = "docx"
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
-         mapFiles[dataSourceXlsx]= fs.createReadStream(localPath  +dataSourceXlsx) ;
+         mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostSplitRequest();
         request.file =  mapFiles;
@@ -417,16 +361,14 @@ describe('LightCells test', function() {
     describe('post_split_pptx test', function(){
       it("should call PostSplit successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var book1Xlsx = "Book1.xlsx"
 
 
         var outFormat = "pptx"
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
-         mapFiles[dataSourceXlsx]= fs.createReadStream(localPath  +dataSourceXlsx) ;
+         mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostSplitRequest();
         request.file =  mapFiles;
@@ -439,16 +381,14 @@ describe('LightCells test', function() {
     describe('post_split_json test', function(){
       it("should call PostSplit successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var book1Xlsx = "Book1.xlsx"
 
 
         var outFormat = "json"
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
-         mapFiles[dataSourceXlsx]= fs.createReadStream(localPath  +dataSourceXlsx) ;
+         mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostSplitRequest();
         request.file =  mapFiles;
@@ -461,16 +401,14 @@ describe('LightCells test', function() {
     describe('post_split_sql test', function(){
       it("should call PostSplit successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
+        var book1Xlsx = "Book1.xlsx"
 
 
         var outFormat = "sql"
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
-         mapFiles[dataSourceXlsx]= fs.createReadStream(localPath  +dataSourceXlsx) ;
+         mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostSplitRequest();
         request.file =  mapFiles;
@@ -917,29 +855,6 @@ describe('LightCells test', function() {
         });
       });
     });
-    describe('post_assemble_bmp test', function(){
-      it("should call PostAssemble successfully" , function(){
-
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
-
-
-        var format = "bmp"
-
-        var mapFiles = {};
-
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
-         mapFiles[dataSourceXlsx]= fs.createReadStream(localPath  +dataSourceXlsx) ;
-
-        var request = new model.PostAssembleRequest();
-        request.file =  mapFiles;
-        request.datasource =  "ds";
-        request.outFormat =  format;
-        return cellsApi.postAssemble(request).then((result) => {
-            expect(result.response.statusCode).to.equal(200);
-        });
-      });
-    });
     describe('post_assemble_md test', function(){
       it("should call PostAssemble successfully" , function(){
 
@@ -948,52 +863,6 @@ describe('LightCells test', function() {
 
 
         var format = "md"
-
-        var mapFiles = {};
-
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
-         mapFiles[dataSourceXlsx]= fs.createReadStream(localPath  +dataSourceXlsx) ;
-
-        var request = new model.PostAssembleRequest();
-        request.file =  mapFiles;
-        request.datasource =  "ds";
-        request.outFormat =  format;
-        return cellsApi.postAssemble(request).then((result) => {
-            expect(result.response.statusCode).to.equal(200);
-        });
-      });
-    });
-    describe('post_assemble_numbers test', function(){
-      it("should call PostAssemble successfully" , function(){
-
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
-
-
-        var format = "numbers"
-
-        var mapFiles = {};
-
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
-         mapFiles[dataSourceXlsx]= fs.createReadStream(localPath  +dataSourceXlsx) ;
-
-        var request = new model.PostAssembleRequest();
-        request.file =  mapFiles;
-        request.datasource =  "ds";
-        request.outFormat =  format;
-        return cellsApi.postAssemble(request).then((result) => {
-            expect(result.response.statusCode).to.equal(200);
-        });
-      });
-    });
-    describe('post_assemble_wmf test', function(){
-      it("should call PostAssemble successfully" , function(){
-
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
-
-
-        var format = "wmf"
 
         var mapFiles = {};
 
@@ -1127,7 +996,6 @@ describe('LightCells test', function() {
     describe('post_export_csv_workbook test', function(){
       it("should call PostExport successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
         var book1Xlsx = "Book1.xlsx"
 
 
@@ -1136,7 +1004,6 @@ describe('LightCells test', function() {
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
          mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostExportRequest();
@@ -1151,7 +1018,6 @@ describe('LightCells test', function() {
     describe('post_export_xls_workbook test', function(){
       it("should call PostExport successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
         var book1Xlsx = "Book1.xlsx"
 
 
@@ -1160,7 +1026,6 @@ describe('LightCells test', function() {
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
          mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostExportRequest();
@@ -1175,7 +1040,6 @@ describe('LightCells test', function() {
     describe('post_export_html_workbook test', function(){
       it("should call PostExport successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
         var book1Xlsx = "Book1.xlsx"
 
 
@@ -1184,7 +1048,6 @@ describe('LightCells test', function() {
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
          mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostExportRequest();
@@ -1199,7 +1062,6 @@ describe('LightCells test', function() {
     describe('post_export_mhtml_workbook test', function(){
       it("should call PostExport successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
         var book1Xlsx = "Book1.xlsx"
 
 
@@ -1208,7 +1070,6 @@ describe('LightCells test', function() {
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
          mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostExportRequest();
@@ -1223,7 +1084,6 @@ describe('LightCells test', function() {
     describe('post_export_ods_workbook test', function(){
       it("should call PostExport successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
         var book1Xlsx = "Book1.xlsx"
 
 
@@ -1232,7 +1092,6 @@ describe('LightCells test', function() {
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
          mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostExportRequest();
@@ -1247,7 +1106,6 @@ describe('LightCells test', function() {
     describe('post_export_pdf_workbook test', function(){
       it("should call PostExport successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
         var book1Xlsx = "Book1.xlsx"
 
 
@@ -1256,7 +1114,6 @@ describe('LightCells test', function() {
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
          mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostExportRequest();
@@ -1271,7 +1128,6 @@ describe('LightCells test', function() {
     describe('post_export_xml_workbook test', function(){
       it("should call PostExport successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
         var book1Xlsx = "Book1.xlsx"
 
 
@@ -1280,7 +1136,6 @@ describe('LightCells test', function() {
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
          mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostExportRequest();
@@ -1295,7 +1150,6 @@ describe('LightCells test', function() {
     describe('post_export_txt_workbook test', function(){
       it("should call PostExport successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
         var book1Xlsx = "Book1.xlsx"
 
 
@@ -1304,7 +1158,6 @@ describe('LightCells test', function() {
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
          mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostExportRequest();
@@ -1319,7 +1172,6 @@ describe('LightCells test', function() {
     describe('post_export_tif_workbook test', function(){
       it("should call PostExport successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
         var book1Xlsx = "Book1.xlsx"
 
 
@@ -1328,7 +1180,6 @@ describe('LightCells test', function() {
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
          mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostExportRequest();
@@ -1343,7 +1194,6 @@ describe('LightCells test', function() {
     describe('post_export_xlsb_workbook test', function(){
       it("should call PostExport successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
         var book1Xlsx = "Book1.xlsx"
 
 
@@ -1352,7 +1202,6 @@ describe('LightCells test', function() {
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
          mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostExportRequest();
@@ -1367,7 +1216,6 @@ describe('LightCells test', function() {
     describe('post_export_xlsm_workbook test', function(){
       it("should call PostExport successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
         var book1Xlsx = "Book1.xlsx"
 
 
@@ -1376,7 +1224,6 @@ describe('LightCells test', function() {
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
          mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostExportRequest();
@@ -1391,7 +1238,6 @@ describe('LightCells test', function() {
     describe('post_export_xlsx_workbook test', function(){
       it("should call PostExport successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
         var book1Xlsx = "Book1.xlsx"
 
 
@@ -1400,7 +1246,6 @@ describe('LightCells test', function() {
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
          mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostExportRequest();
@@ -1415,7 +1260,6 @@ describe('LightCells test', function() {
     describe('post_export_xltm_workbook test', function(){
       it("should call PostExport successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
         var book1Xlsx = "Book1.xlsx"
 
 
@@ -1424,7 +1268,6 @@ describe('LightCells test', function() {
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
          mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostExportRequest();
@@ -1439,7 +1282,6 @@ describe('LightCells test', function() {
     describe('post_export_xltx_workbook test', function(){
       it("should call PostExport successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
         var book1Xlsx = "Book1.xlsx"
 
 
@@ -1448,7 +1290,6 @@ describe('LightCells test', function() {
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
          mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostExportRequest();
@@ -1463,7 +1304,6 @@ describe('LightCells test', function() {
     describe('post_export_xps_workbook test', function(){
       it("should call PostExport successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
         var book1Xlsx = "Book1.xlsx"
 
 
@@ -1472,7 +1312,6 @@ describe('LightCells test', function() {
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
          mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostExportRequest();
@@ -1487,7 +1326,6 @@ describe('LightCells test', function() {
     describe('post_export_png_workbook test', function(){
       it("should call PostExport successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
         var book1Xlsx = "Book1.xlsx"
 
 
@@ -1496,7 +1334,6 @@ describe('LightCells test', function() {
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
          mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostExportRequest();
@@ -1511,7 +1348,6 @@ describe('LightCells test', function() {
     describe('post_export_jpg_workbook test', function(){
       it("should call PostExport successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
         var book1Xlsx = "Book1.xlsx"
 
 
@@ -1520,7 +1356,6 @@ describe('LightCells test', function() {
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
          mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostExportRequest();
@@ -1535,7 +1370,6 @@ describe('LightCells test', function() {
     describe('post_export_gif_workbook test', function(){
       it("should call PostExport successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
         var book1Xlsx = "Book1.xlsx"
 
 
@@ -1544,7 +1378,6 @@ describe('LightCells test', function() {
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
          mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostExportRequest();
@@ -1559,7 +1392,6 @@ describe('LightCells test', function() {
     describe('post_export_emf_workbook test', function(){
       it("should call PostExport successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
         var book1Xlsx = "Book1.xlsx"
 
 
@@ -1568,31 +1400,6 @@ describe('LightCells test', function() {
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
-         mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
-
-        var request = new model.PostExportRequest();
-        request.file =  mapFiles;
-        request.objectType =  objectType;
-        request.format =  format;
-        return cellsApi.postExport(request).then((result) => {
-            expect(result.response.statusCode).to.equal(200);
-        });
-      });
-    });
-    describe('post_export_bmp_workbook test', function(){
-      it("should call PostExport successfully" , function(){
-
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
-
-
-        var format = "bmp"
-        var objectType = "workbook"
-
-        var mapFiles = {};
-
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
          mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostExportRequest();
@@ -1607,7 +1414,6 @@ describe('LightCells test', function() {
     describe('post_export_md_workbook test', function(){
       it("should call PostExport successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
         var book1Xlsx = "Book1.xlsx"
 
 
@@ -1616,55 +1422,6 @@ describe('LightCells test', function() {
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
-         mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
-
-        var request = new model.PostExportRequest();
-        request.file =  mapFiles;
-        request.objectType =  objectType;
-        request.format =  format;
-        return cellsApi.postExport(request).then((result) => {
-            expect(result.response.statusCode).to.equal(200);
-        });
-      });
-    });
-    describe('post_export_numbers_workbook test', function(){
-      it("should call PostExport successfully" , function(){
-
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
-
-
-        var format = "numbers"
-        var objectType = "workbook"
-
-        var mapFiles = {};
-
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
-         mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
-
-        var request = new model.PostExportRequest();
-        request.file =  mapFiles;
-        request.objectType =  objectType;
-        request.format =  format;
-        return cellsApi.postExport(request).then((result) => {
-            expect(result.response.statusCode).to.equal(200);
-        });
-      });
-    });
-    describe('post_export_wmf_workbook test', function(){
-      it("should call PostExport successfully" , function(){
-
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
-
-
-        var format = "wmf"
-        var objectType = "workbook"
-
-        var mapFiles = {};
-
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
          mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostExportRequest();
@@ -1679,7 +1436,6 @@ describe('LightCells test', function() {
     describe('post_export_svg_workbook test', function(){
       it("should call PostExport successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
         var book1Xlsx = "Book1.xlsx"
 
 
@@ -1688,7 +1444,6 @@ describe('LightCells test', function() {
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
          mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostExportRequest();
@@ -1703,7 +1458,6 @@ describe('LightCells test', function() {
     describe('post_export_docx_workbook test', function(){
       it("should call PostExport successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
         var book1Xlsx = "Book1.xlsx"
 
 
@@ -1712,7 +1466,6 @@ describe('LightCells test', function() {
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
          mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostExportRequest();
@@ -1727,7 +1480,6 @@ describe('LightCells test', function() {
     describe('post_export_pptx_workbook test', function(){
       it("should call PostExport successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
         var book1Xlsx = "Book1.xlsx"
 
 
@@ -1736,7 +1488,6 @@ describe('LightCells test', function() {
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
          mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostExportRequest();
@@ -1751,7 +1502,6 @@ describe('LightCells test', function() {
     describe('post_export_json_workbook test', function(){
       it("should call PostExport successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
         var book1Xlsx = "Book1.xlsx"
 
 
@@ -1760,7 +1510,6 @@ describe('LightCells test', function() {
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
          mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostExportRequest();
@@ -1775,7 +1524,6 @@ describe('LightCells test', function() {
     describe('post_export_sql_workbook test', function(){
       it("should call PostExport successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
         var book1Xlsx = "Book1.xlsx"
 
 
@@ -1784,7 +1532,6 @@ describe('LightCells test', function() {
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
          mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostExportRequest();
@@ -1799,7 +1546,6 @@ describe('LightCells test', function() {
     describe('post_export_csv_worksheet test', function(){
       it("should call PostExport successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
         var book1Xlsx = "Book1.xlsx"
 
 
@@ -1808,7 +1554,6 @@ describe('LightCells test', function() {
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
          mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostExportRequest();
@@ -1823,7 +1568,6 @@ describe('LightCells test', function() {
     describe('post_export_xls_worksheet test', function(){
       it("should call PostExport successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
         var book1Xlsx = "Book1.xlsx"
 
 
@@ -1832,7 +1576,6 @@ describe('LightCells test', function() {
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
          mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostExportRequest();
@@ -1847,7 +1590,6 @@ describe('LightCells test', function() {
     describe('post_export_html_worksheet test', function(){
       it("should call PostExport successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
         var book1Xlsx = "Book1.xlsx"
 
 
@@ -1856,7 +1598,6 @@ describe('LightCells test', function() {
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
          mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostExportRequest();
@@ -1871,7 +1612,6 @@ describe('LightCells test', function() {
     describe('post_export_mhtml_worksheet test', function(){
       it("should call PostExport successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
         var book1Xlsx = "Book1.xlsx"
 
 
@@ -1880,7 +1620,6 @@ describe('LightCells test', function() {
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
          mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostExportRequest();
@@ -1895,7 +1634,6 @@ describe('LightCells test', function() {
     describe('post_export_ods_worksheet test', function(){
       it("should call PostExport successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
         var book1Xlsx = "Book1.xlsx"
 
 
@@ -1904,7 +1642,6 @@ describe('LightCells test', function() {
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
          mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostExportRequest();
@@ -1919,7 +1656,6 @@ describe('LightCells test', function() {
     describe('post_export_pdf_worksheet test', function(){
       it("should call PostExport successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
         var book1Xlsx = "Book1.xlsx"
 
 
@@ -1928,7 +1664,6 @@ describe('LightCells test', function() {
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
          mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostExportRequest();
@@ -1943,7 +1678,6 @@ describe('LightCells test', function() {
     describe('post_export_xml_worksheet test', function(){
       it("should call PostExport successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
         var book1Xlsx = "Book1.xlsx"
 
 
@@ -1952,7 +1686,6 @@ describe('LightCells test', function() {
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
          mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostExportRequest();
@@ -1967,7 +1700,6 @@ describe('LightCells test', function() {
     describe('post_export_txt_worksheet test', function(){
       it("should call PostExport successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
         var book1Xlsx = "Book1.xlsx"
 
 
@@ -1976,7 +1708,6 @@ describe('LightCells test', function() {
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
          mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostExportRequest();
@@ -1991,7 +1722,6 @@ describe('LightCells test', function() {
     describe('post_export_tif_worksheet test', function(){
       it("should call PostExport successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
         var book1Xlsx = "Book1.xlsx"
 
 
@@ -2000,7 +1730,6 @@ describe('LightCells test', function() {
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
          mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostExportRequest();
@@ -2015,7 +1744,6 @@ describe('LightCells test', function() {
     describe('post_export_xlsb_worksheet test', function(){
       it("should call PostExport successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
         var book1Xlsx = "Book1.xlsx"
 
 
@@ -2024,7 +1752,6 @@ describe('LightCells test', function() {
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
          mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostExportRequest();
@@ -2039,7 +1766,6 @@ describe('LightCells test', function() {
     describe('post_export_xlsm_worksheet test', function(){
       it("should call PostExport successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
         var book1Xlsx = "Book1.xlsx"
 
 
@@ -2048,7 +1774,6 @@ describe('LightCells test', function() {
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
          mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostExportRequest();
@@ -2063,7 +1788,6 @@ describe('LightCells test', function() {
     describe('post_export_xlsx_worksheet test', function(){
       it("should call PostExport successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
         var book1Xlsx = "Book1.xlsx"
 
 
@@ -2072,7 +1796,6 @@ describe('LightCells test', function() {
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
          mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostExportRequest();
@@ -2087,7 +1810,6 @@ describe('LightCells test', function() {
     describe('post_export_xltm_worksheet test', function(){
       it("should call PostExport successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
         var book1Xlsx = "Book1.xlsx"
 
 
@@ -2096,7 +1818,6 @@ describe('LightCells test', function() {
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
          mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostExportRequest();
@@ -2111,7 +1832,6 @@ describe('LightCells test', function() {
     describe('post_export_xltx_worksheet test', function(){
       it("should call PostExport successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
         var book1Xlsx = "Book1.xlsx"
 
 
@@ -2120,7 +1840,6 @@ describe('LightCells test', function() {
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
          mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostExportRequest();
@@ -2135,7 +1854,6 @@ describe('LightCells test', function() {
     describe('post_export_xps_worksheet test', function(){
       it("should call PostExport successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
         var book1Xlsx = "Book1.xlsx"
 
 
@@ -2144,7 +1862,6 @@ describe('LightCells test', function() {
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
          mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostExportRequest();
@@ -2159,7 +1876,6 @@ describe('LightCells test', function() {
     describe('post_export_png_worksheet test', function(){
       it("should call PostExport successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
         var book1Xlsx = "Book1.xlsx"
 
 
@@ -2168,7 +1884,6 @@ describe('LightCells test', function() {
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
          mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostExportRequest();
@@ -2183,7 +1898,6 @@ describe('LightCells test', function() {
     describe('post_export_jpg_worksheet test', function(){
       it("should call PostExport successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
         var book1Xlsx = "Book1.xlsx"
 
 
@@ -2192,7 +1906,6 @@ describe('LightCells test', function() {
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
          mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostExportRequest();
@@ -2207,7 +1920,6 @@ describe('LightCells test', function() {
     describe('post_export_gif_worksheet test', function(){
       it("should call PostExport successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
         var book1Xlsx = "Book1.xlsx"
 
 
@@ -2216,7 +1928,6 @@ describe('LightCells test', function() {
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
          mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostExportRequest();
@@ -2231,7 +1942,6 @@ describe('LightCells test', function() {
     describe('post_export_emf_worksheet test', function(){
       it("should call PostExport successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
         var book1Xlsx = "Book1.xlsx"
 
 
@@ -2240,7 +1950,6 @@ describe('LightCells test', function() {
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
          mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostExportRequest();
@@ -2255,7 +1964,6 @@ describe('LightCells test', function() {
     describe('post_export_bmp_worksheet test', function(){
       it("should call PostExport successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
         var book1Xlsx = "Book1.xlsx"
 
 
@@ -2264,7 +1972,6 @@ describe('LightCells test', function() {
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
          mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostExportRequest();
@@ -2279,7 +1986,6 @@ describe('LightCells test', function() {
     describe('post_export_md_worksheet test', function(){
       it("should call PostExport successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
         var book1Xlsx = "Book1.xlsx"
 
 
@@ -2288,55 +1994,6 @@ describe('LightCells test', function() {
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
-         mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
-
-        var request = new model.PostExportRequest();
-        request.file =  mapFiles;
-        request.objectType =  objectType;
-        request.format =  format;
-        return cellsApi.postExport(request).then((result) => {
-            expect(result.response.statusCode).to.equal(200);
-        });
-      });
-    });
-    describe('post_export_numbers_worksheet test', function(){
-      it("should call PostExport successfully" , function(){
-
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
-
-
-        var format = "numbers"
-        var objectType = "worksheet"
-
-        var mapFiles = {};
-
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
-         mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
-
-        var request = new model.PostExportRequest();
-        request.file =  mapFiles;
-        request.objectType =  objectType;
-        request.format =  format;
-        return cellsApi.postExport(request).then((result) => {
-            expect(result.response.statusCode).to.equal(200);
-        });
-      });
-    });
-    describe('post_export_wmf_worksheet test', function(){
-      it("should call PostExport successfully" , function(){
-
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
-
-
-        var format = "wmf"
-        var objectType = "worksheet"
-
-        var mapFiles = {};
-
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
          mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostExportRequest();
@@ -2351,7 +2008,6 @@ describe('LightCells test', function() {
     describe('post_export_svg_worksheet test', function(){
       it("should call PostExport successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
         var book1Xlsx = "Book1.xlsx"
 
 
@@ -2360,7 +2016,6 @@ describe('LightCells test', function() {
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
          mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostExportRequest();
@@ -2375,7 +2030,6 @@ describe('LightCells test', function() {
     describe('post_export_docx_worksheet test', function(){
       it("should call PostExport successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
         var book1Xlsx = "Book1.xlsx"
 
 
@@ -2384,7 +2038,6 @@ describe('LightCells test', function() {
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
          mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostExportRequest();
@@ -2399,7 +2052,6 @@ describe('LightCells test', function() {
     describe('post_export_pptx_worksheet test', function(){
       it("should call PostExport successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
         var book1Xlsx = "Book1.xlsx"
 
 
@@ -2408,7 +2060,6 @@ describe('LightCells test', function() {
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
          mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostExportRequest();
@@ -2423,7 +2074,6 @@ describe('LightCells test', function() {
     describe('post_export_json_worksheet test', function(){
       it("should call PostExport successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
         var book1Xlsx = "Book1.xlsx"
 
 
@@ -2432,7 +2082,6 @@ describe('LightCells test', function() {
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
          mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostExportRequest();
@@ -2447,7 +2096,6 @@ describe('LightCells test', function() {
     describe('post_export_sql_worksheet test', function(){
       it("should call PostExport successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
         var book1Xlsx = "Book1.xlsx"
 
 
@@ -2456,7 +2104,6 @@ describe('LightCells test', function() {
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
          mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostExportRequest();
@@ -2471,7 +2118,6 @@ describe('LightCells test', function() {
     describe('post_export_pdf_chart test', function(){
       it("should call PostExport successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
         var book1Xlsx = "Book1.xlsx"
 
 
@@ -2480,7 +2126,6 @@ describe('LightCells test', function() {
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
          mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostExportRequest();
@@ -2495,7 +2140,6 @@ describe('LightCells test', function() {
     describe('post_export_tif_chart test', function(){
       it("should call PostExport successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
         var book1Xlsx = "Book1.xlsx"
 
 
@@ -2504,7 +2148,6 @@ describe('LightCells test', function() {
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
          mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostExportRequest();
@@ -2519,7 +2162,6 @@ describe('LightCells test', function() {
     describe('post_export_png_chart test', function(){
       it("should call PostExport successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
         var book1Xlsx = "Book1.xlsx"
 
 
@@ -2528,7 +2170,6 @@ describe('LightCells test', function() {
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
          mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostExportRequest();
@@ -2543,7 +2184,6 @@ describe('LightCells test', function() {
     describe('post_export_jpg_chart test', function(){
       it("should call PostExport successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
         var book1Xlsx = "Book1.xlsx"
 
 
@@ -2552,7 +2192,6 @@ describe('LightCells test', function() {
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
          mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostExportRequest();
@@ -2567,7 +2206,6 @@ describe('LightCells test', function() {
     describe('post_export_gif_chart test', function(){
       it("should call PostExport successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
         var book1Xlsx = "Book1.xlsx"
 
 
@@ -2576,7 +2214,6 @@ describe('LightCells test', function() {
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
          mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostExportRequest();
@@ -2591,7 +2228,6 @@ describe('LightCells test', function() {
     describe('post_export_emf_chart test', function(){
       it("should call PostExport successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
         var book1Xlsx = "Book1.xlsx"
 
 
@@ -2600,7 +2236,6 @@ describe('LightCells test', function() {
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
          mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostExportRequest();
@@ -2615,7 +2250,6 @@ describe('LightCells test', function() {
     describe('post_export_bmp_chart test', function(){
       it("should call PostExport successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
         var book1Xlsx = "Book1.xlsx"
 
 
@@ -2624,7 +2258,6 @@ describe('LightCells test', function() {
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
          mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostExportRequest();
@@ -2639,7 +2272,6 @@ describe('LightCells test', function() {
     describe('post_export_png_picture test', function(){
       it("should call PostExport successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
         var book1Xlsx = "Book1.xlsx"
 
 
@@ -2648,7 +2280,6 @@ describe('LightCells test', function() {
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
          mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostExportRequest();
@@ -2663,7 +2294,6 @@ describe('LightCells test', function() {
     describe('post_export_jpg_picture test', function(){
       it("should call PostExport successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
         var book1Xlsx = "Book1.xlsx"
 
 
@@ -2672,7 +2302,6 @@ describe('LightCells test', function() {
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
          mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostExportRequest();
@@ -2687,7 +2316,6 @@ describe('LightCells test', function() {
     describe('post_export_gif_picture test', function(){
       it("should call PostExport successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
         var book1Xlsx = "Book1.xlsx"
 
 
@@ -2696,7 +2324,6 @@ describe('LightCells test', function() {
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
          mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostExportRequest();
@@ -2711,7 +2338,6 @@ describe('LightCells test', function() {
     describe('post_export_emf_picture test', function(){
       it("should call PostExport successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
         var book1Xlsx = "Book1.xlsx"
 
 
@@ -2720,7 +2346,6 @@ describe('LightCells test', function() {
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
          mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostExportRequest();
@@ -2735,7 +2360,6 @@ describe('LightCells test', function() {
     describe('post_export_bmp_picture test', function(){
       it("should call PostExport successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
         var book1Xlsx = "Book1.xlsx"
 
 
@@ -2744,7 +2368,6 @@ describe('LightCells test', function() {
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
          mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostExportRequest();
@@ -2759,7 +2382,6 @@ describe('LightCells test', function() {
     describe('post_export_csv_listobject test', function(){
       it("should call PostExport successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
         var book1Xlsx = "Book1.xlsx"
 
 
@@ -2768,7 +2390,6 @@ describe('LightCells test', function() {
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
          mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostExportRequest();
@@ -2783,7 +2404,6 @@ describe('LightCells test', function() {
     describe('post_export_xls_listobject test', function(){
       it("should call PostExport successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
         var book1Xlsx = "Book1.xlsx"
 
 
@@ -2792,7 +2412,6 @@ describe('LightCells test', function() {
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
          mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostExportRequest();
@@ -2807,7 +2426,6 @@ describe('LightCells test', function() {
     describe('post_export_html_listobject test', function(){
       it("should call PostExport successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
         var book1Xlsx = "Book1.xlsx"
 
 
@@ -2816,7 +2434,6 @@ describe('LightCells test', function() {
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
          mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostExportRequest();
@@ -2831,7 +2448,6 @@ describe('LightCells test', function() {
     describe('post_export_mhtml_listobject test', function(){
       it("should call PostExport successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
         var book1Xlsx = "Book1.xlsx"
 
 
@@ -2840,7 +2456,6 @@ describe('LightCells test', function() {
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
          mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostExportRequest();
@@ -2855,7 +2470,6 @@ describe('LightCells test', function() {
     describe('post_export_ods_listobject test', function(){
       it("should call PostExport successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
         var book1Xlsx = "Book1.xlsx"
 
 
@@ -2864,7 +2478,6 @@ describe('LightCells test', function() {
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
          mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostExportRequest();
@@ -2879,7 +2492,6 @@ describe('LightCells test', function() {
     describe('post_export_pdf_listobject test', function(){
       it("should call PostExport successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
         var book1Xlsx = "Book1.xlsx"
 
 
@@ -2888,7 +2500,6 @@ describe('LightCells test', function() {
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
          mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostExportRequest();
@@ -2903,7 +2514,6 @@ describe('LightCells test', function() {
     describe('post_export_xml_listobject test', function(){
       it("should call PostExport successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
         var book1Xlsx = "Book1.xlsx"
 
 
@@ -2912,7 +2522,6 @@ describe('LightCells test', function() {
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
          mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostExportRequest();
@@ -2927,7 +2536,6 @@ describe('LightCells test', function() {
     describe('post_export_txt_listobject test', function(){
       it("should call PostExport successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
         var book1Xlsx = "Book1.xlsx"
 
 
@@ -2936,7 +2544,6 @@ describe('LightCells test', function() {
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
          mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostExportRequest();
@@ -2951,7 +2558,6 @@ describe('LightCells test', function() {
     describe('post_export_tif_listobject test', function(){
       it("should call PostExport successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
         var book1Xlsx = "Book1.xlsx"
 
 
@@ -2960,7 +2566,6 @@ describe('LightCells test', function() {
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
          mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostExportRequest();
@@ -2975,7 +2580,6 @@ describe('LightCells test', function() {
     describe('post_export_xlsb_listobject test', function(){
       it("should call PostExport successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
         var book1Xlsx = "Book1.xlsx"
 
 
@@ -2984,7 +2588,6 @@ describe('LightCells test', function() {
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
          mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostExportRequest();
@@ -2999,7 +2602,6 @@ describe('LightCells test', function() {
     describe('post_export_xlsm_listobject test', function(){
       it("should call PostExport successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
         var book1Xlsx = "Book1.xlsx"
 
 
@@ -3008,7 +2610,6 @@ describe('LightCells test', function() {
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
          mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostExportRequest();
@@ -3023,7 +2624,6 @@ describe('LightCells test', function() {
     describe('post_export_xlsx_listobject test', function(){
       it("should call PostExport successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
         var book1Xlsx = "Book1.xlsx"
 
 
@@ -3032,7 +2632,6 @@ describe('LightCells test', function() {
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
          mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostExportRequest();
@@ -3047,7 +2646,6 @@ describe('LightCells test', function() {
     describe('post_export_xltm_listobject test', function(){
       it("should call PostExport successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
         var book1Xlsx = "Book1.xlsx"
 
 
@@ -3056,7 +2654,6 @@ describe('LightCells test', function() {
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
          mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostExportRequest();
@@ -3071,7 +2668,6 @@ describe('LightCells test', function() {
     describe('post_export_xltx_listobject test', function(){
       it("should call PostExport successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
         var book1Xlsx = "Book1.xlsx"
 
 
@@ -3080,7 +2676,6 @@ describe('LightCells test', function() {
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
          mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostExportRequest();
@@ -3095,7 +2690,6 @@ describe('LightCells test', function() {
     describe('post_export_xps_listobject test', function(){
       it("should call PostExport successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
         var book1Xlsx = "Book1.xlsx"
 
 
@@ -3104,7 +2698,6 @@ describe('LightCells test', function() {
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
          mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostExportRequest();
@@ -3119,7 +2712,6 @@ describe('LightCells test', function() {
     describe('post_export_png_listobject test', function(){
       it("should call PostExport successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
         var book1Xlsx = "Book1.xlsx"
 
 
@@ -3128,7 +2720,6 @@ describe('LightCells test', function() {
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
          mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostExportRequest();
@@ -3143,7 +2734,6 @@ describe('LightCells test', function() {
     describe('post_export_jpg_listobject test', function(){
       it("should call PostExport successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
         var book1Xlsx = "Book1.xlsx"
 
 
@@ -3152,7 +2742,6 @@ describe('LightCells test', function() {
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
          mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostExportRequest();
@@ -3167,7 +2756,6 @@ describe('LightCells test', function() {
     describe('post_export_gif_listobject test', function(){
       it("should call PostExport successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
         var book1Xlsx = "Book1.xlsx"
 
 
@@ -3176,7 +2764,6 @@ describe('LightCells test', function() {
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
          mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostExportRequest();
@@ -3191,7 +2778,6 @@ describe('LightCells test', function() {
     describe('post_export_emf_listobject test', function(){
       it("should call PostExport successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
         var book1Xlsx = "Book1.xlsx"
 
 
@@ -3200,7 +2786,6 @@ describe('LightCells test', function() {
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
          mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostExportRequest();
@@ -3215,7 +2800,6 @@ describe('LightCells test', function() {
     describe('post_export_bmp_listobject test', function(){
       it("should call PostExport successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
         var book1Xlsx = "Book1.xlsx"
 
 
@@ -3224,7 +2808,6 @@ describe('LightCells test', function() {
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
          mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostExportRequest();
@@ -3239,7 +2822,6 @@ describe('LightCells test', function() {
     describe('post_export_md_listobject test', function(){
       it("should call PostExport successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
         var book1Xlsx = "Book1.xlsx"
 
 
@@ -3248,55 +2830,6 @@ describe('LightCells test', function() {
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
-         mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
-
-        var request = new model.PostExportRequest();
-        request.file =  mapFiles;
-        request.objectType =  objectType;
-        request.format =  format;
-        return cellsApi.postExport(request).then((result) => {
-            expect(result.response.statusCode).to.equal(200);
-        });
-      });
-    });
-    describe('post_export_numbers_listobject test', function(){
-      it("should call PostExport successfully" , function(){
-
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
-
-
-        var format = "numbers"
-        var objectType = "listobject"
-
-        var mapFiles = {};
-
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
-         mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
-
-        var request = new model.PostExportRequest();
-        request.file =  mapFiles;
-        request.objectType =  objectType;
-        request.format =  format;
-        return cellsApi.postExport(request).then((result) => {
-            expect(result.response.statusCode).to.equal(200);
-        });
-      });
-    });
-    describe('post_export_wmf_listobject test', function(){
-      it("should call PostExport successfully" , function(){
-
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var book1Xlsx = "Book1.xlsx"
-
-
-        var format = "wmf"
-        var objectType = "listobject"
-
-        var mapFiles = {};
-
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
          mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostExportRequest();
@@ -3311,7 +2844,6 @@ describe('LightCells test', function() {
     describe('post_export_svg_listobject test', function(){
       it("should call PostExport successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
         var book1Xlsx = "Book1.xlsx"
 
 
@@ -3320,7 +2852,6 @@ describe('LightCells test', function() {
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
          mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostExportRequest();
@@ -3335,7 +2866,6 @@ describe('LightCells test', function() {
     describe('post_export_docx_listobject test', function(){
       it("should call PostExport successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
         var book1Xlsx = "Book1.xlsx"
 
 
@@ -3344,7 +2874,6 @@ describe('LightCells test', function() {
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
          mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostExportRequest();
@@ -3359,7 +2888,6 @@ describe('LightCells test', function() {
     describe('post_export_pptx_listobject test', function(){
       it("should call PostExport successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
         var book1Xlsx = "Book1.xlsx"
 
 
@@ -3368,7 +2896,6 @@ describe('LightCells test', function() {
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
          mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostExportRequest();
@@ -3383,7 +2910,6 @@ describe('LightCells test', function() {
     describe('post_export_json_listobject test', function(){
       it("should call PostExport successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
         var book1Xlsx = "Book1.xlsx"
 
 
@@ -3392,7 +2918,6 @@ describe('LightCells test', function() {
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
          mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostExportRequest();
@@ -3407,7 +2932,6 @@ describe('LightCells test', function() {
     describe('post_export_sql_listobject test', function(){
       it("should call PostExport successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
         var book1Xlsx = "Book1.xlsx"
 
 
@@ -3416,7 +2940,6 @@ describe('LightCells test', function() {
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
          mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostExportRequest();
@@ -3431,7 +2954,6 @@ describe('LightCells test', function() {
     describe('post_export_png_oleobject test', function(){
       it("should call PostExport successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
         var book1Xlsx = "Book1.xlsx"
 
 
@@ -3440,7 +2962,6 @@ describe('LightCells test', function() {
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
          mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostExportRequest();
@@ -3455,7 +2976,6 @@ describe('LightCells test', function() {
     describe('post_export_jpg_oleobject test', function(){
       it("should call PostExport successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
         var book1Xlsx = "Book1.xlsx"
 
 
@@ -3464,7 +2984,6 @@ describe('LightCells test', function() {
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
          mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostExportRequest();
@@ -3479,7 +2998,6 @@ describe('LightCells test', function() {
     describe('post_export_gif_oleobject test', function(){
       it("should call PostExport successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
         var book1Xlsx = "Book1.xlsx"
 
 
@@ -3488,7 +3006,6 @@ describe('LightCells test', function() {
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
          mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostExportRequest();
@@ -3503,7 +3020,6 @@ describe('LightCells test', function() {
     describe('post_export_emf_oleobject test', function(){
       it("should call PostExport successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
         var book1Xlsx = "Book1.xlsx"
 
 
@@ -3512,7 +3028,6 @@ describe('LightCells test', function() {
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
          mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostExportRequest();
@@ -3527,7 +3042,6 @@ describe('LightCells test', function() {
     describe('post_export_bmp_oleobject test', function(){
       it("should call PostExport successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
         var book1Xlsx = "Book1.xlsx"
 
 
@@ -3536,7 +3050,6 @@ describe('LightCells test', function() {
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
          mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
         var request = new model.PostExportRequest();
@@ -3551,7 +3064,6 @@ describe('LightCells test', function() {
     describe('post_compress_50 test', function(){
       it("should call PostCompress successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
         var dataSourceXlsx = "datasource.xlsx"
 
 
@@ -3559,7 +3071,6 @@ describe('LightCells test', function() {
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
          mapFiles[dataSourceXlsx]= fs.createReadStream(localPath  +dataSourceXlsx) ;
 
         var request = new model.PostCompressRequest();
@@ -3573,7 +3084,6 @@ describe('LightCells test', function() {
     describe('post_compress_90 test', function(){
       it("should call PostCompress successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
         var dataSourceXlsx = "datasource.xlsx"
 
 
@@ -3581,7 +3091,6 @@ describe('LightCells test', function() {
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
          mapFiles[dataSourceXlsx]= fs.createReadStream(localPath  +dataSourceXlsx) ;
 
         var request = new model.PostCompressRequest();
@@ -4096,54 +3605,6 @@ describe('LightCells test', function() {
         });
       });
     });
-    describe('post_merge_numbers_true test', function(){
-      it("should call PostMerge successfully" , function(){
-
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
-
-
-        var format = "numbers"
-        var mergeToOneSheet = true
-
-        var mapFiles = {};
-
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
-         mapFiles[dataSourceXlsx]= fs.createReadStream(localPath  +dataSourceXlsx) ;
-
-        var request = new model.PostMergeRequest();
-        request.file =  mapFiles;
-        request.outFormat =  format;
-        request.mergeToOneSheet =  mergeToOneSheet;
-        return cellsApi.postMerge(request).then((result) => {
-            expect(result.response.statusCode).to.equal(200);
-        });
-      });
-    });
-    describe('post_merge_wmf_true test', function(){
-      it("should call PostMerge successfully" , function(){
-
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
-
-
-        var format = "wmf"
-        var mergeToOneSheet = true
-
-        var mapFiles = {};
-
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
-         mapFiles[dataSourceXlsx]= fs.createReadStream(localPath  +dataSourceXlsx) ;
-
-        var request = new model.PostMergeRequest();
-        request.file =  mapFiles;
-        request.outFormat =  format;
-        request.mergeToOneSheet =  mergeToOneSheet;
-        return cellsApi.postMerge(request).then((result) => {
-            expect(result.response.statusCode).to.equal(200);
-        });
-      });
-    });
     describe('post_merge_svg_true test', function(){
       it("should call PostMerge successfully" , function(){
 
@@ -4282,11 +3743,11 @@ describe('LightCells test', function() {
         });
       });
     });
+
     describe('post_protect test', function(){
       it("should call PostProtect successfully" , function(){
 
         var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
 
 
         var mapFiles = {};
@@ -4295,7 +3756,6 @@ describe('LightCells test', function() {
          protectWorkbookRequest.awaysOpenReadOnly = true  ;
          protectWorkbookRequest.encryptWithPassword = "123456"  ;
          mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
-         mapFiles[dataSourceXlsx]= fs.createReadStream(localPath  +dataSourceXlsx) ;
 
         var request = new model.PostProtectRequest();
         request.file =  mapFiles;
@@ -4309,7 +3769,6 @@ describe('LightCells test', function() {
     describe('post_protect__protect_workbook_request test', function(){
       it("should call PostProtect successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
         var dataSourceXlsx = "datasource.xlsx"
 
 
@@ -4318,7 +3777,6 @@ describe('LightCells test', function() {
         var protectWorkbookRequest = new model.ProtectWorkbookRequest();
          protectWorkbookRequest.awaysOpenReadOnly = true  ;
          protectWorkbookRequest.encryptWithPassword = "123456"  ;
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
          mapFiles[dataSourceXlsx]= fs.createReadStream(localPath  +dataSourceXlsx) ;
 
         var request = new model.PostProtectRequest();
@@ -4332,13 +3790,11 @@ describe('LightCells test', function() {
     describe('post_search test', function(){
       it("should call PostSearch successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
         var dataSourceXlsx = "datasource.xlsx"
 
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
          mapFiles[dataSourceXlsx]= fs.createReadStream(localPath  +dataSourceXlsx) ;
 
         var request = new model.PostSearchRequest();
@@ -4352,13 +3808,11 @@ describe('LightCells test', function() {
     describe('post_replace test', function(){
       it("should call PostReplace successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
         var dataSourceXlsx = "datasource.xlsx"
 
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
          mapFiles[dataSourceXlsx]= fs.createReadStream(localPath  +dataSourceXlsx) ;
 
         var request = new model.PostReplaceRequest();
@@ -4373,13 +3827,11 @@ describe('LightCells test', function() {
     describe('post_replace_only_sheetname test', function(){
       it("should call PostReplace successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
         var dataSourceXlsx = "datasource.xlsx"
 
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
          mapFiles[dataSourceXlsx]= fs.createReadStream(localPath  +dataSourceXlsx) ;
 
         var request = new model.PostReplaceRequest();
@@ -4395,13 +3847,11 @@ describe('LightCells test', function() {
     describe('post_watermark test', function(){
       it("should call PostWatermark successfully" , function(){
 
-        var assemblyTestXlsx = "assemblytest.xlsx"
         var dataSourceXlsx = "datasource.xlsx"
 
 
         var mapFiles = {};
 
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
          mapFiles[dataSourceXlsx]= fs.createReadStream(localPath  +dataSourceXlsx) ;
 
         var request = new model.PostWatermarkRequest();
@@ -4417,7 +3867,6 @@ describe('LightCells test', function() {
       it("should call PostClearObjects successfully" , function(){
 
         var book1Xlsx = "Book1.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
 
 
         var objecttype = "chart"
@@ -4425,7 +3874,6 @@ describe('LightCells test', function() {
         var mapFiles = {};
 
          mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
-         mapFiles[dataSourceXlsx]= fs.createReadStream(localPath  +dataSourceXlsx) ;
 
         var request = new model.PostClearObjectsRequest();
         request.file =  mapFiles;
@@ -4439,7 +3887,6 @@ describe('LightCells test', function() {
       it("should call PostClearObjects successfully" , function(){
 
         var book1Xlsx = "Book1.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
 
 
         var objecttype = "comment"
@@ -4447,7 +3894,6 @@ describe('LightCells test', function() {
         var mapFiles = {};
 
          mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
-         mapFiles[dataSourceXlsx]= fs.createReadStream(localPath  +dataSourceXlsx) ;
 
         var request = new model.PostClearObjectsRequest();
         request.file =  mapFiles;
@@ -4461,7 +3907,6 @@ describe('LightCells test', function() {
       it("should call PostClearObjects successfully" , function(){
 
         var book1Xlsx = "Book1.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
 
 
         var objecttype = "picture"
@@ -4469,7 +3914,6 @@ describe('LightCells test', function() {
         var mapFiles = {};
 
          mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
-         mapFiles[dataSourceXlsx]= fs.createReadStream(localPath  +dataSourceXlsx) ;
 
         var request = new model.PostClearObjectsRequest();
         request.file =  mapFiles;
@@ -4483,7 +3927,6 @@ describe('LightCells test', function() {
       it("should call PostClearObjects successfully" , function(){
 
         var book1Xlsx = "Book1.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
 
 
         var objecttype = "shape"
@@ -4491,7 +3934,6 @@ describe('LightCells test', function() {
         var mapFiles = {};
 
          mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
-         mapFiles[dataSourceXlsx]= fs.createReadStream(localPath  +dataSourceXlsx) ;
 
         var request = new model.PostClearObjectsRequest();
         request.file =  mapFiles;
@@ -4505,7 +3947,6 @@ describe('LightCells test', function() {
       it("should call PostClearObjects successfully" , function(){
 
         var book1Xlsx = "Book1.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
 
 
         var objecttype = "listobject"
@@ -4513,7 +3954,6 @@ describe('LightCells test', function() {
         var mapFiles = {};
 
          mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
-         mapFiles[dataSourceXlsx]= fs.createReadStream(localPath  +dataSourceXlsx) ;
 
         var request = new model.PostClearObjectsRequest();
         request.file =  mapFiles;
@@ -4527,7 +3967,6 @@ describe('LightCells test', function() {
       it("should call PostClearObjects successfully" , function(){
 
         var book1Xlsx = "Book1.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
 
 
         var objecttype = "hyperlink"
@@ -4535,7 +3974,6 @@ describe('LightCells test', function() {
         var mapFiles = {};
 
          mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
-         mapFiles[dataSourceXlsx]= fs.createReadStream(localPath  +dataSourceXlsx) ;
 
         var request = new model.PostClearObjectsRequest();
         request.file =  mapFiles;
@@ -4549,7 +3987,6 @@ describe('LightCells test', function() {
       it("should call PostClearObjects successfully" , function(){
 
         var book1Xlsx = "Book1.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
 
 
         var objecttype = "oleobject"
@@ -4557,7 +3994,6 @@ describe('LightCells test', function() {
         var mapFiles = {};
 
          mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
-         mapFiles[dataSourceXlsx]= fs.createReadStream(localPath  +dataSourceXlsx) ;
 
         var request = new model.PostClearObjectsRequest();
         request.file =  mapFiles;
@@ -4571,7 +4007,6 @@ describe('LightCells test', function() {
       it("should call PostClearObjects successfully" , function(){
 
         var book1Xlsx = "Book1.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
 
 
         var objecttype = "pivottable"
@@ -4579,7 +4014,6 @@ describe('LightCells test', function() {
         var mapFiles = {};
 
          mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
-         mapFiles[dataSourceXlsx]= fs.createReadStream(localPath  +dataSourceXlsx) ;
 
         var request = new model.PostClearObjectsRequest();
         request.file =  mapFiles;
@@ -4593,7 +4027,6 @@ describe('LightCells test', function() {
       it("should call PostClearObjects successfully" , function(){
 
         var book1Xlsx = "Book1.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
 
 
         var objecttype = "validation"
@@ -4601,7 +4034,6 @@ describe('LightCells test', function() {
         var mapFiles = {};
 
          mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
-         mapFiles[dataSourceXlsx]= fs.createReadStream(localPath  +dataSourceXlsx) ;
 
         var request = new model.PostClearObjectsRequest();
         request.file =  mapFiles;
@@ -4615,7 +4047,6 @@ describe('LightCells test', function() {
       it("should call PostClearObjects successfully" , function(){
 
         var book1Xlsx = "Book1.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
 
 
         var objecttype = "Background"
@@ -4623,7 +4054,6 @@ describe('LightCells test', function() {
         var mapFiles = {};
 
          mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
-         mapFiles[dataSourceXlsx]= fs.createReadStream(localPath  +dataSourceXlsx) ;
 
         var request = new model.PostClearObjectsRequest();
         request.file =  mapFiles;

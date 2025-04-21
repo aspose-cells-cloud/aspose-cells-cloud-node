@@ -7,8 +7,8 @@ const clientId = process.env.CellsCloudClientId;
 const clientSecret = process.env.CellsCloudClientSecret;
 const ApiURL = process.env.CellsCloudApiBaseUrl;
 
-const localPath = "TestData/CellsCloud/";
-//const localPath = "TestData/";
+//const localPath = "TestData/CellsCloud/";
+const localPath = "TestData/";
 var fs = require('fs');
 var path = require('path');
 var assert = require('assert');
@@ -179,7 +179,7 @@ describe('PivotTablesController test', function() {
         });
       });
     });
-   describe('put_worksheet_pivot_table_filter test', function(){
+    describe('put_worksheet_pivot_table_filter test', function(){
   it("should call PutWorksheetPivotTableFilter successfully" , function(){
     var remoteFolder = "TestData/In"
 

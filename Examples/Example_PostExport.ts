@@ -5,7 +5,6 @@ const _ = require('asposecellscloud');
 const cellsApi = new CellsApi(process.env.CellsCloudClientId, process.env.CellsCloudClientSecret,"v3.0",process.env.CellsCloudApiBaseUrl);
 
   
-var assemblyTestXlsx = "assemblytest.xlsx"
 var book1Xlsx = "Book1.xlsx"
 
  
@@ -14,7 +13,6 @@ var objectType = "workbook"
 
 var mapFiles = {};           
 
- mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
  mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
 
 var request = new model.PostExportRequest();

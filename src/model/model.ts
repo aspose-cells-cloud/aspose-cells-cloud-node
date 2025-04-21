@@ -3,6 +3,9 @@ import { Configuration } from "../internal/configuration";
 import { addQueryParameterToUrl } from "../internal/requestHelper";
 import { ObjectSerializer } from "../internal/objectSerializer";
 
+var fs = require('fs');
+var path = require('path');
+
 export class ValueType {
 
     /**
@@ -18,9 +21,9 @@ export class ValueType {
         return ValueType.attributeTypeMap;
     }
 
-    public constructor(init?: Partial<ValueType>) {        
+    public constructor(init?: Partial<ValueType>) {
         Object.assign(this, init);
-    }        
+    }
 }
 
 export class Point {
@@ -38,7 +41,7 @@ export class Point {
             name: "y",
             baseName: "Y",
             type: "number",
-        } 
+        }
     ];
 
     /**
@@ -49,12 +52,12 @@ export class Point {
     }
     public x: number;
     public y: number;
-    public constructor(init?: Partial<Point>) {        
+    public constructor(init?: Partial<Point>) {
         Object.assign(this, init);
-    }        
+    }
 }
 
-/// Class for disc space information.   
+/// Class for disc space information.
 export class DiscUsage  {
     /**
      * Attribute type map
@@ -82,12 +85,12 @@ export class DiscUsage  {
     public usedSize: number;
     public totalSize: number;
 
-    public constructor(init?: Partial< DiscUsage >) {  
-    
+    public constructor(init?: Partial< DiscUsage >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// Object exists   
+/// Object exists
 export class ObjectExist  {
     /**
      * Attribute type map
@@ -115,12 +118,12 @@ export class ObjectExist  {
     public exists: boolean;
     public isFolder: boolean;
 
-    public constructor(init?: Partial< ObjectExist >) {  
-    
+    public constructor(init?: Partial< ObjectExist >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-   
+
 export class ObjectExistsExtensions  {
     /**
      * Attribute type map
@@ -136,12 +139,12 @@ export class ObjectExistsExtensions  {
     }
 
 
-    public constructor(init?: Partial< ObjectExistsExtensions >) {  
-    
+    public constructor(init?: Partial< ObjectExistsExtensions >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// File or folder information   
+/// File or folder information
 export class StorageFile  {
     /**
      * Attribute type map
@@ -187,12 +190,12 @@ export class StorageFile  {
     public size: number;
     public path: string;
 
-    public constructor(init?: Partial< StorageFile >) {  
-    
+    public constructor(init?: Partial< StorageFile >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-   
+
 export class FileVersion  extends StorageFile  {
     /**
      * Attribute type map
@@ -220,12 +223,12 @@ export class FileVersion  extends StorageFile  {
     public versionId: string;
     public isLatest: boolean;
 
-    public constructor(init?: Partial< FileVersion >) {  
-         super(init);     
+    public constructor(init?: Partial< FileVersion >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Storage exists   
+/// Storage exists
 export class StorageExist  {
     /**
      * Attribute type map
@@ -247,12 +250,12 @@ export class StorageExist  {
 
     public exists: boolean;
 
-    public constructor(init?: Partial< StorageExist >) {  
-    
+    public constructor(init?: Partial< StorageExist >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// File versions FileVersion.   
+/// File versions FileVersion.
 export class FileVersions  {
     /**
      * Attribute type map
@@ -274,12 +277,12 @@ export class FileVersions  {
 
     public value: Array<FileVersion>;
 
-    public constructor(init?: Partial< FileVersions >) {  
-    
+    public constructor(init?: Partial< FileVersions >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// Files list   
+/// Files list
 export class FilesList  {
     /**
      * Attribute type map
@@ -301,12 +304,12 @@ export class FilesList  {
 
     public value: Array<StorageFile>;
 
-    public constructor(init?: Partial< FilesList >) {  
-    
+    public constructor(init?: Partial< FilesList >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// Error   
+/// Error
 export class Error  {
     /**
      * Attribute type map
@@ -322,12 +325,12 @@ export class Error  {
     }
 
 
-    public constructor(init?: Partial< Error >) {  
-    
+    public constructor(init?: Partial< Error >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// File upload result   
+/// File upload result
 export class FilesUploadResult  {
     /**
      * Attribute type map
@@ -355,12 +358,12 @@ export class FilesUploadResult  {
     public uploaded: Array<string>;
     public errors: Array<Error>;
 
-    public constructor(init?: Partial< FilesUploadResult >) {  
-    
+    public constructor(init?: Partial< FilesUploadResult >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-   
+
 export class GoogleDriveStorageFile  extends StorageFile  {
     /**
      * Attribute type map
@@ -382,14 +385,14 @@ export class GoogleDriveStorageFile  extends StorageFile  {
 
     public mimeType: string;
 
-    public constructor(init?: Partial< GoogleDriveStorageFile >) {  
-         super(init);     
+    public constructor(init?: Partial< GoogleDriveStorageFile >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
 /// Describe the AboveAverage conditional formatting rule. This conditional formatting
 ///     rule highlights cells that are above or below the average for all values
-///     in the range.   
+///     in the range.
 export class AboveAverage  {
     /**
      * Attribute type map
@@ -423,13 +426,13 @@ export class AboveAverage  {
     public isEqualAverage: boolean;
     public stdDev: number;
 
-    public constructor(init?: Partial< AboveAverage >) {  
-    
+    public constructor(init?: Partial< AboveAverage >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
 /// Represents user's custom calculation engine to extend the default calculation engine of Aspose.Cells.
-///     
+///
 export class AbstractCalculationEngine  {
     /**
      * Attribute type map
@@ -463,13 +466,13 @@ export class AbstractCalculationEngine  {
     public isParamArrayModeRequired: boolean;
     public processBuiltInFunctions: boolean;
 
-    public constructor(init?: Partial< AbstractCalculationEngine >) {  
-    
+    public constructor(init?: Partial< AbstractCalculationEngine >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
 /// Monitor for user to track the progress of formula calculation.
-///     
+///
 export class AbstractCalculationMonitor  {
     /**
      * Attribute type map
@@ -503,12 +506,12 @@ export class AbstractCalculationMonitor  {
     public valueChanged: boolean;
     public calculatedValue: Object;
 
-    public constructor(init?: Partial< AbstractCalculationMonitor >) {  
-    
+    public constructor(init?: Partial< AbstractCalculationMonitor >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// Class summary: The features include automatic emergency braking, lane keeping assist, adaptive cruise control, blind spot monitoring, and rear cross-traffic alert.   
+/// Class summary: The features include automatic emergency braking, lane keeping assist, adaptive cruise control, blind spot monitoring, and rear cross-traffic alert.
 export class LinkElement  {
     /**
      * Attribute type map
@@ -530,12 +533,12 @@ export class LinkElement  {
 
     public link: Link;
 
-    public constructor(init?: Partial< LinkElement >) {  
-    
+    public constructor(init?: Partial< LinkElement >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// Summary description for DataSorter.   
+/// Summary description for DataSorter.
 export class DataSorter  {
     /**
      * Attribute type map
@@ -587,13 +590,13 @@ export class DataSorter  {
     public sortAsNumber: boolean;
     public keys: Array<DataSorterKey>;
 
-    public constructor(init?: Partial< DataSorter >) {  
-    
+    public constructor(init?: Partial< DataSorter >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
 ///            Represents a filter for a single column. The Filter object is a member of the Filters collection
-///               
+///
 export class FilterColumn  {
     /**
      * Attribute type map
@@ -663,12 +666,12 @@ export class FilterColumn  {
     public top10Filter: Top10Filter;
     public visibledropdown: string;
 
-    public constructor(init?: Partial< FilterColumn >) {  
-    
+    public constructor(init?: Partial< FilterColumn >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// I'm glad to help! Please provide me with the features you would like me to summarize.   
+/// I'm glad to help! Please provide me with the features you would like me to summarize.
 export class Link  {
     /**
      * Attribute type map
@@ -708,12 +711,12 @@ export class Link  {
     public title: string;
     public type: string;
 
-    public constructor(init?: Partial< Link >) {  
-    
+    public constructor(init?: Partial< Link >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents autofiltering for the specified worksheet.   
+/// Represents autofiltering for the specified worksheet.
 export class AutoFilter  extends LinkElement  {
     /**
      * Attribute type map
@@ -753,12 +756,12 @@ export class AutoFilter  extends LinkElement  {
     public sorter: DataSorter;
     public showFilterButton: boolean;
 
-    public constructor(init?: Partial< AutoFilter >) {  
-         super(init);     
+    public constructor(init?: Partial< AutoFilter >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents all auto fitter options.   
+/// Represents all auto fitter options.
 export class AutoFitterOptions  {
     /**
      * Attribute type map
@@ -822,12 +825,12 @@ export class AutoFitterOptions  {
     public formatStrategy: string;
     public forRendering: boolean;
 
-    public constructor(init?: Partial< AutoFitterOptions >) {  
-    
+    public constructor(init?: Partial< AutoFitterOptions >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// Color.   
+/// Color.
 export class Color  {
     /**
      * Attribute type map
@@ -867,13 +870,13 @@ export class Color  {
     public g: number;
     public b: number;
 
-    public constructor(init?: Partial< Color >) {  
-    
+    public constructor(init?: Partial< Color >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
 ///            Represents a theme color.
-///               
+///
 export class ThemeColor  {
     /**
      * Attribute type map
@@ -901,13 +904,13 @@ export class ThemeColor  {
     public colorType: string;
     public tint: number;
 
-    public constructor(init?: Partial< ThemeColor >) {  
-    
+    public constructor(init?: Partial< ThemeColor >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
 ///            Encapsulates the object that represents the cell border.
-///               
+///
 export class Border  {
     /**
      * Attribute type map
@@ -953,13 +956,13 @@ export class Border  {
     public themeColor: ThemeColor;
     public argbColor: number;
 
-    public constructor(init?: Partial< Border >) {  
-    
+    public constructor(init?: Partial< Border >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
 ///            Represents a root object to create an Excel spreadsheet.
-///               
+///
 export class Workbook  {
     /**
      * Attribute type map
@@ -1041,13 +1044,13 @@ export class Workbook  {
     public isEncryption: string;
     public password: string;
 
-    public constructor(init?: Partial< Workbook >) {  
-    
+    public constructor(init?: Partial< Workbook >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
 ///            Represents options for calculation.
-///               
+///
 export class CalculationOptions  {
     /**
      * Attribute type map
@@ -1105,12 +1108,12 @@ export class CalculationOptions  {
     public calculationMonitor: AbstractCalculationMonitor;
     public linkedDataSources: Array<Workbook>;
 
-    public constructor(init?: Partial< CalculationOptions >) {  
-    
+    public constructor(init?: Partial< CalculationOptions >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// Encapsulates the object that represents a single Workbook cell.   
+/// Encapsulates the object that represents a single Workbook cell.
 export class Cell  extends LinkElement  {
     /**
      * Attribute type map
@@ -1222,13 +1225,13 @@ export class Cell  extends LinkElement  {
     public style: LinkElement;
     public worksheet: string;
 
-    public constructor(init?: Partial< Cell >) {  
-         super(init);     
+    public constructor(init?: Partial< Cell >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
 ///            Represent an area of cells.
-///               
+///
 export class CellArea  {
     /**
      * Attribute type map
@@ -1268,12 +1271,12 @@ export class CellArea  {
     public startColumn: number;
     public startRow: number;
 
-    public constructor(init?: Partial< CellArea >) {  
-    
+    public constructor(init?: Partial< CellArea >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// Encapsulates a collection of cell relevant objects, such as Aspose.Cells.Cell, Aspose.Cells.Row, ...etc.   
+/// Encapsulates a collection of cell relevant objects, such as Aspose.Cells.Cell, Aspose.Cells.Row, ...etc.
 export class Cells  extends LinkElement  {
     /**
      * Attribute type map
@@ -1325,12 +1328,12 @@ export class Cells  extends LinkElement  {
     public columns: LinkElement;
     public cellList: Array<LinkElement>;
 
-    public constructor(init?: Partial< Cells >) {  
-         super(init);     
+    public constructor(init?: Partial< Cells >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Cells Cloud File information description.   
+/// Cells Cloud File information description.
 export class CellsCloudFileInfo  {
     /**
      * Attribute type map
@@ -1370,13 +1373,13 @@ export class CellsCloudFileInfo  {
     public folder: string;
     public storage: string;
 
-    public constructor(init?: Partial< CellsCloudFileInfo >) {  
-    
+    public constructor(init?: Partial< CellsCloudFileInfo >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
 ///            Represents all types of color.
-///               
+///
 export class CellsColor  {
     /**
      * Attribute type map
@@ -1440,12 +1443,12 @@ export class CellsColor  {
     public type: string;
     public transparency: number;
 
-    public constructor(init?: Partial< CellsColor >) {  
-    
+    public constructor(init?: Partial< CellsColor >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// Cells document property.   
+/// Cells document property.
 export class CellsDocumentProperty  {
     /**
      * Attribute type map
@@ -1497,12 +1500,12 @@ export class CellsDocumentProperty  {
     public type: string;
     public isGeneratedName: string;
 
-    public constructor(init?: Partial< CellsDocumentProperty >) {  
-    
+    public constructor(init?: Partial< CellsDocumentProperty >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// Excel properties   
+/// Excel properties
 export class CellsDocumentProperties  {
     /**
      * Attribute type map
@@ -1524,12 +1527,12 @@ export class CellsDocumentProperties  {
 
     public documentPropertyList: Array<CellsDocumentProperty>;
 
-    public constructor(init?: Partial< CellsDocumentProperties >) {  
-    
+    public constructor(init?: Partial< CellsDocumentProperties >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// Color filter.   
+/// Color filter.
 export class ColorFilter  {
     /**
      * Attribute type map
@@ -1575,13 +1578,13 @@ export class ColorFilter  {
     public foregroundColorColor: CellsColor;
     public backgroundColor: CellsColor;
 
-    public constructor(init?: Partial< ColorFilter >) {  
-    
+    public constructor(init?: Partial< ColorFilter >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
 ///            Describes the values of the interpolation points in a gradient scale, dataBar or iconSet.
-///               
+///
 export class ConditionalFormattingValue  {
     /**
      * Attribute type map
@@ -1615,14 +1618,14 @@ export class ConditionalFormattingValue  {
     public type: string;
     public value: Object;
 
-    public constructor(init?: Partial< ConditionalFormattingValue >) {  
-    
+    public constructor(init?: Partial< ConditionalFormattingValue >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
 /// Describe the ColorScale conditional formatting rule. This conditional formatting
 ///    rule creates a gradated color scale on the cells.
-///                
+///
 export class ColorScale  {
     /**
      * Attribute type map
@@ -1674,12 +1677,12 @@ export class ColorScale  {
     public minCfvo: ConditionalFormattingValue;
     public minColor: Color;
 
-    public constructor(init?: Partial< ColorScale >) {  
-    
+    public constructor(init?: Partial< ColorScale >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents a single column in a worksheet.   
+/// Represents a single column in a worksheet.
 export class Column  extends LinkElement  {
     /**
      * Attribute type map
@@ -1725,12 +1728,12 @@ export class Column  extends LinkElement  {
     public width: number;
     public style: LinkElement;
 
-    public constructor(init?: Partial< Column >) {  
-         super(init);     
+    public constructor(init?: Partial< Column >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Columns   
+/// Columns
 export class Columns  extends LinkElement  {
     /**
      * Attribute type map
@@ -1764,12 +1767,12 @@ export class Columns  extends LinkElement  {
     public columnsCount: number;
     public columnsList: Array<LinkElement>;
 
-    public constructor(init?: Partial< Columns >) {  
-         super(init);     
+    public constructor(init?: Partial< Columns >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Encapsulates the object that represents a cell comment.   
+/// Encapsulates the object that represents a cell comment.
 export class Comment  extends LinkElement  {
     /**
      * Attribute type map
@@ -1851,12 +1854,12 @@ export class Comment  extends LinkElement  {
     public textOrientationType: string;
     public textVerticalAlignment: string;
 
-    public constructor(init?: Partial< Comment >) {  
-         super(init);     
+    public constructor(init?: Partial< Comment >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Encapsulates a collection of  objects.   
+/// Encapsulates a collection of  objects.
 export class Comments  extends LinkElement  {
     /**
      * Attribute type map
@@ -1878,12 +1881,12 @@ export class Comments  extends LinkElement  {
 
     public commentList: Array<LinkElement>;
 
-    public constructor(init?: Partial< Comments >) {  
-         super(init);     
+    public constructor(init?: Partial< Comments >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents conditional formatting condition.   
+/// Represents conditional formatting condition.
 export class FormatCondition  extends LinkElement  {
     /**
      * Attribute type map
@@ -1983,12 +1986,12 @@ export class FormatCondition  extends LinkElement  {
     public timePeriod: string;
     public top10: Top10;
 
-    public constructor(init?: Partial< FormatCondition >) {  
-         super(init);     
+    public constructor(init?: Partial< FormatCondition >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// I'm here to help! Please provide me with the features that need to be summarized.   
+/// I'm here to help! Please provide me with the features that need to be summarized.
 export class ConditionalFormatting  extends LinkElement  {
     /**
      * Attribute type map
@@ -2016,13 +2019,13 @@ export class ConditionalFormatting  extends LinkElement  {
     public sqref: string;
     public formatConditions: Array<FormatCondition>;
 
-    public constructor(init?: Partial< ConditionalFormatting >) {  
-         super(init);     
+    public constructor(init?: Partial< ConditionalFormatting >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
 ///            Represents  the custom  icon of conditional formatting rule.
-///               
+///
 export class ConditionalFormattingIcon  {
     /**
      * Attribute type map
@@ -2056,12 +2059,12 @@ export class ConditionalFormattingIcon  {
     public index: number;
     public type: string;
 
-    public constructor(init?: Partial< ConditionalFormattingIcon >) {  
-    
+    public constructor(init?: Partial< ConditionalFormattingIcon >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// Encapsulates a collection of  objects.   
+/// Encapsulates a collection of  objects.
 export class ConditionalFormattings  extends LinkElement  {
     /**
      * Attribute type map
@@ -2089,12 +2092,12 @@ export class ConditionalFormattings  extends LinkElement  {
     public count: number;
     public conditionalFormattingList: Array<ConditionalFormatting>;
 
-    public constructor(init?: Partial< ConditionalFormattings >) {  
-         super(init);     
+    public constructor(init?: Partial< ConditionalFormattings >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the copy options.   
+/// Represents the copy options.
 export class CopyOptions  {
     /**
      * Attribute type map
@@ -2152,12 +2155,12 @@ export class CopyOptions  {
     public referToSheetWithSameName: boolean;
     public copyTheme: boolean;
 
-    public constructor(init?: Partial< CopyOptions >) {  
-    
+    public constructor(init?: Partial< CopyOptions >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// Class Summary: The features include real-time collaboration, file sharing, scheduling, task tracking, and discussion forums to enhance communication and productivity.   
+/// Class Summary: The features include real-time collaboration, file sharing, scheduling, task tracking, and discussion forums to enhance communication and productivity.
 export class MultipleFilter  {
     /**
      * Attribute type map
@@ -2173,16 +2176,16 @@ export class MultipleFilter  {
     }
 
 
-    public constructor(init?: Partial< MultipleFilter >) {  
-    
+    public constructor(init?: Partial< MultipleFilter >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
 /// 1. Collaboration: Students will have the opportunity to work together on group projects and assignments.
 ///             2. Critical Thinking: Students will be encouraged to analyze, evaluate, and interpret information in a meaningful way.
 ///             3. Hands-on Learning: Students will participate in experiential activities to apply theoretical knowledge in practical settings.
 ///             4. Technology Integration: Students will utilize various digital tools and platforms to enhance their learning experience.
-///             5. Communication Skills: Students will develop effective verbal and written communication skills through presentations and written assignments.   
+///             5. Communication Skills: Students will develop effective verbal and written communication skills through presentations and written assignments.
 export class CriteriaMultipleFilter  extends MultipleFilter  {
     /**
      * Attribute type map
@@ -2204,13 +2207,13 @@ export class CriteriaMultipleFilter  extends MultipleFilter  {
 
     public criteria: string;
 
-    public constructor(init?: Partial< CriteriaMultipleFilter >) {  
-         super(init);     
+    public constructor(init?: Partial< CriteriaMultipleFilter >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
 ///            Represents the custom filter.
-///               
+///
 export class CustomFilter  {
     /**
      * Attribute type map
@@ -2238,13 +2241,13 @@ export class CustomFilter  {
     public criteria: Object;
     public filterOperatorType: string;
 
-    public constructor(init?: Partial< CustomFilter >) {  
-    
+    public constructor(init?: Partial< CustomFilter >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
 ///            Represents the border of the data bars specified by a conditional formatting rule.
-///               
+///
 export class DataBarBorder  {
     /**
      * Attribute type map
@@ -2272,14 +2275,14 @@ export class DataBarBorder  {
     public color: Color;
     public type: string;
 
-    public constructor(init?: Partial< DataBarBorder >) {  
-    
+    public constructor(init?: Partial< DataBarBorder >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
 /// Represents the color settings of the data bars for negative values that are
 ///    defined by a data bar conditional formating rule.
-///                
+///
 export class NegativeBarFormat  {
     /**
      * Attribute type map
@@ -2319,13 +2322,13 @@ export class NegativeBarFormat  {
     public color: Color;
     public colorType: string;
 
-    public constructor(init?: Partial< NegativeBarFormat >) {  
-    
+    public constructor(init?: Partial< NegativeBarFormat >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
 /// Describe the DataBar conditional formatting rule. This conditional formatting
-///    rule displays a gradated data bar in the range of cells.   
+///    rule displays a gradated data bar in the range of cells.
 export class DataBar  {
     /**
      * Attribute type map
@@ -2413,12 +2416,12 @@ export class DataBar  {
     public negativeBarFormat: NegativeBarFormat;
     public showValue: boolean;
 
-    public constructor(init?: Partial< DataBar >) {  
-    
+    public constructor(init?: Partial< DataBar >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents data filling.   
+/// Represents data filling.
 export class DataFill  {
     /**
      * Attribute type map
@@ -2452,13 +2455,13 @@ export class DataFill  {
     public dataFillDefaultValue: DataFillValue;
     public dataColumnFillValueList: Array<DataColumnFillValue>;
 
-    public constructor(init?: Partial< DataFill >) {  
-    
+    public constructor(init?: Partial< DataFill >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
 ///            Encapsulates the object that represents a range of cells within a spreadsheet.
-///               
+///
 export class Range  {
     /**
      * Attribute type map
@@ -2528,12 +2531,12 @@ export class Range  {
     public rowHeight: number;
     public worksheet: string;
 
-    public constructor(init?: Partial< Range >) {  
-    
+    public constructor(init?: Partial< Range >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents data cleansing.   
+/// Represents data cleansing.
 export class DataCleansing  {
     /**
      * Attribute type map
@@ -2567,12 +2570,12 @@ export class DataCleansing  {
     public needFillData: boolean;
     public dataFill: DataFill;
 
-    public constructor(init?: Partial< DataCleansing >) {  
-    
+    public constructor(init?: Partial< DataCleansing >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents that the data is populated with the specified value.   
+/// Represents that the data is populated with the specified value.
 export class DataFillValue  {
     /**
      * Attribute type map
@@ -2618,12 +2621,12 @@ export class DataFillValue  {
     public defaultDouble: number;
     public defaultDate: string;
 
-    public constructor(init?: Partial< DataFillValue >) {  
-    
+    public constructor(init?: Partial< DataFillValue >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents that the data column is populated with the specified value.   
+/// Represents that the data column is populated with the specified value.
 export class DataColumnFillValue  {
     /**
      * Attribute type map
@@ -2651,12 +2654,12 @@ export class DataColumnFillValue  {
     public columnIndex: number;
     public dataFillValue: DataFillValue;
 
-    public constructor(init?: Partial< DataColumnFillValue >) {  
-    
+    public constructor(init?: Partial< DataColumnFillValue >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents data item.   
+/// Represents data item.
 export class DataItem  {
     /**
      * Attribute type map
@@ -2684,13 +2687,13 @@ export class DataItem  {
     public dataItemType: string;
     public value: string;
 
-    public constructor(init?: Partial< DataItem >) {  
-    
+    public constructor(init?: Partial< DataItem >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
 /// Represents the key of the data sorter.
-///     
+///
 export class DataSorterKey  {
     /**
      * Attribute type map
@@ -2742,12 +2745,12 @@ export class DataSorterKey  {
     public iconId: number;
     public color: Color;
 
-    public constructor(init?: Partial< DataSorterKey >) {  
-    
+    public constructor(init?: Partial< DataSorterKey >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents sort key.   
+/// Represents sort key.
 export class SortKey  {
     /**
      * Attribute type map
@@ -2799,12 +2802,12 @@ export class SortKey  {
     public index: number;
     public type: string;
 
-    public constructor(init?: Partial< SortKey >) {  
-    
+    public constructor(init?: Partial< SortKey >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents data source.   
+/// Represents data source.
 export class DataSource  {
     /**
      * Attribute type map
@@ -2832,12 +2835,12 @@ export class DataSource  {
     public dataSourceType: string;
     public dataPath: string;
 
-    public constructor(init?: Partial< DataSource >) {  
-    
+    public constructor(init?: Partial< DataSource >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the datetime's group setting.   
+/// Represents the datetime's group setting.
 export class DateTimeGroupItem  extends MultipleFilter  {
     /**
      * Attribute type map
@@ -2895,12 +2898,12 @@ export class DateTimeGroupItem  extends MultipleFilter  {
     public second: number;
     public year: number;
 
-    public constructor(init?: Partial< DateTimeGroupItem >) {  
-         super(init);     
+    public constructor(init?: Partial< DateTimeGroupItem >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents data deduplication region.   
+/// Represents data deduplication region.
 export class DeduplicationRegion  {
     /**
      * Attribute type map
@@ -2928,13 +2931,13 @@ export class DeduplicationRegion  {
     public ranges: Array<Range>;
     public worksheetNameList: Array<string>;
 
-    public constructor(init?: Partial< DeduplicationRegion >) {  
-    
+    public constructor(init?: Partial< DeduplicationRegion >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
 ///            Represents the dynamic filter.
-///               
+///
 export class DynamicFilter  {
     /**
      * Attribute type map
@@ -2968,12 +2971,12 @@ export class DynamicFilter  {
     public maxValue: Object;
     public value: Object;
 
-    public constructor(init?: Partial< DynamicFilter >) {  
-    
+    public constructor(init?: Partial< DynamicFilter >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents file information.   
+/// Represents file information.
 export class FileInfo  {
     /**
      * Attribute type map
@@ -3007,12 +3010,12 @@ export class FileInfo  {
     public fileSize: number;
     public fileContent: string;
 
-    public constructor(init?: Partial< FileInfo >) {  
-    
+    public constructor(init?: Partial< FileInfo >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// I'm sorry, I just realized you didn't provide any features for me to summarize. Please provide the features you'd like me to summarize for the class.   
+/// I'm sorry, I just realized you didn't provide any features for me to summarize. Please provide the features you'd like me to summarize for the class.
 export class FileSource  {
     /**
      * Attribute type map
@@ -3040,12 +3043,12 @@ export class FileSource  {
     public fileSourceType: string;
     public filePath: string;
 
-    public constructor(init?: Partial< FileSource >) {  
-    
+    public constructor(init?: Partial< FileSource >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// Class features: Weekly lectures, group projects, midterm and final exams, and participation in class discussions.   
+/// Class features: Weekly lectures, group projects, midterm and final exams, and participation in class discussions.
 export class FilesResult  {
     /**
      * Attribute type map
@@ -3067,13 +3070,13 @@ export class FilesResult  {
 
     public files: Array<FileInfo>;
 
-    public constructor(init?: Partial< FilesResult >) {  
-    
+    public constructor(init?: Partial< FilesResult >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
 ///            Represents icon filter.
-///               
+///
 export class IconFilter  {
     /**
      * Attribute type map
@@ -3101,13 +3104,13 @@ export class IconFilter  {
     public iconId: number;
     public iconSetType: string;
 
-    public constructor(init?: Partial< IconFilter >) {  
-    
+    public constructor(init?: Partial< IconFilter >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
 ///            Represents the multiple filter collection.
-///               
+///
 export class MultipleFilters  {
     /**
      * Attribute type map
@@ -3135,13 +3138,13 @@ export class MultipleFilters  {
     public matchBlank: boolean;
     public multipleFilterList: Array<MultipleFilter>;
 
-    public constructor(init?: Partial< MultipleFilters >) {  
-    
+    public constructor(init?: Partial< MultipleFilters >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
 ///            Represents the top 10 filter.
-///               
+///
 export class Top10Filter  {
     /**
      * Attribute type map
@@ -3187,13 +3190,13 @@ export class Top10Filter  {
     public isTop: boolean;
     public items: number;
 
-    public constructor(init?: Partial< Top10Filter >) {  
-    
+    public constructor(init?: Partial< Top10Filter >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
 ///            Encapsulates the font object used in a spreadsheet.
-///               
+///
 export class Font  {
     /**
      * Attribute type map
@@ -3269,12 +3272,12 @@ export class Font  {
     public size: number;
     public underline: string;
 
-    public constructor(init?: Partial< Font >) {  
-    
+    public constructor(init?: Partial< Font >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the text options.   
+/// Represents the text options.
 export class TextOptions  extends Font  {
     /**
      * Attribute type map
@@ -3326,13 +3329,13 @@ export class TextOptions  extends Font  {
     public spacing: number;
     public underlineColor: CellsColor;
 
-    public constructor(init?: Partial< TextOptions >) {  
-         super(init);     
+    public constructor(init?: Partial< TextOptions >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
 ///            Represents a range of characters within the cell text.
-///               
+///
 export class FontSetting  {
     /**
      * Attribute type map
@@ -3378,13 +3381,13 @@ export class FontSetting  {
     public textOptions: TextOptions;
     public type: string;
 
-    public constructor(init?: Partial< FontSetting >) {  
-    
+    public constructor(init?: Partial< FontSetting >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
 /// Describe the IconSet conditional formatting rule. This conditional formatting
-///     rule applies icons to cells according to their values.   
+///     rule applies icons to cells according to their values.
 export class IconSet  {
     /**
      * Attribute type map
@@ -3436,13 +3439,13 @@ export class IconSet  {
     public showValue: boolean;
     public iconSetType: string;
 
-    public constructor(init?: Partial< IconSet >) {  
-    
+    public constructor(init?: Partial< IconSet >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
 ///            Represents display style of excel document,such as font,color,alignment,border,etc.            The Style object contains all style attributes (font, number format, alignment, and so on) as properties.
-///               
+///
 export class Style  {
     /**
      * Attribute type map
@@ -3596,14 +3599,14 @@ export class Style  {
     public backgroundThemeColor: ThemeColor;
     public foregroundThemeColor: ThemeColor;
 
-    public constructor(init?: Partial< Style >) {  
-    
+    public constructor(init?: Partial< Style >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
 /// Describe the Top10 conditional formatting rule. This conditional formatting
 ///     rule highlights cells whose values fall in the top N or bottom N bracket,
-///     as specified.   
+///     as specified.
 export class Top10  {
     /**
      * Attribute type map
@@ -3637,12 +3640,12 @@ export class Top10  {
     public isPercent: boolean;
     public rank: number;
 
-    public constructor(init?: Partial< Top10 >) {  
-    
+    public constructor(init?: Partial< Top10 >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// Class summary: This class covers various features related to data visualization and graphical representation of data sets.   
+/// Class summary: This class covers various features related to data visualization and graphical representation of data sets.
 export class FormulaFormatCondition  {
     /**
      * Attribute type map
@@ -3676,13 +3679,13 @@ export class FormulaFormatCondition  {
     public formula2: string;
     public operator: string;
 
-    public constructor(init?: Partial< FormulaFormatCondition >) {  
-    
+    public constructor(init?: Partial< FormulaFormatCondition >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
 /// Settings of formulas and calculation.
-///     
+///
 export class FormulaSettings  {
     /**
      * Attribute type map
@@ -3764,13 +3767,13 @@ export class FormulaSettings  {
     public enableCalculationChain: boolean;
     public preservePaddingSpaces: boolean;
 
-    public constructor(init?: Partial< FormulaSettings >) {  
-    
+    public constructor(init?: Partial< FormulaSettings >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
 /// Represents the globalization settings for chart.
-///     
+///
 export class ChartGlobalizationSettings  {
     /**
      * Attribute type map
@@ -3786,13 +3789,13 @@ export class ChartGlobalizationSettings  {
     }
 
 
-    public constructor(init?: Partial< ChartGlobalizationSettings >) {  
-    
+    public constructor(init?: Partial< ChartGlobalizationSettings >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
 /// Represents the globalization settings for pivot tables.
-///     
+///
 export class PivotGlobalizationSettings  {
     /**
      * Attribute type map
@@ -3808,13 +3811,13 @@ export class PivotGlobalizationSettings  {
     }
 
 
-    public constructor(init?: Partial< PivotGlobalizationSettings >) {  
-    
+    public constructor(init?: Partial< PivotGlobalizationSettings >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
 /// Represents the globalization settings.
-///     
+///
 export class GlobalizationSettings  {
     /**
      * Attribute type map
@@ -3860,13 +3863,13 @@ export class GlobalizationSettings  {
     public rowSeparatorOfFormulaArray: string;
     public columnSeparatorOfFormulaArray: string;
 
-    public constructor(init?: Partial< GlobalizationSettings >) {  
-    
+    public constructor(init?: Partial< GlobalizationSettings >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
 ///            Encapsulates the object that represents a horizontal page break.
-///               
+///
 export class HorizontalPageBreak  {
     /**
      * Attribute type map
@@ -3900,12 +3903,12 @@ export class HorizontalPageBreak  {
     public endColumn: number;
     public startColumn: number;
 
-    public constructor(init?: Partial< HorizontalPageBreak >) {  
-    
+    public constructor(init?: Partial< HorizontalPageBreak >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// Encapsulates a collection of  objects.   
+/// Encapsulates a collection of  objects.
 export class HorizontalPageBreaks  extends LinkElement  {
     /**
      * Attribute type map
@@ -3921,12 +3924,12 @@ export class HorizontalPageBreaks  extends LinkElement  {
     }
 
 
-    public constructor(init?: Partial< HorizontalPageBreaks >) {  
-         super(init);     
+    public constructor(init?: Partial< HorizontalPageBreaks >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Encapsulates the object that represents a hyperlink.   
+/// Encapsulates the object that represents a hyperlink.
 export class Hyperlink  extends LinkElement  {
     /**
      * Attribute type map
@@ -3972,12 +3975,12 @@ export class Hyperlink  extends LinkElement  {
     public textToDisplay: string;
     public linkType: string;
 
-    public constructor(init?: Partial< Hyperlink >) {  
-         super(init);     
+    public constructor(init?: Partial< Hyperlink >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Encapsulates a collection of  objects.   
+/// Encapsulates a collection of  objects.
 export class Hyperlinks  extends LinkElement  {
     /**
      * Attribute type map
@@ -4005,12 +4008,12 @@ export class Hyperlinks  extends LinkElement  {
     public count: number;
     public hyperlinkList: Array<LinkElement>;
 
-    public constructor(init?: Partial< Hyperlinks >) {  
-         super(init);     
+    public constructor(init?: Partial< Hyperlinks >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the options of loading the file.   
+/// Represents the options of loading the file.
 export class LoadOptions  {
     /**
      * Attribute type map
@@ -4092,12 +4095,12 @@ export class LoadOptions  {
     public standardFont: string;
     public standardFontSize: number;
 
-    public constructor(init?: Partial< LoadOptions >) {  
-    
+    public constructor(init?: Partial< LoadOptions >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// I'm happy to help! Could you please provide me with the features you would like me to summarize for the class?   
+/// I'm happy to help! Could you please provide me with the features you would like me to summarize for the class?
 export class MergedCell  extends LinkElement  {
     /**
      * Attribute type map
@@ -4137,12 +4140,12 @@ export class MergedCell  extends LinkElement  {
     public startColumn: number;
     public startRow: number;
 
-    public constructor(init?: Partial< MergedCell >) {  
-         super(init);     
+    public constructor(init?: Partial< MergedCell >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Sure, could you please provide me with the features you would like me to summarize?   
+/// Sure, could you please provide me with the features you would like me to summarize?
 export class MergedCells  extends LinkElement  {
     /**
      * Attribute type map
@@ -4170,12 +4173,12 @@ export class MergedCells  extends LinkElement  {
     public count: number;
     public mergedCellList: Array<LinkElement>;
 
-    public constructor(init?: Partial< MergedCells >) {  
-         super(init);     
+    public constructor(init?: Partial< MergedCells >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents a defined name for a range of cells.   
+/// Represents a defined name for a range of cells.
 export class Name  extends LinkElement  {
     /**
      * Attribute type map
@@ -4233,12 +4236,12 @@ export class Name  extends LinkElement  {
     public refersTo: string;
     public text: string;
 
-    public constructor(init?: Partial< Name >) {  
-         super(init);     
+    public constructor(init?: Partial< Name >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents a collection of all the  objects in the spreadsheet.   
+/// Represents a collection of all the  objects in the spreadsheet.
 export class Names  extends LinkElement  {
     /**
      * Attribute type map
@@ -4266,12 +4269,12 @@ export class Names  extends LinkElement  {
     public count: number;
     public nameList: Array<LinkElement>;
 
-    public constructor(init?: Partial< Names >) {  
-         super(init);     
+    public constructor(init?: Partial< Names >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Class summary: Includes interactive discussions, group projects, guest speakers, and practical applications of course material.   
+/// Class summary: Includes interactive discussions, group projects, guest speakers, and practical applications of course material.
 export class PageSection  {
     /**
      * Attribute type map
@@ -4317,12 +4320,12 @@ export class PageSection  {
     public fisrtPageContext: string;
     public evenPageContext: string;
 
-    public constructor(init?: Partial< PageSection >) {  
-    
+    public constructor(init?: Partial< PageSection >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// excel print page setting   
+/// excel print page setting
 export class PageSetup  extends LinkElement  {
     /**
      * Attribute type map
@@ -4542,13 +4545,13 @@ export class PageSetup  extends LinkElement  {
     public header: Array<PageSection>;
     public footer: Array<PageSection>;
 
-    public constructor(init?: Partial< PageSetup >) {  
-         super(init);     
+    public constructor(init?: Partial< PageSetup >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
 /// Represents the paste special options.
-///                
+///
 export class PasteOptions  {
     /**
      * Attribute type map
@@ -4588,12 +4591,12 @@ export class PasteOptions  {
     public skipBlanks: boolean;
     public transpose: boolean;
 
-    public constructor(init?: Partial< PasteOptions >) {  
-    
+    public constructor(init?: Partial< PasteOptions >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// Options for encrypting and access permissions for a PDF document.            PDF/A does not allow security setting.   
+/// Options for encrypting and access permissions for a PDF document.            PDF/A does not allow security setting.
 export class PdfSecurityOptions  {
     /**
      * Attribute type map
@@ -4663,13 +4666,13 @@ export class PdfSecurityOptions  {
     public printPermission: boolean;
     public userPassword: string;
 
-    public constructor(init?: Partial< PdfSecurityOptions >) {  
-    
+    public constructor(init?: Partial< PdfSecurityOptions >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
 /// Represents the various types of protection options available for a worksheet.
-///                
+///
 export class Protection  {
     /**
      * Attribute type map
@@ -4787,12 +4790,12 @@ export class Protection  {
     public allowSelectingLockedCell: boolean;
     public allowSelectingUnlockedCell: boolean;
 
-    public constructor(init?: Partial< Protection >) {  
-    
+    public constructor(init?: Partial< Protection >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// Class Summary: The features discussed include natural language processing, image recognition, data visualization, clustering, regression, classification, and recommendation systems.   
+/// Class Summary: The features discussed include natural language processing, image recognition, data visualization, clustering, regression, classification, and recommendation systems.
 export class ProtectSheetParameter  {
     /**
      * Attribute type map
@@ -4904,13 +4907,13 @@ export class ProtectSheetParameter  {
     public allowSorting: string;
     public allowUsingPivotTable: string;
 
-    public constructor(init?: Partial< ProtectSheetParameter >) {  
-    
+    public constructor(init?: Partial< ProtectSheetParameter >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
 ///            Encapsulates a collection of  objects.
-///               
+///
 export class Ranges  {
     /**
      * Attribute type map
@@ -4932,12 +4935,12 @@ export class Ranges  {
 
     public rangeList: Array<Range>;
 
-    public constructor(init?: Partial< Ranges >) {  
-    
+    public constructor(init?: Partial< Ranges >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents a single row in a worksheet.   
+/// Represents a single row in a worksheet.
 export class Row  extends LinkElement  {
     /**
      * Attribute type map
@@ -4995,12 +4998,12 @@ export class Row  extends LinkElement  {
     public isHidden: boolean;
     public style: LinkElement;
 
-    public constructor(init?: Partial< Row >) {  
-         super(init);     
+    public constructor(init?: Partial< Row >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Collects the  objects that represent the individual rows in a worksheet.   
+/// Collects the  objects that represent the individual rows in a worksheet.
 export class Rows  extends LinkElement  {
     /**
      * Attribute type map
@@ -5034,12 +5037,12 @@ export class Rows  extends LinkElement  {
     public rowsCount: number;
     public rowsList: Array<LinkElement>;
 
-    public constructor(init?: Partial< Rows >) {  
-         super(init);     
+    public constructor(init?: Partial< Rows >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents save result.   
+/// Represents save result.
 export class SaveResult  {
     /**
      * Attribute type map
@@ -5061,12 +5064,12 @@ export class SaveResult  {
 
     public documents: Array<CellsCloudFileInfo>;
 
-    public constructor(init?: Partial< SaveResult >) {  
-    
+    public constructor(init?: Partial< SaveResult >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents all save options   
+/// Represents all save options
 export class SaveOptions  {
     /**
      * Attribute type map
@@ -5160,12 +5163,12 @@ export class SaveOptions  {
     public updateSmartArt: boolean;
     public encryptDocumentProperties: boolean;
 
-    public constructor(init?: Partial< SaveOptions >) {  
-    
+    public constructor(init?: Partial< SaveOptions >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the options for pagination.   
+/// Represents the options for pagination.
 export class PaginatedSaveOptions  extends SaveOptions  {
     /**
      * Attribute type map
@@ -5271,12 +5274,12 @@ export class PaginatedSaveOptions  extends SaveOptions  {
     public defaultEditLanguage: string;
     public emfRenderSetting: string;
 
-    public constructor(init?: Partial< PaginatedSaveOptions >) {  
-         super(init);     
+    public constructor(init?: Partial< PaginatedSaveOptions >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents single value.   
+/// Represents single value.
 export class SingleValue  {
     /**
      * Attribute type map
@@ -5304,12 +5307,12 @@ export class SingleValue  {
     public value: string;
     public valueType: ValueType;
 
-    public constructor(init?: Partial< SingleValue >) {  
-    
+    public constructor(init?: Partial< SingleValue >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the result of the file split.   
+/// Represents the result of the file split.
 export class SplitResult  {
     /**
      * Attribute type map
@@ -5331,12 +5334,12 @@ export class SplitResult  {
 
     public documents: Array<CellsCloudFileInfo>;
 
-    public constructor(init?: Partial< SplitResult >) {  
-    
+    public constructor(init?: Partial< SplitResult >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents style format condition.   
+/// Represents style format condition.
 export class StyleFormatCondition  extends FormatCondition  {
     /**
      * Attribute type map
@@ -5352,12 +5355,12 @@ export class StyleFormatCondition  extends FormatCondition  {
     }
 
 
-    public constructor(init?: Partial< StyleFormatCondition >) {  
-         super(init);     
+    public constructor(init?: Partial< StyleFormatCondition >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents data style collection.   
+/// Represents data style collection.
 export class Styles  extends LinkElement  {
     /**
      * Attribute type map
@@ -5379,12 +5382,12 @@ export class Styles  extends LinkElement  {
 
     public styleList: Array<Style>;
 
-    public constructor(init?: Partial< Styles >) {  
-         super(init);     
+    public constructor(init?: Partial< Styles >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents text format condition.   
+/// Represents text format condition.
 export class TextFormatCondition  extends FormulaFormatCondition  {
     /**
      * Attribute type map
@@ -5406,12 +5409,12 @@ export class TextFormatCondition  extends FormulaFormatCondition  {
 
     public text: string;
 
-    public constructor(init?: Partial< TextFormatCondition >) {  
-         super(init);     
+    public constructor(init?: Partial< TextFormatCondition >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents text item.   
+/// Represents text item.
 export class TextItem  extends LinkElement  {
     /**
      * Attribute type map
@@ -5433,12 +5436,12 @@ export class TextItem  extends LinkElement  {
 
     public text: string;
 
-    public constructor(init?: Partial< TextItem >) {  
-         super(init);     
+    public constructor(init?: Partial< TextItem >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents text item collection.   
+/// Represents text item collection.
 export class TextItems  extends LinkElement  {
     /**
      * Attribute type map
@@ -5460,13 +5463,13 @@ export class TextItems  extends LinkElement  {
 
     public textItemList: Array<TextItem>;
 
-    public constructor(init?: Partial< TextItems >) {  
-         super(init);     
+    public constructor(init?: Partial< TextItems >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
 ///            Encapsulates the object that represents fill formatting for a shape.
-///               
+///
 export class FillFormat  {
     /**
      * Attribute type map
@@ -5518,12 +5521,12 @@ export class FillFormat  {
     public gradientFill: GradientFill;
     public imageData: string;
 
-    public constructor(init?: Partial< FillFormat >) {  
-    
+    public constructor(init?: Partial< FillFormat >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents all setting of the line.   
+/// Represents all setting of the line.
 export class LineFormat  extends FillFormat  {
     /**
      * Attribute type map
@@ -5605,13 +5608,13 @@ export class LineFormat  extends FillFormat  {
     public joinType: string;
     public weight: number;
 
-    public constructor(init?: Partial< LineFormat >) {  
-         super(init);     
+    public constructor(init?: Partial< LineFormat >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
 ///            This class specifies the shadow effect of the chart element or shape.
-///               
+///
 export class ShadowEffect  {
     /**
      * Attribute type map
@@ -5669,12 +5672,12 @@ export class ShadowEffect  {
     public size: number;
     public transparency: number;
 
-    public constructor(init?: Partial< ShadowEffect >) {  
-    
+    public constructor(init?: Partial< ShadowEffect >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents time period format condition.   
+/// Represents time period format condition.
 export class TimePeriodFormatCondition  {
     /**
      * Attribute type map
@@ -5696,12 +5699,12 @@ export class TimePeriodFormatCondition  {
 
     public timePeriod: string;
 
-    public constructor(init?: Partial< TimePeriodFormatCondition >) {  
-    
+    public constructor(init?: Partial< TimePeriodFormatCondition >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents data validation.settings.   
+/// Represents data validation.settings.
 export class Validation  extends LinkElement  {
     /**
      * Attribute type map
@@ -5813,12 +5816,12 @@ export class Validation  extends LinkElement  {
     public value1: string;
     public value2: string;
 
-    public constructor(init?: Partial< Validation >) {  
-         super(init);     
+    public constructor(init?: Partial< Validation >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents data validation collection.   
+/// Represents data validation collection.
 export class Validations  extends LinkElement  {
     /**
      * Attribute type map
@@ -5846,13 +5849,13 @@ export class Validations  extends LinkElement  {
     public count: number;
     public validationList: Array<LinkElement>;
 
-    public constructor(init?: Partial< Validations >) {  
-         super(init);     
+    public constructor(init?: Partial< Validations >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
 ///            Encapsulates the object that represents a vertical page break.
-///               
+///
 export class VerticalPageBreak  {
     /**
      * Attribute type map
@@ -5886,12 +5889,12 @@ export class VerticalPageBreak  {
     public endRow: number;
     public startRow: number;
 
-    public constructor(init?: Partial< VerticalPageBreak >) {  
-    
+    public constructor(init?: Partial< VerticalPageBreak >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// Encapsulates a collection of  objects.   
+/// Encapsulates a collection of  objects.
 export class VerticalPageBreaks  extends LinkElement  {
     /**
      * Attribute type map
@@ -5907,13 +5910,13 @@ export class VerticalPageBreaks  extends LinkElement  {
     }
 
 
-    public constructor(init?: Partial< VerticalPageBreaks >) {  
-         super(init);     
+    public constructor(init?: Partial< VerticalPageBreaks >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
 /// Specifies write protection settings for a workbook.
-///     
+///
 export class WriteProtection  {
     /**
      * Attribute type map
@@ -5953,13 +5956,13 @@ export class WriteProtection  {
     public isWriteProtected: boolean;
     public password: string;
 
-    public constructor(init?: Partial< WriteProtection >) {  
-    
+    public constructor(init?: Partial< WriteProtection >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
 ///            Represents all settings of the workbook.
-///               
+///
 export class WorkbookSettings  {
     /**
      * Attribute type map
@@ -6347,13 +6350,13 @@ export class WorkbookSettings  {
     public formulaSettings: FormulaSettings;
     public forceFullCalculate: boolean;
 
-    public constructor(init?: Partial< WorkbookSettings >) {  
-    
+    public constructor(init?: Partial< WorkbookSettings >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
 ///            Encapsulates the object that represents a single worksheet.
-///               
+///
 export class Worksheet  {
     /**
      * Attribute type map
@@ -6561,12 +6564,12 @@ export class Worksheet  {
     public conditionalFormattings: LinkElement;
     public hyperlinks: LinkElement;
 
-    public constructor(init?: Partial< Worksheet >) {  
-    
+    public constructor(init?: Partial< Worksheet >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// Encapsulates a collection of  objects.   
+/// Encapsulates a collection of  objects.
 export class Worksheets  extends LinkElement  {
     /**
      * Attribute type map
@@ -6588,13 +6591,13 @@ export class Worksheets  extends LinkElement  {
 
     public worksheetList: Array<LinkElement>;
 
-    public constructor(init?: Partial< Worksheets >) {  
-         super(init);     
+    public constructor(init?: Partial< Worksheets >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
 /// Represents Xml Data Binding information.
-///     
+///
 export class XmlDataBinding  {
     /**
      * Attribute type map
@@ -6616,13 +6619,13 @@ export class XmlDataBinding  {
 
     public url: string;
 
-    public constructor(init?: Partial< XmlDataBinding >) {  
-    
+    public constructor(init?: Partial< XmlDataBinding >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
 /// Represents Xml map information.
-///     
+///
 export class XmlMap  {
     /**
      * Attribute type map
@@ -6656,12 +6659,12 @@ export class XmlMap  {
     public rootElementName: string;
     public dataBinding: XmlDataBinding;
 
-    public constructor(init?: Partial< XmlMap >) {  
-    
+    public constructor(init?: Partial< XmlMap >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents task parameter.   
+/// Represents task parameter.
 export class TaskParameter  {
     /**
      * Attribute type map
@@ -6677,12 +6680,12 @@ export class TaskParameter  {
     }
 
 
-    public constructor(init?: Partial< TaskParameter >) {  
-    
+    public constructor(init?: Partial< TaskParameter >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents operate object.   
+/// Represents operate object.
 export class OperateObject  {
     /**
      * Attribute type map
@@ -6710,12 +6713,12 @@ export class OperateObject  {
     public operateObjectType: string;
     public position: OperateObjectPosition;
 
-    public constructor(init?: Partial< OperateObject >) {  
-    
+    public constructor(init?: Partial< OperateObject >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents operate parameter.   
+/// Represents operate parameter.
 export class OperateParameter  {
     /**
      * Attribute type map
@@ -6737,12 +6740,12 @@ export class OperateParameter  {
 
     public operateType: string;
 
-    public constructor(init?: Partial< OperateParameter >) {  
-    
+    public constructor(init?: Partial< OperateParameter >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents cells object operate task parameter.   
+/// Represents cells object operate task parameter.
 export class CellsObjectOperateTaskParameter  extends TaskParameter  {
     /**
      * Attribute type map
@@ -6782,12 +6785,12 @@ export class CellsObjectOperateTaskParameter  extends TaskParameter  {
     public destinationDataSource: DataSource;
     public destinationWorkbook: FileSource;
 
-    public constructor(init?: Partial< CellsObjectOperateTaskParameter >) {  
-         super(init);     
+    public constructor(init?: Partial< CellsObjectOperateTaskParameter >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents convert task parameter.   
+/// Represents convert task parameter.
 export class ConvertTaskParameter  extends TaskParameter  {
     /**
      * Attribute type map
@@ -6833,12 +6836,12 @@ export class ConvertTaskParameter  extends TaskParameter  {
     public region: string;
     public saveOptions: SaveOptions;
 
-    public constructor(init?: Partial< ConvertTaskParameter >) {  
-         super(init);     
+    public constructor(init?: Partial< ConvertTaskParameter >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents convert worksheet task parameter.   
+/// Represents convert worksheet task parameter.
 export class ConvertWorksheetTaskParameter  extends TaskParameter  {
     /**
      * Attribute type map
@@ -6914,12 +6917,12 @@ export class ConvertWorksheetTaskParameter  extends TaskParameter  {
     public verticalResolution: number;
     public horizontalResolution: number;
 
-    public constructor(init?: Partial< ConvertWorksheetTaskParameter >) {  
-         super(init);     
+    public constructor(init?: Partial< ConvertWorksheetTaskParameter >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Class Summary: This class covers the features of artificial intelligence, machine learning, deep learning, and natural language processing.   
+/// Class Summary: This class covers the features of artificial intelligence, machine learning, deep learning, and natural language processing.
 export class ImportOption  {
     /**
      * Attribute type map
@@ -6965,12 +6968,12 @@ export class ImportOption  {
     public dataSource: DataSource;
     public source: FileSource;
 
-    public constructor(init?: Partial< ImportOption >) {  
-    
+    public constructor(init?: Partial< ImportOption >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents import data task parameter.   
+/// Represents import data task parameter.
 export class ImportDataTaskParameter  extends TaskParameter  {
     /**
      * Attribute type map
@@ -7016,12 +7019,12 @@ export class ImportDataTaskParameter  extends TaskParameter  {
     public targetDataSource: DataSource;
     public destinationWorkbook: FileSource;
 
-    public constructor(init?: Partial< ImportDataTaskParameter >) {  
-         super(init);     
+    public constructor(init?: Partial< ImportDataTaskParameter >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents result destination.   
+/// Represents result destination.
 export class ResultDestination  {
     /**
      * Attribute type map
@@ -7055,12 +7058,12 @@ export class ResultDestination  {
     public inputFile: string;
     public outputFile: string;
 
-    public constructor(init?: Partial< ResultDestination >) {  
-    
+    public constructor(init?: Partial< ResultDestination >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents task run result.   
+/// Represents task run result.
 export class TaskRunResult  {
     /**
      * Attribute type map
@@ -7088,12 +7091,12 @@ export class TaskRunResult  {
     public description: string;
     public outFileList: Array<DataSource>;
 
-    public constructor(init?: Partial< TaskRunResult >) {  
-    
+    public constructor(init?: Partial< TaskRunResult >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents save file to cloud result.   
+/// Represents save file to cloud result.
 export class SaveFilesToCloudResult  extends TaskRunResult  {
     /**
      * Attribute type map
@@ -7115,12 +7118,12 @@ export class SaveFilesToCloudResult  extends TaskRunResult  {
 
     public savedFiles: Array<Link>;
 
-    public constructor(init?: Partial< SaveFilesToCloudResult >) {  
-         super(init);     
+    public constructor(init?: Partial< SaveFilesToCloudResult >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents save result task parameter.   
+/// Represents save result task parameter.
 export class SaveResultTaskParameter  extends TaskParameter  {
     /**
      * Attribute type map
@@ -7148,12 +7151,12 @@ export class SaveResultTaskParameter  extends TaskParameter  {
     public resultSource: string;
     public resultDestination: ResultDestination;
 
-    public constructor(init?: Partial< SaveResultTaskParameter >) {  
-         super(init);     
+    public constructor(init?: Partial< SaveResultTaskParameter >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents smart marker task parameter.   
+/// Represents smart marker task parameter.
 export class SmartMarkerTaskParameter  extends TaskParameter  {
     /**
      * Attribute type map
@@ -7205,12 +7208,12 @@ export class SmartMarkerTaskParameter  extends TaskParameter  {
     public targetDataSource: DataSource;
     public xMLFileDataSource: DataSource;
 
-    public constructor(init?: Partial< SmartMarkerTaskParameter >) {  
-         super(init);     
+    public constructor(init?: Partial< SmartMarkerTaskParameter >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents split workbook task parameter.   
+/// Represents split workbook task parameter.
 export class SplitWorkbookTaskParameter  extends TaskParameter  {
     /**
      * Attribute type map
@@ -7274,12 +7277,12 @@ export class SplitWorkbookTaskParameter  extends TaskParameter  {
     public verticalResolution: number;
     public horizontalResolution: number;
 
-    public constructor(init?: Partial< SplitWorkbookTaskParameter >) {  
-         super(init);     
+    public constructor(init?: Partial< SplitWorkbookTaskParameter >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents task description.   
+/// Represents task description.
 export class TaskDescription  {
     /**
      * Attribute type map
@@ -7307,12 +7310,12 @@ export class TaskDescription  {
     public taskType: string;
     public taskParameter: TaskParameter;
 
-    public constructor(init?: Partial< TaskDescription >) {  
-    
+    public constructor(init?: Partial< TaskDescription >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents task data.   
+/// Represents task data.
 export class TaskData  {
     /**
      * Attribute type map
@@ -7334,12 +7337,12 @@ export class TaskData  {
 
     public tasks: Array<TaskDescription>;
 
-    public constructor(init?: Partial< TaskData >) {  
-    
+    public constructor(init?: Partial< TaskData >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents task result parameter.   
+/// Represents task result parameter.
 export class TaskResultParameter  extends TaskParameter  {
     /**
      * Attribute type map
@@ -7355,12 +7358,12 @@ export class TaskResultParameter  extends TaskParameter  {
     }
 
 
-    public constructor(init?: Partial< TaskResultParameter >) {  
-         super(init);     
+    public constructor(init?: Partial< TaskResultParameter >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents chart operate parameter.   
+/// Represents chart operate parameter.
 export class ChartOperateParameter  extends OperateParameter  {
     /**
      * Attribute type map
@@ -7442,12 +7445,12 @@ export class ChartOperateParameter  extends OperateParameter  {
     public isAutoGetSerialName: boolean;
     public title: string;
 
-    public constructor(init?: Partial< ChartOperateParameter >) {  
-         super(init);     
+    public constructor(init?: Partial< ChartOperateParameter >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents a list object on a worksheet.            The ListObject object is a member of the ListObjects collection.             The ListObjects collection contains all the list objects on a worksheet.   
+/// Represents a list object on a worksheet.            The ListObject object is a member of the ListObjects collection.             The ListObjects collection contains all the list objects on a worksheet.
 export class ListObject  extends LinkElement  {
     /**
      * Attribute type map
@@ -7589,12 +7592,12 @@ export class ListObject  extends LinkElement  {
     public alternativeText: string;
     public alternativeDescription: string;
 
-    public constructor(init?: Partial< ListObject >) {  
-         super(init);     
+    public constructor(init?: Partial< ListObject >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents list object operate parameter.   
+/// Represents list object operate parameter.
 export class ListObjectOperateParameter  extends OperateParameter  {
     /**
      * Attribute type map
@@ -7616,12 +7619,12 @@ export class ListObjectOperateParameter  extends OperateParameter  {
 
     public listObject: ListObject;
 
-    public constructor(init?: Partial< ListObjectOperateParameter >) {  
-         super(init);     
+    public constructor(init?: Partial< ListObjectOperateParameter >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents operate object position.   
+/// Represents operate object position.
 export class OperateObjectPosition  {
     /**
      * Attribute type map
@@ -7679,12 +7682,12 @@ export class OperateObjectPosition  {
     public cellName: string;
     public listObjectIndex: number;
 
-    public constructor(init?: Partial< OperateObjectPosition >) {  
-    
+    public constructor(init?: Partial< OperateObjectPosition >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents page break operate parameter.   
+/// Represents page break operate parameter.
 export class PageBreakOperateParameter  extends OperateParameter  {
     /**
      * Attribute type map
@@ -7736,12 +7739,12 @@ export class PageBreakOperateParameter  extends OperateParameter  {
     public startIndex: number;
     public endIndex: number;
 
-    public constructor(init?: Partial< PageBreakOperateParameter >) {  
-         super(init);     
+    public constructor(init?: Partial< PageBreakOperateParameter >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents page setup operate parameter.   
+/// Represents page setup operate parameter.
 export class PageSetupOperateParameter  extends OperateParameter  {
     /**
      * Attribute type map
@@ -7763,12 +7766,12 @@ export class PageSetupOperateParameter  extends OperateParameter  {
 
     public pageSetup: PageSetup;
 
-    public constructor(init?: Partial< PageSetupOperateParameter >) {  
-         super(init);     
+    public constructor(init?: Partial< PageSetupOperateParameter >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents pivot table operate parameter.   
+/// Represents pivot table operate parameter.
 export class PivotTableOperateParameter  extends OperateParameter  {
     /**
      * Attribute type map
@@ -7832,12 +7835,12 @@ export class PivotTableOperateParameter  extends OperateParameter  {
     public pivotFieldColumns: Array<number>;
     public pivotFieldData: Array<number>;
 
-    public constructor(init?: Partial< PivotTableOperateParameter >) {  
-         super(init);     
+    public constructor(init?: Partial< PivotTableOperateParameter >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the msodrawing object.   
+/// Represents the msodrawing object.
 export class Shape  extends LinkElement  {
     /**
      * Attribute type map
@@ -8069,12 +8072,12 @@ export class Shape  extends LinkElement  {
     public font: Font;
     public hyperlink: string;
 
-    public constructor(init?: Partial< Shape >) {  
-         super(init);     
+    public constructor(init?: Partial< Shape >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents shape operate parameter.   
+/// Represents shape operate parameter.
 export class ShapeOperateParameter  extends OperateParameter  {
     /**
      * Attribute type map
@@ -8096,12 +8099,12 @@ export class ShapeOperateParameter  extends OperateParameter  {
 
     public shape: Shape;
 
-    public constructor(init?: Partial< ShapeOperateParameter >) {  
-         super(init);     
+    public constructor(init?: Partial< ShapeOperateParameter >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents workbook operate parameter.   
+/// Represents workbook operate parameter.
 export class WorkbookOperateParameter  extends OperateParameter  {
     /**
      * Attribute type map
@@ -8117,12 +8120,12 @@ export class WorkbookOperateParameter  extends OperateParameter  {
     }
 
 
-    public constructor(init?: Partial< WorkbookOperateParameter >) {  
-         super(init);     
+    public constructor(init?: Partial< WorkbookOperateParameter >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents workbook setting operate parameter.   
+/// Represents workbook setting operate parameter.
 export class WorkbookSettingsOperateParameter  extends OperateParameter  {
     /**
      * Attribute type map
@@ -8144,12 +8147,12 @@ export class WorkbookSettingsOperateParameter  extends OperateParameter  {
 
     public workbookSettings: WorkbookSettings;
 
-    public constructor(init?: Partial< WorkbookSettingsOperateParameter >) {  
-         super(init);     
+    public constructor(init?: Partial< WorkbookSettingsOperateParameter >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Used by workbook moving requests.   
+/// Used by workbook moving requests.
 export class WorksheetMovingRequest  {
     /**
      * Attribute type map
@@ -8177,12 +8180,12 @@ export class WorksheetMovingRequest  {
     public destinationWorksheet: string;
     public position: string;
 
-    public constructor(init?: Partial< WorksheetMovingRequest >) {  
-    
+    public constructor(init?: Partial< WorksheetMovingRequest >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents worksheet operate parameter.   
+/// Represents worksheet operate parameter.
 export class WorksheetOperateParameter  extends OperateParameter  {
     /**
      * Attribute type map
@@ -8222,13 +8225,13 @@ export class WorksheetOperateParameter  extends OperateParameter  {
     public newName: string;
     public movingRequest: WorksheetMovingRequest;
 
-    public constructor(init?: Partial< WorksheetOperateParameter >) {  
-         super(init);     
+    public constructor(init?: Partial< WorksheetOperateParameter >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
 ///            Represents a column in a Table.
-///               
+///
 export class ListColumn  {
     /**
      * Attribute type map
@@ -8274,12 +8277,12 @@ export class ListColumn  {
     public formula: string;
     public totalsRowLabel: string;
 
-    public constructor(init?: Partial< ListColumn >) {  
-    
+    public constructor(init?: Partial< ListColumn >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents a collection of  objects in the worksheet.   
+/// Represents a collection of  objects in the worksheet.
 export class ListObjects  extends LinkElement  {
     /**
      * Attribute type map
@@ -8301,12 +8304,12 @@ export class ListObjects  extends LinkElement  {
 
     public listObjectList: Array<LinkElement>;
 
-    public constructor(init?: Partial< ListObjects >) {  
-         super(init);     
+    public constructor(init?: Partial< ListObjects >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the options of saving dif file.   
+/// Represents the options of saving dif file.
 export class DifSaveOptions  extends SaveOptions  {
     /**
      * Attribute type map
@@ -8322,12 +8325,12 @@ export class DifSaveOptions  extends SaveOptions  {
     }
 
 
-    public constructor(init?: Partial< DifSaveOptions >) {  
-         super(init);     
+    public constructor(init?: Partial< DifSaveOptions >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents options of saving .docx file.   
+/// Represents options of saving .docx file.
 export class DocxSaveOptions  extends PaginatedSaveOptions  {
     /**
      * Attribute type map
@@ -8343,13 +8346,13 @@ export class DocxSaveOptions  extends PaginatedSaveOptions  {
     }
 
 
-    public constructor(init?: Partial< DocxSaveOptions >) {  
-         super(init);     
+    public constructor(init?: Partial< DocxSaveOptions >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
 ///            Allows to specify options when rendering worksheet to images, printing worksheet or rendering chart to image.
-///               
+///
 export class ImageOrPrintOptions  {
     /**
      * Attribute type map
@@ -8515,12 +8518,12 @@ export class ImageOrPrintOptions  {
     public onePagePerSheet: boolean;
     public tiffBinarizationMethod: string;
 
-    public constructor(init?: Partial< ImageOrPrintOptions >) {  
-    
+    public constructor(init?: Partial< ImageOrPrintOptions >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents options of saving .html file.   
+/// Represents options of saving .html file.
 export class HtmlSaveOptions  extends SaveOptions  {
     /**
      * Attribute type map
@@ -8770,12 +8773,12 @@ export class HtmlSaveOptions  extends SaveOptions  {
     public parseHtmlTagInCell: boolean;
     public cellNameAttribute: string;
 
-    public constructor(init?: Partial< HtmlSaveOptions >) {  
-         super(init);     
+    public constructor(init?: Partial< HtmlSaveOptions >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents options of saving image file.   
+/// Represents options of saving image file.
 export class ImageSaveOptions  extends SaveOptions  {
     /**
      * Attribute type map
@@ -8863,12 +8866,12 @@ export class ImageSaveOptions  extends SaveOptions  {
     public tiffCompression: string;
     public verticalResolution: number;
 
-    public constructor(init?: Partial< ImageSaveOptions >) {  
-         super(init);     
+    public constructor(init?: Partial< ImageSaveOptions >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents options of saving .json file.   
+/// Represents options of saving .json file.
 export class JsonSaveOptions  extends SaveOptions  {
     /**
      * Attribute type map
@@ -8908,12 +8911,12 @@ export class JsonSaveOptions  extends SaveOptions  {
     public exportAsString: boolean;
     public indent: string;
 
-    public constructor(init?: Partial< JsonSaveOptions >) {  
-         super(init);     
+    public constructor(init?: Partial< JsonSaveOptions >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents options of saving .md file.   
+/// Represents options of saving .md file.
 export class MarkdownSaveOptions  extends SaveOptions  {
     /**
      * Attribute type map
@@ -8947,12 +8950,12 @@ export class MarkdownSaveOptions  extends SaveOptions  {
     public formatStrategy: string;
     public lineSeparator: string;
 
-    public constructor(init?: Partial< MarkdownSaveOptions >) {  
-         super(init);     
+    public constructor(init?: Partial< MarkdownSaveOptions >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents options of saving .mhtml file.   
+/// Represents options of saving .mhtml file.
 export class MHtmlSaveOptions  extends SaveOptions  {
     /**
      * Attribute type map
@@ -9202,12 +9205,12 @@ export class MHtmlSaveOptions  extends SaveOptions  {
     public parseHtmlTagInCell: boolean;
     public cellNameAttribute: string;
 
-    public constructor(init?: Partial< MHtmlSaveOptions >) {  
-         super(init);     
+    public constructor(init?: Partial< MHtmlSaveOptions >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents options of saving .ods file.   
+/// Represents options of saving .ods file.
 export class OdsSaveOptions  extends SaveOptions  {
     /**
      * Attribute type map
@@ -9241,12 +9244,12 @@ export class OdsSaveOptions  extends SaveOptions  {
     public odfStrictVersion: string;
     public ignorePivotTables: boolean;
 
-    public constructor(init?: Partial< OdsSaveOptions >) {  
-         super(init);     
+    public constructor(init?: Partial< OdsSaveOptions >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents options of saving ooxml file.   
+/// Represents options of saving ooxml file.
 export class OoxmlSaveOptions  extends SaveOptions  {
     /**
      * Attribute type map
@@ -9292,12 +9295,12 @@ export class OoxmlSaveOptions  extends SaveOptions  {
     public embedOoxmlAsOleObject: boolean;
     public compressionType: string;
 
-    public constructor(init?: Partial< OoxmlSaveOptions >) {  
-         super(init);     
+    public constructor(init?: Partial< OoxmlSaveOptions >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Watermark for rendering.   
+/// Watermark for rendering.
 export class RenderingWatermark  {
     /**
      * Attribute type map
@@ -9379,12 +9382,12 @@ export class RenderingWatermark  {
     public offsetX: number;
     public offsetY: number;
 
-    public constructor(init?: Partial< RenderingWatermark >) {  
-    
+    public constructor(init?: Partial< RenderingWatermark >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents options of saving pdf file.   
+/// Represents options of saving pdf file.
 export class PdfSaveOptions  extends SaveOptions  {
     /**
      * Attribute type map
@@ -9514,12 +9517,12 @@ export class PdfSaveOptions  extends SaveOptions  {
     public jpegQuality: number;
     public imageType: string;
 
-    public constructor(init?: Partial< PdfSaveOptions >) {  
-         super(init);     
+    public constructor(init?: Partial< PdfSaveOptions >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the options of saving pptx file.   
+/// Represents the options of saving pptx file.
 export class PptxSaveOptions  extends PaginatedSaveOptions  {
     /**
      * Attribute type map
@@ -9553,12 +9556,12 @@ export class PptxSaveOptions  extends PaginatedSaveOptions  {
     public adjustFontSizeForRowType: string;
     public exportViewType: string;
 
-    public constructor(init?: Partial< PptxSaveOptions >) {  
-         super(init);     
+    public constructor(init?: Partial< PptxSaveOptions >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the options of saving .xml file.   
+/// Represents the options of saving .xml file.
 export class SpreadsheetML2003SaveOptions  extends SaveOptions  {
     /**
      * Attribute type map
@@ -9592,12 +9595,12 @@ export class SpreadsheetML2003SaveOptions  extends SaveOptions  {
     public isIndentedFormatting: boolean;
     public limitAsXls: boolean;
 
-    public constructor(init?: Partial< SpreadsheetML2003SaveOptions >) {  
-         super(init);     
+    public constructor(init?: Partial< SpreadsheetML2003SaveOptions >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the options of saving .sql file.   
+/// Represents the options of saving .sql file.
 export class SqlScriptSaveOptions  extends SaveOptions  {
     /**
      * Attribute type map
@@ -9697,12 +9700,12 @@ export class SqlScriptSaveOptions  extends SaveOptions  {
     public exportArea: CellArea;
     public hasHeaderRow: boolean;
 
-    public constructor(init?: Partial< SqlScriptSaveOptions >) {  
-         super(init);     
+    public constructor(init?: Partial< SqlScriptSaveOptions >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the options of saving .svg file.   
+/// Represents the options of saving .svg file.
 export class SvgSaveOptions  extends SaveOptions  {
     /**
      * Attribute type map
@@ -9796,12 +9799,12 @@ export class SvgSaveOptions  extends SaveOptions  {
     public tiffCompression: string;
     public verticalResolution: number;
 
-    public constructor(init?: Partial< SvgSaveOptions >) {  
-         super(init);     
+    public constructor(init?: Partial< SvgSaveOptions >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the options of saving .txt file.   
+/// Represents the options of saving .txt file.
 export class TxtSaveOptions  extends SaveOptions  {
     /**
      * Attribute type map
@@ -9841,12 +9844,12 @@ export class TxtSaveOptions  extends SaveOptions  {
     public separatorString: string;
     public alwaysQuoted: boolean;
 
-    public constructor(init?: Partial< TxtSaveOptions >) {  
-         super(init);     
+    public constructor(init?: Partial< TxtSaveOptions >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the options of saving .xlsb file.   
+/// Represents the options of saving .xlsb file.
 export class XlsbSaveOptions  extends SaveOptions  {
     /**
      * Attribute type map
@@ -9874,12 +9877,12 @@ export class XlsbSaveOptions  extends SaveOptions  {
     public exportAllColumnIndexes: boolean;
     public compressionType: string;
 
-    public constructor(init?: Partial< XlsbSaveOptions >) {  
-         super(init);     
+    public constructor(init?: Partial< XlsbSaveOptions >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the options of saving .xls file.   
+/// Represents the options of saving .xls file.
 export class XlsSaveOptions  extends SaveOptions  {
     /**
      * Attribute type map
@@ -9907,12 +9910,12 @@ export class XlsSaveOptions  extends SaveOptions  {
     public matchColor: boolean;
     public wpsCompatibility: boolean;
 
-    public constructor(init?: Partial< XlsSaveOptions >) {  
-         super(init);     
+    public constructor(init?: Partial< XlsSaveOptions >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the options of saving .xps file.   
+/// Represents the options of saving .xps file.
 export class XpsSaveOptions  extends PaginatedSaveOptions  {
     /**
      * Attribute type map
@@ -9928,13 +9931,13 @@ export class XpsSaveOptions  extends PaginatedSaveOptions  {
     }
 
 
-    public constructor(init?: Partial< XpsSaveOptions >) {  
-         super(init);     
+    public constructor(init?: Partial< XpsSaveOptions >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
 ///            Represents the CellsCloud Response.
-///               
+///
 export class CellsCloudResponse  {
     /**
      * Attribute type map
@@ -9962,12 +9965,12 @@ export class CellsCloudResponse  {
     public code: number;
     public status: string;
 
-    public constructor(init?: Partial< CellsCloudResponse >) {  
-    
+    public constructor(init?: Partial< CellsCloudResponse >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the arc shape.   
+/// Represents the arc shape.
 export class ArcShape  extends Shape  {
     /**
      * Attribute type map
@@ -10019,12 +10022,12 @@ export class ArcShape  extends Shape  {
     public endArrowheadStyle: string;
     public endArrowheadWidth: string;
 
-    public constructor(init?: Partial< ArcShape >) {  
-         super(init);     
+    public constructor(init?: Partial< ArcShape >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the ArcShape Response.   
+/// Represents the ArcShape Response.
 export class ArcShapeResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -10046,12 +10049,12 @@ export class ArcShapeResponse  extends CellsCloudResponse  {
 
     public shape: ArcShape;
 
-    public constructor(init?: Partial< ArcShapeResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< ArcShapeResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the AutoFilter Response.   
+/// Represents the AutoFilter Response.
 export class AutoFilterResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -10073,12 +10076,12 @@ export class AutoFilterResponse  extends CellsCloudResponse  {
 
     public autoFilter: AutoFilter;
 
-    public constructor(init?: Partial< AutoFilterResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< AutoFilterResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents an AutoShape.   
+/// Represents an AutoShape.
 export class AutoShape  extends Shape  {
     /**
      * Attribute type map
@@ -10094,12 +10097,12 @@ export class AutoShape  extends Shape  {
     }
 
 
-    public constructor(init?: Partial< AutoShape >) {  
-         super(init);     
+    public constructor(init?: Partial< AutoShape >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the AutoShape Response.   
+/// Represents the AutoShape Response.
 export class AutoShapeResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -10121,12 +10124,12 @@ export class AutoShapeResponse  extends CellsCloudResponse  {
 
     public autoShape: AutoShape;
 
-    public constructor(init?: Partial< AutoShapeResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< AutoShapeResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Sure! Just provide me with the features you would like me to summarize into one sentence.   
+/// Sure! Just provide me with the features you would like me to summarize into one sentence.
 export class AutoShapes  extends LinkElement  {
     /**
      * Attribute type map
@@ -10148,12 +10151,12 @@ export class AutoShapes  extends LinkElement  {
 
     public autoShapeList: Array<LinkElement>;
 
-    public constructor(init?: Partial< AutoShapes >) {  
-         super(init);     
+    public constructor(init?: Partial< AutoShapes >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the AutoShapes Response.   
+/// Represents the AutoShapes Response.
 export class AutoShapesResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -10175,12 +10178,12 @@ export class AutoShapesResponse  extends CellsCloudResponse  {
 
     public autoShapes: AutoShapes;
 
-    public constructor(init?: Partial< AutoShapesResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< AutoShapesResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Encapsulates the object that represents an axis of chart.   
+/// Encapsulates the object that represents an axis of chart.
 export class Axis  extends LinkElement  {
     /**
      * Attribute type map
@@ -10400,12 +10403,12 @@ export class Axis  extends LinkElement  {
     public tickMarkSpacing: number;
     public title: Title;
 
-    public constructor(init?: Partial< Axis >) {  
-         super(init);     
+    public constructor(init?: Partial< Axis >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the Axis Response.   
+/// Represents the Axis Response.
 export class AxisResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -10427,12 +10430,12 @@ export class AxisResponse  extends CellsCloudResponse  {
 
     public axis: Axis;
 
-    public constructor(init?: Partial< AxisResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< AxisResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the Border Response.   
+/// Represents the Border Response.
 export class BorderResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -10454,12 +10457,12 @@ export class BorderResponse  extends CellsCloudResponse  {
 
     public border: Border;
 
-    public constructor(init?: Partial< BorderResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< BorderResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the Forms control: Button   
+/// Represents the Forms control: Button
 export class Button  extends Shape  {
     /**
      * Attribute type map
@@ -10475,12 +10478,12 @@ export class Button  extends Shape  {
     }
 
 
-    public constructor(init?: Partial< Button >) {  
-         super(init);     
+    public constructor(init?: Partial< Button >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the Button Response.   
+/// Represents the Button Response.
 export class ButtonResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -10502,12 +10505,12 @@ export class ButtonResponse  extends CellsCloudResponse  {
 
     public shape: Button;
 
-    public constructor(init?: Partial< ButtonResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< ButtonResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the CalculateFormula Response.   
+/// Represents the CalculateFormula Response.
 export class CalculateFormulaResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -10529,12 +10532,12 @@ export class CalculateFormulaResponse  extends CellsCloudResponse  {
 
     public result: string;
 
-    public constructor(init?: Partial< CalculateFormulaResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< CalculateFormulaResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the Cell Response.   
+/// Represents the Cell Response.
 export class CellResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -10556,12 +10559,12 @@ export class CellResponse  extends CellsCloudResponse  {
 
     public cell: Cell;
 
-    public constructor(init?: Partial< CellResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< CellResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the CellsCloudFileInfo Response.   
+/// Represents the CellsCloudFileInfo Response.
 export class CellsCloudFileInfoResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -10583,12 +10586,12 @@ export class CellsCloudFileInfoResponse  extends CellsCloudResponse  {
 
     public fileInfo: CellsCloudFileInfo;
 
-    public constructor(init?: Partial< CellsCloudFileInfoResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< CellsCloudFileInfoResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the CellsDocumentProperties Response.   
+/// Represents the CellsDocumentProperties Response.
 export class CellsDocumentPropertiesResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -10610,12 +10613,12 @@ export class CellsDocumentPropertiesResponse  extends CellsCloudResponse  {
 
     public documentProperties: CellsDocumentProperties;
 
-    public constructor(init?: Partial< CellsDocumentPropertiesResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< CellsDocumentPropertiesResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the CellsDocumentProperty Response.   
+/// Represents the CellsDocumentProperty Response.
 export class CellsDocumentPropertyResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -10637,12 +10640,12 @@ export class CellsDocumentPropertyResponse  extends CellsCloudResponse  {
 
     public documentProperty: CellsDocumentProperty;
 
-    public constructor(init?: Partial< CellsDocumentPropertyResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< CellsDocumentPropertyResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the auto shape and drawing object.   
+/// Represents the auto shape and drawing object.
 export class CellsDrawing  extends Shape  {
     /**
      * Attribute type map
@@ -10658,12 +10661,12 @@ export class CellsDrawing  extends Shape  {
     }
 
 
-    public constructor(init?: Partial< CellsDrawing >) {  
-         super(init);     
+    public constructor(init?: Partial< CellsDrawing >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the CellsDrawing Response.   
+/// Represents the CellsDrawing Response.
 export class CellsDrawingResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -10685,12 +10688,12 @@ export class CellsDrawingResponse  extends CellsCloudResponse  {
 
     public shape: CellsDrawing;
 
-    public constructor(init?: Partial< CellsDrawingResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< CellsDrawingResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the Cells Response.   
+/// Represents the Cells Response.
 export class CellsResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -10712,13 +10715,13 @@ export class CellsResponse  extends CellsCloudResponse  {
 
     public cells: Cells;
 
-    public constructor(init?: Partial< CellsResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< CellsResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
 ///            Encapsulates the object that represents the frame object in a chart.
-///               
+///
 export class ChartFrame  {
     /**
      * Attribute type map
@@ -10806,12 +10809,12 @@ export class ChartFrame  {
     public x: number;
     public y: number;
 
-    public constructor(init?: Partial< ChartFrame >) {  
-    
+    public constructor(init?: Partial< ChartFrame >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// Encapsulates the object that represents the chart area in the worksheet.   
+/// Encapsulates the object that represents the chart area in the worksheet.
 export class ChartArea  extends ChartFrame  {
     /**
      * Attribute type map
@@ -10827,12 +10830,12 @@ export class ChartArea  extends ChartFrame  {
     }
 
 
-    public constructor(init?: Partial< ChartArea >) {  
-         super(init);     
+    public constructor(init?: Partial< ChartArea >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the ChartArea Response.   
+/// Represents the ChartArea Response.
 export class ChartAreaResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -10854,12 +10857,12 @@ export class ChartAreaResponse  extends CellsCloudResponse  {
 
     public chartArea: ChartArea;
 
-    public constructor(init?: Partial< ChartAreaResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< ChartAreaResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents a chart data table.   
+/// Represents a chart data table.
 export class ChartDataTable  extends LinkElement  {
     /**
      * Attribute type map
@@ -10923,12 +10926,12 @@ export class ChartDataTable  extends LinkElement  {
     public hasBorderVertical: boolean;
     public showLegendKey: boolean;
 
-    public constructor(init?: Partial< ChartDataTable >) {  
-         super(init);     
+    public constructor(init?: Partial< ChartDataTable >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the ChartDataTable Response.   
+/// Represents the ChartDataTable Response.
 export class ChartDataTableResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -10950,12 +10953,12 @@ export class ChartDataTableResponse  extends CellsCloudResponse  {
 
     public chartDataTable: ChartDataTable;
 
-    public constructor(init?: Partial< ChartDataTableResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< ChartDataTableResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents a single point in a series in a chart.   
+/// Represents a single point in a series in a chart.
 export class ChartPoint  extends LinkElement  {
     /**
      * Attribute type map
@@ -11025,12 +11028,12 @@ export class ChartPoint  extends LinkElement  {
     public yValue: Object;
     public isInSecondaryPlot: boolean;
 
-    public constructor(init?: Partial< ChartPoint >) {  
-         super(init);     
+    public constructor(init?: Partial< ChartPoint >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the ChartPoint Response.   
+/// Represents the ChartPoint Response.
 export class ChartPointResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -11052,12 +11055,12 @@ export class ChartPointResponse  extends CellsCloudResponse  {
 
     public chartPoint: ChartPoint;
 
-    public constructor(init?: Partial< ChartPointResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< ChartPointResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents a collection that contains all the points in one series.   
+/// Represents a collection that contains all the points in one series.
 export class ChartPoints  extends LinkElement  {
     /**
      * Attribute type map
@@ -11079,12 +11082,12 @@ export class ChartPoints  extends LinkElement  {
 
     public chartPointList: Array<ChartPoint>;
 
-    public constructor(init?: Partial< ChartPoints >) {  
-         super(init);     
+    public constructor(init?: Partial< ChartPoints >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the ChartPoints Response.   
+/// Represents the ChartPoints Response.
 export class ChartPointsResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -11106,12 +11109,12 @@ export class ChartPointsResponse  extends CellsCloudResponse  {
 
     public chartPoints: ChartPoints;
 
-    public constructor(init?: Partial< ChartPointsResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< ChartPointsResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Encapsulates the object that represents a single Excel chart.   
+/// Encapsulates the object that represents a single Excel chart.
 export class Chart  extends LinkElement  {
     /**
      * Attribute type map
@@ -11385,12 +11388,12 @@ export class Chart  extends LinkElement  {
     public walls: LinkElement;
     public wallsAndGridlines2D: boolean;
 
-    public constructor(init?: Partial< Chart >) {  
-         super(init);     
+    public constructor(init?: Partial< Chart >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the Chart Response.   
+/// Represents the Chart Response.
 export class ChartResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -11412,12 +11415,12 @@ export class ChartResponse  extends CellsCloudResponse  {
 
     public chart: Chart;
 
-    public constructor(init?: Partial< ChartResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< ChartResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Encapsulates a collection of  objects.   
+/// Encapsulates a collection of  objects.
 export class Charts  extends LinkElement  {
     /**
      * Attribute type map
@@ -11439,12 +11442,12 @@ export class Charts  extends LinkElement  {
 
     public chartList: Array<LinkElement>;
 
-    public constructor(init?: Partial< Charts >) {  
-         super(init);     
+    public constructor(init?: Partial< Charts >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the Charts Response.   
+/// Represents the Charts Response.
 export class ChartsResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -11466,12 +11469,12 @@ export class ChartsResponse  extends CellsCloudResponse  {
 
     public charts: Charts;
 
-    public constructor(init?: Partial< ChartsResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< ChartsResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents a check box object in a worksheet.   
+/// Represents a check box object in a worksheet.
 export class CheckBox  extends Shape  {
     /**
      * Attribute type map
@@ -11505,12 +11508,12 @@ export class CheckBox  extends Shape  {
     public shadow: boolean;
     public value: boolean;
 
-    public constructor(init?: Partial< CheckBox >) {  
-         super(init);     
+    public constructor(init?: Partial< CheckBox >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the CheckBox Response.   
+/// Represents the CheckBox Response.
 export class CheckBoxResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -11532,12 +11535,84 @@ export class CheckBoxResponse  extends CellsCloudResponse  {
 
     public shape: CheckBox;
 
-    public constructor(init?: Partial< CheckBoxResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< CheckBoxResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the Column Response.   
+///
+export class CheckedExternalReferenceResponse  extends CellsCloudResponse  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "referenceOtherWorkbook",
+            baseName: "ReferenceOtherWorkbook",
+            type: "boolean",
+        },
+        {
+            name: "referenceOtherWorksheet",
+            baseName: "ReferenceOtherWorksheet",
+            type: "boolean",
+        },
+        {
+            name: "formulas",
+            baseName: "Formulas",
+            type: "Array<string>",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return super.getAttributeTypeMap().concat(CheckedExternalReferenceResponse.attributeTypeMap) ;
+
+    }
+
+    public referenceOtherWorkbook: boolean;
+    public referenceOtherWorksheet: boolean;
+    public formulas: Array<string>;
+
+    public constructor(init?: Partial< CheckedExternalReferenceResponse >) {
+         super(init);
+        Object.assign(this, init);
+    }
+}
+///
+export class CheckedFormulaErrorsResponse  extends CellsCloudResponse  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "isFormulasErrors",
+            baseName: "IsFormulasErrors",
+            type: "boolean",
+        },
+        {
+            name: "formulasErrors",
+            baseName: "FormulasErrors",
+            type: "Array<string>",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return super.getAttributeTypeMap().concat(CheckedFormulaErrorsResponse.attributeTypeMap) ;
+
+    }
+
+    public isFormulasErrors: boolean;
+    public formulasErrors: Array<string>;
+
+    public constructor(init?: Partial< CheckedFormulaErrorsResponse >) {
+         super(init);
+        Object.assign(this, init);
+    }
+}
+/// Represents the Column Response.
 export class ColumnResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -11559,12 +11634,12 @@ export class ColumnResponse  extends CellsCloudResponse  {
 
     public column: Column;
 
-    public constructor(init?: Partial< ColumnResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< ColumnResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the Columns Response.   
+/// Represents the Columns Response.
 export class ColumnsResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -11586,12 +11661,12 @@ export class ColumnsResponse  extends CellsCloudResponse  {
 
     public columns: Columns;
 
-    public constructor(init?: Partial< ColumnsResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< ColumnsResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the control form ComboBox.   
+/// Represents the control form ComboBox.
 export class ComboBox  extends Shape  {
     /**
      * Attribute type map
@@ -11643,12 +11718,12 @@ export class ComboBox  extends Shape  {
     public selectedValue: string;
     public shadow: boolean;
 
-    public constructor(init?: Partial< ComboBox >) {  
-         super(init);     
+    public constructor(init?: Partial< ComboBox >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the ComboBox Response.   
+/// Represents the ComboBox Response.
 export class ComboBoxResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -11670,12 +11745,12 @@ export class ComboBoxResponse  extends CellsCloudResponse  {
 
     public shape: ComboBox;
 
-    public constructor(init?: Partial< ComboBoxResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< ComboBoxResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the Comment Response.   
+/// Represents the Comment Response.
 export class CommentResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -11697,12 +11772,12 @@ export class CommentResponse  extends CellsCloudResponse  {
 
     public comment: Comment;
 
-    public constructor(init?: Partial< CommentResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< CommentResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the shape of the comment.   
+/// Represents the shape of the comment.
 export class CommentShape  extends Shape  {
     /**
      * Attribute type map
@@ -11724,12 +11799,12 @@ export class CommentShape  extends Shape  {
 
     public comment: LinkElement;
 
-    public constructor(init?: Partial< CommentShape >) {  
-         super(init);     
+    public constructor(init?: Partial< CommentShape >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the CommentShape Response.   
+/// Represents the CommentShape Response.
 export class CommentShapeResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -11751,12 +11826,12 @@ export class CommentShapeResponse  extends CellsCloudResponse  {
 
     public comment: CommentShape;
 
-    public constructor(init?: Partial< CommentShapeResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< CommentShapeResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the Comments Response.   
+/// Represents the Comments Response.
 export class CommentsResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -11778,12 +11853,12 @@ export class CommentsResponse  extends CellsCloudResponse  {
 
     public comments: Comments;
 
-    public constructor(init?: Partial< CommentsResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< CommentsResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the ConditionalFormatting Response.   
+/// Represents the ConditionalFormatting Response.
 export class ConditionalFormattingResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -11805,12 +11880,12 @@ export class ConditionalFormattingResponse  extends CellsCloudResponse  {
 
     public conditionalFormatting: ConditionalFormatting;
 
-    public constructor(init?: Partial< ConditionalFormattingResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< ConditionalFormattingResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the ConditionalFormattings Response.   
+/// Represents the ConditionalFormattings Response.
 export class ConditionalFormattingsResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -11832,12 +11907,12 @@ export class ConditionalFormattingsResponse  extends CellsCloudResponse  {
 
     public conditionalFormattings: ConditionalFormattings;
 
-    public constructor(init?: Partial< ConditionalFormattingsResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< ConditionalFormattingsResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Encapsulates a collection of all the DataLabel objects for the specified Series.   
+/// Encapsulates a collection of all the DataLabel objects for the specified Series.
 export class DataLabels  extends ChartFrame  {
     /**
      * Attribute type map
@@ -11967,12 +12042,12 @@ export class DataLabels  extends ChartFrame  {
     public textHorizontalAlignment: string;
     public textVerticalAlignment: string;
 
-    public constructor(init?: Partial< DataLabels >) {  
-         super(init);     
+    public constructor(init?: Partial< DataLabels >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the DataLabels Response.   
+/// Represents the DataLabels Response.
 export class DataLabelsResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -11994,12 +12069,12 @@ export class DataLabelsResponse  extends CellsCloudResponse  {
 
     public dataLabels: DataLabels;
 
-    public constructor(init?: Partial< DataLabelsResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< DataLabelsResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the display unit label.   
+/// Represents the display unit label.
 export class DisplayUnitLabel  extends ChartFrame  {
     /**
      * Attribute type map
@@ -12045,12 +12120,12 @@ export class DisplayUnitLabel  extends ChartFrame  {
     public textHorizontalAlignment: string;
     public textVerticalAlignment: string;
 
-    public constructor(init?: Partial< DisplayUnitLabel >) {  
-         super(init);     
+    public constructor(init?: Partial< DisplayUnitLabel >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the DisplayUnitLabel Response.   
+/// Represents the DisplayUnitLabel Response.
 export class DisplayUnitLabelResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -12072,12 +12147,12 @@ export class DisplayUnitLabelResponse  extends CellsCloudResponse  {
 
     public displayUnitLabel: DisplayUnitLabel;
 
-    public constructor(init?: Partial< DisplayUnitLabelResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< DisplayUnitLabelResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the up/down bars in a chart.   
+/// Represents the up/down bars in a chart.
 export class DropBars  extends LinkElement  {
     /**
      * Attribute type map
@@ -12105,12 +12180,12 @@ export class DropBars  extends LinkElement  {
     public area: Area;
     public border: Line;
 
-    public constructor(init?: Partial< DropBars >) {  
-         super(init);     
+    public constructor(init?: Partial< DropBars >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the DropBars Response.   
+/// Represents the DropBars Response.
 export class DropBarsResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -12132,12 +12207,12 @@ export class DropBarsResponse  extends CellsCloudResponse  {
 
     public dropBars: DropBars;
 
-    public constructor(init?: Partial< DropBarsResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< DropBarsResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Encapsulates the object that represents the line format.   
+/// Encapsulates the object that represents the line format.
 export class Line  {
     /**
      * Attribute type map
@@ -12267,12 +12342,12 @@ export class Line  {
     public weight: string;
     public weightPt: number;
 
-    public constructor(init?: Partial< Line >) {  
-    
+    public constructor(init?: Partial< Line >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents error bar of data series.   
+/// Represents error bar of data series.
 export class ErrorBar  extends Line  {
     /**
      * Attribute type map
@@ -12330,12 +12405,12 @@ export class ErrorBar  extends Line  {
     public showMarkerTTop: boolean;
     public type: string;
 
-    public constructor(init?: Partial< ErrorBar >) {  
-         super(init);     
+    public constructor(init?: Partial< ErrorBar >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the ErrorBar Response.   
+/// Represents the ErrorBar Response.
 export class ErrorBarResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -12357,12 +12432,12 @@ export class ErrorBarResponse  extends CellsCloudResponse  {
 
     public errorBar: ErrorBar;
 
-    public constructor(init?: Partial< ErrorBarResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< ErrorBarResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the FillFormat Response.   
+/// Represents the FillFormat Response.
 export class FillFormatResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -12384,12 +12459,12 @@ export class FillFormatResponse  extends CellsCloudResponse  {
 
     public fillFormat: FillFormat;
 
-    public constructor(init?: Partial< FillFormatResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< FillFormatResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the Find Response.   
+/// Represents the Find Response.
 export class FindResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -12417,13 +12492,13 @@ export class FindResponse  extends CellsCloudResponse  {
     public count: number;
     public textItems: TextItems;
 
-    public constructor(init?: Partial< FindResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< FindResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
 ///            Encapsulates the object that represents an area format.
-///               
+///
 export class Area  {
     /**
      * Attribute type map
@@ -12475,12 +12550,12 @@ export class Area  {
     public invertIfNegative: boolean;
     public transparency: number;
 
-    public constructor(init?: Partial< Area >) {  
-    
+    public constructor(init?: Partial< Area >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// Encapsulates the object that represents the floor of a 3-D chart.   
+/// Encapsulates the object that represents the floor of a 3-D chart.
 export class Floor  extends Area  {
     /**
      * Attribute type map
@@ -12502,12 +12577,12 @@ export class Floor  extends Area  {
 
     public border: Line;
 
-    public constructor(init?: Partial< Floor >) {  
-         super(init);     
+    public constructor(init?: Partial< Floor >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the Floor Response.   
+/// Represents the Floor Response.
 export class FloorResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -12529,12 +12604,12 @@ export class FloorResponse  extends CellsCloudResponse  {
 
     public floor: Floor;
 
-    public constructor(init?: Partial< FloorResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< FloorResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// I'm happy to help! Please provide the features you would like me to summarize into one sentence for the class.   
+/// I'm happy to help! Please provide the features you would like me to summarize into one sentence for the class.
 export class Form  extends Shape  {
     /**
      * Attribute type map
@@ -12658,12 +12733,12 @@ export class Form  extends Shape  {
     public pageChange: number;
     public isHorizontal: boolean;
 
-    public constructor(init?: Partial< Form >) {  
-         super(init);     
+    public constructor(init?: Partial< Form >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the Form Response.   
+/// Represents the Form Response.
 export class FormResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -12685,12 +12760,12 @@ export class FormResponse  extends CellsCloudResponse  {
 
     public form: Form;
 
-    public constructor(init?: Partial< FormResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< FormResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// "Summary: The class covers a range of features including advanced machine learning techniques, statistical analysis tools, and computer vision algorithms."   
+/// "Summary: The class covers a range of features including advanced machine learning techniques, statistical analysis tools, and computer vision algorithms."
 export class Forms  extends LinkElement  {
     /**
      * Attribute type map
@@ -12712,12 +12787,12 @@ export class Forms  extends LinkElement  {
 
     public formList: Array<LinkElement>;
 
-    public constructor(init?: Partial< Forms >) {  
-         super(init);     
+    public constructor(init?: Partial< Forms >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the Forms Response.   
+/// Represents the Forms Response.
 export class FormsResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -12739,12 +12814,12 @@ export class FormsResponse  extends CellsCloudResponse  {
 
     public forms: Forms;
 
-    public constructor(init?: Partial< FormsResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< FormsResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Encapsulates the object that represents a groupbox in a spreadsheet.   
+/// Encapsulates the object that represents a groupbox in a spreadsheet.
 export class GroupBox  extends Shape  {
     /**
      * Attribute type map
@@ -12766,12 +12841,12 @@ export class GroupBox  extends Shape  {
 
     public shadow: boolean;
 
-    public constructor(init?: Partial< GroupBox >) {  
-         super(init);     
+    public constructor(init?: Partial< GroupBox >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the GroupBox Response.   
+/// Represents the GroupBox Response.
 export class GroupBoxResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -12793,12 +12868,12 @@ export class GroupBoxResponse  extends CellsCloudResponse  {
 
     public shape: GroupBox;
 
-    public constructor(init?: Partial< GroupBoxResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< GroupBoxResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the HorizontalPageBreak Response.   
+/// Represents the HorizontalPageBreak Response.
 export class HorizontalPageBreakResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -12820,12 +12895,12 @@ export class HorizontalPageBreakResponse  extends CellsCloudResponse  {
 
     public horizontalPageBreak: HorizontalPageBreak;
 
-    public constructor(init?: Partial< HorizontalPageBreakResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< HorizontalPageBreakResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the HorizontalPageBreaks Response.   
+/// Represents the HorizontalPageBreaks Response.
 export class HorizontalPageBreaksResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -12847,12 +12922,12 @@ export class HorizontalPageBreaksResponse  extends CellsCloudResponse  {
 
     public horizontalPageBreaks: HorizontalPageBreaks;
 
-    public constructor(init?: Partial< HorizontalPageBreaksResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< HorizontalPageBreaksResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the Hyperlink Response.   
+/// Represents the Hyperlink Response.
 export class HyperlinkResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -12874,12 +12949,12 @@ export class HyperlinkResponse  extends CellsCloudResponse  {
 
     public hyperlink: Hyperlink;
 
-    public constructor(init?: Partial< HyperlinkResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< HyperlinkResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the Hyperlinks Response.   
+/// Represents the Hyperlinks Response.
 export class HyperlinksResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -12901,12 +12976,12 @@ export class HyperlinksResponse  extends CellsCloudResponse  {
 
     public hyperlinks: Hyperlinks;
 
-    public constructor(init?: Partial< HyperlinksResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< HyperlinksResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Encapsulates the object that represents a label in a spreadsheet.   
+/// Encapsulates the object that represents a label in a spreadsheet.
 export class Label  extends Shape  {
     /**
      * Attribute type map
@@ -12922,12 +12997,12 @@ export class Label  extends Shape  {
     }
 
 
-    public constructor(init?: Partial< Label >) {  
-         super(init);     
+    public constructor(init?: Partial< Label >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the Label Response.   
+/// Represents the Label Response.
 export class LabelResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -12949,12 +13024,12 @@ export class LabelResponse  extends CellsCloudResponse  {
 
     public shape: Label;
 
-    public constructor(init?: Partial< LabelResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< LabelResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Sure, please provide me with the features you would like me to summarize in one sentence for the class summary.   
+/// Sure, please provide me with the features you would like me to summarize in one sentence for the class summary.
 export class LegendEntries  extends LinkElement  {
     /**
      * Attribute type map
@@ -12976,12 +13051,12 @@ export class LegendEntries  extends LinkElement  {
 
     public legendEntryList: Array<LinkElement>;
 
-    public constructor(init?: Partial< LegendEntries >) {  
-         super(init);     
+    public constructor(init?: Partial< LegendEntries >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the LegendEntries Response.   
+/// Represents the LegendEntries Response.
 export class LegendEntriesResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -13003,12 +13078,12 @@ export class LegendEntriesResponse  extends CellsCloudResponse  {
 
     public legendEntries: LegendEntries;
 
-    public constructor(init?: Partial< LegendEntriesResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< LegendEntriesResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents a legend entry in a chart legend.   
+/// Represents a legend entry in a chart legend.
 export class LegendEntry  extends LinkElement  {
     /**
      * Attribute type map
@@ -13048,12 +13123,12 @@ export class LegendEntry  extends LinkElement  {
     public font: Font;
     public isDeleted: boolean;
 
-    public constructor(init?: Partial< LegendEntry >) {  
-         super(init);     
+    public constructor(init?: Partial< LegendEntry >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the LegendEntry Response.   
+/// Represents the LegendEntry Response.
 export class LegendEntryResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -13075,12 +13150,12 @@ export class LegendEntryResponse  extends CellsCloudResponse  {
 
     public legendEntry: LegendEntry;
 
-    public constructor(init?: Partial< LegendEntryResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< LegendEntryResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Encapsulates the object that represents the chart legend.   
+/// Encapsulates the object that represents the chart legend.
 export class Legend  extends ChartFrame  {
     /**
      * Attribute type map
@@ -13108,12 +13183,12 @@ export class Legend  extends ChartFrame  {
     public position: string;
     public legendEntries: LinkElement;
 
-    public constructor(init?: Partial< Legend >) {  
-         super(init);     
+    public constructor(init?: Partial< Legend >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the Legend Response.   
+/// Represents the Legend Response.
 export class LegendResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -13135,12 +13210,12 @@ export class LegendResponse  extends CellsCloudResponse  {
 
     public legend: Legend;
 
-    public constructor(init?: Partial< LegendResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< LegendResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the Line Response.   
+/// Represents the Line Response.
 export class LineResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -13162,12 +13237,12 @@ export class LineResponse  extends CellsCloudResponse  {
 
     public line: Line;
 
-    public constructor(init?: Partial< LineResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< LineResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the line shape.   
+/// Represents the line shape.
 export class LineShape  extends Shape  {
     /**
      * Attribute type map
@@ -13219,12 +13294,12 @@ export class LineShape  extends Shape  {
     public endArrowheadStyle: string;
     public endArrowheadWidth: string;
 
-    public constructor(init?: Partial< LineShape >) {  
-         super(init);     
+    public constructor(init?: Partial< LineShape >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the LineShape Response.   
+/// Represents the LineShape Response.
 export class LineShapeResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -13246,12 +13321,12 @@ export class LineShapeResponse  extends CellsCloudResponse  {
 
     public shape: LineShape;
 
-    public constructor(init?: Partial< LineShapeResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< LineShapeResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents a list box object.   
+/// Represents a list box object.
 export class ListBox  extends Shape  {
     /**
      * Attribute type map
@@ -13309,12 +13384,12 @@ export class ListBox  extends Shape  {
     public selectionType: string;
     public shadow: boolean;
 
-    public constructor(init?: Partial< ListBox >) {  
-         super(init);     
+    public constructor(init?: Partial< ListBox >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the ListBox Response.   
+/// Represents the ListBox Response.
 export class ListBoxResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -13336,12 +13411,12 @@ export class ListBoxResponse  extends CellsCloudResponse  {
 
     public shape: ListBox;
 
-    public constructor(init?: Partial< ListBoxResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< ListBoxResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the ListObject Response.   
+/// Represents the ListObject Response.
 export class ListObjectResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -13363,12 +13438,12 @@ export class ListObjectResponse  extends CellsCloudResponse  {
 
     public listObject: ListObject;
 
-    public constructor(init?: Partial< ListObjectResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< ListObjectResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the ListObjects Response.   
+/// Represents the ListObjects Response.
 export class ListObjectsResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -13390,12 +13465,12 @@ export class ListObjectsResponse  extends CellsCloudResponse  {
 
     public listObjects: ListObjects;
 
-    public constructor(init?: Partial< ListObjectsResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< ListObjectsResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the MergedCell Response.   
+/// Represents the MergedCell Response.
 export class MergedCellResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -13417,12 +13492,12 @@ export class MergedCellResponse  extends CellsCloudResponse  {
 
     public mergedCell: MergedCell;
 
-    public constructor(init?: Partial< MergedCellResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< MergedCellResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the MergedCells Response.   
+/// Represents the MergedCells Response.
 export class MergedCellsResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -13444,12 +13519,12 @@ export class MergedCellsResponse  extends CellsCloudResponse  {
 
     public mergedCells: MergedCells;
 
-    public constructor(init?: Partial< MergedCellsResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< MergedCellsResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the Name Response.   
+/// Represents the Name Response.
 export class NameResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -13471,12 +13546,12 @@ export class NameResponse  extends CellsCloudResponse  {
 
     public name: Name;
 
-    public constructor(init?: Partial< NameResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< NameResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the Names Response.   
+/// Represents the Names Response.
 export class NamesResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -13498,12 +13573,12 @@ export class NamesResponse  extends CellsCloudResponse  {
 
     public names: Names;
 
-    public constructor(init?: Partial< NamesResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< NamesResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents an OleObject in a worksheet.   
+/// Represents an OleObject in a worksheet.
 export class OleObject  extends Shape  {
     /**
      * Attribute type map
@@ -13561,12 +13636,12 @@ export class OleObject  extends Shape  {
     public progID: string;
     public sourceFullName: string;
 
-    public constructor(init?: Partial< OleObject >) {  
-         super(init);     
+    public constructor(init?: Partial< OleObject >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the OleObject Response.   
+/// Represents the OleObject Response.
 export class OleObjectResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -13588,12 +13663,12 @@ export class OleObjectResponse  extends CellsCloudResponse  {
 
     public oleObject: OleObject;
 
-    public constructor(init?: Partial< OleObjectResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< OleObjectResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents embedded OLE objects.   
+/// Represents embedded OLE objects.
 export class OleObjects  extends LinkElement  {
     /**
      * Attribute type map
@@ -13615,12 +13690,12 @@ export class OleObjects  extends LinkElement  {
 
     public oleObjectList: Array<LinkElement>;
 
-    public constructor(init?: Partial< OleObjects >) {  
-         super(init);     
+    public constructor(init?: Partial< OleObjects >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the OleObjects Response.   
+/// Represents the OleObjects Response.
 export class OleObjectsResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -13642,12 +13717,12 @@ export class OleObjectsResponse  extends CellsCloudResponse  {
 
     public oleObjects: OleObjects;
 
-    public constructor(init?: Partial< OleObjectsResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< OleObjectsResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the oval shape.   
+/// Represents the oval shape.
 export class Oval  extends Shape  {
     /**
      * Attribute type map
@@ -13663,12 +13738,12 @@ export class Oval  extends Shape  {
     }
 
 
-    public constructor(init?: Partial< Oval >) {  
-         super(init);     
+    public constructor(init?: Partial< Oval >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the Oval Response.   
+/// Represents the Oval Response.
 export class OvalResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -13690,12 +13765,12 @@ export class OvalResponse  extends CellsCloudResponse  {
 
     public shape: Oval;
 
-    public constructor(init?: Partial< OvalResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< OvalResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the PageSections Response.   
+/// Represents the PageSections Response.
 export class PageSectionsResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -13717,12 +13792,12 @@ export class PageSectionsResponse  extends CellsCloudResponse  {
 
     public pageSections: Array<PageSection>;
 
-    public constructor(init?: Partial< PageSectionsResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< PageSectionsResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the PageSetup Response.   
+/// Represents the PageSetup Response.
 export class PageSetupResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -13744,12 +13819,12 @@ export class PageSetupResponse  extends CellsCloudResponse  {
 
     public pageSetup: PageSetup;
 
-    public constructor(init?: Partial< PageSetupResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< PageSetupResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Encapsulates the object that represents a single picture in a spreadsheet.   
+/// Encapsulates the object that represents a single picture in a spreadsheet.
 export class Picture  extends Shape  {
     /**
      * Attribute type map
@@ -13801,12 +13876,12 @@ export class Picture  extends Shape  {
     public imageFormat: string;
     public sourceFullName: string;
 
-    public constructor(init?: Partial< Picture >) {  
-         super(init);     
+    public constructor(init?: Partial< Picture >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the Picture Response.   
+/// Represents the Picture Response.
 export class PictureResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -13828,12 +13903,12 @@ export class PictureResponse  extends CellsCloudResponse  {
 
     public picture: Picture;
 
-    public constructor(init?: Partial< PictureResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< PictureResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Encapsulates a collection of  objects.   
+/// Encapsulates a collection of  objects.
 export class Pictures  extends LinkElement  {
     /**
      * Attribute type map
@@ -13855,12 +13930,12 @@ export class Pictures  extends LinkElement  {
 
     public pictureList: Array<LinkElement>;
 
-    public constructor(init?: Partial< Pictures >) {  
-         super(init);     
+    public constructor(init?: Partial< Pictures >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the Pictures Response.   
+/// Represents the Pictures Response.
 export class PicturesResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -13882,13 +13957,13 @@ export class PicturesResponse  extends CellsCloudResponse  {
 
     public pictures: Pictures;
 
-    public constructor(init?: Partial< PicturesResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< PicturesResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
 ///            Represents a field in a PivotTable report.
-///               
+///
 export class PivotField  {
     /**
      * Attribute type map
@@ -14138,12 +14213,12 @@ export class PivotField  {
     public showInOutlineForm: boolean;
     public showSubtotalAtTop: boolean;
 
-    public constructor(init?: Partial< PivotField >) {  
-    
+    public constructor(init?: Partial< PivotField >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the PivotField Response.   
+/// Represents the PivotField Response.
 export class PivotFieldResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -14165,12 +14240,12 @@ export class PivotFieldResponse  extends CellsCloudResponse  {
 
     public pivotField: PivotField;
 
-    public constructor(init?: Partial< PivotFieldResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< PivotFieldResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents a PivotFilter in PivotFilter Collection.   
+/// Represents a PivotFilter in PivotFilter Collection.
 export class PivotFilter  {
     /**
      * Attribute type map
@@ -14246,12 +14321,12 @@ export class PivotFilter  {
     public value2: string;
     public top10Filter: Top10Filter;
 
-    public constructor(init?: Partial< PivotFilter >) {  
-    
+    public constructor(init?: Partial< PivotFilter >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the PivotFilter Response.   
+/// Represents the PivotFilter Response.
 export class PivotFilterResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -14273,12 +14348,12 @@ export class PivotFilterResponse  extends CellsCloudResponse  {
 
     public pivotFilter: PivotFilter;
 
-    public constructor(init?: Partial< PivotFilterResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< PivotFilterResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the PivotFilters Response.   
+/// Represents the PivotFilters Response.
 export class PivotFiltersResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -14300,12 +14375,12 @@ export class PivotFiltersResponse  extends CellsCloudResponse  {
 
     public pivotFilters: Array<PivotFilter>;
 
-    public constructor(init?: Partial< PivotFiltersResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< PivotFiltersResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Summary description for PivotTable.   
+/// Summary description for PivotTable.
 export class PivotTable  extends LinkElement  {
     /**
      * Attribute type map
@@ -14729,12 +14804,12 @@ export class PivotTable  extends LinkElement  {
     public tableRange2: CellArea;
     public tag: string;
 
-    public constructor(init?: Partial< PivotTable >) {  
-         super(init);     
+    public constructor(init?: Partial< PivotTable >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the PivotTable Response.   
+/// Represents the PivotTable Response.
 export class PivotTableResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -14756,12 +14831,12 @@ export class PivotTableResponse  extends CellsCloudResponse  {
 
     public pivotTable: PivotTable;
 
-    public constructor(init?: Partial< PivotTableResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< PivotTableResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the collection of all the PivotTable objects on the specified worksheet.   
+/// Represents the collection of all the PivotTable objects on the specified worksheet.
 export class PivotTables  extends LinkElement  {
     /**
      * Attribute type map
@@ -14783,12 +14858,12 @@ export class PivotTables  extends LinkElement  {
 
     public pivotTableList: Array<LinkElement>;
 
-    public constructor(init?: Partial< PivotTables >) {  
-         super(init);     
+    public constructor(init?: Partial< PivotTables >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the PivotTables Response.   
+/// Represents the PivotTables Response.
 export class PivotTablesResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -14810,12 +14885,12 @@ export class PivotTablesResponse  extends CellsCloudResponse  {
 
     public pivotTables: PivotTables;
 
-    public constructor(init?: Partial< PivotTablesResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< PivotTablesResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Encapsulates the object that represents the plot area in a chart.   
+/// Encapsulates the object that represents the plot area in a chart.
 export class PlotArea  extends ChartFrame  {
     /**
      * Attribute type map
@@ -14855,12 +14930,12 @@ export class PlotArea  extends ChartFrame  {
     public innerX: number;
     public innerY: number;
 
-    public constructor(init?: Partial< PlotArea >) {  
-         super(init);     
+    public constructor(init?: Partial< PlotArea >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the PlotArea Response.   
+/// Represents the PlotArea Response.
 export class PlotAreaResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -14882,12 +14957,12 @@ export class PlotAreaResponse  extends CellsCloudResponse  {
 
     public plotArea: PlotArea;
 
-    public constructor(init?: Partial< PlotAreaResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< PlotAreaResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents a radio button.   
+/// Represents a radio button.
 export class RadioButton  extends Shape  {
     /**
      * Attribute type map
@@ -14921,12 +14996,12 @@ export class RadioButton  extends Shape  {
     public isChecked: boolean;
     public shadow: boolean;
 
-    public constructor(init?: Partial< RadioButton >) {  
-         super(init);     
+    public constructor(init?: Partial< RadioButton >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the RadioButton Response.   
+/// Represents the RadioButton Response.
 export class RadioButtonResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -14948,12 +15023,12 @@ export class RadioButtonResponse  extends CellsCloudResponse  {
 
     public shape: RadioButton;
 
-    public constructor(init?: Partial< RadioButtonResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< RadioButtonResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the Range Response.   
+/// Represents the Range Response.
 export class RangeResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -14975,12 +15050,12 @@ export class RangeResponse  extends CellsCloudResponse  {
 
     public range: Range;
 
-    public constructor(init?: Partial< RangeResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< RangeResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the Ranges Response.   
+/// Represents the Ranges Response.
 export class RangesResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -15002,12 +15077,12 @@ export class RangesResponse  extends CellsCloudResponse  {
 
     public ranges: Ranges;
 
-    public constructor(init?: Partial< RangesResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< RangesResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the RangeValue Response.   
+/// Represents the RangeValue Response.
 export class RangeValueResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -15029,12 +15104,12 @@ export class RangeValueResponse  extends CellsCloudResponse  {
 
     public cellsList: Array<Cell>;
 
-    public constructor(init?: Partial< RangeValueResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< RangeValueResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the rectangle shape.   
+/// Represents the rectangle shape.
 export class RectangleShape  extends Shape  {
     /**
      * Attribute type map
@@ -15050,12 +15125,12 @@ export class RectangleShape  extends Shape  {
     }
 
 
-    public constructor(init?: Partial< RectangleShape >) {  
-         super(init);     
+    public constructor(init?: Partial< RectangleShape >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the RectangleShape Response.   
+/// Represents the RectangleShape Response.
 export class RectangleShapeResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -15077,12 +15152,12 @@ export class RectangleShapeResponse  extends CellsCloudResponse  {
 
     public shape: RectangleShape;
 
-    public constructor(init?: Partial< RectangleShapeResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< RectangleShapeResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the Row Response.   
+/// Represents the Row Response.
 export class RowResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -15104,12 +15179,12 @@ export class RowResponse  extends CellsCloudResponse  {
 
     public row: Row;
 
-    public constructor(init?: Partial< RowResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< RowResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the Rows Response.   
+/// Represents the Rows Response.
 export class RowsResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -15131,12 +15206,12 @@ export class RowsResponse  extends CellsCloudResponse  {
 
     public rows: Rows;
 
-    public constructor(init?: Partial< RowsResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< RowsResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the SaveFilesToCloudResult Response.   
+/// Represents the SaveFilesToCloudResult Response.
 export class SaveFilesToCloudResultResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -15158,12 +15233,12 @@ export class SaveFilesToCloudResultResponse  extends CellsCloudResponse  {
 
     public saveFilesToCloudResult: SaveFilesToCloudResult;
 
-    public constructor(init?: Partial< SaveFilesToCloudResultResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< SaveFilesToCloudResultResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the Save Response.   
+/// Represents the Save Response.
 export class SaveResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -15185,12 +15260,12 @@ export class SaveResponse  extends CellsCloudResponse  {
 
     public saveResult: SaveResult;
 
-    public constructor(init?: Partial< SaveResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< SaveResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents a scroll bar object.   
+/// Represents a scroll bar object.
 export class ScrollBar  extends Shape  {
     /**
      * Attribute type map
@@ -15248,12 +15323,12 @@ export class ScrollBar  extends Shape  {
     public pageChange: number;
     public shadow: boolean;
 
-    public constructor(init?: Partial< ScrollBar >) {  
-         super(init);     
+    public constructor(init?: Partial< ScrollBar >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the ScrollBar Response.   
+/// Represents the ScrollBar Response.
 export class ScrollBarResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -15275,13 +15350,13 @@ export class ScrollBarResponse  extends CellsCloudResponse  {
 
     public shape: ScrollBar;
 
-    public constructor(init?: Partial< ScrollBarResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< ScrollBarResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Class Summary: 
-///             - Features: Active class participation, group projects, quizzes, and final exam.   
+/// Class Summary:
+///             - Features: Active class participation, group projects, quizzes, and final exam.
 export class SeriesItems  extends LinkElement  {
     /**
      * Attribute type map
@@ -15321,12 +15396,12 @@ export class SeriesItems  extends LinkElement  {
     public secondCatergoryData: string;
     public seriesList: Array<Series>;
 
-    public constructor(init?: Partial< SeriesItems >) {  
-         super(init);     
+    public constructor(init?: Partial< SeriesItems >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the Serieses Response.   
+/// Represents the Serieses Response.
 export class SeriesesResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -15348,12 +15423,12 @@ export class SeriesesResponse  extends CellsCloudResponse  {
 
     public serieses: SeriesItems;
 
-    public constructor(init?: Partial< SeriesesResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< SeriesesResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Encapsulates the object that represents a single data series in a chart.   
+/// Encapsulates the object that represents a single data series in a chart.
 export class Series  extends LinkElement  {
     /**
      * Attribute type map
@@ -15645,12 +15720,12 @@ export class Series  extends LinkElement  {
     public xValues: string;
     public yErrorBar: ErrorBar;
 
-    public constructor(init?: Partial< Series >) {  
-         super(init);     
+    public constructor(init?: Partial< Series >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the Series Response.   
+/// Represents the Series Response.
 export class SeriesResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -15672,12 +15747,12 @@ export class SeriesResponse  extends CellsCloudResponse  {
 
     public series: Series;
 
-    public constructor(init?: Partial< SeriesResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< SeriesResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the Shape Response.   
+/// Represents the Shape Response.
 export class ShapeResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -15699,12 +15774,12 @@ export class ShapeResponse  extends CellsCloudResponse  {
 
     public shape: Shape;
 
-    public constructor(init?: Partial< ShapeResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< ShapeResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents all the shape in a worksheet/chart.   
+/// Represents all the shape in a worksheet/chart.
 export class Shapes  extends LinkElement  {
     /**
      * Attribute type map
@@ -15726,12 +15801,12 @@ export class Shapes  extends LinkElement  {
 
     public shapeList: Array<LinkElement>;
 
-    public constructor(init?: Partial< Shapes >) {  
-         super(init);     
+    public constructor(init?: Partial< Shapes >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the Shapes Response.   
+/// Represents the Shapes Response.
 export class ShapesResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -15753,12 +15828,12 @@ export class ShapesResponse  extends CellsCloudResponse  {
 
     public shapes: Shapes;
 
-    public constructor(init?: Partial< ShapesResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< ShapesResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the SingleValue Response.   
+/// Represents the SingleValue Response.
 export class SingleValueResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -15780,13 +15855,13 @@ export class SingleValueResponse  extends CellsCloudResponse  {
 
     public value: SingleValue;
 
-    public constructor(init?: Partial< SingleValueResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< SingleValueResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
 ///            is organized into sparkline group. A SparklineGroup contains a variable number of sparkline items.             A sparkline group specifies the type, display settings and axis settings for the sparklines.
-///               
+///
 export class SparklineGroup  {
     /**
      * Attribute type map
@@ -15964,12 +16039,12 @@ export class SparklineGroup  {
     public verticalAxisMinValue: number;
     public verticalAxisMinValueType: string;
 
-    public constructor(init?: Partial< SparklineGroup >) {  
-    
+    public constructor(init?: Partial< SparklineGroup >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the SparklineGroup Response.   
+/// Represents the SparklineGroup Response.
 export class SparklineGroupResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -15991,13 +16066,13 @@ export class SparklineGroupResponse  extends CellsCloudResponse  {
 
     public sparklineGroup: SparklineGroup;
 
-    public constructor(init?: Partial< SparklineGroupResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< SparklineGroupResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
 /// Encapsulates a collection of Aspose.Cells.Charts.SparklineGroup objects.
-///                
+///
 export class SparklineGroups  {
     /**
      * Attribute type map
@@ -16019,12 +16094,12 @@ export class SparklineGroups  {
 
     public sparklineGroupList: Array<SparklineGroup>;
 
-    public constructor(init?: Partial< SparklineGroups >) {  
-    
+    public constructor(init?: Partial< SparklineGroups >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the SparklineGroups Response.   
+/// Represents the SparklineGroups Response.
 export class SparklineGroupsResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -16046,12 +16121,12 @@ export class SparklineGroupsResponse  extends CellsCloudResponse  {
 
     public sparklineGroups: SparklineGroups;
 
-    public constructor(init?: Partial< SparklineGroupsResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< SparklineGroupsResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the Forms control: Spinner.   
+/// Represents the Forms control: Spinner.
 export class Spinner  extends Shape  {
     /**
      * Attribute type map
@@ -16097,12 +16172,12 @@ export class Spinner  extends Shape  {
     public min: number;
     public shadow: boolean;
 
-    public constructor(init?: Partial< Spinner >) {  
-         super(init);     
+    public constructor(init?: Partial< Spinner >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the Spinner Response.   
+/// Represents the Spinner Response.
 export class SpinnerResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -16124,12 +16199,12 @@ export class SpinnerResponse  extends CellsCloudResponse  {
 
     public shape: Spinner;
 
-    public constructor(init?: Partial< SpinnerResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< SpinnerResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the SplitResult Response.   
+/// Represents the SplitResult Response.
 export class SplitResultResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -16151,12 +16226,12 @@ export class SplitResultResponse  extends CellsCloudResponse  {
 
     public result: SplitResult;
 
-    public constructor(init?: Partial< SplitResultResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< SplitResultResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the Style Response.   
+/// Represents the Style Response.
 export class StyleResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -16178,12 +16253,12 @@ export class StyleResponse  extends CellsCloudResponse  {
 
     public style: Style;
 
-    public constructor(init?: Partial< StyleResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< StyleResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the Styles Response.   
+/// Represents the Styles Response.
 export class StylesResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -16205,12 +16280,12 @@ export class StylesResponse  extends CellsCloudResponse  {
 
     public styles: Styles;
 
-    public constructor(init?: Partial< StylesResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< StylesResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the TaskRunResult Response.   
+/// Represents the TaskRunResult Response.
 export class TaskRunResultResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -16232,12 +16307,12 @@ export class TaskRunResultResponse  extends CellsCloudResponse  {
 
     public taskRunResult: TaskRunResult;
 
-    public constructor(init?: Partial< TaskRunResultResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< TaskRunResultResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Encapsulates the object that represents a textbox in a spreadsheet.   
+/// Encapsulates the object that represents a textbox in a spreadsheet.
 export class TextBox  extends Shape  {
     /**
      * Attribute type map
@@ -16253,12 +16328,12 @@ export class TextBox  extends Shape  {
     }
 
 
-    public constructor(init?: Partial< TextBox >) {  
-         super(init);     
+    public constructor(init?: Partial< TextBox >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the TextBox Response.   
+/// Represents the TextBox Response.
 export class TextBoxResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -16280,12 +16355,12 @@ export class TextBoxResponse  extends CellsCloudResponse  {
 
     public shape: TextBox;
 
-    public constructor(init?: Partial< TextBoxResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< TextBoxResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the TextItem Response.   
+/// Represents the TextItem Response.
 export class TextItemResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -16307,12 +16382,12 @@ export class TextItemResponse  extends CellsCloudResponse  {
 
     public textItem: TextItem;
 
-    public constructor(init?: Partial< TextItemResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< TextItemResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the TextItems Response.   
+/// Represents the TextItems Response.
 export class TextItemsResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -16334,12 +16409,12 @@ export class TextItemsResponse  extends CellsCloudResponse  {
 
     public textItems: TextItems;
 
-    public constructor(init?: Partial< TextItemsResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< TextItemsResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the tick-mark labels associated with tick marks on a chart axis.   
+/// Represents the tick-mark labels associated with tick marks on a chart axis.
 export class TickLabels  extends LinkElement  {
     /**
      * Attribute type map
@@ -16421,12 +16496,12 @@ export class TickLabels  extends LinkElement  {
     public readingOrder: string;
     public directionType: string;
 
-    public constructor(init?: Partial< TickLabels >) {  
-         super(init);     
+    public constructor(init?: Partial< TickLabels >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the TickLabels Response.   
+/// Represents the TickLabels Response.
 export class TickLabelsResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -16448,12 +16523,12 @@ export class TickLabelsResponse  extends CellsCloudResponse  {
 
     public tickLabels: TickLabels;
 
-    public constructor(init?: Partial< TickLabelsResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< TickLabelsResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Encapsulates the object that represents the title of chart or axis.   
+/// Encapsulates the object that represents the title of chart or axis.
 export class Title  extends ChartFrame  {
     /**
      * Attribute type map
@@ -16511,12 +16586,12 @@ export class Title  extends ChartFrame  {
     public textHorizontalAlignment: string;
     public textVerticalAlignment: string;
 
-    public constructor(init?: Partial< Title >) {  
-         super(init);     
+    public constructor(init?: Partial< Title >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the Title Response.   
+/// Represents the Title Response.
 export class TitleResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -16538,12 +16613,12 @@ export class TitleResponse  extends CellsCloudResponse  {
 
     public title: Title;
 
-    public constructor(init?: Partial< TitleResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< TitleResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents a trendline in a chart.   
+/// Represents a trendline in a chart.
 export class Trendline  extends Line  {
     /**
      * Attribute type map
@@ -16637,12 +16712,12 @@ export class Trendline  extends Line  {
     public period: number;
     public type: string;
 
-    public constructor(init?: Partial< Trendline >) {  
-         super(init);     
+    public constructor(init?: Partial< Trendline >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the Trendline Response.   
+/// Represents the Trendline Response.
 export class TrendlineResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -16664,12 +16739,12 @@ export class TrendlineResponse  extends CellsCloudResponse  {
 
     public trendline: Trendline;
 
-    public constructor(init?: Partial< TrendlineResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< TrendlineResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents a collection of all the  objects for the specified data series.   
+/// Represents a collection of all the  objects for the specified data series.
 export class Trendlines  extends LinkElement  {
     /**
      * Attribute type map
@@ -16691,12 +16766,12 @@ export class Trendlines  extends LinkElement  {
 
     public trendlineList: Array<Trendline>;
 
-    public constructor(init?: Partial< Trendlines >) {  
-         super(init);     
+    public constructor(init?: Partial< Trendlines >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the Trendlines Response.   
+/// Represents the Trendlines Response.
 export class TrendlinesResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -16718,12 +16793,12 @@ export class TrendlinesResponse  extends CellsCloudResponse  {
 
     public trendlines: Trendlines;
 
-    public constructor(init?: Partial< TrendlinesResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< TrendlinesResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the Validation Response.   
+/// Represents the Validation Response.
 export class ValidationResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -16745,12 +16820,12 @@ export class ValidationResponse  extends CellsCloudResponse  {
 
     public validation: Validation;
 
-    public constructor(init?: Partial< ValidationResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< ValidationResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the Validations Response.   
+/// Represents the Validations Response.
 export class ValidationsResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -16772,12 +16847,12 @@ export class ValidationsResponse  extends CellsCloudResponse  {
 
     public validations: Validations;
 
-    public constructor(init?: Partial< ValidationsResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< ValidationsResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the VerticalPageBreak Response.   
+/// Represents the VerticalPageBreak Response.
 export class VerticalPageBreakResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -16799,12 +16874,12 @@ export class VerticalPageBreakResponse  extends CellsCloudResponse  {
 
     public verticalPageBreak: VerticalPageBreak;
 
-    public constructor(init?: Partial< VerticalPageBreakResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< VerticalPageBreakResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the VerticalPageBreaks Response.   
+/// Represents the VerticalPageBreaks Response.
 export class VerticalPageBreaksResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -16826,12 +16901,12 @@ export class VerticalPageBreaksResponse  extends CellsCloudResponse  {
 
     public verticalPageBreaks: VerticalPageBreaks;
 
-    public constructor(init?: Partial< VerticalPageBreaksResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< VerticalPageBreaksResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Encapsulates the object that represents the walls of a 3-D chart.   
+/// Encapsulates the object that represents the walls of a 3-D chart.
 export class Walls  extends Floor  {
     /**
      * Attribute type map
@@ -16877,12 +16952,12 @@ export class Walls  extends Floor  {
     public height: number;
     public width: number;
 
-    public constructor(init?: Partial< Walls >) {  
-         super(init);     
+    public constructor(init?: Partial< Walls >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the Walls Response.   
+/// Represents the Walls Response.
 export class WallsResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -16904,12 +16979,12 @@ export class WallsResponse  extends CellsCloudResponse  {
 
     public walls: Walls;
 
-    public constructor(init?: Partial< WallsResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< WallsResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the WorkbookReplace Response.   
+/// Represents the WorkbookReplace Response.
 export class WorkbookReplaceResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -16937,12 +17012,12 @@ export class WorkbookReplaceResponse  extends CellsCloudResponse  {
     public matches: number;
     public workbook: LinkElement;
 
-    public constructor(init?: Partial< WorkbookReplaceResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< WorkbookReplaceResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the Workbook Response.   
+/// Represents the Workbook Response.
 export class WorkbookResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -16964,12 +17039,12 @@ export class WorkbookResponse  extends CellsCloudResponse  {
 
     public workbook: Workbook;
 
-    public constructor(init?: Partial< WorkbookResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< WorkbookResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the WorkbookSettings Response.   
+/// Represents the WorkbookSettings Response.
 export class WorkbookSettingsResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -16991,12 +17066,12 @@ export class WorkbookSettingsResponse  extends CellsCloudResponse  {
 
     public settings: WorkbookSettings;
 
-    public constructor(init?: Partial< WorkbookSettingsResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< WorkbookSettingsResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the Workbooks Response.   
+/// Represents the Workbooks Response.
 export class WorkbooksResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -17018,12 +17093,12 @@ export class WorkbooksResponse  extends CellsCloudResponse  {
 
     public workbooks: Array<LinkElement>;
 
-    public constructor(init?: Partial< WorkbooksResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< WorkbooksResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the WorksheetReplace Response.   
+/// Represents the WorksheetReplace Response.
 export class WorksheetReplaceResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -17051,12 +17126,12 @@ export class WorksheetReplaceResponse  extends CellsCloudResponse  {
     public matches: number;
     public worksheet: LinkElement;
 
-    public constructor(init?: Partial< WorksheetReplaceResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< WorksheetReplaceResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the Worksheet Response.   
+/// Represents the Worksheet Response.
 export class WorksheetResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -17078,12 +17153,12 @@ export class WorksheetResponse  extends CellsCloudResponse  {
 
     public worksheet: Worksheet;
 
-    public constructor(init?: Partial< WorksheetResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< WorksheetResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the Worksheets Response.   
+/// Represents the Worksheets Response.
 export class WorksheetsResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -17105,12 +17180,12 @@ export class WorksheetsResponse  extends CellsCloudResponse  {
 
     public worksheets: Worksheets;
 
-    public constructor(init?: Partial< WorksheetsResponse >) {  
-         super(init);     
+    public constructor(init?: Partial< WorksheetsResponse >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Can you please provide the features that you would like me to summarize for the class?   
+/// Can you please provide the features that you would like me to summarize for the class?
 export class AnalyzeExcelRequest  {
     /**
      * Attribute type map
@@ -17144,12 +17219,12 @@ export class AnalyzeExcelRequest  {
     public needThumbnail: boolean;
     public buildSuggestoinSheet: boolean;
 
-    public constructor(init?: Partial< AnalyzeExcelRequest >) {  
-    
+    public constructor(init?: Partial< AnalyzeExcelRequest >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// Indicates the match condition that needs to be processed for the file name.   
+/// Indicates the match condition that needs to be processed for the file name.
 export class MatchConditionRequest  {
     /**
      * Attribute type map
@@ -17177,12 +17252,12 @@ export class MatchConditionRequest  {
     public regexPattern: string;
     public fullMatchConditions: Array<string>;
 
-    public constructor(init?: Partial< MatchConditionRequest >) {  
-    
+    public constructor(init?: Partial< MatchConditionRequest >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// Indicates batch convert file request   
+/// Indicates batch convert file request
 export class BatchConvertRequest  {
     /**
      * Attribute type map
@@ -17258,12 +17333,12 @@ export class BatchConvertRequest  {
     public pageTallFitOnPerSheet: boolean;
     public saveOptions: SaveOptions;
 
-    public constructor(init?: Partial< BatchConvertRequest >) {  
-    
+    public constructor(init?: Partial< BatchConvertRequest >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// Indicates batch lock file request   
+/// Indicates batch lock file request
 export class BatchLockRequest  {
     /**
      * Attribute type map
@@ -17315,12 +17390,12 @@ export class BatchLockRequest  {
     public outFolder: string;
     public outStorage: string;
 
-    public constructor(init?: Partial< BatchLockRequest >) {  
-    
+    public constructor(init?: Partial< BatchLockRequest >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// Indicates batch protect file request   
+/// Indicates batch protect file request
 export class BatchProtectRequest  {
     /**
      * Attribute type map
@@ -17378,12 +17453,12 @@ export class BatchProtectRequest  {
     public outFolder: string;
     public outStorage: string;
 
-    public constructor(init?: Partial< BatchProtectRequest >) {  
-    
+    public constructor(init?: Partial< BatchProtectRequest >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// Class summary: Identifying key features of a statistical dataset and methods for data analysis.   
+/// Class summary: Identifying key features of a statistical dataset and methods for data analysis.
 export class BatchSplitRequest  {
     /**
      * Attribute type map
@@ -17459,12 +17534,12 @@ export class BatchSplitRequest  {
     public region: string;
     public saveOptions: SaveOptions;
 
-    public constructor(init?: Partial< BatchSplitRequest >) {  
-    
+    public constructor(init?: Partial< BatchSplitRequest >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// Indicates color filter request   
+/// Indicates color filter request
 export class ColorFilterRequest  {
     /**
      * Attribute type map
@@ -17498,12 +17573,12 @@ export class ColorFilterRequest  {
     public foregroundColor: CellsColor;
     public backgroundColor: CellsColor;
 
-    public constructor(init?: Partial< ColorFilterRequest >) {  
-    
+    public constructor(init?: Partial< ColorFilterRequest >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// Indicates convert parameter   
+/// Indicates convert parameter
 export class ConvertParameter  {
     /**
      * Attribute type map
@@ -17531,12 +17606,12 @@ export class ConvertParameter  {
     public name: string;
     public value: string;
 
-    public constructor(init?: Partial< ConvertParameter >) {  
-    
+    public constructor(init?: Partial< ConvertParameter >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// Indicates create pivot table request   
+/// Indicates create pivot table request
 export class CreatePivotTableRequest  {
     /**
      * Attribute type map
@@ -17594,12 +17669,12 @@ export class CreatePivotTableRequest  {
     public pivotFieldColumns: Array<number>;
     public pivotFieldData: Array<number>;
 
-    public constructor(init?: Partial< CreatePivotTableRequest >) {  
-    
+    public constructor(init?: Partial< CreatePivotTableRequest >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// A data cleansing request for an Spreadsheet file.   
+/// A data cleansing request for an Spreadsheet file.
 export class DataCleansingRequest  {
     /**
      * Attribute type map
@@ -17645,12 +17720,12 @@ export class DataCleansingRequest  {
     public outFileFormat: string;
     public dataCleansing: DataCleansing;
 
-    public constructor(init?: Partial< DataCleansingRequest >) {  
-    
+    public constructor(init?: Partial< DataCleansingRequest >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-///    
+///
 export class DataDeduplicationRequest  {
     /**
      * Attribute type map
@@ -17696,12 +17771,12 @@ export class DataDeduplicationRequest  {
     public checkExcelRestriction: boolean;
     public region: string;
 
-    public constructor(init?: Partial< DataDeduplicationRequest >) {  
-    
+    public constructor(init?: Partial< DataDeduplicationRequest >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// I'm happy to help! Please provide the features you would like me to summarize.   
+/// I'm happy to help! Please provide the features you would like me to summarize.
 export class DataFillRequest  {
     /**
      * Attribute type map
@@ -17747,12 +17822,12 @@ export class DataFillRequest  {
     public region: string;
     public dataFill: DataFill;
 
-    public constructor(init?: Partial< DataFillRequest >) {  
-    
+    public constructor(init?: Partial< DataFillRequest >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// Each data manipulation step that is performed when you get the query data.   
+/// Each data manipulation step that is performed when you get the query data.
 export class AppliedStep  {
     /**
      * Attribute type map
@@ -17780,12 +17855,12 @@ export class AppliedStep  {
     public stepName: string;
     public appliedOperate: AppliedOperate;
 
-    public constructor(init?: Partial< AppliedStep >) {  
-    
+    public constructor(init?: Partial< AppliedStep >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// Loading data information.   
+/// Loading data information.
 export class LoadData  {
     /**
      * Attribute type map
@@ -17813,12 +17888,12 @@ export class LoadData  {
     public loadTo: LoadTo;
     public dataQuery: DataQuery;
 
-    public constructor(init?: Partial< LoadData >) {  
-    
+    public constructor(init?: Partial< LoadData >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// Data Transformation Request   
+/// Data Transformation Request
 export class DataTransformationRequest  {
     /**
      * Attribute type map
@@ -17870,12 +17945,12 @@ export class DataTransformationRequest  {
     public region: string;
     public outFormat: string;
 
-    public constructor(init?: Partial< DataTransformationRequest >) {  
-    
+    public constructor(init?: Partial< DataTransformationRequest >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// I'm here to help! Could you please provide the features you would like me to summarize?   
+/// I'm here to help! Could you please provide the features you would like me to summarize?
 export class DeleteIncompleteRowsRequest  {
     /**
      * Attribute type map
@@ -17921,12 +17996,12 @@ export class DeleteIncompleteRowsRequest  {
     public region: string;
     public ranges: Array<Range>;
 
-    public constructor(init?: Partial< DeleteIncompleteRowsRequest >) {  
-    
+    public constructor(init?: Partial< DeleteIncompleteRowsRequest >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// I can help with that. Just provide me with the features you'd like me to summarize.   
+/// I can help with that. Just provide me with the features you'd like me to summarize.
 export class ImportPosition  {
     /**
      * Attribute type map
@@ -17960,12 +18035,12 @@ export class ImportPosition  {
     public rowIndex: number;
     public columnIndex: number;
 
-    public constructor(init?: Partial< ImportPosition >) {  
-    
+    public constructor(init?: Partial< ImportPosition >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// Indicates import xml data request   
+/// Indicates import xml data request
 export class ImportJsonRequest  {
     /**
      * Attribute type map
@@ -17999,12 +18074,12 @@ export class ImportJsonRequest  {
     public importPosition: ImportPosition;
     public jsonContent: string;
 
-    public constructor(init?: Partial< ImportJsonRequest >) {  
-    
+    public constructor(init?: Partial< ImportJsonRequest >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// Indicates import xml data request   
+/// Indicates import xml data request
 export class ImportXMLRequest  {
     /**
      * Attribute type map
@@ -18038,12 +18113,12 @@ export class ImportXMLRequest  {
     public importPosition: ImportPosition;
     public xMLContent: string;
 
-    public constructor(init?: Partial< ImportXMLRequest >) {  
-    
+    public constructor(init?: Partial< ImportXMLRequest >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// Used for password data transfer.   
+/// Used for password data transfer.
 export class PasswordRequest  {
     /**
      * Attribute type map
@@ -18065,12 +18140,12 @@ export class PasswordRequest  {
 
     public password: string;
 
-    public constructor(init?: Partial< PasswordRequest >) {  
-    
+    public constructor(init?: Partial< PasswordRequest >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// Indicates pivot table field request   
+/// Indicates pivot table field request
 export class PivotTableFieldRequest  {
     /**
      * Attribute type map
@@ -18092,13 +18167,13 @@ export class PivotTableFieldRequest  {
 
     public data: Array<number>;
 
-    public constructor(init?: Partial< PivotTableFieldRequest >) {  
-    
+    public constructor(init?: Partial< PivotTableFieldRequest >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
 /// Signature in file.
-///                
+///
 export class DigitalSignature  {
     /**
      * Attribute type map
@@ -18162,12 +18237,12 @@ export class DigitalSignature  {
     public isValid: boolean;
     public xAdESType: string;
 
-    public constructor(init?: Partial< DigitalSignature >) {  
-    
+    public constructor(init?: Partial< DigitalSignature >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// Indicates protect workbook request   
+/// Indicates protect workbook request
 export class ProtectWorkbookRequest  {
     /**
      * Attribute type map
@@ -18225,12 +18300,12 @@ export class ProtectWorkbookRequest  {
     public digitalSignature: DigitalSignature;
     public markAsFinal: boolean;
 
-    public constructor(init?: Partial< ProtectWorkbookRequest >) {  
-    
+    public constructor(init?: Partial< ProtectWorkbookRequest >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// Indicates range copy request   
+/// Indicates range copy request
 export class RangeConvertRequest  {
     /**
      * Attribute type map
@@ -18270,12 +18345,12 @@ export class RangeConvertRequest  {
     public imageOrPrintOptions: ImageOrPrintOptions;
     public pageSetup: PageSetup;
 
-    public constructor(init?: Partial< RangeConvertRequest >) {  
-    
+    public constructor(init?: Partial< RangeConvertRequest >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// Indicates range copy request   
+/// Indicates range copy request
 export class RangeCopyRequest  {
     /**
      * Attribute type map
@@ -18321,12 +18396,12 @@ export class RangeCopyRequest  {
     public targetWorkbook: string;
     public pasteOptions: PasteOptions;
 
-    public constructor(init?: Partial< RangeCopyRequest >) {  
-    
+    public constructor(init?: Partial< RangeCopyRequest >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// Indicates range set outline border request.   
+/// Indicates range set outline border request.
 export class RangeSetOutlineBorderRequest  {
     /**
      * Attribute type map
@@ -18366,12 +18441,12 @@ export class RangeSetOutlineBorderRequest  {
     public borderStyle: string;
     public borderColor: Color;
 
-    public constructor(init?: Partial< RangeSetOutlineBorderRequest >) {  
-    
+    public constructor(init?: Partial< RangeSetOutlineBorderRequest >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// Indicates range set style request.   
+/// Indicates range set style request.
 export class RangeSetStyleRequest  {
     /**
      * Attribute type map
@@ -18399,12 +18474,12 @@ export class RangeSetStyleRequest  {
     public range: Range;
     public style: Style;
 
-    public constructor(init?: Partial< RangeSetStyleRequest >) {  
-    
+    public constructor(init?: Partial< RangeSetStyleRequest >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// Indicates range sort request   
+/// Indicates range sort request
 export class RangeSortRequest  {
     /**
      * Attribute type map
@@ -18432,12 +18507,12 @@ export class RangeSortRequest  {
     public dataSorter: DataSorter;
     public cellArea: Range;
 
-    public constructor(init?: Partial< RangeSortRequest >) {  
-    
+    public constructor(init?: Partial< RangeSortRequest >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// Indicates table total request   
+/// Indicates table total request
 export class TableTotalRequest  {
     /**
      * Attribute type map
@@ -18471,12 +18546,12 @@ export class TableTotalRequest  {
     public totalsCalculation: string;
     public customFormula: string;
 
-    public constructor(init?: Partial< TableTotalRequest >) {  
-    
+    public constructor(init?: Partial< TableTotalRequest >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// Indicates text water marker request.   
+/// Indicates text water marker request.
 export class TextWaterMarkerRequest  {
     /**
      * Attribute type map
@@ -18528,12 +18603,12 @@ export class TextWaterMarkerRequest  {
     public width: number;
     public imageAdaptOption: string;
 
-    public constructor(init?: Partial< TextWaterMarkerRequest >) {  
-    
+    public constructor(init?: Partial< TextWaterMarkerRequest >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// Used by workbook encryption/decryption requests.   
+/// Used by workbook encryption/decryption requests.
 export class WorkbookEncryptionRequest  {
     /**
      * Attribute type map
@@ -18567,12 +18642,12 @@ export class WorkbookEncryptionRequest  {
     public keyLength: number;
     public password: string;
 
-    public constructor(init?: Partial< WorkbookEncryptionRequest >) {  
-    
+    public constructor(init?: Partial< WorkbookEncryptionRequest >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// Used by workbook protection requests.   
+/// Used by workbook protection requests.
 export class WorkbookProtectionRequest  {
     /**
      * Attribute type map
@@ -18600,12 +18675,12 @@ export class WorkbookProtectionRequest  {
     public protectionType: string;
     public password: string;
 
-    public constructor(init?: Partial< WorkbookProtectionRequest >) {  
-    
+    public constructor(init?: Partial< WorkbookProtectionRequest >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// Font for rendering.   
+/// Font for rendering.
 export class RenderingFont  {
     /**
      * Attribute type map
@@ -18651,12 +18726,12 @@ export class RenderingFont  {
     public italic: boolean;
     public color: Color;
 
-    public constructor(init?: Partial< RenderingFont >) {  
-    
+    public constructor(init?: Partial< RenderingFont >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// A data operation that is used to obtain a query of data.   
+/// A data operation that is used to obtain a query of data.
 export class AppliedOperate  {
     /**
      * Attribute type map
@@ -18678,12 +18753,12 @@ export class AppliedOperate  {
 
     public appliedOperateType: string;
 
-    public constructor(init?: Partial< AppliedOperate >) {  
-    
+    public constructor(init?: Partial< AppliedOperate >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// Data query.   
+/// Data query.
 export class DataQuery  {
     /**
      * Attribute type map
@@ -18729,12 +18804,12 @@ export class DataQuery  {
     public fileInfo: FileInfo;
     public dataItem: DataItem;
 
-    public constructor(init?: Partial< DataQuery >) {  
-    
+    public constructor(init?: Partial< DataQuery >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// A description of the location to which the data is mounted.   
+/// A description of the location to which the data is mounted.
 export class LoadTo  {
     /**
      * Attribute type map
@@ -18768,12 +18843,12 @@ export class LoadTo  {
     public beginRowIndex: number;
     public beginColumnIndex: number;
 
-    public constructor(init?: Partial< LoadTo >) {  
-    
+    public constructor(init?: Partial< LoadTo >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents merge quesies.   
+/// Represents merge quesies.
 export class MergeQueries  extends AppliedOperate  {
     /**
      * Attribute type map
@@ -18819,12 +18894,12 @@ export class MergeQueries  extends AppliedOperate  {
     public dataBIndexField: string;
     public joinType: string;
 
-    public constructor(init?: Partial< MergeQueries >) {  
-         super(init);     
+    public constructor(init?: Partial< MergeQueries >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents pivot column for data table.   
+/// Represents pivot column for data table.
 export class PivotColumn  extends AppliedOperate  {
     /**
      * Attribute type map
@@ -18852,12 +18927,12 @@ export class PivotColumn  extends AppliedOperate  {
     public pivotColumnName: string;
     public valueColumnNames: Array<string>;
 
-    public constructor(init?: Partial< PivotColumn >) {  
-         super(init);     
+    public constructor(init?: Partial< PivotColumn >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Unpivot column.   
+/// Unpivot column.
 export class UnpivotColumn  extends AppliedOperate  {
     /**
      * Attribute type map
@@ -18891,13 +18966,13 @@ export class UnpivotColumn  extends AppliedOperate  {
     public columnMapName: string;
     public valueMapName: string;
 
-    public constructor(init?: Partial< UnpivotColumn >) {  
-         super(init);     
+    public constructor(init?: Partial< UnpivotColumn >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
 ///            Represents a item in a PivotField report.
-///               
+///
 export class PivotItem  {
     /**
      * Attribute type map
@@ -18937,12 +19012,12 @@ export class PivotItem  {
     public name: string;
     public value: string;
 
-    public constructor(init?: Partial< PivotItem >) {  
-    
+    public constructor(init?: Partial< PivotItem >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-///    
+///
 export class BaseOperateOptions  {
     /**
      * Attribute type map
@@ -18964,12 +19039,12 @@ export class BaseOperateOptions  {
 
     public name: string;
 
-    public constructor(init?: Partial< BaseOperateOptions >) {  
-    
+    public constructor(init?: Partial< BaseOperateOptions >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// Class summary: The features of this class include hands-on learning activities, group projects, interactive discussions, guest speakers, and field trips to real-world applications.   
+/// Class summary: The features of this class include hands-on learning activities, group projects, interactive discussions, guest speakers, and field trips to real-world applications.
 export class AddTextOptions  extends BaseOperateOptions  {
     /**
      * Attribute type map
@@ -19033,12 +19108,12 @@ export class AddTextOptions  extends BaseOperateOptions  {
     public selectText: string;
     public skipEmptyCells: boolean;
 
-    public constructor(init?: Partial< AddTextOptions >) {  
-         super(init);     
+    public constructor(init?: Partial< AddTextOptions >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-   
+
 export class CharacterCountOptions  {
     /**
      * Attribute type map
@@ -19066,12 +19141,114 @@ export class CharacterCountOptions  {
     public dataSource: DataSource;
     public fileInfo: FileInfo;
 
-    public constructor(init?: Partial< CharacterCountOptions >) {  
-    
+    public constructor(init?: Partial< CharacterCountOptions >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-   
+
+export class CheckExternalReferenceOptions  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "dataSource",
+            baseName: "DataSource",
+            type: "DataSource",
+        },
+        {
+            name: "fileInfo",
+            baseName: "FileInfo",
+            type: "FileInfo",
+        },
+        {
+            name: "worksheet",
+            baseName: "Worksheet",
+            type: "string",
+        },
+        {
+            name: "ranged_Table",
+            baseName: "Ranged_Table",
+            type: "string",
+        },
+        {
+            name: "chartIndex",
+            baseName: "ChartIndex",
+            type: "number",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return  CheckExternalReferenceOptions.attributeTypeMap;
+
+    }
+
+    public dataSource: DataSource;
+    public fileInfo: FileInfo;
+    public worksheet: string;
+    public ranged_Table: string;
+    public chartIndex: number;
+
+    public constructor(init?: Partial< CheckExternalReferenceOptions >) {
+
+        Object.assign(this, init);
+    }
+}
+
+export class CheckFormulaErrorOptions  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "dataSource",
+            baseName: "DataSource",
+            type: "DataSource",
+        },
+        {
+            name: "fileInfo",
+            baseName: "FileInfo",
+            type: "FileInfo",
+        },
+        {
+            name: "sheetName",
+            baseName: "SheetName",
+            type: "string",
+        },
+        {
+            name: "chartIndex",
+            baseName: "ChartIndex",
+            type: "number",
+        },
+        {
+            name: "names",
+            baseName: "Names",
+            type: "Array<string>",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return  CheckFormulaErrorOptions.attributeTypeMap;
+
+    }
+
+    public dataSource: DataSource;
+    public fileInfo: FileInfo;
+    public sheetName: string;
+    public chartIndex: number;
+    public names: Array<string>;
+
+    public constructor(init?: Partial< CheckFormulaErrorOptions >) {
+
+        Object.assign(this, init);
+    }
+}
+
 export class CombinationSourceData  {
     /**
      * Attribute type map
@@ -19129,12 +19306,12 @@ export class CombinationSourceData  {
     public cellArea: string;
     public hasHeader: boolean;
 
-    public constructor(init?: Partial< CombinationSourceData >) {  
-    
+    public constructor(init?: Partial< CombinationSourceData >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// Class summary: The features of the new smartphone include a high-resolution display, multiple camera lenses for versatile photography, a fast processor for seamless performance, and a larger battery for extended usage time.   
+/// Class summary: The features of the new smartphone include a high-resolution display, multiple camera lenses for versatile photography, a fast processor for seamless performance, and a larger battery for extended usage time.
 export class ConvertTextOptions  extends BaseOperateOptions  {
     /**
      * Attribute type map
@@ -19192,12 +19369,12 @@ export class ConvertTextOptions  extends BaseOperateOptions  {
     public sourceCharacters: string;
     public targetCharacters: string;
 
-    public constructor(init?: Partial< ConvertTextOptions >) {  
-         super(init);     
+    public constructor(init?: Partial< ConvertTextOptions >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-   
+
 export class ConvertWorkbookOptions  extends BaseOperateOptions  {
     /**
      * Attribute type map
@@ -19249,12 +19426,12 @@ export class ConvertWorkbookOptions  extends BaseOperateOptions  {
     public convertFormat: string;
     public checkExcelRestriction: boolean;
 
-    public constructor(init?: Partial< ConvertWorkbookOptions >) {  
-         super(init);     
+    public constructor(init?: Partial< ConvertWorkbookOptions >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-   
+
 export class ConvertWorksheetOptions  extends BaseOperateOptions  {
     /**
      * Attribute type map
@@ -19318,12 +19495,12 @@ export class ConvertWorksheetOptions  extends BaseOperateOptions  {
     public checkExcelRestriction: boolean;
     public region: string;
 
-    public constructor(init?: Partial< ConvertWorksheetOptions >) {  
-         super(init);     
+    public constructor(init?: Partial< ConvertWorksheetOptions >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-   
+
 export class DataOutputLocation  {
     /**
      * Attribute type map
@@ -19369,12 +19546,12 @@ export class DataOutputLocation  {
     public beginRowIndex: number;
     public beginColumnIndex: number;
 
-    public constructor(init?: Partial< DataOutputLocation >) {  
-    
+    public constructor(init?: Partial< DataOutputLocation >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// I'm happy to help! Could you please provide me with the features you would like me to summarize for you?   
+/// I'm happy to help! Could you please provide me with the features you would like me to summarize for you?
 export class ExtractTextOptions  extends BaseOperateOptions  {
     /**
      * Attribute type map
@@ -19450,12 +19627,12 @@ export class ExtractTextOptions  extends BaseOperateOptions  {
     public afterPosition: number;
     public outPositionRange: string;
 
-    public constructor(init?: Partial< ExtractTextOptions >) {  
-         super(init);     
+    public constructor(init?: Partial< ExtractTextOptions >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-   
+
 export class MergeTableOptions  {
     /**
      * Attribute type map
@@ -19507,13 +19684,13 @@ export class MergeTableOptions  {
     public syncDataToTargetWorkbook: boolean;
     public mergedDataToPosition: DataOutputLocation;
 
-    public constructor(init?: Partial< MergeTableOptions >) {  
-    
+    public constructor(init?: Partial< MergeTableOptions >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
 /// Class summary: The features include fast and reliable performance, high-quality camera with portrait mode, long-lasting battery life, and a durable water-resistant design.
-///                
+///
 export class RemoveCharactersByCharacter  {
     /**
      * Attribute type map
@@ -19547,13 +19724,13 @@ export class RemoveCharactersByCharacter  {
     public removeCharacters: Array<string>;
     public removeCharacterSetsType: string;
 
-    public constructor(init?: Partial< RemoveCharactersByCharacter >) {  
-    
+    public constructor(init?: Partial< RemoveCharactersByCharacter >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
 /// Class summary: Important features to consider when designing a new website include user-friendly navigation, responsive design for different devices, visually appealing layouts, and fast loading speed.
-///                
+///
 export class RemoveCharactersByPosition  {
     /**
      * Attribute type map
@@ -19593,12 +19770,12 @@ export class RemoveCharactersByPosition  {
     public allCharactersBeforeText: string;
     public allCharactersAfterText: string;
 
-    public constructor(init?: Partial< RemoveCharactersByPosition >) {  
-    
+    public constructor(init?: Partial< RemoveCharactersByPosition >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// Class summary: The class features discussing effective communication strategies, developing problem-solving skills, and increasing self-awareness for personal growth.   
+/// Class summary: The class features discussing effective communication strategies, developing problem-solving skills, and increasing self-awareness for personal growth.
 export class RemoveCharactersOptions  extends BaseOperateOptions  {
     /**
      * Attribute type map
@@ -19650,12 +19827,12 @@ export class RemoveCharactersOptions  extends BaseOperateOptions  {
     public removeCharactersByCharacter: RemoveCharactersByCharacter;
     public removeCharactersByPosition: RemoveCharactersByPosition;
 
-    public constructor(init?: Partial< RemoveCharactersOptions >) {  
-         super(init);     
+    public constructor(init?: Partial< RemoveCharactersOptions >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// I'm here to help! Just let me know the features you would like me to summarize for you.   
+/// I'm here to help! Just let me know the features you would like me to summarize for you.
 export class RemoveDuplicatesOptions  extends BaseOperateOptions  {
     /**
      * Attribute type map
@@ -19701,13 +19878,13 @@ export class RemoveDuplicatesOptions  extends BaseOperateOptions  {
     public removeDuplicatesArea: string;
     public removeDuplicatesAreaValue: string;
 
-    public constructor(init?: Partial< RemoveDuplicatesOptions >) {  
-         super(init);     
+    public constructor(init?: Partial< RemoveDuplicatesOptions >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
 /// I'm happy to help! Please provide me with the features you would like me to summarize for the class.
-///                
+///
 export class ScopeItem  {
     /**
      * Attribute type map
@@ -19735,13 +19912,13 @@ export class ScopeItem  {
     public worksheetName: string;
     public ranges: Array<string>;
 
-    public constructor(init?: Partial< ScopeItem >) {  
-    
+    public constructor(init?: Partial< ScopeItem >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
 /// Here is the class summary: "The features discussed include real-time collaboration, templates for various projects, task assignment and tracking, deadline reminders, and file storage and sharing."
-///                
+///
 export class ScopeOptions  {
     /**
      * Attribute type map
@@ -19769,12 +19946,12 @@ export class ScopeOptions  {
     public scope: string;
     public scopeItems: Array<ScopeItem>;
 
-    public constructor(init?: Partial< ScopeOptions >) {  
-    
+    public constructor(init?: Partial< ScopeOptions >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-   
+
 export class SpecifyCellsObject  {
     /**
      * Attribute type map
@@ -19808,12 +19985,12 @@ export class SpecifyCellsObject  {
     public pageIndex: number;
     public region: string;
 
-    public constructor(init?: Partial< SpecifyCellsObject >) {  
-    
+    public constructor(init?: Partial< SpecifyCellsObject >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-   
+
 export class SpecifyWordsCountOptions  {
     /**
      * Attribute type map
@@ -19847,12 +20024,12 @@ export class SpecifyWordsCountOptions  {
     public fileInfo: FileInfo;
     public searchWord: string;
 
-    public constructor(init?: Partial< SpecifyWordsCountOptions >) {  
-    
+    public constructor(init?: Partial< SpecifyWordsCountOptions >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// Appliance features: 1. Automatic defrost system 2. Energy-efficient LED lighting 3. Adjustable glass shelves 4. Ice and water dispenser with filtration system   
+/// Appliance features: 1. Automatic defrost system 2. Energy-efficient LED lighting 3. Adjustable glass shelves 4. Ice and water dispenser with filtration system
 export class SplitTextOptions  extends BaseOperateOptions  {
     /**
      * Attribute type map
@@ -19922,12 +20099,12 @@ export class SplitTextOptions  extends BaseOperateOptions  {
     public keepDelimitersPosition: string;
     public howToSplit: string;
 
-    public constructor(init?: Partial< SplitTextOptions >) {  
-         super(init);     
+    public constructor(init?: Partial< SplitTextOptions >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-   
+
 export class TablePositionInfo  {
     /**
      * Attribute type map
@@ -19943,13 +20120,13 @@ export class TablePositionInfo  {
     }
 
 
-    public constructor(init?: Partial< TablePositionInfo >) {  
-    
+    public constructor(init?: Partial< TablePositionInfo >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
 /// I'm sorry, but you haven't provided any specific content for me to summarize. Please provide the features you would like to be summarized.
-///                
+///
 export class TrimContentOptions  {
     /**
      * Attribute type map
@@ -20025,13 +20202,13 @@ export class TrimContentOptions  {
     public removeAllLineBreaks: boolean;
     public scopeOptions: ScopeOptions;
 
-    public constructor(init?: Partial< TrimContentOptions >) {  
-    
+    public constructor(init?: Partial< TrimContentOptions >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
 /// I'm here to assist you. Please provide the features you would like me to summarize for the class.
-///                
+///
 export class WordCaseOptions  {
     /**
      * Attribute type map
@@ -20071,12 +20248,12 @@ export class WordCaseOptions  {
     public wordCaseType: string;
     public scopeOptions: ScopeOptions;
 
-    public constructor(init?: Partial< WordCaseOptions >) {  
-    
+    public constructor(init?: Partial< WordCaseOptions >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-   
+
 export class WordsCountOptions  {
     /**
      * Attribute type map
@@ -20104,12 +20281,12 @@ export class WordsCountOptions  {
     public dataSource: DataSource;
     public fileInfo: FileInfo;
 
-    public constructor(init?: Partial< WordsCountOptions >) {  
-    
+    public constructor(init?: Partial< WordsCountOptions >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the cell value and corresponding type.   
+/// Represents the cell value and corresponding type.
 export class CellValue  {
     /**
      * Attribute type map
@@ -20161,12 +20338,12 @@ export class CellValue  {
     public formula: string;
     public style: Style;
 
-    public constructor(init?: Partial< CellValue >) {  
-    
+    public constructor(init?: Partial< CellValue >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// I'm happy to help! Please provide me with the features you would like me to summarize for the class.   
+/// I'm happy to help! Please provide me with the features you would like me to summarize for the class.
 export class CustomParserConfig  {
     /**
      * Attribute type map
@@ -20200,12 +20377,12 @@ export class CustomParserConfig  {
     public parseMethod: string;
     public customStyle: string;
 
-    public constructor(init?: Partial< CustomParserConfig >) {  
-    
+    public constructor(init?: Partial< CustomParserConfig >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// I can help summarize features, please provide the details you'd like me to summarize.   
+/// I can help summarize features, please provide the details you'd like me to summarize.
 export class Import2DimensionDoubleArrayOption  extends ImportOption  {
     /**
      * Attribute type map
@@ -20239,12 +20416,12 @@ export class Import2DimensionDoubleArrayOption  extends ImportOption  {
     public firstColumn: number;
     public data: Array<number>;
 
-    public constructor(init?: Partial< Import2DimensionDoubleArrayOption >) {  
-         super(init);     
+    public constructor(init?: Partial< Import2DimensionDoubleArrayOption >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// I'm here to help! Please provide the features you'd like me to summarize.   
+/// I'm here to help! Please provide the features you'd like me to summarize.
 export class Import2DimensionIntArrayOption  extends ImportOption  {
     /**
      * Attribute type map
@@ -20278,12 +20455,12 @@ export class Import2DimensionIntArrayOption  extends ImportOption  {
     public firstColumn: number;
     public data: Array<number>;
 
-    public constructor(init?: Partial< Import2DimensionIntArrayOption >) {  
-         super(init);     
+    public constructor(init?: Partial< Import2DimensionIntArrayOption >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// I'm eager to assist you! Please provide me with the features you would like me to summarize into one sentence for your class summary.   
+/// I'm eager to assist you! Please provide me with the features you would like me to summarize into one sentence for your class summary.
 export class Import2DimensionStringArrayOption  extends ImportOption  {
     /**
      * Attribute type map
@@ -20317,12 +20494,12 @@ export class Import2DimensionStringArrayOption  extends ImportOption  {
     public firstColumn: number;
     public data: Array<string>;
 
-    public constructor(init?: Partial< Import2DimensionStringArrayOption >) {  
-         super(init);     
+    public constructor(init?: Partial< Import2DimensionStringArrayOption >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// I'm sorry, but it seems like you haven't provided any features for me to summarize. Could you please share the features you'd like me to summarize into a single sentence for your class?   
+/// I'm sorry, but it seems like you haven't provided any features for me to summarize. Could you please share the features you'd like me to summarize into a single sentence for your class?
 export class ImportBatchDataOption  extends ImportOption  {
     /**
      * Attribute type map
@@ -20344,12 +20521,12 @@ export class ImportBatchDataOption  extends ImportOption  {
 
     public batchData: Array<CellValue>;
 
-    public constructor(init?: Partial< ImportBatchDataOption >) {  
-         super(init);     
+    public constructor(init?: Partial< ImportBatchDataOption >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// I'm happy to help! Could you please provide me with the features you would like me to summarize into a class summary?   
+/// I'm happy to help! Could you please provide me with the features you would like me to summarize into a class summary?
 export class ImportCSVDataOption  extends ImportOption  {
     /**
      * Attribute type map
@@ -20401,12 +20578,12 @@ export class ImportCSVDataOption  extends ImportOption  {
     public sourceFile: string;
     public customParsers: Array<CustomParserConfig>;
 
-    public constructor(init?: Partial< ImportCSVDataOption >) {  
-         super(init);     
+    public constructor(init?: Partial< ImportCSVDataOption >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Class summary: The features include grammar and spell check, word count, readability analysis, and style suggestions for improving writing.   
+/// Class summary: The features include grammar and spell check, word count, readability analysis, and style suggestions for improving writing.
 export class ImportDoubleArrayOption  extends ImportOption  {
     /**
      * Attribute type map
@@ -20446,12 +20623,12 @@ export class ImportDoubleArrayOption  extends ImportOption  {
     public isVertical: boolean;
     public data: Array<number>;
 
-    public constructor(init?: Partial< ImportDoubleArrayOption >) {  
-         super(init);     
+    public constructor(init?: Partial< ImportDoubleArrayOption >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// I'm here to help! Just provide me with the features you'd like to summarize.   
+/// I'm here to help! Just provide me with the features you'd like to summarize.
 export class ImportIntArrayOption  extends ImportOption  {
     /**
      * Attribute type map
@@ -20491,12 +20668,12 @@ export class ImportIntArrayOption  extends ImportOption  {
     public isVertical: boolean;
     public data: Array<number>;
 
-    public constructor(init?: Partial< ImportIntArrayOption >) {  
-         super(init);     
+    public constructor(init?: Partial< ImportIntArrayOption >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// Class summary: The features of the topic were explored, discussing its components, patterns, and significance.   
+/// Class summary: The features of the topic were explored, discussing its components, patterns, and significance.
 export class ImportPictureOption  extends ImportOption  {
     /**
      * Attribute type map
@@ -20548,12 +20725,12 @@ export class ImportPictureOption  extends ImportOption  {
     public filename: string;
     public data: string;
 
-    public constructor(init?: Partial< ImportPictureOption >) {  
-         super(init);     
+    public constructor(init?: Partial< ImportPictureOption >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
-/// I'm happy to help! Could you please provide me with the features you would like me to summarize for the class?   
+/// I'm happy to help! Could you please provide me with the features you would like me to summarize for the class?
 export class ImportStringArrayOption  extends ImportOption  {
     /**
      * Attribute type map
@@ -20593,13 +20770,13 @@ export class ImportStringArrayOption  extends ImportOption  {
     public isVertical: boolean;
     public data: Array<string>;
 
-    public constructor(init?: Partial< ImportStringArrayOption >) {  
-         super(init);     
+    public constructor(init?: Partial< ImportStringArrayOption >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
 ///            Represents the gradient fill.
-///               
+///
 export class GradientFill  {
     /**
      * Attribute type map
@@ -20639,13 +20816,13 @@ export class GradientFill  {
     public angle: number;
     public gradientStops: Array<GradientFillStop>;
 
-    public constructor(init?: Partial< GradientFill >) {  
-    
+    public constructor(init?: Partial< GradientFill >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
 ///            Encapsulates the object that represents pattern fill format
-///               
+///
 export class PatternFill  {
     /**
      * Attribute type map
@@ -20703,13 +20880,13 @@ export class PatternFill  {
     public backTransparency: number;
     public foreTransparency: number;
 
-    public constructor(init?: Partial< PatternFill >) {  
-    
+    public constructor(init?: Partial< PatternFill >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
 ///            Encapsulates the object that represents solid fill format
-///               
+///
 export class SolidFill  {
     /**
      * Attribute type map
@@ -20743,13 +20920,13 @@ export class SolidFill  {
     public cellsColor: CellsColor;
     public transparency: number;
 
-    public constructor(init?: Partial< SolidFill >) {  
-    
+    public constructor(init?: Partial< SolidFill >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
 ///            Encapsulates the object that represents texture fill format
-///               
+///
 export class TextureFill  {
     /**
      * Attribute type map
@@ -20801,12 +20978,12 @@ export class TextureFill  {
     public picFormatOption: PicFormatOption;
     public image: LinkElement;
 
-    public constructor(init?: Partial< TextureFill >) {  
-    
+    public constructor(init?: Partial< TextureFill >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// Class summary: Understanding the various features and tools available in Adobe Illustrator to create dynamic and professional vector graphics, including shapes, text, brushes, gradients, and layers.   
+/// Class summary: Understanding the various features and tools available in Adobe Illustrator to create dynamic and professional vector graphics, including shapes, text, brushes, gradients, and layers.
 export class GradientFillStop  {
     /**
      * Attribute type map
@@ -20840,12 +21017,12 @@ export class GradientFillStop  {
     public position: number;
     public transparency: number;
 
-    public constructor(init?: Partial< GradientFillStop >) {  
-    
+    public constructor(init?: Partial< GradientFillStop >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents the group shape which contains the individual shapes.   
+/// Represents the group shape which contains the individual shapes.
 export class GroupShape  extends Shape  {
     /**
      * Attribute type map
@@ -20861,13 +21038,13 @@ export class GroupShape  extends Shape  {
     }
 
 
-    public constructor(init?: Partial< GroupShape >) {  
-         super(init);     
+    public constructor(init?: Partial< GroupShape >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
 ///            Represents picture format option
-///               
+///
 export class PicFormatOption  {
     /**
      * Attribute type map
@@ -20919,13 +21096,13 @@ export class PicFormatOption  {
     public top: number;
     public bottom: number;
 
-    public constructor(init?: Partial< PicFormatOption >) {  
-    
+    public constructor(init?: Partial< PicFormatOption >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
 ///            Represents tile picture as texture.
-///               
+///
 export class TilePicOption  {
     /**
      * Attribute type map
@@ -20977,13 +21154,13 @@ export class TilePicOption  {
     public alignmentType: string;
     public mirrorType: string;
 
-    public constructor(init?: Partial< TilePicOption >) {  
-    
+    public constructor(init?: Partial< TilePicOption >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
 ///            Represents the marker in a line chart, scatter chart, or radar chart.
-///               
+///
 export class Marker  {
     /**
      * Attribute type map
@@ -21023,12 +21200,12 @@ export class Marker  {
     public markerSize: number;
     public markerStyle: string;
 
-    public constructor(init?: Partial< Marker >) {  
-    
+    public constructor(init?: Partial< Marker >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// Chart shape object   
+/// Chart shape object
 export class ChartShape  extends Shape  {
     /**
      * Attribute type map
@@ -21044,13 +21221,13 @@ export class ChartShape  extends Shape  {
     }
 
 
-    public constructor(init?: Partial< ChartShape >) {  
-         super(init);     
+    public constructor(init?: Partial< ChartShape >) {
+         super(init);
         Object.assign(this, init);
-    } 
+    }
 }
 /// A sparkline represents a tiny chart or graphic in a worksheet cell that provides a visual representation of data.
-///                
+///
 export class Sparkline  {
     /**
      * Attribute type map
@@ -21084,12 +21261,12 @@ export class Sparkline  {
     public dataRange: string;
     public row: number;
 
-    public constructor(init?: Partial< Sparkline >) {  
-    
+    public constructor(init?: Partial< Sparkline >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents description of analyzed column.   
+/// Represents description of analyzed column.
 export class AnalyzedColumnDescription  {
     /**
      * Attribute type map
@@ -21159,12 +21336,12 @@ export class AnalyzedColumnDescription  {
     public styleNumber: number;
     public columnDataExceptionDescription: string;
 
-    public constructor(init?: Partial< AnalyzedColumnDescription >) {  
-    
+    public constructor(init?: Partial< AnalyzedColumnDescription >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents analyzed table description.   
+/// Represents analyzed table description.
 export class AnalyzedTableDescription  {
     /**
      * Attribute type map
@@ -21276,12 +21453,12 @@ export class AnalyzedTableDescription  {
     public discoverCharts: Array<DiscoverChart>;
     public discoverPivotTables: Array<DiscoverPivotTable>;
 
-    public constructor(init?: Partial< AnalyzedTableDescription >) {  
-    
+    public constructor(init?: Partial< AnalyzedTableDescription >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents Excel data statistics.   
+/// Represents Excel data statistics.
 export class ExcelDataStatistics  {
     /**
      * Attribute type map
@@ -21303,12 +21480,12 @@ export class ExcelDataStatistics  {
 
     public worksheetDataStatistics: Array<WorksheetDataStatistics>;
 
-    public constructor(init?: Partial< ExcelDataStatistics >) {  
-    
+    public constructor(init?: Partial< ExcelDataStatistics >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents results of analyzed data.   
+/// Represents results of analyzed data.
 export class AnalyzedResult  {
     /**
      * Attribute type map
@@ -21354,12 +21531,12 @@ export class AnalyzedResult  {
     public results: Array<AnalyzedTableDescription>;
     public suggestedFile: string;
 
-    public constructor(init?: Partial< AnalyzedResult >) {  
-    
+    public constructor(init?: Partial< AnalyzedResult >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents a chart, which is a chart created based on data analysis of a table.   
+/// Represents a chart, which is a chart created based on data analysis of a table.
 export class DiscoverChart  {
     /**
      * Attribute type map
@@ -21411,12 +21588,12 @@ export class DiscoverChart  {
     public dataRange: string;
     public thumbnail: string;
 
-    public constructor(init?: Partial< DiscoverChart >) {  
-    
+    public constructor(init?: Partial< DiscoverChart >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents a pivot table, which is a pivot table created based on data analysis of a table.   
+/// Represents a pivot table, which is a pivot table created based on data analysis of a table.
 export class DiscoverPivotTable  {
     /**
      * Attribute type map
@@ -21474,12 +21651,12 @@ export class DiscoverPivotTable  {
     public pivotFieldData: Array<number>;
     public thumbnail: string;
 
-    public constructor(init?: Partial< DiscoverPivotTable >) {  
-    
+    public constructor(init?: Partial< DiscoverPivotTable >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// Represents worksheet data statistics.   
+/// Represents worksheet data statistics.
 export class WorksheetDataStatistics  {
     /**
      * Attribute type map
@@ -21555,12 +21732,12 @@ export class WorksheetDataStatistics  {
     public cellsCountInTable: number;
     public cellsCountIsFormula: number;
 
-    public constructor(init?: Partial< WorksheetDataStatistics >) {  
-    
+    public constructor(init?: Partial< WorksheetDataStatistics >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
-/// The error details   
+/// The error details
 export class ErrorDetails  {
     /**
      * Attribute type map
@@ -21576,10 +21753,10 @@ export class ErrorDetails  {
     }
 
 
-    public constructor(init?: Partial< ErrorDetails >) {  
-    
+    public constructor(init?: Partial< ErrorDetails >) {
+
         Object.assign(this, init);
-    } 
+    }
 }
 const enumsMap = {
 };
@@ -21770,6 +21947,8 @@ const typeMap = {
     ChartResponse,
     ChartsResponse,
     CheckBoxResponse,
+    CheckedExternalReferenceResponse,
+    CheckedFormulaErrorsResponse,
     ColumnResponse,
     ColumnsResponse,
     ComboBoxResponse,
@@ -21907,6 +22086,8 @@ const typeMap = {
     AddTextOptions,
     BaseOperateOptions,
     CharacterCountOptions,
+    CheckExternalReferenceOptions,
+    CheckFormulaErrorOptions,
     CombinationSourceData,
     ConvertTextOptions,
     ConvertWorkbookOptions,
@@ -22023,16 +22204,16 @@ const typeMap = {
 
 export {enumsMap, typeMap};
 
-/// Perform business analysis of data in Excel files.   
+/// Perform business analysis of data in Excel files.
 export class PostAnalyzeExcelRequest  {
-    /// Excel files and analysis output requirements  
+    /// Excel files and analysis output requirements
     public analyzeExcelRequest: AnalyzeExcelRequest;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostAnalyzeExcelRequest >) {  
+    public constructor(init?: Partial< PostAnalyzeExcelRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -22059,22 +22240,22 @@ export class PostAnalyzeExcelRequest  {
     }
 
 }
-/// Retrieve the description of auto filters from a worksheet.   
+/// Retrieve the description of auto filters from a worksheet.
 export class GetWorksheetAutoFilterRequest  {
-    /// The workbook name.  
+    /// The workbook name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< GetWorksheetAutoFilterRequest >) {  
+    public constructor(init?: Partial< GetWorksheetAutoFilterRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -22103,60 +22284,60 @@ export class GetWorksheetAutoFilterRequest  {
     }
 
 }
-/// Apply a date filter in the worksheet.   
+/// Apply a date filter in the worksheet.
 export class PutWorksheetDateFilterRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// Represents the range to which the specified AutoFilter applies.  
+    /// Represents the range to which the specified AutoFilter applies.
     public range: string;
-    /// The integer offset of the field on which you want to base the filter (from the left of the list; the leftmost field is field 0).  
+    /// The integer offset of the field on which you want to base the filter (from the left of the list; the leftmost field is field 0).
     public fieldIndex: number;
-    /// Specifies how to group dateTime values (Day, Hour, Minute, Month, Second, Year).  
+    /// Specifies how to group dateTime values (Day, Hour, Minute, Month, Second, Year).
     public dateTimeGroupingType: string;
-    /// The year.  
+    /// The year.
     public year: number;
-    /// The month.  
+    /// The month.
     public month: number;
-    /// The day.  
+    /// The day.
     public day: number;
-    /// The hour.  
+    /// The hour.
     public hour: number;
-    /// The minute.  
+    /// The minute.
     public minute: number;
-    /// The second.  
+    /// The second.
     public second: number;
-    /// Match all blank cell in the list.  
+    /// Match all blank cell in the list.
     public matchBlanks: boolean;
-    /// Refresh auto filters to hide or unhide the rows.  
+    /// Refresh auto filters to hide or unhide the rows.
     public refresh: boolean;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PutWorksheetDateFilterRequest >) {  
+    public constructor(init?: Partial< PutWorksheetDateFilterRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/autoFilter/dateFilter".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
         const queryParameters: any = {};
-        /// Represents the range to which the specified AutoFilter applies. 
+        /// Represents the range to which the specified AutoFilter applies.
         // verify required parameter 'range' is not null or undefined
         if (this.range === null || this.range === undefined) {
             throw new Error('Required parameter "range" was null or undefined when calling PutWorksheetDateFilter.');
         }
-        /// The integer offset of the field on which you want to base the filter (from the left of the list; the leftmost field is field 0). 
+        /// The integer offset of the field on which you want to base the filter (from the left of the list; the leftmost field is field 0).
         // verify required parameter 'fieldIndex' is not null or undefined
         if (this.fieldIndex === null || this.fieldIndex === undefined) {
             throw new Error('Required parameter "fieldIndex" was null or undefined when calling PutWorksheetDateFilter.');
         }
-        /// Specifies how to group dateTime values (Day, Hour, Minute, Month, Second, Year). 
+        /// Specifies how to group dateTime values (Day, Hour, Minute, Month, Second, Year).
         // verify required parameter 'dateTimeGroupingType' is not null or undefined
         if (this.dateTimeGroupingType === null || this.dateTimeGroupingType === undefined) {
             throw new Error('Required parameter "dateTimeGroupingType" was null or undefined when calling PutWorksheetDateFilter.');
@@ -22195,48 +22376,48 @@ export class PutWorksheetDateFilterRequest  {
     }
 
 }
-/// Add a filter for a column in the worksheet.   
+/// Add a filter for a column in the worksheet.
 export class PutWorksheetFilterRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// Represents the range to which the specified AutoFilter applies.  
+    /// Represents the range to which the specified AutoFilter applies.
     public range: string;
-    /// The integer offset of the field on which you want to base the filter (from the left of the list; the leftmost field is field 0).  
+    /// The integer offset of the field on which you want to base the filter (from the left of the list; the leftmost field is field 0).
     public fieldIndex: number;
-    /// The custom criteria.  
+    /// The custom criteria.
     public criteria: string;
-    /// Match all blank cell in the list.  
+    /// Match all blank cell in the list.
     public matchBlanks: boolean;
-    /// Refresh auto filters to hide or unhide the rows.  
+    /// Refresh auto filters to hide or unhide the rows.
     public refresh: boolean;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PutWorksheetFilterRequest >) {  
+    public constructor(init?: Partial< PutWorksheetFilterRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/autoFilter/filter".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
         const queryParameters: any = {};
-        /// Represents the range to which the specified AutoFilter applies. 
+        /// Represents the range to which the specified AutoFilter applies.
         // verify required parameter 'range' is not null or undefined
         if (this.range === null || this.range === undefined) {
             throw new Error('Required parameter "range" was null or undefined when calling PutWorksheetFilter.');
         }
-        /// The integer offset of the field on which you want to base the filter (from the left of the list; the leftmost field is field 0). 
+        /// The integer offset of the field on which you want to base the filter (from the left of the list; the leftmost field is field 0).
         // verify required parameter 'fieldIndex' is not null or undefined
         if (this.fieldIndex === null || this.fieldIndex === undefined) {
             throw new Error('Required parameter "fieldIndex" was null or undefined when calling PutWorksheetFilter.');
         }
-        /// The custom criteria. 
+        /// The custom criteria.
         // verify required parameter 'criteria' is not null or undefined
         if (this.criteria === null || this.criteria === undefined) {
             throw new Error('Required parameter "criteria" was null or undefined when calling PutWorksheetFilter.');
@@ -22269,55 +22450,55 @@ export class PutWorksheetFilterRequest  {
     }
 
 }
-/// Add an icon filter in the worksheet.   
+/// Add an icon filter in the worksheet.
 export class PutWorksheetIconFilterRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// Represents the range to which the specified AutoFilter applies.  
+    /// Represents the range to which the specified AutoFilter applies.
     public range: string;
-    /// The integer offset of the field on which you want to base the filter (from the left of the list; the leftmost field is field 0).  
+    /// The integer offset of the field on which you want to base the filter (from the left of the list; the leftmost field is field 0).
     public fieldIndex: number;
-    /// The icon set type.  
+    /// The icon set type.
     public iconSetType: string;
-    /// The icon id.  
+    /// The icon id.
     public iconId: number;
-    /// Match all blank cell in the list.  
+    /// Match all blank cell in the list.
     public matchBlanks: boolean;
-    /// Refresh auto filters to hide or unhide the rows.  
+    /// Refresh auto filters to hide or unhide the rows.
     public refresh: boolean;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PutWorksheetIconFilterRequest >) {  
+    public constructor(init?: Partial< PutWorksheetIconFilterRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/autoFilter/iconFilter".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
         const queryParameters: any = {};
-        /// Represents the range to which the specified AutoFilter applies. 
+        /// Represents the range to which the specified AutoFilter applies.
         // verify required parameter 'range' is not null or undefined
         if (this.range === null || this.range === undefined) {
             throw new Error('Required parameter "range" was null or undefined when calling PutWorksheetIconFilter.');
         }
-        /// The integer offset of the field on which you want to base the filter (from the left of the list; the leftmost field is field 0). 
+        /// The integer offset of the field on which you want to base the filter (from the left of the list; the leftmost field is field 0).
         // verify required parameter 'fieldIndex' is not null or undefined
         if (this.fieldIndex === null || this.fieldIndex === undefined) {
             throw new Error('Required parameter "fieldIndex" was null or undefined when calling PutWorksheetIconFilter.');
         }
-        /// The icon set type. 
+        /// The icon set type.
         // verify required parameter 'iconSetType' is not null or undefined
         if (this.iconSetType === null || this.iconSetType === undefined) {
             throw new Error('Required parameter "iconSetType" was null or undefined when calling PutWorksheetIconFilter.');
         }
-        /// The icon id. 
+        /// The icon id.
         // verify required parameter 'iconId' is not null or undefined
         if (this.iconId === null || this.iconId === undefined) {
             throw new Error('Required parameter "iconId" was null or undefined when calling PutWorksheetIconFilter.');
@@ -22351,61 +22532,61 @@ export class PutWorksheetIconFilterRequest  {
     }
 
 }
-/// Filter a list with custom criteria in the worksheet.   
+/// Filter a list with custom criteria in the worksheet.
 export class PutWorksheetCustomFilterRequest  {
-    /// The workbook name.  
+    /// The workbook name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// Represents the range to which the specified AutoFilter applies.  
+    /// Represents the range to which the specified AutoFilter applies.
     public range: string;
-    /// The integer offset of the field on which you want to base the filter (from the left of the list; the leftmost field is field 0).  
+    /// The integer offset of the field on which you want to base the filter (from the left of the list; the leftmost field is field 0).
     public fieldIndex: number;
-    /// The filter operator type  
+    /// The filter operator type
     public operatorType1: string;
-    /// The custom criteria.  
+    /// The custom criteria.
     public criteria1: string;
-    /// true/false  
+    /// true/false
     public isAnd: boolean;
-      
+
     public operatorType2: string;
-    /// The custom criteria.  
+    /// The custom criteria.
     public criteria2: string;
-    /// Match all blank cell in the list.  
+    /// Match all blank cell in the list.
     public matchBlanks: boolean;
-    /// Refresh auto filters to hide or unhide the rows.  
+    /// Refresh auto filters to hide or unhide the rows.
     public refresh: boolean;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PutWorksheetCustomFilterRequest >) {  
+    public constructor(init?: Partial< PutWorksheetCustomFilterRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/autoFilter/custom".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
         const queryParameters: any = {};
-        /// Represents the range to which the specified AutoFilter applies. 
+        /// Represents the range to which the specified AutoFilter applies.
         // verify required parameter 'range' is not null or undefined
         if (this.range === null || this.range === undefined) {
             throw new Error('Required parameter "range" was null or undefined when calling PutWorksheetCustomFilter.');
         }
-        /// The integer offset of the field on which you want to base the filter (from the left of the list; the leftmost field is field 0). 
+        /// The integer offset of the field on which you want to base the filter (from the left of the list; the leftmost field is field 0).
         // verify required parameter 'fieldIndex' is not null or undefined
         if (this.fieldIndex === null || this.fieldIndex === undefined) {
             throw new Error('Required parameter "fieldIndex" was null or undefined when calling PutWorksheetCustomFilter.');
         }
-        /// The filter operator type 
+        /// The filter operator type
         // verify required parameter 'operatorType1' is not null or undefined
         if (this.operatorType1 === null || this.operatorType1 === undefined) {
             throw new Error('Required parameter "operatorType1" was null or undefined when calling PutWorksheetCustomFilter.');
         }
-        /// The custom criteria. 
+        /// The custom criteria.
         // verify required parameter 'criteria1' is not null or undefined
         if (this.criteria1 === null || this.criteria1 === undefined) {
             throw new Error('Required parameter "criteria1" was null or undefined when calling PutWorksheetCustomFilter.');
@@ -22442,48 +22623,48 @@ export class PutWorksheetCustomFilterRequest  {
     }
 
 }
-/// Add a dynamic filter in the worksheet.   
+/// Add a dynamic filter in the worksheet.
 export class PutWorksheetDynamicFilterRequest  {
-    /// The workbook name.  
+    /// The workbook name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// Represents the range to which the specified AutoFilter applies.  
+    /// Represents the range to which the specified AutoFilter applies.
     public range: string;
-    /// The integer offset of the field on which you want to base the filter (from the left of the list; the leftmost field is field 0).  
+    /// The integer offset of the field on which you want to base the filter (from the left of the list; the leftmost field is field 0).
     public fieldIndex: number;
-    /// Dynamic filter type.  
+    /// Dynamic filter type.
     public dynamicFilterType: string;
-    /// Match all blank cell in the list.  
+    /// Match all blank cell in the list.
     public matchBlanks: boolean;
-    /// Refresh auto filters to hide or unhide the rows.  
+    /// Refresh auto filters to hide or unhide the rows.
     public refresh: boolean;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PutWorksheetDynamicFilterRequest >) {  
+    public constructor(init?: Partial< PutWorksheetDynamicFilterRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/autoFilter/dynamicFilter".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
         const queryParameters: any = {};
-        /// Represents the range to which the specified AutoFilter applies. 
+        /// Represents the range to which the specified AutoFilter applies.
         // verify required parameter 'range' is not null or undefined
         if (this.range === null || this.range === undefined) {
             throw new Error('Required parameter "range" was null or undefined when calling PutWorksheetDynamicFilter.');
         }
-        /// The integer offset of the field on which you want to base the filter (from the left of the list; the leftmost field is field 0). 
+        /// The integer offset of the field on which you want to base the filter (from the left of the list; the leftmost field is field 0).
         // verify required parameter 'fieldIndex' is not null or undefined
         if (this.fieldIndex === null || this.fieldIndex === undefined) {
             throw new Error('Required parameter "fieldIndex" was null or undefined when calling PutWorksheetDynamicFilter.');
         }
-        /// Dynamic filter type. 
+        /// Dynamic filter type.
         // verify required parameter 'dynamicFilterType' is not null or undefined
         if (this.dynamicFilterType === null || this.dynamicFilterType === undefined) {
             throw new Error('Required parameter "dynamicFilterType" was null or undefined when calling PutWorksheetDynamicFilter.');
@@ -22516,62 +22697,62 @@ export class PutWorksheetDynamicFilterRequest  {
     }
 
 }
-/// Filter the top 10 items in the list in the worksheet.   
+/// Filter the top 10 items in the list in the worksheet.
 export class PutWorksheetFilterTop10Request  {
-    /// The workbook name.  
+    /// The workbook name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// Represents the range to which the specified AutoFilter applies.  
+    /// Represents the range to which the specified AutoFilter applies.
     public range: string;
-    /// The integer offset of the field on which you want to base the filter (from the left of the list; the leftmost field is field 0).  
+    /// The integer offset of the field on which you want to base the filter (from the left of the list; the leftmost field is field 0).
     public fieldIndex: number;
-    /// Indicates whether filter from top or bottom  
+    /// Indicates whether filter from top or bottom
     public isTop: boolean;
-    /// Indicates whether the items is percent or count  
+    /// Indicates whether the items is percent or count
     public isPercent: boolean;
-    /// The item count  
+    /// The item count
     public itemCount: number;
-    /// Match all blank cell in the list.  
+    /// Match all blank cell in the list.
     public matchBlanks: boolean;
-    /// Refresh auto filters to hide or unhide the rows.  
+    /// Refresh auto filters to hide or unhide the rows.
     public refresh: boolean;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PutWorksheetFilterTop10Request >) {  
+    public constructor(init?: Partial< PutWorksheetFilterTop10Request >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/autoFilter/filterTop10".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
         const queryParameters: any = {};
-        /// Represents the range to which the specified AutoFilter applies. 
+        /// Represents the range to which the specified AutoFilter applies.
         // verify required parameter 'range' is not null or undefined
         if (this.range === null || this.range === undefined) {
             throw new Error('Required parameter "range" was null or undefined when calling PutWorksheetFilterTop10.');
         }
-        /// The integer offset of the field on which you want to base the filter (from the left of the list; the leftmost field is field 0). 
+        /// The integer offset of the field on which you want to base the filter (from the left of the list; the leftmost field is field 0).
         // verify required parameter 'fieldIndex' is not null or undefined
         if (this.fieldIndex === null || this.fieldIndex === undefined) {
             throw new Error('Required parameter "fieldIndex" was null or undefined when calling PutWorksheetFilterTop10.');
         }
-        /// Indicates whether filter from top or bottom 
+        /// Indicates whether filter from top or bottom
         // verify required parameter 'isTop' is not null or undefined
         if (this.isTop === null || this.isTop === undefined) {
             throw new Error('Required parameter "isTop" was null or undefined when calling PutWorksheetFilterTop10.');
         }
-        /// Indicates whether the items is percent or count 
+        /// Indicates whether the items is percent or count
         // verify required parameter 'isPercent' is not null or undefined
         if (this.isPercent === null || this.isPercent === undefined) {
             throw new Error('Required parameter "isPercent" was null or undefined when calling PutWorksheetFilterTop10.');
         }
-        /// The item count 
+        /// The item count
         // verify required parameter 'itemCount' is not null or undefined
         if (this.itemCount === null || this.itemCount === undefined) {
             throw new Error('Required parameter "itemCount" was null or undefined when calling PutWorksheetFilterTop10.');
@@ -22606,43 +22787,43 @@ export class PutWorksheetFilterTop10Request  {
     }
 
 }
-/// Add a color filter in the worksheet.   
+/// Add a color filter in the worksheet.
 export class PutWorksheetColorFilterRequest  {
-    /// The workbook name.  
+    /// The workbook name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// Represents the range to which the specified AutoFilter applies.  
+    /// Represents the range to which the specified AutoFilter applies.
     public range: string;
-    /// The integer offset of the field on which you want to base the filter (from the left of the list; the leftmost field is field 0).  
+    /// The integer offset of the field on which you want to base the filter (from the left of the list; the leftmost field is field 0).
     public fieldIndex: number;
-    /// color filter request.  
+    /// color filter request.
     public colorFilter: ColorFilterRequest;
-    /// Match all blank cell in the list.  
+    /// Match all blank cell in the list.
     public matchBlanks: boolean;
-    /// Refresh auto filters to hide or unhide the rows.  
+    /// Refresh auto filters to hide or unhide the rows.
     public refresh: boolean;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PutWorksheetColorFilterRequest >) {  
+    public constructor(init?: Partial< PutWorksheetColorFilterRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/autoFilter/colorFilter".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
         const queryParameters: any = {};
-        /// Represents the range to which the specified AutoFilter applies. 
+        /// Represents the range to which the specified AutoFilter applies.
         // verify required parameter 'range' is not null or undefined
         if (this.range === null || this.range === undefined) {
             throw new Error('Required parameter "range" was null or undefined when calling PutWorksheetColorFilter.');
         }
-        /// The integer offset of the field on which you want to base the filter (from the left of the list; the leftmost field is field 0). 
+        /// The integer offset of the field on which you want to base the filter (from the left of the list; the leftmost field is field 0).
         // verify required parameter 'fieldIndex' is not null or undefined
         if (this.fieldIndex === null || this.fieldIndex === undefined) {
             throw new Error('Required parameter "fieldIndex" was null or undefined when calling PutWorksheetColorFilter.');
@@ -22674,30 +22855,30 @@ export class PutWorksheetColorFilterRequest  {
     }
 
 }
-/// Match all blank cells in the list.   
+/// Match all blank cells in the list.
 export class PostWorksheetMatchBlanksRequest  {
-    /// The workbook name.  
+    /// The workbook name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The integer offset of the field on which you want to base the filter (from the left of the list; the leftmost field is field 0).  
+    /// The integer offset of the field on which you want to base the filter (from the left of the list; the leftmost field is field 0).
     public fieldIndex: number;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostWorksheetMatchBlanksRequest >) {  
+    public constructor(init?: Partial< PostWorksheetMatchBlanksRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/autoFilter/matchBlanks".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
         const queryParameters: any = {};
-        /// The integer offset of the field on which you want to base the filter (from the left of the list; the leftmost field is field 0). 
+        /// The integer offset of the field on which you want to base the filter (from the left of the list; the leftmost field is field 0).
         // verify required parameter 'fieldIndex' is not null or undefined
         if (this.fieldIndex === null || this.fieldIndex === undefined) {
             throw new Error('Required parameter "fieldIndex" was null or undefined when calling PostWorksheetMatchBlanks.');
@@ -22726,30 +22907,30 @@ export class PostWorksheetMatchBlanksRequest  {
     }
 
 }
-/// Match all not blank cells in the list.   
+/// Match all not blank cells in the list.
 export class PostWorksheetMatchNonBlanksRequest  {
-    /// The workbook name.  
+    /// The workbook name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The integer offset of the field on which you want to base the filter (from the left of the list; the leftmost field is field 0).  
+    /// The integer offset of the field on which you want to base the filter (from the left of the list; the leftmost field is field 0).
     public fieldIndex: number;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostWorksheetMatchNonBlanksRequest >) {  
+    public constructor(init?: Partial< PostWorksheetMatchNonBlanksRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/autoFilter/matchNonBlanks".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
         const queryParameters: any = {};
-        /// The integer offset of the field on which you want to base the filter (from the left of the list; the leftmost field is field 0). 
+        /// The integer offset of the field on which you want to base the filter (from the left of the list; the leftmost field is field 0).
         // verify required parameter 'fieldIndex' is not null or undefined
         if (this.fieldIndex === null || this.fieldIndex === undefined) {
             throw new Error('Required parameter "fieldIndex" was null or undefined when calling PostWorksheetMatchNonBlanks.');
@@ -22778,22 +22959,22 @@ export class PostWorksheetMatchNonBlanksRequest  {
     }
 
 }
-/// Refresh auto filters in the worksheet.   
+/// Refresh auto filters in the worksheet.
 export class PostWorksheetAutoFilterRefreshRequest  {
-    /// The workbook name.  
+    /// The workbook name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostWorksheetAutoFilterRefreshRequest >) {  
+    public constructor(init?: Partial< PostWorksheetAutoFilterRefreshRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -22822,49 +23003,49 @@ export class PostWorksheetAutoFilterRefreshRequest  {
     }
 
 }
-/// Remove a date filter in the worksheet.   
+/// Remove a date filter in the worksheet.
 export class DeleteWorksheetDateFilterRequest  {
-    /// The workbook name.  
+    /// The workbook name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The integer offset of the field on which you want to base the filter (from the left of the list; the leftmost field is field 0).  
+    /// The integer offset of the field on which you want to base the filter (from the left of the list; the leftmost field is field 0).
     public fieldIndex: number;
-    /// Specifies how to group dateTime values.  
+    /// Specifies how to group dateTime values.
     public dateTimeGroupingType: string;
-    /// The year.  
+    /// The year.
     public year: number;
-    /// The month.  
+    /// The month.
     public month: number;
-    /// The day.  
+    /// The day.
     public day: number;
-    /// The hour.  
+    /// The hour.
     public hour: number;
-    /// The minute.  
+    /// The minute.
     public minute: number;
-    /// The second.  
+    /// The second.
     public second: number;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< DeleteWorksheetDateFilterRequest >) {  
+    public constructor(init?: Partial< DeleteWorksheetDateFilterRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/autoFilter/dateFilter".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
         const queryParameters: any = {};
-        /// The integer offset of the field on which you want to base the filter (from the left of the list; the leftmost field is field 0). 
+        /// The integer offset of the field on which you want to base the filter (from the left of the list; the leftmost field is field 0).
         // verify required parameter 'fieldIndex' is not null or undefined
         if (this.fieldIndex === null || this.fieldIndex === undefined) {
             throw new Error('Required parameter "fieldIndex" was null or undefined when calling DeleteWorksheetDateFilter.');
         }
-        /// Specifies how to group dateTime values. 
+        /// Specifies how to group dateTime values.
         // verify required parameter 'dateTimeGroupingType' is not null or undefined
         if (this.dateTimeGroupingType === null || this.dateTimeGroupingType === undefined) {
             throw new Error('Required parameter "dateTimeGroupingType" was null or undefined when calling DeleteWorksheetDateFilter.');
@@ -22900,32 +23081,32 @@ export class DeleteWorksheetDateFilterRequest  {
     }
 
 }
-/// Delete a filter for a column in the worksheet.   
+/// Delete a filter for a column in the worksheet.
 export class DeleteWorksheetFilterRequest  {
-    /// The workbook name.  
+    /// The workbook name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The integer offset of the field on which you want to base the filter (from the left of the list; the leftmost field is field 0).  
+    /// The integer offset of the field on which you want to base the filter (from the left of the list; the leftmost field is field 0).
     public fieldIndex: number;
-    /// The custom criteria.  
+    /// The custom criteria.
     public criteria: string;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< DeleteWorksheetFilterRequest >) {  
+    public constructor(init?: Partial< DeleteWorksheetFilterRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/autoFilter/filter".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
         const queryParameters: any = {};
-        /// The integer offset of the field on which you want to base the filter (from the left of the list; the leftmost field is field 0). 
+        /// The integer offset of the field on which you want to base the filter (from the left of the list; the leftmost field is field 0).
         // verify required parameter 'fieldIndex' is not null or undefined
         if (this.fieldIndex === null || this.fieldIndex === undefined) {
             throw new Error('Required parameter "fieldIndex" was null or undefined when calling DeleteWorksheetFilter.');
@@ -22955,22 +23136,22 @@ export class DeleteWorksheetFilterRequest  {
     }
 
 }
-/// Get autoshapes description in worksheet.   
+/// Get autoshapes description in worksheet.
 export class GetWorksheetAutoshapesRequest  {
-    /// The workbook name.  
+    /// The workbook name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// Document's folder.  
+    /// Document's folder.
     public folder: string;
-    /// Storage name.  
+    /// Storage name.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< GetWorksheetAutoshapesRequest >) {  
+    public constructor(init?: Partial< GetWorksheetAutoshapesRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -22999,26 +23180,26 @@ export class GetWorksheetAutoshapesRequest  {
     }
 
 }
-/// Get autoshape description in some format.   
+/// Get autoshape description in some format.
 export class GetWorksheetAutoshapeWithFormatRequest  {
-    /// The workbook name.  
+    /// The workbook name.
     public name: string;
-    /// Worksheet name.  
+    /// Worksheet name.
     public sheetName: string;
-    /// The autoshape number.  
+    /// The autoshape number.
     public autoshapeNumber: number;
-    /// Autoshape conversion format.  
+    /// Autoshape conversion format.
     public format: string;
-    /// The document folder.  
+    /// The document folder.
     public folder: string;
-    /// Storage name.  
+    /// Storage name.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< GetWorksheetAutoshapeWithFormatRequest >) {  
+    public constructor(init?: Partial< GetWorksheetAutoshapeWithFormatRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -23048,16 +23229,16 @@ export class GetWorksheetAutoshapeWithFormatRequest  {
     }
 
 }
-/// Batch converting files that meet specific matching conditions.   
+/// Batch converting files that meet specific matching conditions.
 export class PostBatchConvertRequest  {
-    /// BatchConvertRequest Batch conversion file request.   
+    /// BatchConvertRequest Batch conversion file request.
     public batchConvertRequest: BatchConvertRequest;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostBatchConvertRequest >) {  
+    public constructor(init?: Partial< PostBatchConvertRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -23084,16 +23265,16 @@ export class PostBatchConvertRequest  {
     }
 
 }
-/// Batch protecting files that meet specific matching conditions.   
+/// Batch protecting files that meet specific matching conditions.
 export class PostBatchProtectRequest  {
-    /// BatchProtectRequest Batch protection file request.    
+    /// BatchProtectRequest Batch protection file request.
     public batchProtectRequest: BatchProtectRequest;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostBatchProtectRequest >) {  
+    public constructor(init?: Partial< PostBatchProtectRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -23120,16 +23301,16 @@ export class PostBatchProtectRequest  {
     }
 
 }
-/// Batch locking files that meet specific matching conditions.   
+/// Batch locking files that meet specific matching conditions.
 export class PostBatchLockRequest  {
-    /// BatchLockRequest Batch locking file request.    
+    /// BatchLockRequest Batch locking file request.
     public batchLockRequest: BatchLockRequest;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostBatchLockRequest >) {  
+    public constructor(init?: Partial< PostBatchLockRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -23156,16 +23337,16 @@ export class PostBatchLockRequest  {
     }
 
 }
-/// Batch unlocking files that meet specific matching conditions.   
+/// Batch unlocking files that meet specific matching conditions.
 export class PostBatchUnlockRequest  {
-    /// BatchLockRequest Batch locking file request.    
+    /// BatchLockRequest Batch locking file request.
     public batchLockRequest: BatchLockRequest;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostBatchUnlockRequest >) {  
+    public constructor(init?: Partial< PostBatchUnlockRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -23192,16 +23373,16 @@ export class PostBatchUnlockRequest  {
     }
 
 }
-/// Batch splitting files that meet specific matching conditions.   
+/// Batch splitting files that meet specific matching conditions.
 export class PostBatchSplitRequest  {
-    /// BatchSplitRequest Batch splitting file request.    
+    /// BatchSplitRequest Batch splitting file request.
     public batchSplitRequest: BatchSplitRequest;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostBatchSplitRequest >) {  
+    public constructor(init?: Partial< PostBatchSplitRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -23228,14 +23409,14 @@ export class PostBatchSplitRequest  {
     }
 
 }
-/// Get Access Token Result   
+/// Get Access Token Result
 export class PostAccessTokenRequest  {
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostAccessTokenRequest >) {  
+    public constructor(init?: Partial< PostAccessTokenRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -23262,32 +23443,32 @@ export class PostAccessTokenRequest  {
     }
 
 }
-/// Clear cell area contents in the worksheet.   
+/// Clear cell area contents in the worksheet.
 export class PostClearContentsRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// Represents the range to which the specified cells applies.  
+    /// Represents the range to which the specified cells applies.
     public range: string;
-    /// The start row index.  
+    /// The start row index.
     public startRow: number;
-    /// The start column index.  
+    /// The start column index.
     public startColumn: number;
-    /// The end row index.  
+    /// The end row index.
     public endRow: number;
-    /// The end column index.  
+    /// The end column index.
     public endColumn: number;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostClearContentsRequest >) {  
+    public constructor(init?: Partial< PostClearContentsRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -23321,32 +23502,32 @@ export class PostClearContentsRequest  {
     }
 
 }
-/// Clear cell formats in the worksheet.   
+/// Clear cell formats in the worksheet.
 export class PostClearFormatsRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// Represents the range to which the specified cells applies.  
+    /// Represents the range to which the specified cells applies.
     public range: string;
-    /// The start row index.  
+    /// The start row index.
     public startRow: number;
-    /// The start column index.  
+    /// The start column index.
     public startColumn: number;
-    /// The end row index.  
+    /// The end row index.
     public endRow: number;
-    /// The end column index.  
+    /// The end column index.
     public endColumn: number;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostClearFormatsRequest >) {  
+    public constructor(init?: Partial< PostClearFormatsRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -23380,32 +23561,32 @@ export class PostClearFormatsRequest  {
     }
 
 }
-/// Update cell range styles in the worksheet.   
+/// Update cell range styles in the worksheet.
 export class PostUpdateWorksheetRangeStyleRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// Represents the range to which the specified cells applies.  
+    /// Represents the range to which the specified cells applies.
     public range: string;
-    /// Style with update style settings.  
+    /// Style with update style settings.
     public style: Style;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostUpdateWorksheetRangeStyleRequest >) {  
+    public constructor(init?: Partial< PostUpdateWorksheetRangeStyleRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/cells/style".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
         const queryParameters: any = {};
-        /// Represents the range to which the specified cells applies. 
+        /// Represents the range to which the specified cells applies.
         // verify required parameter 'range' is not null or undefined
         if (this.range === null || this.range === undefined) {
             throw new Error('Required parameter "range" was null or undefined when calling PostUpdateWorksheetRangeStyle.');
@@ -23434,51 +23615,51 @@ export class PostUpdateWorksheetRangeStyleRequest  {
     }
 
 }
-/// Merge cells in the worksheet.   
+/// Merge cells in the worksheet.
 export class PostWorksheetMergeRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The start row index.  
+    /// The start row index.
     public startRow: number;
-    /// The start column index.  
+    /// The start column index.
     public startColumn: number;
-    /// The total rows number.  
+    /// The total rows number.
     public totalRows: number;
-    /// The total columns number.  
+    /// The total columns number.
     public totalColumns: number;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostWorksheetMergeRequest >) {  
+    public constructor(init?: Partial< PostWorksheetMergeRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/cells/merge".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
         const queryParameters: any = {};
-        /// The start row index. 
+        /// The start row index.
         // verify required parameter 'startRow' is not null or undefined
         if (this.startRow === null || this.startRow === undefined) {
             throw new Error('Required parameter "startRow" was null or undefined when calling PostWorksheetMerge.');
         }
-        /// The start column index. 
+        /// The start column index.
         // verify required parameter 'startColumn' is not null or undefined
         if (this.startColumn === null || this.startColumn === undefined) {
             throw new Error('Required parameter "startColumn" was null or undefined when calling PostWorksheetMerge.');
         }
-        /// The total rows number. 
+        /// The total rows number.
         // verify required parameter 'totalRows' is not null or undefined
         if (this.totalRows === null || this.totalRows === undefined) {
             throw new Error('Required parameter "totalRows" was null or undefined when calling PostWorksheetMerge.');
         }
-        /// The total columns number. 
+        /// The total columns number.
         // verify required parameter 'totalColumns' is not null or undefined
         if (this.totalColumns === null || this.totalColumns === undefined) {
             throw new Error('Required parameter "totalColumns" was null or undefined when calling PostWorksheetMerge.');
@@ -23510,51 +23691,51 @@ export class PostWorksheetMergeRequest  {
     }
 
 }
-/// Unmerge cells in the worksheet.   
+/// Unmerge cells in the worksheet.
 export class PostWorksheetUnmergeRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The start row index.  
+    /// The start row index.
     public startRow: number;
-    /// The start column index.  
+    /// The start column index.
     public startColumn: number;
-    /// The total rows number.  
+    /// The total rows number.
     public totalRows: number;
-    /// The total columns number.  
+    /// The total columns number.
     public totalColumns: number;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostWorksheetUnmergeRequest >) {  
+    public constructor(init?: Partial< PostWorksheetUnmergeRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/cells/unmerge".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
         const queryParameters: any = {};
-        /// The start row index. 
+        /// The start row index.
         // verify required parameter 'startRow' is not null or undefined
         if (this.startRow === null || this.startRow === undefined) {
             throw new Error('Required parameter "startRow" was null or undefined when calling PostWorksheetUnmerge.');
         }
-        /// The start column index. 
+        /// The start column index.
         // verify required parameter 'startColumn' is not null or undefined
         if (this.startColumn === null || this.startColumn === undefined) {
             throw new Error('Required parameter "startColumn" was null or undefined when calling PostWorksheetUnmerge.');
         }
-        /// The total rows number. 
+        /// The total rows number.
         // verify required parameter 'totalRows' is not null or undefined
         if (this.totalRows === null || this.totalRows === undefined) {
             throw new Error('Required parameter "totalRows" was null or undefined when calling PostWorksheetUnmerge.');
         }
-        /// The total columns number. 
+        /// The total columns number.
         // verify required parameter 'totalColumns' is not null or undefined
         if (this.totalColumns === null || this.totalColumns === undefined) {
             throw new Error('Required parameter "totalColumns" was null or undefined when calling PostWorksheetUnmerge.');
@@ -23586,26 +23767,26 @@ export class PostWorksheetUnmergeRequest  {
     }
 
 }
-/// Retrieve cell descriptions in a specified format.   
+/// Retrieve cell descriptions in a specified format.
 export class GetWorksheetCellsRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// Begginig offset.  
+    /// Begginig offset.
     public offest: number;
-    /// Maximum amount of cells in the response.  
+    /// Maximum amount of cells in the response.
     public count: number;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< GetWorksheetCellsRequest >) {  
+    public constructor(init?: Partial< GetWorksheetCellsRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -23636,24 +23817,24 @@ export class GetWorksheetCellsRequest  {
     }
 
 }
-/// Retrieve cell data using either cell reference or method name in the worksheet.   
+/// Retrieve cell data using either cell reference or method name in the worksheet.
 export class GetWorksheetCellRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The cell's or method name. (Method name like firstcell, endcell etc.)  
+    /// The cell's or method name. (Method name like firstcell, endcell etc.)
     public cellOrMethodName: string;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< GetWorksheetCellRequest >) {  
+    public constructor(init?: Partial< GetWorksheetCellRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -23682,24 +23863,24 @@ export class GetWorksheetCellRequest  {
     }
 
 }
-/// Retrieve cell style descriptions in the worksheet.   
+/// Retrieve cell style descriptions in the worksheet.
 export class GetWorksheetCellStyleRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// Cell's name.  
+    /// Cell's name.
     public cellName: string;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< GetWorksheetCellStyleRequest >) {  
+    public constructor(init?: Partial< GetWorksheetCellStyleRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -23728,30 +23909,30 @@ export class GetWorksheetCellStyleRequest  {
     }
 
 }
-/// Set cell value using cell name in the worksheet.   
+/// Set cell value using cell name in the worksheet.
 export class PostWorksheetCellSetValueRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The cell name.  
+    /// The cell name.
     public cellName: string;
-    /// The cell value.  
+    /// The cell value.
     public value: string;
-    /// The value type.  
+    /// The value type.
     public type: string;
-    /// Formula for cell  
+    /// Formula for cell
     public formula: string;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostWorksheetCellSetValueRequest >) {  
+    public constructor(init?: Partial< PostWorksheetCellSetValueRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -23783,26 +23964,26 @@ export class PostWorksheetCellSetValueRequest  {
     }
 
 }
-/// Set cell style using cell name in the worksheet.   
+/// Set cell style using cell name in the worksheet.
 export class PostUpdateWorksheetCellStyleRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The cell name.  
+    /// The cell name.
     public cellName: string;
-    /// Style with update style settings.  
+    /// Style with update style settings.
     public style: Style;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostUpdateWorksheetCellStyleRequest >) {  
+    public constructor(init?: Partial< PostUpdateWorksheetCellStyleRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -23831,44 +24012,44 @@ export class PostUpdateWorksheetCellStyleRequest  {
     }
 
 }
-/// Set the value of the range in the worksheet.   
+/// Set the value of the range in the worksheet.
 export class PostSetCellRangeValueRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// Cell area (like "A1:C2")  
+    /// Cell area (like "A1:C2")
     public cellarea: string;
-    /// Range value  
+    /// Range value
     public value: string;
-    /// Value data type (like "int")  
+    /// Value data type (like "int")
     public type: string;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostSetCellRangeValueRequest >) {  
+    public constructor(init?: Partial< PostSetCellRangeValueRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/cells".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
         const queryParameters: any = {};
-        /// Cell area (like "A1:C2") 
+        /// Cell area (like "A1:C2")
         // verify required parameter 'cellarea' is not null or undefined
         if (this.cellarea === null || this.cellarea === undefined) {
             throw new Error('Required parameter "cellarea" was null or undefined when calling PostSetCellRangeValue.');
         }
-        /// Range value 
+        /// Range value
         // verify required parameter 'value' is not null or undefined
         if (this.value === null || this.value === undefined) {
             throw new Error('Required parameter "value" was null or undefined when calling PostSetCellRangeValue.');
         }
-        /// Value data type (like "int") 
+        /// Value data type (like "int")
         // verify required parameter 'type' is not null or undefined
         if (this.type === null || this.type === undefined) {
             throw new Error('Required parameter "type" was null or undefined when calling PostSetCellRangeValue.');
@@ -23899,38 +24080,38 @@ export class PostSetCellRangeValueRequest  {
     }
 
 }
-/// Copy data from a source cell to a destination cell in the worksheet.   
+/// Copy data from a source cell to a destination cell in the worksheet.
 export class PostCopyCellIntoCellRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The destination cell name.  
+    /// The destination cell name.
     public destCellName: string;
-    /// The destination worksheet name.  
+    /// The destination worksheet name.
     public sheetName: string;
-    /// The source worksheet name.  
+    /// The source worksheet name.
     public worksheet: string;
-    /// The source cell name.  
+    /// The source cell name.
     public cellname: string;
-    /// The source row index.  
+    /// The source row index.
     public row: number;
-    /// The source column index.  
+    /// The source column index.
     public column: number;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostCopyCellIntoCellRequest >) {  
+    public constructor(init?: Partial< PostCopyCellIntoCellRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/cells/{destCellName}/copy".replace("{" + "name" + "}", String(this.name)).replace("{" + "destCellName" + "}", String(this.destCellName)).replace("{" + "sheetName" + "}", String(this.sheetName));
         const queryParameters: any = {};
-        /// The source worksheet name. 
+        /// The source worksheet name.
         // verify required parameter 'worksheet' is not null or undefined
         if (this.worksheet === null || this.worksheet === undefined) {
             throw new Error('Required parameter "worksheet" was null or undefined when calling PostCopyCellIntoCell.');
@@ -23962,24 +24143,24 @@ export class PostCopyCellIntoCellRequest  {
     }
 
 }
-/// Retrieve the HTML string containing data and specific formats in this cell.   
+/// Retrieve the HTML string containing data and specific formats in this cell.
 export class GetCellHtmlStringRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The cell name.  
+    /// The cell name.
     public cellName: string;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< GetCellHtmlStringRequest >) {  
+    public constructor(init?: Partial< GetCellHtmlStringRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -24008,24 +24189,24 @@ export class GetCellHtmlStringRequest  {
     }
 
 }
-/// Set the HTML string containing data and specific formats in this cell.   
+/// Set the HTML string containing data and specific formats in this cell.
 export class PostSetCellHtmlStringRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The cell name.  
+    /// The cell name.
     public cellName: string;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostSetCellHtmlStringRequest >) {  
+    public constructor(init?: Partial< PostSetCellHtmlStringRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -24054,26 +24235,26 @@ export class PostSetCellHtmlStringRequest  {
     }
 
 }
-/// Calculate cell formula in the worksheet.   
+/// Calculate cell formula in the worksheet.
 export class PostCellCalculateRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The cell name.  
+    /// The cell name.
     public cellName: string;
-    /// Calculation Options  
+    /// Calculation Options
     public options: CalculationOptions;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostCellCalculateRequest >) {  
+    public constructor(init?: Partial< PostCellCalculateRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -24102,26 +24283,26 @@ export class PostCellCalculateRequest  {
     }
 
 }
-/// Set cell characters in the worksheet.   
+/// Set cell characters in the worksheet.
 export class PostCellCharactersRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The cell name.  
+    /// The cell name.
     public cellName: string;
-      
+
     public options: Array<FontSetting>;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostCellCharactersRequest >) {  
+    public constructor(init?: Partial< PostCellCharactersRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -24150,26 +24331,26 @@ export class PostCellCharactersRequest  {
     }
 
 }
-/// Retrieve descriptions of worksheet columns.   
+/// Retrieve descriptions of worksheet columns.
 export class GetWorksheetColumnsRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The workdook folder.  
+    /// The workdook folder.
     public offset: number;
-      
+
     public count: number;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< GetWorksheetColumnsRequest >) {  
+    public constructor(init?: Partial< GetWorksheetColumnsRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -24200,34 +24381,34 @@ export class GetWorksheetColumnsRequest  {
     }
 
 }
-/// Set worksheet column width.   
+/// Set worksheet column width.
 export class PostSetWorksheetColumnWidthRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The column index.  
+    /// The column index.
     public columnIndex: number;
-    /// Gets and sets the column width in unit of characters.  
+    /// Gets and sets the column width in unit of characters.
     public width: number;
-      
+
     public count: number;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostSetWorksheetColumnWidthRequest >) {  
+    public constructor(init?: Partial< PostSetWorksheetColumnWidthRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/cells/columns/{columnIndex}".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "columnIndex" + "}", String(this.columnIndex));
         const queryParameters: any = {};
-        /// Gets and sets the column width in unit of characters. 
+        /// Gets and sets the column width in unit of characters.
         // verify required parameter 'width' is not null or undefined
         if (this.width === null || this.width === undefined) {
             throw new Error('Required parameter "width" was null or undefined when calling PostSetWorksheetColumnWidth.');
@@ -24257,24 +24438,24 @@ export class PostSetWorksheetColumnWidthRequest  {
     }
 
 }
-/// Retrieve worksheet column data by column index.   
+/// Retrieve worksheet column data by column index.
 export class GetWorksheetColumnRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The column index.  
+    /// The column index.
     public columnIndex: number;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< GetWorksheetColumnRequest >) {  
+    public constructor(init?: Partial< GetWorksheetColumnRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -24303,34 +24484,34 @@ export class GetWorksheetColumnRequest  {
     }
 
 }
-/// Insert worksheet columns in the worksheet.   
+/// Insert worksheet columns in the worksheet.
 export class PutInsertWorksheetColumnsRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The column index.  
+    /// The column index.
     public columnIndex: number;
-    /// The number of columns.  
+    /// The number of columns.
     public columns: number;
-    /// Indicates if references in other worksheets will be updated.  
+    /// Indicates if references in other worksheets will be updated.
     public updateReference: boolean;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PutInsertWorksheetColumnsRequest >) {  
+    public constructor(init?: Partial< PutInsertWorksheetColumnsRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/cells/columns/{columnIndex}".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "columnIndex" + "}", String(this.columnIndex));
         const queryParameters: any = {};
-        /// The number of columns. 
+        /// The number of columns.
         // verify required parameter 'columns' is not null or undefined
         if (this.columns === null || this.columns === undefined) {
             throw new Error('Required parameter "columns" was null or undefined when calling PutInsertWorksheetColumns.');
@@ -24360,39 +24541,39 @@ export class PutInsertWorksheetColumnsRequest  {
     }
 
 }
-/// Delete worksheet columns in the worksheet.   
+/// Delete worksheet columns in the worksheet.
 export class DeleteWorksheetColumnsRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The column index.  
+    /// The column index.
     public columnIndex: number;
-    /// The number of columns.  
+    /// The number of columns.
     public columns: number;
-    /// Indicates if references in other worksheets will be updated.  
+    /// Indicates if references in other worksheets will be updated.
     public updateReference: boolean;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< DeleteWorksheetColumnsRequest >) {  
+    public constructor(init?: Partial< DeleteWorksheetColumnsRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/cells/columns/{columnIndex}".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "columnIndex" + "}", String(this.columnIndex));
         const queryParameters: any = {};
-        /// The number of columns. 
+        /// The number of columns.
         // verify required parameter 'columns' is not null or undefined
         if (this.columns === null || this.columns === undefined) {
             throw new Error('Required parameter "columns" was null or undefined when calling DeleteWorksheetColumns.');
         }
-        /// Indicates if references in other worksheets will be updated. 
+        /// Indicates if references in other worksheets will be updated.
         // verify required parameter 'updateReference' is not null or undefined
         if (this.updateReference === null || this.updateReference === undefined) {
             throw new Error('Required parameter "updateReference" was null or undefined when calling DeleteWorksheetColumns.');
@@ -24422,37 +24603,37 @@ export class DeleteWorksheetColumnsRequest  {
     }
 
 }
-/// Hide worksheet columns in the worksheet.   
+/// Hide worksheet columns in the worksheet.
 export class PostHideWorksheetColumnsRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The begin column index to be operated.  
+    /// The begin column index to be operated.
     public startColumn: number;
-    /// Number of columns to be operated.  
+    /// Number of columns to be operated.
     public totalColumns: number;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostHideWorksheetColumnsRequest >) {  
+    public constructor(init?: Partial< PostHideWorksheetColumnsRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/cells/columns/hide".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
         const queryParameters: any = {};
-        /// The begin column index to be operated. 
+        /// The begin column index to be operated.
         // verify required parameter 'startColumn' is not null or undefined
         if (this.startColumn === null || this.startColumn === undefined) {
             throw new Error('Required parameter "startColumn" was null or undefined when calling PostHideWorksheetColumns.');
         }
-        /// Number of columns to be operated. 
+        /// Number of columns to be operated.
         // verify required parameter 'totalColumns' is not null or undefined
         if (this.totalColumns === null || this.totalColumns === undefined) {
             throw new Error('Required parameter "totalColumns" was null or undefined when calling PostHideWorksheetColumns.');
@@ -24482,39 +24663,39 @@ export class PostHideWorksheetColumnsRequest  {
     }
 
 }
-/// Unhide worksheet columns in the worksheet.   
+/// Unhide worksheet columns in the worksheet.
 export class PostUnhideWorksheetColumnsRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The begin column index to be operated.  
+    /// The begin column index to be operated.
     public startColumn: number;
-    /// Number of columns to be operated.  
+    /// Number of columns to be operated.
     public totalColumns: number;
-    /// Gets and sets the column width in unit of characters.  
+    /// Gets and sets the column width in unit of characters.
     public width: number;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostUnhideWorksheetColumnsRequest >) {  
+    public constructor(init?: Partial< PostUnhideWorksheetColumnsRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/cells/columns/unhide".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
         const queryParameters: any = {};
-        /// The begin column index to be operated. 
+        /// The begin column index to be operated.
         // verify required parameter 'startColumn' is not null or undefined
         if (this.startColumn === null || this.startColumn === undefined) {
             throw new Error('Required parameter "startColumn" was null or undefined when calling PostUnhideWorksheetColumns.');
         }
-        /// Number of columns to be operated. 
+        /// Number of columns to be operated.
         // verify required parameter 'totalColumns' is not null or undefined
         if (this.totalColumns === null || this.totalColumns === undefined) {
             throw new Error('Required parameter "totalColumns" was null or undefined when calling PostUnhideWorksheetColumns.');
@@ -24545,39 +24726,39 @@ export class PostUnhideWorksheetColumnsRequest  {
     }
 
 }
-/// Group worksheet columns in the worksheet.   
+/// Group worksheet columns in the worksheet.
 export class PostGroupWorksheetColumnsRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The first column index to be operated.  
+    /// The first column index to be operated.
     public firstIndex: number;
-    /// The last column index to be operated.  
+    /// The last column index to be operated.
     public lastIndex: number;
-    /// columns visible state  
+    /// columns visible state
     public hide: boolean;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostGroupWorksheetColumnsRequest >) {  
+    public constructor(init?: Partial< PostGroupWorksheetColumnsRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/cells/columns/group".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
         const queryParameters: any = {};
-        /// The first column index to be operated. 
+        /// The first column index to be operated.
         // verify required parameter 'firstIndex' is not null or undefined
         if (this.firstIndex === null || this.firstIndex === undefined) {
             throw new Error('Required parameter "firstIndex" was null or undefined when calling PostGroupWorksheetColumns.');
         }
-        /// The last column index to be operated. 
+        /// The last column index to be operated.
         // verify required parameter 'lastIndex' is not null or undefined
         if (this.lastIndex === null || this.lastIndex === undefined) {
             throw new Error('Required parameter "lastIndex" was null or undefined when calling PostGroupWorksheetColumns.');
@@ -24608,37 +24789,37 @@ export class PostGroupWorksheetColumnsRequest  {
     }
 
 }
-/// Ungroup worksheet columns.   
+/// Ungroup worksheet columns.
 export class PostUngroupWorksheetColumnsRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The first column index to be operated.  
+    /// The first column index to be operated.
     public firstIndex: number;
-    /// The last column index to be operated.  
+    /// The last column index to be operated.
     public lastIndex: number;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostUngroupWorksheetColumnsRequest >) {  
+    public constructor(init?: Partial< PostUngroupWorksheetColumnsRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/cells/columns/ungroup".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
         const queryParameters: any = {};
-        /// The first column index to be operated. 
+        /// The first column index to be operated.
         // verify required parameter 'firstIndex' is not null or undefined
         if (this.firstIndex === null || this.firstIndex === undefined) {
             throw new Error('Required parameter "firstIndex" was null or undefined when calling PostUngroupWorksheetColumns.');
         }
-        /// The last column index to be operated. 
+        /// The last column index to be operated.
         // verify required parameter 'lastIndex' is not null or undefined
         if (this.lastIndex === null || this.lastIndex === undefined) {
             throw new Error('Required parameter "lastIndex" was null or undefined when calling PostUngroupWorksheetColumns.');
@@ -24668,46 +24849,46 @@ export class PostUngroupWorksheetColumnsRequest  {
     }
 
 }
-/// Copy data from source columns to destination columns in the worksheet.   
+/// Copy data from source columns to destination columns in the worksheet.
 export class PostCopyWorksheetColumnsRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// Source column index  
+    /// Source column index
     public sourceColumnIndex: number;
-    /// Destination column index  
+    /// Destination column index
     public destinationColumnIndex: number;
-    /// The copied column number  
+    /// The copied column number
     public columnNumber: number;
-    /// The destination worksheet name.  
+    /// The destination worksheet name.
     public worksheet: string;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostCopyWorksheetColumnsRequest >) {  
+    public constructor(init?: Partial< PostCopyWorksheetColumnsRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/cells/columns/copy".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
         const queryParameters: any = {};
-        /// Source column index 
+        /// Source column index
         // verify required parameter 'sourceColumnIndex' is not null or undefined
         if (this.sourceColumnIndex === null || this.sourceColumnIndex === undefined) {
             throw new Error('Required parameter "sourceColumnIndex" was null or undefined when calling PostCopyWorksheetColumns.');
         }
-        /// Destination column index 
+        /// Destination column index
         // verify required parameter 'destinationColumnIndex' is not null or undefined
         if (this.destinationColumnIndex === null || this.destinationColumnIndex === undefined) {
             throw new Error('Required parameter "destinationColumnIndex" was null or undefined when calling PostCopyWorksheetColumns.');
         }
-        /// The copied column number 
+        /// The copied column number
         // verify required parameter 'columnNumber' is not null or undefined
         if (this.columnNumber === null || this.columnNumber === undefined) {
             throw new Error('Required parameter "columnNumber" was null or undefined when calling PostCopyWorksheetColumns.');
@@ -24739,26 +24920,26 @@ export class PostCopyWorksheetColumnsRequest  {
     }
 
 }
-/// Set column style in the worksheet.   
+/// Set column style in the worksheet.
 export class PostColumnStyleRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The column index.  
+    /// The column index.
     public columnIndex: number;
-    /// Represents display style of excel document,such as font,color,alignment,border,etc.  
+    /// Represents display style of excel document,such as font,color,alignment,border,etc.
     public style: Style;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostColumnStyleRequest >) {  
+    public constructor(init?: Partial< PostColumnStyleRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -24787,26 +24968,26 @@ export class PostColumnStyleRequest  {
     }
 
 }
-/// Retrieve descriptions of rows in the worksheet.   
+/// Retrieve descriptions of rows in the worksheet.
 export class GetWorksheetRowsRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// Row offset.  
+    /// Row offset.
     public offset: number;
-    /// Display rows number.  
+    /// Display rows number.
     public count: number;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< GetWorksheetRowsRequest >) {  
+    public constructor(init?: Partial< GetWorksheetRowsRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -24837,24 +25018,24 @@ export class GetWorksheetRowsRequest  {
     }
 
 }
-/// Retrieve row data by the row's index in the worksheet.   
+/// Retrieve row data by the row's index in the worksheet.
 export class GetWorksheetRowRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The row index.  
+    /// The row index.
     public rowIndex: number;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< GetWorksheetRowRequest >) {  
+    public constructor(init?: Partial< GetWorksheetRowRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -24883,24 +25064,24 @@ export class GetWorksheetRowRequest  {
     }
 
 }
-/// Delete a row in the worksheet.   
+/// Delete a row in the worksheet.
 export class DeleteWorksheetRowRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The row index.  
+    /// The row index.
     public rowIndex: number;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< DeleteWorksheetRowRequest >) {  
+    public constructor(init?: Partial< DeleteWorksheetRowRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -24929,34 +25110,34 @@ export class DeleteWorksheetRowRequest  {
     }
 
 }
-/// Delete several rows in the worksheet.   
+/// Delete several rows in the worksheet.
 export class DeleteWorksheetRowsRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The begin row index to be operated.  
+    /// The begin row index to be operated.
     public startrow: number;
-    /// Number of rows to be operated.  
+    /// Number of rows to be operated.
     public totalRows: number;
-    /// Indicates if update references in other worksheets.  
+    /// Indicates if update references in other worksheets.
     public updateReference: boolean;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< DeleteWorksheetRowsRequest >) {  
+    public constructor(init?: Partial< DeleteWorksheetRowsRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/cells/rows/".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
         const queryParameters: any = {};
-        /// The begin row index to be operated. 
+        /// The begin row index to be operated.
         // verify required parameter 'startrow' is not null or undefined
         if (this.startrow === null || this.startrow === undefined) {
             throw new Error('Required parameter "startrow" was null or undefined when calling DeleteWorksheetRows.');
@@ -24987,34 +25168,34 @@ export class DeleteWorksheetRowsRequest  {
     }
 
 }
-/// Insert several new rows in the worksheet.   
+/// Insert several new rows in the worksheet.
 export class PutInsertWorksheetRowsRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The begin row index to be operated.  
+    /// The begin row index to be operated.
     public startrow: number;
-    /// Number of rows to be operated.  
+    /// Number of rows to be operated.
     public totalRows: number;
-    /// Indicates if update references in other worksheets.  
+    /// Indicates if update references in other worksheets.
     public updateReference: boolean;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PutInsertWorksheetRowsRequest >) {  
+    public constructor(init?: Partial< PutInsertWorksheetRowsRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/cells/rows/".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
         const queryParameters: any = {};
-        /// The begin row index to be operated. 
+        /// The begin row index to be operated.
         // verify required parameter 'startrow' is not null or undefined
         if (this.startrow === null || this.startrow === undefined) {
             throw new Error('Required parameter "startrow" was null or undefined when calling PutInsertWorksheetRows.');
@@ -25045,24 +25226,24 @@ export class PutInsertWorksheetRowsRequest  {
     }
 
 }
-/// Insert a new row in the worksheet.   
+/// Insert a new row in the worksheet.
 export class PutInsertWorksheetRowRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The new row index.  
+    /// The new row index.
     public rowIndex: number;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PutInsertWorksheetRowRequest >) {  
+    public constructor(init?: Partial< PutInsertWorksheetRowRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -25091,28 +25272,28 @@ export class PutInsertWorksheetRowRequest  {
     }
 
 }
-/// Update height of rows in the worksheet.   
+/// Update height of rows in the worksheet.
 export class PostUpdateWorksheetRowRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The row index.  
+    /// The row index.
     public rowIndex: number;
-    /// The new row height.  
+    /// The new row height.
     public height: number;
-      
+
     public count: number;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostUpdateWorksheetRowRequest >) {  
+    public constructor(init?: Partial< PostUpdateWorksheetRowRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -25143,37 +25324,37 @@ export class PostUpdateWorksheetRowRequest  {
     }
 
 }
-/// Hide rows in worksheet.   
+/// Hide rows in worksheet.
 export class PostHideWorksheetRowsRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The begin row index to be operated.  
+    /// The begin row index to be operated.
     public startrow: number;
-    /// Number of rows to be operated.  
+    /// Number of rows to be operated.
     public totalRows: number;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostHideWorksheetRowsRequest >) {  
+    public constructor(init?: Partial< PostHideWorksheetRowsRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/cells/rows/hide".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
         const queryParameters: any = {};
-        /// The begin row index to be operated. 
+        /// The begin row index to be operated.
         // verify required parameter 'startrow' is not null or undefined
         if (this.startrow === null || this.startrow === undefined) {
             throw new Error('Required parameter "startrow" was null or undefined when calling PostHideWorksheetRows.');
         }
-        /// Number of rows to be operated. 
+        /// Number of rows to be operated.
         // verify required parameter 'totalRows' is not null or undefined
         if (this.totalRows === null || this.totalRows === undefined) {
             throw new Error('Required parameter "totalRows" was null or undefined when calling PostHideWorksheetRows.');
@@ -25203,39 +25384,39 @@ export class PostHideWorksheetRowsRequest  {
     }
 
 }
-/// Unhide rows in the worksheet.   
+/// Unhide rows in the worksheet.
 export class PostUnhideWorksheetRowsRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The begin row index to be operated.  
+    /// The begin row index to be operated.
     public startrow: number;
-    /// Number of rows to be operated.  
+    /// Number of rows to be operated.
     public totalRows: number;
-    /// The new row height.  
+    /// The new row height.
     public height: number;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostUnhideWorksheetRowsRequest >) {  
+    public constructor(init?: Partial< PostUnhideWorksheetRowsRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/cells/rows/unhide".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
         const queryParameters: any = {};
-        /// The begin row index to be operated. 
+        /// The begin row index to be operated.
         // verify required parameter 'startrow' is not null or undefined
         if (this.startrow === null || this.startrow === undefined) {
             throw new Error('Required parameter "startrow" was null or undefined when calling PostUnhideWorksheetRows.');
         }
-        /// Number of rows to be operated. 
+        /// Number of rows to be operated.
         // verify required parameter 'totalRows' is not null or undefined
         if (this.totalRows === null || this.totalRows === undefined) {
             throw new Error('Required parameter "totalRows" was null or undefined when calling PostUnhideWorksheetRows.');
@@ -25266,39 +25447,39 @@ export class PostUnhideWorksheetRowsRequest  {
     }
 
 }
-/// Group rows in the worksheet.   
+/// Group rows in the worksheet.
 export class PostGroupWorksheetRowsRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The first row index to be operated.  
+    /// The first row index to be operated.
     public firstIndex: number;
-    /// The last row index to be operated.  
+    /// The last row index to be operated.
     public lastIndex: number;
-    /// rows visible state  
+    /// rows visible state
     public hide: boolean;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostGroupWorksheetRowsRequest >) {  
+    public constructor(init?: Partial< PostGroupWorksheetRowsRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/cells/rows/group".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
         const queryParameters: any = {};
-        /// The first row index to be operated. 
+        /// The first row index to be operated.
         // verify required parameter 'firstIndex' is not null or undefined
         if (this.firstIndex === null || this.firstIndex === undefined) {
             throw new Error('Required parameter "firstIndex" was null or undefined when calling PostGroupWorksheetRows.');
         }
-        /// The last row index to be operated. 
+        /// The last row index to be operated.
         // verify required parameter 'lastIndex' is not null or undefined
         if (this.lastIndex === null || this.lastIndex === undefined) {
             throw new Error('Required parameter "lastIndex" was null or undefined when calling PostGroupWorksheetRows.');
@@ -25329,39 +25510,39 @@ export class PostGroupWorksheetRowsRequest  {
     }
 
 }
-/// Ungroup rows in the worksheet.   
+/// Ungroup rows in the worksheet.
 export class PostUngroupWorksheetRowsRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The first row index to be operated.  
+    /// The first row index to be operated.
     public firstIndex: number;
-    /// The last row index to be operated.  
+    /// The last row index to be operated.
     public lastIndex: number;
-    /// Is all row to be operated  
+    /// Is all row to be operated
     public isAll: boolean;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostUngroupWorksheetRowsRequest >) {  
+    public constructor(init?: Partial< PostUngroupWorksheetRowsRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/cells/rows/ungroup".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
         const queryParameters: any = {};
-        /// The first row index to be operated. 
+        /// The first row index to be operated.
         // verify required parameter 'firstIndex' is not null or undefined
         if (this.firstIndex === null || this.firstIndex === undefined) {
             throw new Error('Required parameter "firstIndex" was null or undefined when calling PostUngroupWorksheetRows.');
         }
-        /// The last row index to be operated. 
+        /// The last row index to be operated.
         // verify required parameter 'lastIndex' is not null or undefined
         if (this.lastIndex === null || this.lastIndex === undefined) {
             throw new Error('Required parameter "lastIndex" was null or undefined when calling PostUngroupWorksheetRows.');
@@ -25392,46 +25573,46 @@ export class PostUngroupWorksheetRowsRequest  {
     }
 
 }
-/// Copy data and formats from specific entire rows in the worksheet.   
+/// Copy data and formats from specific entire rows in the worksheet.
 export class PostCopyWorksheetRowsRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// Source row index  
+    /// Source row index
     public sourceRowIndex: number;
-    /// Destination row index  
+    /// Destination row index
     public destinationRowIndex: number;
-    /// The copied row number  
+    /// The copied row number
     public rowNumber: number;
-    /// The worksheet name.  
+    /// The worksheet name.
     public worksheet: string;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostCopyWorksheetRowsRequest >) {  
+    public constructor(init?: Partial< PostCopyWorksheetRowsRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/cells/rows/copy".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
         const queryParameters: any = {};
-        /// Source row index 
+        /// Source row index
         // verify required parameter 'sourceRowIndex' is not null or undefined
         if (this.sourceRowIndex === null || this.sourceRowIndex === undefined) {
             throw new Error('Required parameter "sourceRowIndex" was null or undefined when calling PostCopyWorksheetRows.');
         }
-        /// Destination row index 
+        /// Destination row index
         // verify required parameter 'destinationRowIndex' is not null or undefined
         if (this.destinationRowIndex === null || this.destinationRowIndex === undefined) {
             throw new Error('Required parameter "destinationRowIndex" was null or undefined when calling PostCopyWorksheetRows.');
         }
-        /// The copied row number 
+        /// The copied row number
         // verify required parameter 'rowNumber' is not null or undefined
         if (this.rowNumber === null || this.rowNumber === undefined) {
             throw new Error('Required parameter "rowNumber" was null or undefined when calling PostCopyWorksheetRows.');
@@ -25463,26 +25644,26 @@ export class PostCopyWorksheetRowsRequest  {
     }
 
 }
-/// Apply formats to an entire row in the worksheet.   
+/// Apply formats to an entire row in the worksheet.
 export class PostRowStyleRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The row index.  
+    /// The row index.
     public rowIndex: number;
-    /// Style description.  
+    /// Style description.
     public style: Style;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostRowStyleRequest >) {  
+    public constructor(init?: Partial< PostRowStyleRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -25511,14 +25692,14 @@ export class PostRowStyleRequest  {
     }
 
 }
-/// Retrieve cell descriptions in a specified format.   
+/// Retrieve cell descriptions in a specified format.
 export class GetCellsCloudServicesHealthCheckRequest  {
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< GetCellsCloudServicesHealthCheckRequest >) {  
+    public constructor(init?: Partial< GetCellsCloudServicesHealthCheckRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -25545,14 +25726,14 @@ export class GetCellsCloudServicesHealthCheckRequest  {
     }
 
 }
-/// Aspose.Cells Cloud service health status check.   
+/// Aspose.Cells Cloud service health status check.
 export class GetCellsCloudServiceStatusRequest  {
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< GetCellsCloudServiceStatusRequest >) {  
+    public constructor(init?: Partial< GetCellsCloudServiceStatusRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -25579,24 +25760,24 @@ export class GetCellsCloudServiceStatusRequest  {
     }
 
 }
-/// Retrieve chart area description in the worksheet.   
+/// Retrieve chart area description in the worksheet.
 export class GetChartAreaRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The chart index.  
+    /// The chart index.
     public chartIndex: number;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< GetChartAreaRequest >) {  
+    public constructor(init?: Partial< GetChartAreaRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -25625,24 +25806,24 @@ export class GetChartAreaRequest  {
     }
 
 }
-/// Retrieve chart area fill format description in the worksheet.   
+/// Retrieve chart area fill format description in the worksheet.
 export class GetChartAreaFillFormatRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The chart index.  
+    /// The chart index.
     public chartIndex: number;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< GetChartAreaFillFormatRequest >) {  
+    public constructor(init?: Partial< GetChartAreaFillFormatRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -25671,24 +25852,24 @@ export class GetChartAreaFillFormatRequest  {
     }
 
 }
-/// Retrieve chart area border description.   
+/// Retrieve chart area border description.
 export class GetChartAreaBorderRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The chart index.  
+    /// The chart index.
     public chartIndex: number;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< GetChartAreaBorderRequest >) {  
+    public constructor(init?: Partial< GetChartAreaBorderRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -25717,22 +25898,22 @@ export class GetChartAreaBorderRequest  {
     }
 
 }
-/// Retrieve descriptions of charts in the worksheet.   
+/// Retrieve descriptions of charts in the worksheet.
 export class GetWorksheetChartsRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< GetWorksheetChartsRequest >) {  
+    public constructor(init?: Partial< GetWorksheetChartsRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -25761,26 +25942,26 @@ export class GetWorksheetChartsRequest  {
     }
 
 }
-/// Retrieve the chart in a specified format.   
+/// Retrieve the chart in a specified format.
 export class GetWorksheetChartRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The chart number.  
+    /// The chart number.
     public chartNumber: number;
-    /// Chart conversion format.(PNG/TIFF/JPEG/GIF/EMF/BMP)  
+    /// Chart conversion format.(PNG/TIFF/JPEG/GIF/EMF/BMP)
     public format: string;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< GetWorksheetChartRequest >) {  
+    public constructor(init?: Partial< GetWorksheetChartRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -25810,56 +25991,56 @@ export class GetWorksheetChartRequest  {
     }
 
 }
-/// Add a new chart in the worksheet.   
+/// Add a new chart in the worksheet.
 export class PutWorksheetChartRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// Chart type, please refer property Type in chart resource.  
+    /// Chart type, please refer property Type in chart resource.
     public chartType: string;
-    /// Upper-left row for the new chart.  
+    /// Upper-left row for the new chart.
     public upperLeftRow: number;
-    /// Upper-left column for the new chart.  
+    /// Upper-left column for the new chart.
     public upperLeftColumn: number;
-    /// Lower-left row for the new chart.  
+    /// Lower-left row for the new chart.
     public lowerRightRow: number;
-    /// Lower-left column for the new chart.  
+    /// Lower-left column for the new chart.
     public lowerRightColumn: number;
-    /// Specify the values from which to plot the data series.  
+    /// Specify the values from which to plot the data series.
     public area: string;
-    /// Specify whether to plot the series from a range of cell values by row or by column.   
+    /// Specify whether to plot the series from a range of cell values by row or by column.
     public isVertical: boolean;
-    /// Get or set the range of category axis values. It can be a range of cells (e.g., "D1:E10").  
+    /// Get or set the range of category axis values. It can be a range of cells (e.g., "D1:E10").
     public categoryData: string;
-    /// Specify whether to auto-update the serial name.  
+    /// Specify whether to auto-update the serial name.
     public isAutoGetSerialName: boolean;
-    /// Specify the chart title name.  
+    /// Specify the chart title name.
     public title: string;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// Represents the specified chart's data label values display behavior. True to display the values, False to hide them.  
+    /// Represents the specified chart's data label values display behavior. True to display the values, False to hide them.
     public dataLabels: boolean;
-    /// Represents data label position (Center/InsideBase/InsideEnd/OutsideEnd/Above/Below/Left/Right/BestFit/Moved).  
+    /// Represents data label position (Center/InsideBase/InsideEnd/OutsideEnd/Above/Below/Left/Right/BestFit/Moved).
     public dataLabelsPosition: string;
-    /// The source is the data of the pivotTable. If PivotSource is not empty, the chart is a PivotChart.  
+    /// The source is the data of the pivotTable. If PivotSource is not empty, the chart is a PivotChart.
     public pivotTableSheet: string;
-    /// The pivot table name.  
+    /// The pivot table name.
     public pivotTableName: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PutWorksheetChartRequest >) {  
+    public constructor(init?: Partial< PutWorksheetChartRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/charts".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
         const queryParameters: any = {};
-        /// Chart type, please refer property Type in chart resource. 
+        /// Chart type, please refer property Type in chart resource.
         // verify required parameter 'chartType' is not null or undefined
         if (this.chartType === null || this.chartType === undefined) {
             throw new Error('Required parameter "chartType" was null or undefined when calling PutWorksheetChart.');
@@ -25901,24 +26082,24 @@ export class PutWorksheetChartRequest  {
     }
 
 }
-/// Delete a chart by index in the worksheet.   
+/// Delete a chart by index in the worksheet.
 export class DeleteWorksheetChartRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The chart index.  
+    /// The chart index.
     public chartIndex: number;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< DeleteWorksheetChartRequest >) {  
+    public constructor(init?: Partial< DeleteWorksheetChartRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -25947,26 +26128,26 @@ export class DeleteWorksheetChartRequest  {
     }
 
 }
-/// Update chart properties in the worksheet.   
+/// Update chart properties in the worksheet.
 export class PostWorksheetChartRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The chart index.  
+    /// The chart index.
     public chartIndex: number;
-    /// Chart Represents a specified chart.  
+    /// Chart Represents a specified chart.
     public chart: Chart;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostWorksheetChartRequest >) {  
+    public constructor(init?: Partial< PostWorksheetChartRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -25995,24 +26176,24 @@ export class PostWorksheetChartRequest  {
     }
 
 }
-/// Retrieve chart legend description in the worksheet.   
+/// Retrieve chart legend description in the worksheet.
 export class GetWorksheetChartLegendRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The chart index.  
+    /// The chart index.
     public chartIndex: number;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< GetWorksheetChartLegendRequest >) {  
+    public constructor(init?: Partial< GetWorksheetChartLegendRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -26041,26 +26222,26 @@ export class GetWorksheetChartLegendRequest  {
     }
 
 }
-/// Update chart legend in the worksheet.   
+/// Update chart legend in the worksheet.
 export class PostWorksheetChartLegendRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The chart index.  
+    /// The chart index.
     public chartIndex: number;
-      
+
     public legend: Legend;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostWorksheetChartLegendRequest >) {  
+    public constructor(init?: Partial< PostWorksheetChartLegendRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -26089,24 +26270,24 @@ export class PostWorksheetChartLegendRequest  {
     }
 
 }
-/// Show chart legend in the worksheet.   
+/// Show chart legend in the worksheet.
 export class PutWorksheetChartLegendRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The chart index.  
+    /// The chart index.
     public chartIndex: number;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PutWorksheetChartLegendRequest >) {  
+    public constructor(init?: Partial< PutWorksheetChartLegendRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -26135,24 +26316,24 @@ export class PutWorksheetChartLegendRequest  {
     }
 
 }
-/// Hides chart legend in the worksheet.   
+/// Hides chart legend in the worksheet.
 export class DeleteWorksheetChartLegendRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The chart index.  
+    /// The chart index.
     public chartIndex: number;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< DeleteWorksheetChartLegendRequest >) {  
+    public constructor(init?: Partial< DeleteWorksheetChartLegendRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -26181,22 +26362,22 @@ export class DeleteWorksheetChartLegendRequest  {
     }
 
 }
-/// Clear the charts in the worksheets.   
+/// Clear the charts in the worksheets.
 export class DeleteWorksheetChartsRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< DeleteWorksheetChartsRequest >) {  
+    public constructor(init?: Partial< DeleteWorksheetChartsRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -26225,24 +26406,24 @@ export class DeleteWorksheetChartsRequest  {
     }
 
 }
-/// Retrieve chart title description in the worksheet.   
+/// Retrieve chart title description in the worksheet.
 export class GetWorksheetChartTitleRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The chart index.  
+    /// The chart index.
     public chartIndex: number;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< GetWorksheetChartTitleRequest >) {  
+    public constructor(init?: Partial< GetWorksheetChartTitleRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -26271,26 +26452,26 @@ export class GetWorksheetChartTitleRequest  {
     }
 
 }
-/// Update chart title in the worksheet.   
+/// Update chart title in the worksheet.
 export class PostWorksheetChartTitleRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The chart index.  
+    /// The chart index.
     public chartIndex: number;
-    /// TitleChart title  
+    /// TitleChart title
     public title: Title;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostWorksheetChartTitleRequest >) {  
+    public constructor(init?: Partial< PostWorksheetChartTitleRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -26319,26 +26500,26 @@ export class PostWorksheetChartTitleRequest  {
     }
 
 }
-/// Set chart title in the worksheet.   
+/// Set chart title in the worksheet.
 export class PutWorksheetChartTitleRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The chart index.  
+    /// The chart index.
     public chartIndex: number;
-    /// TitleChart title.  
+    /// TitleChart title.
     public title: Title;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PutWorksheetChartTitleRequest >) {  
+    public constructor(init?: Partial< PutWorksheetChartTitleRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -26367,24 +26548,24 @@ export class PutWorksheetChartTitleRequest  {
     }
 
 }
-/// Hide chart title in the worksheet.   
+/// Hide chart title in the worksheet.
 export class DeleteWorksheetChartTitleRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The chart index.  
+    /// The chart index.
     public chartIndex: number;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< DeleteWorksheetChartTitleRequest >) {  
+    public constructor(init?: Partial< DeleteWorksheetChartTitleRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -26413,24 +26594,24 @@ export class DeleteWorksheetChartTitleRequest  {
     }
 
 }
-/// Retrieve descriptions of chart seriesaxis in the chart.   
+/// Retrieve descriptions of chart seriesaxis in the chart.
 export class GetChartSeriesAxisRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The chart index.  
+    /// The chart index.
     public chartIndex: number;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< GetChartSeriesAxisRequest >) {  
+    public constructor(init?: Partial< GetChartSeriesAxisRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -26459,24 +26640,24 @@ export class GetChartSeriesAxisRequest  {
     }
 
 }
-/// Retrieve descriptions of chart series axis in the chart.   
+/// Retrieve descriptions of chart series axis in the chart.
 export class GetChartCategoryAxisRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The chart index.  
+    /// The chart index.
     public chartIndex: number;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< GetChartCategoryAxisRequest >) {  
+    public constructor(init?: Partial< GetChartCategoryAxisRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -26505,24 +26686,24 @@ export class GetChartCategoryAxisRequest  {
     }
 
 }
-/// Retrieve chart value axis in the chart.   
+/// Retrieve chart value axis in the chart.
 export class GetChartValueAxisRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The chart index.  
+    /// The chart index.
     public chartIndex: number;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< GetChartValueAxisRequest >) {  
+    public constructor(init?: Partial< GetChartValueAxisRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -26551,24 +26732,24 @@ export class GetChartValueAxisRequest  {
     }
 
 }
-/// Retrieve chart second category axis in the chart   
+/// Retrieve chart second category axis in the chart
 export class GetChartSecondCategoryAxisRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The chart index.  
+    /// The chart index.
     public chartIndex: number;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< GetChartSecondCategoryAxisRequest >) {  
+    public constructor(init?: Partial< GetChartSecondCategoryAxisRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -26597,24 +26778,24 @@ export class GetChartSecondCategoryAxisRequest  {
     }
 
 }
-/// Retrieve chart second value axis in the chart.   
+/// Retrieve chart second value axis in the chart.
 export class GetChartSecondValueAxisRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The chart index.  
+    /// The chart index.
     public chartIndex: number;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< GetChartSecondValueAxisRequest >) {  
+    public constructor(init?: Partial< GetChartSecondValueAxisRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -26643,26 +26824,26 @@ export class GetChartSecondValueAxisRequest  {
     }
 
 }
-/// Update chart series axis in the chart.   
+/// Update chart series axis in the chart.
 export class PostChartSeriesAxisRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The chart index.  
+    /// The chart index.
     public chartIndex: number;
-    /// Axis   
+    /// Axis
     public axis: Axis;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostChartSeriesAxisRequest >) {  
+    public constructor(init?: Partial< PostChartSeriesAxisRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -26691,26 +26872,26 @@ export class PostChartSeriesAxisRequest  {
     }
 
 }
-/// Update chart category axis in the chart.   
+/// Update chart category axis in the chart.
 export class PostChartCategoryAxisRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The chart index.  
+    /// The chart index.
     public chartIndex: number;
-    /// Axis   
+    /// Axis
     public axis: Axis;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostChartCategoryAxisRequest >) {  
+    public constructor(init?: Partial< PostChartCategoryAxisRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -26739,26 +26920,26 @@ export class PostChartCategoryAxisRequest  {
     }
 
 }
-/// Update chart value axis in the chart.   
+/// Update chart value axis in the chart.
 export class PostChartValueAxisRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The chart index.  
+    /// The chart index.
     public chartIndex: number;
-    /// Axis   
+    /// Axis
     public axis: Axis;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostChartValueAxisRequest >) {  
+    public constructor(init?: Partial< PostChartValueAxisRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -26787,26 +26968,26 @@ export class PostChartValueAxisRequest  {
     }
 
 }
-/// Update chart sencond category axis in the chart.   
+/// Update chart sencond category axis in the chart.
 export class PostChartSecondCategoryAxisRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The chart index.  
+    /// The chart index.
     public chartIndex: number;
-    /// Axis   
+    /// Axis
     public axis: Axis;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostChartSecondCategoryAxisRequest >) {  
+    public constructor(init?: Partial< PostChartSecondCategoryAxisRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -26835,26 +27016,26 @@ export class PostChartSecondCategoryAxisRequest  {
     }
 
 }
-/// Update chart sencond value axis in the chart.   
+/// Update chart sencond value axis in the chart.
 export class PostChartSecondValueAxisRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The chart index.  
+    /// The chart index.
     public chartIndex: number;
-    /// Axis   
+    /// Axis
     public axis: Axis;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostChartSecondValueAxisRequest >) {  
+    public constructor(init?: Partial< PostChartSecondValueAxisRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -26883,22 +27064,22 @@ export class PostChartSecondValueAxisRequest  {
     }
 
 }
-/// Retrieve descriptions of conditional formattings in a worksheet.   
+/// Retrieve descriptions of conditional formattings in a worksheet.
 export class GetWorksheetConditionalFormattingsRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< GetWorksheetConditionalFormattingsRequest >) {  
+    public constructor(init?: Partial< GetWorksheetConditionalFormattingsRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -26927,24 +27108,24 @@ export class GetWorksheetConditionalFormattingsRequest  {
     }
 
 }
-/// Retrieve conditional formatting descriptions in the worksheet.   
+/// Retrieve conditional formatting descriptions in the worksheet.
 export class GetWorksheetConditionalFormattingRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The conditional formatting index.  
+    /// The conditional formatting index.
     public index: number;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< GetWorksheetConditionalFormattingRequest >) {  
+    public constructor(init?: Partial< GetWorksheetConditionalFormattingRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -26973,32 +27154,32 @@ export class GetWorksheetConditionalFormattingRequest  {
     }
 
 }
-/// Add conditional formatting in the worksheet.   
+/// Add conditional formatting in the worksheet.
 export class PutWorksheetConditionalFormattingRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-      
+
     public formatcondition: FormatCondition;
-    /// Adds a conditional formatted cell range.  
+    /// Adds a conditional formatted cell range.
     public cellArea: string;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PutWorksheetConditionalFormattingRequest >) {  
+    public constructor(init?: Partial< PutWorksheetConditionalFormattingRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/conditionalFormattings".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
         const queryParameters: any = {};
-        /// Adds a conditional formatted cell range. 
+        /// Adds a conditional formatted cell range.
         // verify required parameter 'cellArea' is not null or undefined
         if (this.cellArea === null || this.cellArea === undefined) {
             throw new Error('Required parameter "cellArea" was null or undefined when calling PutWorksheetConditionalFormatting.');
@@ -27027,60 +27208,60 @@ export class PutWorksheetConditionalFormattingRequest  {
     }
 
 }
-/// Add a format condition in the worksheet.   
+/// Add a format condition in the worksheet.
 export class PutWorksheetFormatConditionRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// Gets the Conditional Formatting element at the specified index.  
+    /// Gets the Conditional Formatting element at the specified index.
     public index: number;
-    /// Adds a conditional formatted cell range.  
+    /// Adds a conditional formatted cell range.
     public cellArea: string;
-    /// Format condition type(CellValue/Expression/ColorScale/DataBar/IconSet/Top10/UniqueValues/DuplicateValues/ContainsText/NotContainsText/BeginsWith/EndsWith/ContainsBlanks/NotContainsBlanks/ContainsErrors/NotContainsErrors/TimePeriod/AboveAverage).  
+    /// Format condition type(CellValue/Expression/ColorScale/DataBar/IconSet/Top10/UniqueValues/DuplicateValues/ContainsText/NotContainsText/BeginsWith/EndsWith/ContainsBlanks/NotContainsBlanks/ContainsErrors/NotContainsErrors/TimePeriod/AboveAverage).
     public type: string;
-    /// Represents the operator type of conditional format and data validation(Between/Equal/GreaterThan/GreaterOrEqual/LessThan/None/NotBetween/NotEqual).  
+    /// Represents the operator type of conditional format and data validation(Between/Equal/GreaterThan/GreaterOrEqual/LessThan/None/NotBetween/NotEqual).
     public operatorType: string;
-    /// The value or expression associated with conditional formatting.  
+    /// The value or expression associated with conditional formatting.
     public formula1: string;
-    /// The value or expression associated with conditional formatting.  
+    /// The value or expression associated with conditional formatting.
     public formula2: string;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PutWorksheetFormatConditionRequest >) {  
+    public constructor(init?: Partial< PutWorksheetFormatConditionRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/conditionalFormattings/{index}".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "index" + "}", String(this.index));
         const queryParameters: any = {};
-        /// Adds a conditional formatted cell range. 
+        /// Adds a conditional formatted cell range.
         // verify required parameter 'cellArea' is not null or undefined
         if (this.cellArea === null || this.cellArea === undefined) {
             throw new Error('Required parameter "cellArea" was null or undefined when calling PutWorksheetFormatCondition.');
         }
-        /// Format condition type(CellValue/Expression/ColorScale/DataBar/IconSet/Top10/UniqueValues/DuplicateValues/ContainsText/NotContainsText/BeginsWith/EndsWith/ContainsBlanks/NotContainsBlanks/ContainsErrors/NotContainsErrors/TimePeriod/AboveAverage). 
+        /// Format condition type(CellValue/Expression/ColorScale/DataBar/IconSet/Top10/UniqueValues/DuplicateValues/ContainsText/NotContainsText/BeginsWith/EndsWith/ContainsBlanks/NotContainsBlanks/ContainsErrors/NotContainsErrors/TimePeriod/AboveAverage).
         // verify required parameter 'type' is not null or undefined
         if (this.type === null || this.type === undefined) {
             throw new Error('Required parameter "type" was null or undefined when calling PutWorksheetFormatCondition.');
         }
-        /// Represents the operator type of conditional format and data validation(Between/Equal/GreaterThan/GreaterOrEqual/LessThan/None/NotBetween/NotEqual). 
+        /// Represents the operator type of conditional format and data validation(Between/Equal/GreaterThan/GreaterOrEqual/LessThan/None/NotBetween/NotEqual).
         // verify required parameter 'operatorType' is not null or undefined
         if (this.operatorType === null || this.operatorType === undefined) {
             throw new Error('Required parameter "operatorType" was null or undefined when calling PutWorksheetFormatCondition.');
         }
-        /// The value or expression associated with conditional formatting. 
+        /// The value or expression associated with conditional formatting.
         // verify required parameter 'formula1' is not null or undefined
         if (this.formula1 === null || this.formula1 === undefined) {
             throw new Error('Required parameter "formula1" was null or undefined when calling PutWorksheetFormatCondition.');
         }
-        /// The value or expression associated with conditional formatting. 
+        /// The value or expression associated with conditional formatting.
         // verify required parameter 'formula2' is not null or undefined
         if (this.formula2 === null || this.formula2 === undefined) {
             throw new Error('Required parameter "formula2" was null or undefined when calling PutWorksheetFormatCondition.');
@@ -27113,32 +27294,32 @@ export class PutWorksheetFormatConditionRequest  {
     }
 
 }
-/// Add a cell area for the format condition in the worksheet.   
+/// Add a cell area for the format condition in the worksheet.
 export class PutWorksheetFormatConditionAreaRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// Gets the Conditional Formatting element at the specified index.  
+    /// Gets the Conditional Formatting element at the specified index.
     public index: number;
-    /// Adds a conditional formatted cell range.  
+    /// Adds a conditional formatted cell range.
     public cellArea: string;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PutWorksheetFormatConditionAreaRequest >) {  
+    public constructor(init?: Partial< PutWorksheetFormatConditionAreaRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/conditionalFormattings/{index}/area".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "index" + "}", String(this.index));
         const queryParameters: any = {};
-        /// Adds a conditional formatted cell range. 
+        /// Adds a conditional formatted cell range.
         // verify required parameter 'cellArea' is not null or undefined
         if (this.cellArea === null || this.cellArea === undefined) {
             throw new Error('Required parameter "cellArea" was null or undefined when calling PutWorksheetFormatConditionArea.');
@@ -27167,53 +27348,53 @@ export class PutWorksheetFormatConditionAreaRequest  {
     }
 
 }
-/// Add a condition for the format condition in the worksheet.   
+/// Add a condition for the format condition in the worksheet.
 export class PutWorksheetFormatConditionConditionRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// Gets the Conditional Formatting element at the specified index.  
+    /// Gets the Conditional Formatting element at the specified index.
     public index: number;
-    /// Format condition type(CellValue/Expression/ColorScale/DataBar/IconSet/Top10/UniqueValues/DuplicateValues/ContainsText/NotContainsText/BeginsWith/EndsWith/ContainsBlanks/NotContainsBlanks/ContainsErrors/NotContainsErrors/TimePeriod/AboveAverage).  
+    /// Format condition type(CellValue/Expression/ColorScale/DataBar/IconSet/Top10/UniqueValues/DuplicateValues/ContainsText/NotContainsText/BeginsWith/EndsWith/ContainsBlanks/NotContainsBlanks/ContainsErrors/NotContainsErrors/TimePeriod/AboveAverage).
     public type: string;
-    /// Represents the operator type of conditional format and data validation(Between/Equal/GreaterThan/GreaterOrEqual/LessThan/None/NotBetween/NotEqual).  
+    /// Represents the operator type of conditional format and data validation(Between/Equal/GreaterThan/GreaterOrEqual/LessThan/None/NotBetween/NotEqual).
     public operatorType: string;
-    /// The value or expression associated with conditional formatting.  
+    /// The value or expression associated with conditional formatting.
     public formula1: string;
-    /// The value or expression associated with conditional formatting.  
+    /// The value or expression associated with conditional formatting.
     public formula2: string;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PutWorksheetFormatConditionConditionRequest >) {  
+    public constructor(init?: Partial< PutWorksheetFormatConditionConditionRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/conditionalFormattings/{index}/condition".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "index" + "}", String(this.index));
         const queryParameters: any = {};
-        /// Format condition type(CellValue/Expression/ColorScale/DataBar/IconSet/Top10/UniqueValues/DuplicateValues/ContainsText/NotContainsText/BeginsWith/EndsWith/ContainsBlanks/NotContainsBlanks/ContainsErrors/NotContainsErrors/TimePeriod/AboveAverage). 
+        /// Format condition type(CellValue/Expression/ColorScale/DataBar/IconSet/Top10/UniqueValues/DuplicateValues/ContainsText/NotContainsText/BeginsWith/EndsWith/ContainsBlanks/NotContainsBlanks/ContainsErrors/NotContainsErrors/TimePeriod/AboveAverage).
         // verify required parameter 'type' is not null or undefined
         if (this.type === null || this.type === undefined) {
             throw new Error('Required parameter "type" was null or undefined when calling PutWorksheetFormatConditionCondition.');
         }
-        /// Represents the operator type of conditional format and data validation(Between/Equal/GreaterThan/GreaterOrEqual/LessThan/None/NotBetween/NotEqual). 
+        /// Represents the operator type of conditional format and data validation(Between/Equal/GreaterThan/GreaterOrEqual/LessThan/None/NotBetween/NotEqual).
         // verify required parameter 'operatorType' is not null or undefined
         if (this.operatorType === null || this.operatorType === undefined) {
             throw new Error('Required parameter "operatorType" was null or undefined when calling PutWorksheetFormatConditionCondition.');
         }
-        /// The value or expression associated with conditional formatting. 
+        /// The value or expression associated with conditional formatting.
         // verify required parameter 'formula1' is not null or undefined
         if (this.formula1 === null || this.formula1 === undefined) {
             throw new Error('Required parameter "formula1" was null or undefined when calling PutWorksheetFormatConditionCondition.');
         }
-        /// The value or expression associated with conditional formatting. 
+        /// The value or expression associated with conditional formatting.
         // verify required parameter 'formula2' is not null or undefined
         if (this.formula2 === null || this.formula2 === undefined) {
             throw new Error('Required parameter "formula2" was null or undefined when calling PutWorksheetFormatConditionCondition.');
@@ -27245,22 +27426,22 @@ export class PutWorksheetFormatConditionConditionRequest  {
     }
 
 }
-/// Clear all conditional formattings in the worksheet.   
+/// Clear all conditional formattings in the worksheet.
 export class DeleteWorksheetConditionalFormattingsRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< DeleteWorksheetConditionalFormattingsRequest >) {  
+    public constructor(init?: Partial< DeleteWorksheetConditionalFormattingsRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -27289,24 +27470,24 @@ export class DeleteWorksheetConditionalFormattingsRequest  {
     }
 
 }
-/// Remove a conditional formatting.   
+/// Remove a conditional formatting.
 export class DeleteWorksheetConditionalFormattingRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// Gets the Conditional Formatting element at the specified index.  
+    /// Gets the Conditional Formatting element at the specified index.
     public index: number;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< DeleteWorksheetConditionalFormattingRequest >) {  
+    public constructor(init?: Partial< DeleteWorksheetConditionalFormattingRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -27335,51 +27516,51 @@ export class DeleteWorksheetConditionalFormattingRequest  {
     }
 
 }
-/// Remove cell area from conditional formatting.   
+/// Remove cell area from conditional formatting.
 export class DeleteWorksheetConditionalFormattingAreaRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The start row of the range.  
+    /// The start row of the range.
     public startRow: number;
-    /// The start column of the range.  
+    /// The start column of the range.
     public startColumn: number;
-    /// The number of rows of the range.  
+    /// The number of rows of the range.
     public totalRows: number;
-    /// The number of columns of the range.  
+    /// The number of columns of the range.
     public totalColumns: number;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< DeleteWorksheetConditionalFormattingAreaRequest >) {  
+    public constructor(init?: Partial< DeleteWorksheetConditionalFormattingAreaRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/conditionalFormattings/area".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
         const queryParameters: any = {};
-        /// The start row of the range. 
+        /// The start row of the range.
         // verify required parameter 'startRow' is not null or undefined
         if (this.startRow === null || this.startRow === undefined) {
             throw new Error('Required parameter "startRow" was null or undefined when calling DeleteWorksheetConditionalFormattingArea.');
         }
-        /// The start column of the range. 
+        /// The start column of the range.
         // verify required parameter 'startColumn' is not null or undefined
         if (this.startColumn === null || this.startColumn === undefined) {
             throw new Error('Required parameter "startColumn" was null or undefined when calling DeleteWorksheetConditionalFormattingArea.');
         }
-        /// The number of rows of the range. 
+        /// The number of rows of the range.
         // verify required parameter 'totalRows' is not null or undefined
         if (this.totalRows === null || this.totalRows === undefined) {
             throw new Error('Required parameter "totalRows" was null or undefined when calling DeleteWorksheetConditionalFormattingArea.');
         }
-        /// The number of columns of the range. 
+        /// The number of columns of the range.
         // verify required parameter 'totalColumns' is not null or undefined
         if (this.totalColumns === null || this.totalColumns === undefined) {
             throw new Error('Required parameter "totalColumns" was null or undefined when calling DeleteWorksheetConditionalFormattingArea.');
@@ -27411,40 +27592,42 @@ export class DeleteWorksheetConditionalFormattingAreaRequest  {
     }
 
 }
-/// Retrieve workbooks in various formats.   
+/// Retrieve workbooks in various formats.
 export class GetWorkbookRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The conversion format(CSV/XLS/HTML/MHTML/ODS/PDF/XML/TXT/TIFF/XLSB/XLSM/XLSX/XLTM/XLTX/XPS/PNG/JPG/JPEG/GIF/EMF/BMP/MD[Markdown]/Numbers).  
+    /// The conversion format(CSV/XLS/HTML/MHTML/ODS/PDF/XML/TXT/TIFF/XLSB/XLSM/XLSX/XLTM/XLTX/XPS/PNG/JPG/JPEG/GIF/EMF/BMP/MD[Markdown]/Numbers).
     public format: string;
-    /// The password needed to open an Excel file.  
+    /// The password needed to open an Excel file.
     public password: string;
-    /// Specifies whether set workbook rows to be autofit.  
+    /// Specifies whether set workbook rows to be autofit.
     public isAutoFit: boolean;
-    /// Specifies whether only save table data.Only use pdf to excel.  
+    /// Specifies whether only save table data.Only use pdf to excel.
     public onlySaveTable: boolean;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// Path to save the result. If it's a single file, the `outPath` should encompass both the filename and extension. In the case of multiple files, the `outPath` should only include the folder.  
+    /// Path to save the result. If it's a single file, the `outPath` should encompass both the filename and extension. In the case of multiple files, the `outPath` should only include the folder.
     public outPath: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
-    /// The storage name where the output file is situated.  
+    /// The storage name where the output file is situated.
     public outStorageName: string;
-    /// Whether check restriction of excel file when user modify cells related objects.  
+    /// Whether check restriction of excel file when user modify cells related objects.
     public checkExcelRestriction: boolean;
-    /// The regional settings for workbook.  
+    /// The regional settings for workbook.
     public region: string;
-    /// The page wide fit on worksheet.  
+    /// The page wide fit on worksheet.
     public pageWideFitOnPerSheet: boolean;
-    /// The page tall fit on worksheet.  
+    /// The page tall fit on worksheet.
     public pageTallFitOnPerSheet: boolean;
+    /// Use Custom fonts.
+    public fontsLocation: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< GetWorkbookRequest >) {  
+    public constructor(init?: Partial< GetWorkbookRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -27462,6 +27645,7 @@ export class GetWorkbookRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "pageWideFitOnPerSheet", this.pageWideFitOnPerSheet);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "pageTallFitOnPerSheet", this.pageTallFitOnPerSheet);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fontsLocation", this.fontsLocation);
         if(this.extendQueryParameterMap !== undefined){
             for (var key in this.extendQueryParameterMap){
                 localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
@@ -27483,44 +27667,51 @@ export class GetWorkbookRequest  {
     }
 
 }
-/// Convert the workbook from the requested content into files in different formats.   
+/// Convert the workbook from the requested content into files in different formats.
 export class PutConvertWorkbookRequest  {
-    /// File to upload  
+    /// File to upload
     public file: any;
-    /// The format to convert(CSV/XLS/HTML/MHTML/ODS/PDF/XML/TXT/TIFF/XLSB/XLSM/XLSX/XLTM/XLTX/XPS/PNG/JPG/JPEG/GIF/EMF/BMP/MD[Markdown]/Numbers).  
+    /// The format to convert(CSV/XLS/HTML/MHTML/ODS/PDF/XML/TXT/TIFF/XLSB/XLSM/XLSX/XLTM/XLTX/XPS/PNG/JPG/JPEG/GIF/EMF/BMP/MD[Markdown]/Numbers).
     public format: string;
-    /// The password needed to open an Excel file.  
+    /// The password needed to open an Excel file.
     public password: string;
-    /// Path to save the result. If it's a single file, the `outPath` should encompass both the filename and extension. In the case of multiple files, the `outPath` should only include the folder.  
+    /// Path to save the result. If it's a single file, the `outPath` should encompass both the filename and extension. In the case of multiple files, the `outPath` should only include the folder.
     public outPath: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
-    /// Whether check restriction of excel file when user modify cells related objects.  
+    /// Whether check restriction of excel file when user modify cells related objects.
     public checkExcelRestriction: boolean;
-    /// The format of the input file stream.   
+    /// The format of the input file stream.
     public streamFormat: string;
-    /// The regional settings for workbook.  
+    /// The regional settings for workbook.
     public region: string;
-    /// The page wide fit on worksheet.  
+    /// The page wide fit on worksheet.
     public pageWideFitOnPerSheet: boolean;
-    /// The page tall fit on worksheet.  
+    /// The page tall fit on worksheet.
     public pageTallFitOnPerSheet: boolean;
-      
+
     public sheetName: string;
-      
+
     public pageIndex: number;
+    /// Use Custom fonts.
+    public fontsLocation: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PutConvertWorkbookRequest >) {  
+    public constructor(init?: Partial< PutConvertWorkbookRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/convert";
         const queryParameters: any = {};
         const formParams: any = {};
+        /// The format to convert(CSV/XLS/HTML/MHTML/ODS/PDF/XML/TXT/TIFF/XLSB/XLSM/XLSX/XLTM/XLTX/XPS/PNG/JPG/JPEG/GIF/EMF/BMP/MD[Markdown]/Numbers).
+        // verify required parameter 'format' is not null or undefined
+        if (this.format === null || this.format === undefined) {
+            throw new Error('Required parameter "format" was null or undefined when calling PutConvertWorkbook.');
+        }
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "format", this.format);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
@@ -27532,14 +27723,23 @@ export class PutConvertWorkbookRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "pageTallFitOnPerSheet", this.pageTallFitOnPerSheet);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "sheetName", this.sheetName);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "pageIndex", this.pageIndex);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fontsLocation", this.fontsLocation);
         if(this.extendQueryParameterMap !== undefined){
             for (var key in this.extendQueryParameterMap){
                 localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
             }
         }
         if (this.file !== undefined) {
-            for (var key in this.file){
-                formParams[key] = this.file[key];
+            if (typeof this.file === 'string') {
+                if (fs.existsSync(this.file)) {
+                   const fileName = path.basename( this.file)
+                   formParams[fileName] = fs.createReadStream(this.file)
+               }
+            }
+            else {
+                for (var key in this.file){
+                    formParams[key] = this.file[key];
+                }
             }
         }
 
@@ -27553,50 +27753,52 @@ export class PutConvertWorkbookRequest  {
             json: true,
         };
 
-        (requestOptions as any).formData = formParams;        
+        (requestOptions as any).formData = formParams;
         return Promise.resolve(requestOptions);
 
     }
 
 }
-/// Save an Excel file in various formats.   
+/// Save an Excel file in various formats.
 export class PostWorkbookSaveAsRequest  {
-    /// The workbook name.  
+    /// The workbook name.
     public name: string;
-    /// newfilename to save the result.The `newfilename` should encompass both the filename and extension.  
+    /// newfilename to save the result.The `newfilename` should encompass both the filename and extension.
     public newfilename: string;
-      
+
     public saveOptions: SaveOptions;
-    /// Indicates if Autofit rows in workbook.  
+    /// Indicates if Autofit rows in workbook.
     public isAutoFitRows: boolean;
-    /// Indicates if Autofit columns in workbook.  
+    /// Indicates if Autofit columns in workbook.
     public isAutoFitColumns: boolean;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
-    /// The storage name where the output file is situated.  
+    /// The storage name where the output file is situated.
     public outStorageName: string;
-    /// Whether check restriction of excel file when user modify cells related objects.  
+    /// Whether check restriction of excel file when user modify cells related objects.
     public checkExcelRestriction: boolean;
-    /// The regional settings for workbook.  
+    /// The regional settings for workbook.
     public region: string;
-    /// The page wide fit on worksheet.  
+    /// The page wide fit on worksheet.
     public pageWideFitOnPerSheet: boolean;
-    /// The page tall fit on worksheet.  
+    /// The page tall fit on worksheet.
     public pageTallFitOnPerSheet: boolean;
+    /// Use Custom fonts.
+    public fontsLocation: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostWorkbookSaveAsRequest >) {  
+    public constructor(init?: Partial< PostWorkbookSaveAsRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/SaveAs".replace("{" + "name" + "}", String(this.name));
         const queryParameters: any = {};
-        /// newfilename to save the result.The `newfilename` should encompass both the filename and extension. 
+        /// newfilename to save the result.The `newfilename` should encompass both the filename and extension.
         // verify required parameter 'newfilename' is not null or undefined
         if (this.newfilename === null || this.newfilename === undefined) {
             throw new Error('Required parameter "newfilename" was null or undefined when calling PostWorkbookSaveAs.');
@@ -27611,6 +27813,7 @@ export class PostWorkbookSaveAsRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "pageWideFitOnPerSheet", this.pageWideFitOnPerSheet);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "pageTallFitOnPerSheet", this.pageTallFitOnPerSheet);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fontsLocation", this.fontsLocation);
         if(this.extendQueryParameterMap !== undefined){
             for (var key in this.extendQueryParameterMap){
                 localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
@@ -27632,22 +27835,24 @@ export class PostWorkbookSaveAsRequest  {
     }
 
 }
-/// Convert Excel file to PDF files.   
+/// Convert Excel file to PDF files.
 export class PostConvertWorkbookToPDFRequest  {
-    /// File to upload  
+    /// File to upload
     public file: any;
-    /// The password needed to open an Excel file.  
+    /// The password needed to open an Excel file.
     public password: string;
-    /// Whether check restriction of excel file when user modify cells related objects.  
+    /// Whether check restriction of excel file when user modify cells related objects.
     public checkExcelRestriction: boolean;
-    /// The regional settings for workbook.  
+    /// The regional settings for workbook.
     public region: string;
+    /// Use Custom fonts.
+    public fontsLocation: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostConvertWorkbookToPDFRequest >) {  
+    public constructor(init?: Partial< PostConvertWorkbookToPDFRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -27657,14 +27862,23 @@ export class PostConvertWorkbookToPDFRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", this.checkExcelRestriction);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fontsLocation", this.fontsLocation);
         if(this.extendQueryParameterMap !== undefined){
             for (var key in this.extendQueryParameterMap){
                 localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
             }
         }
         if (this.file !== undefined) {
-            for (var key in this.file){
-                formParams[key] = this.file[key];
+            if (typeof this.file === 'string') {
+                if (fs.existsSync(this.file)) {
+                   const fileName = path.basename( this.file)
+                   formParams[fileName] = fs.createReadStream(this.file)
+               }
+            }
+            else  if (this.file instanceof Map ) {
+                for (var key in this.file){
+                    formParams[key] = this.file[key];
+                }
             }
         }
 
@@ -27678,28 +27892,28 @@ export class PostConvertWorkbookToPDFRequest  {
             json: true,
         };
 
-        (requestOptions as any).formData = formParams;        
+        (requestOptions as any).formData = formParams;
         return Promise.resolve(requestOptions);
 
     }
 
 }
-/// Convert Excel file to PNG files.   
+/// Convert Excel file to PNG files.
 export class PostConvertWorkbookToPNGRequest  {
-    /// File to upload  
+    /// File to upload
     public file: any;
-    /// The password needed to open an Excel file.  
+    /// The password needed to open an Excel file.
     public password: string;
-    /// Whether check restriction of excel file when user modify cells related objects.  
+    /// Whether check restriction of excel file when user modify cells related objects.
     public checkExcelRestriction: boolean;
-    /// The regional settings for workbook.  
+    /// The regional settings for workbook.
     public region: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostConvertWorkbookToPNGRequest >) {  
+    public constructor(init?: Partial< PostConvertWorkbookToPNGRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -27715,8 +27929,16 @@ export class PostConvertWorkbookToPNGRequest  {
             }
         }
         if (this.file !== undefined) {
-            for (var key in this.file){
-                formParams[key] = this.file[key];
+            if (typeof this.file === 'string') {
+                if (fs.existsSync(this.file)) {
+                   const fileName = path.basename( this.file)
+                   formParams[fileName] = fs.createReadStream(this.file)
+               }
+            }
+            else  if (this.file instanceof Map ) {
+                for (var key in this.file){
+                    formParams[key] = this.file[key];
+                }
             }
         }
 
@@ -27730,28 +27952,30 @@ export class PostConvertWorkbookToPNGRequest  {
             json: true,
         };
 
-        (requestOptions as any).formData = formParams;        
+        (requestOptions as any).formData = formParams;
         return Promise.resolve(requestOptions);
 
     }
 
 }
-/// Convert Excel file to Docx files.   
+/// Convert Excel file to Docx files.
 export class PostConvertWorkbookToDocxRequest  {
-    /// File to upload  
+    /// File to upload
     public file: any;
-    /// The password needed to open an Excel file.  
+    /// The password needed to open an Excel file.
     public password: string;
-    /// Whether check restriction of excel file when user modify cells related objects.  
+    /// Whether check restriction of excel file when user modify cells related objects.
     public checkExcelRestriction: boolean;
-    /// The regional settings for workbook.  
+    /// The regional settings for workbook.
     public region: string;
+    /// Use Custom fonts.
+    public fontsLocation: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostConvertWorkbookToDocxRequest >) {  
+    public constructor(init?: Partial< PostConvertWorkbookToDocxRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -27761,14 +27985,23 @@ export class PostConvertWorkbookToDocxRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", this.checkExcelRestriction);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fontsLocation", this.fontsLocation);
         if(this.extendQueryParameterMap !== undefined){
             for (var key in this.extendQueryParameterMap){
                 localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
             }
         }
         if (this.file !== undefined) {
-            for (var key in this.file){
-                formParams[key] = this.file[key];
+            if (typeof this.file === 'string') {
+                if (fs.existsSync(this.file)) {
+                   const fileName = path.basename( this.file)
+                   formParams[fileName] = fs.createReadStream(this.file)
+               }
+            }
+            else  if (this.file instanceof Map ) {
+                for (var key in this.file){
+                    formParams[key] = this.file[key];
+                }
             }
         }
 
@@ -27782,28 +28015,30 @@ export class PostConvertWorkbookToDocxRequest  {
             json: true,
         };
 
-        (requestOptions as any).formData = formParams;        
+        (requestOptions as any).formData = formParams;
         return Promise.resolve(requestOptions);
 
     }
 
 }
-/// Convert Excel file to Pptx files.   
+/// Convert Excel file to Pptx files.
 export class PostConvertWorkbookToPptxRequest  {
-    /// File to upload  
+    /// File to upload
     public file: any;
-    /// The password needed to open an Excel file.  
+    /// The password needed to open an Excel file.
     public password: string;
-    /// Whether check restriction of excel file when user modify cells related objects.  
+    /// Whether check restriction of excel file when user modify cells related objects.
     public checkExcelRestriction: boolean;
-    /// The regional settings for workbook.  
+    /// The regional settings for workbook.
     public region: string;
+    /// Use Custom fonts.
+    public fontsLocation: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostConvertWorkbookToPptxRequest >) {  
+    public constructor(init?: Partial< PostConvertWorkbookToPptxRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -27813,14 +28048,23 @@ export class PostConvertWorkbookToPptxRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", this.checkExcelRestriction);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fontsLocation", this.fontsLocation);
         if(this.extendQueryParameterMap !== undefined){
             for (var key in this.extendQueryParameterMap){
                 localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
             }
         }
         if (this.file !== undefined) {
-            for (var key in this.file){
-                formParams[key] = this.file[key];
+            if (typeof this.file === 'string') {
+                if (fs.existsSync(this.file)) {
+                   const fileName = path.basename( this.file)
+                   formParams[fileName] = fs.createReadStream(this.file)
+               }
+            }
+            else  if (this.file instanceof Map ) {
+                for (var key in this.file){
+                    formParams[key] = this.file[key];
+                }
             }
         }
 
@@ -27834,28 +28078,30 @@ export class PostConvertWorkbookToPptxRequest  {
             json: true,
         };
 
-        (requestOptions as any).formData = formParams;        
+        (requestOptions as any).formData = formParams;
         return Promise.resolve(requestOptions);
 
     }
 
 }
-/// Convert Excel file to HTML files.   
+/// Convert Excel file to HTML files.
 export class PostConvertWorkbookToHtmlRequest  {
-    /// File to upload  
+    /// File to upload
     public file: any;
-    /// The password needed to open an Excel file.  
+    /// The password needed to open an Excel file.
     public password: string;
-    /// Whether check restriction of excel file when user modify cells related objects.  
+    /// Whether check restriction of excel file when user modify cells related objects.
     public checkExcelRestriction: boolean;
-    /// The regional settings for workbook.  
+    /// The regional settings for workbook.
     public region: string;
+    /// Use Custom fonts.
+    public fontsLocation: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostConvertWorkbookToHtmlRequest >) {  
+    public constructor(init?: Partial< PostConvertWorkbookToHtmlRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -27865,14 +28111,23 @@ export class PostConvertWorkbookToHtmlRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", this.checkExcelRestriction);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fontsLocation", this.fontsLocation);
         if(this.extendQueryParameterMap !== undefined){
             for (var key in this.extendQueryParameterMap){
                 localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
             }
         }
         if (this.file !== undefined) {
-            for (var key in this.file){
-                formParams[key] = this.file[key];
+            if (typeof this.file === 'string') {
+                if (fs.existsSync(this.file)) {
+                   const fileName = path.basename( this.file)
+                   formParams[fileName] = fs.createReadStream(this.file)
+               }
+            }
+            else  if (this.file instanceof Map ) {
+                for (var key in this.file){
+                    formParams[key] = this.file[key];
+                }
             }
         }
 
@@ -27886,28 +28141,30 @@ export class PostConvertWorkbookToHtmlRequest  {
             json: true,
         };
 
-        (requestOptions as any).formData = formParams;        
+        (requestOptions as any).formData = formParams;
         return Promise.resolve(requestOptions);
 
     }
 
 }
-/// Convert Excel file to Markdown files.   
+/// Convert Excel file to Markdown files.
 export class PostConvertWorkbookToMarkdownRequest  {
-    /// File to upload  
+    /// File to upload
     public file: any;
-    /// The password needed to open an Excel file.  
+    /// The password needed to open an Excel file.
     public password: string;
-    /// Whether check restriction of excel file when user modify cells related objects.  
+    /// Whether check restriction of excel file when user modify cells related objects.
     public checkExcelRestriction: boolean;
-    /// The regional settings for workbook.  
+    /// The regional settings for workbook.
     public region: string;
+    /// Use Custom fonts.
+    public fontsLocation: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostConvertWorkbookToMarkdownRequest >) {  
+    public constructor(init?: Partial< PostConvertWorkbookToMarkdownRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -27917,14 +28174,23 @@ export class PostConvertWorkbookToMarkdownRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", this.checkExcelRestriction);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fontsLocation", this.fontsLocation);
         if(this.extendQueryParameterMap !== undefined){
             for (var key in this.extendQueryParameterMap){
                 localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
             }
         }
         if (this.file !== undefined) {
-            for (var key in this.file){
-                formParams[key] = this.file[key];
+            if (typeof this.file === 'string') {
+                if (fs.existsSync(this.file)) {
+                   const fileName = path.basename( this.file)
+                   formParams[fileName] = fs.createReadStream(this.file)
+               }
+            }
+            else  if (this.file instanceof Map ) {
+                for (var key in this.file){
+                    formParams[key] = this.file[key];
+                }
             }
         }
 
@@ -27938,28 +28204,30 @@ export class PostConvertWorkbookToMarkdownRequest  {
             json: true,
         };
 
-        (requestOptions as any).formData = formParams;        
+        (requestOptions as any).formData = formParams;
         return Promise.resolve(requestOptions);
 
     }
 
 }
-/// Convert Excel file to Json files.   
+/// Convert Excel file to Json files.
 export class PostConvertWorkbookToJsonRequest  {
-    /// File to upload  
+    /// File to upload
     public file: any;
-    /// The password needed to open an Excel file.  
+    /// The password needed to open an Excel file.
     public password: string;
-    /// Whether check restriction of excel file when user modify cells related objects.  
+    /// Whether check restriction of excel file when user modify cells related objects.
     public checkExcelRestriction: boolean;
-    /// The regional settings for workbook.  
+    /// The regional settings for workbook.
     public region: string;
+    /// Use Custom fonts.
+    public fontsLocation: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostConvertWorkbookToJsonRequest >) {  
+    public constructor(init?: Partial< PostConvertWorkbookToJsonRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -27969,14 +28237,23 @@ export class PostConvertWorkbookToJsonRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", this.checkExcelRestriction);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fontsLocation", this.fontsLocation);
         if(this.extendQueryParameterMap !== undefined){
             for (var key in this.extendQueryParameterMap){
                 localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
             }
         }
         if (this.file !== undefined) {
-            for (var key in this.file){
-                formParams[key] = this.file[key];
+            if (typeof this.file === 'string') {
+                if (fs.existsSync(this.file)) {
+                   const fileName = path.basename( this.file)
+                   formParams[fileName] = fs.createReadStream(this.file)
+               }
+            }
+            else  if (this.file instanceof Map ) {
+                for (var key in this.file){
+                    formParams[key] = this.file[key];
+                }
             }
         }
 
@@ -27990,28 +28267,28 @@ export class PostConvertWorkbookToJsonRequest  {
             json: true,
         };
 
-        (requestOptions as any).formData = formParams;        
+        (requestOptions as any).formData = formParams;
         return Promise.resolve(requestOptions);
 
     }
 
 }
-/// Convert Excel file to SQL Script files.   
+/// Convert Excel file to SQL Script files.
 export class PostConvertWorkbookToSQLRequest  {
-    /// File to upload  
+    /// File to upload
     public file: any;
-    /// The password needed to open an Excel file.  
+    /// The password needed to open an Excel file.
     public password: string;
-    /// Whether check restriction of excel file when user modify cells related objects.  
+    /// Whether check restriction of excel file when user modify cells related objects.
     public checkExcelRestriction: boolean;
-    /// The regional settings for workbook.  
+    /// The regional settings for workbook.
     public region: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostConvertWorkbookToSQLRequest >) {  
+    public constructor(init?: Partial< PostConvertWorkbookToSQLRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -28027,8 +28304,16 @@ export class PostConvertWorkbookToSQLRequest  {
             }
         }
         if (this.file !== undefined) {
-            for (var key in this.file){
-                formParams[key] = this.file[key];
+            if (typeof this.file === 'string') {
+                if (fs.existsSync(this.file)) {
+                   const fileName = path.basename( this.file)
+                   formParams[fileName] = fs.createReadStream(this.file)
+               }
+            }
+            else  if (this.file instanceof Map ) {
+                for (var key in this.file){
+                    formParams[key] = this.file[key];
+                }
             }
         }
 
@@ -28042,28 +28327,28 @@ export class PostConvertWorkbookToSQLRequest  {
             json: true,
         };
 
-        (requestOptions as any).formData = formParams;        
+        (requestOptions as any).formData = formParams;
         return Promise.resolve(requestOptions);
 
     }
 
 }
-/// Convert Excel file to Csv files.   
+/// Convert Excel file to Csv files.
 export class PostConvertWorkbookToCSVRequest  {
-    /// File to upload  
+    /// File to upload
     public file: any;
-    /// The password needed to open an Excel file.  
+    /// The password needed to open an Excel file.
     public password: string;
-    /// Whether check restriction of excel file when user modify cells related objects.  
+    /// Whether check restriction of excel file when user modify cells related objects.
     public checkExcelRestriction: boolean;
-    /// The regional settings for workbook.  
+    /// The regional settings for workbook.
     public region: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostConvertWorkbookToCSVRequest >) {  
+    public constructor(init?: Partial< PostConvertWorkbookToCSVRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -28079,8 +28364,16 @@ export class PostConvertWorkbookToCSVRequest  {
             }
         }
         if (this.file !== undefined) {
-            for (var key in this.file){
-                formParams[key] = this.file[key];
+            if (typeof this.file === 'string') {
+                if (fs.existsSync(this.file)) {
+                   const fileName = path.basename( this.file)
+                   formParams[fileName] = fs.createReadStream(this.file)
+               }
+            }
+            else  if (this.file instanceof Map ) {
+                for (var key in this.file){
+                    formParams[key] = this.file[key];
+                }
             }
         }
 
@@ -28094,27 +28387,30 @@ export class PostConvertWorkbookToCSVRequest  {
             json: true,
         };
 
-        (requestOptions as any).formData = formParams;        
+        (requestOptions as any).formData = formParams;
         return Promise.resolve(requestOptions);
 
     }
 
 }
-   
+
 export class PostConvertWorksheetToImageRequest  {
-      
+
     public convertWorksheetOptions: ConvertWorksheetOptions;
+    /// Use Custom fonts.
+    public fontsLocation: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostConvertWorksheetToImageRequest >) {  
+    public constructor(init?: Partial< PostConvertWorksheetToImageRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/convertWorksheetToImage";
         const queryParameters: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fontsLocation", this.fontsLocation);
         if(this.extendQueryParameterMap !== undefined){
             for (var key in this.extendQueryParameterMap){
                 localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
@@ -28136,21 +28432,24 @@ export class PostConvertWorksheetToImageRequest  {
     }
 
 }
-   
+
 export class PostConvertWorkbookRequest  {
-      
+
     public convertWorkbookOptions: ConvertWorkbookOptions;
+    /// Use Custom fonts.
+    public fontsLocation: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostConvertWorkbookRequest >) {  
+    public constructor(init?: Partial< PostConvertWorkbookRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/convertWorkbook";
         const queryParameters: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fontsLocation", this.fontsLocation);
         if(this.extendQueryParameterMap !== undefined){
             for (var key in this.extendQueryParameterMap){
                 localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
@@ -28172,26 +28471,100 @@ export class PostConvertWorkbookRequest  {
     }
 
 }
-/// Export Excel internal elements or the workbook itself to various format files.   
-export class PostExportRequest  {
-    /// File to upload  
-    public file: any;
-    /// Exported object type:workbook/worksheet/chart/comment/picture/shape/listobject/oleobject.  
-    public objectType: string;
-    /// The conversion format(CSV/XLS/HTML/MHTML/ODS/PDF/XML/TXT/TIFF/XLSB/XLSM/XLSX/XLTM/XLTX/XPS/PNG/JPG/JPEG/GIF/EMF/BMP/MD[Markdown]/Numbers).  
-    public format: string;
-    /// The password needed to open an Excel file.  
-    public password: string;
-    /// Whether check restriction of excel file when user modify cells related objects.  
-    public checkExcelRestriction: boolean;
-    /// The regional settings for workbook.  
-    public region: string;
+/// Export Excel internal elements or the workbook itself to various format files.
+export class CheckWrokbookExternalReferenceRequest  {
+
+    public checkExternalReferenceOptions: CheckExternalReferenceOptions;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostExportRequest >) {  
+    public constructor(init?: Partial< CheckWrokbookExternalReferenceRequest >) {
         Object.assign(this, init);
-    } 
+    }
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/checkexternalreference";
+        const queryParameters: any = {};
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        const bodyParameter = (this.checkExternalReferenceOptions == null) ? null :   ObjectSerializer.serialize( this.checkExternalReferenceOptions,this.checkExternalReferenceOptions.constructor.name);
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+            body:bodyParameter,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+
+export class CheckWorkbookFormulaErrorsRequest  {
+
+    public formulaErrorOptions: CheckFormulaErrorOptions;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< CheckWorkbookFormulaErrorsRequest >) {
+        Object.assign(this, init);
+    }
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "/cells/checkformulaerrors";
+        const queryParameters: any = {};
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        const bodyParameter = (this.formulaErrorOptions == null) ? null :   ObjectSerializer.serialize( this.formulaErrorOptions,this.formulaErrorOptions.constructor.name);
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+            body:bodyParameter,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Export Excel internal elements or the workbook itself to various format files.
+export class PostExportRequest  {
+    /// File to upload
+    public file: any;
+    /// Exported object type:workbook/worksheet/chart/comment/picture/shape/listobject/oleobject.
+    public objectType: string;
+    /// The conversion format(CSV/XLS/HTML/MHTML/ODS/PDF/XML/TXT/TIFF/XLSB/XLSM/XLSX/XLTM/XLTX/XPS/PNG/JPG/JPEG/GIF/EMF/BMP/MD[Markdown]/Numbers).
+    public format: string;
+    /// The password needed to open an Excel file.
+    public password: string;
+    /// Whether check restriction of excel file when user modify cells related objects.
+    public checkExcelRestriction: boolean;
+    /// The regional settings for workbook.
+    public region: string;
+    /// Use Custom fonts.
+    public fontsLocation: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< PostExportRequest >) {
+        Object.assign(this, init);
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -28203,14 +28576,23 @@ export class PostExportRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "checkExcelRestriction", this.checkExcelRestriction);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fontsLocation", this.fontsLocation);
         if(this.extendQueryParameterMap !== undefined){
             for (var key in this.extendQueryParameterMap){
                 localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
             }
         }
         if (this.file !== undefined) {
-            for (var key in this.file){
-                formParams[key] = this.file[key];
+            if (typeof this.file === 'string') {
+                if (fs.existsSync(this.file)) {
+                   const fileName = path.basename( this.file)
+                   formParams[fileName] = fs.createReadStream(this.file)
+               }
+            }
+            else  if (this.file instanceof Map ) {
+                for (var key in this.file){
+                    formParams[key] = this.file[key];
+                }
             }
         }
 
@@ -28224,37 +28606,37 @@ export class PostExportRequest  {
             json: true,
         };
 
-        (requestOptions as any).formData = formParams;        
+        (requestOptions as any).formData = formParams;
         return Promise.resolve(requestOptions);
 
     }
 
 }
 /// Export XML data from an Excel file.
-/// When there are XML Maps in an Excel file, export XML data. When there is no XML map in the Excel file, convert the Excel file to an XML file.   
+/// When there are XML Maps in an Excel file, export XML data. When there is no XML map in the Excel file, convert the Excel file to an XML file.
 export class PostWorkbookExportXMLRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The password needed to open an Excel file.  
+    /// The password needed to open an Excel file.
     public password: string;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
-    /// Path to save the result. If it's a single file, the `outPath` should encompass both the filename and extension. In the case of multiple files, the `outPath` should only include the folder.  
+    /// Path to save the result. If it's a single file, the `outPath` should encompass both the filename and extension. In the case of multiple files, the `outPath` should only include the folder.
     public outPath: string;
-    /// The storage name where the output file is situated.  
+    /// The storage name where the output file is situated.
     public outStorageName: string;
-    /// Whether check restriction of excel file when user modify cells related objects.  
+    /// Whether check restriction of excel file when user modify cells related objects.
     public checkExcelRestriction: boolean;
-    /// The regional settings for workbook.  
+    /// The regional settings for workbook.
     public region: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostWorkbookExportXMLRequest >) {  
+    public constructor(init?: Partial< PostWorkbookExportXMLRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -28288,32 +28670,32 @@ export class PostWorkbookExportXMLRequest  {
     }
 
 }
-/// Import a JSON data file into the workbook. The JSON data file can either be a cloud file or data from an HTTP URI.   
+/// Import a JSON data file into the workbook. The JSON data file can either be a cloud file or data from an HTTP URI.
 export class PostWorkbookImportJsonRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// Import Json request.  
+    /// Import Json request.
     public importJsonRequest: ImportJsonRequest;
-    /// The password needed to open an Excel file.  
+    /// The password needed to open an Excel file.
     public password: string;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
-    /// Path to save the result. If it's a single file, the `outPath` should encompass both the filename and extension. In the case of multiple files, the `outPath` should only include the folder.  
+    /// Path to save the result. If it's a single file, the `outPath` should encompass both the filename and extension. In the case of multiple files, the `outPath` should only include the folder.
     public outPath: string;
-    /// The storage name where the output file is situated.  
+    /// The storage name where the output file is situated.
     public outStorageName: string;
-    /// Whether check restriction of excel file when user modify cells related objects.  
+    /// Whether check restriction of excel file when user modify cells related objects.
     public checkExcelRestriction: boolean;
-    /// The regional settings for workbook.  
+    /// The regional settings for workbook.
     public region: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostWorkbookImportJsonRequest >) {  
+    public constructor(init?: Partial< PostWorkbookImportJsonRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -28347,32 +28729,32 @@ export class PostWorkbookImportJsonRequest  {
     }
 
 }
-/// Import an XML data file into an Excel file. The XML data file can either be a cloud file or data from an HTTP URI.   
+/// Import an XML data file into an Excel file. The XML data file can either be a cloud file or data from an HTTP URI.
 export class PostWorkbookImportXMLRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// Import XML request.  
+    /// Import XML request.
     public importXMLRequest: ImportXMLRequest;
-    /// The password needed to open an Excel file.  
+    /// The password needed to open an Excel file.
     public password: string;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
-    /// Path to save the result. If it's a single file, the `outPath` should encompass both the filename and extension. In the case of multiple files, the `outPath` should only include the folder.  
+    /// Path to save the result. If it's a single file, the `outPath` should encompass both the filename and extension. In the case of multiple files, the `outPath` should only include the folder.
     public outPath: string;
-    /// The storage name where the output file is situated.  
+    /// The storage name where the output file is situated.
     public outStorageName: string;
-    /// Whether check restriction of excel file when user modify cells related objects.  
+    /// Whether check restriction of excel file when user modify cells related objects.
     public checkExcelRestriction: boolean;
-    /// The regional settings for workbook.  
+    /// The regional settings for workbook.
     public region: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostWorkbookImportXMLRequest >) {  
+    public constructor(init?: Partial< PostWorkbookImportXMLRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -28406,24 +28788,26 @@ export class PostWorkbookImportXMLRequest  {
     }
 
 }
-/// Import data into the Excel file.   
+/// Import data into the Excel file.
 export class PostImportDataRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// Import option. They are include of ImportCSVDataOption, ImportBatchDataOption, ImportPictureOption, ImportStringArrayOption, Import2DimensionStringArrayOption, and so on.    
+    /// Import option. They are include of ImportCSVDataOption, ImportBatchDataOption, ImportPictureOption, ImportStringArrayOption, Import2DimensionStringArrayOption, and so on.
     public importOption: ImportOption;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
-    /// The regional settings for workbook.  
+    /// The regional settings for workbook.
     public region: string;
+    /// Use Custom fonts.
+    public fontsLocation: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostImportDataRequest >) {  
+    public constructor(init?: Partial< PostImportDataRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -28432,6 +28816,7 @@ export class PostImportDataRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fontsLocation", this.fontsLocation);
         if(this.extendQueryParameterMap !== undefined){
             for (var key in this.extendQueryParameterMap){
                 localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
@@ -28453,28 +28838,28 @@ export class PostImportDataRequest  {
     }
 
 }
-/// Data cleaning of spreadsheet files is a data management process used to identify, correct, and remove errors, incompleteness, duplicates, or inaccuracies in tables and ranges.   
+/// Data cleaning of spreadsheet files is a data management process used to identify, correct, and remove errors, incompleteness, duplicates, or inaccuracies in tables and ranges.
 export class PostWorkbookDataCleansingRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// data cleansing content.  
+    /// data cleansing content.
     public dataCleansing: DataCleansing;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
-    /// The file password.   
+    /// The file password.
     public password: string;
-    /// The regional settings for workbook.  
+    /// The regional settings for workbook.
     public region: string;
-      
+
     public checkExcelRestriction: boolean;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostWorkbookDataCleansingRequest >) {  
+    public constructor(init?: Partial< PostWorkbookDataCleansingRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -28506,16 +28891,16 @@ export class PostWorkbookDataCleansingRequest  {
     }
 
 }
-/// Data cleansing of spreadsheet files is a data management process used to identify, correct, and remove errors, incompleteness, duplicates, or inaccuracies in tables and ranges.   
+/// Data cleansing of spreadsheet files is a data management process used to identify, correct, and remove errors, incompleteness, duplicates, or inaccuracies in tables and ranges.
 export class PostDataCleansingRequest  {
-      
+
     public dataCleansingRequest: DataCleansingRequest;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostDataCleansingRequest >) {  
+    public constructor(init?: Partial< PostDataCleansingRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -28542,28 +28927,28 @@ export class PostDataCleansingRequest  {
     }
 
 }
-/// Data deduplication of spreadsheet files is mainly used to eliminate duplicate data in tables and ranges.   
+/// Data deduplication of spreadsheet files is mainly used to eliminate duplicate data in tables and ranges.
 export class PostWorkbookDataDeduplicationRequest  {
-      
+
     public name: string;
-      
+
     public deduplicationRegion: DeduplicationRegion;
-      
+
     public folder: string;
-      
+
     public storageName: string;
-      
+
     public password: string;
-      
+
     public region: string;
-      
+
     public checkExcelRestriction: boolean;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostWorkbookDataDeduplicationRequest >) {  
+    public constructor(init?: Partial< PostWorkbookDataDeduplicationRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -28595,16 +28980,16 @@ export class PostWorkbookDataDeduplicationRequest  {
     }
 
 }
-/// Data deduplication of spreadsheet files is mainly used to eliminate duplicate data in tables and ranges.   
+/// Data deduplication of spreadsheet files is mainly used to eliminate duplicate data in tables and ranges.
 export class PostDataDeduplicationRequest  {
-      
+
     public dataDeduplicationRequest: DataDeduplicationRequest;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostDataDeduplicationRequest >) {  
+    public constructor(init?: Partial< PostDataDeduplicationRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -28631,28 +29016,28 @@ export class PostDataDeduplicationRequest  {
     }
 
 }
-/// Data filling for spreadsheet files is primarily used to fill empty data in tables and ranges.   
+/// Data filling for spreadsheet files is primarily used to fill empty data in tables and ranges.
 export class PostWorkbookDataFillRequest  {
-      
+
     public name: string;
-      
+
     public dataFill: DataFill;
-      
+
     public folder: string;
-      
+
     public storageName: string;
-      
+
     public password: string;
-      
+
     public region: string;
-      
+
     public checkExcelRestriction: boolean;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostWorkbookDataFillRequest >) {  
+    public constructor(init?: Partial< PostWorkbookDataFillRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -28684,16 +29069,16 @@ export class PostWorkbookDataFillRequest  {
     }
 
 }
-/// Data filling for spreadsheet files is primarily used to fill empty data in tables and ranges.   
+/// Data filling for spreadsheet files is primarily used to fill empty data in tables and ranges.
 export class PostDataFillRequest  {
-      
+
     public dataFillRequest: DataFillRequest;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostDataFillRequest >) {  
+    public constructor(init?: Partial< PostDataFillRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -28720,16 +29105,16 @@ export class PostDataFillRequest  {
     }
 
 }
-/// Deleting incomplete rows of spreadsheet files is mainly used to eliminate incomplete rows in tables and ranges.   
+/// Deleting incomplete rows of spreadsheet files is mainly used to eliminate incomplete rows in tables and ranges.
 export class PostDeleteIncompleteRowsRequest  {
-      
+
     public deleteIncompleteRowsRequest: DeleteIncompleteRowsRequest;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostDeleteIncompleteRowsRequest >) {  
+    public constructor(init?: Partial< PostDeleteIncompleteRowsRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -28756,16 +29141,16 @@ export class PostDeleteIncompleteRowsRequest  {
     }
 
 }
-/// Transform spreadsheet data is mainly used to pivot columns, unpivot columns.   
+/// Transform spreadsheet data is mainly used to pivot columns, unpivot columns.
 export class PostDataTransformationRequest  {
-      
+
     public dataTransformationRequest: DataTransformationRequest;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostDataTransformationRequest >) {  
+    public constructor(init?: Partial< PostDataTransformationRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -28792,22 +29177,22 @@ export class PostDataTransformationRequest  {
     }
 
 }
-/// Retrieve descriptions of hyperlinks in the worksheet.   
+/// Retrieve descriptions of hyperlinks in the worksheet.
 export class GetWorksheetHyperlinksRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< GetWorksheetHyperlinksRequest >) {  
+    public constructor(init?: Partial< GetWorksheetHyperlinksRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -28836,24 +29221,24 @@ export class GetWorksheetHyperlinksRequest  {
     }
 
 }
-/// Retrieve hyperlink description by index in the worksheet.   
+/// Retrieve hyperlink description by index in the worksheet.
 export class GetWorksheetHyperlinkRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The hyperlink's index.  
+    /// The hyperlink's index.
     public hyperlinkIndex: number;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< GetWorksheetHyperlinkRequest >) {  
+    public constructor(init?: Partial< GetWorksheetHyperlinkRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -28882,24 +29267,24 @@ export class GetWorksheetHyperlinkRequest  {
     }
 
 }
-/// Delete hyperlink by index in the worksheet.   
+/// Delete hyperlink by index in the worksheet.
 export class DeleteWorksheetHyperlinkRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The hyperlink's index.  
+    /// The hyperlink's index.
     public hyperlinkIndex: number;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< DeleteWorksheetHyperlinkRequest >) {  
+    public constructor(init?: Partial< DeleteWorksheetHyperlinkRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -28928,26 +29313,26 @@ export class DeleteWorksheetHyperlinkRequest  {
     }
 
 }
-/// Update hyperlink by index in the worksheet.   
+/// Update hyperlink by index in the worksheet.
 export class PostWorksheetHyperlinkRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The hyperlink's index.  
+    /// The hyperlink's index.
     public hyperlinkIndex: number;
-    /// Hyperlink object  
+    /// Hyperlink object
     public hyperlink: Hyperlink;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostWorksheetHyperlinkRequest >) {  
+    public constructor(init?: Partial< PostWorksheetHyperlinkRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -28976,58 +29361,58 @@ export class PostWorksheetHyperlinkRequest  {
     }
 
 }
-/// Add hyperlink in the worksheet.   
+/// Add hyperlink in the worksheet.
 export class PutWorksheetHyperlinkRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// First row of the hyperlink range.  
+    /// First row of the hyperlink range.
     public firstRow: number;
-    /// First column of the hyperlink range.  
+    /// First column of the hyperlink range.
     public firstColumn: number;
-    /// Number of rows in this hyperlink range.  
+    /// Number of rows in this hyperlink range.
     public totalRows: number;
-    /// Number of columns of this hyperlink range.  
+    /// Number of columns of this hyperlink range.
     public totalColumns: number;
-    /// Address of the hyperlink.  
+    /// Address of the hyperlink.
     public address: string;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PutWorksheetHyperlinkRequest >) {  
+    public constructor(init?: Partial< PutWorksheetHyperlinkRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/hyperlinks".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
         const queryParameters: any = {};
-        /// First row of the hyperlink range. 
+        /// First row of the hyperlink range.
         // verify required parameter 'firstRow' is not null or undefined
         if (this.firstRow === null || this.firstRow === undefined) {
             throw new Error('Required parameter "firstRow" was null or undefined when calling PutWorksheetHyperlink.');
         }
-        /// First column of the hyperlink range. 
+        /// First column of the hyperlink range.
         // verify required parameter 'firstColumn' is not null or undefined
         if (this.firstColumn === null || this.firstColumn === undefined) {
             throw new Error('Required parameter "firstColumn" was null or undefined when calling PutWorksheetHyperlink.');
         }
-        /// Number of rows in this hyperlink range. 
+        /// Number of rows in this hyperlink range.
         // verify required parameter 'totalRows' is not null or undefined
         if (this.totalRows === null || this.totalRows === undefined) {
             throw new Error('Required parameter "totalRows" was null or undefined when calling PutWorksheetHyperlink.');
         }
-        /// Number of columns of this hyperlink range. 
+        /// Number of columns of this hyperlink range.
         // verify required parameter 'totalColumns' is not null or undefined
         if (this.totalColumns === null || this.totalColumns === undefined) {
             throw new Error('Required parameter "totalColumns" was null or undefined when calling PutWorksheetHyperlink.');
         }
-        /// Address of the hyperlink. 
+        /// Address of the hyperlink.
         // verify required parameter 'address' is not null or undefined
         if (this.address === null || this.address === undefined) {
             throw new Error('Required parameter "address" was null or undefined when calling PutWorksheetHyperlink.');
@@ -29060,22 +29445,22 @@ export class PutWorksheetHyperlinkRequest  {
     }
 
 }
-/// Delete all hyperlinks in the worksheet.   
+/// Delete all hyperlinks in the worksheet.
 export class DeleteWorksheetHyperlinksRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< DeleteWorksheetHyperlinksRequest >) {  
+    public constructor(init?: Partial< DeleteWorksheetHyperlinksRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -29104,33 +29489,33 @@ export class DeleteWorksheetHyperlinksRequest  {
     }
 
 }
-/// Assemble data files with template files to generate files in various formats.   
+/// Assemble data files with template files to generate files in various formats.
 export class PostAssembleRequest  {
-    /// File to upload  
+    /// File to upload
     public file: any;
-      
+
     public datasource: string;
-    /// The format to convert(CSV/XLS/HTML/MHTML/ODS/PDF/XML/TXT/TIFF/XLSB/XLSM/XLSX/XLTM/XLTX/XPS/PNG/JPG/JPEG/GIF/EMF/BMP/MD[Markdown]/Numbers)  
+    /// The format to convert(CSV/XLS/HTML/MHTML/ODS/PDF/XML/TXT/TIFF/XLSB/XLSM/XLSX/XLTM/XLTX/XPS/PNG/JPG/JPEG/GIF/EMF/BMP/MD[Markdown]/Numbers)
     public outFormat: string;
-    /// The password needed to open an Excel file.  
+    /// The password needed to open an Excel file.
     public password: string;
-    /// Whether check restriction of excel file when user modify cells related objects.  
+    /// Whether check restriction of excel file when user modify cells related objects.
     public checkExcelRestriction: boolean;
-    /// The regional settings for workbook.  
+    /// The regional settings for workbook.
     public region: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostAssembleRequest >) {  
+    public constructor(init?: Partial< PostAssembleRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/assemble";
         const queryParameters: any = {};
         const formParams: any = {};
-         
+
         // verify required parameter 'datasource' is not null or undefined
         if (this.datasource === null || this.datasource === undefined) {
             throw new Error('Required parameter "datasource" was null or undefined when calling PostAssemble.');
@@ -29146,8 +29531,16 @@ export class PostAssembleRequest  {
             }
         }
         if (this.file !== undefined) {
-            for (var key in this.file){
-                formParams[key] = this.file[key];
+            if (typeof this.file === 'string') {
+                if (fs.existsSync(this.file)) {
+                   const fileName = path.basename( this.file)
+                   formParams[fileName] = fs.createReadStream(this.file)
+               }
+            }
+            else  if (this.file instanceof Map ) {
+                for (var key in this.file){
+                    formParams[key] = this.file[key];
+                }
             }
         }
 
@@ -29161,28 +29554,28 @@ export class PostAssembleRequest  {
             json: true,
         };
 
-        (requestOptions as any).formData = formParams;        
+        (requestOptions as any).formData = formParams;
         return Promise.resolve(requestOptions);
 
     }
 
 }
-/// Compress files and generate target files in various formats, supported file formats are include Xls, Xlsx, Xlsm, Xlsb, Ods and more.   
+/// Compress files and generate target files in various formats, supported file formats are include Xls, Xlsx, Xlsm, Xlsb, Ods and more.
 export class PostCompressRequest  {
-    /// File to upload  
+    /// File to upload
     public file: any;
-    /// Compress level. The compression ratio 1-100.  
+    /// Compress level. The compression ratio 1-100.
     public compressLevel: number;
-    /// The password needed to open an Excel file.  
+    /// The password needed to open an Excel file.
     public password: string;
-    /// Whether check restriction of excel file when user modify cells related objects.  
+    /// Whether check restriction of excel file when user modify cells related objects.
     public checkExcelRestriction: boolean;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostCompressRequest >) {  
+    public constructor(init?: Partial< PostCompressRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -29198,8 +29591,16 @@ export class PostCompressRequest  {
             }
         }
         if (this.file !== undefined) {
-            for (var key in this.file){
-                formParams[key] = this.file[key];
+            if (typeof this.file === 'string') {
+                if (fs.existsSync(this.file)) {
+                   const fileName = path.basename( this.file)
+                   formParams[fileName] = fs.createReadStream(this.file)
+               }
+            }
+            else  if (this.file instanceof Map ) {
+                for (var key in this.file){
+                    formParams[key] = this.file[key];
+                }
             }
         }
 
@@ -29213,32 +29614,32 @@ export class PostCompressRequest  {
             json: true,
         };
 
-        (requestOptions as any).formData = formParams;        
+        (requestOptions as any).formData = formParams;
         return Promise.resolve(requestOptions);
 
     }
 
 }
-/// Merge cells in the worksheet.   
+/// Merge cells in the worksheet.
 export class PostMergeRequest  {
-    /// File to upload  
+    /// File to upload
     public file: any;
-    /// The output data file format.(CSV/XLS/HTML/MHTML/ODS/PDF/XML/TXT/TIFF/XLSB/XLSM/XLSX/XLTM/XLTX/XPS/PNG/JPG/JPEG/GIF/EMF/BMP/MD[Markdown]/Numbers)  
+    /// The output data file format.(CSV/XLS/HTML/MHTML/ODS/PDF/XML/TXT/TIFF/XLSB/XLSM/XLSX/XLTM/XLTX/XPS/PNG/JPG/JPEG/GIF/EMF/BMP/MD[Markdown]/Numbers)
     public outFormat: string;
-    /// Merge all workbooks into a sheet.  
+    /// Merge all workbooks into a sheet.
     public mergeToOneSheet: boolean;
-    /// The password needed to open an Excel file.  
+    /// The password needed to open an Excel file.
     public password: string;
-    /// Whether check restriction of excel file when user modify cells related objects.  
+    /// Whether check restriction of excel file when user modify cells related objects.
     public checkExcelRestriction: boolean;
-    /// The regional settings for workbook.  
+    /// The regional settings for workbook.
     public region: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostMergeRequest >) {  
+    public constructor(init?: Partial< PostMergeRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -29256,8 +29657,16 @@ export class PostMergeRequest  {
             }
         }
         if (this.file !== undefined) {
-            for (var key in this.file){
-                formParams[key] = this.file[key];
+            if (typeof this.file === 'string') {
+                if (fs.existsSync(this.file)) {
+                   const fileName = path.basename( this.file)
+                   formParams[fileName] = fs.createReadStream(this.file)
+               }
+            }
+            else  if (this.file instanceof Map ) {
+                for (var key in this.file){
+                    formParams[key] = this.file[key];
+                }
             }
         }
 
@@ -29271,41 +29680,41 @@ export class PostMergeRequest  {
             json: true,
         };
 
-        (requestOptions as any).formData = formParams;        
+        (requestOptions as any).formData = formParams;
         return Promise.resolve(requestOptions);
 
     }
 
 }
-/// Split Excel spreadsheet files based on worksheets and create output files in various formats.   
+/// Split Excel spreadsheet files based on worksheets and create output files in various formats.
 export class PostSplitRequest  {
-    /// File to upload  
+    /// File to upload
     public file: any;
-    /// The output data file format.(CSV/XLS/HTML/MHTML/ODS/PDF/XML/TXT/TIFF/XLSB/XLSM/XLSX/XLTM/XLTX/XPS/PNG/JPG/JPEG/GIF/EMF/BMP/MD[Markdown]/Numbers)  
+    /// The output data file format.(CSV/XLS/HTML/MHTML/ODS/PDF/XML/TXT/TIFF/XLSB/XLSM/XLSX/XLTM/XLTX/XPS/PNG/JPG/JPEG/GIF/EMF/BMP/MD[Markdown]/Numbers)
     public outFormat: string;
-    /// The password needed to open an Excel file.  
+    /// The password needed to open an Excel file.
     public password: string;
-    /// sheet index  
+    /// sheet index
     public from: number;
-    /// sheet index  
+    /// sheet index
     public to: number;
-    /// Whether check restriction of excel file when user modify cells related objects.  
+    /// Whether check restriction of excel file when user modify cells related objects.
     public checkExcelRestriction: boolean;
-    /// The regional settings for workbook.  
+    /// The regional settings for workbook.
     public region: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostSplitRequest >) {  
+    public constructor(init?: Partial< PostSplitRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/split";
         const queryParameters: any = {};
         const formParams: any = {};
-        /// The output data file format.(CSV/XLS/HTML/MHTML/ODS/PDF/XML/TXT/TIFF/XLSB/XLSM/XLSX/XLTM/XLTX/XPS/PNG/JPG/JPEG/GIF/EMF/BMP/MD[Markdown]/Numbers) 
+        /// The output data file format.(CSV/XLS/HTML/MHTML/ODS/PDF/XML/TXT/TIFF/XLSB/XLSM/XLSX/XLTM/XLTX/XPS/PNG/JPG/JPEG/GIF/EMF/BMP/MD[Markdown]/Numbers)
         // verify required parameter 'outFormat' is not null or undefined
         if (this.outFormat === null || this.outFormat === undefined) {
             throw new Error('Required parameter "outFormat" was null or undefined when calling PostSplit.');
@@ -29322,8 +29731,16 @@ export class PostSplitRequest  {
             }
         }
         if (this.file !== undefined) {
-            for (var key in this.file){
-                formParams[key] = this.file[key];
+            if (typeof this.file === 'string') {
+                if (fs.existsSync(this.file)) {
+                   const fileName = path.basename( this.file)
+                   formParams[fileName] = fs.createReadStream(this.file)
+               }
+            }
+            else  if (this.file instanceof Map ) {
+                for (var key in this.file){
+                    formParams[key] = this.file[key];
+                }
             }
         }
 
@@ -29337,37 +29754,37 @@ export class PostSplitRequest  {
             json: true,
         };
 
-        (requestOptions as any).formData = formParams;        
+        (requestOptions as any).formData = formParams;
         return Promise.resolve(requestOptions);
 
     }
 
 }
-/// Search for specified text within Excel files.   
+/// Search for specified text within Excel files.
 export class PostSearchRequest  {
-    /// File to upload  
+    /// File to upload
     public file: any;
-    /// Find content  
+    /// Find content
     public text: string;
-    /// The password needed to open an Excel file.  
+    /// The password needed to open an Excel file.
     public password: string;
-    /// The worksheet name. Locate the specified text content in the worksheet.  
+    /// The worksheet name. Locate the specified text content in the worksheet.
     public sheetname: string;
-    /// Whether check restriction of excel file when user modify cells related objects.  
+    /// Whether check restriction of excel file when user modify cells related objects.
     public checkExcelRestriction: boolean;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostSearchRequest >) {  
+    public constructor(init?: Partial< PostSearchRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/search";
         const queryParameters: any = {};
         const formParams: any = {};
-        /// Find content 
+        /// Find content
         // verify required parameter 'text' is not null or undefined
         if (this.text === null || this.text === undefined) {
             throw new Error('Required parameter "text" was null or undefined when calling PostSearch.');
@@ -29382,8 +29799,16 @@ export class PostSearchRequest  {
             }
         }
         if (this.file !== undefined) {
-            for (var key in this.file){
-                formParams[key] = this.file[key];
+            if (typeof this.file === 'string') {
+                if (fs.existsSync(this.file)) {
+                   const fileName = path.basename( this.file)
+                   formParams[fileName] = fs.createReadStream(this.file)
+               }
+            }
+            else  if (this.file instanceof Map ) {
+                for (var key in this.file){
+                    formParams[key] = this.file[key];
+                }
             }
         }
 
@@ -29397,44 +29822,44 @@ export class PostSearchRequest  {
             json: true,
         };
 
-        (requestOptions as any).formData = formParams;        
+        (requestOptions as any).formData = formParams;
         return Promise.resolve(requestOptions);
 
     }
 
 }
-/// Replace specified text with new text in Excel files.   
+/// Replace specified text with new text in Excel files.
 export class PostReplaceRequest  {
-    /// File to upload  
+    /// File to upload
     public file: any;
-    /// Find content  
+    /// Find content
     public text: string;
-    /// Replace content  
+    /// Replace content
     public newtext: string;
-    /// The password needed to open an Excel file.  
+    /// The password needed to open an Excel file.
     public password: string;
-    /// The worksheet name. Locate the specified text content in the worksheet.  
+    /// The worksheet name. Locate the specified text content in the worksheet.
     public sheetname: string;
-    /// Whether check restriction of excel file when user modify cells related objects.  
+    /// Whether check restriction of excel file when user modify cells related objects.
     public checkExcelRestriction: boolean;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostReplaceRequest >) {  
+    public constructor(init?: Partial< PostReplaceRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/replace";
         const queryParameters: any = {};
         const formParams: any = {};
-        /// Find content 
+        /// Find content
         // verify required parameter 'text' is not null or undefined
         if (this.text === null || this.text === undefined) {
             throw new Error('Required parameter "text" was null or undefined when calling PostReplace.');
         }
-        /// Replace content 
+        /// Replace content
         // verify required parameter 'newtext' is not null or undefined
         if (this.newtext === null || this.newtext === undefined) {
             throw new Error('Required parameter "newtext" was null or undefined when calling PostReplace.');
@@ -29450,8 +29875,16 @@ export class PostReplaceRequest  {
             }
         }
         if (this.file !== undefined) {
-            for (var key in this.file){
-                formParams[key] = this.file[key];
+            if (typeof this.file === 'string') {
+                if (fs.existsSync(this.file)) {
+                   const fileName = path.basename( this.file)
+                   formParams[fileName] = fs.createReadStream(this.file)
+               }
+            }
+            else  if (this.file instanceof Map ) {
+                for (var key in this.file){
+                    formParams[key] = this.file[key];
+                }
             }
         }
 
@@ -29465,30 +29898,30 @@ export class PostReplaceRequest  {
             json: true,
         };
 
-        (requestOptions as any).formData = formParams;        
+        (requestOptions as any).formData = formParams;
         return Promise.resolve(requestOptions);
 
     }
 
 }
-/// Import data into an Excel file and generate output files in various formats.   
+/// Import data into an Excel file and generate output files in various formats.
 export class PostImportRequest  {
-    /// File to upload  
+    /// File to upload
     public file: any;
-    /// The output data file format.(CSV/XLS/HTML/MHTML/ODS/PDF/XML/TXT/TIFF/XLSB/XLSM/XLSX/XLTM/XLTX/XPS/PNG/JPG/JPEG/GIF/EMF/BMP/MD[Markdown]/Numbers)  
+    /// The output data file format.(CSV/XLS/HTML/MHTML/ODS/PDF/XML/TXT/TIFF/XLSB/XLSM/XLSX/XLTM/XLTX/XPS/PNG/JPG/JPEG/GIF/EMF/BMP/MD[Markdown]/Numbers)
     public outFormat: string;
-    /// The password needed to open an Excel file.  
+    /// The password needed to open an Excel file.
     public password: string;
-    /// Whether check restriction of excel file when user modify cells related objects.  
+    /// Whether check restriction of excel file when user modify cells related objects.
     public checkExcelRestriction: boolean;
-    /// The regional settings for workbook.  
+    /// The regional settings for workbook.
     public region: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostImportRequest >) {  
+    public constructor(init?: Partial< PostImportRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -29505,8 +29938,16 @@ export class PostImportRequest  {
             }
         }
         if (this.file !== undefined) {
-            for (var key in this.file){
-                formParams[key] = this.file[key];
+            if (typeof this.file === 'string') {
+                if (fs.existsSync(this.file)) {
+                   const fileName = path.basename( this.file)
+                   formParams[fileName] = fs.createReadStream(this.file)
+               }
+            }
+            else  if (this.file instanceof Map ) {
+                for (var key in this.file){
+                    formParams[key] = this.file[key];
+                }
             }
         }
 
@@ -29520,46 +29961,46 @@ export class PostImportRequest  {
             json: true,
         };
 
-        (requestOptions as any).formData = formParams;        
+        (requestOptions as any).formData = formParams;
         return Promise.resolve(requestOptions);
 
     }
 
 }
-/// Add Text Watermark to Excel files and generate output files in various formats.   
+/// Add Text Watermark to Excel files and generate output files in various formats.
 export class PostWatermarkRequest  {
-    /// File to upload  
+    /// File to upload
     public file: any;
-    /// background text.  
+    /// background text.
     public text: string;
-    /// e.g. #1032ff  
+    /// e.g. #1032ff
     public color: string;
-    /// The output data file format.(CSV/XLS/HTML/MHTML/ODS/PDF/XML/TXT/TIFF/XLSB/XLSM/XLSX/XLTM/XLTX/XPS/PNG/JPG/JPEG/GIF/EMF/BMP/MD[Markdown]/Numbers)  
+    /// The output data file format.(CSV/XLS/HTML/MHTML/ODS/PDF/XML/TXT/TIFF/XLSB/XLSM/XLSX/XLTM/XLTX/XPS/PNG/JPG/JPEG/GIF/EMF/BMP/MD[Markdown]/Numbers)
     public outFormat: string;
-    /// The password needed to open an Excel file.  
+    /// The password needed to open an Excel file.
     public password: string;
-    /// Whether check restriction of excel file when user modify cells related objects.  
+    /// Whether check restriction of excel file when user modify cells related objects.
     public checkExcelRestriction: boolean;
-    /// The regional settings for workbook.  
+    /// The regional settings for workbook.
     public region: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostWatermarkRequest >) {  
+    public constructor(init?: Partial< PostWatermarkRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/watermark";
         const queryParameters: any = {};
         const formParams: any = {};
-        /// background text. 
+        /// background text.
         // verify required parameter 'text' is not null or undefined
         if (this.text === null || this.text === undefined) {
             throw new Error('Required parameter "text" was null or undefined when calling PostWatermark.');
         }
-        /// e.g. #1032ff 
+        /// e.g. #1032ff
         // verify required parameter 'color' is not null or undefined
         if (this.color === null || this.color === undefined) {
             throw new Error('Required parameter "color" was null or undefined when calling PostWatermark.');
@@ -29576,8 +30017,16 @@ export class PostWatermarkRequest  {
             }
         }
         if (this.file !== undefined) {
-            for (var key in this.file){
-                formParams[key] = this.file[key];
+            if (typeof this.file === 'string') {
+                if (fs.existsSync(this.file)) {
+                   const fileName = path.basename( this.file)
+                   formParams[fileName] = fs.createReadStream(this.file)
+               }
+            }
+            else  if (this.file instanceof Map ) {
+                for (var key in this.file){
+                    formParams[key] = this.file[key];
+                }
             }
         }
 
@@ -29591,41 +30040,41 @@ export class PostWatermarkRequest  {
             json: true,
         };
 
-        (requestOptions as any).formData = formParams;        
+        (requestOptions as any).formData = formParams;
         return Promise.resolve(requestOptions);
 
     }
 
 }
-/// Clear internal elements in Excel files and generate output files in various formats.   
+/// Clear internal elements in Excel files and generate output files in various formats.
 export class PostClearObjectsRequest  {
-    /// File to upload  
+    /// File to upload
     public file: any;
-    /// chart/comment/picture/shape/listobject/hyperlink/oleobject/pivottable/validation/Background  
+    /// chart/comment/picture/shape/listobject/hyperlink/oleobject/pivottable/validation/Background
     public objecttype: string;
-    /// The worksheet name, specify the scope of the deletion.  
+    /// The worksheet name, specify the scope of the deletion.
     public sheetname: string;
-    /// The output data file format.(CSV/XLS/HTML/MHTML/ODS/PDF/XML/TXT/TIFF/XLSB/XLSM/XLSX/XLTM/XLTX/XPS/PNG/JPG/JPEG/GIF/EMF/BMP/MD[Markdown]/Numbers)  
+    /// The output data file format.(CSV/XLS/HTML/MHTML/ODS/PDF/XML/TXT/TIFF/XLSB/XLSM/XLSX/XLTM/XLTX/XPS/PNG/JPG/JPEG/GIF/EMF/BMP/MD[Markdown]/Numbers)
     public outFormat: string;
-    /// The password needed to open an Excel file.  
+    /// The password needed to open an Excel file.
     public password: string;
-    /// Whether check restriction of excel file when user modify cells related objects.  
+    /// Whether check restriction of excel file when user modify cells related objects.
     public checkExcelRestriction: boolean;
-    /// The regional settings for workbook.  
+    /// The regional settings for workbook.
     public region: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostClearObjectsRequest >) {  
+    public constructor(init?: Partial< PostClearObjectsRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/clearobjects";
         const queryParameters: any = {};
         const formParams: any = {};
-        /// chart/comment/picture/shape/listobject/hyperlink/oleobject/pivottable/validation/Background 
+        /// chart/comment/picture/shape/listobject/hyperlink/oleobject/pivottable/validation/Background
         // verify required parameter 'objecttype' is not null or undefined
         if (this.objecttype === null || this.objecttype === undefined) {
             throw new Error('Required parameter "objecttype" was null or undefined when calling PostClearObjects.');
@@ -29642,8 +30091,16 @@ export class PostClearObjectsRequest  {
             }
         }
         if (this.file !== undefined) {
-            for (var key in this.file){
-                formParams[key] = this.file[key];
+            if (typeof this.file === 'string') {
+                if (fs.existsSync(this.file)) {
+                   const fileName = path.basename( this.file)
+                   formParams[fileName] = fs.createReadStream(this.file)
+               }
+            }
+            else  if (this.file instanceof Map ) {
+                for (var key in this.file){
+                    formParams[key] = this.file[key];
+                }
             }
         }
 
@@ -29657,39 +30114,39 @@ export class PostClearObjectsRequest  {
             json: true,
         };
 
-        (requestOptions as any).formData = formParams;        
+        (requestOptions as any).formData = formParams;
         return Promise.resolve(requestOptions);
 
     }
 
 }
-/// Reverse rows or columns in Excel files and create output files in various formats.   
+/// Reverse rows or columns in Excel files and create output files in various formats.
 export class PostReverseRequest  {
-    /// File to upload  
+    /// File to upload
     public file: any;
-    /// rows/cols/both  
+    /// rows/cols/both
     public rotateType: string;
-    /// The output data file format.(CSV/XLS/HTML/MHTML/ODS/PDF/XML/TXT/TIFF/XLSB/XLSM/XLSX/XLTM/XLTX/XPS/PNG/JPG/JPEG/GIF/EMF/BMP/MD[Markdown]/Numbers)  
+    /// The output data file format.(CSV/XLS/HTML/MHTML/ODS/PDF/XML/TXT/TIFF/XLSB/XLSM/XLSX/XLTM/XLTX/XPS/PNG/JPG/JPEG/GIF/EMF/BMP/MD[Markdown]/Numbers)
     public outFormat: string;
-    /// The password needed to open an Excel file.  
+    /// The password needed to open an Excel file.
     public password: string;
-    /// Whether check restriction of excel file when user modify cells related objects.  
+    /// Whether check restriction of excel file when user modify cells related objects.
     public checkExcelRestriction: boolean;
-    /// The regional settings for workbook.  
+    /// The regional settings for workbook.
     public region: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostReverseRequest >) {  
+    public constructor(init?: Partial< PostReverseRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/reverse";
         const queryParameters: any = {};
         const formParams: any = {};
-        /// rows/cols/both 
+        /// rows/cols/both
         // verify required parameter 'rotateType' is not null or undefined
         if (this.rotateType === null || this.rotateType === undefined) {
             throw new Error('Required parameter "rotateType" was null or undefined when calling PostReverse.');
@@ -29705,8 +30162,16 @@ export class PostReverseRequest  {
             }
         }
         if (this.file !== undefined) {
-            for (var key in this.file){
-                formParams[key] = this.file[key];
+            if (typeof this.file === 'string') {
+                if (fs.existsSync(this.file)) {
+                   const fileName = path.basename( this.file)
+                   formParams[fileName] = fs.createReadStream(this.file)
+               }
+            }
+            else  if (this.file instanceof Map ) {
+                for (var key in this.file){
+                    formParams[key] = this.file[key];
+                }
             }
         }
 
@@ -29720,24 +30185,24 @@ export class PostReverseRequest  {
             json: true,
         };
 
-        (requestOptions as any).formData = formParams;        
+        (requestOptions as any).formData = formParams;
         return Promise.resolve(requestOptions);
 
     }
 
 }
-/// Repair abnormal files and generate files in various formats.   
+/// Repair abnormal files and generate files in various formats.
 export class PostRepairRequest  {
-    /// File to upload  
+    /// File to upload
     public file: any;
-    /// The output data file format.(CSV/XLS/HTML/MHTML/ODS/PDF/XML/TXT/TIFF/XLSB/XLSM/XLSX/XLTM/XLTX/XPS/PNG/JPG/JPEG/GIF/EMF/BMP/MD[Markdown]/Numbers)  
+    /// The output data file format.(CSV/XLS/HTML/MHTML/ODS/PDF/XML/TXT/TIFF/XLSB/XLSM/XLSX/XLTM/XLTX/XPS/PNG/JPG/JPEG/GIF/EMF/BMP/MD[Markdown]/Numbers)
     public outFormat: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostRepairRequest >) {  
+    public constructor(init?: Partial< PostRepairRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -29751,8 +30216,16 @@ export class PostRepairRequest  {
             }
         }
         if (this.file !== undefined) {
-            for (var key in this.file){
-                formParams[key] = this.file[key];
+            if (typeof this.file === 'string') {
+                if (fs.existsSync(this.file)) {
+                   const fileName = path.basename( this.file)
+                   formParams[fileName] = fs.createReadStream(this.file)
+               }
+            }
+            else  if (this.file instanceof Map ) {
+                for (var key in this.file){
+                    formParams[key] = this.file[key];
+                }
             }
         }
 
@@ -29766,39 +30239,39 @@ export class PostRepairRequest  {
             json: true,
         };
 
-        (requestOptions as any).formData = formParams;        
+        (requestOptions as any).formData = formParams;
         return Promise.resolve(requestOptions);
 
     }
 
 }
-/// Rotate rows, columns, or other objects in Excel files and save them in various formats.   
+/// Rotate rows, columns, or other objects in Excel files and save them in various formats.
 export class PostRotateRequest  {
-    /// File to upload  
+    /// File to upload
     public file: any;
-    /// 270/90/row/col/row2col  
+    /// 270/90/row/col/row2col
     public rotateType: string;
-    /// The output data file format.(CSV/XLS/HTML/MHTML/ODS/PDF/XML/TXT/TIFF/XLSB/XLSM/XLSX/XLTM/XLTX/XPS/PNG/JPG/JPEG/GIF/EMF/BMP/MD[Markdown]/Numbers)  
+    /// The output data file format.(CSV/XLS/HTML/MHTML/ODS/PDF/XML/TXT/TIFF/XLSB/XLSM/XLSX/XLTM/XLTX/XPS/PNG/JPG/JPEG/GIF/EMF/BMP/MD[Markdown]/Numbers)
     public outFormat: string;
-    /// The password needed to open an Excel file.  
+    /// The password needed to open an Excel file.
     public password: string;
-    /// Whether check restriction of excel file when user modify cells related objects.  
+    /// Whether check restriction of excel file when user modify cells related objects.
     public checkExcelRestriction: boolean;
-    /// The regional settings for workbook.  
+    /// The regional settings for workbook.
     public region: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostRotateRequest >) {  
+    public constructor(init?: Partial< PostRotateRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/rotate";
         const queryParameters: any = {};
         const formParams: any = {};
-        /// 270/90/row/col/row2col 
+        /// 270/90/row/col/row2col
         // verify required parameter 'rotateType' is not null or undefined
         if (this.rotateType === null || this.rotateType === undefined) {
             throw new Error('Required parameter "rotateType" was null or undefined when calling PostRotate.');
@@ -29814,8 +30287,16 @@ export class PostRotateRequest  {
             }
         }
         if (this.file !== undefined) {
-            for (var key in this.file){
-                formParams[key] = this.file[key];
+            if (typeof this.file === 'string') {
+                if (fs.existsSync(this.file)) {
+                   const fileName = path.basename( this.file)
+                   formParams[fileName] = fs.createReadStream(this.file)
+               }
+            }
+            else  if (this.file instanceof Map ) {
+                for (var key in this.file){
+                    formParams[key] = this.file[key];
+                }
             }
         }
 
@@ -29829,32 +30310,32 @@ export class PostRotateRequest  {
             json: true,
         };
 
-        (requestOptions as any).formData = formParams;        
+        (requestOptions as any).formData = formParams;
         return Promise.resolve(requestOptions);
 
     }
 
 }
-/// Update document properties in Excel file, and save them is various formats.   
+/// Update document properties in Excel file, and save them is various formats.
 export class PostMetadataRequest  {
-    /// File to upload  
+    /// File to upload
     public file: any;
-    /// document properties  
+    /// document properties
     public cellsDocuments: Array<CellsDocumentProperty>;
-    /// The password needed to open an Excel file.  
+    /// The password needed to open an Excel file.
     public password: string;
-    /// Whether check restriction of excel file when user modify cells related objects.  
+    /// Whether check restriction of excel file when user modify cells related objects.
     public checkExcelRestriction: boolean;
-    /// The output data file format.(CSV/XLS/HTML/MHTML/ODS/PDF/XML/TXT/TIFF/XLSB/XLSM/XLSX/XLTM/XLTX/XPS/PNG/JPG/JPEG/GIF/EMF/BMP/MD[Markdown]/Numbers)  
+    /// The output data file format.(CSV/XLS/HTML/MHTML/ODS/PDF/XML/TXT/TIFF/XLSB/XLSM/XLSX/XLTM/XLTX/XPS/PNG/JPG/JPEG/GIF/EMF/BMP/MD[Markdown]/Numbers)
     public outFormat: string;
-    /// The regional settings for workbook.  
+    /// The regional settings for workbook.
     public region: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostMetadataRequest >) {  
+    public constructor(init?: Partial< PostMetadataRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -29871,14 +30352,22 @@ export class PostMetadataRequest  {
             }
         }
         if (this.file !== undefined) {
-            for (var key in this.file){
-                formParams[key] = this.file[key];
+            if (typeof this.file === 'string') {
+                if (fs.existsSync(this.file)) {
+                   const fileName = path.basename( this.file)
+                   formParams[fileName] = fs.createReadStream(this.file)
+               }
+            }
+            else  if (this.file instanceof Map ) {
+                for (var key in this.file){
+                    formParams[key] = this.file[key];
+                }
             }
         }
 
 
         const bodyParameter = (this.cellsDocuments == null) ? null :  JSON.stringify(this.cellsDocuments);
-        formParams["cellsDocuments"] = bodyParameter;    
+        formParams["cellsDocuments"] = bodyParameter;
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -29886,28 +30375,28 @@ export class PostMetadataRequest  {
             json: true,
         };
 
-        (requestOptions as any).formData = formParams;        
+        (requestOptions as any).formData = formParams;
         return Promise.resolve(requestOptions);
 
     }
 
 }
-/// Get cells document properties.   
+/// Get cells document properties.
 export class GetMetadataRequest  {
-    /// File to upload  
+    /// File to upload
     public file: any;
-    /// Cells document property name.  
+    /// Cells document property name.
     public type: string;
-    /// The password needed to open an Excel file.  
+    /// The password needed to open an Excel file.
     public password: string;
-    /// Whether check restriction of excel file when user modify cells related objects.  
+    /// Whether check restriction of excel file when user modify cells related objects.
     public checkExcelRestriction: boolean;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< GetMetadataRequest >) {  
+    public constructor(init?: Partial< GetMetadataRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -29923,8 +30412,16 @@ export class GetMetadataRequest  {
             }
         }
         if (this.file !== undefined) {
-            for (var key in this.file){
-                formParams[key] = this.file[key];
+            if (typeof this.file === 'string') {
+                if (fs.existsSync(this.file)) {
+                   const fileName = path.basename( this.file)
+                   formParams[fileName] = fs.createReadStream(this.file)
+               }
+            }
+            else  if (this.file instanceof Map ) {
+                for (var key in this.file){
+                    formParams[key] = this.file[key];
+                }
             }
         }
 
@@ -29938,30 +30435,30 @@ export class GetMetadataRequest  {
             json: true,
         };
 
-        (requestOptions as any).formData = formParams;        
+        (requestOptions as any).formData = formParams;
         return Promise.resolve(requestOptions);
 
     }
 
 }
-/// Delete cells document properties in Excel file, and save them is various formats.   
+/// Delete cells document properties in Excel file, and save them is various formats.
 export class DeleteMetadataRequest  {
-    /// File to upload  
+    /// File to upload
     public file: any;
-    /// Cells document property name.  
+    /// Cells document property name.
     public type: string;
-    /// The output data file format.(CSV/XLS/HTML/MHTML/ODS/PDF/XML/TXT/TIFF/XLSB/XLSM/XLSX/XLTM/XLTX/XPS/PNG/JPG/JPEG/GIF/EMF/BMP/MD[Markdown]/Numbers)  
+    /// The output data file format.(CSV/XLS/HTML/MHTML/ODS/PDF/XML/TXT/TIFF/XLSB/XLSM/XLSX/XLTM/XLTX/XPS/PNG/JPG/JPEG/GIF/EMF/BMP/MD[Markdown]/Numbers)
     public outFormat: string;
-    /// The password needed to open an Excel file.  
+    /// The password needed to open an Excel file.
     public password: string;
-    /// Whether check restriction of excel file when user modify cells related objects.  
+    /// Whether check restriction of excel file when user modify cells related objects.
     public checkExcelRestriction: boolean;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< DeleteMetadataRequest >) {  
+    public constructor(init?: Partial< DeleteMetadataRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -29978,8 +30475,16 @@ export class DeleteMetadataRequest  {
             }
         }
         if (this.file !== undefined) {
-            for (var key in this.file){
-                formParams[key] = this.file[key];
+            if (typeof this.file === 'string') {
+                if (fs.existsSync(this.file)) {
+                   const fileName = path.basename( this.file)
+                   formParams[fileName] = fs.createReadStream(this.file)
+               }
+            }
+            else  if (this.file instanceof Map ) {
+                for (var key in this.file){
+                    formParams[key] = this.file[key];
+                }
             }
         }
 
@@ -29993,28 +30498,28 @@ export class DeleteMetadataRequest  {
             json: true,
         };
 
-        (requestOptions as any).formData = formParams;        
+        (requestOptions as any).formData = formParams;
         return Promise.resolve(requestOptions);
 
     }
 
 }
-/// Retrieve descriptions of ListObjects in the worksheet.   
+/// Retrieve descriptions of ListObjects in the worksheet.
 export class GetWorksheetListObjectsRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< GetWorksheetListObjectsRequest >) {  
+    public constructor(init?: Partial< GetWorksheetListObjectsRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -30043,26 +30548,26 @@ export class GetWorksheetListObjectsRequest  {
     }
 
 }
-/// Retrieve list object description by index in the worksheet.   
+/// Retrieve list object description by index in the worksheet.
 export class GetWorksheetListObjectRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// list object index.  
+    /// list object index.
     public listobjectindex: number;
-      
+
     public format: string;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< GetWorksheetListObjectRequest >) {  
+    public constructor(init?: Partial< GetWorksheetListObjectRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -30092,36 +30597,36 @@ export class GetWorksheetListObjectRequest  {
     }
 
 }
-/// Add a ListObject in the worksheet.   
+/// Add a ListObject in the worksheet.
 export class PutWorksheetListObjectRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The start row of the list range.  
+    /// The start row of the list range.
     public startRow: number;
-    /// The start column of the list range.  
+    /// The start column of the list range.
     public startColumn: number;
-    /// The start row of the list range.  
+    /// The start row of the list range.
     public endRow: number;
-    /// The start column of the list range.  
+    /// The start column of the list range.
     public endColumn: number;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// Indicate whether the range has headers.  
+    /// Indicate whether the range has headers.
     public hasHeaders: boolean;
-    /// Indicate whether display name.  
+    /// Indicate whether display name.
     public displayName: string;
-    /// Indicate whether show totals.  
+    /// Indicate whether show totals.
     public showTotals: boolean;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PutWorksheetListObjectRequest >) {  
+    public constructor(init?: Partial< PutWorksheetListObjectRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -30157,22 +30662,22 @@ export class PutWorksheetListObjectRequest  {
     }
 
 }
-/// Delete ListObjects in the worksheet.   
+/// Delete ListObjects in the worksheet.
 export class DeleteWorksheetListObjectsRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< DeleteWorksheetListObjectsRequest >) {  
+    public constructor(init?: Partial< DeleteWorksheetListObjectsRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -30201,24 +30706,24 @@ export class DeleteWorksheetListObjectsRequest  {
     }
 
 }
-/// Delete list object by index in the worksheet.   
+/// Delete list object by index in the worksheet.
 export class DeleteWorksheetListObjectRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// List object index.  
+    /// List object index.
     public listObjectIndex: number;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< DeleteWorksheetListObjectRequest >) {  
+    public constructor(init?: Partial< DeleteWorksheetListObjectRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -30247,26 +30752,26 @@ export class DeleteWorksheetListObjectRequest  {
     }
 
 }
-/// Update list object by index in the worksheet.   
+/// Update list object by index in the worksheet.
 export class PostWorksheetListObjectRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// list Object index  
+    /// list Object index
     public listObjectIndex: number;
-    /// listObject dto in request body.  
+    /// listObject dto in request body.
     public listObject: ListObject;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostWorksheetListObjectRequest >) {  
+    public constructor(init?: Partial< PostWorksheetListObjectRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -30295,24 +30800,24 @@ export class PostWorksheetListObjectRequest  {
     }
 
 }
-/// Convert list object to range in the worksheet.   
+/// Convert list object to range in the worksheet.
 export class PostWorksheetListObjectConvertToRangeRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// List object index.  
+    /// List object index.
     public listObjectIndex: number;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostWorksheetListObjectConvertToRangeRequest >) {  
+    public constructor(init?: Partial< PostWorksheetListObjectConvertToRangeRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -30341,34 +30846,34 @@ export class PostWorksheetListObjectConvertToRangeRequest  {
     }
 
 }
-/// Create a pivot table with a list object in the worksheet.   
+/// Create a pivot table with a list object in the worksheet.
 export class PostWorksheetListObjectSummarizeWithPivotTableRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The list object index.  
+    /// The list object index.
     public listObjectIndex: number;
-    /// The target worksheet name.  
+    /// The target worksheet name.
     public destsheetName: string;
-    /// Create pivot table request.  
+    /// Create pivot table request.
     public createPivotTableRequest: CreatePivotTableRequest;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostWorksheetListObjectSummarizeWithPivotTableRequest >) {  
+    public constructor(init?: Partial< PostWorksheetListObjectSummarizeWithPivotTableRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/listobjects/{listObjectIndex}/SummarizeWithPivotTable".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "listObjectIndex" + "}", String(this.listObjectIndex));
         const queryParameters: any = {};
-        /// The target worksheet name. 
+        /// The target worksheet name.
         // verify required parameter 'destsheetName' is not null or undefined
         if (this.destsheetName === null || this.destsheetName === undefined) {
             throw new Error('Required parameter "destsheetName" was null or undefined when calling PostWorksheetListObjectSummarizeWithPivotTable.');
@@ -30397,26 +30902,26 @@ export class PostWorksheetListObjectSummarizeWithPivotTableRequest  {
     }
 
 }
-/// Sort list object in the worksheet.   
+/// Sort list object in the worksheet.
 export class PostWorksheetListObjectSortTableRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The list object index.  
+    /// The list object index.
     public listObjectIndex: number;
-    /// Represents sort order for the data range.  
+    /// Represents sort order for the data range.
     public dataSorter: DataSorter;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostWorksheetListObjectSortTableRequest >) {  
+    public constructor(init?: Partial< PostWorksheetListObjectSortTableRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -30445,24 +30950,24 @@ export class PostWorksheetListObjectSortTableRequest  {
     }
 
 }
-/// Remove duplicates in list object.   
+/// Remove duplicates in list object.
 export class PostWorksheetListObjectRemoveDuplicatesRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The list object index.  
+    /// The list object index.
     public listObjectIndex: number;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostWorksheetListObjectRemoveDuplicatesRequest >) {  
+    public constructor(init?: Partial< PostWorksheetListObjectRemoveDuplicatesRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -30491,39 +30996,39 @@ export class PostWorksheetListObjectRemoveDuplicatesRequest  {
     }
 
 }
-/// Insert slicer for list object.   
+/// Insert slicer for list object.
 export class PostWorksheetListObjectInsertSlicerRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// List object index.  
+    /// List object index.
     public listObjectIndex: number;
-    /// The index of ListColumn in ListObject.ListColumns   
+    /// The index of ListColumn in ListObject.ListColumns
     public columnIndex: number;
-    /// The cell in the upper-left corner of the Slicer range.   
+    /// The cell in the upper-left corner of the Slicer range.
     public destCellName: string;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostWorksheetListObjectInsertSlicerRequest >) {  
+    public constructor(init?: Partial< PostWorksheetListObjectInsertSlicerRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/listobjects/{listObjectIndex}/InsertSlicer".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "listObjectIndex" + "}", String(this.listObjectIndex));
         const queryParameters: any = {};
-        /// The index of ListColumn in ListObject.ListColumns  
+        /// The index of ListColumn in ListObject.ListColumns
         // verify required parameter 'columnIndex' is not null or undefined
         if (this.columnIndex === null || this.columnIndex === undefined) {
             throw new Error('Required parameter "columnIndex" was null or undefined when calling PostWorksheetListObjectInsertSlicer.');
         }
-        /// The cell in the upper-left corner of the Slicer range.  
+        /// The cell in the upper-left corner of the Slicer range.
         // verify required parameter 'destCellName' is not null or undefined
         if (this.destCellName === null || this.destCellName === undefined) {
             throw new Error('Required parameter "destCellName" was null or undefined when calling PostWorksheetListObjectInsertSlicer.');
@@ -30553,28 +31058,28 @@ export class PostWorksheetListObjectInsertSlicerRequest  {
     }
 
 }
-/// Update list column in list object.   
+/// Update list column in list object.
 export class PostWorksheetListColumnRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The list object index.  
+    /// The list object index.
     public listObjectIndex: number;
-    /// Represents table column index.  
+    /// Represents table column index.
     public columnIndex: number;
-    /// Represents table column description.  
+    /// Represents table column description.
     public listColumn: ListColumn;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostWorksheetListColumnRequest >) {  
+    public constructor(init?: Partial< PostWorksheetListColumnRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -30603,26 +31108,26 @@ export class PostWorksheetListColumnRequest  {
     }
 
 }
-/// Update total of list columns in the table.   
+/// Update total of list columns in the table.
 export class PostWorksheetListColumnsTotalRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// List object index.  
+    /// List object index.
     public listObjectIndex: number;
-    /// Represents table column description.  
+    /// Represents table column description.
     public tableTotalRequests: Array<TableTotalRequest>;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostWorksheetListColumnsTotalRequest >) {  
+    public constructor(init?: Partial< PostWorksheetListColumnsTotalRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -30651,22 +31156,22 @@ export class PostWorksheetListColumnsTotalRequest  {
     }
 
 }
-/// Retrieve descriptions of OLE objects in the worksheet.   
+/// Retrieve descriptions of OLE objects in the worksheet.
 export class GetWorksheetOleObjectsRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< GetWorksheetOleObjectsRequest >) {  
+    public constructor(init?: Partial< GetWorksheetOleObjectsRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -30695,26 +31200,26 @@ export class GetWorksheetOleObjectsRequest  {
     }
 
 }
-/// Retrieve the OLE object in a specified format in the worksheet.   
+/// Retrieve the OLE object in a specified format in the worksheet.
 export class GetWorksheetOleObjectRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The object number.  
+    /// The object number.
     public objectNumber: number;
-    /// Object conversion format(PNG/TIFF/JPEG/GIF/EMF/BMP).  
+    /// Object conversion format(PNG/TIFF/JPEG/GIF/EMF/BMP).
     public format: string;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< GetWorksheetOleObjectRequest >) {  
+    public constructor(init?: Partial< GetWorksheetOleObjectRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -30744,22 +31249,22 @@ export class GetWorksheetOleObjectRequest  {
     }
 
 }
-/// Delete all OLE objects in the worksheet.   
+/// Delete all OLE objects in the worksheet.
 export class DeleteWorksheetOleObjectsRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worsheet name.  
+    /// The worsheet name.
     public sheetName: string;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< DeleteWorksheetOleObjectsRequest >) {  
+    public constructor(init?: Partial< DeleteWorksheetOleObjectsRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -30788,24 +31293,24 @@ export class DeleteWorksheetOleObjectsRequest  {
     }
 
 }
-/// Delete an OLE object in the worksheet.   
+/// Delete an OLE object in the worksheet.
 export class DeleteWorksheetOleObjectRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worsheet name.  
+    /// The worsheet name.
     public sheetName: string;
-    /// Ole object index.  
+    /// Ole object index.
     public oleObjectIndex: number;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< DeleteWorksheetOleObjectRequest >) {  
+    public constructor(init?: Partial< DeleteWorksheetOleObjectRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -30834,26 +31339,26 @@ export class DeleteWorksheetOleObjectRequest  {
     }
 
 }
-/// Update an OLE object in worksheet.   
+/// Update an OLE object in worksheet.
 export class PostUpdateWorksheetOleObjectRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worsheet name.  
+    /// The worsheet name.
     public sheetName: string;
-    /// Ole object index.  
+    /// Ole object index.
     public oleObjectIndex: number;
-    /// Ole Object description.  
+    /// Ole Object description.
     public ole: OleObject;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostUpdateWorksheetOleObjectRequest >) {  
+    public constructor(init?: Partial< PostUpdateWorksheetOleObjectRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -30882,34 +31387,34 @@ export class PostUpdateWorksheetOleObjectRequest  {
     }
 
 }
-/// Add an OLE object in the worksheet.   
+/// Add an OLE object in the worksheet.
 export class PutWorksheetOleObjectRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worsheet name.  
+    /// The worsheet name.
     public sheetName: string;
-    /// Upper left row index  
+    /// Upper left row index
     public upperLeftRow: number;
-    /// Upper left column index  
+    /// Upper left column index
     public upperLeftColumn: number;
-    /// Height of oleObject, in unit of pixel  
+    /// Height of oleObject, in unit of pixel
     public height: number;
-    /// Width of oleObject, in unit of pixel  
+    /// Width of oleObject, in unit of pixel
     public width: number;
-    /// OLE filename path(full file name).  
+    /// OLE filename path(full file name).
     public oleFile: string;
-    /// Image filename path(full file name).  
+    /// Image filename path(full file name).
     public imageFile: string;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PutWorksheetOleObjectRequest >) {  
+    public constructor(init?: Partial< PutWorksheetOleObjectRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -30944,22 +31449,22 @@ export class PutWorksheetOleObjectRequest  {
     }
 
 }
-/// Retrieve descriptions of vertical page breaks in the worksheet.   
+/// Retrieve descriptions of vertical page breaks in the worksheet.
 export class GetVerticalPageBreaksRequest  {
-    /// The workbook name.  
+    /// The workbook name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< GetVerticalPageBreaksRequest >) {  
+    public constructor(init?: Partial< GetVerticalPageBreaksRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -30988,22 +31493,22 @@ export class GetVerticalPageBreaksRequest  {
     }
 
 }
-/// Retrieve descriptions of horizontal page breaks in the worksheet.   
+/// Retrieve descriptions of horizontal page breaks in the worksheet.
 export class GetHorizontalPageBreaksRequest  {
-    /// The workbook name.  
+    /// The workbook name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< GetHorizontalPageBreaksRequest >) {  
+    public constructor(init?: Partial< GetHorizontalPageBreaksRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -31032,24 +31537,24 @@ export class GetHorizontalPageBreaksRequest  {
     }
 
 }
-/// Retrieve a vertical page break description in the worksheet.   
+/// Retrieve a vertical page break description in the worksheet.
 export class GetVerticalPageBreakRequest  {
-    /// The workbook name.  
+    /// The workbook name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The zero based index of the element.  
+    /// The zero based index of the element.
     public index: number;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< GetVerticalPageBreakRequest >) {  
+    public constructor(init?: Partial< GetVerticalPageBreakRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -31078,24 +31583,24 @@ export class GetVerticalPageBreakRequest  {
     }
 
 }
-/// Retrieve a horizontal page break descripton in the worksheet.   
+/// Retrieve a horizontal page break descripton in the worksheet.
 export class GetHorizontalPageBreakRequest  {
-    /// The workbook name.  
+    /// The workbook name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The zero based index of the element.  
+    /// The zero based index of the element.
     public index: number;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< GetHorizontalPageBreakRequest >) {  
+    public constructor(init?: Partial< GetHorizontalPageBreakRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -31124,32 +31629,32 @@ export class GetHorizontalPageBreakRequest  {
     }
 
 }
-/// Add a vertical page break in the worksheet.   
+/// Add a vertical page break in the worksheet.
 export class PutVerticalPageBreakRequest  {
-    /// The workbook name.  
+    /// The workbook name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// Cell name  
+    /// Cell name
     public cellname: string;
-    /// Column index, zero based.  
+    /// Column index, zero based.
     public column: number;
-    /// Row index, zero based.  
+    /// Row index, zero based.
     public row: number;
-    /// Start row index, zero based.  
+    /// Start row index, zero based.
     public startRow: number;
-    /// End row index, zero based.  
+    /// End row index, zero based.
     public endRow: number;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PutVerticalPageBreakRequest >) {  
+    public constructor(init?: Partial< PutVerticalPageBreakRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -31183,32 +31688,32 @@ export class PutVerticalPageBreakRequest  {
     }
 
 }
-/// Add a horizontal page breaks in the worksheet.   
+/// Add a horizontal page breaks in the worksheet.
 export class PutHorizontalPageBreakRequest  {
-    /// The workbook name.  
+    /// The workbook name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// Cell name  
+    /// Cell name
     public cellname: string;
-    /// Row index, zero based.  
+    /// Row index, zero based.
     public row: number;
-    /// Column index, zero based.  
+    /// Column index, zero based.
     public column: number;
-    /// Start column index, zero based.  
+    /// Start column index, zero based.
     public startColumn: number;
-    /// End column index, zero based.  
+    /// End column index, zero based.
     public endColumn: number;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PutHorizontalPageBreakRequest >) {  
+    public constructor(init?: Partial< PutHorizontalPageBreakRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -31242,24 +31747,24 @@ export class PutHorizontalPageBreakRequest  {
     }
 
 }
-/// Delete vertical page breaks in the worksheet.   
+/// Delete vertical page breaks in the worksheet.
 export class DeleteVerticalPageBreaksRequest  {
-    /// The workbook name.  
+    /// The workbook name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// Column index, zero based.  
+    /// Column index, zero based.
     public column: number;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< DeleteVerticalPageBreaksRequest >) {  
+    public constructor(init?: Partial< DeleteVerticalPageBreaksRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -31289,24 +31794,24 @@ export class DeleteVerticalPageBreaksRequest  {
     }
 
 }
-/// Delete horizontal page breaks in the worksheet.   
+/// Delete horizontal page breaks in the worksheet.
 export class DeleteHorizontalPageBreaksRequest  {
-    /// The workbook name.  
+    /// The workbook name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// Row index, zero based.  
+    /// Row index, zero based.
     public row: number;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< DeleteHorizontalPageBreaksRequest >) {  
+    public constructor(init?: Partial< DeleteHorizontalPageBreaksRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -31336,24 +31841,24 @@ export class DeleteHorizontalPageBreaksRequest  {
     }
 
 }
-/// Delete a vertical page break in the worksheet.   
+/// Delete a vertical page break in the worksheet.
 export class DeleteVerticalPageBreakRequest  {
-    /// The workbook name.  
+    /// The workbook name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// Removes the vertical page break element at a specified name. Element index, zero based.  
+    /// Removes the vertical page break element at a specified name. Element index, zero based.
     public index: number;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< DeleteVerticalPageBreakRequest >) {  
+    public constructor(init?: Partial< DeleteVerticalPageBreakRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -31382,24 +31887,24 @@ export class DeleteVerticalPageBreakRequest  {
     }
 
 }
-/// Delete a horizontal page break in the worksheet.   
+/// Delete a horizontal page break in the worksheet.
 export class DeleteHorizontalPageBreakRequest  {
-    /// The workbook name.  
+    /// The workbook name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// Removes the horizontal page break element at a specified name. Element index, zero based.  
+    /// Removes the horizontal page break element at a specified name. Element index, zero based.
     public index: number;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< DeleteHorizontalPageBreakRequest >) {  
+    public constructor(init?: Partial< DeleteHorizontalPageBreakRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -31428,22 +31933,22 @@ export class DeleteHorizontalPageBreakRequest  {
     }
 
 }
-/// Retrieve page setup description in the worksheet.   
+/// Retrieve page setup description in the worksheet.
 export class GetPageSetupRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< GetPageSetupRequest >) {  
+    public constructor(init?: Partial< GetPageSetupRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -31472,24 +31977,24 @@ export class GetPageSetupRequest  {
     }
 
 }
-/// Update page setup in the worksheet.   
+/// Update page setup in the worksheet.
 export class PostPageSetupRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// PageSetup Page Setup description.  
+    /// PageSetup Page Setup description.
     public pageSetup: PageSetup;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostPageSetupRequest >) {  
+    public constructor(init?: Partial< PostPageSetupRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -31518,22 +32023,22 @@ export class PostPageSetupRequest  {
     }
 
 }
-/// Clear header and footer in the worksheet.   
+/// Clear header and footer in the worksheet.
 export class DeleteHeaderFooterRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< DeleteHeaderFooterRequest >) {  
+    public constructor(init?: Partial< DeleteHeaderFooterRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -31562,22 +32067,22 @@ export class DeleteHeaderFooterRequest  {
     }
 
 }
-/// Retrieve page header description in the worksheet.   
+/// Retrieve page header description in the worksheet.
 export class GetHeaderRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< GetHeaderRequest >) {  
+    public constructor(init?: Partial< GetHeaderRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -31606,44 +32111,44 @@ export class GetHeaderRequest  {
     }
 
 }
-/// Update page header in the worksheet.   
+/// Update page header in the worksheet.
 export class PostHeaderRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// 0:Left Section. 1:Center Section 2:Right Section  
+    /// 0:Left Section. 1:Center Section 2:Right Section
     public section: number;
-    /// Header format script.  
+    /// Header format script.
     public script: string;
-    /// Is first page(true/false).  
+    /// Is first page(true/false).
     public isFirstPage: boolean;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostHeaderRequest >) {  
+    public constructor(init?: Partial< PostHeaderRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/pagesetup/header".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
         const queryParameters: any = {};
-        /// 0:Left Section. 1:Center Section 2:Right Section 
+        /// 0:Left Section. 1:Center Section 2:Right Section
         // verify required parameter 'section' is not null or undefined
         if (this.section === null || this.section === undefined) {
             throw new Error('Required parameter "section" was null or undefined when calling PostHeader.');
         }
-        /// Header format script. 
+        /// Header format script.
         // verify required parameter 'script' is not null or undefined
         if (this.script === null || this.script === undefined) {
             throw new Error('Required parameter "script" was null or undefined when calling PostHeader.');
         }
-        /// Is first page(true/false). 
+        /// Is first page(true/false).
         // verify required parameter 'isFirstPage' is not null or undefined
         if (this.isFirstPage === null || this.isFirstPage === undefined) {
             throw new Error('Required parameter "isFirstPage" was null or undefined when calling PostHeader.');
@@ -31674,22 +32179,22 @@ export class PostHeaderRequest  {
     }
 
 }
-/// Retrieve page footer description in the worksheet.   
+/// Retrieve page footer description in the worksheet.
 export class GetFooterRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< GetFooterRequest >) {  
+    public constructor(init?: Partial< GetFooterRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -31718,44 +32223,44 @@ export class GetFooterRequest  {
     }
 
 }
-/// Update page footer in the worksheet.   
+/// Update page footer in the worksheet.
 export class PostFooterRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// 0:Left Section. 1:Center Section 2:Right Section  
+    /// 0:Left Section. 1:Center Section 2:Right Section
     public section: number;
-    /// Header format script.  
+    /// Header format script.
     public script: string;
-    /// Is first page(true/false).  
+    /// Is first page(true/false).
     public isFirstPage: boolean;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostFooterRequest >) {  
+    public constructor(init?: Partial< PostFooterRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/pagesetup/footer".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
         const queryParameters: any = {};
-        /// 0:Left Section. 1:Center Section 2:Right Section 
+        /// 0:Left Section. 1:Center Section 2:Right Section
         // verify required parameter 'section' is not null or undefined
         if (this.section === null || this.section === undefined) {
             throw new Error('Required parameter "section" was null or undefined when calling PostFooter.');
         }
-        /// Header format script. 
+        /// Header format script.
         // verify required parameter 'script' is not null or undefined
         if (this.script === null || this.script === undefined) {
             throw new Error('Required parameter "script" was null or undefined when calling PostFooter.');
         }
-        /// Is first page(true/false). 
+        /// Is first page(true/false).
         // verify required parameter 'isFirstPage' is not null or undefined
         if (this.isFirstPage === null || this.isFirstPage === undefined) {
             throw new Error('Required parameter "isFirstPage" was null or undefined when calling PostFooter.');
@@ -31786,22 +32291,22 @@ export class PostFooterRequest  {
     }
 
 }
-/// Set the scale at which the page will fit wide when printed on the sheet.   
+/// Set the scale at which the page will fit wide when printed on the sheet.
 export class PostFitWideToPagesRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostFitWideToPagesRequest >) {  
+    public constructor(init?: Partial< PostFitWideToPagesRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -31830,22 +32335,22 @@ export class PostFitWideToPagesRequest  {
     }
 
 }
-/// Set the scale at which the page will fit tall when printed on the sheet.   
+/// Set the scale at which the page will fit tall when printed on the sheet.
 export class PostFitTallToPagesRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostFitTallToPagesRequest >) {  
+    public constructor(init?: Partial< PostFitTallToPagesRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -31874,22 +32379,22 @@ export class PostFitTallToPagesRequest  {
     }
 
 }
-/// Retrieve descriptions of pictures in the worksheet.   
+/// Retrieve descriptions of pictures in the worksheet.
 export class GetWorksheetPicturesRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< GetWorksheetPicturesRequest >) {  
+    public constructor(init?: Partial< GetWorksheetPicturesRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -31918,32 +32423,32 @@ export class GetWorksheetPicturesRequest  {
     }
 
 }
-/// Retrieve a picture by number in the worksheet.   
+/// Retrieve a picture by number in the worksheet.
 export class GetWorksheetPictureWithFormatRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The picture index.  
+    /// The picture index.
     public pictureNumber: number;
-    /// Picture conversion format(PNG/TIFF/JPEG/GIF/EMF/BMP).  
+    /// Picture conversion format(PNG/TIFF/JPEG/GIF/EMF/BMP).
     public format: string;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< GetWorksheetPictureWithFormatRequest >) {  
+    public constructor(init?: Partial< GetWorksheetPictureWithFormatRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/pictures/{pictureNumber}".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "pictureNumber" + "}", String(this.pictureNumber));
         const queryParameters: any = {};
-        /// Picture conversion format(PNG/TIFF/JPEG/GIF/EMF/BMP). 
+        /// Picture conversion format(PNG/TIFF/JPEG/GIF/EMF/BMP).
         // verify required parameter 'format' is not null or undefined
         if (this.format === null || this.format === undefined) {
             throw new Error('Required parameter "format" was null or undefined when calling GetWorksheetPictureWithFormat.');
@@ -31972,34 +32477,34 @@ export class GetWorksheetPictureWithFormatRequest  {
     }
 
 }
-/// Add a new picture in the worksheet.   
+/// Add a new picture in the worksheet.
 export class PutWorksheetAddPictureRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worsheet name.  
+    /// The worsheet name.
     public sheetName: string;
-    /// Pictute object  
+    /// Pictute object
     public picture: Picture;
-    /// The image upper left row.  
+    /// The image upper left row.
     public upperLeftRow: number;
-    /// The image upper left column.  
+    /// The image upper left column.
     public upperLeftColumn: number;
-    /// The image low right row.  
+    /// The image low right row.
     public lowerRightRow: number;
-    /// The image low right column.  
+    /// The image low right column.
     public lowerRightColumn: number;
-    /// The picture path, if not provided the picture data is inspected in the request body.  
+    /// The picture path, if not provided the picture data is inspected in the request body.
     public picturePath: string;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PutWorksheetAddPictureRequest >) {  
+    public constructor(init?: Partial< PutWorksheetAddPictureRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -32033,37 +32538,37 @@ export class PutWorksheetAddPictureRequest  {
     }
 
 }
-/// add new picture in the cells.   
+/// add new picture in the cells.
 export class AddPictureInCellRequest  {
-      
+
     public name: string;
-      
+
     public sheetName: string;
-      
+
     public cellName: string;
-      
+
     public picturePath: string;
-      
+
     public folder: string;
-      
+
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< AddPictureInCellRequest >) {  
+    public constructor(init?: Partial< AddPictureInCellRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/pictures/addPictureInCell".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
         const queryParameters: any = {};
-         
+
         // verify required parameter 'cellName' is not null or undefined
         if (this.cellName === null || this.cellName === undefined) {
             throw new Error('Required parameter "cellName" was null or undefined when calling AddPictureInCell.');
         }
-         
+
         // verify required parameter 'picturePath' is not null or undefined
         if (this.picturePath === null || this.picturePath === undefined) {
             throw new Error('Required parameter "picturePath" was null or undefined when calling AddPictureInCell.');
@@ -32093,26 +32598,26 @@ export class AddPictureInCellRequest  {
     }
 
 }
-/// Update a picture by index in the worksheet.   
+/// Update a picture by index in the worksheet.
 export class PostWorksheetPictureRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The picture's index.  
+    /// The picture's index.
     public pictureIndex: number;
-    /// Picture object description.  
+    /// Picture object description.
     public picture: Picture;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostWorksheetPictureRequest >) {  
+    public constructor(init?: Partial< PostWorksheetPictureRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -32141,24 +32646,24 @@ export class PostWorksheetPictureRequest  {
     }
 
 }
-/// Delete a picture object by index in the worksheet.   
+/// Delete a picture object by index in the worksheet.
 export class DeleteWorksheetPictureRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worsheet name.  
+    /// The worsheet name.
     public sheetName: string;
-    /// Picture index.  
+    /// Picture index.
     public pictureIndex: number;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< DeleteWorksheetPictureRequest >) {  
+    public constructor(init?: Partial< DeleteWorksheetPictureRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -32187,22 +32692,22 @@ export class DeleteWorksheetPictureRequest  {
     }
 
 }
-/// Delete all pictures in the worksheet.   
+/// Delete all pictures in the worksheet.
 export class DeleteWorksheetPicturesRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< DeleteWorksheetPicturesRequest >) {  
+    public constructor(init?: Partial< DeleteWorksheetPicturesRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -32231,22 +32736,22 @@ export class DeleteWorksheetPicturesRequest  {
     }
 
 }
-/// Retrieve descriptions of pivottables  in the worksheet.   
+/// Retrieve descriptions of pivottables  in the worksheet.
 export class GetWorksheetPivotTablesRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< GetWorksheetPivotTablesRequest >) {  
+    public constructor(init?: Partial< GetWorksheetPivotTablesRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -32275,24 +32780,24 @@ export class GetWorksheetPivotTablesRequest  {
     }
 
 }
-/// Retrieve PivotTable information by index in the worksheet.   
+/// Retrieve PivotTable information by index in the worksheet.
 export class GetWorksheetPivotTableRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// Gets the PivotTable report by index.  
+    /// Gets the PivotTable report by index.
     public pivottableIndex: number;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< GetWorksheetPivotTableRequest >) {  
+    public constructor(init?: Partial< GetWorksheetPivotTableRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -32321,39 +32826,39 @@ export class GetWorksheetPivotTableRequest  {
     }
 
 }
-/// Retrieve descriptions of pivot fields in the PivotTable.   
+/// Retrieve descriptions of pivot fields in the PivotTable.
 export class GetPivotTableFieldRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The PivotTable index.  
+    /// The PivotTable index.
     public pivotTableIndex: number;
-    /// The pivot field index of PivotTable.  
+    /// The pivot field index of PivotTable.
     public pivotFieldIndex: number;
-    /// The field area type(column/row).  
+    /// The field area type(column/row).
     public pivotFieldType: string;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< GetPivotTableFieldRequest >) {  
+    public constructor(init?: Partial< GetPivotTableFieldRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/pivottables/{pivotTableIndex}/PivotField".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "pivotTableIndex" + "}", String(this.pivotTableIndex));
         const queryParameters: any = {};
-        /// The pivot field index of PivotTable. 
+        /// The pivot field index of PivotTable.
         // verify required parameter 'pivotFieldIndex' is not null or undefined
         if (this.pivotFieldIndex === null || this.pivotFieldIndex === undefined) {
             throw new Error('Required parameter "pivotFieldIndex" was null or undefined when calling GetPivotTableField.');
         }
-        /// The field area type(column/row). 
+        /// The field area type(column/row).
         // verify required parameter 'pivotFieldType' is not null or undefined
         if (this.pivotFieldType === null || this.pivotFieldType === undefined) {
             throw new Error('Required parameter "pivotFieldType" was null or undefined when calling GetPivotTableField.');
@@ -32383,24 +32888,24 @@ export class GetPivotTableFieldRequest  {
     }
 
 }
-/// Gets PivotTable filters in worksheet.   
+/// Gets PivotTable filters in worksheet.
 export class GetWorksheetPivotTableFiltersRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The PivotTable index.  
+    /// The PivotTable index.
     public pivotTableIndex: number;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< GetWorksheetPivotTableFiltersRequest >) {  
+    public constructor(init?: Partial< GetWorksheetPivotTableFiltersRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -32429,26 +32934,26 @@ export class GetWorksheetPivotTableFiltersRequest  {
     }
 
 }
-/// Retrieve PivotTable filters in the worksheet.   
+/// Retrieve PivotTable filters in the worksheet.
 export class GetWorksheetPivotTableFilterRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The PivotTable index in the worksheet.  
+    /// The PivotTable index in the worksheet.
     public pivotTableIndex: number;
-    /// The pivot filter index of PivotTable.  
+    /// The pivot filter index of PivotTable.
     public filterIndex: number;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< GetWorksheetPivotTableFilterRequest >) {  
+    public constructor(init?: Partial< GetWorksheetPivotTableFilterRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -32477,30 +32982,30 @@ export class GetWorksheetPivotTableFilterRequest  {
     }
 
 }
-/// Add a PivotTable in the worksheet.   
+/// Add a PivotTable in the worksheet.
 export class PutWorksheetPivotTableRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The data for the new PivotTable cache.  
+    /// The data for the new PivotTable cache.
     public sourceData: string;
-    /// The cell in the upper-left corner of the destination range for the PivotTable report.  
+    /// The cell in the upper-left corner of the destination range for the PivotTable report.
     public destCellName: string;
-    /// The name of the new PivotTable.  
+    /// The name of the new PivotTable.
     public tableName: string;
-    /// Indicates whether using same data source when another existing PivotTable has used this data source. If the property is true, it will save memory.  
+    /// Indicates whether using same data source when another existing PivotTable has used this data source. If the property is true, it will save memory.
     public useSameSource: boolean;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PutWorksheetPivotTableRequest >) {  
+    public constructor(init?: Partial< PutWorksheetPivotTableRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -32533,36 +33038,36 @@ export class PutWorksheetPivotTableRequest  {
     }
 
 }
-/// Add a pivot field in the PivotTable.   
+/// Add a pivot field in the PivotTable.
 export class PutPivotTableFieldRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The PivotTable index.  
+    /// The PivotTable index.
     public pivotTableIndex: number;
-    /// The fields area type.  
+    /// The fields area type.
     public pivotFieldType: string;
-    /// PivotTableFieldRequest The PivotTable field request.  
+    /// PivotTableFieldRequest The PivotTable field request.
     public pivotTableFieldRequest: PivotTableFieldRequest;
-    /// Whether the specific PivotTable calculate(true/false).  
+    /// Whether the specific PivotTable calculate(true/false).
     public needReCalculate: boolean;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PutPivotTableFieldRequest >) {  
+    public constructor(init?: Partial< PutPivotTableFieldRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/pivottables/{pivotTableIndex}/PivotField".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "pivotTableIndex" + "}", String(this.pivotTableIndex));
         const queryParameters: any = {};
-        /// The fields area type. 
+        /// The fields area type.
         // verify required parameter 'pivotFieldType' is not null or undefined
         if (this.pivotFieldType === null || this.pivotFieldType === undefined) {
             throw new Error('Required parameter "pivotFieldType" was null or undefined when calling PutPivotTableField.');
@@ -32592,28 +33097,28 @@ export class PutPivotTableFieldRequest  {
     }
 
 }
-/// Add a pivot filter to the PivotTable.   
+/// Add a pivot filter to the PivotTable.
 export class PutWorksheetPivotTableFilterRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// Gets the PivotTable report by index.  
+    /// Gets the PivotTable report by index.
     public pivotTableIndex: number;
-    /// PivotFilter Pivot filter description.  
+    /// PivotFilter Pivot filter description.
     public filter: PivotFilter;
-    /// Whether the specific PivotTable calculate(true/false).  
+    /// Whether the specific PivotTable calculate(true/false).
     public needReCalculate: boolean;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PutWorksheetPivotTableFilterRequest >) {  
+    public constructor(init?: Partial< PutWorksheetPivotTableFilterRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -32643,55 +33148,55 @@ export class PutWorksheetPivotTableFilterRequest  {
     }
 
 }
-/// Hide a pivot field item in the PivotTable.   
+/// Hide a pivot field item in the PivotTable.
 export class PostPivotTableFieldHideItemRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The PivotTable index.  
+    /// The PivotTable index.
     public pivotTableIndex: number;
-    /// Represents PivotTable field type(Undefined/Row/Column/Page/Data).  
+    /// Represents PivotTable field type(Undefined/Row/Column/Page/Data).
     public pivotFieldType: string;
-    /// The pivot field index.  
+    /// The pivot field index.
     public fieldIndex: number;
-    /// The index of the pivot item in the pivot field.  
+    /// The index of the pivot item in the pivot field.
     public itemIndex: number;
-    /// Whether the specific PivotItem is hidden(true/false).  
+    /// Whether the specific PivotItem is hidden(true/false).
     public isHide: boolean;
-    /// Whether the specific PivotTable calculate(true/false).  
+    /// Whether the specific PivotTable calculate(true/false).
     public needReCalculate: boolean;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostPivotTableFieldHideItemRequest >) {  
+    public constructor(init?: Partial< PostPivotTableFieldHideItemRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/pivottables/{pivotTableIndex}/PivotField/Hide".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "pivotTableIndex" + "}", String(this.pivotTableIndex));
         const queryParameters: any = {};
-        /// Represents PivotTable field type(Undefined/Row/Column/Page/Data). 
+        /// Represents PivotTable field type(Undefined/Row/Column/Page/Data).
         // verify required parameter 'pivotFieldType' is not null or undefined
         if (this.pivotFieldType === null || this.pivotFieldType === undefined) {
             throw new Error('Required parameter "pivotFieldType" was null or undefined when calling PostPivotTableFieldHideItem.');
         }
-        /// The pivot field index. 
+        /// The pivot field index.
         // verify required parameter 'fieldIndex' is not null or undefined
         if (this.fieldIndex === null || this.fieldIndex === undefined) {
             throw new Error('Required parameter "fieldIndex" was null or undefined when calling PostPivotTableFieldHideItem.');
         }
-        /// The index of the pivot item in the pivot field. 
+        /// The index of the pivot item in the pivot field.
         // verify required parameter 'itemIndex' is not null or undefined
         if (this.itemIndex === null || this.itemIndex === undefined) {
             throw new Error('Required parameter "itemIndex" was null or undefined when calling PostPivotTableFieldHideItem.');
         }
-        /// Whether the specific PivotItem is hidden(true/false). 
+        /// Whether the specific PivotItem is hidden(true/false).
         // verify required parameter 'isHide' is not null or undefined
         if (this.isHide === null || this.isHide === undefined) {
             throw new Error('Required parameter "isHide" was null or undefined when calling PostPivotTableFieldHideItem.');
@@ -32724,46 +33229,46 @@ export class PostPivotTableFieldHideItemRequest  {
     }
 
 }
-/// Move a pivot field in the PivotTable.   
+/// Move a pivot field in the PivotTable.
 export class PostPivotTableFieldMoveToRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The PivotTable index.  
+    /// The PivotTable index.
     public pivotTableIndex: number;
-    /// The pivot field index.  
+    /// The pivot field index.
     public fieldIndex: number;
-    /// The fields area type(Column/Row/Page/Data/Undefined).  
+    /// The fields area type(Column/Row/Page/Data/Undefined).
     public from: string;
-    /// The fields area type(Column/Row/Page/Data/Undefined).  
+    /// The fields area type(Column/Row/Page/Data/Undefined).
     public to: string;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostPivotTableFieldMoveToRequest >) {  
+    public constructor(init?: Partial< PostPivotTableFieldMoveToRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/pivottables/{pivotTableIndex}/PivotField/Move".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "pivotTableIndex" + "}", String(this.pivotTableIndex));
         const queryParameters: any = {};
-        /// The pivot field index. 
+        /// The pivot field index.
         // verify required parameter 'fieldIndex' is not null or undefined
         if (this.fieldIndex === null || this.fieldIndex === undefined) {
             throw new Error('Required parameter "fieldIndex" was null or undefined when calling PostPivotTableFieldMoveTo.');
         }
-        /// The fields area type(Column/Row/Page/Data/Undefined). 
+        /// The fields area type(Column/Row/Page/Data/Undefined).
         // verify required parameter 'from' is not null or undefined
         if (this.from === null || this.from === undefined) {
             throw new Error('Required parameter "from" was null or undefined when calling PostPivotTableFieldMoveTo.');
         }
-        /// The fields area type(Column/Row/Page/Data/Undefined). 
+        /// The fields area type(Column/Row/Page/Data/Undefined).
         // verify required parameter 'to' is not null or undefined
         if (this.to === null || this.to === undefined) {
             throw new Error('Required parameter "to" was null or undefined when calling PostPivotTableFieldMoveTo.');
@@ -32794,43 +33299,43 @@ export class PostPivotTableFieldMoveToRequest  {
     }
 
 }
-/// Update cell style in the PivotTable.   
+/// Update cell style in the PivotTable.
 export class PostPivotTableCellStyleRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The PivotTable index.  
+    /// The PivotTable index.
     public pivotTableIndex: number;
-    /// The column index of the cell.  
+    /// The column index of the cell.
     public column: number;
-    /// The row index of the cell.  
+    /// The row index of the cell.
     public row: number;
-    /// Style Style description in request body.  
+    /// Style Style description in request body.
     public style: Style;
-    /// Whether the specific PivotTable calculate(true/false).  
+    /// Whether the specific PivotTable calculate(true/false).
     public needReCalculate: boolean;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostPivotTableCellStyleRequest >) {  
+    public constructor(init?: Partial< PostPivotTableCellStyleRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/pivottables/{pivotTableIndex}/Format".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "pivotTableIndex" + "}", String(this.pivotTableIndex));
         const queryParameters: any = {};
-        /// The column index of the cell. 
+        /// The column index of the cell.
         // verify required parameter 'column' is not null or undefined
         if (this.column === null || this.column === undefined) {
             throw new Error('Required parameter "column" was null or undefined when calling PostPivotTableCellStyle.');
         }
-        /// The row index of the cell. 
+        /// The row index of the cell.
         // verify required parameter 'row' is not null or undefined
         if (this.row === null || this.row === undefined) {
             throw new Error('Required parameter "row" was null or undefined when calling PostPivotTableCellStyle.');
@@ -32861,28 +33366,28 @@ export class PostPivotTableCellStyleRequest  {
     }
 
 }
-/// Update style in the PivotTable.   
+/// Update style in the PivotTable.
 export class PostPivotTableStyleRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The PivotTable index.  
+    /// The PivotTable index.
     public pivotTableIndex: number;
-    /// StyleStyle description in request body.  
+    /// StyleStyle description in request body.
     public style: Style;
-    /// Whether the specific PivotTable calculate(true/false).  
+    /// Whether the specific PivotTable calculate(true/false).
     public needReCalculate: boolean;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostPivotTableStyleRequest >) {  
+    public constructor(init?: Partial< PostPivotTableStyleRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -32912,36 +33417,36 @@ export class PostPivotTableStyleRequest  {
     }
 
 }
-/// Update pivot fields in the PivotTable.   
+/// Update pivot fields in the PivotTable.
 export class PostPivotTableUpdatePivotFieldsRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The PivotTable index.  
+    /// The PivotTable index.
     public pivotTableIndex: number;
-    /// Represents PivotTable field type(Undefined/Row/Column/Page/Data).  
+    /// Represents PivotTable field type(Undefined/Row/Column/Page/Data).
     public pivotFieldType: string;
-    /// PivotFieldRepresents pivot field.  
+    /// PivotFieldRepresents pivot field.
     public pivotField: PivotField;
-    /// Whether the specific PivotTable calculate(true/false).  
+    /// Whether the specific PivotTable calculate(true/false).
     public needReCalculate: boolean;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostPivotTableUpdatePivotFieldsRequest >) {  
+    public constructor(init?: Partial< PostPivotTableUpdatePivotFieldsRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/pivottables/{pivotTableIndex}/PivotFields".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "pivotTableIndex" + "}", String(this.pivotTableIndex));
         const queryParameters: any = {};
-        /// Represents PivotTable field type(Undefined/Row/Column/Page/Data). 
+        /// Represents PivotTable field type(Undefined/Row/Column/Page/Data).
         // verify required parameter 'pivotFieldType' is not null or undefined
         if (this.pivotFieldType === null || this.pivotFieldType === undefined) {
             throw new Error('Required parameter "pivotFieldType" was null or undefined when calling PostPivotTableUpdatePivotFields.');
@@ -32971,38 +33476,38 @@ export class PostPivotTableUpdatePivotFieldsRequest  {
     }
 
 }
-/// Update pivot field in the PivotTable.   
+/// Update pivot field in the PivotTable.
 export class PostPivotTableUpdatePivotFieldRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The PivotTable index.  
+    /// The PivotTable index.
     public pivotTableIndex: number;
-    /// The pivot field index.  
+    /// The pivot field index.
     public pivotFieldIndex: number;
-    /// Represents PivotTable field type(Undefined/Row/Column/Page/Data).  
+    /// Represents PivotTable field type(Undefined/Row/Column/Page/Data).
     public pivotFieldType: string;
-    /// Represents pivot field.  
+    /// Represents pivot field.
     public pivotField: PivotField;
-    /// Whether the specific PivotTable calculate(true/false).  
+    /// Whether the specific PivotTable calculate(true/false).
     public needReCalculate: boolean;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostPivotTableUpdatePivotFieldRequest >) {  
+    public constructor(init?: Partial< PostPivotTableUpdatePivotFieldRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/pivottables/{pivotTableIndex}/PivotFields/{pivotFieldIndex}".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "pivotTableIndex" + "}", String(this.pivotTableIndex)).replace("{" + "pivotFieldIndex" + "}", String(this.pivotFieldIndex));
         const queryParameters: any = {};
-        /// Represents PivotTable field type(Undefined/Row/Column/Page/Data). 
+        /// Represents PivotTable field type(Undefined/Row/Column/Page/Data).
         // verify required parameter 'pivotFieldType' is not null or undefined
         if (this.pivotFieldType === null || this.pivotFieldType === undefined) {
             throw new Error('Required parameter "pivotFieldType" was null or undefined when calling PostPivotTableUpdatePivotField.');
@@ -33032,24 +33537,24 @@ export class PostPivotTableUpdatePivotFieldRequest  {
     }
 
 }
-/// Calculate pivottable's data to cells.   
+/// Calculate pivottable's data to cells.
 export class PostWorksheetPivotTableCalculateRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// Gets the PivotTable report by index.  
+    /// Gets the PivotTable report by index.
     public pivotTableIndex: number;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostWorksheetPivotTableCalculateRequest >) {  
+    public constructor(init?: Partial< PostWorksheetPivotTableCalculateRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -33078,30 +33583,30 @@ export class PostWorksheetPivotTableCalculateRequest  {
     }
 
 }
-/// Move PivotTable in the worksheet.   
+/// Move PivotTable in the worksheet.
 export class PostWorksheetPivotTableMoveRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// Gets the PivotTable report by index.  
+    /// Gets the PivotTable report by index.
     public pivotTableIndex: number;
-    /// Row index.  
+    /// Row index.
     public row: number;
-    /// Column index.  
+    /// Column index.
     public column: number;
-    /// The dest cell name.  
+    /// The dest cell name.
     public destCellName: string;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostWorksheetPivotTableMoveRequest >) {  
+    public constructor(init?: Partial< PostWorksheetPivotTableMoveRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -33133,22 +33638,22 @@ export class PostWorksheetPivotTableMoveRequest  {
     }
 
 }
-/// Delete PivotTables in the worksheet.   
+/// Delete PivotTables in the worksheet.
 export class DeleteWorksheetPivotTablesRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< DeleteWorksheetPivotTablesRequest >) {  
+    public constructor(init?: Partial< DeleteWorksheetPivotTablesRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -33177,24 +33682,24 @@ export class DeleteWorksheetPivotTablesRequest  {
     }
 
 }
-/// Delete PivotTable by index in the worksheet.   
+/// Delete PivotTable by index in the worksheet.
 export class DeleteWorksheetPivotTableRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// Gets the PivotTable report by index.  
+    /// Gets the PivotTable report by index.
     public pivotTableIndex: number;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< DeleteWorksheetPivotTableRequest >) {  
+    public constructor(init?: Partial< DeleteWorksheetPivotTableRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -33223,34 +33728,34 @@ export class DeleteWorksheetPivotTableRequest  {
     }
 
 }
-/// Delete a pivot field in the PivotTable.   
+/// Delete a pivot field in the PivotTable.
 export class DeletePivotTableFieldRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// Gets the PivotTable report by index.  
+    /// Gets the PivotTable report by index.
     public pivotTableIndex: number;
-    /// The fields area type.  
+    /// The fields area type.
     public pivotFieldType: string;
-    /// PivotTableFieldRequest PivotTable field request.  
+    /// PivotTableFieldRequest PivotTable field request.
     public pivotTableFieldRequest: PivotTableFieldRequest;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< DeletePivotTableFieldRequest >) {  
+    public constructor(init?: Partial< DeletePivotTableFieldRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/pivottables/{pivotTableIndex}/PivotField".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName)).replace("{" + "pivotTableIndex" + "}", String(this.pivotTableIndex));
         const queryParameters: any = {};
-        /// The fields area type. 
+        /// The fields area type.
         // verify required parameter 'pivotFieldType' is not null or undefined
         if (this.pivotFieldType === null || this.pivotFieldType === undefined) {
             throw new Error('Required parameter "pivotFieldType" was null or undefined when calling DeletePivotTableField.');
@@ -33279,26 +33784,26 @@ export class DeletePivotTableFieldRequest  {
     }
 
 }
-/// Delete all pivot filters in the PivotTable.   
+/// Delete all pivot filters in the PivotTable.
 export class DeleteWorksheetPivotTableFiltersRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The PivotTable index.  
+    /// The PivotTable index.
     public pivotTableIndex: number;
-    /// Whether the specific PivotTable calculate(true/false).  
+    /// Whether the specific PivotTable calculate(true/false).
     public needReCalculate: boolean;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< DeleteWorksheetPivotTableFiltersRequest >) {  
+    public constructor(init?: Partial< DeleteWorksheetPivotTableFiltersRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -33328,28 +33833,28 @@ export class DeleteWorksheetPivotTableFiltersRequest  {
     }
 
 }
-/// Delete a pivot filter in the PivotTable.   
+/// Delete a pivot filter in the PivotTable.
 export class DeleteWorksheetPivotTableFilterRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// Gets the PivotTable report by index.  
+    /// Gets the PivotTable report by index.
     public pivotTableIndex: number;
-    /// Gets the PivotField Object at the specific index.  
+    /// Gets the PivotField Object at the specific index.
     public fieldIndex: number;
-    /// Whether the specific PivotTable calculate(true/false).  
+    /// Whether the specific PivotTable calculate(true/false).
     public needReCalculate: boolean;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< DeleteWorksheetPivotTableFilterRequest >) {  
+    public constructor(init?: Partial< DeleteWorksheetPivotTableFilterRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -33379,22 +33884,22 @@ export class DeleteWorksheetPivotTableFilterRequest  {
     }
 
 }
-/// Retrieve descriptions of Excel file properties.   
+/// Retrieve descriptions of Excel file properties.
 export class GetDocumentPropertiesRequest  {
-    /// The workbook name.  
+    /// The workbook name.
     public name: string;
-    /// Excel property type.  
+    /// Excel property type.
     public type: string;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< GetDocumentPropertiesRequest >) {  
+    public constructor(init?: Partial< GetDocumentPropertiesRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -33424,22 +33929,22 @@ export class GetDocumentPropertiesRequest  {
     }
 
 }
-/// Set or add an Excel property.   
+/// Set or add an Excel property.
 export class PutDocumentPropertyRequest  {
-    /// The workbook name.  
+    /// The workbook name.
     public name: string;
-    /// Get or set the value of the property.  
+    /// Get or set the value of the property.
     public property: CellsDocumentProperty;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PutDocumentPropertyRequest >) {  
+    public constructor(init?: Partial< PutDocumentPropertyRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -33468,22 +33973,22 @@ export class PutDocumentPropertyRequest  {
     }
 
 }
-/// Get Excel property by name.   
+/// Get Excel property by name.
 export class GetDocumentPropertyRequest  {
-    /// The workbook name.  
+    /// The workbook name.
     public name: string;
-    /// The property name.  
+    /// The property name.
     public propertyName: string;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< GetDocumentPropertyRequest >) {  
+    public constructor(init?: Partial< GetDocumentPropertyRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -33512,24 +34017,24 @@ export class GetDocumentPropertyRequest  {
     }
 
 }
-/// Delete an Excel property.   
+/// Delete an Excel property.
 export class DeleteDocumentPropertyRequest  {
-    /// The workbook name.  
+    /// The workbook name.
     public name: string;
-    /// The property name.  
+    /// The property name.
     public propertyName: string;
-      
+
     public type: string;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< DeleteDocumentPropertyRequest >) {  
+    public constructor(init?: Partial< DeleteDocumentPropertyRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -33559,20 +34064,20 @@ export class DeleteDocumentPropertyRequest  {
     }
 
 }
-/// Delete all custom document properties and reset built-in ones.   
+/// Delete all custom document properties and reset built-in ones.
 export class DeleteDocumentPropertiesRequest  {
-    /// The workbook name.  
+    /// The workbook name.
     public name: string;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< DeleteDocumentPropertiesRequest >) {  
+    public constructor(init?: Partial< DeleteDocumentPropertiesRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -33601,35 +34106,35 @@ export class DeleteDocumentPropertiesRequest  {
     }
 
 }
-/// Excel file digital signature.   
+/// Excel file digital signature.
 export class PostDigitalSignatureRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The digital signature file path should include both the folder and the file name, along with the extension.  
+    /// The digital signature file path should include both the folder and the file name, along with the extension.
     public digitalsignaturefile: string;
-    /// The password needed to open an Excel file.  
+    /// The password needed to open an Excel file.
     public password: string;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostDigitalSignatureRequest >) {  
+    public constructor(init?: Partial< PostDigitalSignatureRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/digitalsignature".replace("{" + "name" + "}", String(this.name));
         const queryParameters: any = {};
-        /// The digital signature file path should include both the folder and the file name, along with the extension. 
+        /// The digital signature file path should include both the folder and the file name, along with the extension.
         // verify required parameter 'digitalsignaturefile' is not null or undefined
         if (this.digitalsignaturefile === null || this.digitalsignaturefile === undefined) {
             throw new Error('Required parameter "digitalsignaturefile" was null or undefined when calling PostDigitalSignature.');
         }
-        /// The password needed to open an Excel file. 
+        /// The password needed to open an Excel file.
         // verify required parameter 'password' is not null or undefined
         if (this.password === null || this.password === undefined) {
             throw new Error('Required parameter "password" was null or undefined when calling PostDigitalSignature.');
@@ -33659,22 +34164,22 @@ export class PostDigitalSignatureRequest  {
     }
 
 }
-/// Excel Encryption.   
+/// Excel Encryption.
 export class PostEncryptWorkbookRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// WorkbookEncryptionRequestEncryption parameters.  
+    /// WorkbookEncryptionRequestEncryption parameters.
     public encryption: WorkbookEncryptionRequest;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostEncryptWorkbookRequest >) {  
+    public constructor(init?: Partial< PostEncryptWorkbookRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -33703,22 +34208,22 @@ export class PostEncryptWorkbookRequest  {
     }
 
 }
-/// Excel files decryption.   
+/// Excel files decryption.
 export class DeleteDecryptWorkbookRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// WorkbookEncryptionRequestEncryption parameters.  
+    /// WorkbookEncryptionRequestEncryption parameters.
     public encryption: WorkbookEncryptionRequest;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< DeleteDecryptWorkbookRequest >) {  
+    public constructor(init?: Partial< DeleteDecryptWorkbookRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -33747,22 +34252,22 @@ export class DeleteDecryptWorkbookRequest  {
     }
 
 }
-/// Excel protection.   
+/// Excel protection.
 export class PostProtectWorkbookRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The protection settings.  
+    /// The protection settings.
     public protectWorkbookRequest: ProtectWorkbookRequest;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostProtectWorkbookRequest >) {  
+    public constructor(init?: Partial< PostProtectWorkbookRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -33791,28 +34296,28 @@ export class PostProtectWorkbookRequest  {
     }
 
 }
-/// Excel unprotection.   
+/// Excel unprotection.
 export class DeleteUnProtectWorkbookRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// Protection settings, only password can be specified.  
+    /// Protection settings, only password can be specified.
     public password: string;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< DeleteUnProtectWorkbookRequest >) {  
+    public constructor(init?: Partial< DeleteUnProtectWorkbookRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/protection".replace("{" + "name" + "}", String(this.name));
         const queryParameters: any = {};
-        /// Protection settings, only password can be specified. 
+        /// Protection settings, only password can be specified.
         // verify required parameter 'password' is not null or undefined
         if (this.password === null || this.password === undefined) {
             throw new Error('Required parameter "password" was null or undefined when calling DeleteUnProtectWorkbook.');
@@ -33841,22 +34346,22 @@ export class DeleteUnProtectWorkbookRequest  {
     }
 
 }
-/// Excel file write protection.   
+/// Excel file write protection.
 export class PutDocumentProtectFromChangesRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The password needed to open an Excel file.  
+    /// The password needed to open an Excel file.
     public password: PasswordRequest;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PutDocumentProtectFromChangesRequest >) {  
+    public constructor(init?: Partial< PutDocumentProtectFromChangesRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -33885,20 +34390,20 @@ export class PutDocumentProtectFromChangesRequest  {
     }
 
 }
-/// Excel file cancel write protection.   
+/// Excel file cancel write protection.
 export class DeleteDocumentUnProtectFromChangesRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< DeleteDocumentUnProtectFromChangesRequest >) {  
+    public constructor(init?: Partial< DeleteDocumentUnProtectFromChangesRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -33927,25 +34432,25 @@ export class DeleteDocumentUnProtectFromChangesRequest  {
     }
 
 }
-/// Unlock Excel files.   
+/// Unlock Excel files.
 export class PostUnlockRequest  {
-    /// File to upload  
+    /// File to upload
     public file: any;
-    /// The password needed to open an Excel file.  
+    /// The password needed to open an Excel file.
     public password: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostUnlockRequest >) {  
+    public constructor(init?: Partial< PostUnlockRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/unlock";
         const queryParameters: any = {};
         const formParams: any = {};
-        /// The password needed to open an Excel file. 
+        /// The password needed to open an Excel file.
         // verify required parameter 'password' is not null or undefined
         if (this.password === null || this.password === undefined) {
             throw new Error('Required parameter "password" was null or undefined when calling PostUnlock.');
@@ -33957,8 +34462,16 @@ export class PostUnlockRequest  {
             }
         }
         if (this.file !== undefined) {
-            for (var key in this.file){
-                formParams[key] = this.file[key];
+            if (typeof this.file === 'string') {
+                if (fs.existsSync(this.file)) {
+                   const fileName = path.basename( this.file)
+                   formParams[fileName] = fs.createReadStream(this.file)
+               }
+            }
+            else  if (this.file instanceof Map ) {
+                for (var key in this.file){
+                    formParams[key] = this.file[key];
+                }
             }
         }
 
@@ -33972,31 +34485,31 @@ export class PostUnlockRequest  {
             json: true,
         };
 
-        (requestOptions as any).formData = formParams;        
+        (requestOptions as any).formData = formParams;
         return Promise.resolve(requestOptions);
 
     }
 
 }
-/// Lock Excel files.   
+/// Lock Excel files.
 export class PostLockRequest  {
-    /// File to upload  
+    /// File to upload
     public file: any;
-    /// The password needed to open an Excel file.  
+    /// The password needed to open an Excel file.
     public password: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostLockRequest >) {  
+    public constructor(init?: Partial< PostLockRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/lock";
         const queryParameters: any = {};
         const formParams: any = {};
-        /// The password needed to open an Excel file. 
+        /// The password needed to open an Excel file.
         // verify required parameter 'password' is not null or undefined
         if (this.password === null || this.password === undefined) {
             throw new Error('Required parameter "password" was null or undefined when calling PostLock.');
@@ -34008,8 +34521,16 @@ export class PostLockRequest  {
             }
         }
         if (this.file !== undefined) {
-            for (var key in this.file){
-                formParams[key] = this.file[key];
+            if (typeof this.file === 'string') {
+                if (fs.existsSync(this.file)) {
+                   const fileName = path.basename( this.file)
+                   formParams[fileName] = fs.createReadStream(this.file)
+               }
+            }
+            else  if (this.file instanceof Map ) {
+                for (var key in this.file){
+                    formParams[key] = this.file[key];
+                }
             }
         }
 
@@ -34023,26 +34544,26 @@ export class PostLockRequest  {
             json: true,
         };
 
-        (requestOptions as any).formData = formParams;        
+        (requestOptions as any).formData = formParams;
         return Promise.resolve(requestOptions);
 
     }
 
 }
-/// Excel files encryption.   
+/// Excel files encryption.
 export class PostProtectRequest  {
-    /// File to upload  
+    /// File to upload
     public file: any;
-      
+
     public protectWorkbookRequest: ProtectWorkbookRequest;
-    /// The password needed to open an Excel file.  
+    /// The password needed to open an Excel file.
     public password: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostProtectRequest >) {  
+    public constructor(init?: Partial< PostProtectRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -34056,14 +34577,22 @@ export class PostProtectRequest  {
             }
         }
         if (this.file !== undefined) {
-            for (var key in this.file){
-                formParams[key] = this.file[key];
+            if (typeof this.file === 'string') {
+                if (fs.existsSync(this.file)) {
+                   const fileName = path.basename( this.file)
+                   formParams[fileName] = fs.createReadStream(this.file)
+               }
+            }
+            else  if (this.file instanceof Map ) {
+                for (var key in this.file){
+                    formParams[key] = this.file[key];
+                }
             }
         }
 
 
         const bodyParameter = (this.protectWorkbookRequest == null) ? null :  JSON.stringify(this.protectWorkbookRequest);
-        formParams["protectWorkbookRequest"] = bodyParameter;    
+        formParams["protectWorkbookRequest"] = bodyParameter;
         const requestOptions: request.Options = {
             method: "POST",
             qs: queryParameters,
@@ -34071,30 +34600,30 @@ export class PostProtectRequest  {
             json: true,
         };
 
-        (requestOptions as any).formData = formParams;        
+        (requestOptions as any).formData = formParams;
         return Promise.resolve(requestOptions);
 
     }
 
 }
-/// Copy content from the source range to the destination range in the worksheet.   
+/// Copy content from the source range to the destination range in the worksheet.
 export class PostWorksheetCellsRangesCopyRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// RangeCopyRequestcopydata,copystyle,copyto,copyvalue  
+    /// RangeCopyRequestcopydata,copystyle,copyto,copyvalue
     public rangeOperate: RangeCopyRequest;
-    /// Original workbook folder.  
+    /// Original workbook folder.
     public folder: string;
-    /// Storage name.  
+    /// Storage name.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostWorksheetCellsRangesCopyRequest >) {  
+    public constructor(init?: Partial< PostWorksheetCellsRangesCopyRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -34123,24 +34652,24 @@ export class PostWorksheetCellsRangesCopyRequest  {
     }
 
 }
-/// Merge a range of cells into a single cell.   
+/// Merge a range of cells into a single cell.
 export class PostWorksheetCellsRangeMergeRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// Rangerange description.  
+    /// Rangerange description.
     public range: Range;
-    /// Original workbook folder.  
+    /// Original workbook folder.
     public folder: string;
-    /// Storage name.  
+    /// Storage name.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostWorksheetCellsRangeMergeRequest >) {  
+    public constructor(init?: Partial< PostWorksheetCellsRangeMergeRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -34169,24 +34698,24 @@ export class PostWorksheetCellsRangeMergeRequest  {
     }
 
 }
-/// Unmerge merged cells within this range.   
+/// Unmerge merged cells within this range.
 export class PostWorksheetCellsRangeUnMergeRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// Range range description.  
+    /// Range range description.
     public range: Range;
-    /// Original workbook folder.  
+    /// Original workbook folder.
     public folder: string;
-    /// Storage name.  
+    /// Storage name.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostWorksheetCellsRangeUnMergeRequest >) {  
+    public constructor(init?: Partial< PostWorksheetCellsRangeUnMergeRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -34215,24 +34744,24 @@ export class PostWorksheetCellsRangeUnMergeRequest  {
     }
 
 }
-/// Set the style for the specified range.   
+/// Set the style for the specified range.
 export class PostWorksheetCellsRangeStyleRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// RangeSetStyleRequest Range Set Style Request   
+    /// RangeSetStyleRequest Range Set Style Request
     public rangeOperate: RangeSetStyleRequest;
-    /// Original workbook folder.  
+    /// Original workbook folder.
     public folder: string;
-    /// Storage name.  
+    /// Storage name.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostWorksheetCellsRangeStyleRequest >) {  
+    public constructor(init?: Partial< PostWorksheetCellsRangeStyleRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -34261,32 +34790,32 @@ export class PostWorksheetCellsRangeStyleRequest  {
     }
 
 }
-/// Retrieve the values of cells within the specified range.   
+/// Retrieve the values of cells within the specified range.
 export class GetWorksheetCellsRangeValueRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The range name.  
+    /// The range name.
     public namerange: string;
-    /// Gets the index of the first row of the range.  
+    /// Gets the index of the first row of the range.
     public firstRow: number;
-    /// Gets the index of the first columnn of the range.  
+    /// Gets the index of the first columnn of the range.
     public firstColumn: number;
-    /// Gets the count of rows in the range.  
+    /// Gets the count of rows in the range.
     public rowCount: number;
-    /// Gets the count of columns in the range.  
+    /// Gets the count of columns in the range.
     public columnCount: number;
-    /// Original workbook folder.  
+    /// Original workbook folder.
     public folder: string;
-    /// Storage name.  
+    /// Storage name.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< GetWorksheetCellsRangeValueRequest >) {  
+    public constructor(init?: Partial< GetWorksheetCellsRangeValueRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -34320,36 +34849,36 @@ export class GetWorksheetCellsRangeValueRequest  {
     }
 
 }
-/// Assign a value to the range; if necessary, the value will be converted to another data type, and the cell's number format will be reset.   
+/// Assign a value to the range; if necessary, the value will be converted to another data type, and the cell's number format will be reset.
 export class PostWorksheetCellsRangeValueRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The range in worksheet.   
+    /// The range in worksheet.
     public range: Range;
-    /// Input value.  
+    /// Input value.
     public value: string;
-    /// True: converted to other data type if appropriate.  
+    /// True: converted to other data type if appropriate.
     public isConverted: boolean;
-    /// True: set the number format to cell's style when converting to other data type.  
+    /// True: set the number format to cell's style when converting to other data type.
     public setStyle: boolean;
-    /// Original workbook folder.  
+    /// Original workbook folder.
     public folder: string;
-    /// Storage name.  
+    /// Storage name.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostWorksheetCellsRangeValueRequest >) {  
+    public constructor(init?: Partial< PostWorksheetCellsRangeValueRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/ranges/value".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
         const queryParameters: any = {};
-        /// Input value. 
+        /// Input value.
         // verify required parameter 'value' is not null or undefined
         if (this.value === null || this.value === undefined) {
             throw new Error('Required parameter "value" was null or undefined when calling PostWorksheetCellsRangeValue.');
@@ -34380,39 +34909,39 @@ export class PostWorksheetCellsRangeValueRequest  {
     }
 
 }
-/// Move the current range to the destination range.   
+/// Move the current range to the destination range.
 export class PostWorksheetCellsRangeMoveToRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// range in worksheet   
+    /// range in worksheet
     public range: Range;
-    /// The start row of the dest range.  
+    /// The start row of the dest range.
     public destRow: number;
-    /// The start column of the dest range.  
+    /// The start column of the dest range.
     public destColumn: number;
-    /// Original workbook folder.  
+    /// Original workbook folder.
     public folder: string;
-    /// Storage name.  
+    /// Storage name.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostWorksheetCellsRangeMoveToRequest >) {  
+    public constructor(init?: Partial< PostWorksheetCellsRangeMoveToRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/ranges/moveto".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
         const queryParameters: any = {};
-        /// The start row of the dest range. 
+        /// The start row of the dest range.
         // verify required parameter 'destRow' is not null or undefined
         if (this.destRow === null || this.destRow === undefined) {
             throw new Error('Required parameter "destRow" was null or undefined when calling PostWorksheetCellsRangeMoveTo.');
         }
-        /// The start column of the dest range. 
+        /// The start column of the dest range.
         // verify required parameter 'destColumn' is not null or undefined
         if (this.destColumn === null || this.destColumn === undefined) {
             throw new Error('Required parameter "destColumn" was null or undefined when calling PostWorksheetCellsRangeMoveTo.');
@@ -34442,24 +34971,24 @@ export class PostWorksheetCellsRangeMoveToRequest  {
     }
 
 }
-/// Perform data sorting around a range of cells.   
+/// Perform data sorting around a range of cells.
 export class PostWorksheetCellsRangeSortRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// RangeSortRequest Range Sort Request   
+    /// RangeSortRequest Range Sort Request
     public rangeSortRequest: RangeSortRequest;
-    /// Original workbook folder.  
+    /// Original workbook folder.
     public folder: string;
-    /// Storage name.  
+    /// Storage name.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostWorksheetCellsRangeSortRequest >) {  
+    public constructor(init?: Partial< PostWorksheetCellsRangeSortRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -34488,24 +35017,24 @@ export class PostWorksheetCellsRangeSortRequest  {
     }
 
 }
-/// Apply an outline border around a range of cells.   
+/// Apply an outline border around a range of cells.
 export class PostWorksheetCellsRangeOutlineBorderRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// RangeSetOutlineBorderRequest Range Set OutlineBorder Request.  
+    /// RangeSetOutlineBorderRequest Range Set OutlineBorder Request.
     public rangeOperate: RangeSetOutlineBorderRequest;
-    /// Original workbook folder.  
+    /// Original workbook folder.
     public folder: string;
-    /// Storage name.  
+    /// Storage name.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostWorksheetCellsRangeOutlineBorderRequest >) {  
+    public constructor(init?: Partial< PostWorksheetCellsRangeOutlineBorderRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -34534,32 +35063,32 @@ export class PostWorksheetCellsRangeOutlineBorderRequest  {
     }
 
 }
-/// Set the column width of the specified range.   
+/// Set the column width of the specified range.
 export class PostWorksheetCellsRangeColumnWidthRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// Range The range object.  
+    /// Range The range object.
     public range: Range;
-    /// Sets the column width of this range.  
+    /// Sets the column width of this range.
     public value: number;
-    /// Original workbook folder.  
+    /// Original workbook folder.
     public folder: string;
-    /// Storage name.  
+    /// Storage name.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostWorksheetCellsRangeColumnWidthRequest >) {  
+    public constructor(init?: Partial< PostWorksheetCellsRangeColumnWidthRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/ranges/columnWidth".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
         const queryParameters: any = {};
-        /// Sets the column width of this range. 
+        /// Sets the column width of this range.
         // verify required parameter 'value' is not null or undefined
         if (this.value === null || this.value === undefined) {
             throw new Error('Required parameter "value" was null or undefined when calling PostWorksheetCellsRangeColumnWidth.');
@@ -34588,32 +35117,32 @@ export class PostWorksheetCellsRangeColumnWidthRequest  {
     }
 
 }
-/// Sets row height of range.   
+/// Sets row height of range.
 export class PostWorksheetCellsRangeRowHeightRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The range object.  
+    /// The range object.
     public range: Range;
-    /// Sets the column height of this range.  
+    /// Sets the column height of this range.
     public value: number;
-    /// Original workbook folder.  
+    /// Original workbook folder.
     public folder: string;
-    /// Storage name.  
+    /// Storage name.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostWorksheetCellsRangeRowHeightRequest >) {  
+    public constructor(init?: Partial< PostWorksheetCellsRangeRowHeightRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/ranges/rowHeight".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
         const queryParameters: any = {};
-        /// Sets the column height of this range. 
+        /// Sets the column height of this range.
         // verify required parameter 'value' is not null or undefined
         if (this.value === null || this.value === undefined) {
             throw new Error('Required parameter "value" was null or undefined when calling PostWorksheetCellsRangeRowHeight.');
@@ -34642,24 +35171,24 @@ export class PostWorksheetCellsRangeRowHeightRequest  {
     }
 
 }
-   
+
 export class PostWorksheetCellsRangeToImageRequest  {
-      
+
     public name: string;
-      
+
     public sheetName: string;
-      
+
     public rangeConvertRequest: RangeConvertRequest;
-      
+
     public folder: string;
-      
+
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostWorksheetCellsRangeToImageRequest >) {  
+    public constructor(init?: Partial< PostWorksheetCellsRangeToImageRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -34688,37 +35217,37 @@ export class PostWorksheetCellsRangeToImageRequest  {
     }
 
 }
-/// Insert a range of cells and shift existing cells based on the specified shift option.   
+/// Insert a range of cells and shift existing cells based on the specified shift option.
 export class PutWorksheetCellsRangeRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The range object.  
+    /// The range object.
     public range: string;
-    /// Represent the shift options when deleting a range of cells(Down/Left/None/Right/Up).  
+    /// Represent the shift options when deleting a range of cells(Down/Left/None/Right/Up).
     public shift: string;
-    /// Original workbook folder.  
+    /// Original workbook folder.
     public folder: string;
-    /// Storage name.  
+    /// Storage name.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PutWorksheetCellsRangeRequest >) {  
+    public constructor(init?: Partial< PutWorksheetCellsRangeRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/ranges".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
         const queryParameters: any = {};
-        /// The range object. 
+        /// The range object.
         // verify required parameter 'range' is not null or undefined
         if (this.range === null || this.range === undefined) {
             throw new Error('Required parameter "range" was null or undefined when calling PutWorksheetCellsRange.');
         }
-        /// Represent the shift options when deleting a range of cells(Down/Left/None/Right/Up). 
+        /// Represent the shift options when deleting a range of cells(Down/Left/None/Right/Up).
         // verify required parameter 'shift' is not null or undefined
         if (this.shift === null || this.shift === undefined) {
             throw new Error('Required parameter "shift" was null or undefined when calling PutWorksheetCellsRange.');
@@ -34748,37 +35277,37 @@ export class PutWorksheetCellsRangeRequest  {
     }
 
 }
-/// Delete a range of cells and shift existing cells based on the specified shift option.   
+/// Delete a range of cells and shift existing cells based on the specified shift option.
 export class DeleteWorksheetCellsRangeRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The range object.  
+    /// The range object.
     public range: string;
-    /// Represent the shift options when deleting a range of cells(Down/Left/None/Right/Up).  
+    /// Represent the shift options when deleting a range of cells(Down/Left/None/Right/Up).
     public shift: string;
-    /// Original workbook folder.  
+    /// Original workbook folder.
     public folder: string;
-    /// Storage name.  
+    /// Storage name.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< DeleteWorksheetCellsRangeRequest >) {  
+    public constructor(init?: Partial< DeleteWorksheetCellsRangeRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/ranges".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
         const queryParameters: any = {};
-        /// The range object. 
+        /// The range object.
         // verify required parameter 'range' is not null or undefined
         if (this.range === null || this.range === undefined) {
             throw new Error('Required parameter "range" was null or undefined when calling DeleteWorksheetCellsRange.');
         }
-        /// Represent the shift options when deleting a range of cells(Down/Left/None/Right/Up). 
+        /// Represent the shift options when deleting a range of cells(Down/Left/None/Right/Up).
         // verify required parameter 'shift' is not null or undefined
         if (this.shift === null || this.shift === undefined) {
             throw new Error('Required parameter "shift" was null or undefined when calling DeleteWorksheetCellsRange.');
@@ -34808,22 +35337,22 @@ export class DeleteWorksheetCellsRangeRequest  {
     }
 
 }
-/// Retrieve descriptions of shapes in the worksheet.   
+/// Retrieve descriptions of shapes in the worksheet.
 export class GetWorksheetShapesRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< GetWorksheetShapesRequest >) {  
+    public constructor(init?: Partial< GetWorksheetShapesRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -34852,24 +35381,24 @@ export class GetWorksheetShapesRequest  {
     }
 
 }
-/// Retrieve description of shape in the worksheet.   
+/// Retrieve description of shape in the worksheet.
 export class GetWorksheetShapeRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// shape index in worksheet shapes.  
+    /// shape index in worksheet shapes.
     public shapeindex: number;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< GetWorksheetShapeRequest >) {  
+    public constructor(init?: Partial< GetWorksheetShapeRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -34898,38 +35427,38 @@ export class GetWorksheetShapeRequest  {
     }
 
 }
-/// Add a shape in the worksheet.   
+/// Add a shape in the worksheet.
 export class PutWorksheetShapeRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-      
+
     public shapeDTO: Shape;
-    /// Shape object type  
+    /// Shape object type
     public drawingType: string;
-    /// Upper left row index.  
+    /// Upper left row index.
     public upperLeftRow: number;
-    /// Upper left column index.  
+    /// Upper left column index.
     public upperLeftColumn: number;
-    /// Represents the vertical offset of Spinner from its left row, in unit of pixel.  
+    /// Represents the vertical offset of Spinner from its left row, in unit of pixel.
     public top: number;
-    /// Represents the horizontal offset of Spinner from its left column, in unit of pixel.  
+    /// Represents the horizontal offset of Spinner from its left column, in unit of pixel.
     public left: number;
-    /// Represents the height of Spinner, in unit of pixel.  
+    /// Represents the height of Spinner, in unit of pixel.
     public width: number;
-    /// Represents the width of Spinner, in unit of pixel.  
+    /// Represents the width of Spinner, in unit of pixel.
     public height: number;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PutWorksheetShapeRequest >) {  
+    public constructor(init?: Partial< PutWorksheetShapeRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -34965,22 +35494,22 @@ export class PutWorksheetShapeRequest  {
     }
 
 }
-/// Delete all shapes in the worksheet.   
+/// Delete all shapes in the worksheet.
 export class DeleteWorksheetShapesRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< DeleteWorksheetShapesRequest >) {  
+    public constructor(init?: Partial< DeleteWorksheetShapesRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -35009,24 +35538,24 @@ export class DeleteWorksheetShapesRequest  {
     }
 
 }
-/// Delete a shape in the worksheet.   
+/// Delete a shape in the worksheet.
 export class DeleteWorksheetShapeRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// shape index in worksheet shapes.  
+    /// shape index in worksheet shapes.
     public shapeindex: number;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< DeleteWorksheetShapeRequest >) {  
+    public constructor(init?: Partial< DeleteWorksheetShapeRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -35055,26 +35584,26 @@ export class DeleteWorksheetShapeRequest  {
     }
 
 }
-/// Update a shape in the worksheet.   
+/// Update a shape in the worksheet.
 export class PostWorksheetShapeRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// shape index in worksheet shapes.  
+    /// shape index in worksheet shapes.
     public shapeindex: number;
-    /// The shape description.  
+    /// The shape description.
     public dto: Shape;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostWorksheetShapeRequest >) {  
+    public constructor(init?: Partial< PostWorksheetShapeRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -35103,24 +35632,24 @@ export class PostWorksheetShapeRequest  {
     }
 
 }
-/// Group shapes in the worksheet.   
+/// Group shapes in the worksheet.
 export class PostWorksheetGroupShapeRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// Shape index array.  
+    /// Shape index array.
     public listShape: Array<number>;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostWorksheetGroupShapeRequest >) {  
+    public constructor(init?: Partial< PostWorksheetGroupShapeRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -35149,24 +35678,24 @@ export class PostWorksheetGroupShapeRequest  {
     }
 
 }
-/// Ungroup shapes in the worksheet.   
+/// Ungroup shapes in the worksheet.
 export class PostWorksheetUngroupShapeRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-      
+
     public shapeindex: number;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostWorksheetUngroupShapeRequest >) {  
+    public constructor(init?: Partial< PostWorksheetUngroupShapeRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -35195,22 +35724,22 @@ export class PostWorksheetUngroupShapeRequest  {
     }
 
 }
-/// Retrieve descriptions of sparkline groups in the worksheet.   
+/// Retrieve descriptions of sparkline groups in the worksheet.
 export class GetWorksheetSparklineGroupsRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< GetWorksheetSparklineGroupsRequest >) {  
+    public constructor(init?: Partial< GetWorksheetSparklineGroupsRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -35239,24 +35768,24 @@ export class GetWorksheetSparklineGroupsRequest  {
     }
 
 }
-/// Retrieve description of a sparkline group in the worksheet.   
+/// Retrieve description of a sparkline group in the worksheet.
 export class GetWorksheetSparklineGroupRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The zero based index of the element.  
+    /// The zero based index of the element.
     public sparklineIndex: number;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< GetWorksheetSparklineGroupRequest >) {  
+    public constructor(init?: Partial< GetWorksheetSparklineGroupRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -35285,22 +35814,22 @@ export class GetWorksheetSparklineGroupRequest  {
     }
 
 }
-/// Delete sparkline groups in the worksheet.   
+/// Delete sparkline groups in the worksheet.
 export class DeleteWorksheetSparklineGroupsRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< DeleteWorksheetSparklineGroupsRequest >) {  
+    public constructor(init?: Partial< DeleteWorksheetSparklineGroupsRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -35329,24 +35858,24 @@ export class DeleteWorksheetSparklineGroupsRequest  {
     }
 
 }
-/// Delete a sparkline group in the worksheet.   
+/// Delete a sparkline group in the worksheet.
 export class DeleteWorksheetSparklineGroupRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The zero based index of the element.  
+    /// The zero based index of the element.
     public sparklineIndex: number;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< DeleteWorksheetSparklineGroupRequest >) {  
+    public constructor(init?: Partial< DeleteWorksheetSparklineGroupRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -35375,51 +35904,51 @@ export class DeleteWorksheetSparklineGroupRequest  {
     }
 
 }
-/// Add a sparkline group in the worksheet.   
+/// Add a sparkline group in the worksheet.
 export class PutWorksheetSparklineGroupRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// Represents the sparkline types(Line/Column/Stacked).  
+    /// Represents the sparkline types(Line/Column/Stacked).
     public type: string;
-    /// Specifies the data range of the sparkline group.  
+    /// Specifies the data range of the sparkline group.
     public dataRange: string;
-    /// Specifies whether to plot the sparklines from the data range by row or by column.  
+    /// Specifies whether to plot the sparklines from the data range by row or by column.
     public isVertical: boolean;
-    /// Specifies where the sparklines to be placed.  
+    /// Specifies where the sparklines to be placed.
     public locationRange: string;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PutWorksheetSparklineGroupRequest >) {  
+    public constructor(init?: Partial< PutWorksheetSparklineGroupRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/sparklineGroups".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
         const queryParameters: any = {};
-        /// Represents the sparkline types(Line/Column/Stacked). 
+        /// Represents the sparkline types(Line/Column/Stacked).
         // verify required parameter 'type' is not null or undefined
         if (this.type === null || this.type === undefined) {
             throw new Error('Required parameter "type" was null or undefined when calling PutWorksheetSparklineGroup.');
         }
-        /// Specifies the data range of the sparkline group. 
+        /// Specifies the data range of the sparkline group.
         // verify required parameter 'dataRange' is not null or undefined
         if (this.dataRange === null || this.dataRange === undefined) {
             throw new Error('Required parameter "dataRange" was null or undefined when calling PutWorksheetSparklineGroup.');
         }
-        /// Specifies whether to plot the sparklines from the data range by row or by column. 
+        /// Specifies whether to plot the sparklines from the data range by row or by column.
         // verify required parameter 'isVertical' is not null or undefined
         if (this.isVertical === null || this.isVertical === undefined) {
             throw new Error('Required parameter "isVertical" was null or undefined when calling PutWorksheetSparklineGroup.');
         }
-        /// Specifies where the sparklines to be placed. 
+        /// Specifies where the sparklines to be placed.
         // verify required parameter 'locationRange' is not null or undefined
         if (this.locationRange === null || this.locationRange === undefined) {
             throw new Error('Required parameter "locationRange" was null or undefined when calling PutWorksheetSparklineGroup.');
@@ -35451,26 +35980,26 @@ export class PutWorksheetSparklineGroupRequest  {
     }
 
 }
-/// Update a sparkline group in the worksheet.   
+/// Update a sparkline group in the worksheet.
 export class PostWorksheetSparklineGroupRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The zero based index of the element.  
+    /// The zero based index of the element.
     public sparklineGroupIndex: number;
-    /// Spark line group description.  
+    /// Spark line group description.
     public sparklineGroup: SparklineGroup;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostWorksheetSparklineGroupRequest >) {  
+    public constructor(init?: Partial< PostWorksheetSparklineGroupRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -35499,16 +36028,16 @@ export class PostWorksheetSparklineGroupRequest  {
     }
 
 }
-   
+
 export class PostCharacterCountRequest  {
-      
+
     public characterCountOptions: CharacterCountOptions;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostCharacterCountRequest >) {  
+    public constructor(init?: Partial< PostCharacterCountRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -35535,16 +36064,16 @@ export class PostCharacterCountRequest  {
     }
 
 }
-   
+
 export class PostWordsCountRequest  {
-      
+
     public wordsCountOptions: WordsCountOptions;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostWordsCountRequest >) {  
+    public constructor(init?: Partial< PostWordsCountRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -35571,16 +36100,16 @@ export class PostWordsCountRequest  {
     }
 
 }
-   
+
 export class PostSpecifyWordsCountRequest  {
-      
+
     public specifyWordsCountOptions: SpecifyWordsCountOptions;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostSpecifyWordsCountRequest >) {  
+    public constructor(init?: Partial< PostSpecifyWordsCountRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -35607,16 +36136,16 @@ export class PostSpecifyWordsCountRequest  {
     }
 
 }
-/// Run tasks.   
+/// Run tasks.
 export class PostRunTaskRequest  {
-    /// Task Data Descrition  
+    /// Task Data Descrition
     public taskData: TaskData;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostRunTaskRequest >) {  
+    public constructor(init?: Partial< PostRunTaskRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -35643,16 +36172,16 @@ export class PostRunTaskRequest  {
     }
 
 }
-/// Adds text content to a workbook at specified positions within cells based on provided options using ASP.NET Core Web API.   
+/// Adds text content to a workbook at specified positions within cells based on provided options using ASP.NET Core Web API.
 export class PostAddTextContentRequest  {
-      
+
     public addTextOptions: AddTextOptions;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostAddTextContentRequest >) {  
+    public constructor(init?: Partial< PostAddTextContentRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -35679,16 +36208,16 @@ export class PostAddTextContentRequest  {
     }
 
 }
-   
+
 export class PostTrimContentRequest  {
-      
+
     public trimContentOptions: TrimContentOptions;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostTrimContentRequest >) {  
+    public constructor(init?: Partial< PostTrimContentRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -35715,16 +36244,16 @@ export class PostTrimContentRequest  {
     }
 
 }
-   
+
 export class PostUpdateWordCaseRequest  {
-      
+
     public wordCaseOptions: WordCaseOptions;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostUpdateWordCaseRequest >) {  
+    public constructor(init?: Partial< PostUpdateWordCaseRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -35751,16 +36280,16 @@ export class PostUpdateWordCaseRequest  {
     }
 
 }
-   
+
 export class PostRemoveCharactersRequest  {
-      
+
     public removeCharactersOptions: RemoveCharactersOptions;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostRemoveCharactersRequest >) {  
+    public constructor(init?: Partial< PostRemoveCharactersRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -35787,16 +36316,16 @@ export class PostRemoveCharactersRequest  {
     }
 
 }
-   
+
 export class PostConvertTextRequest  {
-      
+
     public convertTextOptions: ConvertTextOptions;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostConvertTextRequest >) {  
+    public constructor(init?: Partial< PostConvertTextRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -35823,16 +36352,16 @@ export class PostConvertTextRequest  {
     }
 
 }
-   
+
 export class PostRemoveDuplicatesRequest  {
-      
+
     public removeDuplicatesOptions: RemoveDuplicatesOptions;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostRemoveDuplicatesRequest >) {  
+    public constructor(init?: Partial< PostRemoveDuplicatesRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -35859,16 +36388,16 @@ export class PostRemoveDuplicatesRequest  {
     }
 
 }
-   
+
 export class PostExtractTextRequest  {
-      
+
     public extractTextOptions: ExtractTextOptions;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostExtractTextRequest >) {  
+    public constructor(init?: Partial< PostExtractTextRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -35895,16 +36424,16 @@ export class PostExtractTextRequest  {
     }
 
 }
-   
+
 export class PostSplitTextRequest  {
-      
+
     public splitTextOptions: SplitTextOptions;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostSplitTextRequest >) {  
+    public constructor(init?: Partial< PostSplitTextRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -35931,20 +36460,20 @@ export class PostSplitTextRequest  {
     }
 
 }
-/// Retrieve the description of the default style for the workbook .   
+/// Retrieve the description of the default style for the workbook .
 export class GetWorkbookDefaultStyleRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< GetWorkbookDefaultStyleRequest >) {  
+    public constructor(init?: Partial< GetWorkbookDefaultStyleRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -35973,20 +36502,20 @@ export class GetWorkbookDefaultStyleRequest  {
     }
 
 }
-/// Retrieve text items in the workbook.   
+/// Retrieve text items in the workbook.
 export class GetWorkbookTextItemsRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< GetWorkbookTextItemsRequest >) {  
+    public constructor(init?: Partial< GetWorkbookTextItemsRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -36015,20 +36544,20 @@ export class GetWorkbookTextItemsRequest  {
     }
 
 }
-/// Retrieve named ranges in the workbook.   
+/// Retrieve named ranges in the workbook.
 export class GetWorkbookNamesRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< GetWorkbookNamesRequest >) {  
+    public constructor(init?: Partial< GetWorkbookNamesRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -36057,22 +36586,22 @@ export class GetWorkbookNamesRequest  {
     }
 
 }
-/// Define a new name in the workbook.   
+/// Define a new name in the workbook.
 export class PutWorkbookNameRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// Name  
+    /// Name
     public newName: Name;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PutWorkbookNameRequest >) {  
+    public constructor(init?: Partial< PutWorkbookNameRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -36101,22 +36630,22 @@ export class PutWorkbookNameRequest  {
     }
 
 }
-/// Retrieve description of a named range in the workbook.   
+/// Retrieve description of a named range in the workbook.
 export class GetWorkbookNameRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The name.  
+    /// The name.
     public nameName: string;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< GetWorkbookNameRequest >) {  
+    public constructor(init?: Partial< GetWorkbookNameRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -36145,24 +36674,24 @@ export class GetWorkbookNameRequest  {
     }
 
 }
-/// Update a named range in the workbook.   
+/// Update a named range in the workbook.
 export class PostWorkbookNameRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// the Aspose.Cells.Name element name.  
+    /// the Aspose.Cells.Name element name.
     public nameName: string;
-    /// Namenew name.  
+    /// Namenew name.
     public newName: Name;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostWorkbookNameRequest >) {  
+    public constructor(init?: Partial< PostWorkbookNameRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -36191,22 +36720,22 @@ export class PostWorkbookNameRequest  {
     }
 
 }
-/// Retrieve the value of a named range in the workbook.   
+/// Retrieve the value of a named range in the workbook.
 export class GetWorkbookNameValueRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// the Aspose.Cells.Name element name.  
+    /// the Aspose.Cells.Name element name.
     public nameName: string;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< GetWorkbookNameValueRequest >) {  
+    public constructor(init?: Partial< GetWorkbookNameValueRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -36235,20 +36764,20 @@ export class GetWorkbookNameValueRequest  {
     }
 
 }
-/// Delete all named ranges in the workbook.   
+/// Delete all named ranges in the workbook.
 export class DeleteWorkbookNamesRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< DeleteWorkbookNamesRequest >) {  
+    public constructor(init?: Partial< DeleteWorkbookNamesRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -36277,22 +36806,22 @@ export class DeleteWorkbookNamesRequest  {
     }
 
 }
-/// Delete a named range in the workbook.   
+/// Delete a named range in the workbook.
 export class DeleteWorkbookNameRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// the Aspose.Cells.Name element name.  
+    /// the Aspose.Cells.Name element name.
     public nameName: string;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< DeleteWorkbookNameRequest >) {  
+    public constructor(init?: Partial< DeleteWorkbookNameRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -36321,30 +36850,30 @@ export class DeleteWorkbookNameRequest  {
     }
 
 }
-/// Merge a workbook into the existing workbook.   
+/// Merge a workbook into the existing workbook.
 export class PostWorkbooksMergeRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The workbook to merge with.  
+    /// The workbook to merge with.
     public mergeWith: string;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
-    /// Storage name.  
+    /// Storage name.
     public mergedStorageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostWorkbooksMergeRequest >) {  
+    public constructor(init?: Partial< PostWorkbooksMergeRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/merge".replace("{" + "name" + "}", String(this.name));
         const queryParameters: any = {};
-        /// The workbook to merge with. 
+        /// The workbook to merge with.
         // verify required parameter 'mergeWith' is not null or undefined
         if (this.mergeWith === null || this.mergeWith === undefined) {
             throw new Error('Required parameter "mergeWith" was null or undefined when calling PostWorkbooksMerge.');
@@ -36374,28 +36903,28 @@ export class PostWorkbooksMergeRequest  {
     }
 
 }
-/// Search for text in the workbook.   
+/// Search for text in the workbook.
 export class PostWorkbooksTextSearchRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// Text sample.  
+    /// Text sample.
     public text: string;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostWorkbooksTextSearchRequest >) {  
+    public constructor(init?: Partial< PostWorkbooksTextSearchRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/findText".replace("{" + "name" + "}", String(this.name));
         const queryParameters: any = {};
-        /// Text sample. 
+        /// Text sample.
         // verify required parameter 'text' is not null or undefined
         if (this.text === null || this.text === undefined) {
             throw new Error('Required parameter "text" was null or undefined when calling PostWorkbooksTextSearch.');
@@ -36424,35 +36953,35 @@ export class PostWorkbooksTextSearchRequest  {
     }
 
 }
-/// Replace text in the workbook.   
+/// Replace text in the workbook.
 export class PostWorkbookTextReplaceRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The old value.  
+    /// The old value.
     public oldValue: string;
-    /// The new value.  
+    /// The new value.
     public newValue: string;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostWorkbookTextReplaceRequest >) {  
+    public constructor(init?: Partial< PostWorkbookTextReplaceRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/replaceText".replace("{" + "name" + "}", String(this.name));
         const queryParameters: any = {};
-        /// The old value. 
+        /// The old value.
         // verify required parameter 'oldValue' is not null or undefined
         if (this.oldValue === null || this.oldValue === undefined) {
             throw new Error('Required parameter "oldValue" was null or undefined when calling PostWorkbookTextReplace.');
         }
-        /// The new value. 
+        /// The new value.
         // verify required parameter 'newValue' is not null or undefined
         if (this.newValue === null || this.newValue === undefined) {
             throw new Error('Required parameter "newValue" was null or undefined when calling PostWorkbookTextReplace.');
@@ -36482,26 +37011,26 @@ export class PostWorkbookTextReplaceRequest  {
     }
 
 }
-/// Smart marker processing.   
+/// Smart marker processing.
 export class PostWorkbookGetSmartMarkerResultRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The xml file full path, if empty the data is read from request body.  
+    /// The xml file full path, if empty the data is read from request body.
     public xmlFile: string;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The path to save result  
+    /// The path to save result
     public outPath: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
-    /// The storage name where the result file is situated.  
+    /// The storage name where the result file is situated.
     public outStorageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostWorkbookGetSmartMarkerResultRequest >) {  
+    public constructor(init?: Partial< PostWorkbookGetSmartMarkerResultRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -36533,28 +37062,28 @@ export class PostWorkbookGetSmartMarkerResultRequest  {
     }
 
 }
-/// Create a new workbook using different methods.   
+/// Create a new workbook using different methods.
 export class PutWorkbookCreateRequest  {
-    /// The new document name.  
+    /// The new document name.
     public name: string;
-    /// The template file, if the data not provided default workbook is created.  
+    /// The template file, if the data not provided default workbook is created.
     public templateFile: string;
-    /// Smart marker data file, if the data not provided the request content is checked for the data.  
+    /// Smart marker data file, if the data not provided the request content is checked for the data.
     public dataFile: string;
-    /// Specifies whether to write over targer file.  
+    /// Specifies whether to write over targer file.
     public isWriteOver: boolean;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
-      
+
     public checkExcelRestriction: boolean;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PutWorkbookCreateRequest >) {  
+    public constructor(init?: Partial< PutWorkbookCreateRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -36587,36 +37116,36 @@ export class PutWorkbookCreateRequest  {
     }
 
 }
-/// Split the workbook with a specific format.   
+/// Split the workbook with a specific format.
 export class PostWorkbookSplitRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// Split format.  
+    /// Split format.
     public format: string;
-      
+
     public outFolder: string;
-    /// Start worksheet index.  
+    /// Start worksheet index.
     public from: number;
-    /// End worksheet index.  
+    /// End worksheet index.
     public to: number;
-    /// Image horizontal resolution.  
+    /// Image horizontal resolution.
     public horizontalResolution: number;
-    /// Image vertical resolution.  
+    /// Image vertical resolution.
     public verticalResolution: number;
-    /// rule name : sheetname  newguid   
+    /// rule name : sheetname  newguid
     public splitNameRule: string;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
-      
+
     public outStorageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostWorkbookSplitRequest >) {  
+    public constructor(init?: Partial< PostWorkbookSplitRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -36653,24 +37182,24 @@ export class PostWorkbookSplitRequest  {
     }
 
 }
-/// Calculate all formulas in the workbook.   
+/// Calculate all formulas in the workbook.
 export class PostWorkbookCalculateFormulaRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// CalculationOptions Calculation Options.  
+    /// CalculationOptions Calculation Options.
     public options: CalculationOptions;
-    /// ignore Error.  
+    /// ignore Error.
     public ignoreError: boolean;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostWorkbookCalculateFormulaRequest >) {  
+    public constructor(init?: Partial< PostWorkbookCalculateFormulaRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -36700,26 +37229,26 @@ export class PostWorkbookCalculateFormulaRequest  {
     }
 
 }
-/// Autofit rows in the workbook.   
+/// Autofit rows in the workbook.
 export class PostAutofitWorkbookRowsRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// Start row.  
+    /// Start row.
     public startRow: number;
-    /// End row.  
+    /// End row.
     public endRow: number;
-    /// Only auto.  
+    /// Only auto.
     public onlyAuto: boolean;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostAutofitWorkbookRowsRequest >) {  
+    public constructor(init?: Partial< PostAutofitWorkbookRowsRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -36751,24 +37280,24 @@ export class PostAutofitWorkbookRowsRequest  {
     }
 
 }
-/// Autofit columns in the workbook.   
+/// Autofit columns in the workbook.
 export class PostAutofitWorkbookColumnsRequest  {
-      
+
     public name: string;
-    /// The start column index.  
+    /// The start column index.
     public startColumn: number;
-    /// The end column index.  
+    /// The end column index.
     public endColumn: number;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostAutofitWorkbookColumnsRequest >) {  
+    public constructor(init?: Partial< PostAutofitWorkbookColumnsRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -36799,20 +37328,20 @@ export class PostAutofitWorkbookColumnsRequest  {
     }
 
 }
-/// Retrieve descriptions of workbook settings.   
+/// Retrieve descriptions of workbook settings.
 export class GetWorkbookSettingsRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< GetWorkbookSettingsRequest >) {  
+    public constructor(init?: Partial< GetWorkbookSettingsRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -36841,22 +37370,22 @@ export class GetWorkbookSettingsRequest  {
     }
 
 }
-/// Update setting in the workbook.   
+/// Update setting in the workbook.
 export class PostWorkbookSettingsRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// Workbook Setting description.  
+    /// Workbook Setting description.
     public settings: WorkbookSettings;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostWorkbookSettingsRequest >) {  
+    public constructor(init?: Partial< PostWorkbookSettingsRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -36885,26 +37414,26 @@ export class PostWorkbookSettingsRequest  {
     }
 
 }
-/// Set background in the workbook.   
+/// Set background in the workbook.
 export class PutWorkbookBackgroundRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The picture full path.  
+    /// The picture full path.
     public picPath: string;
-      
+
     public imageAdaptOption: string;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
-    /// File to upload  
+    /// File to upload
     public file: any;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PutWorkbookBackgroundRequest >) {  
+    public constructor(init?: Partial< PutWorkbookBackgroundRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -36921,8 +37450,16 @@ export class PutWorkbookBackgroundRequest  {
             }
         }
         if (this.file !== undefined) {
-            for (var key in this.file){
-                formParams[key] = this.file[key];
+            if (typeof this.file === 'string') {
+                if (fs.existsSync(this.file)) {
+                   const fileName = path.basename( this.file)
+                   formParams[fileName] = fs.createReadStream(this.file)
+               }
+            }
+            else  if (this.file instanceof Map ) {
+                for (var key in this.file){
+                    formParams[key] = this.file[key];
+                }
             }
         }
 
@@ -36936,26 +37473,26 @@ export class PutWorkbookBackgroundRequest  {
             json: true,
         };
 
-        (requestOptions as any).formData = formParams;        
+        (requestOptions as any).formData = formParams;
         return Promise.resolve(requestOptions);
 
     }
 
 }
-/// Delete background in the workbook.   
+/// Delete background in the workbook.
 export class DeleteWorkbookBackgroundRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< DeleteWorkbookBackgroundRequest >) {  
+    public constructor(init?: Partial< DeleteWorkbookBackgroundRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -36984,22 +37521,22 @@ export class DeleteWorkbookBackgroundRequest  {
     }
 
 }
-/// Set water marker in the workbook.   
+/// Set water marker in the workbook.
 export class PutWorkbookWaterMarkerRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// Text water marker request  
+    /// Text water marker request
     public textWaterMarkerRequest: TextWaterMarkerRequest;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PutWorkbookWaterMarkerRequest >) {  
+    public constructor(init?: Partial< PutWorkbookWaterMarkerRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -37028,20 +37565,20 @@ export class PutWorkbookWaterMarkerRequest  {
     }
 
 }
-/// Get page count in the workbook.   
+/// Get page count in the workbook.
 export class GetPageCountRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< GetPageCountRequest >) {  
+    public constructor(init?: Partial< GetPageCountRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -37070,20 +37607,20 @@ export class GetPageCountRequest  {
     }
 
 }
-/// Get all style in the workbook.   
+/// Get all style in the workbook.
 export class GetAllStylesRequest  {
-      
+
     public name: string;
-      
+
     public folder: string;
-      
+
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< GetAllStylesRequest >) {  
+    public constructor(init?: Partial< GetAllStylesRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -37112,20 +37649,20 @@ export class GetAllStylesRequest  {
     }
 
 }
-/// Retrieve the description of worksheets from a workbook.   
+/// Retrieve the description of worksheets from a workbook.
 export class GetWorksheetsRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< GetWorksheetsRequest >) {  
+    public constructor(init?: Partial< GetWorksheetsRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -37154,36 +37691,36 @@ export class GetWorksheetsRequest  {
     }
 
 }
-/// Retrieve the worksheet in a specified format from the workbook.   
+/// Retrieve the worksheet in a specified format from the workbook.
 export class GetWorksheetWithFormatRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// Export format(CSV/XLS/HTML/MHTML/ODS/PDF/XML/TXT/TIFF/XLSB/XLSM/XLSX/XLTM/XLTX/XPS/PNG/JPG/JPEG/GIF/EMF/BMP/MD[Markdown]/Numbers).  
+    /// Export format(CSV/XLS/HTML/MHTML/ODS/PDF/XML/TXT/TIFF/XLSB/XLSM/XLSX/XLTM/XLTX/XPS/PNG/JPG/JPEG/GIF/EMF/BMP/MD[Markdown]/Numbers).
     public format: string;
-    /// Image vertical resolution.  
+    /// Image vertical resolution.
     public verticalResolution: number;
-    /// Image horizontal resolution.  
+    /// Image horizontal resolution.
     public horizontalResolution: number;
-    /// Represents the range to be printed.  
+    /// Represents the range to be printed.
     public area: string;
-    /// Represents the page to be printed  
+    /// Represents the page to be printed
     public pageIndex: number;
-      
+
     public onePagePerSheet: boolean;
-      
+
     public printHeadings: boolean;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< GetWorksheetWithFormatRequest >) {  
+    public constructor(init?: Partial< GetWorksheetWithFormatRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -37219,30 +37756,30 @@ export class GetWorksheetWithFormatRequest  {
     }
 
 }
-/// Change worksheet visibility in the workbook.   
+/// Change worksheet visibility in the workbook.
 export class PutChangeVisibilityWorksheetRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// Worksheet name.  
+    /// Worksheet name.
     public sheetName: string;
-    /// New worksheet visibility value.  
+    /// New worksheet visibility value.
     public isVisible: boolean;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PutChangeVisibilityWorksheetRequest >) {  
+    public constructor(init?: Partial< PutChangeVisibilityWorksheetRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/visible".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
         const queryParameters: any = {};
-        /// New worksheet visibility value. 
+        /// New worksheet visibility value.
         // verify required parameter 'isVisible' is not null or undefined
         if (this.isVisible === null || this.isVisible === undefined) {
             throw new Error('Required parameter "isVisible" was null or undefined when calling PutChangeVisibilityWorksheet.');
@@ -37271,22 +37808,22 @@ export class PutChangeVisibilityWorksheetRequest  {
     }
 
 }
-/// Set active worksheet index in the workbook.   
+/// Set active worksheet index in the workbook.
 export class PutActiveWorksheetRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PutActiveWorksheetRequest >) {  
+    public constructor(init?: Partial< PutActiveWorksheetRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -37315,44 +37852,44 @@ export class PutActiveWorksheetRequest  {
     }
 
 }
-/// Insert a new worksheet in the workbook.   
+/// Insert a new worksheet in the workbook.
 export class PutInsertNewWorksheetRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-      
+
     public index: number;
-    /// Specifies the worksheet type(VB/Worksheet/Chart/BIFF4Macro/InternationalMacro/Other/Dialog).  
+    /// Specifies the worksheet type(VB/Worksheet/Chart/BIFF4Macro/InternationalMacro/Other/Dialog).
     public sheettype: string;
-      
+
     public newsheetname: string;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PutInsertNewWorksheetRequest >) {  
+    public constructor(init?: Partial< PutInsertNewWorksheetRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/insert".replace("{" + "name" + "}", String(this.name));
         const queryParameters: any = {};
-        /// The worksheet name. 
+        /// The worksheet name.
         // verify required parameter 'sheetName' is not null or undefined
         if (this.sheetName === null || this.sheetName === undefined) {
             throw new Error('Required parameter "sheetName" was null or undefined when calling PutInsertNewWorksheet.');
         }
-         
+
         // verify required parameter 'index' is not null or undefined
         if (this.index === null || this.index === undefined) {
             throw new Error('Required parameter "index" was null or undefined when calling PutInsertNewWorksheet.');
         }
-        /// Specifies the worksheet type(VB/Worksheet/Chart/BIFF4Macro/InternationalMacro/Other/Dialog). 
+        /// Specifies the worksheet type(VB/Worksheet/Chart/BIFF4Macro/InternationalMacro/Other/Dialog).
         // verify required parameter 'sheettype' is not null or undefined
         if (this.sheettype === null || this.sheettype === undefined) {
             throw new Error('Required parameter "sheettype" was null or undefined when calling PutInsertNewWorksheet.');
@@ -37384,26 +37921,26 @@ export class PutInsertNewWorksheetRequest  {
     }
 
 }
-/// Add a new worksheet in the workbook.   
+/// Add a new worksheet in the workbook.
 export class PutAddNewWorksheetRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The new sheet name.  
+    /// The new sheet name.
     public sheetName: string;
-    /// The new sheet position.  
+    /// The new sheet position.
     public position: number;
-    /// Specifies the worksheet type(VB/Worksheet/Chart/BIFF4Macro/InternationalMacro/Other/Dialog).  
+    /// Specifies the worksheet type(VB/Worksheet/Chart/BIFF4Macro/InternationalMacro/Other/Dialog).
     public sheettype: string;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PutAddNewWorksheetRequest >) {  
+    public constructor(init?: Partial< PutAddNewWorksheetRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -37434,22 +37971,22 @@ export class PutAddNewWorksheetRequest  {
     }
 
 }
-/// Delete a worksheet in the workbook.   
+/// Delete a worksheet in the workbook.
 export class DeleteWorksheetRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< DeleteWorksheetRequest >) {  
+    public constructor(init?: Partial< DeleteWorksheetRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -37478,22 +38015,22 @@ export class DeleteWorksheetRequest  {
     }
 
 }
-/// Delete matched worksheets in the workbook.   
+/// Delete matched worksheets in the workbook.
 export class DeleteWorksheetsRequest  {
-      
+
     public name: string;
-      
+
     public matchCondition: MatchConditionRequest;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< DeleteWorksheetsRequest >) {  
+    public constructor(init?: Partial< DeleteWorksheetsRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -37522,24 +38059,24 @@ export class DeleteWorksheetsRequest  {
     }
 
 }
-/// Move worksheet in the workbook.   
+/// Move worksheet in the workbook.
 export class PostMoveWorksheetRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// WorksheetMovingRequest with moving parameters.  
+    /// WorksheetMovingRequest with moving parameters.
     public moving: WorksheetMovingRequest;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostMoveWorksheetRequest >) {  
+    public constructor(init?: Partial< PostMoveWorksheetRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -37568,24 +38105,24 @@ export class PostMoveWorksheetRequest  {
     }
 
 }
-/// Protect worksheet.   
+/// Protect worksheet.
 export class PutProtectWorksheetRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// ProtectSheetParameter with protection settings.  
+    /// ProtectSheetParameter with protection settings.
     public protectParameter: ProtectSheetParameter;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PutProtectWorksheetRequest >) {  
+    public constructor(init?: Partial< PutProtectWorksheetRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -37614,24 +38151,24 @@ export class PutProtectWorksheetRequest  {
     }
 
 }
-/// Unprotect worksheet.   
+/// Unprotect worksheet.
 export class DeleteUnprotectWorksheetRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// WorksheetResponse with protection settings. Only password is used here.  
+    /// WorksheetResponse with protection settings. Only password is used here.
     public protectParameter: ProtectSheetParameter;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< DeleteUnprotectWorksheetRequest >) {  
+    public constructor(init?: Partial< DeleteUnprotectWorksheetRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -37660,22 +38197,22 @@ export class DeleteUnprotectWorksheetRequest  {
     }
 
 }
-/// Retrieve text items in the worksheet.   
+/// Retrieve text items in the worksheet.
 export class GetWorksheetTextItemsRequest  {
-    /// Workbook name.  
+    /// Workbook name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< GetWorksheetTextItemsRequest >) {  
+    public constructor(init?: Partial< GetWorksheetTextItemsRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -37704,22 +38241,22 @@ export class GetWorksheetTextItemsRequest  {
     }
 
 }
-/// Retrieve the description of comments in the worksheet.   
+/// Retrieve the description of comments in the worksheet.
 export class GetWorksheetCommentsRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< GetWorksheetCommentsRequest >) {  
+    public constructor(init?: Partial< GetWorksheetCommentsRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -37748,24 +38285,24 @@ export class GetWorksheetCommentsRequest  {
     }
 
 }
-/// Retrieve the description of comment in the worksheet.   
+/// Retrieve the description of comment in the worksheet.
 export class GetWorksheetCommentRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The cell name  
+    /// The cell name
     public cellName: string;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< GetWorksheetCommentRequest >) {  
+    public constructor(init?: Partial< GetWorksheetCommentRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -37794,26 +38331,26 @@ export class GetWorksheetCommentRequest  {
     }
 
 }
-/// Add cell comment in the worksheet.   
+/// Add cell comment in the worksheet.
 export class PutWorksheetCommentRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The cell name.  
+    /// The cell name.
     public cellName: string;
-    /// Comment object.  
+    /// Comment object.
     public comment: Comment;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PutWorksheetCommentRequest >) {  
+    public constructor(init?: Partial< PutWorksheetCommentRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -37842,26 +38379,26 @@ export class PutWorksheetCommentRequest  {
     }
 
 }
-/// Update cell comment in the worksheet.   
+/// Update cell comment in the worksheet.
 export class PostWorksheetCommentRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The cell name.  
+    /// The cell name.
     public cellName: string;
-    /// Comment object.  
+    /// Comment object.
     public comment: Comment;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostWorksheetCommentRequest >) {  
+    public constructor(init?: Partial< PostWorksheetCommentRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -37890,24 +38427,24 @@ export class PostWorksheetCommentRequest  {
     }
 
 }
-/// Delete cell comment in the worksheet.   
+/// Delete cell comment in the worksheet.
 export class DeleteWorksheetCommentRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The cell name.  
+    /// The cell name.
     public cellName: string;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< DeleteWorksheetCommentRequest >) {  
+    public constructor(init?: Partial< DeleteWorksheetCommentRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -37936,22 +38473,22 @@ export class DeleteWorksheetCommentRequest  {
     }
 
 }
-/// Delete all comments in the worksheet.   
+/// Delete all comments in the worksheet.
 export class DeleteWorksheetCommentsRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< DeleteWorksheetCommentsRequest >) {  
+    public constructor(init?: Partial< DeleteWorksheetCommentsRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -37980,22 +38517,22 @@ export class DeleteWorksheetCommentsRequest  {
     }
 
 }
-/// Get worksheet merged cells.   
+/// Get worksheet merged cells.
 export class GetWorksheetMergedCellsRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The workseet name.  
+    /// The workseet name.
     public sheetName: string;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< GetWorksheetMergedCellsRequest >) {  
+    public constructor(init?: Partial< GetWorksheetMergedCellsRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -38024,24 +38561,24 @@ export class GetWorksheetMergedCellsRequest  {
     }
 
 }
-/// Retrieve description of a merged cell by its index in the worksheet.   
+/// Retrieve description of a merged cell by its index in the worksheet.
 export class GetWorksheetMergedCellRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// Worksheet name.  
+    /// Worksheet name.
     public sheetName: string;
-    /// Merged cell index.  
+    /// Merged cell index.
     public mergedCellIndex: number;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< GetWorksheetMergedCellRequest >) {  
+    public constructor(init?: Partial< GetWorksheetMergedCellRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -38070,30 +38607,30 @@ export class GetWorksheetMergedCellRequest  {
     }
 
 }
-/// Calculate formula in the worksheet.   
+/// Calculate formula in the worksheet.
 export class GetWorksheetCalculateFormulaRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The formula.  
+    /// The formula.
     public formula: string;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< GetWorksheetCalculateFormulaRequest >) {  
+    public constructor(init?: Partial< GetWorksheetCalculateFormulaRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/formulaResult".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
         const queryParameters: any = {};
-        /// The formula. 
+        /// The formula.
         // verify required parameter 'formula' is not null or undefined
         if (this.formula === null || this.formula === undefined) {
             throw new Error('Required parameter "formula" was null or undefined when calling GetWorksheetCalculateFormula.');
@@ -38122,30 +38659,30 @@ export class GetWorksheetCalculateFormulaRequest  {
     }
 
 }
-/// Calculate formula in the worksheet.   
+/// Calculate formula in the worksheet.
 export class PostWorksheetCalculateFormulaRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// Worksheet name.  
+    /// Worksheet name.
     public sheetName: string;
-    /// The formula.  
+    /// The formula.
     public formula: string;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostWorksheetCalculateFormulaRequest >) {  
+    public constructor(init?: Partial< PostWorksheetCalculateFormulaRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/calculateformula".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
         const queryParameters: any = {};
-        /// The formula. 
+        /// The formula.
         // verify required parameter 'formula' is not null or undefined
         if (this.formula === null || this.formula === undefined) {
             throw new Error('Required parameter "formula" was null or undefined when calling PostWorksheetCalculateFormula.');
@@ -38174,30 +38711,30 @@ export class PostWorksheetCalculateFormulaRequest  {
     }
 
 }
-/// Search for text in the worksheet.   
+/// Search for text in the worksheet.
 export class PostWorksheetTextSearchRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// Text to search.  
+    /// Text to search.
     public text: string;
-    /// Original workbook folder.  
+    /// Original workbook folder.
     public folder: string;
-    /// Storage name.  
+    /// Storage name.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostWorksheetTextSearchRequest >) {  
+    public constructor(init?: Partial< PostWorksheetTextSearchRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/findText".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
         const queryParameters: any = {};
-        /// Text to search. 
+        /// Text to search.
         // verify required parameter 'text' is not null or undefined
         if (this.text === null || this.text === undefined) {
             throw new Error('Required parameter "text" was null or undefined when calling PostWorksheetTextSearch.');
@@ -38226,37 +38763,37 @@ export class PostWorksheetTextSearchRequest  {
     }
 
 }
-/// Replace old text with new text in the worksheet.   
+/// Replace old text with new text in the worksheet.
 export class PostWorksheetTextReplaceRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// Worksheet name.  
+    /// Worksheet name.
     public sheetName: string;
-    /// The old text to replace.  
+    /// The old text to replace.
     public oldValue: string;
-    /// The new text to replace by.  
+    /// The new text to replace by.
     public newValue: string;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostWorksheetTextReplaceRequest >) {  
+    public constructor(init?: Partial< PostWorksheetTextReplaceRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/replaceText".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
         const queryParameters: any = {};
-        /// The old text to replace. 
+        /// The old text to replace.
         // verify required parameter 'oldValue' is not null or undefined
         if (this.oldValue === null || this.oldValue === undefined) {
             throw new Error('Required parameter "oldValue" was null or undefined when calling PostWorksheetTextReplace.');
         }
-        /// The new text to replace by. 
+        /// The new text to replace by.
         // verify required parameter 'newValue' is not null or undefined
         if (this.newValue === null || this.newValue === undefined) {
             throw new Error('Required parameter "newValue" was null or undefined when calling PostWorksheetTextReplace.');
@@ -38286,32 +38823,32 @@ export class PostWorksheetTextReplaceRequest  {
     }
 
 }
-/// Sort a range in the worksheet.   
+/// Sort a range in the worksheet.
 export class PostWorksheetRangeSortRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The area needed to sort.  
+    /// The area needed to sort.
     public cellArea: string;
-    /// DataSorter with sorting settings.  
+    /// DataSorter with sorting settings.
     public dataSorter: DataSorter;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostWorksheetRangeSortRequest >) {  
+    public constructor(init?: Partial< PostWorksheetRangeSortRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/sort".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
         const queryParameters: any = {};
-        /// The area needed to sort. 
+        /// The area needed to sort.
         // verify required parameter 'cellArea' is not null or undefined
         if (this.cellArea === null || this.cellArea === undefined) {
             throw new Error('Required parameter "cellArea" was null or undefined when calling PostWorksheetRangeSort.');
@@ -38340,44 +38877,44 @@ export class PostWorksheetRangeSortRequest  {
     }
 
 }
-/// Autofit a row in the worksheet.   
+/// Autofit a row in the worksheet.
 export class PostAutofitWorksheetRowRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The row index.  
+    /// The row index.
     public rowIndex: number;
-    /// The first column index.  
+    /// The first column index.
     public firstColumn: number;
-    /// The last column index.  
+    /// The last column index.
     public lastColumn: number;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostAutofitWorksheetRowRequest >) {  
+    public constructor(init?: Partial< PostAutofitWorksheetRowRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/autofitrow".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
         const queryParameters: any = {};
-        /// The row index. 
+        /// The row index.
         // verify required parameter 'rowIndex' is not null or undefined
         if (this.rowIndex === null || this.rowIndex === undefined) {
             throw new Error('Required parameter "rowIndex" was null or undefined when calling PostAutofitWorksheetRow.');
         }
-        /// The first column index. 
+        /// The first column index.
         // verify required parameter 'firstColumn' is not null or undefined
         if (this.firstColumn === null || this.firstColumn === undefined) {
             throw new Error('Required parameter "firstColumn" was null or undefined when calling PostAutofitWorksheetRow.');
         }
-        /// The last column index. 
+        /// The last column index.
         // verify required parameter 'lastColumn' is not null or undefined
         if (this.lastColumn === null || this.lastColumn === undefined) {
             throw new Error('Required parameter "lastColumn" was null or undefined when calling PostAutofitWorksheetRow.');
@@ -38408,28 +38945,28 @@ export class PostAutofitWorksheetRowRequest  {
     }
 
 }
-/// Autofit rows in the worksheet.   
+/// Autofit rows in the worksheet.
 export class PostAutofitWorksheetRowsRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The start row index.  
+    /// The start row index.
     public startRow: number;
-    /// The end row index.  
+    /// The end row index.
     public endRow: number;
-    /// Autofits all rows in this worksheet.  
+    /// Autofits all rows in this worksheet.
     public onlyAuto: boolean;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostAutofitWorksheetRowsRequest >) {  
+    public constructor(init?: Partial< PostAutofitWorksheetRowsRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -38461,28 +38998,28 @@ export class PostAutofitWorksheetRowsRequest  {
     }
 
 }
-/// Autofit columns in the worksheet.   
+/// Autofit columns in the worksheet.
 export class PostAutofitWorksheetColumnsRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The start column index.  
+    /// The start column index.
     public startColumn: number;
-    /// The end column index.  
+    /// The end column index.
     public endColumn: number;
-      
+
     public onlyAuto: boolean;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostAutofitWorksheetColumnsRequest >) {  
+    public constructor(init?: Partial< PostAutofitWorksheetColumnsRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -38514,28 +39051,28 @@ export class PostAutofitWorksheetColumnsRequest  {
     }
 
 }
-/// Set background image in the worksheet.   
+/// Set background image in the worksheet.
 export class PutWorksheetBackgroundRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// picture full filename.  
+    /// picture full filename.
     public picPath: string;
-      
+
     public imageAdaptOption: string;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
-    /// File to upload  
+    /// File to upload
     public file: any;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PutWorksheetBackgroundRequest >) {  
+    public constructor(init?: Partial< PutWorksheetBackgroundRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -38552,8 +39089,16 @@ export class PutWorksheetBackgroundRequest  {
             }
         }
         if (this.file !== undefined) {
-            for (var key in this.file){
-                formParams[key] = this.file[key];
+            if (typeof this.file === 'string') {
+                if (fs.existsSync(this.file)) {
+                   const fileName = path.basename( this.file)
+                   formParams[fileName] = fs.createReadStream(this.file)
+               }
+            }
+            else  if (this.file instanceof Map ) {
+                for (var key in this.file){
+                    formParams[key] = this.file[key];
+                }
             }
         }
 
@@ -38567,28 +39112,28 @@ export class PutWorksheetBackgroundRequest  {
             json: true,
         };
 
-        (requestOptions as any).formData = formParams;        
+        (requestOptions as any).formData = formParams;
         return Promise.resolve(requestOptions);
 
     }
 
 }
-/// Delete background image in the worksheet.   
+/// Delete background image in the worksheet.
 export class DeleteWorksheetBackgroundRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< DeleteWorksheetBackgroundRequest >) {  
+    public constructor(init?: Partial< DeleteWorksheetBackgroundRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -38617,51 +39162,51 @@ export class DeleteWorksheetBackgroundRequest  {
     }
 
 }
-/// Set freeze panes in the worksheet.   
+/// Set freeze panes in the worksheet.
 export class PutWorksheetFreezePanesRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// Row index.  
+    /// Row index.
     public row: number;
-    /// Column index.  
+    /// Column index.
     public column: number;
-    /// Number of visible rows in top pane, no more than row index.  
+    /// Number of visible rows in top pane, no more than row index.
     public freezedRows: number;
-    /// Number of visible columns in left pane, no more than column index.  
+    /// Number of visible columns in left pane, no more than column index.
     public freezedColumns: number;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PutWorksheetFreezePanesRequest >) {  
+    public constructor(init?: Partial< PutWorksheetFreezePanesRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/freezepanes".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
         const queryParameters: any = {};
-        /// Row index. 
+        /// Row index.
         // verify required parameter 'row' is not null or undefined
         if (this.row === null || this.row === undefined) {
             throw new Error('Required parameter "row" was null or undefined when calling PutWorksheetFreezePanes.');
         }
-        /// Column index. 
+        /// Column index.
         // verify required parameter 'column' is not null or undefined
         if (this.column === null || this.column === undefined) {
             throw new Error('Required parameter "column" was null or undefined when calling PutWorksheetFreezePanes.');
         }
-        /// Number of visible rows in top pane, no more than row index. 
+        /// Number of visible rows in top pane, no more than row index.
         // verify required parameter 'freezedRows' is not null or undefined
         if (this.freezedRows === null || this.freezedRows === undefined) {
             throw new Error('Required parameter "freezedRows" was null or undefined when calling PutWorksheetFreezePanes.');
         }
-        /// Number of visible columns in left pane, no more than column index. 
+        /// Number of visible columns in left pane, no more than column index.
         // verify required parameter 'freezedColumns' is not null or undefined
         if (this.freezedColumns === null || this.freezedColumns === undefined) {
             throw new Error('Required parameter "freezedColumns" was null or undefined when calling PutWorksheetFreezePanes.');
@@ -38693,51 +39238,51 @@ export class PutWorksheetFreezePanesRequest  {
     }
 
 }
-/// Unfreeze panes in worksheet.   
+/// Unfreeze panes in worksheet.
 export class DeleteWorksheetFreezePanesRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// Row index.  
+    /// Row index.
     public row: number;
-    /// Column index.  
+    /// Column index.
     public column: number;
-    /// Number of visible rows in top pane, no more than row index.  
+    /// Number of visible rows in top pane, no more than row index.
     public freezedRows: number;
-    /// Number of visible columns in left pane, no more than column index.  
+    /// Number of visible columns in left pane, no more than column index.
     public freezedColumns: number;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< DeleteWorksheetFreezePanesRequest >) {  
+    public constructor(init?: Partial< DeleteWorksheetFreezePanesRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/freezepanes".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
         const queryParameters: any = {};
-        /// Row index. 
+        /// Row index.
         // verify required parameter 'row' is not null or undefined
         if (this.row === null || this.row === undefined) {
             throw new Error('Required parameter "row" was null or undefined when calling DeleteWorksheetFreezePanes.');
         }
-        /// Column index. 
+        /// Column index.
         // verify required parameter 'column' is not null or undefined
         if (this.column === null || this.column === undefined) {
             throw new Error('Required parameter "column" was null or undefined when calling DeleteWorksheetFreezePanes.');
         }
-        /// Number of visible rows in top pane, no more than row index. 
+        /// Number of visible rows in top pane, no more than row index.
         // verify required parameter 'freezedRows' is not null or undefined
         if (this.freezedRows === null || this.freezedRows === undefined) {
             throw new Error('Required parameter "freezedRows" was null or undefined when calling DeleteWorksheetFreezePanes.');
         }
-        /// Number of visible columns in left pane, no more than column index. 
+        /// Number of visible columns in left pane, no more than column index.
         // verify required parameter 'freezedColumns' is not null or undefined
         if (this.freezedColumns === null || this.freezedColumns === undefined) {
             throw new Error('Required parameter "freezedColumns" was null or undefined when calling DeleteWorksheetFreezePanes.');
@@ -38769,36 +39314,36 @@ export class DeleteWorksheetFreezePanesRequest  {
     }
 
 }
-/// Copy contents and formats from another worksheet.   
+/// Copy contents and formats from another worksheet.
 export class PostCopyWorksheetRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// Source worksheet.  
+    /// Source worksheet.
     public sourceSheet: string;
-    /// Represents the copy options.  
+    /// Represents the copy options.
     public options: CopyOptions;
-    /// source Workbook.  
+    /// source Workbook.
     public sourceWorkbook: string;
-    /// Original workbook folder.  
+    /// Original workbook folder.
     public sourceFolder: string;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostCopyWorksheetRequest >) {  
+    public constructor(init?: Partial< PostCopyWorksheetRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/copy".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
         const queryParameters: any = {};
-        /// Source worksheet. 
+        /// Source worksheet.
         // verify required parameter 'sourceSheet' is not null or undefined
         if (this.sourceSheet === null || this.sourceSheet === undefined) {
             throw new Error('Required parameter "sourceSheet" was null or undefined when calling PostCopyWorksheet.');
@@ -38829,30 +39374,30 @@ export class PostCopyWorksheetRequest  {
     }
 
 }
-/// Rename worksheet in the workbook.   
+/// Rename worksheet in the workbook.
 export class PostRenameWorksheetRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// New worksheet name.  
+    /// New worksheet name.
     public newname: string;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostRenameWorksheetRequest >) {  
+    public constructor(init?: Partial< PostRenameWorksheetRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/rename".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
         const queryParameters: any = {};
-        /// New worksheet name. 
+        /// New worksheet name.
         // verify required parameter 'newname' is not null or undefined
         if (this.newname === null || this.newname === undefined) {
             throw new Error('Required parameter "newname" was null or undefined when calling PostRenameWorksheet.');
@@ -38881,24 +39426,24 @@ export class PostRenameWorksheetRequest  {
     }
 
 }
-/// Update worksheet properties in the workbook.   
+/// Update worksheet properties in the workbook.
 export class PostUpdateWorksheetPropertyRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The worksheet description.  
+    /// The worksheet description.
     public sheet: Worksheet;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostUpdateWorksheetPropertyRequest >) {  
+    public constructor(init?: Partial< PostUpdateWorksheetPropertyRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -38927,20 +39472,20 @@ export class PostUpdateWorksheetPropertyRequest  {
     }
 
 }
-/// Retrieve descriptions of ranges in the worksheets.   
+/// Retrieve descriptions of ranges in the worksheets.
 export class GetNamedRangesRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< GetNamedRangesRequest >) {  
+    public constructor(init?: Partial< GetNamedRangesRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -38969,22 +39514,22 @@ export class GetNamedRangesRequest  {
     }
 
 }
-/// Retrieve values in range.   
+/// Retrieve values in range.
 export class GetNamedRangeValueRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// Range name.  
+    /// Range name.
     public namerange: string;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< GetNamedRangeValueRequest >) {  
+    public constructor(init?: Partial< GetNamedRangeValueRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -39013,30 +39558,30 @@ export class GetNamedRangeValueRequest  {
     }
 
 }
-/// Update the scaling percentage in the worksheet. It should be between 10 and 400.   
+/// Update the scaling percentage in the worksheet. It should be between 10 and 400.
 export class PostUpdateWorksheetZoomRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// Represents the scaling factor in percentage. It should be between 10 and 400.  
+    /// Represents the scaling factor in percentage. It should be between 10 and 400.
     public value: number;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostUpdateWorksheetZoomRequest >) {  
+    public constructor(init?: Partial< PostUpdateWorksheetZoomRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/{name}/worksheets/{sheetName}/zoom".replace("{" + "name" + "}", String(this.name)).replace("{" + "sheetName" + "}", String(this.sheetName));
         const queryParameters: any = {};
-        /// Represents the scaling factor in percentage. It should be between 10 and 400. 
+        /// Represents the scaling factor in percentage. It should be between 10 and 400.
         // verify required parameter 'value' is not null or undefined
         if (this.value === null || this.value === undefined) {
             throw new Error('Required parameter "value" was null or undefined when calling PostUpdateWorksheetZoom.');
@@ -39065,22 +39610,22 @@ export class PostUpdateWorksheetZoomRequest  {
     }
 
 }
-/// Get page count in the worksheet.   
+/// Get page count in the worksheet.
 export class GetWorksheetPageCountRequest  {
-    /// The file name.  
+    /// The file name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< GetWorksheetPageCountRequest >) {  
+    public constructor(init?: Partial< GetWorksheetPageCountRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -39109,22 +39654,22 @@ export class GetWorksheetPageCountRequest  {
     }
 
 }
-/// Retrieve descriptions of validations in the worksheet.   
+/// Retrieve descriptions of validations in the worksheet.
 export class GetWorksheetValidationsRequest  {
-    /// The workbook name.  
+    /// The workbook name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< GetWorksheetValidationsRequest >) {  
+    public constructor(init?: Partial< GetWorksheetValidationsRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -39153,24 +39698,24 @@ export class GetWorksheetValidationsRequest  {
     }
 
 }
-/// Retrieve a validation by its index in the worksheet.   
+/// Retrieve a validation by its index in the worksheet.
 export class GetWorksheetValidationRequest  {
-    /// The workbook name.  
+    /// The workbook name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The validation index.  
+    /// The validation index.
     public validationIndex: number;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< GetWorksheetValidationRequest >) {  
+    public constructor(init?: Partial< GetWorksheetValidationRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -39199,24 +39744,24 @@ export class GetWorksheetValidationRequest  {
     }
 
 }
-/// Add a validation at index in the worksheet.   
+/// Add a validation at index in the worksheet.
 export class PutWorksheetValidationRequest  {
-    /// The workbook name.  
+    /// The workbook name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// Specified cells area  
+    /// Specified cells area
     public range: string;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PutWorksheetValidationRequest >) {  
+    public constructor(init?: Partial< PutWorksheetValidationRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -39246,26 +39791,26 @@ export class PutWorksheetValidationRequest  {
     }
 
 }
-/// Update a validation by index in the worksheet.   
+/// Update a validation by index in the worksheet.
 export class PostWorksheetValidationRequest  {
-    /// The workbook name.  
+    /// The workbook name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The validation index.  
+    /// The validation index.
     public validationIndex: number;
-    /// Validation description.  
+    /// Validation description.
     public validation: Validation;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< PostWorksheetValidationRequest >) {  
+    public constructor(init?: Partial< PostWorksheetValidationRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -39294,24 +39839,24 @@ export class PostWorksheetValidationRequest  {
     }
 
 }
-/// Delete a validation by index in worksheet.   
+/// Delete a validation by index in worksheet.
 export class DeleteWorksheetValidationRequest  {
-    /// The workbook name.  
+    /// The workbook name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The validation index.  
+    /// The validation index.
     public validationIndex: number;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< DeleteWorksheetValidationRequest >) {  
+    public constructor(init?: Partial< DeleteWorksheetValidationRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -39340,22 +39885,22 @@ export class DeleteWorksheetValidationRequest  {
     }
 
 }
-/// Delete all validations in the worksheet.   
+/// Delete all validations in the worksheet.
 export class DeleteWorksheetValidationsRequest  {
-    /// The workbook name.  
+    /// The workbook name.
     public name: string;
-    /// The worksheet name.  
+    /// The worksheet name.
     public sheetName: string;
-    /// The folder where the file is situated.  
+    /// The folder where the file is situated.
     public folder: string;
-    /// The storage name where the file is situated.  
+    /// The storage name where the file is situated.
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< DeleteWorksheetValidationsRequest >) {  
+    public constructor(init?: Partial< DeleteWorksheetValidationsRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -39384,20 +39929,20 @@ export class DeleteWorksheetValidationsRequest  {
     }
 
 }
-   
+
 export class DownloadFileRequest  {
-      
+
     public path: string;
-      
+
     public storageName: string;
-      
+
     public versionId: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< DownloadFileRequest >) {  
+    public constructor(init?: Partial< DownloadFileRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -39426,20 +39971,20 @@ export class DownloadFileRequest  {
     }
 
 }
-   
+
 export class UploadFileRequest  {
-    /// Upload files to cloud storage.  
+    /// Upload files to cloud storage.
     public uploadFiles: any;
-      
+
     public path: string;
-      
+
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< UploadFileRequest >) {  
+    public constructor(init?: Partial< UploadFileRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -39453,8 +39998,16 @@ export class UploadFileRequest  {
             }
         }
         if (this.uploadFiles !== undefined) {
-            for (var key in this.uploadFiles){
-                formParams[key] = this.uploadFiles[key];
+            if (typeof this.uploadFiles === 'string') {
+                if (fs.existsSync(this.uploadFiles)) {
+                   const fileName = path.basename( this.uploadFiles)
+                   formParams[fileName] = fs.createReadStream(this.uploadFiles)
+               }
+            }
+            else {
+                for (var key in this.uploadFiles){
+                    formParams[key] = this.uploadFiles[key];
+                }
             }
         }
 
@@ -39468,36 +40021,36 @@ export class UploadFileRequest  {
             json: true,
         };
 
-        (requestOptions as any).formData = formParams;        
+        (requestOptions as any).formData = formParams;
         return Promise.resolve(requestOptions);
 
     }
 
 }
-   
+
 export class CopyFileRequest  {
-      
+
     public srcPath: string;
-      
+
     public destPath: string;
-      
+
     public srcStorageName: string;
-      
+
     public destStorageName: string;
-      
+
     public versionId: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< CopyFileRequest >) {  
+    public constructor(init?: Partial< CopyFileRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/storage/file/copy/{srcPath}".replace("{" + "srcPath" + "}", String(this.srcPath));
         const queryParameters: any = {};
-         
+
         // verify required parameter 'destPath' is not null or undefined
         if (this.destPath === null || this.destPath === undefined) {
             throw new Error('Required parameter "destPath" was null or undefined when calling CopyFile.');
@@ -39527,30 +40080,30 @@ export class CopyFileRequest  {
     }
 
 }
-   
+
 export class MoveFileRequest  {
-      
+
     public srcPath: string;
-      
+
     public destPath: string;
-      
+
     public srcStorageName: string;
-      
+
     public destStorageName: string;
-      
+
     public versionId: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< MoveFileRequest >) {  
+    public constructor(init?: Partial< MoveFileRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/storage/file/move/{srcPath}".replace("{" + "srcPath" + "}", String(this.srcPath));
         const queryParameters: any = {};
-         
+
         // verify required parameter 'destPath' is not null or undefined
         if (this.destPath === null || this.destPath === undefined) {
             throw new Error('Required parameter "destPath" was null or undefined when calling MoveFile.');
@@ -39580,20 +40133,20 @@ export class MoveFileRequest  {
     }
 
 }
-   
+
 export class DeleteFileRequest  {
-      
+
     public path: string;
-      
+
     public storageName: string;
-      
+
     public versionId: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< DeleteFileRequest >) {  
+    public constructor(init?: Partial< DeleteFileRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -39622,18 +40175,18 @@ export class DeleteFileRequest  {
     }
 
 }
-   
+
 export class GetFilesListRequest  {
-      
+
     public path: string;
-      
+
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< GetFilesListRequest >) {  
+    public constructor(init?: Partial< GetFilesListRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -39661,18 +40214,18 @@ export class GetFilesListRequest  {
     }
 
 }
-   
+
 export class CreateFolderRequest  {
-      
+
     public path: string;
-      
+
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< CreateFolderRequest >) {  
+    public constructor(init?: Partial< CreateFolderRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -39700,28 +40253,28 @@ export class CreateFolderRequest  {
     }
 
 }
-   
+
 export class CopyFolderRequest  {
-      
+
     public srcPath: string;
-      
+
     public destPath: string;
-      
+
     public srcStorageName: string;
-      
+
     public destStorageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< CopyFolderRequest >) {  
+    public constructor(init?: Partial< CopyFolderRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/storage/folder/copy/{srcPath}".replace("{" + "srcPath" + "}", String(this.srcPath));
         const queryParameters: any = {};
-         
+
         // verify required parameter 'destPath' is not null or undefined
         if (this.destPath === null || this.destPath === undefined) {
             throw new Error('Required parameter "destPath" was null or undefined when calling CopyFolder.');
@@ -39750,28 +40303,28 @@ export class CopyFolderRequest  {
     }
 
 }
-   
+
 export class MoveFolderRequest  {
-      
+
     public srcPath: string;
-      
+
     public destPath: string;
-      
+
     public srcStorageName: string;
-      
+
     public destStorageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< MoveFolderRequest >) {  
+    public constructor(init?: Partial< MoveFolderRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
         let localVarPath = configuration.getApiBaseUrl() + "/cells/storage/folder/move/{srcPath}".replace("{" + "srcPath" + "}", String(this.srcPath));
         const queryParameters: any = {};
-         
+
         // verify required parameter 'destPath' is not null or undefined
         if (this.destPath === null || this.destPath === undefined) {
             throw new Error('Required parameter "destPath" was null or undefined when calling MoveFolder.');
@@ -39800,20 +40353,20 @@ export class MoveFolderRequest  {
     }
 
 }
-   
+
 export class DeleteFolderRequest  {
-      
+
     public path: string;
-      
+
     public storageName: string;
-      
+
     public recursive: boolean;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< DeleteFolderRequest >) {  
+    public constructor(init?: Partial< DeleteFolderRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -39842,16 +40395,16 @@ export class DeleteFolderRequest  {
     }
 
 }
-   
+
 export class StorageExistsRequest  {
-      
+
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< StorageExistsRequest >) {  
+    public constructor(init?: Partial< StorageExistsRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -39878,20 +40431,20 @@ export class StorageExistsRequest  {
     }
 
 }
-   
+
 export class ObjectExistsRequest  {
-      
+
     public path: string;
-      
+
     public storageName: string;
-      
+
     public versionId: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< ObjectExistsRequest >) {  
+    public constructor(init?: Partial< ObjectExistsRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -39920,16 +40473,16 @@ export class ObjectExistsRequest  {
     }
 
 }
-   
+
 export class GetDiscUsageRequest  {
-      
+
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< GetDiscUsageRequest >) {  
+    public constructor(init?: Partial< GetDiscUsageRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
@@ -39957,18 +40510,18 @@ export class GetDiscUsageRequest  {
     }
 
 }
-   
+
 export class GetFileVersionsRequest  {
-      
+
     public path: string;
-      
+
     public storageName: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< GetFileVersionsRequest >) {  
+    public constructor(init?: Partial< GetFileVersionsRequest >) {
         Object.assign(this, init);
-    } 
+    }
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 

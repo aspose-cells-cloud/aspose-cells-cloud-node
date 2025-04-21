@@ -18,7 +18,7 @@ cellsApi.uploadFile(localNameRequest );
 var format = "csv"
 var newfilename = "OutResult/PostExcelSaveAs.csv"
 
-var saveOptions = new model.PdfSaveOptions();
+var saveOptions = new model.SaveOptions();
  saveOptions.saveFormat = format  ;
 
 var request = new model.PostWorkbookSaveAsRequest();

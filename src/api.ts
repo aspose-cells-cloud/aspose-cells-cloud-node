@@ -1877,6 +1877,37 @@ export class CellsApi {
     /// <summary>
     /// Export Excel internal elements or the workbook itself to various format files.
     /// </summary>
+    /// <param name="request">Request. <see cref="CheckWrokbookExternalReferenceRequest" /></param>
+    public async checkWrokbookExternalReference(requestObj:model.CheckWrokbookExternalReferenceRequest ): Promise<{response: http.ClientResponse, body: model.CheckedExternalReferenceResponse}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling checkWrokbookExternalReference.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "CheckedExternalReferenceResponse");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// </summary>
+    /// <param name="request">Request. <see cref="CheckWorkbookFormulaErrorsRequest" /></param>
+    public async checkWorkbookFormulaErrors(requestObj:model.CheckWorkbookFormulaErrorsRequest ): Promise<{response: http.ClientResponse, body: model.CheckedFormulaErrorsResponse}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling checkWorkbookFormulaErrors.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "CheckedFormulaErrorsResponse");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// Export Excel internal elements or the workbook itself to various format files.
+    /// </summary>
     /// <param name="request">Request. <see cref="PostExportRequest" /></param>
     public async postExport(requestObj:model.PostExportRequest ): Promise<{response: http.ClientResponse, body: model.FilesResult}>
     {

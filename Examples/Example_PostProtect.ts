@@ -6,7 +6,6 @@ const cellsApi = new CellsApi(process.env.CellsCloudClientId, process.env.CellsC
 
   
 var assemblyTestXlsx = "assemblytest.xlsx"
-var dataSourceXlsx = "datasource.xlsx"
 
  
 var mapFiles = {};           
@@ -15,7 +14,6 @@ var protectWorkbookRequest = new model.ProtectWorkbookRequest();
  protectWorkbookRequest.awaysOpenReadOnly = true  ;
  protectWorkbookRequest.encryptWithPassword = "123456"  ;
  mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
- mapFiles[dataSourceXlsx]= fs.createReadStream(localPath  +dataSourceXlsx) ;
 
 var request = new model.PostProtectRequest();
 request.file =  mapFiles;

@@ -6,7 +6,6 @@ const cellsApi = new CellsApi(process.env.CellsCloudClientId, process.env.CellsC
 
   
 var book1Xlsx = "Book1.xlsx"
-var dataSourceXlsx = "datasource.xlsx"
 
  
 var objecttype = "chart"
@@ -14,7 +13,6 @@ var objecttype = "chart"
 var mapFiles = {};           
 
  mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
- mapFiles[dataSourceXlsx]= fs.createReadStream(localPath  +dataSourceXlsx) ;
 
 var request = new model.PostClearObjectsRequest();
 request.file =  mapFiles;
