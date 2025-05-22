@@ -78,6 +78,6 @@ export class Configuration {
      * Returns api base url
      */
     public getApiBaseUrl(): string {
-        return this.baseUrl + "/" + this.apiVersion;
+        return this.baseUrl + "/";
     }
 }

@@ -1,4 +1,4 @@
-![](https://img.shields.io/badge/aspose.cells%20Cloud%20SDK%20for%20Nodejs-v25.4.0-green?style=for-the-badge&logo=nodedotjs)[![Product Page](https://img.shields.io/badge/Product-0288d1?style=for-the-badge&logo=Google-Chrome&logoColor=white)](https://products.aspose.cloud/cells/nodejs/) [![Documentation](https://img.shields.io/badge/Documentation-388e3c?style=for-the-badge&logo=Hugo&logoColor=white)](https://docs.aspose.cloud/cells/) [![API Ref](https://img.shields.io/badge/Reference-f39c12?style=for-the-badge&logo=html5&logoColor=white)](https://reference.aspose.cloud/cells/) [![Examples](https://img.shields.io/badge/Examples-1565c0?style=for-the-badge&logo=Github&logoColor=white)](https://github.com/aspose-cells-cloud/aspose-cells-cloud-node/tree/master/examples) [![Blog](https://img.shields.io/badge/Blog-d32f2f?style=for-the-badge&logo=WordPress&logoColor=white)](https://blog.aspose.cloud/categories/aspose.cells-cloud-product-family/) [![Support](https://img.shields.io/badge/Support-7b1fa2?style=for-the-badge&logo=Discourse&logoColor=white)](https://forum.aspose.cloud/c/cells/7) [![License](https://img.shields.io/github/license/aspose-cells-cloud/aspose-cells-cloud-go?style=for-the-badge&logo=rocket&logoColor=white)](https://github.com/aspose-cells-cloud/aspose-cells-cloud-node/blob/master/LICENSE)
+![](https://img.shields.io/badge/aspose.cells%20Cloud%20SDK-v25.5.0-green?style=for-the-badge&logo=nodedotjs)[![Product Page](https://img.shields.io/badge/Product-0288d1?style=for-the-badge&logo=Google-Chrome&logoColor=white)](https://products.aspose.cloud/cells/nodejs/) [![Documentation](https://img.shields.io/badge/Documentation-388e3c?style=for-the-badge&logo=Hugo&logoColor=white)](https://docs.aspose.cloud/cells/) [![API Ref](https://img.shields.io/badge/Reference-f39c12?style=for-the-badge&logo=html5&logoColor=white)](https://reference.aspose.cloud/cells/) [![Examples](https://img.shields.io/badge/Examples-1565c0?style=for-the-badge&logo=Github&logoColor=white)](https://github.com/aspose-cells-cloud/aspose-cells-cloud-node/tree/master/examples) [![Blog](https://img.shields.io/badge/Blog-d32f2f?style=for-the-badge&logo=WordPress&logoColor=white)](https://blog.aspose.cloud/categories/aspose.cells-cloud-product-family/) [![Support](https://img.shields.io/badge/Support-7b1fa2?style=for-the-badge&logo=Discourse&logoColor=white)](https://forum.aspose.cloud/c/cells/7) [![License](https://img.shields.io/github/license/aspose-cells-cloud/aspose-cells-cloud-go?style=for-the-badge&logo=rocket&logoColor=white)](https://github.com/aspose-cells-cloud/aspose-cells-cloud-node/blob/master/LICENSE)
 
 Node.js Cloud SDK wraps Aspose.Cells REST API so you could seamlessly integrate Microsoft Excel® document generation, manipulation, conversion & inspection features into your own Node.js applications.
 
@@ -6,65 +6,6 @@ Node.js Cloud SDK wraps Aspose.Cells REST API so you could seamlessly integrate 
 
 This repository contains Aspose.Cells Cloud SDK for Node.js source code. This SDK enables you to engage with various aspects of worksheets such as cell data, cell formatting, formulas, charts, pivot tables, data validation, comments, drawing objects, images, hyperlinks, as well as text and number formatting. Additionally, it offers functionalities for manipulating rows, columns, and protection settings. With Aspose.Cells Cloud SDK for Node.js, you can extend your applications to append and split worksheets, merge cells, and convert worksheets to a range of supported file formats, seamlessly integrating with the powerful Aspose.Cells Cloud REST APIs.
 We encourage you to dive into the Developer's Guide & API Reference for a comprehensive insight into everything Aspose.Cells Cloud API can offer. Enhance your Node.js applications today by leveraging the full suite of features aimed at making worksheet management as efficient as possible.
-
-## Manipulate Excel and other spreadsheet files in the Cloud
-
-- File Manipulation: Users can upload, download, delete, and manage Excel files stored in the cloud.
-- Formatting: Supports formatting of cells, fonts, colors, and alignment modes in Excel files to cater to users' specific requirements.
-- Data Processing: Powerful functions for data processing including reading, writing, modifying cell data, performing formula calculations, and formatting data.
-- Formula Calculation: Built-in formula engine handles complex formula calculations in Excel and returns accurate results.
-- Chart Manipulation: Users can create, edit, and delete charts from Excel files for data analysis and visualization needs.
-- Table Processing: Offers robust processing capabilities for various form operations such as creation, editing, formatting, and conversion, meeting diverse form processing needs.
-- Data Verification: Includes data verification function to set cell data type, range, uniqueness, ensuring data accuracy and integrity.
-- Batch Processing: Supports batch processing of multiple Excel documents, such as batch format conversion, data extraction, and style application..
-- Import/Export: Facilitates importing data from various sources into spreadsheets and exporting spreadsheet data to other formats.
-- Security Management: Offers a range of security features like data encryption, access control, and permission management to safeguard the security and integrity of spreadsheet data.
-
-## Feature & Enhancements in Version v25.4.0
-
-Full list of issues covering all changes in this release:
-
-- New API for Comprehensive Formula Error Checks in Excel Workbooks.
-- New API for External Reference Checks in Excel Workbooks.
-
-
-## Support file format
-
-|**Format**|**Description**|**Load**|**Save**|
-| :- | :- | :- | :- |
-|[XLS](https://docs.fileformat.com/spreadsheet/xls/)|Excel 95/5.0 - 2003 Workbook.|&radic;|&radic;|
-|[XLSX](https://docs.fileformat.com/spreadsheet/xlsx/)|Office Open XML SpreadsheetML Workbook or template file, with or without macros.|&radic;|&radic;|
-|[XLSB](https://docs.fileformat.com/spreadsheet/xlsb/)|Excel Binary Workbook.|&radic;|&radic;|
-|[XLSM](https://docs.fileformat.com/spreadsheet/xlsm/)|Excel Macro-Enabled Workbook.|&radic;|&radic;|
-|[XLT](https://docs.fileformat.com/spreadsheet/xlt/)|Excel 97 - Excel 2003 Template.|&radic;|&radic;|
-|[XLTX](https://docs.fileformat.com/spreadsheet/xltx/)|Excel Template.|&radic;|&radic;|
-|[XLTM](https://docs.fileformat.com/spreadsheet/xltm/)|Excel Macro-Enabled Template.|&radic;|&radic;|
-|[XLAM](https://docs.fileformat.com/spreadsheet/xlam/)|An Excel Macro-Enabled Add-In file that's used to add new functions to Excel.| |&radic;|
-|[CSV](https://docs.fileformat.com/spreadsheet/csv/)|CSV (Comma Separated Value) file.|&radic;|&radic;|
-|[TSV](https://docs.fileformat.com/spreadsheet/tsv/)|TSV (Tab-separated values) file.|&radic;|&radic;|
-|TabDelimited|Tab-delimited text file, same with TSV file.|&radic;|&radic;|
-|[TXT](https://docs.fileformat.com/word-processing/txt/)|Delimited plain text file.|&radic;|&radic;|
-|[HTML](https://docs.fileformat.com/web/html/)|HTML format.|&radic;|&radic;|
-|[MHTML](https://docs.fileformat.com/web/mhtml/)|MHTML file.|&radic;|&radic;|
-|[ODS](https://docs.fileformat.com/spreadsheet/ods/)|ODS (OpenDocument Spreadsheet).|&radic;|&radic;|
-|SpreadsheetML|Excel 2003 XML file.|&radic;|&radic;|
-|[Numbers](https://docs.fileformat.com/spreadsheet/numbers/)|The document is created by Apple's "Numbers" application which forms part of Apple's iWork office suite, a set of applications which run on the Mac OS X and iOS operating systems.|&radic;||
-|[JSON](https://docs.fileformat.com/web/json/)|JavaScript Object Notation|&radic;|&radic;|
-|[DIF](https://docs.fileformat.com/spreadsheet/dif/)|Data Interchange Format.| |&radic;|
-|[PDF](https://docs.fileformat.com/pdf/)|Adobe Portable Document Format.| |&radic;|
-|[XPS](https://docs.fileformat.com/page-description-language/xps/)|XML Paper Specification Format.| |&radic;|
-|[SVG](https://docs.fileformat.com/page-description-language/svg/)|Scalable Vector Graphics Format.| |&radic;|
-|[TIFF](https://docs.fileformat.com/image/tiff/)|Tagged Image File Format| |&radic;|
-|[PNG](https://docs.fileformat.com/image/png/)|Portable Network Graphics Format| |&radic;|
-|[BMP](https://docs.fileformat.com/image/bmp/)|Bitmap Image Format| |&radic;|
-|[EMF](https://docs.fileformat.com/image/emf/)|Enhanced metafile Format| |&radic;|
-|[JPEG](https://docs.fileformat.com/image/jpeg/)|JPEG is a type of image format that is saved using the method of lossy compression.| |&radic;|
-|[GIF](https://docs.fileformat.com/image/gif/)|Graphical Interchange Format| |&radic;|
-|[MARKDOWN](https://docs.fileformat.com/word-processing/md/)|Represents a markdown document.| |&radic;|
-|[SXC](https://docs.fileformat.com/spreadsheet/sxc/)|An XML based format used by OpenOffice and StarOffice|&radic;|&radic;|
-|[FODS](https://docs.fileformat.com/spreadsheet/fods/)|This is an Open Document format stored as flat XML.|&radic;|&radic;|
-|[DOCX](https://docs.fileformat.com/word-processing/docx/)|A well-known format for Microsoft Word documents that is a combination of XML and binary files.||&radic;|
-|[PPTX](https://docs.fileformat.com/presentation/pptx/)|The PPTX format is based on the Microsoft PowerPoint open XML presentation file format.||&radic;|
 
 ## Quick Start Guide
 
@@ -104,312 +45,96 @@ describe('quicktest', function(){
 
 
 ```
-
-## Aspose.Cells Cloud in Popular Languages
-
-| Java | PHP | Python | Ruby | Node.js | Android | Swift | Perl | GO |
-|---|---|---|---|---|---|---|---|---|
-| [GitHub](https://github.com/aspose-cells-cloud/aspose-cells-cloud-java) | [GitHub](https://github.com/aspose-cells-cloud/aspose-cells-cloud-php) | [GitHub](https://github.com/aspose-cells-cloud/aspose-cells-cloud-python) | [GitHub](https://github.com/aspose-cells-cloud/aspose-cells-cloud-ruby)  | [GitHub](https://github.com/aspose-cells-cloud/aspose-cells-cloud-node) | [GitHub](https://github.com/aspose-cells-cloud/aspose-cells-cloud-android)  | [GitHub](https://github.com/aspose-cells-cloud/aspose-cells-cloud-swift) | [GitHub](https://github.com/aspose-cells-cloud/aspose-cells-cloud-perl) | [GitHub](https://github.com/aspose-cells-cloud/aspose-cells-cloud-go) |
-| [Maven](https://repository.aspose.cloud/webapp/#/artifacts/browse/tree/General/repo/com/aspose/aspose-cells-cloud) | [Composer](https://packagist.org/packages/aspose/cells-sdk-php) | [PIP](https://pypi.org/project/asposecellscloud/) | [GEM](https://rubygems.org/gems/aspose_cells_cloud)  | [NPM](https://www.npmjs.com/package/asposecellscloud) | [Maven](https://repository.aspose.cloud/webapp/#/artifacts/browse/tree/General/repo/com/aspose/aspose-cells-cloud-android) | [POD](https://cocoapods.org/pods/AsposeCellsCloud) |  [CPAN](https://metacpan.org/release/AsposeCellsCloud-CellsApi) | [GO](https://pkg.go.dev/github.com/aspose-cells-cloud/aspose-cells-cloud-go/v20?tab=overview) |
-
-[Product Page](https://products.aspose.cloud/cells/net) | [Documentation](https://docs.aspose.cloud/cells/) | [Live Demo](https://products.aspose.app/cells/family) | [API Reference](https://apireference.aspose.cloud/cells/) | [Code Samples](https://github.com/aspose-cells-cloud/aspose-cells-cloud-dotnet/tree/master/Examples) | [Blog](https://blog.aspose.cloud/category/cells/) | [Free Support](https://forum.aspose.cloud/c/cells) | [Free Trial](https://dashboard.aspose.cloud/#/apps)
-
-# Release history version
-
-## Enhancements in Version 25.3.0
-
-- Optimized the properties of SaveOptions to enhance performance and flexibility.
-- Optimized the conversion method of Workbook for improved efficiency and reliability.
-- Developed a new API to retrieve a comprehensive list of all styles in a workbook.
-- Enhanced all save options to improve functionality and user experience.
-- Added a new API to insert images into cells.
-
-## Enhancements in Version 25.2.0
-
-- Support copying a range from one workbook to another workbook.
-- Add query parameters for image and print options to enhance the Get Worksheet API.
-- Added an API to count the number of Excel characters for cells cloud.
-- Added an API to count the number of Excel words for cells cloud.
-- Added an API to count the number of occurrences of a specified word in Excel for cells cloud
-- Add a new feature to support converting range to images.
-- Add a new feature to support converting worksheets to images
-
-## Enhancements in Version 25.1.0
-
-- Add the new API for splitting text in the cell.
-- Optimize pivot table filter-related APIs.
-
-## Enhancements in Version 24.12
-
-- Add the new remove duplicates api.
-- Add the new extract text API.
-- The pivot filter could not be created successfully.
-
-
-## Enhancements in Version 24.11.0
-
-- Add convert text feature on TextProcessingController.
-
-
-## Enhancements in Version 24.10.0
-
-- Add the new feature about removing characters on TextProcessingController.
-
-## Enhancements in Version 24.9.0
-
-- Add word case function for TextProcessingController.
-- Support to export Worksheet to HTML with cell address or id.
-
-## Enhancements in Version 24.8.0
-
-- Add the text trim feature on Cells Cloud Services.
-
-## Enhancements in Version 24.7.0
-
-- Add a new feature about adding text content.
-- Add get access token by client id and client secret.
-
-## Enhancements in Version 24.6.0
-
-- Optimize the data conversion applied steps.
-- Optimize load data function of data transformation.
-
-## Enhancements in Version 24.5.0
-
-- Add merge queries method for loading data of data transformation.
-- Optimize chart data model.
-
-## Enhancements in Version 24.4.0
-
-- Support data transformation function for Aspose.Cells Cloud Services.
-
-## Enhancements in Version 24.3.1
-
-- Support data deduplication.
-- Support data filling.
-- Support to delete incomplete rows.
-- Support data cleansing.
-
-## Enhancements in Version 24.2.1
-
-- Add the analyze excel api for analyze controller.
-
-## Enhancements in Version 24.1.1
-
-- Fixed spelling mistakes for several functions.
-- Add the PostFitTallToPages method for page setup controller.
-- Add the PostFitWideToPages method for page setup controller.
-- Optimize save options about paginated.
-
-## Enhancements in Version 23.12
-
-- Conversion APIs add region parameter.
-- Protection APIs add region parameter.
-- Assemble data API adds region parameter.
-- Merge files API adds region parameter.
-- Split files API adds region parameter.
-- Import data API adds region parameter.
-- Watermark API adds region parameter.
-- Clear object API adds region parameter.
-- Reverse data API adds region parameter.
-- Rotate data API adds region parameter.
-
-## Enhancements in Version 23.11
-
-- Optimize import xml data into Excel file.
-- Optimize import json data into Excel file.
-- Remove deprecated functions, class and test case.
-
-## Enhancements in Version 23.10
-
-- Fix protect workbook request.
-- Fix range copy API.
-- Optimize workbook protect API.
-
-## Enhancements in Version 23.9
-
-- Support to data sorting on range controller.
-- Support to remove duplicate data on list object.
-- Support to insert slicer for list object.
-- Optimize list object and related objects.
-
-## Enhancements in Version 23.8
-
-- Support to lock API.
-- Optimize protect API.
-
-## Enhancements in Version 23.7
-
-- Support to repair API.
-- Remove GetExtractBarcodes API.
-
-## Enhancements in Version 23.6
-
-- Support to batch lock multi-files.
-- Support to batch unlock multi-files.
-- Support to protect lock multi-files.
-- Support to split lock multi-files.
-- Fix put document property api.
-
-## Enhancements in Version 23.5
-
-- Fix few method names for spelling error
-
-## Enhancements in Version 23.4
-
-- Adopt the new model(Conflicting expired function names are appended with _).
-- Add import xml data api.
-- Add export xml data api.
-
-## Enhancements in Version 22.12
-
-- Support chart axis operations.
-
-## Enhancements in Version 22.11
-
-- Add api for converting workbook to json.
-- Add api for converting workbook to sql.
-- Add api for converting workbook to csv.
-
-## Enhancements in Version 22.10
-
-- Add api for converting workbook to pptx.
-- Add api for converting workbook to html.
-- Add api for converting workbook to markdown.
-
-## Enhancements in Version 22.9
-
-- Add api for converting workbook to png.
-- Add api for converting workbook to pdf.
-- Add api for converting workbook to docx.
-
-## Enhancements in Version 22.8
-
-- Support transposing Excel Rows to Columns.
-
-## Enhancements in Version 22.7
-
-- Add 4 kinds of Save Option.
-- Add the checkExcelRestriction parameter for multiple APIs.
-
-## Enhancements in Version 22.6
-
-- Improve save as api.
-- Improve clear objects api.
-
-## Enhancements in Version 22.5
-
-- Add a new API for getting barcode description.
-
-## Enhancements in Version 22.4
-
-- Export API adds extended query parameters.
-- Convert API adds extended query parameters.
-- SaveAs API adds extended query parameters.
-- Get Workbook API adds extended query parameters.
-
-## Enhancements in Version 22.3
-
-- Add a new API about adding digital signature for cloud file.
-
-## Enhancements in Version 22.1
-
-- SaveAs API add the parameter of target storage name.
-- Workbok merged API add the parameter of merged file storage name.
-- Workbok split API add the parameter of target storage name
-- Workbok smart marker API add the parameter of output storage name.
-- Batch convert API add the parameters of intput and output storage name.
-- Remove AutoshapesController from Aspose.Cells Cloud.
-- Rename LiteCellsApi to LightCellsApi.
-
-## Enhancements in Version 21.12
-
-- Improvement for conversion API.
-- Improvement for batch data import to support to set cell formula.
-- Improvement for setting row height and column wight to support to set multi-rows and multi-columns.
-- Support to set cell formula in batch data import.
-- Add a new API for updating the list column.
-- Add a new API for reversing columns and rows.
-- Add new APIs for grouping and ungrouping shapes.
-
-## Enhancements in Version 21.11
-
-- Add new API for workbook get page count on Aspose.Cells Cloud.
-- Add new API for worksheet get page count on Aspose.Cells Cloud.
-- Add new API for compress excel file on Aspose.Cells Cloud.
-- Add new feature for replace API.
-
-## Enhancements in Version 21.10
-
-- Add new API for support delete multiple worksheets in a single call.
-- Add new API for supports batch convert excel files.
-
-## Enhancements in Version 21.9
-
-- Correct the return type of the following REST APIs.
-
-## Enhancements in Version 21.8
-
-- Improvement for getting list object Api.
-- Add import Api.
-
-## Enhancements in Version 21.7
-
-- Fix search API.
-- Fix split API.
-- Fix update metadata API.
-
-## Enhancements in Version 21.6
-
-- Improvement document properties.
-- Update the return value of put/post/delete.
-- Improvement export API.
-- Improve split API.
-- Improve merge API.
-- Improve unlock API.
-- Improve protected API.
-- Improve watermark API.
-
-## Enhancements in Version 21.5
-
-- Support autofit columns for workbook and worksheet.
-- Improve add and post row/column APIs.
-- Improve Task APIs.
-
-## Enhancements in Version 21.1
-
-- Support to convert worksheet on task API
-- Support to add and delete cell or range in worksheet.
-
-## Enhancements in Version 20.11
-
-- Support Aspose.Cells Cloud for Docker.
-
-## Enhancements in Version 20.10
-
-- Support to upload large file.
-
-## Enhancements in Version 20.9
-
-- Support sparkline groups.
-- Add API about updating pivot field.
-
-## Enhancements in Version 20.8
-
-- Aspose.Cells Cloud API calls are not working with explicit storage name but only default storage.
-- Get output file size without downloading during conversion.
-- Enhancement for CellsShapesPutWorksheetShape API.
-
-## Enhancements in Version 20.6
-
-- Support to add text water marker.
-
-## Enhancements in Version 20.4
-
-- Support to add background for workbook.
-- Support to delete background for workbook.
-
-
-
-
-
+## Support file format
+
+|**Format**|**Description**|**Load**|**Save**|
+| :- | :- | :- | :- |
+|[XLS](https://docs.fileformat.com/spreadsheet/xls/)|Excel 95/5.0 - 2003 Workbook.|&radic;|&radic;|
+|[XLSX](https://docs.fileformat.com/spreadsheet/xlsx/)|Office Open XML SpreadsheetML Workbook or template file, with or without macros.|&radic;|&radic;|
+|[XLSB](https://docs.fileformat.com/spreadsheet/xlsb/)|Excel Binary Workbook.|&radic;|&radic;|
+|[XLSM](https://docs.fileformat.com/spreadsheet/xlsm/)|Excel Macro-Enabled Workbook.|&radic;|&radic;|
+|[XLT](https://docs.fileformat.com/spreadsheet/xlt/)|Excel 97 - Excel 2003 Template.|&radic;|&radic;|
+|[XLTX](https://docs.fileformat.com/spreadsheet/xltx/)|Excel Template.|&radic;|&radic;|
+|[XLTM](https://docs.fileformat.com/spreadsheet/xltm/)|Excel Macro-Enabled Template.|&radic;|&radic;|
+|[XLAM](https://docs.fileformat.com/spreadsheet/xlam/)|An Excel Macro-Enabled Add-In file that's used to add new functions to Excel.| |&radic;|
+|[CSV](https://docs.fileformat.com/spreadsheet/csv/)|CSV (Comma Separated Value) file.|&radic;|&radic;|
+|[TSV](https://docs.fileformat.com/spreadsheet/tsv/)|TSV (Tab-separated values) file.|&radic;|&radic;|
+|[TXT](https://docs.fileformat.com/word-processing/txt/)|Delimited plain text file.|&radic;|&radic;|
+|[HTML](https://docs.fileformat.com/web/html/)|HTML format.|&radic;|&radic;|
+|[MHTML](https://docs.fileformat.com/web/mhtml/)|MHTML file.|&radic;|&radic;|
+|[ODS](https://docs.fileformat.com/spreadsheet/ods/)|ODS (OpenDocument Spreadsheet).|&radic;|&radic;|
+|[Numbers](https://docs.fileformat.com/spreadsheet/numbers/)|The document is created by Apple's "Numbers" application which forms part of Apple's iWork office suite, a set of applications which run on the Mac OS X and iOS operating systems.|&radic;||
+|[JSON](https://docs.fileformat.com/web/json/)|JavaScript Object Notation|&radic;|&radic;|
+|[DIF](https://docs.fileformat.com/spreadsheet/dif/)|Data Interchange Format.| |&radic;|
+|[PDF](https://docs.fileformat.com/pdf/)|Adobe Portable Document Format.| |&radic;|
+|[XPS](https://docs.fileformat.com/page-description-language/xps/)|XML Paper Specification Format.| |&radic;|
+|[SVG](https://docs.fileformat.com/page-description-language/svg/)|Scalable Vector Graphics Format.| |&radic;|
+|[TIFF](https://docs.fileformat.com/image/tiff/)|Tagged Image File Format| |&radic;|
+|[PNG](https://docs.fileformat.com/image/png/)|Portable Network Graphics Format| |&radic;|
+|[BMP](https://docs.fileformat.com/image/bmp/)|Bitmap Image Format| |&radic;|
+|[EMF](https://docs.fileformat.com/image/emf/)|Enhanced metafile Format| |&radic;|
+|[JPEG](https://docs.fileformat.com/image/jpeg/)|JPEG is a type of image format that is saved using the method of lossy compression.| |&radic;|
+|[GIF](https://docs.fileformat.com/image/gif/)|Graphical Interchange Format| |&radic;|
+|[MARKDOWN](https://docs.fileformat.com/word-processing/md/)|Represents a markdown document.| |&radic;|
+|[SXC](https://docs.fileformat.com/spreadsheet/sxc/)|An XML based format used by OpenOffice and StarOffice|&radic;|&radic;|
+|[FODS](https://docs.fileformat.com/spreadsheet/fods/)|This is an Open Document format stored as flat XML.|&radic;|&radic;|
+|[DOCX](https://docs.fileformat.com/word-processing/docx/)|A well-known format for Microsoft Word documents that is a combination of XML and binary files.||&radic;|
+|[PPTX](https://docs.fileformat.com/presentation/pptx/)|The PPTX format is based on the Microsoft PowerPoint open XML presentation file format.||&radic;|
+|[OTS](https://docs.fileformat.com/spreadsheet/ots/)|OTS (OpenDocument Spreadsheet).|&radic;|&radic;|
+|[XML](https://docs.fileformat.com/web/xml/)|XML file.|&radic;|&radic;|
+|[HTM](https://docs.fileformat.com/web/htm/)|HTM file.|&radic;|&radic;|
+|[TIF](https://docs.fileformat.com/image/tiff/)|Tagged Image File Format| |&radic;|
+|[WMF](https://docs.fileformat.com/image/wmf/)|WMF Image Format| |&radic;|
+|[PCL](https://docs.fileformat.com/page-description-language/pcl/)|Printer Command Language Format| |&radic;|
+|[AZW3](https://docs.fileformat.com/ebook/azw3/)|AZ3/KF8 File Format| |&radic;|
+|[EPUB](https://docs.fileformat.com/ebook/epub/)|EPUB File Format| |&radic;|
+|[DBF](https://docs.fileformat.com/ebook/epub/)|DBF File Format| |&radic;|
+|[EPUB](https://docs.fileformat.com/database/dbf/)|database file| |&radic;|
+|[XHTML](https://docs.fileformat.com/web/xhtml/)|XHTML File Format| |&radic;|
+
+## Manipulate Excel and other spreadsheet files in the Cloud
+
+- File Manipulation: Users can upload, download, delete, and manage Excel files stored in the cloud.
+- Formatting: Supports formatting of cells, fonts, colors, and alignment modes in Excel files to cater to users' specific requirements.
+- Data Processing: Powerful functions for data processing including reading, writing, modifying cell data, performing formula calculations, and formatting data.
+- Formula Calculation: Built-in formula engine handles complex formula calculations in Excel and returns accurate results.
+- Chart Manipulation: Users can create, edit, and delete charts from Excel files for data analysis and visualization needs.
+- Table Processing: Offers robust processing capabilities for various form operations such as creation, editing, formatting, and conversion, meeting diverse form processing needs.
+- Data Verification: Includes data verification function to set cell data type, range, uniqueness, ensuring data accuracy and integrity.
+- Batch Processing: Supports batch processing of multiple Excel documents, such as batch format conversion, data extraction, and style application..
+- Import/Export: Facilitates importing data from various sources into spreadsheets and exporting spreadsheet data to other formats.
+- Security Management: Offers a range of security features like data encryption, access control, and permission management to safeguard the security and integrity of spreadsheet data.
+
+## Feature & Enhancements in Version v25.5.0
+
+Full list of issues covering all changes in this release:
+
+|**Summary**| **Category** |
+| :- |:-------------|
+| Add the new API for getting public key about encrypt password. | New Feature  |
+| Optimize convert workbook feature: Add auto fit row parameter. | Improvement  |
+| Optimize auto fit rows for worksheet. | Improvement  |
+| Optimize auto fit rows for worksheet: Add firstColumn and lastColumn. | Improvement  |
+
+
+## Available SDKs
+
+The Aspose.Cells Cloud SDK is available in multiple popular programming languages, enabling developers to integrate spreadsheet processing capabilities across various development environments.
+
+[![Go](https://img.shields.io/badge/Go-00ADD8.svg?style=for-the-badge&logo=go&logoColor=white)](https://github.com/aspose-cells-cloud/aspose-cells-cloud-go) [![Go](https://img.shields.io/badge/Go-Install%20go%20get%20package--asposecellscloud-%2300ADD8?logo=go&style=for-the-badge)](https://pkg.go.dev/github.com/aspose-cells-cloud/aspose-cells-cloud-go/v25)
+
+[![Java](https://img.shields.io/badge/Java-red?logo=openjdk&style=for-the-badge&logoColor=white)](https://github.com/aspose-cells-cloud/aspose-cells-cloud-java) [![Java](https://img.shields.io/badge/Maven-Aspose.Cells%20Cloud.pom.xml-red?logo=apache-maven&style=for-the-badge)](https://github.com/aspose-cells-cloud/aspose-cells-cloud-java/blob/master/Aspose.Cells.Cloud.pom.xml)
+
+[![C#](https://img.shields.io/badge/.NET-%23512BD4?style=for-the-badge&logo=dotnet&logoColor=white)](https://github.com/aspose-cells-cloud/aspose-cells-cloud-dotnet) [![.NET](https://img.shields.io/badge/NuGet-Install%20Aspose.Cells--Cloud-%23512BD4?logo=nuget&style=for-the-badge)](https://www.nuget.org/packages/Aspose.cells-Cloud/#readme-body-tab)
+
+[![Node.js](https://img.shields.io/badge/Node.js-43853D.svg?style=for-the-badge&logo=node.js&logoColor=white)](https://github.com/aspose-cells-cloud/aspose-cells-cloud-node) [![Node.js](https://img.shields.io/badge/npm-install%20asposecellscloud-orange?logo=npm&style=for-the-badge)](https://www.npmjs.com/package/asposecellscloud)
+
+[![Perl](https://img.shields.io/badge/Perl-39457E.svg?style=for-the-badge&logo=perl&logoColor=white)](https://github.com/aspose-cells-cloud/aspose-cells-cloud-perl) [![Perl](https://img.shields.io/badge/CPAN-Install%20AsposeCellsCloud--CellsApi-blue?logo=perl&style=for-the-badge)](https://metacpan.org/dist/AsposeCellsCloud-CellsApi)
+
+[![PHP](https://img.shields.io/badge/PHP-777BB4.svg?style=for-the-badge&logo=php&logoColor=white)](https://github.com/aspose-cells-cloud/aspose-cells-cloud-php) [![PHP](https://img.shields.io/badge/Composer-require%20aspose/cells--sdk--php-8892BF?logo=php&style=for-the-badge)](https://packagist.org/packages/aspose/cells-sdk-php)
+
+[![Python](https://img.shields.io/badge/Python-14354C.svg?style=for-the-badge&logo=python&logoColor=white)](https://github.com/aspose-cells-cloud/aspose-cells-cloud-python) [![Python](https://img.shields.io/badge/pip-install%20asposecellscloud-blue?logo=pypi&style=for-the-badge)](https://pypi.org/project/asposecellscloud/)
+
+[![Ruby](https://img.shields.io/badge/Ruby-CC342D.svg?style=for-the-badge&logo=ruby&logoColor=white)](https://github.com/aspose-cells-cloud/aspose-cells-cloud-ruby) [![Ruby](https://img.shields.io/badge/Gem-install%20aspose__cells__cloud-red?logo=ruby&style=for-the-badge)](https://rubygems.org/gems/aspose_cells_cloud)
+
+## [Release history version](HistoryVersion.md)

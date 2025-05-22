@@ -21,7 +21,7 @@ describe('TextProcessingController test', function() {
     describe('post_add_text_content test', function(){
       it("should call PostAddTextContent successfully" , function(){
         var remoteFolder = "TestData/In"
-
+      
         var localName = "BookText.xlsx"
         var remoteName = "BookText.xlsx"
 
@@ -30,10 +30,10 @@ describe('TextProcessingController test', function() {
         localNameRequest.path = remoteFolder + "/" + remoteName ;
         localNameRequest.storageName ="";
         cellsApi.uploadFile(localNameRequest );
-
+     
         var addTextOptionsDataSource = new model.DataSource();
          addTextOptionsDataSource.dataSourceType = "CloudFileSystem"  ;
-         addTextOptionsDataSource.dataPath = remoteFolder + "/" + remoteName  ;
+         addTextOptionsDataSource.dataPath = "TestData/In/BookText.xlsx"  ;
         var addTextOptions = new model.AddTextOptions();
          addTextOptions.dataSource = addTextOptionsDataSource  ;
          addTextOptions.text = "Aspose.Cells Cloud is an excellent product."  ;
@@ -47,11 +47,11 @@ describe('TextProcessingController test', function() {
             expect(result.response.statusCode).to.equal(200);
         });
       });
-    });
+    }); 
     describe('post_trim_content test', function(){
       it("should call PostTrimContent successfully" , function(){
         var remoteFolder = "TestData/In"
-
+      
         var localName = "BookText.xlsx"
         var remoteName = "BookText.xlsx"
 
@@ -60,10 +60,10 @@ describe('TextProcessingController test', function() {
         localNameRequest.path = remoteFolder + "/" + remoteName ;
         localNameRequest.storageName ="";
         cellsApi.uploadFile(localNameRequest );
-
+     
         var trimContentOptionsDataSource = new model.DataSource();
          trimContentOptionsDataSource.dataSourceType = "CloudFileSystem"  ;
-         trimContentOptionsDataSource.dataPath = remoteFolder + "/" + remoteName  ;
+         trimContentOptionsDataSource.dataPath = "TestData/In/BookText.xlsx"  ;
         var trimContentOptionsScopeOptions = new model.ScopeOptions();
          trimContentOptionsScopeOptions.scope = "EntireWorkbook"  ;
         var trimContentOptions = new model.TrimContentOptions();
@@ -80,11 +80,11 @@ describe('TextProcessingController test', function() {
             expect(result.response.statusCode).to.equal(200);
         });
       });
-    });
+    }); 
     describe('post_update_word_case test', function(){
       it("should call PostUpdateWordCase successfully" , function(){
         var remoteFolder = "TestData/In"
-
+      
         var localName = "BookText.xlsx"
         var remoteName = "BookText.xlsx"
 
@@ -93,10 +93,10 @@ describe('TextProcessingController test', function() {
         localNameRequest.path = remoteFolder + "/" + remoteName ;
         localNameRequest.storageName ="";
         cellsApi.uploadFile(localNameRequest );
-
+     
         var wordCaseOptionsDataSource = new model.DataSource();
          wordCaseOptionsDataSource.dataSourceType = "CloudFileSystem"  ;
-         wordCaseOptionsDataSource.dataPath = remoteFolder + "/" + remoteName  ;
+         wordCaseOptionsDataSource.dataPath = "TestData/In/BookText.xlsx"  ;
         var wordCaseOptionsScopeOptions = new model.ScopeOptions();
          wordCaseOptionsScopeOptions.scope = "EntireWorkbook"  ;
         var wordCaseOptions = new model.WordCaseOptions();
@@ -110,5 +110,5 @@ describe('TextProcessingController test', function() {
             expect(result.response.statusCode).to.equal(200);
         });
       });
-    });
+    }); 
 });

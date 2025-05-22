@@ -2211,6 +2211,22 @@ export class CellsApi {
     }
 
     /// <summary>
+    /// Get publi key.
+    /// </summary>
+    /// <param name="request">Request. <see cref="GetPublicKeyRequest" /></param>
+    public async getPublicKey(requestObj:model.GetPublicKeyRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudPublicKeyResponse}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling getPublicKey.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "CellsCloudPublicKeyResponse");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
     /// Assemble data files with template files to generate files in various formats.
     /// </summary>
     /// <param name="request">Request. <see cref="PostAssembleRequest" /></param>
