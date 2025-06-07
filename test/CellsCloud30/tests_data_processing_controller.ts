@@ -21,7 +21,7 @@ describe('DataProcessingController test', function() {
     describe('post_workbook_data_cleansing test', function(){
       it("should call PostWorkbookDataCleansing successfully" , function(){
         var remoteFolder = "TestData/In"
-
+      
         var localName = "BookCsvDuplicateData.csv"
         var remoteName = "BookCsvDuplicateData.csv"
 
@@ -30,7 +30,7 @@ describe('DataProcessingController test', function() {
         localNameRequest.path = remoteFolder + "/" + remoteName ;
         localNameRequest.storageName ="";
         cellsApi.uploadFile(localNameRequest );
-
+     
         var dataCleansingDataFillDataFillDefaultValue = new model.DataFillValue();
          dataCleansingDataFillDataFillDefaultValue.defaultDate = "2024-01-01"  ;
          dataCleansingDataFillDataFillDefaultValue.defaultNumber = 0  ;
@@ -50,11 +50,11 @@ describe('DataProcessingController test', function() {
             expect(result.response.statusCode).to.equal(200);
         });
       });
-    });
+    }); 
     describe('post_workbook_data_deduplication test', function(){
       it("should call PostWorkbookDataDeduplication successfully" , function(){
         var remoteFolder = "TestData/In"
-
+      
         var localName = "BookCsvDuplicateData.csv"
         var remoteName = "BookCsvDuplicateData.csv"
 
@@ -63,7 +63,7 @@ describe('DataProcessingController test', function() {
         localNameRequest.path = remoteFolder + "/" + remoteName ;
         localNameRequest.storageName ="";
         cellsApi.uploadFile(localNameRequest );
-
+     
         var deduplicationRegionRanges = new Array<model.Range>();
         var deduplicationRegion = new model.DeduplicationRegion();
          deduplicationRegion.ranges = deduplicationRegionRanges  ;
@@ -77,11 +77,11 @@ describe('DataProcessingController test', function() {
             expect(result.response.statusCode).to.equal(200);
         });
       });
-    });
+    }); 
     describe('post_workbook_data_fill test', function(){
       it("should call PostWorkbookDataFill successfully" , function(){
         var remoteFolder = "TestData/In"
-
+      
         var localName = "BookCsvDuplicateData.csv"
         var remoteName = "BookCsvDuplicateData.csv"
 
@@ -90,7 +90,7 @@ describe('DataProcessingController test', function() {
         localNameRequest.path = remoteFolder + "/" + remoteName ;
         localNameRequest.storageName ="";
         cellsApi.uploadFile(localNameRequest );
-
+     
         var dataFillDataFillDefaultValue = new model.DataFillValue();
          dataFillDataFillDefaultValue.defaultDate = "2024-01-01"  ;
          dataFillDataFillDefaultValue.defaultNumber = 0  ;
@@ -107,11 +107,11 @@ describe('DataProcessingController test', function() {
             expect(result.response.statusCode).to.equal(200);
         });
       });
-    });
+    }); 
     describe('post_data_transformation test', function(){
       it("should call PostDataTransformation successfully" , function(){
         var remoteFolder = "TestData/In"
-
+      
         var localName = "BookTableL2W.xlsx"
         var remoteName = "BookTableL2W.xlsx"
 
@@ -120,7 +120,7 @@ describe('DataProcessingController test', function() {
         localNameRequest.path = remoteFolder + "/" + remoteName ;
         localNameRequest.storageName ="";
         cellsApi.uploadFile(localNameRequest );
-
+     
         var dataTransformationRequestLoadDataLoadTo = new model.LoadTo();
          dataTransformationRequestLoadDataLoadTo.beginColumnIndex = 2  ;
          dataTransformationRequestLoadDataLoadTo.beginRowIndex = 3  ;
@@ -130,7 +130,7 @@ describe('DataProcessingController test', function() {
          dataTransformationRequestLoadDataDataQueryDataItem.value = "Table1"  ;
         var dataTransformationRequestLoadDataDataQueryDataSource = new model.DataSource();
          dataTransformationRequestLoadDataDataQueryDataSource.dataSourceType = "CloudFileSystem"  ;
-         dataTransformationRequestLoadDataDataQueryDataSource.dataPath = remoteFolder + "/" + remoteName  ;
+         dataTransformationRequestLoadDataDataQueryDataSource.dataPath = "TestData/In/BookTableL2W.xlsx"  ;
         var dataTransformationRequestLoadDataDataQuery = new model.DataQuery();
          dataTransformationRequestLoadDataDataQuery.name = "DataQuery"  ;
          dataTransformationRequestLoadDataDataQuery.dataItem = dataTransformationRequestLoadDataDataQueryDataItem  ;
@@ -161,5 +161,5 @@ describe('DataProcessingController test', function() {
             expect(result.response.statusCode).to.equal(200);
         });
       });
-    });
+    }); 
 });

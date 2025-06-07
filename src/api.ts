@@ -53,6 +53,520 @@ export class CellsApi {
     }
 
     /// <summary>
+    /// Get Access Token Result: The Cells Cloud Get Token API acts as a proxy service,
+    /// forwarding user requests to the Aspose Cloud authentication server and returning the resulting access token to the client.
+    /// </summary>
+    /// <param name="request">Request. <see cref="PostAccessTokenRequest" /></param>
+    public async postAccessToken(requestObj:model.PostAccessTokenRequest ): Promise<{response: http.ClientResponse, body: string}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling postAccessToken.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "string");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// Check the Health Status of Aspose.Cells Cloud Service.
+    /// </summary>
+    /// <param name="request">Request. <see cref="GetAsposeCellsCloudStatusRequest" /></param>
+    public async getAsposeCellsCloudStatus(requestObj:model.GetAsposeCellsCloudStatusRequest ): Promise<{response: http.ClientResponse, body: string}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling getAsposeCellsCloudStatus.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "string");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// Check the Health Status of Aspose.Cells Cloud Service.
+    /// </summary>
+    /// <param name="request">Request. <see cref="CheckCloudServiceHealthRequest" /></param>
+    public async checkCloudServiceHealth(requestObj:model.CheckCloudServiceHealthRequest ): Promise<{response: http.ClientResponse, body: string}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling checkCloudServiceHealth.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "string");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// Converts a spreadsheet in cloud storage to the specified format.
+    /// </summary>
+    /// <param name="request">Request. <see cref="GetWorkbookWithFormatRequest" /></param>
+    public async getWorkbookWithFormat(requestObj:model.GetWorkbookWithFormatRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling getWorkbookWithFormat.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "Buffer");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// Converts a spreadsheet on a local drive to the specified format.
+    /// </summary>
+    /// <param name="request">Request. <see cref="ConvertWorkbookRequest" /></param>
+    public async convertWorkbook(requestObj:model.ConvertWorkbookRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling convertWorkbook.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "Buffer");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// Converts a spreadsheet in cloud storage to the specified format.
+    /// </summary>
+    /// <param name="request">Request. <see cref="WorkbookSaveAsRequest" /></param>
+    public async workbookSaveAs(requestObj:model.WorkbookSaveAsRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling workbookSaveAs.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "CellsCloudResponse");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// Merge local spreadsheet files into a specified format file.
+    /// </summary>
+    /// <param name="request">Request. <see cref="MergeFilesRequest" /></param>
+    public async mergeFiles(requestObj:model.MergeFilesRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling mergeFiles.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "Buffer");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// Merge spreadsheet files in cloud storage into a specified format file.
+    /// </summary>
+    /// <param name="request">Request. <see cref="MergeFilesInRemoteFolderRequest" /></param>
+    public async mergeFilesInRemoteFolder(requestObj:model.MergeFilesInRemoteFolderRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling mergeFilesInRemoteFolder.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "Buffer");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// Split a local spreadsheet into the specified format, multi-file.
+    /// </summary>
+    /// <param name="request">Request. <see cref="SplitFileRequest" /></param>
+    public async splitFile(requestObj:model.SplitFileRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling splitFile.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "Buffer");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// Split a spreadsheet in cloud storage into the specified format, multi-file.
+    /// </summary>
+    /// <param name="request">Request. <see cref="SplitFileInRemoteRequest" /></param>
+    public async splitFileInRemote(requestObj:model.SplitFileInRemoteRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling splitFileInRemote.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "Buffer");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// Get an asymmetric public key.
+    /// </summary>
+    /// <param name="request">Request. <see cref="GetPublicKeyRequest" /></param>
+    public async getPublicKey(requestObj:model.GetPublicKeyRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudPublicKeyResponse}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling getPublicKey.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "CellsCloudPublicKeyResponse");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// Search text in the local spreadsheet.
+    /// </summary>
+    /// <param name="request">Request. <see cref="SearchTextRequest" /></param>
+    public async searchText(requestObj:model.SearchTextRequest ): Promise<{response: http.ClientResponse, body: model.SearchResponse}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling searchText.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "SearchResponse");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// Search text in the remoted spreadsheet.
+    /// </summary>
+    /// <param name="request">Request. <see cref="SearchTextInRemoteRequest" /></param>
+    public async searchTextInRemote(requestObj:model.SearchTextInRemoteRequest ): Promise<{response: http.ClientResponse, body: model.SearchResponse}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling searchTextInRemote.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "SearchResponse");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// Replace text in the local spreadsheet.
+    /// </summary>
+    /// <param name="request">Request. <see cref="ReplaceTextRequest" /></param>
+    public async replaceText(requestObj:model.ReplaceTextRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling replaceText.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "Buffer");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// Replace text in the remoted spreadsheet.
+    /// </summary>
+    /// <param name="request">Request. <see cref="ReplaceTextInRemoteRequest" /></param>
+    public async replaceTextInRemote(requestObj:model.ReplaceTextInRemoteRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling replaceTextInRemote.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "CellsCloudResponse");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// Search broken links in the local spreadsheet.
+    /// </summary>
+    /// <param name="request">Request. <see cref="SearchBrokenLinksRequest" /></param>
+    public async searchBrokenLinks(requestObj:model.SearchBrokenLinksRequest ): Promise<{response: http.ClientResponse, body: model.BrokenLinksReponse}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling searchBrokenLinks.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "BrokenLinksReponse");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// Search broken links in the remoted spreadsheet.
+    /// </summary>
+    /// <param name="request">Request. <see cref="SearchBrokenLinksInRemoteRequest" /></param>
+    public async searchBrokenLinksInRemote(requestObj:model.SearchBrokenLinksInRemoteRequest ): Promise<{response: http.ClientResponse, body: model.BrokenLinksReponse}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling searchBrokenLinksInRemote.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "BrokenLinksReponse");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// Get the specifications
+    /// </summary>
+    /// <param name="request">Request. <see cref="SpecRequest" /></param>
+    public async spec(requestObj:model.SpecRequest ): Promise<{response: http.ClientResponse, body: any}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling spec.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "any");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// </summary>
+    /// <param name="request">Request. <see cref="CodegenSpecRequest" /></param>
+    public async codegenSpec(requestObj:model.CodegenSpecRequest ): Promise<{response: http.ClientResponse, body: any}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling codegenSpec.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "any");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// </summary>
+    /// <param name="request">Request. <see cref="DownloadFileRequest" /></param>
+    public async downloadFile(requestObj:model.DownloadFileRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling downloadFile.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "Buffer");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// </summary>
+    /// <param name="request">Request. <see cref="UploadFileRequest" /></param>
+    public async uploadFile(requestObj:model.UploadFileRequest ): Promise<{response: http.ClientResponse, body: model.FilesUploadResult}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling uploadFile.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "FilesUploadResult");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// </summary>
+    /// <param name="request">Request. <see cref="CopyFileRequest" /></param>
+    public async copyFile(requestObj:model.CopyFileRequest ): Promise<{response: http.ClientResponse, body: any}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling copyFile.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "any");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// </summary>
+    /// <param name="request">Request. <see cref="MoveFileRequest" /></param>
+    public async moveFile(requestObj:model.MoveFileRequest ): Promise<{response: http.ClientResponse, body: any}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling moveFile.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "any");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// </summary>
+    /// <param name="request">Request. <see cref="DeleteFileRequest" /></param>
+    public async deleteFile(requestObj:model.DeleteFileRequest ): Promise<{response: http.ClientResponse, body: any}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling deleteFile.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "any");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// </summary>
+    /// <param name="request">Request. <see cref="GetFilesListRequest" /></param>
+    public async getFilesList(requestObj:model.GetFilesListRequest ): Promise<{response: http.ClientResponse, body: model.FilesList}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling getFilesList.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "FilesList");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// </summary>
+    /// <param name="request">Request. <see cref="CreateFolderRequest" /></param>
+    public async createFolder(requestObj:model.CreateFolderRequest ): Promise<{response: http.ClientResponse, body: any}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling createFolder.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "any");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// </summary>
+    /// <param name="request">Request. <see cref="CopyFolderRequest" /></param>
+    public async copyFolder(requestObj:model.CopyFolderRequest ): Promise<{response: http.ClientResponse, body: any}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling copyFolder.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "any");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// </summary>
+    /// <param name="request">Request. <see cref="MoveFolderRequest" /></param>
+    public async moveFolder(requestObj:model.MoveFolderRequest ): Promise<{response: http.ClientResponse, body: any}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling moveFolder.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "any");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// </summary>
+    /// <param name="request">Request. <see cref="DeleteFolderRequest" /></param>
+    public async deleteFolder(requestObj:model.DeleteFolderRequest ): Promise<{response: http.ClientResponse, body: any}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling deleteFolder.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "any");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// </summary>
+    /// <param name="request">Request. <see cref="StorageExistsRequest" /></param>
+    public async storageExists(requestObj:model.StorageExistsRequest ): Promise<{response: http.ClientResponse, body: model.StorageExist}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling storageExists.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "StorageExist");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// </summary>
+    /// <param name="request">Request. <see cref="ObjectExistsRequest" /></param>
+    public async objectExists(requestObj:model.ObjectExistsRequest ): Promise<{response: http.ClientResponse, body: model.ObjectExist}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling objectExists.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "ObjectExist");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// </summary>
+    /// <param name="request">Request. <see cref="GetDiscUsageRequest" /></param>
+    public async getDiscUsage(requestObj:model.GetDiscUsageRequest ): Promise<{response: http.ClientResponse, body: model.DiscUsage}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling getDiscUsage.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "DiscUsage");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// </summary>
+    /// <param name="request">Request. <see cref="GetFileVersionsRequest" /></param>
+    public async getFileVersions(requestObj:model.GetFileVersionsRequest ): Promise<{response: http.ClientResponse, body: model.FileVersions}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling getFileVersions.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "FileVersions");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
     /// Perform business analysis of data in Excel files.
     /// </summary>
     /// <param name="request">Request. <see cref="PostAnalyzeExcelRequest" /></param>
@@ -385,22 +899,6 @@ export class CellsApi {
         const requestOptions = await requestObj.createRequestOptions(this.configuration);
         const response = await invokeApiMethod(requestOptions, this.configuration);
         const result =  ObjectSerializer.deserialize(response.body, "Buffer");
-        return Promise.resolve({body: result, response});
-    }
-
-    /// <summary>
-    /// Get Access Token Result
-    /// </summary>
-    /// <param name="request">Request. <see cref="PostAccessTokenRequest" /></param>
-    public async postAccessToken(requestObj:model.PostAccessTokenRequest ): Promise<{response: http.ClientResponse, body: string}>
-    {
-        if (requestObj === null || requestObj === undefined) {
-            throw new Error('Required parameter "requestObj" was null or undefined when calling postAccessToken.');
-        }
-
-        const requestOptions = await requestObj.createRequestOptions(this.configuration);
-        const response = await invokeApiMethod(requestOptions, this.configuration);
-        const result =  ObjectSerializer.deserialize(response.body, "string");
         return Promise.resolve({body: result, response});
     }
 
@@ -2207,22 +2705,6 @@ export class CellsApi {
         const requestOptions = await requestObj.createRequestOptions(this.configuration);
         const response = await invokeApiMethod(requestOptions, this.configuration);
         const result =  ObjectSerializer.deserialize(response.body, "CellsCloudResponse");
-        return Promise.resolve({body: result, response});
-    }
-
-    /// <summary>
-    /// Get publi key.
-    /// </summary>
-    /// <param name="request">Request. <see cref="GetPublicKeyRequest" /></param>
-    public async getPublicKey(requestObj:model.GetPublicKeyRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudPublicKeyResponse}>
-    {
-        if (requestObj === null || requestObj === undefined) {
-            throw new Error('Required parameter "requestObj" was null or undefined when calling getPublicKey.');
-        }
-
-        const requestOptions = await requestObj.createRequestOptions(this.configuration);
-        const response = await invokeApiMethod(requestOptions, this.configuration);
-        const result =  ObjectSerializer.deserialize(response.body, "CellsCloudPublicKeyResponse");
         return Promise.resolve({body: result, response});
     }
 
@@ -5508,216 +5990,6 @@ export class CellsApi {
         const requestOptions = await requestObj.createRequestOptions(this.configuration);
         const response = await invokeApiMethod(requestOptions, this.configuration);
         const result =  ObjectSerializer.deserialize(response.body, "CellsCloudResponse");
-        return Promise.resolve({body: result, response});
-    }
-
-    /// <summary>
-    /// </summary>
-    /// <param name="request">Request. <see cref="DownloadFileRequest" /></param>
-    public async downloadFile(requestObj:model.DownloadFileRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
-    {
-        if (requestObj === null || requestObj === undefined) {
-            throw new Error('Required parameter "requestObj" was null or undefined when calling downloadFile.');
-        }
-
-        const requestOptions = await requestObj.createRequestOptions(this.configuration);
-        const response = await invokeApiMethod(requestOptions, this.configuration);
-        const result =  ObjectSerializer.deserialize(response.body, "Buffer");
-        return Promise.resolve({body: result, response});
-    }
-
-    /// <summary>
-    /// </summary>
-    /// <param name="request">Request. <see cref="UploadFileRequest" /></param>
-    public async uploadFile(requestObj:model.UploadFileRequest ): Promise<{response: http.ClientResponse, body: model.FilesUploadResult}>
-    {
-        if (requestObj === null || requestObj === undefined) {
-            throw new Error('Required parameter "requestObj" was null or undefined when calling uploadFile.');
-        }
-
-        const requestOptions = await requestObj.createRequestOptions(this.configuration);
-        const response = await invokeApiMethod(requestOptions, this.configuration);
-        const result =  ObjectSerializer.deserialize(response.body, "FilesUploadResult");
-        return Promise.resolve({body: result, response});
-    }
-
-    /// <summary>
-    /// </summary>
-    /// <param name="request">Request. <see cref="CopyFileRequest" /></param>
-    public async copyFile(requestObj:model.CopyFileRequest ): Promise<{response: http.ClientResponse, body: any}>
-    {
-        if (requestObj === null || requestObj === undefined) {
-            throw new Error('Required parameter "requestObj" was null or undefined when calling copyFile.');
-        }
-
-        const requestOptions = await requestObj.createRequestOptions(this.configuration);
-        const response = await invokeApiMethod(requestOptions, this.configuration);
-        const result =  ObjectSerializer.deserialize(response.body, "any");
-        return Promise.resolve({body: result, response});
-    }
-
-    /// <summary>
-    /// </summary>
-    /// <param name="request">Request. <see cref="MoveFileRequest" /></param>
-    public async moveFile(requestObj:model.MoveFileRequest ): Promise<{response: http.ClientResponse, body: any}>
-    {
-        if (requestObj === null || requestObj === undefined) {
-            throw new Error('Required parameter "requestObj" was null or undefined when calling moveFile.');
-        }
-
-        const requestOptions = await requestObj.createRequestOptions(this.configuration);
-        const response = await invokeApiMethod(requestOptions, this.configuration);
-        const result =  ObjectSerializer.deserialize(response.body, "any");
-        return Promise.resolve({body: result, response});
-    }
-
-    /// <summary>
-    /// </summary>
-    /// <param name="request">Request. <see cref="DeleteFileRequest" /></param>
-    public async deleteFile(requestObj:model.DeleteFileRequest ): Promise<{response: http.ClientResponse, body: any}>
-    {
-        if (requestObj === null || requestObj === undefined) {
-            throw new Error('Required parameter "requestObj" was null or undefined when calling deleteFile.');
-        }
-
-        const requestOptions = await requestObj.createRequestOptions(this.configuration);
-        const response = await invokeApiMethod(requestOptions, this.configuration);
-        const result =  ObjectSerializer.deserialize(response.body, "any");
-        return Promise.resolve({body: result, response});
-    }
-
-    /// <summary>
-    /// </summary>
-    /// <param name="request">Request. <see cref="GetFilesListRequest" /></param>
-    public async getFilesList(requestObj:model.GetFilesListRequest ): Promise<{response: http.ClientResponse, body: model.FilesList}>
-    {
-        if (requestObj === null || requestObj === undefined) {
-            throw new Error('Required parameter "requestObj" was null or undefined when calling getFilesList.');
-        }
-
-        const requestOptions = await requestObj.createRequestOptions(this.configuration);
-        const response = await invokeApiMethod(requestOptions, this.configuration);
-        const result =  ObjectSerializer.deserialize(response.body, "FilesList");
-        return Promise.resolve({body: result, response});
-    }
-
-    /// <summary>
-    /// </summary>
-    /// <param name="request">Request. <see cref="CreateFolderRequest" /></param>
-    public async createFolder(requestObj:model.CreateFolderRequest ): Promise<{response: http.ClientResponse, body: any}>
-    {
-        if (requestObj === null || requestObj === undefined) {
-            throw new Error('Required parameter "requestObj" was null or undefined when calling createFolder.');
-        }
-
-        const requestOptions = await requestObj.createRequestOptions(this.configuration);
-        const response = await invokeApiMethod(requestOptions, this.configuration);
-        const result =  ObjectSerializer.deserialize(response.body, "any");
-        return Promise.resolve({body: result, response});
-    }
-
-    /// <summary>
-    /// </summary>
-    /// <param name="request">Request. <see cref="CopyFolderRequest" /></param>
-    public async copyFolder(requestObj:model.CopyFolderRequest ): Promise<{response: http.ClientResponse, body: any}>
-    {
-        if (requestObj === null || requestObj === undefined) {
-            throw new Error('Required parameter "requestObj" was null or undefined when calling copyFolder.');
-        }
-
-        const requestOptions = await requestObj.createRequestOptions(this.configuration);
-        const response = await invokeApiMethod(requestOptions, this.configuration);
-        const result =  ObjectSerializer.deserialize(response.body, "any");
-        return Promise.resolve({body: result, response});
-    }
-
-    /// <summary>
-    /// </summary>
-    /// <param name="request">Request. <see cref="MoveFolderRequest" /></param>
-    public async moveFolder(requestObj:model.MoveFolderRequest ): Promise<{response: http.ClientResponse, body: any}>
-    {
-        if (requestObj === null || requestObj === undefined) {
-            throw new Error('Required parameter "requestObj" was null or undefined when calling moveFolder.');
-        }
-
-        const requestOptions = await requestObj.createRequestOptions(this.configuration);
-        const response = await invokeApiMethod(requestOptions, this.configuration);
-        const result =  ObjectSerializer.deserialize(response.body, "any");
-        return Promise.resolve({body: result, response});
-    }
-
-    /// <summary>
-    /// </summary>
-    /// <param name="request">Request. <see cref="DeleteFolderRequest" /></param>
-    public async deleteFolder(requestObj:model.DeleteFolderRequest ): Promise<{response: http.ClientResponse, body: any}>
-    {
-        if (requestObj === null || requestObj === undefined) {
-            throw new Error('Required parameter "requestObj" was null or undefined when calling deleteFolder.');
-        }
-
-        const requestOptions = await requestObj.createRequestOptions(this.configuration);
-        const response = await invokeApiMethod(requestOptions, this.configuration);
-        const result =  ObjectSerializer.deserialize(response.body, "any");
-        return Promise.resolve({body: result, response});
-    }
-
-    /// <summary>
-    /// </summary>
-    /// <param name="request">Request. <see cref="StorageExistsRequest" /></param>
-    public async storageExists(requestObj:model.StorageExistsRequest ): Promise<{response: http.ClientResponse, body: model.StorageExist}>
-    {
-        if (requestObj === null || requestObj === undefined) {
-            throw new Error('Required parameter "requestObj" was null or undefined when calling storageExists.');
-        }
-
-        const requestOptions = await requestObj.createRequestOptions(this.configuration);
-        const response = await invokeApiMethod(requestOptions, this.configuration);
-        const result =  ObjectSerializer.deserialize(response.body, "StorageExist");
-        return Promise.resolve({body: result, response});
-    }
-
-    /// <summary>
-    /// </summary>
-    /// <param name="request">Request. <see cref="ObjectExistsRequest" /></param>
-    public async objectExists(requestObj:model.ObjectExistsRequest ): Promise<{response: http.ClientResponse, body: model.ObjectExist}>
-    {
-        if (requestObj === null || requestObj === undefined) {
-            throw new Error('Required parameter "requestObj" was null or undefined when calling objectExists.');
-        }
-
-        const requestOptions = await requestObj.createRequestOptions(this.configuration);
-        const response = await invokeApiMethod(requestOptions, this.configuration);
-        const result =  ObjectSerializer.deserialize(response.body, "ObjectExist");
-        return Promise.resolve({body: result, response});
-    }
-
-    /// <summary>
-    /// </summary>
-    /// <param name="request">Request. <see cref="GetDiscUsageRequest" /></param>
-    public async getDiscUsage(requestObj:model.GetDiscUsageRequest ): Promise<{response: http.ClientResponse, body: model.DiscUsage}>
-    {
-        if (requestObj === null || requestObj === undefined) {
-            throw new Error('Required parameter "requestObj" was null or undefined when calling getDiscUsage.');
-        }
-
-        const requestOptions = await requestObj.createRequestOptions(this.configuration);
-        const response = await invokeApiMethod(requestOptions, this.configuration);
-        const result =  ObjectSerializer.deserialize(response.body, "DiscUsage");
-        return Promise.resolve({body: result, response});
-    }
-
-    /// <summary>
-    /// </summary>
-    /// <param name="request">Request. <see cref="GetFileVersionsRequest" /></param>
-    public async getFileVersions(requestObj:model.GetFileVersionsRequest ): Promise<{response: http.ClientResponse, body: model.FileVersions}>
-    {
-        if (requestObj === null || requestObj === undefined) {
-            throw new Error('Required parameter "requestObj" was null or undefined when calling getFileVersions.');
-        }
-
-        const requestOptions = await requestObj.createRequestOptions(this.configuration);
-        const response = await invokeApiMethod(requestOptions, this.configuration);
-        const result =  ObjectSerializer.deserialize(response.body, "FileVersions");
         return Promise.resolve({body: result, response});
     }
 }

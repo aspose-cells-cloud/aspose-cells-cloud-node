@@ -1,7 +1,8 @@
-import request from "request";
 import { Configuration } from "../internal/configuration";
 import { addQueryParameterToUrl } from "../internal/requestHelper";
 import { ObjectSerializer } from "../internal/objectSerializer";
+const fs = require('fs');
+const path = require('path');
 
 export class ValueType {
 
@@ -384,6 +385,2673 @@ export class GoogleDriveStorageFile  extends StorageFile  {
 
     public constructor(init?: Partial< GoogleDriveStorageFile >) {  
          super(init);     
+        Object.assign(this, init);
+    } 
+}
+   
+export class BrokenLink  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "filename",
+            baseName: "Filename",
+            type: "string",
+        },
+        {
+            name: "worksheet",
+            baseName: "Worksheet",
+            type: "string",
+        },
+        {
+            name: "position",
+            baseName: "Position",
+            type: "string",
+        },
+        {
+            name: "linkAddress",
+            baseName: "LinkAddress",
+            type: "string",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return  BrokenLink.attributeTypeMap;
+
+    }
+
+    public filename: string;
+    public worksheet: string;
+    public position: string;
+    public linkAddress: string;
+
+    public constructor(init?: Partial< BrokenLink >) {  
+    
+        Object.assign(this, init);
+    } 
+}
+   
+export class CellArea  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "endColumn",
+            baseName: "EndColumn",
+            type: "number",
+        },
+        {
+            name: "endRow",
+            baseName: "EndRow",
+            type: "number",
+        },
+        {
+            name: "startColumn",
+            baseName: "StartColumn",
+            type: "number",
+        },
+        {
+            name: "startRow",
+            baseName: "StartRow",
+            type: "number",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return  CellArea.attributeTypeMap;
+
+    }
+
+    public endColumn: number;
+    public endRow: number;
+    public startColumn: number;
+    public startRow: number;
+
+    public constructor(init?: Partial< CellArea >) {  
+    
+        Object.assign(this, init);
+    } 
+}
+   
+export class CellsCloudFileInfo  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "name",
+            baseName: "Name",
+            type: "string",
+        },
+        {
+            name: "size",
+            baseName: "Size",
+            type: "number",
+        },
+        {
+            name: "folder",
+            baseName: "Folder",
+            type: "string",
+        },
+        {
+            name: "storage",
+            baseName: "Storage",
+            type: "string",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return  CellsCloudFileInfo.attributeTypeMap;
+
+    }
+
+    public name: string;
+    public size: number;
+    public folder: string;
+    public storage: string;
+
+    public constructor(init?: Partial< CellsCloudFileInfo >) {  
+    
+        Object.assign(this, init);
+    } 
+}
+   
+export class CellsCloudPublicKey  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "exponent",
+            baseName: "Exponent",
+            type: "string",
+        },
+        {
+            name: "modulus",
+            baseName: "Modulus",
+            type: "string",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return  CellsCloudPublicKey.attributeTypeMap;
+
+    }
+
+    public exponent: string;
+    public modulus: string;
+
+    public constructor(init?: Partial< CellsCloudPublicKey >) {  
+    
+        Object.assign(this, init);
+    } 
+}
+   
+export class Color  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "a",
+            baseName: "A",
+            type: "number",
+        },
+        {
+            name: "r",
+            baseName: "R",
+            type: "number",
+        },
+        {
+            name: "g",
+            baseName: "G",
+            type: "number",
+        },
+        {
+            name: "b",
+            baseName: "B",
+            type: "number",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return  Color.attributeTypeMap;
+
+    }
+
+    public a: number;
+    public r: number;
+    public g: number;
+    public b: number;
+
+    public constructor(init?: Partial< Color >) {  
+    
+        Object.assign(this, init);
+    } 
+}
+   
+export class PdfSecurityOptions  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "annotationsPermission",
+            baseName: "AnnotationsPermission",
+            type: "boolean",
+        },
+        {
+            name: "assembleDocumentPermission",
+            baseName: "AssembleDocumentPermission",
+            type: "boolean",
+        },
+        {
+            name: "extractContentPermission",
+            baseName: "ExtractContentPermission",
+            type: "boolean",
+        },
+        {
+            name: "fillFormsPermission",
+            baseName: "FillFormsPermission",
+            type: "boolean",
+        },
+        {
+            name: "fullQualityPrintPermission",
+            baseName: "FullQualityPrintPermission",
+            type: "boolean",
+        },
+        {
+            name: "modifyDocumentPermission",
+            baseName: "ModifyDocumentPermission",
+            type: "boolean",
+        },
+        {
+            name: "ownerPassword",
+            baseName: "OwnerPassword",
+            type: "string",
+        },
+        {
+            name: "printPermission",
+            baseName: "PrintPermission",
+            type: "boolean",
+        },
+        {
+            name: "userPassword",
+            baseName: "UserPassword",
+            type: "string",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return  PdfSecurityOptions.attributeTypeMap;
+
+    }
+
+    public annotationsPermission: boolean;
+    public assembleDocumentPermission: boolean;
+    public extractContentPermission: boolean;
+    public fillFormsPermission: boolean;
+    public fullQualityPrintPermission: boolean;
+    public modifyDocumentPermission: boolean;
+    public ownerPassword: string;
+    public printPermission: boolean;
+    public userPassword: string;
+
+    public constructor(init?: Partial< PdfSecurityOptions >) {  
+    
+        Object.assign(this, init);
+    } 
+}
+   
+export class Range  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "columnCount",
+            baseName: "ColumnCount",
+            type: "number",
+        },
+        {
+            name: "columnWidth",
+            baseName: "ColumnWidth",
+            type: "number",
+        },
+        {
+            name: "firstColumn",
+            baseName: "FirstColumn",
+            type: "number",
+        },
+        {
+            name: "firstRow",
+            baseName: "FirstRow",
+            type: "number",
+        },
+        {
+            name: "name",
+            baseName: "Name",
+            type: "string",
+        },
+        {
+            name: "refersTo",
+            baseName: "RefersTo",
+            type: "string",
+        },
+        {
+            name: "rowCount",
+            baseName: "RowCount",
+            type: "number",
+        },
+        {
+            name: "rowHeight",
+            baseName: "RowHeight",
+            type: "number",
+        },
+        {
+            name: "worksheet",
+            baseName: "Worksheet",
+            type: "string",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return  Range.attributeTypeMap;
+
+    }
+
+    public columnCount: number;
+    public columnWidth: number;
+    public firstColumn: number;
+    public firstRow: number;
+    public name: string;
+    public refersTo: string;
+    public rowCount: number;
+    public rowHeight: number;
+    public worksheet: string;
+
+    public constructor(init?: Partial< Range >) {  
+    
+        Object.assign(this, init);
+    } 
+}
+   
+export class SaveResult  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "documents",
+            baseName: "Documents",
+            type: "Array<CellsCloudFileInfo>",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return  SaveResult.attributeTypeMap;
+
+    }
+
+    public documents: Array<CellsCloudFileInfo>;
+
+    public constructor(init?: Partial< SaveResult >) {  
+    
+        Object.assign(this, init);
+    } 
+}
+   
+export class SaveOptions  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "saveFormat",
+            baseName: "SaveFormat",
+            type: "string",
+        },
+        {
+            name: "cachedFileFolder",
+            baseName: "CachedFileFolder",
+            type: "string",
+        },
+        {
+            name: "clearData",
+            baseName: "ClearData",
+            type: "boolean",
+        },
+        {
+            name: "createDirectory",
+            baseName: "CreateDirectory",
+            type: "boolean",
+        },
+        {
+            name: "enableHTTPCompression",
+            baseName: "EnableHTTPCompression",
+            type: "boolean",
+        },
+        {
+            name: "refreshChartCache",
+            baseName: "RefreshChartCache",
+            type: "boolean",
+        },
+        {
+            name: "sortNames",
+            baseName: "SortNames",
+            type: "boolean",
+        },
+        {
+            name: "validateMergedAreas",
+            baseName: "ValidateMergedAreas",
+            type: "boolean",
+        },
+        {
+            name: "mergeAreas",
+            baseName: "MergeAreas",
+            type: "boolean",
+        },
+        {
+            name: "sortExternalNames",
+            baseName: "SortExternalNames",
+            type: "boolean",
+        },
+        {
+            name: "checkExcelRestriction",
+            baseName: "CheckExcelRestriction",
+            type: "boolean",
+        },
+        {
+            name: "updateSmartArt",
+            baseName: "UpdateSmartArt",
+            type: "boolean",
+        },
+        {
+            name: "encryptDocumentProperties",
+            baseName: "EncryptDocumentProperties",
+            type: "boolean",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return  SaveOptions.attributeTypeMap;
+
+    }
+
+    public saveFormat: string;
+    public cachedFileFolder: string;
+    public clearData: boolean;
+    public createDirectory: boolean;
+    public enableHTTPCompression: boolean;
+    public refreshChartCache: boolean;
+    public sortNames: boolean;
+    public validateMergedAreas: boolean;
+    public mergeAreas: boolean;
+    public sortExternalNames: boolean;
+    public checkExcelRestriction: boolean;
+    public updateSmartArt: boolean;
+    public encryptDocumentProperties: boolean;
+
+    public constructor(init?: Partial< SaveOptions >) {  
+    
+        Object.assign(this, init);
+    } 
+}
+   
+export class PaginatedSaveOptions  extends SaveOptions  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "defaultFont",
+            baseName: "DefaultFont",
+            type: "string",
+        },
+        {
+            name: "checkWorkbookDefaultFont",
+            baseName: "CheckWorkbookDefaultFont",
+            type: "boolean",
+        },
+        {
+            name: "checkFontCompatibility",
+            baseName: "CheckFontCompatibility",
+            type: "boolean",
+        },
+        {
+            name: "isFontSubstitutionCharGranularity",
+            baseName: "IsFontSubstitutionCharGranularity",
+            type: "boolean",
+        },
+        {
+            name: "onePagePerSheet",
+            baseName: "OnePagePerSheet",
+            type: "boolean",
+        },
+        {
+            name: "allColumnsInOnePagePerSheet",
+            baseName: "AllColumnsInOnePagePerSheet",
+            type: "boolean",
+        },
+        {
+            name: "ignoreError",
+            baseName: "IgnoreError",
+            type: "boolean",
+        },
+        {
+            name: "outputBlankPageWhenNothingToPrint",
+            baseName: "OutputBlankPageWhenNothingToPrint",
+            type: "boolean",
+        },
+        {
+            name: "pageIndex",
+            baseName: "PageIndex",
+            type: "number",
+        },
+        {
+            name: "pageCount",
+            baseName: "PageCount",
+            type: "number",
+        },
+        {
+            name: "printingPageType",
+            baseName: "PrintingPageType",
+            type: "string",
+        },
+        {
+            name: "gridlineType",
+            baseName: "GridlineType",
+            type: "string",
+        },
+        {
+            name: "textCrossType",
+            baseName: "TextCrossType",
+            type: "string",
+        },
+        {
+            name: "defaultEditLanguage",
+            baseName: "DefaultEditLanguage",
+            type: "string",
+        },
+        {
+            name: "emfRenderSetting",
+            baseName: "EmfRenderSetting",
+            type: "string",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return super.getAttributeTypeMap().concat(PaginatedSaveOptions.attributeTypeMap) ;
+
+    }
+
+    public defaultFont: string;
+    public checkWorkbookDefaultFont: boolean;
+    public checkFontCompatibility: boolean;
+    public isFontSubstitutionCharGranularity: boolean;
+    public onePagePerSheet: boolean;
+    public allColumnsInOnePagePerSheet: boolean;
+    public ignoreError: boolean;
+    public outputBlankPageWhenNothingToPrint: boolean;
+    public pageIndex: number;
+    public pageCount: number;
+    public printingPageType: string;
+    public gridlineType: string;
+    public textCrossType: string;
+    public defaultEditLanguage: string;
+    public emfRenderSetting: string;
+
+    public constructor(init?: Partial< PaginatedSaveOptions >) {  
+         super(init);     
+        Object.assign(this, init);
+    } 
+}
+   
+export class TextItem  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "filename",
+            baseName: "Filename",
+            type: "string",
+        },
+        {
+            name: "worksheet",
+            baseName: "Worksheet",
+            type: "string",
+        },
+        {
+            name: "position",
+            baseName: "Position",
+            type: "string",
+        },
+        {
+            name: "content",
+            baseName: "Content",
+            type: "string",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return  TextItem.attributeTypeMap;
+
+    }
+
+    public filename: string;
+    public worksheet: string;
+    public position: string;
+    public content: string;
+
+    public constructor(init?: Partial< TextItem >) {  
+    
+        Object.assign(this, init);
+    } 
+}
+   
+export class DbfSaveOptions  extends SaveOptions  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "exportAsString",
+            baseName: "ExportAsString",
+            type: "boolean",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return super.getAttributeTypeMap().concat(DbfSaveOptions.attributeTypeMap) ;
+
+    }
+
+    public exportAsString: boolean;
+
+    public constructor(init?: Partial< DbfSaveOptions >) {  
+         super(init);     
+        Object.assign(this, init);
+    } 
+}
+   
+export class DifSaveOptions  extends SaveOptions  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return super.getAttributeTypeMap().concat(DifSaveOptions.attributeTypeMap) ;
+
+    }
+
+
+    public constructor(init?: Partial< DifSaveOptions >) {  
+         super(init);     
+        Object.assign(this, init);
+    } 
+}
+   
+export class DocxSaveOptions  extends PaginatedSaveOptions  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return super.getAttributeTypeMap().concat(DocxSaveOptions.attributeTypeMap) ;
+
+    }
+
+
+    public constructor(init?: Partial< DocxSaveOptions >) {  
+         super(init);     
+        Object.assign(this, init);
+    } 
+}
+   
+export class ImageOrPrintOptions  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "textCrossType",
+            baseName: "TextCrossType",
+            type: "string",
+        },
+        {
+            name: "gridlineType",
+            baseName: "GridlineType",
+            type: "string",
+        },
+        {
+            name: "outputBlankPageWhenNothingToPrint",
+            baseName: "OutputBlankPageWhenNothingToPrint",
+            type: "boolean",
+        },
+        {
+            name: "checkWorkbookDefaultFont",
+            baseName: "CheckWorkbookDefaultFont",
+            type: "boolean",
+        },
+        {
+            name: "defaultFont",
+            baseName: "DefaultFont",
+            type: "string",
+        },
+        {
+            name: "isOptimized",
+            baseName: "IsOptimized",
+            type: "boolean",
+        },
+        {
+            name: "pageCount",
+            baseName: "PageCount",
+            type: "number",
+        },
+        {
+            name: "pageIndex",
+            baseName: "PageIndex",
+            type: "number",
+        },
+        {
+            name: "isFontSubstitutionCharGranularity",
+            baseName: "IsFontSubstitutionCharGranularity",
+            type: "boolean",
+        },
+        {
+            name: "transparent",
+            baseName: "Transparent",
+            type: "boolean",
+        },
+        {
+            name: "onlyArea",
+            baseName: "OnlyArea",
+            type: "boolean",
+        },
+        {
+            name: "sVGFitToViewPort",
+            baseName: "SVGFitToViewPort",
+            type: "boolean",
+        },
+        {
+            name: "embededImageNameInSvg",
+            baseName: "EmbededImageNameInSvg",
+            type: "string",
+        },
+        {
+            name: "allColumnsInOnePagePerSheet",
+            baseName: "AllColumnsInOnePagePerSheet",
+            type: "boolean",
+        },
+        {
+            name: "printWithStatusDialog",
+            baseName: "PrintWithStatusDialog",
+            type: "boolean",
+        },
+        {
+            name: "horizontalResolution",
+            baseName: "HorizontalResolution",
+            type: "number",
+        },
+        {
+            name: "verticalResolution",
+            baseName: "VerticalResolution",
+            type: "number",
+        },
+        {
+            name: "defaultEditLanguage",
+            baseName: "DefaultEditLanguage",
+            type: "string",
+        },
+        {
+            name: "tiffColorDepth",
+            baseName: "TiffColorDepth",
+            type: "string",
+        },
+        {
+            name: "tiffCompression",
+            baseName: "TiffCompression",
+            type: "string",
+        },
+        {
+            name: "printingPage",
+            baseName: "PrintingPage",
+            type: "string",
+        },
+        {
+            name: "quality",
+            baseName: "Quality",
+            type: "number",
+        },
+        {
+            name: "imageType",
+            baseName: "ImageType",
+            type: "string",
+        },
+        {
+            name: "onePagePerSheet",
+            baseName: "OnePagePerSheet",
+            type: "boolean",
+        },
+        {
+            name: "tiffBinarizationMethod",
+            baseName: "TiffBinarizationMethod",
+            type: "string",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return  ImageOrPrintOptions.attributeTypeMap;
+
+    }
+
+    public textCrossType: string;
+    public gridlineType: string;
+    public outputBlankPageWhenNothingToPrint: boolean;
+    public checkWorkbookDefaultFont: boolean;
+    public defaultFont: string;
+    public isOptimized: boolean;
+    public pageCount: number;
+    public pageIndex: number;
+    public isFontSubstitutionCharGranularity: boolean;
+    public transparent: boolean;
+    public onlyArea: boolean;
+    public sVGFitToViewPort: boolean;
+    public embededImageNameInSvg: string;
+    public allColumnsInOnePagePerSheet: boolean;
+    public printWithStatusDialog: boolean;
+    public horizontalResolution: number;
+    public verticalResolution: number;
+    public defaultEditLanguage: string;
+    public tiffColorDepth: string;
+    public tiffCompression: string;
+    public printingPage: string;
+    public quality: number;
+    public imageType: string;
+    public onePagePerSheet: boolean;
+    public tiffBinarizationMethod: string;
+
+    public constructor(init?: Partial< ImageOrPrintOptions >) {  
+    
+        Object.assign(this, init);
+    } 
+}
+   
+export class HtmlSaveOptions  extends SaveOptions  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "exportPageHeaders",
+            baseName: "ExportPageHeaders",
+            type: "boolean",
+        },
+        {
+            name: "exportPageFooters",
+            baseName: "ExportPageFooters",
+            type: "boolean",
+        },
+        {
+            name: "exportRowColumnHeadings",
+            baseName: "ExportRowColumnHeadings",
+            type: "boolean",
+        },
+        {
+            name: "showAllSheets",
+            baseName: "ShowAllSheets",
+            type: "boolean",
+        },
+        {
+            name: "imageOptions",
+            baseName: "ImageOptions",
+            type: "ImageOrPrintOptions",
+        },
+        {
+            name: "saveAsSingleFile",
+            baseName: "SaveAsSingleFile",
+            type: "boolean",
+        },
+        {
+            name: "exportHiddenWorksheet",
+            baseName: "ExportHiddenWorksheet",
+            type: "boolean",
+        },
+        {
+            name: "exportGridLines",
+            baseName: "ExportGridLines",
+            type: "boolean",
+        },
+        {
+            name: "presentationPreference",
+            baseName: "PresentationPreference",
+            type: "boolean",
+        },
+        {
+            name: "cellCssPrefix",
+            baseName: "CellCssPrefix",
+            type: "string",
+        },
+        {
+            name: "tableCssId",
+            baseName: "TableCssId",
+            type: "string",
+        },
+        {
+            name: "isFullPathLink",
+            baseName: "IsFullPathLink",
+            type: "boolean",
+        },
+        {
+            name: "exportWorksheetCSSSeparately",
+            baseName: "ExportWorksheetCSSSeparately",
+            type: "boolean",
+        },
+        {
+            name: "exportSimilarBorderStyle",
+            baseName: "ExportSimilarBorderStyle",
+            type: "boolean",
+        },
+        {
+            name: "mergeEmptyTdForcely",
+            baseName: "MergeEmptyTdForcely",
+            type: "boolean",
+        },
+        {
+            name: "exportCellCoordinate",
+            baseName: "ExportCellCoordinate",
+            type: "boolean",
+        },
+        {
+            name: "exportExtraHeadings",
+            baseName: "ExportExtraHeadings",
+            type: "boolean",
+        },
+        {
+            name: "exportHeadings",
+            baseName: "ExportHeadings",
+            type: "boolean",
+        },
+        {
+            name: "exportFormula",
+            baseName: "ExportFormula",
+            type: "boolean",
+        },
+        {
+            name: "addTooltipText",
+            baseName: "AddTooltipText",
+            type: "boolean",
+        },
+        {
+            name: "exportBogusRowData",
+            baseName: "ExportBogusRowData",
+            type: "boolean",
+        },
+        {
+            name: "excludeUnusedStyles",
+            baseName: "ExcludeUnusedStyles",
+            type: "boolean",
+        },
+        {
+            name: "exportDocumentProperties",
+            baseName: "ExportDocumentProperties",
+            type: "boolean",
+        },
+        {
+            name: "exportWorksheetProperties",
+            baseName: "ExportWorksheetProperties",
+            type: "boolean",
+        },
+        {
+            name: "exportWorkbookProperties",
+            baseName: "ExportWorkbookProperties",
+            type: "boolean",
+        },
+        {
+            name: "exportFrameScriptsAndProperties",
+            baseName: "ExportFrameScriptsAndProperties",
+            type: "boolean",
+        },
+        {
+            name: "attachedFilesDirectory",
+            baseName: "AttachedFilesDirectory",
+            type: "string",
+        },
+        {
+            name: "attachedFilesUrlPrefix",
+            baseName: "AttachedFilesUrlPrefix",
+            type: "string",
+        },
+        {
+            name: "encoding",
+            baseName: "Encoding",
+            type: "string",
+        },
+        {
+            name: "exportActiveWorksheetOnly",
+            baseName: "ExportActiveWorksheetOnly",
+            type: "boolean",
+        },
+        {
+            name: "exportChartImageFormat",
+            baseName: "ExportChartImageFormat",
+            type: "string",
+        },
+        {
+            name: "exportImagesAsBase64",
+            baseName: "ExportImagesAsBase64",
+            type: "boolean",
+        },
+        {
+            name: "hiddenColDisplayType",
+            baseName: "HiddenColDisplayType",
+            type: "string",
+        },
+        {
+            name: "hiddenRowDisplayType",
+            baseName: "HiddenRowDisplayType",
+            type: "string",
+        },
+        {
+            name: "htmlCrossStringType",
+            baseName: "HtmlCrossStringType",
+            type: "string",
+        },
+        {
+            name: "isExpImageToTempDir",
+            baseName: "IsExpImageToTempDir",
+            type: "boolean",
+        },
+        {
+            name: "pageTitle",
+            baseName: "PageTitle",
+            type: "string",
+        },
+        {
+            name: "parseHtmlTagInCell",
+            baseName: "ParseHtmlTagInCell",
+            type: "boolean",
+        },
+        {
+            name: "cellNameAttribute",
+            baseName: "CellNameAttribute",
+            type: "string",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return super.getAttributeTypeMap().concat(HtmlSaveOptions.attributeTypeMap) ;
+
+    }
+
+    public exportPageHeaders: boolean;
+    public exportPageFooters: boolean;
+    public exportRowColumnHeadings: boolean;
+    public showAllSheets: boolean;
+    public imageOptions: ImageOrPrintOptions;
+    public saveAsSingleFile: boolean;
+    public exportHiddenWorksheet: boolean;
+    public exportGridLines: boolean;
+    public presentationPreference: boolean;
+    public cellCssPrefix: string;
+    public tableCssId: string;
+    public isFullPathLink: boolean;
+    public exportWorksheetCSSSeparately: boolean;
+    public exportSimilarBorderStyle: boolean;
+    public mergeEmptyTdForcely: boolean;
+    public exportCellCoordinate: boolean;
+    public exportExtraHeadings: boolean;
+    public exportHeadings: boolean;
+    public exportFormula: boolean;
+    public addTooltipText: boolean;
+    public exportBogusRowData: boolean;
+    public excludeUnusedStyles: boolean;
+    public exportDocumentProperties: boolean;
+    public exportWorksheetProperties: boolean;
+    public exportWorkbookProperties: boolean;
+    public exportFrameScriptsAndProperties: boolean;
+    public attachedFilesDirectory: string;
+    public attachedFilesUrlPrefix: string;
+    public encoding: string;
+    public exportActiveWorksheetOnly: boolean;
+    public exportChartImageFormat: string;
+    public exportImagesAsBase64: boolean;
+    public hiddenColDisplayType: string;
+    public hiddenRowDisplayType: string;
+    public htmlCrossStringType: string;
+    public isExpImageToTempDir: boolean;
+    public pageTitle: string;
+    public parseHtmlTagInCell: boolean;
+    public cellNameAttribute: string;
+
+    public constructor(init?: Partial< HtmlSaveOptions >) {  
+         super(init);     
+        Object.assign(this, init);
+    } 
+}
+   
+export class ImageSaveOptions  extends SaveOptions  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "chartImageType",
+            baseName: "ChartImageType",
+            type: "string",
+        },
+        {
+            name: "embededImageNameInSvg",
+            baseName: "EmbededImageNameInSvg",
+            type: "string",
+        },
+        {
+            name: "horizontalResolution",
+            baseName: "HorizontalResolution",
+            type: "number",
+        },
+        {
+            name: "imageFormat",
+            baseName: "ImageFormat",
+            type: "string",
+        },
+        {
+            name: "isCellAutoFit",
+            baseName: "IsCellAutoFit",
+            type: "boolean",
+        },
+        {
+            name: "onePagePerSheet",
+            baseName: "OnePagePerSheet",
+            type: "boolean",
+        },
+        {
+            name: "onlyArea",
+            baseName: "OnlyArea",
+            type: "boolean",
+        },
+        {
+            name: "printingPage",
+            baseName: "PrintingPage",
+            type: "string",
+        },
+        {
+            name: "printWithStatusDialog",
+            baseName: "PrintWithStatusDialog",
+            type: "boolean",
+        },
+        {
+            name: "quality",
+            baseName: "Quality",
+            type: "number",
+        },
+        {
+            name: "tiffCompression",
+            baseName: "TiffCompression",
+            type: "string",
+        },
+        {
+            name: "verticalResolution",
+            baseName: "VerticalResolution",
+            type: "number",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return super.getAttributeTypeMap().concat(ImageSaveOptions.attributeTypeMap) ;
+
+    }
+
+    public chartImageType: string;
+    public embededImageNameInSvg: string;
+    public horizontalResolution: number;
+    public imageFormat: string;
+    public isCellAutoFit: boolean;
+    public onePagePerSheet: boolean;
+    public onlyArea: boolean;
+    public printingPage: string;
+    public printWithStatusDialog: boolean;
+    public quality: number;
+    public tiffCompression: string;
+    public verticalResolution: number;
+
+    public constructor(init?: Partial< ImageSaveOptions >) {  
+         super(init);     
+        Object.assign(this, init);
+    } 
+}
+   
+export class JsonSaveOptions  extends SaveOptions  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "exportArea",
+            baseName: "ExportArea",
+            type: "CellArea",
+        },
+        {
+            name: "hasHeaderRow",
+            baseName: "HasHeaderRow",
+            type: "boolean",
+        },
+        {
+            name: "exportAsString",
+            baseName: "ExportAsString",
+            type: "boolean",
+        },
+        {
+            name: "indent",
+            baseName: "Indent",
+            type: "string",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return super.getAttributeTypeMap().concat(JsonSaveOptions.attributeTypeMap) ;
+
+    }
+
+    public exportArea: CellArea;
+    public hasHeaderRow: boolean;
+    public exportAsString: boolean;
+    public indent: string;
+
+    public constructor(init?: Partial< JsonSaveOptions >) {  
+         super(init);     
+        Object.assign(this, init);
+    } 
+}
+   
+export class MarkdownSaveOptions  extends SaveOptions  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "encoding",
+            baseName: "Encoding",
+            type: "string",
+        },
+        {
+            name: "formatStrategy",
+            baseName: "FormatStrategy",
+            type: "string",
+        },
+        {
+            name: "lineSeparator",
+            baseName: "LineSeparator",
+            type: "string",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return super.getAttributeTypeMap().concat(MarkdownSaveOptions.attributeTypeMap) ;
+
+    }
+
+    public encoding: string;
+    public formatStrategy: string;
+    public lineSeparator: string;
+
+    public constructor(init?: Partial< MarkdownSaveOptions >) {  
+         super(init);     
+        Object.assign(this, init);
+    } 
+}
+   
+export class MHtmlSaveOptions  extends SaveOptions  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "exportPageHeaders",
+            baseName: "ExportPageHeaders",
+            type: "boolean",
+        },
+        {
+            name: "exportPageFooters",
+            baseName: "ExportPageFooters",
+            type: "boolean",
+        },
+        {
+            name: "exportRowColumnHeadings",
+            baseName: "ExportRowColumnHeadings",
+            type: "boolean",
+        },
+        {
+            name: "showAllSheets",
+            baseName: "ShowAllSheets",
+            type: "boolean",
+        },
+        {
+            name: "imageOptions",
+            baseName: "ImageOptions",
+            type: "ImageOrPrintOptions",
+        },
+        {
+            name: "saveAsSingleFile",
+            baseName: "SaveAsSingleFile",
+            type: "boolean",
+        },
+        {
+            name: "exportHiddenWorksheet",
+            baseName: "ExportHiddenWorksheet",
+            type: "boolean",
+        },
+        {
+            name: "exportGridLines",
+            baseName: "ExportGridLines",
+            type: "boolean",
+        },
+        {
+            name: "presentationPreference",
+            baseName: "PresentationPreference",
+            type: "boolean",
+        },
+        {
+            name: "cellCssPrefix",
+            baseName: "CellCssPrefix",
+            type: "string",
+        },
+        {
+            name: "tableCssId",
+            baseName: "TableCssId",
+            type: "string",
+        },
+        {
+            name: "isFullPathLink",
+            baseName: "IsFullPathLink",
+            type: "boolean",
+        },
+        {
+            name: "exportWorksheetCSSSeparately",
+            baseName: "ExportWorksheetCSSSeparately",
+            type: "boolean",
+        },
+        {
+            name: "exportSimilarBorderStyle",
+            baseName: "ExportSimilarBorderStyle",
+            type: "boolean",
+        },
+        {
+            name: "mergeEmptyTdForcely",
+            baseName: "MergeEmptyTdForcely",
+            type: "boolean",
+        },
+        {
+            name: "exportCellCoordinate",
+            baseName: "ExportCellCoordinate",
+            type: "boolean",
+        },
+        {
+            name: "exportExtraHeadings",
+            baseName: "ExportExtraHeadings",
+            type: "boolean",
+        },
+        {
+            name: "exportHeadings",
+            baseName: "ExportHeadings",
+            type: "boolean",
+        },
+        {
+            name: "exportFormula",
+            baseName: "ExportFormula",
+            type: "boolean",
+        },
+        {
+            name: "addTooltipText",
+            baseName: "AddTooltipText",
+            type: "boolean",
+        },
+        {
+            name: "exportBogusRowData",
+            baseName: "ExportBogusRowData",
+            type: "boolean",
+        },
+        {
+            name: "excludeUnusedStyles",
+            baseName: "ExcludeUnusedStyles",
+            type: "boolean",
+        },
+        {
+            name: "exportDocumentProperties",
+            baseName: "ExportDocumentProperties",
+            type: "boolean",
+        },
+        {
+            name: "exportWorksheetProperties",
+            baseName: "ExportWorksheetProperties",
+            type: "boolean",
+        },
+        {
+            name: "exportWorkbookProperties",
+            baseName: "ExportWorkbookProperties",
+            type: "boolean",
+        },
+        {
+            name: "exportFrameScriptsAndProperties",
+            baseName: "ExportFrameScriptsAndProperties",
+            type: "boolean",
+        },
+        {
+            name: "attachedFilesDirectory",
+            baseName: "AttachedFilesDirectory",
+            type: "string",
+        },
+        {
+            name: "attachedFilesUrlPrefix",
+            baseName: "AttachedFilesUrlPrefix",
+            type: "string",
+        },
+        {
+            name: "encoding",
+            baseName: "Encoding",
+            type: "string",
+        },
+        {
+            name: "exportActiveWorksheetOnly",
+            baseName: "ExportActiveWorksheetOnly",
+            type: "boolean",
+        },
+        {
+            name: "exportChartImageFormat",
+            baseName: "ExportChartImageFormat",
+            type: "string",
+        },
+        {
+            name: "exportImagesAsBase64",
+            baseName: "ExportImagesAsBase64",
+            type: "boolean",
+        },
+        {
+            name: "hiddenColDisplayType",
+            baseName: "HiddenColDisplayType",
+            type: "string",
+        },
+        {
+            name: "hiddenRowDisplayType",
+            baseName: "HiddenRowDisplayType",
+            type: "string",
+        },
+        {
+            name: "htmlCrossStringType",
+            baseName: "HtmlCrossStringType",
+            type: "string",
+        },
+        {
+            name: "isExpImageToTempDir",
+            baseName: "IsExpImageToTempDir",
+            type: "boolean",
+        },
+        {
+            name: "pageTitle",
+            baseName: "PageTitle",
+            type: "string",
+        },
+        {
+            name: "parseHtmlTagInCell",
+            baseName: "ParseHtmlTagInCell",
+            type: "boolean",
+        },
+        {
+            name: "cellNameAttribute",
+            baseName: "CellNameAttribute",
+            type: "string",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return super.getAttributeTypeMap().concat(MHtmlSaveOptions.attributeTypeMap) ;
+
+    }
+
+    public exportPageHeaders: boolean;
+    public exportPageFooters: boolean;
+    public exportRowColumnHeadings: boolean;
+    public showAllSheets: boolean;
+    public imageOptions: ImageOrPrintOptions;
+    public saveAsSingleFile: boolean;
+    public exportHiddenWorksheet: boolean;
+    public exportGridLines: boolean;
+    public presentationPreference: boolean;
+    public cellCssPrefix: string;
+    public tableCssId: string;
+    public isFullPathLink: boolean;
+    public exportWorksheetCSSSeparately: boolean;
+    public exportSimilarBorderStyle: boolean;
+    public mergeEmptyTdForcely: boolean;
+    public exportCellCoordinate: boolean;
+    public exportExtraHeadings: boolean;
+    public exportHeadings: boolean;
+    public exportFormula: boolean;
+    public addTooltipText: boolean;
+    public exportBogusRowData: boolean;
+    public excludeUnusedStyles: boolean;
+    public exportDocumentProperties: boolean;
+    public exportWorksheetProperties: boolean;
+    public exportWorkbookProperties: boolean;
+    public exportFrameScriptsAndProperties: boolean;
+    public attachedFilesDirectory: string;
+    public attachedFilesUrlPrefix: string;
+    public encoding: string;
+    public exportActiveWorksheetOnly: boolean;
+    public exportChartImageFormat: string;
+    public exportImagesAsBase64: boolean;
+    public hiddenColDisplayType: string;
+    public hiddenRowDisplayType: string;
+    public htmlCrossStringType: string;
+    public isExpImageToTempDir: boolean;
+    public pageTitle: string;
+    public parseHtmlTagInCell: boolean;
+    public cellNameAttribute: string;
+
+    public constructor(init?: Partial< MHtmlSaveOptions >) {  
+         super(init);     
+        Object.assign(this, init);
+    } 
+}
+   
+export class OdsSaveOptions  extends SaveOptions  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "generatorType",
+            baseName: "GeneratorType",
+            type: "string",
+        },
+        {
+            name: "odfStrictVersion",
+            baseName: "OdfStrictVersion",
+            type: "string",
+        },
+        {
+            name: "ignorePivotTables",
+            baseName: "IgnorePivotTables",
+            type: "boolean",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return super.getAttributeTypeMap().concat(OdsSaveOptions.attributeTypeMap) ;
+
+    }
+
+    public generatorType: string;
+    public odfStrictVersion: string;
+    public ignorePivotTables: boolean;
+
+    public constructor(init?: Partial< OdsSaveOptions >) {  
+         super(init);     
+        Object.assign(this, init);
+    } 
+}
+   
+export class OoxmlSaveOptions  extends SaveOptions  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "exportCellName",
+            baseName: "ExportCellName",
+            type: "boolean",
+        },
+        {
+            name: "updateZoom",
+            baseName: "UpdateZoom",
+            type: "boolean",
+        },
+        {
+            name: "enableZip64",
+            baseName: "EnableZip64",
+            type: "boolean",
+        },
+        {
+            name: "embedOoxmlAsOleObject",
+            baseName: "EmbedOoxmlAsOleObject",
+            type: "boolean",
+        },
+        {
+            name: "compressionType",
+            baseName: "CompressionType",
+            type: "string",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return super.getAttributeTypeMap().concat(OoxmlSaveOptions.attributeTypeMap) ;
+
+    }
+
+    public exportCellName: boolean;
+    public updateZoom: boolean;
+    public enableZip64: boolean;
+    public embedOoxmlAsOleObject: boolean;
+    public compressionType: string;
+
+    public constructor(init?: Partial< OoxmlSaveOptions >) {  
+         super(init);     
+        Object.assign(this, init);
+    } 
+}
+   
+export class PclSaveOptions  extends SaveOptions  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "fontFullName",
+            baseName: "fontFullName",
+            type: "string",
+        },
+        {
+            name: "fontPclName",
+            baseName: "fontPclName",
+            type: "string",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return super.getAttributeTypeMap().concat(PclSaveOptions.attributeTypeMap) ;
+
+    }
+
+    public fontFullName: string;
+    public fontPclName: string;
+
+    public constructor(init?: Partial< PclSaveOptions >) {  
+         super(init);     
+        Object.assign(this, init);
+    } 
+}
+   
+export class RenderingWatermark  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "rotation",
+            baseName: "Rotation",
+            type: "number",
+        },
+        {
+            name: "scaleToPagePercent",
+            baseName: "ScaleToPagePercent",
+            type: "number",
+        },
+        {
+            name: "opacity",
+            baseName: "Opacity",
+            type: "number",
+        },
+        {
+            name: "isBackground",
+            baseName: "IsBackground",
+            type: "boolean",
+        },
+        {
+            name: "text",
+            baseName: "Text",
+            type: "string",
+        },
+        {
+            name: "font",
+            baseName: "Font",
+            type: "RenderingFont",
+        },
+        {
+            name: "image",
+            baseName: "Image",
+            type: "Array<number>",
+        },
+        {
+            name: "hAlignment",
+            baseName: "HAlignment",
+            type: "string",
+        },
+        {
+            name: "vAlignment",
+            baseName: "VAlignment",
+            type: "string",
+        },
+        {
+            name: "offsetX",
+            baseName: "OffsetX",
+            type: "number",
+        },
+        {
+            name: "offsetY",
+            baseName: "OffsetY",
+            type: "number",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return  RenderingWatermark.attributeTypeMap;
+
+    }
+
+    public rotation: number;
+    public scaleToPagePercent: number;
+    public opacity: number;
+    public isBackground: boolean;
+    public text: string;
+    public font: RenderingFont;
+    public image: Array<number>;
+    public hAlignment: string;
+    public vAlignment: string;
+    public offsetX: number;
+    public offsetY: number;
+
+    public constructor(init?: Partial< RenderingWatermark >) {  
+    
+        Object.assign(this, init);
+    } 
+}
+   
+export class PdfSaveOptions  extends SaveOptions  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "displayDocTitle",
+            baseName: "DisplayDocTitle",
+            type: "boolean",
+        },
+        {
+            name: "exportDocumentStructure",
+            baseName: "ExportDocumentStructure",
+            type: "boolean",
+        },
+        {
+            name: "emfRenderSetting",
+            baseName: "EmfRenderSetting",
+            type: "string",
+        },
+        {
+            name: "customPropertiesExport",
+            baseName: "CustomPropertiesExport",
+            type: "string",
+        },
+        {
+            name: "optimizationType",
+            baseName: "OptimizationType",
+            type: "string",
+        },
+        {
+            name: "producer",
+            baseName: "Producer",
+            type: "string",
+        },
+        {
+            name: "pdfCompression",
+            baseName: "PdfCompression",
+            type: "string",
+        },
+        {
+            name: "fontEncoding",
+            baseName: "FontEncoding",
+            type: "string",
+        },
+        {
+            name: "watermark",
+            baseName: "Watermark",
+            type: "RenderingWatermark",
+        },
+        {
+            name: "calculateFormula",
+            baseName: "CalculateFormula",
+            type: "boolean",
+        },
+        {
+            name: "checkFontCompatibility",
+            baseName: "CheckFontCompatibility",
+            type: "boolean",
+        },
+        {
+            name: "compliance",
+            baseName: "Compliance",
+            type: "string",
+        },
+        {
+            name: "defaultFont",
+            baseName: "DefaultFont",
+            type: "string",
+        },
+        {
+            name: "onePagePerSheet",
+            baseName: "OnePagePerSheet",
+            type: "boolean",
+        },
+        {
+            name: "printingPageType",
+            baseName: "PrintingPageType",
+            type: "string",
+        },
+        {
+            name: "securityOptions",
+            baseName: "SecurityOptions",
+            type: "PdfSecurityOptions",
+        },
+        {
+            name: "desiredPPI",
+            baseName: "desiredPPI",
+            type: "number",
+        },
+        {
+            name: "jpegQuality",
+            baseName: "jpegQuality",
+            type: "number",
+        },
+        {
+            name: "imageType",
+            baseName: "ImageType",
+            type: "string",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return super.getAttributeTypeMap().concat(PdfSaveOptions.attributeTypeMap) ;
+
+    }
+
+    public displayDocTitle: boolean;
+    public exportDocumentStructure: boolean;
+    public emfRenderSetting: string;
+    public customPropertiesExport: string;
+    public optimizationType: string;
+    public producer: string;
+    public pdfCompression: string;
+    public fontEncoding: string;
+    public watermark: RenderingWatermark;
+    public calculateFormula: boolean;
+    public checkFontCompatibility: boolean;
+    public compliance: string;
+    public defaultFont: string;
+    public onePagePerSheet: boolean;
+    public printingPageType: string;
+    public securityOptions: PdfSecurityOptions;
+    public desiredPPI: number;
+    public jpegQuality: number;
+    public imageType: string;
+
+    public constructor(init?: Partial< PdfSaveOptions >) {  
+         super(init);     
+        Object.assign(this, init);
+    } 
+}
+   
+export class PptxSaveOptions  extends PaginatedSaveOptions  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "ignoreHiddenRows",
+            baseName: "IgnoreHiddenRows",
+            type: "boolean",
+        },
+        {
+            name: "adjustFontSizeForRowType",
+            baseName: "AdjustFontSizeForRowType",
+            type: "string",
+        },
+        {
+            name: "exportViewType",
+            baseName: "ExportViewType",
+            type: "string",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return super.getAttributeTypeMap().concat(PptxSaveOptions.attributeTypeMap) ;
+
+    }
+
+    public ignoreHiddenRows: boolean;
+    public adjustFontSizeForRowType: string;
+    public exportViewType: string;
+
+    public constructor(init?: Partial< PptxSaveOptions >) {  
+         super(init);     
+        Object.assign(this, init);
+    } 
+}
+   
+export class SaveOptionsData  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "saveOptions",
+            baseName: "SaveOptions",
+            type: "SaveOptions",
+        },
+        {
+            name: "filename",
+            baseName: "Filename",
+            type: "string",
+        },
+        {
+            name: "storageName",
+            baseName: "StorageName",
+            type: "string",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return  SaveOptionsData.attributeTypeMap;
+
+    }
+
+    public saveOptions: SaveOptions;
+    public filename: string;
+    public storageName: string;
+
+    public constructor(init?: Partial< SaveOptionsData >) {  
+    
+        Object.assign(this, init);
+    } 
+}
+   
+export class SpreadsheetML2003SaveOptions  extends SaveOptions  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "exportColumnIndexOfCell",
+            baseName: "ExportColumnIndexOfCell",
+            type: "boolean",
+        },
+        {
+            name: "isIndentedFormatting",
+            baseName: "IsIndentedFormatting",
+            type: "boolean",
+        },
+        {
+            name: "limitAsXls",
+            baseName: "LimitAsXls",
+            type: "boolean",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return super.getAttributeTypeMap().concat(SpreadsheetML2003SaveOptions.attributeTypeMap) ;
+
+    }
+
+    public exportColumnIndexOfCell: boolean;
+    public isIndentedFormatting: boolean;
+    public limitAsXls: boolean;
+
+    public constructor(init?: Partial< SpreadsheetML2003SaveOptions >) {  
+         super(init);     
+        Object.assign(this, init);
+    } 
+}
+   
+export class SqlScriptSaveOptions  extends SaveOptions  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "checkIfTableExists",
+            baseName: "CheckIfTableExists",
+            type: "boolean",
+        },
+        {
+            name: "columnTypeMap",
+            baseName: "ColumnTypeMap",
+            type: "string",
+        },
+        {
+            name: "checkAllDataForColumnType",
+            baseName: "CheckAllDataForColumnType",
+            type: "boolean",
+        },
+        {
+            name: "addBlankLineBetweenRows",
+            baseName: "AddBlankLineBetweenRows",
+            type: "boolean",
+        },
+        {
+            name: "separator",
+            baseName: "Separator",
+            type: "string",
+        },
+        {
+            name: "operatorType",
+            baseName: "OperatorType",
+            type: "string",
+        },
+        {
+            name: "primaryKey",
+            baseName: "PrimaryKey",
+            type: "number",
+        },
+        {
+            name: "createTable",
+            baseName: "CreateTable",
+            type: "boolean",
+        },
+        {
+            name: "idName",
+            baseName: "IdName",
+            type: "string",
+        },
+        {
+            name: "startId",
+            baseName: "StartId",
+            type: "number",
+        },
+        {
+            name: "tableName",
+            baseName: "TableName",
+            type: "string",
+        },
+        {
+            name: "exportAsString",
+            baseName: "ExportAsString",
+            type: "boolean",
+        },
+        {
+            name: "exportArea",
+            baseName: "ExportArea",
+            type: "CellArea",
+        },
+        {
+            name: "hasHeaderRow",
+            baseName: "HasHeaderRow",
+            type: "boolean",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return super.getAttributeTypeMap().concat(SqlScriptSaveOptions.attributeTypeMap) ;
+
+    }
+
+    public checkIfTableExists: boolean;
+    public columnTypeMap: string;
+    public checkAllDataForColumnType: boolean;
+    public addBlankLineBetweenRows: boolean;
+    public separator: string;
+    public operatorType: string;
+    public primaryKey: number;
+    public createTable: boolean;
+    public idName: string;
+    public startId: number;
+    public tableName: string;
+    public exportAsString: boolean;
+    public exportArea: CellArea;
+    public hasHeaderRow: boolean;
+
+    public constructor(init?: Partial< SqlScriptSaveOptions >) {  
+         super(init);     
+        Object.assign(this, init);
+    } 
+}
+   
+export class SvgSaveOptions  extends SaveOptions  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "sheetIndex",
+            baseName: "SheetIndex",
+            type: "number",
+        },
+        {
+            name: "chartImageType",
+            baseName: "ChartImageType",
+            type: "string",
+        },
+        {
+            name: "embededImageNameInSvg",
+            baseName: "EmbededImageNameInSvg",
+            type: "string",
+        },
+        {
+            name: "horizontalResolution",
+            baseName: "HorizontalResolution",
+            type: "number",
+        },
+        {
+            name: "imageFormat",
+            baseName: "ImageFormat",
+            type: "string",
+        },
+        {
+            name: "isCellAutoFit",
+            baseName: "IsCellAutoFit",
+            type: "boolean",
+        },
+        {
+            name: "onePagePerSheet",
+            baseName: "OnePagePerSheet",
+            type: "boolean",
+        },
+        {
+            name: "onlyArea",
+            baseName: "OnlyArea",
+            type: "boolean",
+        },
+        {
+            name: "printingPage",
+            baseName: "PrintingPage",
+            type: "string",
+        },
+        {
+            name: "printWithStatusDialog",
+            baseName: "PrintWithStatusDialog",
+            type: "boolean",
+        },
+        {
+            name: "quality",
+            baseName: "Quality",
+            type: "number",
+        },
+        {
+            name: "tiffCompression",
+            baseName: "TiffCompression",
+            type: "string",
+        },
+        {
+            name: "verticalResolution",
+            baseName: "VerticalResolution",
+            type: "number",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return super.getAttributeTypeMap().concat(SvgSaveOptions.attributeTypeMap) ;
+
+    }
+
+    public sheetIndex: number;
+    public chartImageType: string;
+    public embededImageNameInSvg: string;
+    public horizontalResolution: number;
+    public imageFormat: string;
+    public isCellAutoFit: boolean;
+    public onePagePerSheet: boolean;
+    public onlyArea: boolean;
+    public printingPage: string;
+    public printWithStatusDialog: boolean;
+    public quality: number;
+    public tiffCompression: string;
+    public verticalResolution: number;
+
+    public constructor(init?: Partial< SvgSaveOptions >) {  
+         super(init);     
+        Object.assign(this, init);
+    } 
+}
+   
+export class TxtSaveOptions  extends SaveOptions  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "quoteType",
+            baseName: "QuoteType",
+            type: "string",
+        },
+        {
+            name: "separator",
+            baseName: "Separator",
+            type: "string",
+        },
+        {
+            name: "separatorString",
+            baseName: "SeparatorString",
+            type: "string",
+        },
+        {
+            name: "alwaysQuoted",
+            baseName: "AlwaysQuoted",
+            type: "boolean",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return super.getAttributeTypeMap().concat(TxtSaveOptions.attributeTypeMap) ;
+
+    }
+
+    public quoteType: string;
+    public separator: string;
+    public separatorString: string;
+    public alwaysQuoted: boolean;
+
+    public constructor(init?: Partial< TxtSaveOptions >) {  
+         super(init);     
+        Object.assign(this, init);
+    } 
+}
+   
+export class XlsbSaveOptions  extends SaveOptions  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "exportAllColumnIndexes",
+            baseName: "ExportAllColumnIndexes",
+            type: "boolean",
+        },
+        {
+            name: "compressionType",
+            baseName: "CompressionType",
+            type: "string",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return super.getAttributeTypeMap().concat(XlsbSaveOptions.attributeTypeMap) ;
+
+    }
+
+    public exportAllColumnIndexes: boolean;
+    public compressionType: string;
+
+    public constructor(init?: Partial< XlsbSaveOptions >) {  
+         super(init);     
+        Object.assign(this, init);
+    } 
+}
+   
+export class XlsSaveOptions  extends SaveOptions  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "matchColor",
+            baseName: "MatchColor",
+            type: "boolean",
+        },
+        {
+            name: "wpsCompatibility",
+            baseName: "WpsCompatibility",
+            type: "boolean",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return super.getAttributeTypeMap().concat(XlsSaveOptions.attributeTypeMap) ;
+
+    }
+
+    public matchColor: boolean;
+    public wpsCompatibility: boolean;
+
+    public constructor(init?: Partial< XlsSaveOptions >) {  
+         super(init);     
+        Object.assign(this, init);
+    } 
+}
+   
+export class XmlSaveOptions  extends SaveOptions  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "sheetIndexes",
+            baseName: "SheetIndexes",
+            type: "Array<number>",
+        },
+        {
+            name: "exportArea",
+            baseName: "ExportArea",
+            type: "CellArea",
+        },
+        {
+            name: "hasHeaderRow",
+            baseName: "HasHeaderRow",
+            type: "boolean",
+        },
+        {
+            name: "xmlMapName",
+            baseName: "XmlMapName",
+            type: "string",
+        },
+        {
+            name: "sheetNameAsElementName",
+            baseName: "SheetNameAsElementName",
+            type: "boolean",
+        },
+        {
+            name: "dataAsAttribute",
+            baseName: "DataAsAttribute",
+            type: "boolean",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return super.getAttributeTypeMap().concat(XmlSaveOptions.attributeTypeMap) ;
+
+    }
+
+    public sheetIndexes: Array<number>;
+    public exportArea: CellArea;
+    public hasHeaderRow: boolean;
+    public xmlMapName: string;
+    public sheetNameAsElementName: boolean;
+    public dataAsAttribute: boolean;
+
+    public constructor(init?: Partial< XmlSaveOptions >) {  
+         super(init);     
+        Object.assign(this, init);
+    } 
+}
+   
+export class XpsSaveOptions  extends PaginatedSaveOptions  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return super.getAttributeTypeMap().concat(XpsSaveOptions.attributeTypeMap) ;
+
+    }
+
+
+    public constructor(init?: Partial< XpsSaveOptions >) {  
+         super(init);     
+        Object.assign(this, init);
+    } 
+}
+   
+export class CellsCloudResponse  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "code",
+            baseName: "Code",
+            type: "number",
+        },
+        {
+            name: "status",
+            baseName: "Status",
+            type: "string",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return  CellsCloudResponse.attributeTypeMap;
+
+    }
+
+    public code: number;
+    public status: string;
+
+    public constructor(init?: Partial< CellsCloudResponse >) {  
+    
+        Object.assign(this, init);
+    } 
+}
+   
+export class BrokenLinksReponse  extends CellsCloudResponse  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "brokenLinks",
+            baseName: "BrokenLinks",
+            type: "Array<BrokenLink>",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return super.getAttributeTypeMap().concat(BrokenLinksReponse.attributeTypeMap) ;
+
+    }
+
+    public brokenLinks: Array<BrokenLink>;
+
+    public constructor(init?: Partial< BrokenLinksReponse >) {  
+         super(init);     
+        Object.assign(this, init);
+    } 
+}
+   
+export class CellsCloudFileInfoResponse  extends CellsCloudResponse  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "fileInfo",
+            baseName: "FileInfo",
+            type: "CellsCloudFileInfo",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return super.getAttributeTypeMap().concat(CellsCloudFileInfoResponse.attributeTypeMap) ;
+
+    }
+
+    public fileInfo: CellsCloudFileInfo;
+
+    public constructor(init?: Partial< CellsCloudFileInfoResponse >) {  
+         super(init);     
+        Object.assign(this, init);
+    } 
+}
+   
+export class CellsCloudPublicKeyResponse  extends CellsCloudResponse  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "cellsCloudPublicKey",
+            baseName: "CellsCloudPublicKey",
+            type: "CellsCloudPublicKey",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return super.getAttributeTypeMap().concat(CellsCloudPublicKeyResponse.attributeTypeMap) ;
+
+    }
+
+    public cellsCloudPublicKey: CellsCloudPublicKey;
+
+    public constructor(init?: Partial< CellsCloudPublicKeyResponse >) {  
+         super(init);     
+        Object.assign(this, init);
+    } 
+}
+   
+export class SaveResponse  extends CellsCloudResponse  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "saveResult",
+            baseName: "SaveResult",
+            type: "SaveResult",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return super.getAttributeTypeMap().concat(SaveResponse.attributeTypeMap) ;
+
+    }
+
+    public saveResult: SaveResult;
+
+    public constructor(init?: Partial< SaveResponse >) {  
+         super(init);     
+        Object.assign(this, init);
+    } 
+}
+   
+export class SearchResponse  extends CellsCloudResponse  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "textItems",
+            baseName: "TextItems",
+            type: "Array<TextItem>",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return super.getAttributeTypeMap().concat(SearchResponse.attributeTypeMap) ;
+
+    }
+
+    public textItems: Array<TextItem>;
+
+    public constructor(init?: Partial< SearchResponse >) {  
+         super(init);     
+        Object.assign(this, init);
+    } 
+}
+   
+export class RenderingFont  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "name",
+            baseName: "Name",
+            type: "string",
+        },
+        {
+            name: "size",
+            baseName: "Size",
+            type: "number",
+        },
+        {
+            name: "bold",
+            baseName: "Bold",
+            type: "boolean",
+        },
+        {
+            name: "italic",
+            baseName: "Italic",
+            type: "boolean",
+        },
+        {
+            name: "color",
+            baseName: "Color",
+            type: "Color",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return  RenderingFont.attributeTypeMap;
+
+    }
+
+    public name: string;
+    public size: number;
+    public bold: boolean;
+    public italic: boolean;
+    public color: Color;
+
+    public constructor(init?: Partial< RenderingFont >) {  
+    
+        Object.assign(this, init);
+    } 
+}
+/// The error details   
+export class ErrorDetails  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return  ErrorDetails.attributeTypeMap;
+
+    }
+
+
+    public constructor(init?: Partial< ErrorDetails >) {  
+    
         Object.assign(this, init);
     } 
 }
@@ -827,51 +3495,6 @@ export class AutoFitterOptions  {
         Object.assign(this, init);
     } 
 }
-/// Color.   
-export class Color  {
-    /**
-     * Attribute type map
-     */
-    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
-        {
-            name: "a",
-            baseName: "A",
-            type: "number",
-        },
-        {
-            name: "r",
-            baseName: "R",
-            type: "number",
-        },
-        {
-            name: "g",
-            baseName: "G",
-            type: "number",
-        },
-        {
-            name: "b",
-            baseName: "B",
-            type: "number",
-        }
-    ];
-    /**
-     * Returns attribute type map
-     */
-    public static getAttributeTypeMap() {
-        return  Color.attributeTypeMap;
-
-    }
-
-    public a: number;
-    public r: number;
-    public g: number;
-    public b: number;
-
-    public constructor(init?: Partial< Color >) {  
-    
-        Object.assign(this, init);
-    } 
-}
 ///            Represents a theme color.
 ///               
 export class ThemeColor  {
@@ -1227,52 +3850,6 @@ export class Cell  extends LinkElement  {
         Object.assign(this, init);
     } 
 }
-///            Represent an area of cells.
-///               
-export class CellArea  {
-    /**
-     * Attribute type map
-     */
-    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
-        {
-            name: "endColumn",
-            baseName: "EndColumn",
-            type: "number",
-        },
-        {
-            name: "endRow",
-            baseName: "EndRow",
-            type: "number",
-        },
-        {
-            name: "startColumn",
-            baseName: "StartColumn",
-            type: "number",
-        },
-        {
-            name: "startRow",
-            baseName: "StartRow",
-            type: "number",
-        }
-    ];
-    /**
-     * Returns attribute type map
-     */
-    public static getAttributeTypeMap() {
-        return  CellArea.attributeTypeMap;
-
-    }
-
-    public endColumn: number;
-    public endRow: number;
-    public startColumn: number;
-    public startRow: number;
-
-    public constructor(init?: Partial< CellArea >) {  
-    
-        Object.assign(this, init);
-    } 
-}
 /// Encapsulates a collection of cell relevant objects, such as Aspose.Cells.Cell, Aspose.Cells.Row, ...etc.   
 export class Cells  extends LinkElement  {
     /**
@@ -1327,84 +3904,6 @@ export class Cells  extends LinkElement  {
 
     public constructor(init?: Partial< Cells >) {  
          super(init);     
-        Object.assign(this, init);
-    } 
-}
-/// Cells Cloud File information description.   
-export class CellsCloudFileInfo  {
-    /**
-     * Attribute type map
-     */
-    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
-        {
-            name: "name",
-            baseName: "Name",
-            type: "string",
-        },
-        {
-            name: "size",
-            baseName: "Size",
-            type: "number",
-        },
-        {
-            name: "folder",
-            baseName: "Folder",
-            type: "string",
-        },
-        {
-            name: "storage",
-            baseName: "Storage",
-            type: "string",
-        }
-    ];
-    /**
-     * Returns attribute type map
-     */
-    public static getAttributeTypeMap() {
-        return  CellsCloudFileInfo.attributeTypeMap;
-
-    }
-
-    public name: string;
-    public size: number;
-    public folder: string;
-    public storage: string;
-
-    public constructor(init?: Partial< CellsCloudFileInfo >) {  
-    
-        Object.assign(this, init);
-    } 
-}
-   
-export class CellsCloudPublicKey  {
-    /**
-     * Attribute type map
-     */
-    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
-        {
-            name: "exponent",
-            baseName: "Exponent",
-            type: "string",
-        },
-        {
-            name: "modulus",
-            baseName: "Modulus",
-            type: "string",
-        }
-    ];
-    /**
-     * Returns attribute type map
-     */
-    public static getAttributeTypeMap() {
-        return  CellsCloudPublicKey.attributeTypeMap;
-
-    }
-
-    public exponent: string;
-    public modulus: string;
-
-    public constructor(init?: Partial< CellsCloudPublicKey >) {  
-    
         Object.assign(this, init);
     } 
 }
@@ -2486,82 +4985,6 @@ export class DataFill  {
     public dataColumnFillValueList: Array<DataColumnFillValue>;
 
     public constructor(init?: Partial< DataFill >) {  
-    
-        Object.assign(this, init);
-    } 
-}
-///            Encapsulates the object that represents a range of cells within a spreadsheet.
-///               
-export class Range  {
-    /**
-     * Attribute type map
-     */
-    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
-        {
-            name: "columnCount",
-            baseName: "ColumnCount",
-            type: "number",
-        },
-        {
-            name: "columnWidth",
-            baseName: "ColumnWidth",
-            type: "number",
-        },
-        {
-            name: "firstColumn",
-            baseName: "FirstColumn",
-            type: "number",
-        },
-        {
-            name: "firstRow",
-            baseName: "FirstRow",
-            type: "number",
-        },
-        {
-            name: "name",
-            baseName: "Name",
-            type: "string",
-        },
-        {
-            name: "refersTo",
-            baseName: "RefersTo",
-            type: "string",
-        },
-        {
-            name: "rowCount",
-            baseName: "RowCount",
-            type: "number",
-        },
-        {
-            name: "rowHeight",
-            baseName: "RowHeight",
-            type: "number",
-        },
-        {
-            name: "worksheet",
-            baseName: "Worksheet",
-            type: "string",
-        }
-    ];
-    /**
-     * Returns attribute type map
-     */
-    public static getAttributeTypeMap() {
-        return  Range.attributeTypeMap;
-
-    }
-
-    public columnCount: number;
-    public columnWidth: number;
-    public firstColumn: number;
-    public firstRow: number;
-    public name: string;
-    public refersTo: string;
-    public rowCount: number;
-    public rowHeight: number;
-    public worksheet: string;
-
-    public constructor(init?: Partial< Range >) {  
     
         Object.assign(this, init);
     } 
@@ -4626,81 +7049,6 @@ export class PasteOptions  {
         Object.assign(this, init);
     } 
 }
-/// Options for encrypting and access permissions for a PDF document.            PDF/A does not allow security setting.   
-export class PdfSecurityOptions  {
-    /**
-     * Attribute type map
-     */
-    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
-        {
-            name: "annotationsPermission",
-            baseName: "AnnotationsPermission",
-            type: "boolean",
-        },
-        {
-            name: "assembleDocumentPermission",
-            baseName: "AssembleDocumentPermission",
-            type: "boolean",
-        },
-        {
-            name: "extractContentPermission",
-            baseName: "ExtractContentPermission",
-            type: "boolean",
-        },
-        {
-            name: "fillFormsPermission",
-            baseName: "FillFormsPermission",
-            type: "boolean",
-        },
-        {
-            name: "fullQualityPrintPermission",
-            baseName: "FullQualityPrintPermission",
-            type: "boolean",
-        },
-        {
-            name: "modifyDocumentPermission",
-            baseName: "ModifyDocumentPermission",
-            type: "boolean",
-        },
-        {
-            name: "ownerPassword",
-            baseName: "OwnerPassword",
-            type: "string",
-        },
-        {
-            name: "printPermission",
-            baseName: "PrintPermission",
-            type: "boolean",
-        },
-        {
-            name: "userPassword",
-            baseName: "UserPassword",
-            type: "string",
-        }
-    ];
-    /**
-     * Returns attribute type map
-     */
-    public static getAttributeTypeMap() {
-        return  PdfSecurityOptions.attributeTypeMap;
-
-    }
-
-    public annotationsPermission: boolean;
-    public assembleDocumentPermission: boolean;
-    public extractContentPermission: boolean;
-    public fillFormsPermission: boolean;
-    public fullQualityPrintPermission: boolean;
-    public modifyDocumentPermission: boolean;
-    public ownerPassword: string;
-    public printPermission: boolean;
-    public userPassword: string;
-
-    public constructor(init?: Partial< PdfSecurityOptions >) {  
-    
-        Object.assign(this, init);
-    } 
-}
 /// Represents the various types of protection options available for a worksheet.
 ///                
 export class Protection  {
@@ -5072,243 +7420,6 @@ export class Rows  extends LinkElement  {
         Object.assign(this, init);
     } 
 }
-/// Represents save result.   
-export class SaveResult  {
-    /**
-     * Attribute type map
-     */
-    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
-        {
-            name: "documents",
-            baseName: "Documents",
-            type: "Array<CellsCloudFileInfo>",
-        }
-    ];
-    /**
-     * Returns attribute type map
-     */
-    public static getAttributeTypeMap() {
-        return  SaveResult.attributeTypeMap;
-
-    }
-
-    public documents: Array<CellsCloudFileInfo>;
-
-    public constructor(init?: Partial< SaveResult >) {  
-    
-        Object.assign(this, init);
-    } 
-}
-/// Represents all save options   
-export class SaveOptions  {
-    /**
-     * Attribute type map
-     */
-    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
-        {
-            name: "saveFormat",
-            baseName: "SaveFormat",
-            type: "string",
-        },
-        {
-            name: "cachedFileFolder",
-            baseName: "CachedFileFolder",
-            type: "string",
-        },
-        {
-            name: "clearData",
-            baseName: "ClearData",
-            type: "boolean",
-        },
-        {
-            name: "createDirectory",
-            baseName: "CreateDirectory",
-            type: "boolean",
-        },
-        {
-            name: "enableHTTPCompression",
-            baseName: "EnableHTTPCompression",
-            type: "boolean",
-        },
-        {
-            name: "refreshChartCache",
-            baseName: "RefreshChartCache",
-            type: "boolean",
-        },
-        {
-            name: "sortNames",
-            baseName: "SortNames",
-            type: "boolean",
-        },
-        {
-            name: "validateMergedAreas",
-            baseName: "ValidateMergedAreas",
-            type: "boolean",
-        },
-        {
-            name: "mergeAreas",
-            baseName: "MergeAreas",
-            type: "boolean",
-        },
-        {
-            name: "sortExternalNames",
-            baseName: "SortExternalNames",
-            type: "boolean",
-        },
-        {
-            name: "checkExcelRestriction",
-            baseName: "CheckExcelRestriction",
-            type: "boolean",
-        },
-        {
-            name: "updateSmartArt",
-            baseName: "UpdateSmartArt",
-            type: "boolean",
-        },
-        {
-            name: "encryptDocumentProperties",
-            baseName: "EncryptDocumentProperties",
-            type: "boolean",
-        }
-    ];
-    /**
-     * Returns attribute type map
-     */
-    public static getAttributeTypeMap() {
-        return  SaveOptions.attributeTypeMap;
-
-    }
-
-    public saveFormat: string;
-    public cachedFileFolder: string;
-    public clearData: boolean;
-    public createDirectory: boolean;
-    public enableHTTPCompression: boolean;
-    public refreshChartCache: boolean;
-    public sortNames: boolean;
-    public validateMergedAreas: boolean;
-    public mergeAreas: boolean;
-    public sortExternalNames: boolean;
-    public checkExcelRestriction: boolean;
-    public updateSmartArt: boolean;
-    public encryptDocumentProperties: boolean;
-
-    public constructor(init?: Partial< SaveOptions >) {  
-    
-        Object.assign(this, init);
-    } 
-}
-/// Represents the options for pagination.   
-export class PaginatedSaveOptions  extends SaveOptions  {
-    /**
-     * Attribute type map
-     */
-    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
-        {
-            name: "defaultFont",
-            baseName: "DefaultFont",
-            type: "string",
-        },
-        {
-            name: "checkWorkbookDefaultFont",
-            baseName: "CheckWorkbookDefaultFont",
-            type: "boolean",
-        },
-        {
-            name: "checkFontCompatibility",
-            baseName: "CheckFontCompatibility",
-            type: "boolean",
-        },
-        {
-            name: "isFontSubstitutionCharGranularity",
-            baseName: "IsFontSubstitutionCharGranularity",
-            type: "boolean",
-        },
-        {
-            name: "onePagePerSheet",
-            baseName: "OnePagePerSheet",
-            type: "boolean",
-        },
-        {
-            name: "allColumnsInOnePagePerSheet",
-            baseName: "AllColumnsInOnePagePerSheet",
-            type: "boolean",
-        },
-        {
-            name: "ignoreError",
-            baseName: "IgnoreError",
-            type: "boolean",
-        },
-        {
-            name: "outputBlankPageWhenNothingToPrint",
-            baseName: "OutputBlankPageWhenNothingToPrint",
-            type: "boolean",
-        },
-        {
-            name: "pageIndex",
-            baseName: "PageIndex",
-            type: "number",
-        },
-        {
-            name: "pageCount",
-            baseName: "PageCount",
-            type: "number",
-        },
-        {
-            name: "printingPageType",
-            baseName: "PrintingPageType",
-            type: "string",
-        },
-        {
-            name: "gridlineType",
-            baseName: "GridlineType",
-            type: "string",
-        },
-        {
-            name: "textCrossType",
-            baseName: "TextCrossType",
-            type: "string",
-        },
-        {
-            name: "defaultEditLanguage",
-            baseName: "DefaultEditLanguage",
-            type: "string",
-        },
-        {
-            name: "emfRenderSetting",
-            baseName: "EmfRenderSetting",
-            type: "string",
-        }
-    ];
-    /**
-     * Returns attribute type map
-     */
-    public static getAttributeTypeMap() {
-        return super.getAttributeTypeMap().concat(PaginatedSaveOptions.attributeTypeMap) ;
-
-    }
-
-    public defaultFont: string;
-    public checkWorkbookDefaultFont: boolean;
-    public checkFontCompatibility: boolean;
-    public isFontSubstitutionCharGranularity: boolean;
-    public onePagePerSheet: boolean;
-    public allColumnsInOnePagePerSheet: boolean;
-    public ignoreError: boolean;
-    public outputBlankPageWhenNothingToPrint: boolean;
-    public pageIndex: number;
-    public pageCount: number;
-    public printingPageType: string;
-    public gridlineType: string;
-    public textCrossType: string;
-    public defaultEditLanguage: string;
-    public emfRenderSetting: string;
-
-    public constructor(init?: Partial< PaginatedSaveOptions >) {  
-         super(init);     
-        Object.assign(this, init);
-    } 
-}
 /// Represents single value.   
 export class SingleValue  {
     /**
@@ -5440,33 +7551,6 @@ export class TextFormatCondition  extends FormulaFormatCondition  {
     public text: string;
 
     public constructor(init?: Partial< TextFormatCondition >) {  
-         super(init);     
-        Object.assign(this, init);
-    } 
-}
-/// Represents text item.   
-export class TextItem  extends LinkElement  {
-    /**
-     * Attribute type map
-     */
-    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
-        {
-            name: "text",
-            baseName: "Text",
-            type: "string",
-        }
-    ];
-    /**
-     * Returns attribute type map
-     */
-    public static getAttributeTypeMap() {
-        return super.getAttributeTypeMap().concat(TextItem.attributeTypeMap) ;
-
-    }
-
-    public text: string;
-
-    public constructor(init?: Partial< TextItem >) {  
          super(init);     
         Object.assign(this, init);
     } 
@@ -8339,1784 +10423,6 @@ export class ListObjects  extends LinkElement  {
         Object.assign(this, init);
     } 
 }
-/// Represents the options of saving dbf file.   
-export class DbfSaveOptions  extends SaveOptions  {
-    /**
-     * Attribute type map
-     */
-    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
-        {
-            name: "exportAsString",
-            baseName: "ExportAsString",
-            type: "boolean",
-        }
-    ];
-    /**
-     * Returns attribute type map
-     */
-    public static getAttributeTypeMap() {
-        return super.getAttributeTypeMap().concat(DbfSaveOptions.attributeTypeMap) ;
-
-    }
-
-    public exportAsString: boolean;
-
-    public constructor(init?: Partial< DbfSaveOptions >) {  
-         super(init);     
-        Object.assign(this, init);
-    } 
-}
-/// Represents the options of saving dif file.   
-export class DifSaveOptions  extends SaveOptions  {
-    /**
-     * Attribute type map
-     */
-    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
-    ];
-    /**
-     * Returns attribute type map
-     */
-    public static getAttributeTypeMap() {
-        return super.getAttributeTypeMap().concat(DifSaveOptions.attributeTypeMap) ;
-
-    }
-
-
-    public constructor(init?: Partial< DifSaveOptions >) {  
-         super(init);     
-        Object.assign(this, init);
-    } 
-}
-/// Represents options of saving .docx file.   
-export class DocxSaveOptions  extends PaginatedSaveOptions  {
-    /**
-     * Attribute type map
-     */
-    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
-    ];
-    /**
-     * Returns attribute type map
-     */
-    public static getAttributeTypeMap() {
-        return super.getAttributeTypeMap().concat(DocxSaveOptions.attributeTypeMap) ;
-
-    }
-
-
-    public constructor(init?: Partial< DocxSaveOptions >) {  
-         super(init);     
-        Object.assign(this, init);
-    } 
-}
-///            Allows to specify options when rendering worksheet to images, printing worksheet or rendering chart to image.
-///               
-export class ImageOrPrintOptions  {
-    /**
-     * Attribute type map
-     */
-    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
-        {
-            name: "textCrossType",
-            baseName: "TextCrossType",
-            type: "string",
-        },
-        {
-            name: "gridlineType",
-            baseName: "GridlineType",
-            type: "string",
-        },
-        {
-            name: "outputBlankPageWhenNothingToPrint",
-            baseName: "OutputBlankPageWhenNothingToPrint",
-            type: "boolean",
-        },
-        {
-            name: "checkWorkbookDefaultFont",
-            baseName: "CheckWorkbookDefaultFont",
-            type: "boolean",
-        },
-        {
-            name: "defaultFont",
-            baseName: "DefaultFont",
-            type: "string",
-        },
-        {
-            name: "isOptimized",
-            baseName: "IsOptimized",
-            type: "boolean",
-        },
-        {
-            name: "pageCount",
-            baseName: "PageCount",
-            type: "number",
-        },
-        {
-            name: "pageIndex",
-            baseName: "PageIndex",
-            type: "number",
-        },
-        {
-            name: "isFontSubstitutionCharGranularity",
-            baseName: "IsFontSubstitutionCharGranularity",
-            type: "boolean",
-        },
-        {
-            name: "transparent",
-            baseName: "Transparent",
-            type: "boolean",
-        },
-        {
-            name: "onlyArea",
-            baseName: "OnlyArea",
-            type: "boolean",
-        },
-        {
-            name: "sVGFitToViewPort",
-            baseName: "SVGFitToViewPort",
-            type: "boolean",
-        },
-        {
-            name: "embededImageNameInSvg",
-            baseName: "EmbededImageNameInSvg",
-            type: "string",
-        },
-        {
-            name: "allColumnsInOnePagePerSheet",
-            baseName: "AllColumnsInOnePagePerSheet",
-            type: "boolean",
-        },
-        {
-            name: "printWithStatusDialog",
-            baseName: "PrintWithStatusDialog",
-            type: "boolean",
-        },
-        {
-            name: "horizontalResolution",
-            baseName: "HorizontalResolution",
-            type: "number",
-        },
-        {
-            name: "verticalResolution",
-            baseName: "VerticalResolution",
-            type: "number",
-        },
-        {
-            name: "defaultEditLanguage",
-            baseName: "DefaultEditLanguage",
-            type: "string",
-        },
-        {
-            name: "tiffColorDepth",
-            baseName: "TiffColorDepth",
-            type: "string",
-        },
-        {
-            name: "tiffCompression",
-            baseName: "TiffCompression",
-            type: "string",
-        },
-        {
-            name: "printingPage",
-            baseName: "PrintingPage",
-            type: "string",
-        },
-        {
-            name: "quality",
-            baseName: "Quality",
-            type: "number",
-        },
-        {
-            name: "imageType",
-            baseName: "ImageType",
-            type: "string",
-        },
-        {
-            name: "onePagePerSheet",
-            baseName: "OnePagePerSheet",
-            type: "boolean",
-        },
-        {
-            name: "tiffBinarizationMethod",
-            baseName: "TiffBinarizationMethod",
-            type: "string",
-        }
-    ];
-    /**
-     * Returns attribute type map
-     */
-    public static getAttributeTypeMap() {
-        return  ImageOrPrintOptions.attributeTypeMap;
-
-    }
-
-    public textCrossType: string;
-    public gridlineType: string;
-    public outputBlankPageWhenNothingToPrint: boolean;
-    public checkWorkbookDefaultFont: boolean;
-    public defaultFont: string;
-    public isOptimized: boolean;
-    public pageCount: number;
-    public pageIndex: number;
-    public isFontSubstitutionCharGranularity: boolean;
-    public transparent: boolean;
-    public onlyArea: boolean;
-    public sVGFitToViewPort: boolean;
-    public embededImageNameInSvg: string;
-    public allColumnsInOnePagePerSheet: boolean;
-    public printWithStatusDialog: boolean;
-    public horizontalResolution: number;
-    public verticalResolution: number;
-    public defaultEditLanguage: string;
-    public tiffColorDepth: string;
-    public tiffCompression: string;
-    public printingPage: string;
-    public quality: number;
-    public imageType: string;
-    public onePagePerSheet: boolean;
-    public tiffBinarizationMethod: string;
-
-    public constructor(init?: Partial< ImageOrPrintOptions >) {  
-    
-        Object.assign(this, init);
-    } 
-}
-/// Represents options of saving .html file.   
-export class HtmlSaveOptions  extends SaveOptions  {
-    /**
-     * Attribute type map
-     */
-    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
-        {
-            name: "exportPageHeaders",
-            baseName: "ExportPageHeaders",
-            type: "boolean",
-        },
-        {
-            name: "exportPageFooters",
-            baseName: "ExportPageFooters",
-            type: "boolean",
-        },
-        {
-            name: "exportRowColumnHeadings",
-            baseName: "ExportRowColumnHeadings",
-            type: "boolean",
-        },
-        {
-            name: "showAllSheets",
-            baseName: "ShowAllSheets",
-            type: "boolean",
-        },
-        {
-            name: "imageOptions",
-            baseName: "ImageOptions",
-            type: "ImageOrPrintOptions",
-        },
-        {
-            name: "saveAsSingleFile",
-            baseName: "SaveAsSingleFile",
-            type: "boolean",
-        },
-        {
-            name: "exportHiddenWorksheet",
-            baseName: "ExportHiddenWorksheet",
-            type: "boolean",
-        },
-        {
-            name: "exportGridLines",
-            baseName: "ExportGridLines",
-            type: "boolean",
-        },
-        {
-            name: "presentationPreference",
-            baseName: "PresentationPreference",
-            type: "boolean",
-        },
-        {
-            name: "cellCssPrefix",
-            baseName: "CellCssPrefix",
-            type: "string",
-        },
-        {
-            name: "tableCssId",
-            baseName: "TableCssId",
-            type: "string",
-        },
-        {
-            name: "isFullPathLink",
-            baseName: "IsFullPathLink",
-            type: "boolean",
-        },
-        {
-            name: "exportWorksheetCSSSeparately",
-            baseName: "ExportWorksheetCSSSeparately",
-            type: "boolean",
-        },
-        {
-            name: "exportSimilarBorderStyle",
-            baseName: "ExportSimilarBorderStyle",
-            type: "boolean",
-        },
-        {
-            name: "mergeEmptyTdForcely",
-            baseName: "MergeEmptyTdForcely",
-            type: "boolean",
-        },
-        {
-            name: "exportCellCoordinate",
-            baseName: "ExportCellCoordinate",
-            type: "boolean",
-        },
-        {
-            name: "exportExtraHeadings",
-            baseName: "ExportExtraHeadings",
-            type: "boolean",
-        },
-        {
-            name: "exportHeadings",
-            baseName: "ExportHeadings",
-            type: "boolean",
-        },
-        {
-            name: "exportFormula",
-            baseName: "ExportFormula",
-            type: "boolean",
-        },
-        {
-            name: "addTooltipText",
-            baseName: "AddTooltipText",
-            type: "boolean",
-        },
-        {
-            name: "exportBogusRowData",
-            baseName: "ExportBogusRowData",
-            type: "boolean",
-        },
-        {
-            name: "excludeUnusedStyles",
-            baseName: "ExcludeUnusedStyles",
-            type: "boolean",
-        },
-        {
-            name: "exportDocumentProperties",
-            baseName: "ExportDocumentProperties",
-            type: "boolean",
-        },
-        {
-            name: "exportWorksheetProperties",
-            baseName: "ExportWorksheetProperties",
-            type: "boolean",
-        },
-        {
-            name: "exportWorkbookProperties",
-            baseName: "ExportWorkbookProperties",
-            type: "boolean",
-        },
-        {
-            name: "exportFrameScriptsAndProperties",
-            baseName: "ExportFrameScriptsAndProperties",
-            type: "boolean",
-        },
-        {
-            name: "attachedFilesDirectory",
-            baseName: "AttachedFilesDirectory",
-            type: "string",
-        },
-        {
-            name: "attachedFilesUrlPrefix",
-            baseName: "AttachedFilesUrlPrefix",
-            type: "string",
-        },
-        {
-            name: "encoding",
-            baseName: "Encoding",
-            type: "string",
-        },
-        {
-            name: "exportActiveWorksheetOnly",
-            baseName: "ExportActiveWorksheetOnly",
-            type: "boolean",
-        },
-        {
-            name: "exportChartImageFormat",
-            baseName: "ExportChartImageFormat",
-            type: "string",
-        },
-        {
-            name: "exportImagesAsBase64",
-            baseName: "ExportImagesAsBase64",
-            type: "boolean",
-        },
-        {
-            name: "hiddenColDisplayType",
-            baseName: "HiddenColDisplayType",
-            type: "string",
-        },
-        {
-            name: "hiddenRowDisplayType",
-            baseName: "HiddenRowDisplayType",
-            type: "string",
-        },
-        {
-            name: "htmlCrossStringType",
-            baseName: "HtmlCrossStringType",
-            type: "string",
-        },
-        {
-            name: "isExpImageToTempDir",
-            baseName: "IsExpImageToTempDir",
-            type: "boolean",
-        },
-        {
-            name: "pageTitle",
-            baseName: "PageTitle",
-            type: "string",
-        },
-        {
-            name: "parseHtmlTagInCell",
-            baseName: "ParseHtmlTagInCell",
-            type: "boolean",
-        },
-        {
-            name: "cellNameAttribute",
-            baseName: "CellNameAttribute",
-            type: "string",
-        }
-    ];
-    /**
-     * Returns attribute type map
-     */
-    public static getAttributeTypeMap() {
-        return super.getAttributeTypeMap().concat(HtmlSaveOptions.attributeTypeMap) ;
-
-    }
-
-    public exportPageHeaders: boolean;
-    public exportPageFooters: boolean;
-    public exportRowColumnHeadings: boolean;
-    public showAllSheets: boolean;
-    public imageOptions: ImageOrPrintOptions;
-    public saveAsSingleFile: boolean;
-    public exportHiddenWorksheet: boolean;
-    public exportGridLines: boolean;
-    public presentationPreference: boolean;
-    public cellCssPrefix: string;
-    public tableCssId: string;
-    public isFullPathLink: boolean;
-    public exportWorksheetCSSSeparately: boolean;
-    public exportSimilarBorderStyle: boolean;
-    public mergeEmptyTdForcely: boolean;
-    public exportCellCoordinate: boolean;
-    public exportExtraHeadings: boolean;
-    public exportHeadings: boolean;
-    public exportFormula: boolean;
-    public addTooltipText: boolean;
-    public exportBogusRowData: boolean;
-    public excludeUnusedStyles: boolean;
-    public exportDocumentProperties: boolean;
-    public exportWorksheetProperties: boolean;
-    public exportWorkbookProperties: boolean;
-    public exportFrameScriptsAndProperties: boolean;
-    public attachedFilesDirectory: string;
-    public attachedFilesUrlPrefix: string;
-    public encoding: string;
-    public exportActiveWorksheetOnly: boolean;
-    public exportChartImageFormat: string;
-    public exportImagesAsBase64: boolean;
-    public hiddenColDisplayType: string;
-    public hiddenRowDisplayType: string;
-    public htmlCrossStringType: string;
-    public isExpImageToTempDir: boolean;
-    public pageTitle: string;
-    public parseHtmlTagInCell: boolean;
-    public cellNameAttribute: string;
-
-    public constructor(init?: Partial< HtmlSaveOptions >) {  
-         super(init);     
-        Object.assign(this, init);
-    } 
-}
-/// Represents options of saving image file.   
-export class ImageSaveOptions  extends SaveOptions  {
-    /**
-     * Attribute type map
-     */
-    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
-        {
-            name: "chartImageType",
-            baseName: "ChartImageType",
-            type: "string",
-        },
-        {
-            name: "embededImageNameInSvg",
-            baseName: "EmbededImageNameInSvg",
-            type: "string",
-        },
-        {
-            name: "horizontalResolution",
-            baseName: "HorizontalResolution",
-            type: "number",
-        },
-        {
-            name: "imageFormat",
-            baseName: "ImageFormat",
-            type: "string",
-        },
-        {
-            name: "isCellAutoFit",
-            baseName: "IsCellAutoFit",
-            type: "boolean",
-        },
-        {
-            name: "onePagePerSheet",
-            baseName: "OnePagePerSheet",
-            type: "boolean",
-        },
-        {
-            name: "onlyArea",
-            baseName: "OnlyArea",
-            type: "boolean",
-        },
-        {
-            name: "printingPage",
-            baseName: "PrintingPage",
-            type: "string",
-        },
-        {
-            name: "printWithStatusDialog",
-            baseName: "PrintWithStatusDialog",
-            type: "boolean",
-        },
-        {
-            name: "quality",
-            baseName: "Quality",
-            type: "number",
-        },
-        {
-            name: "tiffCompression",
-            baseName: "TiffCompression",
-            type: "string",
-        },
-        {
-            name: "verticalResolution",
-            baseName: "VerticalResolution",
-            type: "number",
-        }
-    ];
-    /**
-     * Returns attribute type map
-     */
-    public static getAttributeTypeMap() {
-        return super.getAttributeTypeMap().concat(ImageSaveOptions.attributeTypeMap) ;
-
-    }
-
-    public chartImageType: string;
-    public embededImageNameInSvg: string;
-    public horizontalResolution: number;
-    public imageFormat: string;
-    public isCellAutoFit: boolean;
-    public onePagePerSheet: boolean;
-    public onlyArea: boolean;
-    public printingPage: string;
-    public printWithStatusDialog: boolean;
-    public quality: number;
-    public tiffCompression: string;
-    public verticalResolution: number;
-
-    public constructor(init?: Partial< ImageSaveOptions >) {  
-         super(init);     
-        Object.assign(this, init);
-    } 
-}
-/// Represents options of saving .json file.   
-export class JsonSaveOptions  extends SaveOptions  {
-    /**
-     * Attribute type map
-     */
-    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
-        {
-            name: "exportArea",
-            baseName: "ExportArea",
-            type: "CellArea",
-        },
-        {
-            name: "hasHeaderRow",
-            baseName: "HasHeaderRow",
-            type: "boolean",
-        },
-        {
-            name: "exportAsString",
-            baseName: "ExportAsString",
-            type: "boolean",
-        },
-        {
-            name: "indent",
-            baseName: "Indent",
-            type: "string",
-        }
-    ];
-    /**
-     * Returns attribute type map
-     */
-    public static getAttributeTypeMap() {
-        return super.getAttributeTypeMap().concat(JsonSaveOptions.attributeTypeMap) ;
-
-    }
-
-    public exportArea: CellArea;
-    public hasHeaderRow: boolean;
-    public exportAsString: boolean;
-    public indent: string;
-
-    public constructor(init?: Partial< JsonSaveOptions >) {  
-         super(init);     
-        Object.assign(this, init);
-    } 
-}
-/// Represents options of saving .md file.   
-export class MarkdownSaveOptions  extends SaveOptions  {
-    /**
-     * Attribute type map
-     */
-    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
-        {
-            name: "encoding",
-            baseName: "Encoding",
-            type: "string",
-        },
-        {
-            name: "formatStrategy",
-            baseName: "FormatStrategy",
-            type: "string",
-        },
-        {
-            name: "lineSeparator",
-            baseName: "LineSeparator",
-            type: "string",
-        }
-    ];
-    /**
-     * Returns attribute type map
-     */
-    public static getAttributeTypeMap() {
-        return super.getAttributeTypeMap().concat(MarkdownSaveOptions.attributeTypeMap) ;
-
-    }
-
-    public encoding: string;
-    public formatStrategy: string;
-    public lineSeparator: string;
-
-    public constructor(init?: Partial< MarkdownSaveOptions >) {  
-         super(init);     
-        Object.assign(this, init);
-    } 
-}
-/// Represents options of saving .mhtml file.   
-export class MHtmlSaveOptions  extends SaveOptions  {
-    /**
-     * Attribute type map
-     */
-    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
-        {
-            name: "exportPageHeaders",
-            baseName: "ExportPageHeaders",
-            type: "boolean",
-        },
-        {
-            name: "exportPageFooters",
-            baseName: "ExportPageFooters",
-            type: "boolean",
-        },
-        {
-            name: "exportRowColumnHeadings",
-            baseName: "ExportRowColumnHeadings",
-            type: "boolean",
-        },
-        {
-            name: "showAllSheets",
-            baseName: "ShowAllSheets",
-            type: "boolean",
-        },
-        {
-            name: "imageOptions",
-            baseName: "ImageOptions",
-            type: "ImageOrPrintOptions",
-        },
-        {
-            name: "saveAsSingleFile",
-            baseName: "SaveAsSingleFile",
-            type: "boolean",
-        },
-        {
-            name: "exportHiddenWorksheet",
-            baseName: "ExportHiddenWorksheet",
-            type: "boolean",
-        },
-        {
-            name: "exportGridLines",
-            baseName: "ExportGridLines",
-            type: "boolean",
-        },
-        {
-            name: "presentationPreference",
-            baseName: "PresentationPreference",
-            type: "boolean",
-        },
-        {
-            name: "cellCssPrefix",
-            baseName: "CellCssPrefix",
-            type: "string",
-        },
-        {
-            name: "tableCssId",
-            baseName: "TableCssId",
-            type: "string",
-        },
-        {
-            name: "isFullPathLink",
-            baseName: "IsFullPathLink",
-            type: "boolean",
-        },
-        {
-            name: "exportWorksheetCSSSeparately",
-            baseName: "ExportWorksheetCSSSeparately",
-            type: "boolean",
-        },
-        {
-            name: "exportSimilarBorderStyle",
-            baseName: "ExportSimilarBorderStyle",
-            type: "boolean",
-        },
-        {
-            name: "mergeEmptyTdForcely",
-            baseName: "MergeEmptyTdForcely",
-            type: "boolean",
-        },
-        {
-            name: "exportCellCoordinate",
-            baseName: "ExportCellCoordinate",
-            type: "boolean",
-        },
-        {
-            name: "exportExtraHeadings",
-            baseName: "ExportExtraHeadings",
-            type: "boolean",
-        },
-        {
-            name: "exportHeadings",
-            baseName: "ExportHeadings",
-            type: "boolean",
-        },
-        {
-            name: "exportFormula",
-            baseName: "ExportFormula",
-            type: "boolean",
-        },
-        {
-            name: "addTooltipText",
-            baseName: "AddTooltipText",
-            type: "boolean",
-        },
-        {
-            name: "exportBogusRowData",
-            baseName: "ExportBogusRowData",
-            type: "boolean",
-        },
-        {
-            name: "excludeUnusedStyles",
-            baseName: "ExcludeUnusedStyles",
-            type: "boolean",
-        },
-        {
-            name: "exportDocumentProperties",
-            baseName: "ExportDocumentProperties",
-            type: "boolean",
-        },
-        {
-            name: "exportWorksheetProperties",
-            baseName: "ExportWorksheetProperties",
-            type: "boolean",
-        },
-        {
-            name: "exportWorkbookProperties",
-            baseName: "ExportWorkbookProperties",
-            type: "boolean",
-        },
-        {
-            name: "exportFrameScriptsAndProperties",
-            baseName: "ExportFrameScriptsAndProperties",
-            type: "boolean",
-        },
-        {
-            name: "attachedFilesDirectory",
-            baseName: "AttachedFilesDirectory",
-            type: "string",
-        },
-        {
-            name: "attachedFilesUrlPrefix",
-            baseName: "AttachedFilesUrlPrefix",
-            type: "string",
-        },
-        {
-            name: "encoding",
-            baseName: "Encoding",
-            type: "string",
-        },
-        {
-            name: "exportActiveWorksheetOnly",
-            baseName: "ExportActiveWorksheetOnly",
-            type: "boolean",
-        },
-        {
-            name: "exportChartImageFormat",
-            baseName: "ExportChartImageFormat",
-            type: "string",
-        },
-        {
-            name: "exportImagesAsBase64",
-            baseName: "ExportImagesAsBase64",
-            type: "boolean",
-        },
-        {
-            name: "hiddenColDisplayType",
-            baseName: "HiddenColDisplayType",
-            type: "string",
-        },
-        {
-            name: "hiddenRowDisplayType",
-            baseName: "HiddenRowDisplayType",
-            type: "string",
-        },
-        {
-            name: "htmlCrossStringType",
-            baseName: "HtmlCrossStringType",
-            type: "string",
-        },
-        {
-            name: "isExpImageToTempDir",
-            baseName: "IsExpImageToTempDir",
-            type: "boolean",
-        },
-        {
-            name: "pageTitle",
-            baseName: "PageTitle",
-            type: "string",
-        },
-        {
-            name: "parseHtmlTagInCell",
-            baseName: "ParseHtmlTagInCell",
-            type: "boolean",
-        },
-        {
-            name: "cellNameAttribute",
-            baseName: "CellNameAttribute",
-            type: "string",
-        }
-    ];
-    /**
-     * Returns attribute type map
-     */
-    public static getAttributeTypeMap() {
-        return super.getAttributeTypeMap().concat(MHtmlSaveOptions.attributeTypeMap) ;
-
-    }
-
-    public exportPageHeaders: boolean;
-    public exportPageFooters: boolean;
-    public exportRowColumnHeadings: boolean;
-    public showAllSheets: boolean;
-    public imageOptions: ImageOrPrintOptions;
-    public saveAsSingleFile: boolean;
-    public exportHiddenWorksheet: boolean;
-    public exportGridLines: boolean;
-    public presentationPreference: boolean;
-    public cellCssPrefix: string;
-    public tableCssId: string;
-    public isFullPathLink: boolean;
-    public exportWorksheetCSSSeparately: boolean;
-    public exportSimilarBorderStyle: boolean;
-    public mergeEmptyTdForcely: boolean;
-    public exportCellCoordinate: boolean;
-    public exportExtraHeadings: boolean;
-    public exportHeadings: boolean;
-    public exportFormula: boolean;
-    public addTooltipText: boolean;
-    public exportBogusRowData: boolean;
-    public excludeUnusedStyles: boolean;
-    public exportDocumentProperties: boolean;
-    public exportWorksheetProperties: boolean;
-    public exportWorkbookProperties: boolean;
-    public exportFrameScriptsAndProperties: boolean;
-    public attachedFilesDirectory: string;
-    public attachedFilesUrlPrefix: string;
-    public encoding: string;
-    public exportActiveWorksheetOnly: boolean;
-    public exportChartImageFormat: string;
-    public exportImagesAsBase64: boolean;
-    public hiddenColDisplayType: string;
-    public hiddenRowDisplayType: string;
-    public htmlCrossStringType: string;
-    public isExpImageToTempDir: boolean;
-    public pageTitle: string;
-    public parseHtmlTagInCell: boolean;
-    public cellNameAttribute: string;
-
-    public constructor(init?: Partial< MHtmlSaveOptions >) {  
-         super(init);     
-        Object.assign(this, init);
-    } 
-}
-/// Represents options of saving .ods file.   
-export class OdsSaveOptions  extends SaveOptions  {
-    /**
-     * Attribute type map
-     */
-    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
-        {
-            name: "generatorType",
-            baseName: "GeneratorType",
-            type: "string",
-        },
-        {
-            name: "odfStrictVersion",
-            baseName: "OdfStrictVersion",
-            type: "string",
-        },
-        {
-            name: "ignorePivotTables",
-            baseName: "IgnorePivotTables",
-            type: "boolean",
-        }
-    ];
-    /**
-     * Returns attribute type map
-     */
-    public static getAttributeTypeMap() {
-        return super.getAttributeTypeMap().concat(OdsSaveOptions.attributeTypeMap) ;
-
-    }
-
-    public generatorType: string;
-    public odfStrictVersion: string;
-    public ignorePivotTables: boolean;
-
-    public constructor(init?: Partial< OdsSaveOptions >) {  
-         super(init);     
-        Object.assign(this, init);
-    } 
-}
-/// Represents options of saving ooxml file.   
-export class OoxmlSaveOptions  extends SaveOptions  {
-    /**
-     * Attribute type map
-     */
-    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
-        {
-            name: "exportCellName",
-            baseName: "ExportCellName",
-            type: "boolean",
-        },
-        {
-            name: "updateZoom",
-            baseName: "UpdateZoom",
-            type: "boolean",
-        },
-        {
-            name: "enableZip64",
-            baseName: "EnableZip64",
-            type: "boolean",
-        },
-        {
-            name: "embedOoxmlAsOleObject",
-            baseName: "EmbedOoxmlAsOleObject",
-            type: "boolean",
-        },
-        {
-            name: "compressionType",
-            baseName: "CompressionType",
-            type: "string",
-        }
-    ];
-    /**
-     * Returns attribute type map
-     */
-    public static getAttributeTypeMap() {
-        return super.getAttributeTypeMap().concat(OoxmlSaveOptions.attributeTypeMap) ;
-
-    }
-
-    public exportCellName: boolean;
-    public updateZoom: boolean;
-    public enableZip64: boolean;
-    public embedOoxmlAsOleObject: boolean;
-    public compressionType: string;
-
-    public constructor(init?: Partial< OoxmlSaveOptions >) {  
-         super(init);     
-        Object.assign(this, init);
-    } 
-}
-/// Represents the options of saving dbf file.   
-export class PclSaveOptions  extends SaveOptions  {
-    /**
-     * Attribute type map
-     */
-    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
-        {
-            name: "fontFullName",
-            baseName: "fontFullName",
-            type: "string",
-        },
-        {
-            name: "fontPclName",
-            baseName: "fontPclName",
-            type: "string",
-        }
-    ];
-    /**
-     * Returns attribute type map
-     */
-    public static getAttributeTypeMap() {
-        return super.getAttributeTypeMap().concat(PclSaveOptions.attributeTypeMap) ;
-
-    }
-
-    public fontFullName: string;
-    public fontPclName: string;
-
-    public constructor(init?: Partial< PclSaveOptions >) {  
-         super(init);     
-        Object.assign(this, init);
-    } 
-}
-/// Watermark for rendering.   
-export class RenderingWatermark  {
-    /**
-     * Attribute type map
-     */
-    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
-        {
-            name: "rotation",
-            baseName: "Rotation",
-            type: "number",
-        },
-        {
-            name: "scaleToPagePercent",
-            baseName: "ScaleToPagePercent",
-            type: "number",
-        },
-        {
-            name: "opacity",
-            baseName: "Opacity",
-            type: "number",
-        },
-        {
-            name: "isBackground",
-            baseName: "IsBackground",
-            type: "boolean",
-        },
-        {
-            name: "text",
-            baseName: "Text",
-            type: "string",
-        },
-        {
-            name: "font",
-            baseName: "Font",
-            type: "RenderingFont",
-        },
-        {
-            name: "image",
-            baseName: "Image",
-            type: "Array<number>",
-        },
-        {
-            name: "hAlignment",
-            baseName: "HAlignment",
-            type: "string",
-        },
-        {
-            name: "vAlignment",
-            baseName: "VAlignment",
-            type: "string",
-        },
-        {
-            name: "offsetX",
-            baseName: "OffsetX",
-            type: "number",
-        },
-        {
-            name: "offsetY",
-            baseName: "OffsetY",
-            type: "number",
-        }
-    ];
-    /**
-     * Returns attribute type map
-     */
-    public static getAttributeTypeMap() {
-        return  RenderingWatermark.attributeTypeMap;
-
-    }
-
-    public rotation: number;
-    public scaleToPagePercent: number;
-    public opacity: number;
-    public isBackground: boolean;
-    public text: string;
-    public font: RenderingFont;
-    public image: Array<number>;
-    public hAlignment: string;
-    public vAlignment: string;
-    public offsetX: number;
-    public offsetY: number;
-
-    public constructor(init?: Partial< RenderingWatermark >) {  
-    
-        Object.assign(this, init);
-    } 
-}
-/// Represents options of saving pdf file.   
-export class PdfSaveOptions  extends SaveOptions  {
-    /**
-     * Attribute type map
-     */
-    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
-        {
-            name: "displayDocTitle",
-            baseName: "DisplayDocTitle",
-            type: "boolean",
-        },
-        {
-            name: "exportDocumentStructure",
-            baseName: "ExportDocumentStructure",
-            type: "boolean",
-        },
-        {
-            name: "emfRenderSetting",
-            baseName: "EmfRenderSetting",
-            type: "string",
-        },
-        {
-            name: "customPropertiesExport",
-            baseName: "CustomPropertiesExport",
-            type: "string",
-        },
-        {
-            name: "optimizationType",
-            baseName: "OptimizationType",
-            type: "string",
-        },
-        {
-            name: "producer",
-            baseName: "Producer",
-            type: "string",
-        },
-        {
-            name: "pdfCompression",
-            baseName: "PdfCompression",
-            type: "string",
-        },
-        {
-            name: "fontEncoding",
-            baseName: "FontEncoding",
-            type: "string",
-        },
-        {
-            name: "watermark",
-            baseName: "Watermark",
-            type: "RenderingWatermark",
-        },
-        {
-            name: "calculateFormula",
-            baseName: "CalculateFormula",
-            type: "boolean",
-        },
-        {
-            name: "checkFontCompatibility",
-            baseName: "CheckFontCompatibility",
-            type: "boolean",
-        },
-        {
-            name: "compliance",
-            baseName: "Compliance",
-            type: "string",
-        },
-        {
-            name: "defaultFont",
-            baseName: "DefaultFont",
-            type: "string",
-        },
-        {
-            name: "onePagePerSheet",
-            baseName: "OnePagePerSheet",
-            type: "boolean",
-        },
-        {
-            name: "printingPageType",
-            baseName: "PrintingPageType",
-            type: "string",
-        },
-        {
-            name: "securityOptions",
-            baseName: "SecurityOptions",
-            type: "PdfSecurityOptions",
-        },
-        {
-            name: "desiredPPI",
-            baseName: "desiredPPI",
-            type: "number",
-        },
-        {
-            name: "jpegQuality",
-            baseName: "jpegQuality",
-            type: "number",
-        },
-        {
-            name: "imageType",
-            baseName: "ImageType",
-            type: "string",
-        }
-    ];
-    /**
-     * Returns attribute type map
-     */
-    public static getAttributeTypeMap() {
-        return super.getAttributeTypeMap().concat(PdfSaveOptions.attributeTypeMap) ;
-
-    }
-
-    public displayDocTitle: boolean;
-    public exportDocumentStructure: boolean;
-    public emfRenderSetting: string;
-    public customPropertiesExport: string;
-    public optimizationType: string;
-    public producer: string;
-    public pdfCompression: string;
-    public fontEncoding: string;
-    public watermark: RenderingWatermark;
-    public calculateFormula: boolean;
-    public checkFontCompatibility: boolean;
-    public compliance: string;
-    public defaultFont: string;
-    public onePagePerSheet: boolean;
-    public printingPageType: string;
-    public securityOptions: PdfSecurityOptions;
-    public desiredPPI: number;
-    public jpegQuality: number;
-    public imageType: string;
-
-    public constructor(init?: Partial< PdfSaveOptions >) {  
-         super(init);     
-        Object.assign(this, init);
-    } 
-}
-/// Represents the options of saving pptx file.   
-export class PptxSaveOptions  extends PaginatedSaveOptions  {
-    /**
-     * Attribute type map
-     */
-    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
-        {
-            name: "ignoreHiddenRows",
-            baseName: "IgnoreHiddenRows",
-            type: "boolean",
-        },
-        {
-            name: "adjustFontSizeForRowType",
-            baseName: "AdjustFontSizeForRowType",
-            type: "string",
-        },
-        {
-            name: "exportViewType",
-            baseName: "ExportViewType",
-            type: "string",
-        }
-    ];
-    /**
-     * Returns attribute type map
-     */
-    public static getAttributeTypeMap() {
-        return super.getAttributeTypeMap().concat(PptxSaveOptions.attributeTypeMap) ;
-
-    }
-
-    public ignoreHiddenRows: boolean;
-    public adjustFontSizeForRowType: string;
-    public exportViewType: string;
-
-    public constructor(init?: Partial< PptxSaveOptions >) {  
-         super(init);     
-        Object.assign(this, init);
-    } 
-}
-/// Represents the options of saving .xml file.   
-export class SpreadsheetML2003SaveOptions  extends SaveOptions  {
-    /**
-     * Attribute type map
-     */
-    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
-        {
-            name: "exportColumnIndexOfCell",
-            baseName: "ExportColumnIndexOfCell",
-            type: "boolean",
-        },
-        {
-            name: "isIndentedFormatting",
-            baseName: "IsIndentedFormatting",
-            type: "boolean",
-        },
-        {
-            name: "limitAsXls",
-            baseName: "LimitAsXls",
-            type: "boolean",
-        }
-    ];
-    /**
-     * Returns attribute type map
-     */
-    public static getAttributeTypeMap() {
-        return super.getAttributeTypeMap().concat(SpreadsheetML2003SaveOptions.attributeTypeMap) ;
-
-    }
-
-    public exportColumnIndexOfCell: boolean;
-    public isIndentedFormatting: boolean;
-    public limitAsXls: boolean;
-
-    public constructor(init?: Partial< SpreadsheetML2003SaveOptions >) {  
-         super(init);     
-        Object.assign(this, init);
-    } 
-}
-/// Represents the options of saving .sql file.   
-export class SqlScriptSaveOptions  extends SaveOptions  {
-    /**
-     * Attribute type map
-     */
-    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
-        {
-            name: "checkIfTableExists",
-            baseName: "CheckIfTableExists",
-            type: "boolean",
-        },
-        {
-            name: "columnTypeMap",
-            baseName: "ColumnTypeMap",
-            type: "string",
-        },
-        {
-            name: "checkAllDataForColumnType",
-            baseName: "CheckAllDataForColumnType",
-            type: "boolean",
-        },
-        {
-            name: "addBlankLineBetweenRows",
-            baseName: "AddBlankLineBetweenRows",
-            type: "boolean",
-        },
-        {
-            name: "separator",
-            baseName: "Separator",
-            type: "string",
-        },
-        {
-            name: "operatorType",
-            baseName: "OperatorType",
-            type: "string",
-        },
-        {
-            name: "primaryKey",
-            baseName: "PrimaryKey",
-            type: "number",
-        },
-        {
-            name: "createTable",
-            baseName: "CreateTable",
-            type: "boolean",
-        },
-        {
-            name: "idName",
-            baseName: "IdName",
-            type: "string",
-        },
-        {
-            name: "startId",
-            baseName: "StartId",
-            type: "number",
-        },
-        {
-            name: "tableName",
-            baseName: "TableName",
-            type: "string",
-        },
-        {
-            name: "exportAsString",
-            baseName: "ExportAsString",
-            type: "boolean",
-        },
-        {
-            name: "exportArea",
-            baseName: "ExportArea",
-            type: "CellArea",
-        },
-        {
-            name: "hasHeaderRow",
-            baseName: "HasHeaderRow",
-            type: "boolean",
-        }
-    ];
-    /**
-     * Returns attribute type map
-     */
-    public static getAttributeTypeMap() {
-        return super.getAttributeTypeMap().concat(SqlScriptSaveOptions.attributeTypeMap) ;
-
-    }
-
-    public checkIfTableExists: boolean;
-    public columnTypeMap: string;
-    public checkAllDataForColumnType: boolean;
-    public addBlankLineBetweenRows: boolean;
-    public separator: string;
-    public operatorType: string;
-    public primaryKey: number;
-    public createTable: boolean;
-    public idName: string;
-    public startId: number;
-    public tableName: string;
-    public exportAsString: boolean;
-    public exportArea: CellArea;
-    public hasHeaderRow: boolean;
-
-    public constructor(init?: Partial< SqlScriptSaveOptions >) {  
-         super(init);     
-        Object.assign(this, init);
-    } 
-}
-/// Represents the options of saving .svg file.   
-export class SvgSaveOptions  extends SaveOptions  {
-    /**
-     * Attribute type map
-     */
-    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
-        {
-            name: "sheetIndex",
-            baseName: "SheetIndex",
-            type: "number",
-        },
-        {
-            name: "chartImageType",
-            baseName: "ChartImageType",
-            type: "string",
-        },
-        {
-            name: "embededImageNameInSvg",
-            baseName: "EmbededImageNameInSvg",
-            type: "string",
-        },
-        {
-            name: "horizontalResolution",
-            baseName: "HorizontalResolution",
-            type: "number",
-        },
-        {
-            name: "imageFormat",
-            baseName: "ImageFormat",
-            type: "string",
-        },
-        {
-            name: "isCellAutoFit",
-            baseName: "IsCellAutoFit",
-            type: "boolean",
-        },
-        {
-            name: "onePagePerSheet",
-            baseName: "OnePagePerSheet",
-            type: "boolean",
-        },
-        {
-            name: "onlyArea",
-            baseName: "OnlyArea",
-            type: "boolean",
-        },
-        {
-            name: "printingPage",
-            baseName: "PrintingPage",
-            type: "string",
-        },
-        {
-            name: "printWithStatusDialog",
-            baseName: "PrintWithStatusDialog",
-            type: "boolean",
-        },
-        {
-            name: "quality",
-            baseName: "Quality",
-            type: "number",
-        },
-        {
-            name: "tiffCompression",
-            baseName: "TiffCompression",
-            type: "string",
-        },
-        {
-            name: "verticalResolution",
-            baseName: "VerticalResolution",
-            type: "number",
-        }
-    ];
-    /**
-     * Returns attribute type map
-     */
-    public static getAttributeTypeMap() {
-        return super.getAttributeTypeMap().concat(SvgSaveOptions.attributeTypeMap) ;
-
-    }
-
-    public sheetIndex: number;
-    public chartImageType: string;
-    public embededImageNameInSvg: string;
-    public horizontalResolution: number;
-    public imageFormat: string;
-    public isCellAutoFit: boolean;
-    public onePagePerSheet: boolean;
-    public onlyArea: boolean;
-    public printingPage: string;
-    public printWithStatusDialog: boolean;
-    public quality: number;
-    public tiffCompression: string;
-    public verticalResolution: number;
-
-    public constructor(init?: Partial< SvgSaveOptions >) {  
-         super(init);     
-        Object.assign(this, init);
-    } 
-}
-/// Represents the options of saving .txt file.   
-export class TxtSaveOptions  extends SaveOptions  {
-    /**
-     * Attribute type map
-     */
-    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
-        {
-            name: "quoteType",
-            baseName: "QuoteType",
-            type: "string",
-        },
-        {
-            name: "separator",
-            baseName: "Separator",
-            type: "string",
-        },
-        {
-            name: "separatorString",
-            baseName: "SeparatorString",
-            type: "string",
-        },
-        {
-            name: "alwaysQuoted",
-            baseName: "AlwaysQuoted",
-            type: "boolean",
-        }
-    ];
-    /**
-     * Returns attribute type map
-     */
-    public static getAttributeTypeMap() {
-        return super.getAttributeTypeMap().concat(TxtSaveOptions.attributeTypeMap) ;
-
-    }
-
-    public quoteType: string;
-    public separator: string;
-    public separatorString: string;
-    public alwaysQuoted: boolean;
-
-    public constructor(init?: Partial< TxtSaveOptions >) {  
-         super(init);     
-        Object.assign(this, init);
-    } 
-}
-/// Represents the options of saving .xlsb file.   
-export class XlsbSaveOptions  extends SaveOptions  {
-    /**
-     * Attribute type map
-     */
-    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
-        {
-            name: "exportAllColumnIndexes",
-            baseName: "ExportAllColumnIndexes",
-            type: "boolean",
-        },
-        {
-            name: "compressionType",
-            baseName: "CompressionType",
-            type: "string",
-        }
-    ];
-    /**
-     * Returns attribute type map
-     */
-    public static getAttributeTypeMap() {
-        return super.getAttributeTypeMap().concat(XlsbSaveOptions.attributeTypeMap) ;
-
-    }
-
-    public exportAllColumnIndexes: boolean;
-    public compressionType: string;
-
-    public constructor(init?: Partial< XlsbSaveOptions >) {  
-         super(init);     
-        Object.assign(this, init);
-    } 
-}
-/// Represents the options of saving .xls file.   
-export class XlsSaveOptions  extends SaveOptions  {
-    /**
-     * Attribute type map
-     */
-    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
-        {
-            name: "matchColor",
-            baseName: "MatchColor",
-            type: "boolean",
-        },
-        {
-            name: "wpsCompatibility",
-            baseName: "WpsCompatibility",
-            type: "boolean",
-        }
-    ];
-    /**
-     * Returns attribute type map
-     */
-    public static getAttributeTypeMap() {
-        return super.getAttributeTypeMap().concat(XlsSaveOptions.attributeTypeMap) ;
-
-    }
-
-    public matchColor: boolean;
-    public wpsCompatibility: boolean;
-
-    public constructor(init?: Partial< XlsSaveOptions >) {  
-         super(init);     
-        Object.assign(this, init);
-    } 
-}
-/// Represents the options of saving dbf file.   
-export class XmlSaveOptions  extends SaveOptions  {
-    /**
-     * Attribute type map
-     */
-    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
-        {
-            name: "sheetIndexes",
-            baseName: "SheetIndexes",
-            type: "Array<number>",
-        },
-        {
-            name: "exportArea",
-            baseName: "ExportArea",
-            type: "CellArea",
-        },
-        {
-            name: "hasHeaderRow",
-            baseName: "HasHeaderRow",
-            type: "boolean",
-        },
-        {
-            name: "xmlMapName",
-            baseName: "XmlMapName",
-            type: "string",
-        },
-        {
-            name: "sheetNameAsElementName",
-            baseName: "SheetNameAsElementName",
-            type: "boolean",
-        },
-        {
-            name: "dataAsAttribute",
-            baseName: "DataAsAttribute",
-            type: "boolean",
-        }
-    ];
-    /**
-     * Returns attribute type map
-     */
-    public static getAttributeTypeMap() {
-        return super.getAttributeTypeMap().concat(XmlSaveOptions.attributeTypeMap) ;
-
-    }
-
-    public sheetIndexes: Array<number>;
-    public exportArea: CellArea;
-    public hasHeaderRow: boolean;
-    public xmlMapName: string;
-    public sheetNameAsElementName: boolean;
-    public dataAsAttribute: boolean;
-
-    public constructor(init?: Partial< XmlSaveOptions >) {  
-         super(init);     
-        Object.assign(this, init);
-    } 
-}
-/// Represents the options of saving .xps file.   
-export class XpsSaveOptions  extends PaginatedSaveOptions  {
-    /**
-     * Attribute type map
-     */
-    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
-    ];
-    /**
-     * Returns attribute type map
-     */
-    public static getAttributeTypeMap() {
-        return super.getAttributeTypeMap().concat(XpsSaveOptions.attributeTypeMap) ;
-
-    }
-
-
-    public constructor(init?: Partial< XpsSaveOptions >) {  
-         super(init);     
-        Object.assign(this, init);
-    } 
-}
-///            Represents the CellsCloud Response.
-///               
-export class CellsCloudResponse  {
-    /**
-     * Attribute type map
-     */
-    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
-        {
-            name: "code",
-            baseName: "Code",
-            type: "number",
-        },
-        {
-            name: "status",
-            baseName: "Status",
-            type: "string",
-        }
-    ];
-    /**
-     * Returns attribute type map
-     */
-    public static getAttributeTypeMap() {
-        return  CellsCloudResponse.attributeTypeMap;
-
-    }
-
-    public code: number;
-    public status: string;
-
-    public constructor(init?: Partial< CellsCloudResponse >) {  
-    
-        Object.assign(this, init);
-    } 
-}
 /// Represents the arc shape.   
 export class ArcShape  extends Shape  {
     /**
@@ -10707,60 +11013,6 @@ export class CellResponse  extends CellsCloudResponse  {
     public cell: Cell;
 
     public constructor(init?: Partial< CellResponse >) {  
-         super(init);     
-        Object.assign(this, init);
-    } 
-}
-/// Represents the CellsCloudFileInfo Response.   
-export class CellsCloudFileInfoResponse  extends CellsCloudResponse  {
-    /**
-     * Attribute type map
-     */
-    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
-        {
-            name: "fileInfo",
-            baseName: "FileInfo",
-            type: "CellsCloudFileInfo",
-        }
-    ];
-    /**
-     * Returns attribute type map
-     */
-    public static getAttributeTypeMap() {
-        return super.getAttributeTypeMap().concat(CellsCloudFileInfoResponse.attributeTypeMap) ;
-
-    }
-
-    public fileInfo: CellsCloudFileInfo;
-
-    public constructor(init?: Partial< CellsCloudFileInfoResponse >) {  
-         super(init);     
-        Object.assign(this, init);
-    } 
-}
-   
-export class CellsCloudPublicKeyResponse  extends CellsCloudResponse  {
-    /**
-     * Attribute type map
-     */
-    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
-        {
-            name: "cellsCloudPublicKey",
-            baseName: "CellsCloudPublicKey",
-            type: "CellsCloudPublicKey",
-        }
-    ];
-    /**
-     * Returns attribute type map
-     */
-    public static getAttributeTypeMap() {
-        return super.getAttributeTypeMap().concat(CellsCloudPublicKeyResponse.attributeTypeMap) ;
-
-    }
-
-    public cellsCloudPublicKey: CellsCloudPublicKey;
-
-    public constructor(init?: Partial< CellsCloudPublicKeyResponse >) {  
          super(init);     
         Object.assign(this, init);
     } 
@@ -15412,33 +15664,6 @@ export class SaveFilesToCloudResultResponse  extends CellsCloudResponse  {
         Object.assign(this, init);
     } 
 }
-/// Represents the Save Response.   
-export class SaveResponse  extends CellsCloudResponse  {
-    /**
-     * Attribute type map
-     */
-    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
-        {
-            name: "saveResult",
-            baseName: "SaveResult",
-            type: "SaveResult",
-        }
-    ];
-    /**
-     * Returns attribute type map
-     */
-    public static getAttributeTypeMap() {
-        return super.getAttributeTypeMap().concat(SaveResponse.attributeTypeMap) ;
-
-    }
-
-    public saveResult: SaveResult;
-
-    public constructor(init?: Partial< SaveResponse >) {  
-         super(init);     
-        Object.assign(this, init);
-    } 
-}
 /// Represents a scroll bar object.   
 export class ScrollBar  extends Shape  {
     /**
@@ -18854,57 +19079,6 @@ export class WorkbookProtectionRequest  {
         Object.assign(this, init);
     } 
 }
-/// Font for rendering.   
-export class RenderingFont  {
-    /**
-     * Attribute type map
-     */
-    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
-        {
-            name: "name",
-            baseName: "Name",
-            type: "string",
-        },
-        {
-            name: "size",
-            baseName: "Size",
-            type: "number",
-        },
-        {
-            name: "bold",
-            baseName: "Bold",
-            type: "boolean",
-        },
-        {
-            name: "italic",
-            baseName: "Italic",
-            type: "boolean",
-        },
-        {
-            name: "color",
-            baseName: "Color",
-            type: "Color",
-        }
-    ];
-    /**
-     * Returns attribute type map
-     */
-    public static getAttributeTypeMap() {
-        return  RenderingFont.attributeTypeMap;
-
-    }
-
-    public name: string;
-    public size: number;
-    public bold: boolean;
-    public italic: boolean;
-    public color: Color;
-
-    public constructor(init?: Partial< RenderingFont >) {  
-    
-        Object.assign(this, init);
-    } 
-}
 /// A data operation that is used to obtain a query of data.   
 export class AppliedOperate  {
     /**
@@ -21911,27 +22085,6 @@ export class WorksheetDataStatistics  {
         Object.assign(this, init);
     } 
 }
-/// The error details   
-export class ErrorDetails  {
-    /**
-     * Attribute type map
-     */
-    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
-    ];
-    /**
-     * Returns attribute type map
-     */
-    public static getAttributeTypeMap() {
-        return  ErrorDetails.attributeTypeMap;
-
-    }
-
-
-    public constructor(init?: Partial< ErrorDetails >) {  
-    
-        Object.assign(this, init);
-    } 
-}
 const enumsMap = {
 };
 const typeMap = {
@@ -21946,6 +22099,50 @@ const typeMap = {
     FilesUploadResult,
     StorageFile,
     GoogleDriveStorageFile,
+    BrokenLink,
+    CellArea,
+    CellsCloudFileInfo,
+    CellsCloudPublicKey,
+    Color,
+    PdfSecurityOptions,
+    Range,
+    SaveResult,
+    PaginatedSaveOptions,
+    TextItem,
+    DbfSaveOptions,
+    DifSaveOptions,
+    DocxSaveOptions,
+    HtmlSaveOptions,
+    ImageSaveOptions,
+    JsonSaveOptions,
+    MarkdownSaveOptions,
+    MHtmlSaveOptions,
+    OdsSaveOptions,
+    OoxmlSaveOptions,
+    PclSaveOptions,
+    PdfSaveOptions,
+    PptxSaveOptions,
+    SaveOptions,
+    SaveOptionsData,
+    SpreadsheetML2003SaveOptions,
+    SqlScriptSaveOptions,
+    SvgSaveOptions,
+    TxtSaveOptions,
+    XlsbSaveOptions,
+    XlsSaveOptions,
+    XmlSaveOptions,
+    XpsSaveOptions,
+    BrokenLinksReponse,
+    CellsCloudFileInfoResponse,
+    CellsCloudPublicKeyResponse,
+    CellsCloudResponse,
+    SaveResponse,
+    SearchResponse,
+    ImageOrPrintOptions,
+    RenderingFont,
+    RenderingWatermark,
+    Error,
+    ErrorDetails,
     AboveAverage,
     AbstractCalculationEngine,
     AbstractCalculationMonitor,
@@ -21954,14 +22151,10 @@ const typeMap = {
     Border,
     CalculationOptions,
     Cell,
-    CellArea,
     Cells,
-    CellsCloudFileInfo,
-    CellsCloudPublicKey,
     CellsColor,
     CellsDocumentProperties,
     CellsDocumentProperty,
-    Color,
     ColorFilter,
     ColorScale,
     Column,
@@ -22017,15 +22210,11 @@ const typeMap = {
     PageSection,
     PageSetup,
     PasteOptions,
-    PdfSecurityOptions,
     Protection,
     ProtectSheetParameter,
-    Range,
     Ranges,
     Row,
     Rows,
-    SaveResult,
-    PaginatedSaveOptions,
     SingleValue,
     SortKey,
     SplitResult,
@@ -22033,7 +22222,6 @@ const typeMap = {
     StyleFormatCondition,
     Styles,
     TextFormatCondition,
-    TextItem,
     TextItems,
     TextOptions,
     ThemeColor,
@@ -22081,28 +22269,6 @@ const typeMap = {
     ListObject,
     ListObjects,
     PivotGlobalizationSettings,
-    DbfSaveOptions,
-    DifSaveOptions,
-    DocxSaveOptions,
-    HtmlSaveOptions,
-    ImageSaveOptions,
-    JsonSaveOptions,
-    MarkdownSaveOptions,
-    MHtmlSaveOptions,
-    OdsSaveOptions,
-    OoxmlSaveOptions,
-    PclSaveOptions,
-    PdfSaveOptions,
-    PptxSaveOptions,
-    SaveOptions,
-    SpreadsheetML2003SaveOptions,
-    SqlScriptSaveOptions,
-    SvgSaveOptions,
-    TxtSaveOptions,
-    XlsbSaveOptions,
-    XlsSaveOptions,
-    XmlSaveOptions,
-    XpsSaveOptions,
     ArcShapeResponse,
     AutoFilterResponse,
     AutoShapeResponse,
@@ -22112,9 +22278,6 @@ const typeMap = {
     ButtonResponse,
     CalculateFormulaResponse,
     CellResponse,
-    CellsCloudFileInfoResponse,
-    CellsCloudPublicKeyResponse,
-    CellsCloudResponse,
     CellsDocumentPropertiesResponse,
     CellsDocumentPropertyResponse,
     CellsDrawingResponse,
@@ -22184,7 +22347,6 @@ const typeMap = {
     RowResponse,
     RowsResponse,
     SaveFilesToCloudResultResponse,
-    SaveResponse,
     ScrollBarResponse,
     SeriesesResponse,
     SeriesResponse,
@@ -22246,9 +22408,6 @@ const typeMap = {
     WorkbookEncryptionRequest,
     WorkbookProtectionRequest,
     WorksheetMovingRequest,
-    ImageOrPrintOptions,
-    RenderingFont,
-    RenderingWatermark,
     AppliedOperate,
     AppliedStep,
     DataQuery,
@@ -22377,12 +22536,1748 @@ const typeMap = {
     DiscoverPivotTable,
     ExcelDataStatistics,
     WorksheetDataStatistics,
-    Error,
-    ErrorDetails,
 };
 
 export {enumsMap, typeMap};
 
+/// Get Access Token Result: The Cells Cloud Get Token API acts as a proxy service,
+/// forwarding user requests to the Aspose Cloud authentication server and returning the resulting access token to the client.   
+export class PostAccessTokenRequest  {
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< PostAccessTokenRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/connect/token";
+        const queryParameters: any = {};
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "POST",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Check the Health Status of Aspose.Cells Cloud Service.   
+export class GetAsposeCellsCloudStatusRequest  {
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< GetAsposeCellsCloudStatusRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells";
+        const queryParameters: any = {};
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "GET",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Check the Health Status of Aspose.Cells Cloud Service.   
+export class CheckCloudServiceHealthRequest  {
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< CheckCloudServiceHealthRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/status/check";
+        const queryParameters: any = {};
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "GET",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Converts a spreadsheet in cloud storage to the specified format.   
+export class GetWorkbookWithFormatRequest  {
+    /// (Required) The name of the workbook file to be retrieved.  
+    public name: string;
+    /// (Required) The desired output format (e.g., "Xlsx", "Pdf", "Csv").  
+    public format: string;
+    /// (Optional) The folder path where the workbook is stored. The default is null.  
+    public folder: string;
+    /// (Optional) The name of the storage if using custom cloud storage. Use default storage if omitted.  
+    public storageName: string;
+    /// (Optional) The folder path where the workbook is stored. The default is null.  
+    public outPath: string;
+    /// Output file Storage Name.  
+    public outStorageName: string;
+    /// Use Custom fonts.  
+    public fontsLocation: string;
+    /// The spreadsheet region setting.  
+    public regoin: string;
+    /// The password for opening spreadsheet file.  
+    public password: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< GetWorkbookWithFormatRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/{name}".replace("{" + "name" + "}", String(this.name));
+        const queryParameters: any = {};
+        /// (Required) The desired output format (e.g., "Xlsx", "Pdf", "Csv"). 
+        // verify required parameter 'format' is not null or undefined
+        if (this.format === null || this.format === undefined) {
+            throw new Error('Required parameter "format" was null or undefined when calling GetWorkbookWithFormat.');
+        }
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "format", this.format);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fontsLocation", this.fontsLocation);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "regoin", this.regoin);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "GET",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Converts a spreadsheet on a local drive to the specified format.   
+export class ConvertWorkbookRequest  {
+    /// Upload spreadsheet file.  
+    public spreadsheet: any;
+    /// (Required) The desired output format (e.g., "Xlsx", "Pdf", "Csv").  
+    public format: string;
+    /// (Optional) The folder path where the workbook is stored. The default is null.  
+    public outPath: string;
+    /// Output file Storage Name.  
+    public outStorageName: string;
+    /// Use Custom fonts.  
+    public fontsLocation: string;
+    /// The spreadsheet region setting.  
+    public regoin: string;
+    /// The password for opening spreadsheet file.  
+    public password: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< ConvertWorkbookRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/convert";
+        const queryParameters: any = {};
+        const formParams: any = {};
+        /// (Required) The desired output format (e.g., "Xlsx", "Pdf", "Csv"). 
+        // verify required parameter 'format' is not null or undefined
+        if (this.format === null || this.format === undefined) {
+            throw new Error('Required parameter "format" was null or undefined when calling ConvertWorkbook.');
+        }
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "format", this.format);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fontsLocation", this.fontsLocation);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "regoin", this.regoin);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+        if (this.spreadsheet !== undefined) {
+            if (typeof this.spreadsheet === 'string') {
+                if (fs.existsSync(this.spreadsheet)) {
+                    const fileName = path.basename( this.spreadsheet)
+                    formParams[fileName] = fs.createReadStream(this.spreadsheet)
+                }
+            }
+            else {
+                for (var key in this.spreadsheet){
+                    formParams[key] = this.spreadsheet[key];
+                }
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        (requestOptions as any).formData = formParams;        
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Converts a spreadsheet in cloud storage to the specified format.   
+export class WorkbookSaveAsRequest  {
+    /// (Required) The name of the workbook file to be converted.  
+    public name: string;
+    /// (Required) The desired output format (e.g., "Xlsx", "Pdf", "Csv").  
+    public format: string;
+    /// (Optional) Save options data. The default is null.  
+    public saveOptionsData: SaveOptionsData;
+    /// (Optional) The folder path where the workbook is stored. The default is null.  
+    public folder: string;
+    /// (Optional) The name of the storage if using custom cloud storage. Use default storage if omitted.  
+    public storageName: string;
+    /// (Optional) The folder path where the workbook is stored. The default is null.  
+    public outPath: string;
+    /// Output file Storage Name.  
+    public outStorageName: string;
+    /// Use Custom fonts.  
+    public fontsLocation: string;
+    /// The spreadsheet region setting.  
+    public regoin: string;
+    /// The password for opening spreadsheet file.  
+    public password: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< WorkbookSaveAsRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/{name}/SaveAs".replace("{" + "name" + "}", String(this.name));
+        const queryParameters: any = {};
+        /// (Required) The desired output format (e.g., "Xlsx", "Pdf", "Csv"). 
+        // verify required parameter 'format' is not null or undefined
+        if (this.format === null || this.format === undefined) {
+            throw new Error('Required parameter "format" was null or undefined when calling WorkbookSaveAs.');
+        }
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "format", this.format);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fontsLocation", this.fontsLocation);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "regoin", this.regoin);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        const bodyParameter = (this.saveOptionsData == null) ? null :   ObjectSerializer.serialize( this.saveOptionsData,this.saveOptionsData.constructor.name);
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+            body:bodyParameter,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Merge local spreadsheet files into a specified format file.   
+export class MergeFilesRequest  {
+    /// Upload spreadsheet file.  
+    public spreadsheet: any;
+    /// The out file format.  
+    public outFormat: string;
+    /// Whether to combine all data into a single worksheet.  
+    public mergeInOneSheet: boolean;
+    /// (Optional) The folder path where the workbook is stored. The default is null.  
+    public outPath: string;
+    /// Output file Storage Name.  
+    public outStorageName: string;
+    /// Use Custom fonts.  
+    public fontsLocation: string;
+    /// The spreadsheet region setting.  
+    public regoin: string;
+    /// The password for opening spreadsheet file.  
+    public password: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< MergeFilesRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/merge";
+        const queryParameters: any = {};
+        const formParams: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outFormat", this.outFormat);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "mergeInOneSheet", this.mergeInOneSheet);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fontsLocation", this.fontsLocation);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "regoin", this.regoin);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+        if (this.spreadsheet !== undefined) {
+            if (typeof this.spreadsheet === 'string') {
+                if (fs.existsSync(this.spreadsheet)) {
+                    const fileName = path.basename( this.spreadsheet)
+                    formParams[fileName] = fs.createReadStream(this.spreadsheet)
+                }
+            }
+            else {
+                for (var key in this.spreadsheet){
+                    formParams[key] = this.spreadsheet[key];
+                }
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        (requestOptions as any).formData = formParams;        
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Merge spreadsheet files in cloud storage into a specified format file.   
+export class MergeFilesInRemoteFolderRequest  {
+    /// The folder used to store the merged files.  
+    public folder: string;
+      
+    public fileMatchExpression: string;
+    /// The out file format.  
+    public outFormat: string;
+    /// Whether to combine all data into a single worksheet.  
+    public mergeInOneSheet: boolean;
+    /// (Optional) The name of the storage if using custom cloud storage. Use default storage if omitted.  
+    public storageName: string;
+    /// (Optional) The folder path where the workbook is stored. The default is null.  
+    public outPath: string;
+    /// Output file Storage Name.  
+    public outStorageName: string;
+    /// Use Custom fonts.  
+    public fontsLocation: string;
+    /// The spreadsheet region setting.  
+    public regoin: string;
+    /// The password for opening spreadsheet file.  
+    public password: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< MergeFilesInRemoteFolderRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/mergeFilesInFolder";
+        const queryParameters: any = {};
+        /// The folder used to store the merged files. 
+        // verify required parameter 'folder' is not null or undefined
+        if (this.folder === null || this.folder === undefined) {
+            throw new Error('Required parameter "folder" was null or undefined when calling MergeFilesInRemoteFolder.');
+        }
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fileMatchExpression", this.fileMatchExpression);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outFormat", this.outFormat);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "mergeInOneSheet", this.mergeInOneSheet);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fontsLocation", this.fontsLocation);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "regoin", this.regoin);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Split a local spreadsheet into the specified format, multi-file.   
+export class SplitFileRequest  {
+    /// Upload spreadsheet file.  
+    public spreadsheet: any;
+    /// Begin worksheet index.  
+    public from: number;
+    /// End worksheet index.  
+    public to: number;
+    /// The out file format.  
+    public outFormat: string;
+    /// (Optional) The folder path where the workbook is stored. The default is null.  
+    public outPath: string;
+    /// Output file Storage Name.  
+    public outStorageName: string;
+    /// Use Custom fonts.  
+    public fontsLocation: string;
+    /// The spreadsheet region setting.  
+    public regoin: string;
+    /// The password for opening spreadsheet file.  
+    public password: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< SplitFileRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/split";
+        const queryParameters: any = {};
+        const formParams: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "from", this.from);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "to", this.to);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outFormat", this.outFormat);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fontsLocation", this.fontsLocation);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "regoin", this.regoin);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+        if (this.spreadsheet !== undefined) {
+            if (typeof this.spreadsheet === 'string') {
+                if (fs.existsSync(this.spreadsheet)) {
+                    const fileName = path.basename( this.spreadsheet)
+                    formParams[fileName] = fs.createReadStream(this.spreadsheet)
+                }
+            }
+            else {
+                for (var key in this.spreadsheet){
+                    formParams[key] = this.spreadsheet[key];
+                }
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        (requestOptions as any).formData = formParams;        
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Split a spreadsheet in cloud storage into the specified format, multi-file.   
+export class SplitFileInRemoteRequest  {
+    /// The name of the workbook file to be split.  
+    public name: string;
+    /// The folder path where the workbook is stored.  
+    public folder: string;
+    /// Begin worksheet index.  
+    public from: number;
+    /// End worksheet index.  
+    public to: number;
+    /// The desired output format (e.g., "Xlsx", "Pdf", "Csv").  
+    public outFormat: string;
+    /// (Optional) The name of the storage if using custom cloud storage. Use default storage if omitted.  
+    public storageName: string;
+    /// (Optional) The folder path where the workbook is stored. The default is null.  
+    public outPath: string;
+    /// Output file Storage Name.  
+    public outStorageName: string;
+    /// Use Custom fonts.  
+    public fontsLocation: string;
+    /// The spreadsheet region setting.  
+    public regoin: string;
+    /// The password for opening spreadsheet file.  
+    public password: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< SplitFileInRemoteRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/{name}/split".replace("{" + "name" + "}", String(this.name));
+        const queryParameters: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "from", this.from);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "to", this.to);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outFormat", this.outFormat);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fontsLocation", this.fontsLocation);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "regoin", this.regoin);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Get an asymmetric public key.   
+export class GetPublicKeyRequest  {
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< GetPublicKeyRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/publickey";
+        const queryParameters: any = {};
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "GET",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Search text in the local spreadsheet.   
+export class SearchTextRequest  {
+    /// Upload spreadsheet file.  
+    public spreadsheet: any;
+    /// The searched text.  
+    public searchText: string;
+    /// Ignore the text of the search.  
+    public ignoringCase: boolean;
+    /// Specify the worksheet for the lookup.  
+    public sheetname: string;
+    /// Specify the cell area for the lookup  
+    public cellarea: string;
+    /// The spreadsheet region setting.  
+    public regoin: string;
+    /// The password for opening spreadsheet file.  
+    public password: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< SearchTextRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/search";
+        const queryParameters: any = {};
+        const formParams: any = {};
+        /// The searched text. 
+        // verify required parameter 'searchText' is not null or undefined
+        if (this.searchText === null || this.searchText === undefined) {
+            throw new Error('Required parameter "searchText" was null or undefined when calling SearchText.');
+        }
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "searchText", this.searchText);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "ignoringCase", this.ignoringCase);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "sheetname", this.sheetname);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "cellarea", this.cellarea);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "regoin", this.regoin);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+        if (this.spreadsheet !== undefined) {
+            if (typeof this.spreadsheet === 'string') {
+                if (fs.existsSync(this.spreadsheet)) {
+                    const fileName = path.basename( this.spreadsheet)
+                    formParams[fileName] = fs.createReadStream(this.spreadsheet)
+                }
+            }
+            else {
+                for (var key in this.spreadsheet){
+                    formParams[key] = this.spreadsheet[key];
+                }
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        (requestOptions as any).formData = formParams;        
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Search text in the remoted spreadsheet.   
+export class SearchTextInRemoteRequest  {
+    /// The name of the workbook file to be search.  
+    public name: string;
+    /// The searched text.  
+    public searchText: string;
+    /// Ignore the text of the search.  
+    public ignoringCase: boolean;
+    /// Specify the worksheet for the lookup.  
+    public sheetname: string;
+    /// Specify the cell area for the lookup  
+    public cellarea: string;
+    /// The folder path where the workbook is stored.  
+    public folder: string;
+    /// (Optional) The name of the storage if using custom cloud storage. Use default storage if omitted.  
+    public storageName: string;
+    /// The spreadsheet region setting.  
+    public regoin: string;
+    /// The password for opening spreadsheet file.  
+    public password: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< SearchTextInRemoteRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/{name}/search".replace("{" + "name" + "}", String(this.name));
+        const queryParameters: any = {};
+        /// The searched text. 
+        // verify required parameter 'searchText' is not null or undefined
+        if (this.searchText === null || this.searchText === undefined) {
+            throw new Error('Required parameter "searchText" was null or undefined when calling SearchTextInRemote.');
+        }
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "searchText", this.searchText);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "ignoringCase", this.ignoringCase);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "sheetname", this.sheetname);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "cellarea", this.cellarea);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "regoin", this.regoin);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Replace text in the local spreadsheet.   
+export class ReplaceTextRequest  {
+    /// Upload spreadsheet file.  
+    public spreadsheet: any;
+    /// The searched text.  
+    public searchText: string;
+    /// The replaced text.  
+    public replaceText: string;
+    /// Specify the worksheet for the replace.  
+    public sheetname: string;
+    /// Specify the cell area for the replace.  
+    public cellarea: string;
+    /// The spreadsheet region setting.  
+    public regoin: string;
+    /// The password for opening spreadsheet file.  
+    public password: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< ReplaceTextRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/replace";
+        const queryParameters: any = {};
+        const formParams: any = {};
+        /// The searched text. 
+        // verify required parameter 'searchText' is not null or undefined
+        if (this.searchText === null || this.searchText === undefined) {
+            throw new Error('Required parameter "searchText" was null or undefined when calling ReplaceText.');
+        }
+        /// The replaced text. 
+        // verify required parameter 'replaceText' is not null or undefined
+        if (this.replaceText === null || this.replaceText === undefined) {
+            throw new Error('Required parameter "replaceText" was null or undefined when calling ReplaceText.');
+        }
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "searchText", this.searchText);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "replaceText", this.replaceText);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "sheetname", this.sheetname);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "cellarea", this.cellarea);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "regoin", this.regoin);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+        if (this.spreadsheet !== undefined) {
+            if (typeof this.spreadsheet === 'string') {
+                if (fs.existsSync(this.spreadsheet)) {
+                    const fileName = path.basename( this.spreadsheet)
+                    formParams[fileName] = fs.createReadStream(this.spreadsheet)
+                }
+            }
+            else {
+                for (var key in this.spreadsheet){
+                    formParams[key] = this.spreadsheet[key];
+                }
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        (requestOptions as any).formData = formParams;        
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Replace text in the remoted spreadsheet.   
+export class ReplaceTextInRemoteRequest  {
+    /// The name of the workbook file to be replace.  
+    public name: string;
+    /// The searched text.  
+    public searchText: string;
+    /// The replaced text.  
+    public replaceText: string;
+    /// Specify the worksheet for the replace.  
+    public sheetname: string;
+    /// Specify the cell area for the replace.  
+    public cellarea: string;
+    /// The folder path where the workbook is stored.  
+    public folder: string;
+    /// (Optional) The name of the storage if using custom cloud storage. Use default storage if omitted.  
+    public storageName: string;
+    /// The spreadsheet region setting.  
+    public regoin: string;
+    /// The password for opening spreadsheet file.  
+    public password: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< ReplaceTextInRemoteRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/{name}/replace".replace("{" + "name" + "}", String(this.name));
+        const queryParameters: any = {};
+        /// The searched text. 
+        // verify required parameter 'searchText' is not null or undefined
+        if (this.searchText === null || this.searchText === undefined) {
+            throw new Error('Required parameter "searchText" was null or undefined when calling ReplaceTextInRemote.');
+        }
+        /// The replaced text. 
+        // verify required parameter 'replaceText' is not null or undefined
+        if (this.replaceText === null || this.replaceText === undefined) {
+            throw new Error('Required parameter "replaceText" was null or undefined when calling ReplaceTextInRemote.');
+        }
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "searchText", this.searchText);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "replaceText", this.replaceText);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "sheetname", this.sheetname);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "cellarea", this.cellarea);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "regoin", this.regoin);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Search broken links in the local spreadsheet.   
+export class SearchBrokenLinksRequest  {
+    /// Upload spreadsheet file.  
+    public spreadsheet: any;
+    /// Specify the worksheet for the replace.  
+    public sheetname: string;
+    /// Specify the cell area for the replace.  
+    public cellarea: string;
+    /// The spreadsheet region setting.  
+    public regoin: string;
+    /// The password for opening spreadsheet file.  
+    public password: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< SearchBrokenLinksRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/searchBrokenLinks";
+        const queryParameters: any = {};
+        const formParams: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "sheetname", this.sheetname);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "cellarea", this.cellarea);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "regoin", this.regoin);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+        if (this.spreadsheet !== undefined) {
+            if (typeof this.spreadsheet === 'string') {
+                if (fs.existsSync(this.spreadsheet)) {
+                    const fileName = path.basename( this.spreadsheet)
+                    formParams[fileName] = fs.createReadStream(this.spreadsheet)
+                }
+            }
+            else {
+                for (var key in this.spreadsheet){
+                    formParams[key] = this.spreadsheet[key];
+                }
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        (requestOptions as any).formData = formParams;        
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Search broken links in the remoted spreadsheet.   
+export class SearchBrokenLinksInRemoteRequest  {
+    /// The name of the workbook file to be search.  
+    public name: string;
+    /// Specify the worksheet for the lookup.  
+    public sheetname: string;
+    /// Specify the cell area for the lookup  
+    public cellarea: string;
+    /// The folder path where the workbook is stored.  
+    public folder: string;
+    /// (Optional) The name of the storage if using custom cloud storage. Use default storage if omitted.  
+    public storageName: string;
+    /// The spreadsheet region setting.  
+    public regoin: string;
+    /// The password for opening spreadsheet file.  
+    public password: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< SearchBrokenLinksInRemoteRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/{name}/searchBrokenLinks".replace("{" + "name" + "}", String(this.name));
+        const queryParameters: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "sheetname", this.sheetname);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "cellarea", this.cellarea);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "regoin", this.regoin);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Get the specifications   
+export class SpecRequest  {
+      
+    public version: string;
+    /// The spreadsheet region setting.  
+    public regoin: string;
+    /// The password for opening spreadsheet file.  
+    public password: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< SpecRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/swagger/spec";
+        const queryParameters: any = {};
+         
+        // verify required parameter 'version' is not null or undefined
+        if (this.version === null || this.version === undefined) {
+            throw new Error('Required parameter "version" was null or undefined when calling Spec.');
+        }
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "version", this.version);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "regoin", this.regoin);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "GET",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+   
+export class CodegenSpecRequest  {
+    /// The spreadsheet region setting.  
+    public regoin: string;
+    /// The password for opening spreadsheet file.  
+    public password: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< CodegenSpecRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/codegen/spec";
+        const queryParameters: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "regoin", this.regoin);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "GET",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+   
+export class DownloadFileRequest  {
+      
+    public path: string;
+      
+    public storageName: string;
+      
+    public versionId: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< DownloadFileRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/storage/file/{path}".replace("{" + "path" + "}", String(this.path));
+        const queryParameters: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "versionId", this.versionId);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "GET",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+   
+export class UploadFileRequest  {
+    /// Upload files to cloud storage.  
+    public uploadFiles: any;
+      
+    public path: string;
+      
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< UploadFileRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/storage/file/{path}".replace("{" + "path" + "}", String(this.path));
+        const queryParameters: any = {};
+        const formParams: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+        if (this.uploadFiles !== undefined) {
+            if (typeof this.uploadFiles === 'string') {
+                if (fs.existsSync(this.uploadFiles)) {
+                    const fileName = path.basename( this.uploadFiles)
+                    formParams[fileName] = fs.createReadStream(this.uploadFiles)
+                }
+            }
+            else {
+                for (var key in this.uploadFiles){
+                    formParams[key] = this.uploadFiles[key];
+                }
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        (requestOptions as any).formData = formParams;        
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+   
+export class CopyFileRequest  {
+      
+    public srcPath: string;
+      
+    public destPath: string;
+      
+    public srcStorageName: string;
+      
+    public destStorageName: string;
+      
+    public versionId: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< CopyFileRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/storage/file/copy/{srcPath}".replace("{" + "srcPath" + "}", String(this.srcPath));
+        const queryParameters: any = {};
+         
+        // verify required parameter 'destPath' is not null or undefined
+        if (this.destPath === null || this.destPath === undefined) {
+            throw new Error('Required parameter "destPath" was null or undefined when calling CopyFile.');
+        }
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "destPath", this.destPath);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "srcStorageName", this.srcStorageName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "destStorageName", this.destStorageName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "versionId", this.versionId);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+   
+export class MoveFileRequest  {
+      
+    public srcPath: string;
+      
+    public destPath: string;
+      
+    public srcStorageName: string;
+      
+    public destStorageName: string;
+      
+    public versionId: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< MoveFileRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/storage/file/move/{srcPath}".replace("{" + "srcPath" + "}", String(this.srcPath));
+        const queryParameters: any = {};
+         
+        // verify required parameter 'destPath' is not null or undefined
+        if (this.destPath === null || this.destPath === undefined) {
+            throw new Error('Required parameter "destPath" was null or undefined when calling MoveFile.');
+        }
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "destPath", this.destPath);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "srcStorageName", this.srcStorageName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "destStorageName", this.destStorageName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "versionId", this.versionId);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+   
+export class DeleteFileRequest  {
+      
+    public path: string;
+      
+    public storageName: string;
+      
+    public versionId: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< DeleteFileRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/storage/file/{path}".replace("{" + "path" + "}", String(this.path));
+        const queryParameters: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "versionId", this.versionId);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "DELETE",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+   
+export class GetFilesListRequest  {
+      
+    public path: string;
+      
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< GetFilesListRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/storage/folder/{path}".replace("{" + "path" + "}", String(this.path));
+        const queryParameters: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "GET",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+   
+export class CreateFolderRequest  {
+      
+    public path: string;
+      
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< CreateFolderRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/storage/folder/{path}".replace("{" + "path" + "}", String(this.path));
+        const queryParameters: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+   
+export class CopyFolderRequest  {
+      
+    public srcPath: string;
+      
+    public destPath: string;
+      
+    public srcStorageName: string;
+      
+    public destStorageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< CopyFolderRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/storage/folder/copy/{srcPath}".replace("{" + "srcPath" + "}", String(this.srcPath));
+        const queryParameters: any = {};
+         
+        // verify required parameter 'destPath' is not null or undefined
+        if (this.destPath === null || this.destPath === undefined) {
+            throw new Error('Required parameter "destPath" was null or undefined when calling CopyFolder.');
+        }
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "destPath", this.destPath);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "srcStorageName", this.srcStorageName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "destStorageName", this.destStorageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+   
+export class MoveFolderRequest  {
+      
+    public srcPath: string;
+      
+    public destPath: string;
+      
+    public srcStorageName: string;
+      
+    public destStorageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< MoveFolderRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/storage/folder/move/{srcPath}".replace("{" + "srcPath" + "}", String(this.srcPath));
+        const queryParameters: any = {};
+         
+        // verify required parameter 'destPath' is not null or undefined
+        if (this.destPath === null || this.destPath === undefined) {
+            throw new Error('Required parameter "destPath" was null or undefined when calling MoveFolder.');
+        }
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "destPath", this.destPath);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "srcStorageName", this.srcStorageName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "destStorageName", this.destStorageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+   
+export class DeleteFolderRequest  {
+      
+    public path: string;
+      
+    public storageName: string;
+      
+    public recursive: boolean;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< DeleteFolderRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/storage/folder/{path}".replace("{" + "path" + "}", String(this.path));
+        const queryParameters: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "recursive", this.recursive);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "DELETE",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+   
+export class StorageExistsRequest  {
+      
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< StorageExistsRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/storage/{storageName}/exist".replace("{" + "storageName" + "}", String(this.storageName));
+        const queryParameters: any = {};
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "GET",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+   
+export class ObjectExistsRequest  {
+      
+    public path: string;
+      
+    public storageName: string;
+      
+    public versionId: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< ObjectExistsRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/storage/exist/{path}".replace("{" + "path" + "}", String(this.path));
+        const queryParameters: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "versionId", this.versionId);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "GET",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+   
+export class GetDiscUsageRequest  {
+      
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< GetDiscUsageRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/storage/disc";
+        const queryParameters: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "GET",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+   
+export class GetFileVersionsRequest  {
+      
+    public path: string;
+      
+    public storageName: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< GetFileVersionsRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/storage/version/{path}".replace("{" + "path" + "}", String(this.path));
+        const queryParameters: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "GET",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
 /// Perform business analysis of data in Excel files.   
 export class PostAnalyzeExcelRequest  {
     /// Excel files and analysis output requirements  
@@ -23581,40 +25476,6 @@ export class PostBatchSplitRequest  {
             uri: localVarPath,
             json: true,
             body:bodyParameter,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-/// Get Access Token Result   
-export class PostAccessTokenRequest  {
-    /// extend query parameter
-    public extendQueryParameterMap: any;
-
-    public constructor(init?: Partial< PostAccessTokenRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "v3.0/cells/connect/token";
-        const queryParameters: any = {};
-        if(this.extendQueryParameterMap !== undefined){
-            for (var key in this.extendQueryParameterMap){
-                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
-            }
-        }
-
-
-        // const bodyParameter = null;
-
-        const requestOptions: request.Options = {
-            method: "POST",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
         };
 
         return Promise.resolve(requestOptions);
@@ -29676,40 +31537,6 @@ export class DeleteWorksheetHyperlinksRequest  {
 
         const requestOptions: request.Options = {
             method: "DELETE",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-/// Get publi key.   
-export class GetPublicKeyRequest  {
-    /// extend query parameter
-    public extendQueryParameterMap: any;
-
-    public constructor(init?: Partial< GetPublicKeyRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "v3.0/cells/publickey";
-        const queryParameters: any = {};
-        if(this.extendQueryParameterMap !== undefined){
-            for (var key in this.extendQueryParameterMap){
-                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
-            }
-        }
-
-
-        // const bodyParameter = null;
-
-        const requestOptions: request.Options = {
-            method: "GET",
             qs: queryParameters,
             uri: localVarPath,
             json: true,
@@ -40149,626 +41976,6 @@ export class DeleteWorksheetValidationsRequest  {
 
         const requestOptions: request.Options = {
             method: "DELETE",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class DownloadFileRequest  {
-      
-    public path: string;
-      
-    public storageName: string;
-      
-    public versionId: string;
-    /// extend query parameter
-    public extendQueryParameterMap: any;
-
-    public constructor(init?: Partial< DownloadFileRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "v3.0/cells/storage/file/{path}".replace("{" + "path" + "}", String(this.path));
-        const queryParameters: any = {};
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "versionId", this.versionId);
-        if(this.extendQueryParameterMap !== undefined){
-            for (var key in this.extendQueryParameterMap){
-                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
-            }
-        }
-
-
-        // const bodyParameter = null;
-
-        const requestOptions: request.Options = {
-            method: "GET",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class UploadFileRequest  {
-    /// Upload files to cloud storage.  
-    public uploadFiles: any;
-      
-    public path: string;
-      
-    public storageName: string;
-    /// extend query parameter
-    public extendQueryParameterMap: any;
-
-    public constructor(init?: Partial< UploadFileRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "v3.0/cells/storage/file/{path}".replace("{" + "path" + "}", String(this.path));
-        const queryParameters: any = {};
-        const formParams: any = {};
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-        if(this.extendQueryParameterMap !== undefined){
-            for (var key in this.extendQueryParameterMap){
-                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
-            }
-        }
-        if (this.uploadFiles !== undefined) {
-            if (typeof this.uploadFiles === 'string') {
-                if (fs.existsSync(this.uploadFiles)) {
-                    const fileName = path.basename( this.uploadFiles)
-                    formParams[fileName] = fs.createReadStream(this.uploadFiles)
-                }
-            }
-            else {
-                for (var key in this.uploadFiles){
-                    formParams[key] = this.uploadFiles[key];
-                }
-            }
-        }
-
-
-        // const bodyParameter = null;
-
-        const requestOptions: request.Options = {
-            method: "PUT",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        (requestOptions as any).formData = formParams;        
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class CopyFileRequest  {
-      
-    public srcPath: string;
-      
-    public destPath: string;
-      
-    public srcStorageName: string;
-      
-    public destStorageName: string;
-      
-    public versionId: string;
-    /// extend query parameter
-    public extendQueryParameterMap: any;
-
-    public constructor(init?: Partial< CopyFileRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "v3.0/cells/storage/file/copy/{srcPath}".replace("{" + "srcPath" + "}", String(this.srcPath));
-        const queryParameters: any = {};
-         
-        // verify required parameter 'destPath' is not null or undefined
-        if (this.destPath === null || this.destPath === undefined) {
-            throw new Error('Required parameter "destPath" was null or undefined when calling CopyFile.');
-        }
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "destPath", this.destPath);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "srcStorageName", this.srcStorageName);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "destStorageName", this.destStorageName);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "versionId", this.versionId);
-        if(this.extendQueryParameterMap !== undefined){
-            for (var key in this.extendQueryParameterMap){
-                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
-            }
-        }
-
-
-        // const bodyParameter = null;
-
-        const requestOptions: request.Options = {
-            method: "PUT",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class MoveFileRequest  {
-      
-    public srcPath: string;
-      
-    public destPath: string;
-      
-    public srcStorageName: string;
-      
-    public destStorageName: string;
-      
-    public versionId: string;
-    /// extend query parameter
-    public extendQueryParameterMap: any;
-
-    public constructor(init?: Partial< MoveFileRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "v3.0/cells/storage/file/move/{srcPath}".replace("{" + "srcPath" + "}", String(this.srcPath));
-        const queryParameters: any = {};
-         
-        // verify required parameter 'destPath' is not null or undefined
-        if (this.destPath === null || this.destPath === undefined) {
-            throw new Error('Required parameter "destPath" was null or undefined when calling MoveFile.');
-        }
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "destPath", this.destPath);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "srcStorageName", this.srcStorageName);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "destStorageName", this.destStorageName);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "versionId", this.versionId);
-        if(this.extendQueryParameterMap !== undefined){
-            for (var key in this.extendQueryParameterMap){
-                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
-            }
-        }
-
-
-        // const bodyParameter = null;
-
-        const requestOptions: request.Options = {
-            method: "PUT",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class DeleteFileRequest  {
-      
-    public path: string;
-      
-    public storageName: string;
-      
-    public versionId: string;
-    /// extend query parameter
-    public extendQueryParameterMap: any;
-
-    public constructor(init?: Partial< DeleteFileRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "v3.0/cells/storage/file/{path}".replace("{" + "path" + "}", String(this.path));
-        const queryParameters: any = {};
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "versionId", this.versionId);
-        if(this.extendQueryParameterMap !== undefined){
-            for (var key in this.extendQueryParameterMap){
-                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
-            }
-        }
-
-
-        // const bodyParameter = null;
-
-        const requestOptions: request.Options = {
-            method: "DELETE",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class GetFilesListRequest  {
-      
-    public path: string;
-      
-    public storageName: string;
-    /// extend query parameter
-    public extendQueryParameterMap: any;
-
-    public constructor(init?: Partial< GetFilesListRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "v3.0/cells/storage/folder/{path}".replace("{" + "path" + "}", String(this.path));
-        const queryParameters: any = {};
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-        if(this.extendQueryParameterMap !== undefined){
-            for (var key in this.extendQueryParameterMap){
-                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
-            }
-        }
-
-
-        // const bodyParameter = null;
-
-        const requestOptions: request.Options = {
-            method: "GET",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class CreateFolderRequest  {
-      
-    public path: string;
-      
-    public storageName: string;
-    /// extend query parameter
-    public extendQueryParameterMap: any;
-
-    public constructor(init?: Partial< CreateFolderRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "v3.0/cells/storage/folder/{path}".replace("{" + "path" + "}", String(this.path));
-        const queryParameters: any = {};
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-        if(this.extendQueryParameterMap !== undefined){
-            for (var key in this.extendQueryParameterMap){
-                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
-            }
-        }
-
-
-        // const bodyParameter = null;
-
-        const requestOptions: request.Options = {
-            method: "PUT",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class CopyFolderRequest  {
-      
-    public srcPath: string;
-      
-    public destPath: string;
-      
-    public srcStorageName: string;
-      
-    public destStorageName: string;
-    /// extend query parameter
-    public extendQueryParameterMap: any;
-
-    public constructor(init?: Partial< CopyFolderRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "v3.0/cells/storage/folder/copy/{srcPath}".replace("{" + "srcPath" + "}", String(this.srcPath));
-        const queryParameters: any = {};
-         
-        // verify required parameter 'destPath' is not null or undefined
-        if (this.destPath === null || this.destPath === undefined) {
-            throw new Error('Required parameter "destPath" was null or undefined when calling CopyFolder.');
-        }
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "destPath", this.destPath);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "srcStorageName", this.srcStorageName);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "destStorageName", this.destStorageName);
-        if(this.extendQueryParameterMap !== undefined){
-            for (var key in this.extendQueryParameterMap){
-                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
-            }
-        }
-
-
-        // const bodyParameter = null;
-
-        const requestOptions: request.Options = {
-            method: "PUT",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class MoveFolderRequest  {
-      
-    public srcPath: string;
-      
-    public destPath: string;
-      
-    public srcStorageName: string;
-      
-    public destStorageName: string;
-    /// extend query parameter
-    public extendQueryParameterMap: any;
-
-    public constructor(init?: Partial< MoveFolderRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "v3.0/cells/storage/folder/move/{srcPath}".replace("{" + "srcPath" + "}", String(this.srcPath));
-        const queryParameters: any = {};
-         
-        // verify required parameter 'destPath' is not null or undefined
-        if (this.destPath === null || this.destPath === undefined) {
-            throw new Error('Required parameter "destPath" was null or undefined when calling MoveFolder.');
-        }
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "destPath", this.destPath);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "srcStorageName", this.srcStorageName);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "destStorageName", this.destStorageName);
-        if(this.extendQueryParameterMap !== undefined){
-            for (var key in this.extendQueryParameterMap){
-                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
-            }
-        }
-
-
-        // const bodyParameter = null;
-
-        const requestOptions: request.Options = {
-            method: "PUT",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class DeleteFolderRequest  {
-      
-    public path: string;
-      
-    public storageName: string;
-      
-    public recursive: boolean;
-    /// extend query parameter
-    public extendQueryParameterMap: any;
-
-    public constructor(init?: Partial< DeleteFolderRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "v3.0/cells/storage/folder/{path}".replace("{" + "path" + "}", String(this.path));
-        const queryParameters: any = {};
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "recursive", this.recursive);
-        if(this.extendQueryParameterMap !== undefined){
-            for (var key in this.extendQueryParameterMap){
-                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
-            }
-        }
-
-
-        // const bodyParameter = null;
-
-        const requestOptions: request.Options = {
-            method: "DELETE",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class StorageExistsRequest  {
-      
-    public storageName: string;
-    /// extend query parameter
-    public extendQueryParameterMap: any;
-
-    public constructor(init?: Partial< StorageExistsRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "v3.0/cells/storage/{storageName}/exist".replace("{" + "storageName" + "}", String(this.storageName));
-        const queryParameters: any = {};
-        if(this.extendQueryParameterMap !== undefined){
-            for (var key in this.extendQueryParameterMap){
-                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
-            }
-        }
-
-
-        // const bodyParameter = null;
-
-        const requestOptions: request.Options = {
-            method: "GET",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class ObjectExistsRequest  {
-      
-    public path: string;
-      
-    public storageName: string;
-      
-    public versionId: string;
-    /// extend query parameter
-    public extendQueryParameterMap: any;
-
-    public constructor(init?: Partial< ObjectExistsRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "v3.0/cells/storage/exist/{path}".replace("{" + "path" + "}", String(this.path));
-        const queryParameters: any = {};
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "versionId", this.versionId);
-        if(this.extendQueryParameterMap !== undefined){
-            for (var key in this.extendQueryParameterMap){
-                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
-            }
-        }
-
-
-        // const bodyParameter = null;
-
-        const requestOptions: request.Options = {
-            method: "GET",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class GetDiscUsageRequest  {
-      
-    public storageName: string;
-    /// extend query parameter
-    public extendQueryParameterMap: any;
-
-    public constructor(init?: Partial< GetDiscUsageRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "v3.0/cells/storage/disc";
-        const queryParameters: any = {};
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-        if(this.extendQueryParameterMap !== undefined){
-            for (var key in this.extendQueryParameterMap){
-                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
-            }
-        }
-
-
-        // const bodyParameter = null;
-
-        const requestOptions: request.Options = {
-            method: "GET",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-   
-export class GetFileVersionsRequest  {
-      
-    public path: string;
-      
-    public storageName: string;
-    /// extend query parameter
-    public extendQueryParameterMap: any;
-
-    public constructor(init?: Partial< GetFileVersionsRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "v3.0/cells/storage/version/{path}".replace("{" + "path" + "}", String(this.path));
-        const queryParameters: any = {};
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-        if(this.extendQueryParameterMap !== undefined){
-            for (var key in this.extendQueryParameterMap){
-                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
-            }
-        }
-
-
-        // const bodyParameter = null;
-
-        const requestOptions: request.Options = {
-            method: "GET",
             qs: queryParameters,
             uri: localVarPath,
             json: true,
