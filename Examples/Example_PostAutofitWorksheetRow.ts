@@ -24,6 +24,7 @@ request.firstColumn =  1;
 request.lastColumn =  8;
 request.folder =  remoteFolder;
 request.storageName =  "";
+request.rowCount =  1;
 return cellsApi.postAutofitWorksheetRow(request).then((result) => {
     expect(result.response.statusCode).to.equal(200);
 });

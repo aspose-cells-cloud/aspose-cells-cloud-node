@@ -17,7 +17,7 @@ cellsApi.uploadFile(localNameRequest );
  
 var trimContentOptionsDataSource = new model.DataSource();
  trimContentOptionsDataSource.dataSourceType = "CloudFileSystem"  ;
- trimContentOptionsDataSource.dataPath = "BookText.xlsx"  ;
+ trimContentOptionsDataSource.dataPath = "TestData/In/BookText.xlsx"  ;
 var trimContentOptionsScopeOptions = new model.ScopeOptions();
  trimContentOptionsScopeOptions.scope = "EntireWorkbook"  ;
 var trimContentOptions = new model.TrimContentOptions();

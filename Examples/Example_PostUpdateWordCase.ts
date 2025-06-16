@@ -17,7 +17,7 @@ cellsApi.uploadFile(localNameRequest );
  
 var wordCaseOptionsDataSource = new model.DataSource();
  wordCaseOptionsDataSource.dataSourceType = "CloudFileSystem"  ;
- wordCaseOptionsDataSource.dataPath = "BookText.xlsx"  ;
+ wordCaseOptionsDataSource.dataPath = "TestData/In/BookText.xlsx"  ;
 var wordCaseOptionsScopeOptions = new model.ScopeOptions();
  wordCaseOptionsScopeOptions.scope = "EntireWorkbook"  ;
 var wordCaseOptions = new model.WordCaseOptions();

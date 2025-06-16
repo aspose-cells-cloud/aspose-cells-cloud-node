@@ -19,40 +19,40 @@ describe('Splitter test', function() {
     const cellsApi = new api.CellsApi(clientId, clientSecret,"v3.0",ApiURL);
 
     describe('split_local_file test', function(){
-      it("should call SplitFile successfully" , function(){
+      it("should call SplitSpreadsheet successfully" , function(){
       
         var book1Xlsx = "Book1.xlsx"
         var outFormat = "PDF"
 
      
 
-        var request = new model.SplitFileRequest();
+        var request = new model.SplitSpreadsheetRequest();
         request.spreadsheet =  "TestData/" + book1Xlsx;
         request.outFormat =  outFormat;
-        return cellsApi.splitFile(request).then((result) => {
+        return cellsApi.splitSpreadsheet(request).then((result) => {
             expect(result.response.statusCode).to.equal(200);
         });
       });
     }); 
     describe('split_local_file_to_remote_folder test', function(){
-      it("should call SplitFile successfully" , function(){
+      it("should call SplitSpreadsheet successfully" , function(){
       
         var book1Xlsx = "Book1.xlsx"
         var outFormat = "PDF"
 
      
 
-        var request = new model.SplitFileRequest();
+        var request = new model.SplitSpreadsheetRequest();
         request.spreadsheet =  "TestData/" + book1Xlsx;
         request.outFormat =  outFormat;
         request.outPath =  "TestData/Out";
-        return cellsApi.splitFile(request).then((result) => {
+        return cellsApi.splitSpreadsheet(request).then((result) => {
             expect(result.response.statusCode).to.equal(200);
         });
       });
     }); 
     describe('split_file_in_remote test', function(){
-      it("should call SplitFileInRemote successfully" , function(){
+      it("should call SplitRemoteSpreadsheet successfully" , function(){
       
         var remoteFolder = "TestData/In"
         var book1Xlsx = "Book1.xlsx"
@@ -60,12 +60,12 @@ describe('Splitter test', function() {
 
      
 
-        var request = new model.SplitFileInRemoteRequest();
+        var request = new model.SplitRemoteSpreadsheetRequest();
         request.name =  book1Xlsx;
         request.folder =  remoteFolder;
         request.outFormat =  outFormat;
         request.outPath =  "TestData/Out";
-        return cellsApi.splitFileInRemote(request).then((result) => {
+        return cellsApi.splitRemoteSpreadsheet(request).then((result) => {
             expect(result.response.statusCode).to.equal(200);
         });
       });

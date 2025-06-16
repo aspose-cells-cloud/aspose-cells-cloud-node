@@ -104,11 +104,27 @@ export class CellsApi {
     /// <summary>
     /// Converts a spreadsheet in cloud storage to the specified format.
     /// </summary>
-    /// <param name="request">Request. <see cref="GetWorkbookWithFormatRequest" /></param>
-    public async getWorkbookWithFormat(requestObj:model.GetWorkbookWithFormatRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
+    /// <param name="request">Request. <see cref="ExportSpreadsheetAsFormatRequest" /></param>
+    public async exportSpreadsheetAsFormat(requestObj:model.ExportSpreadsheetAsFormatRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
     {
         if (requestObj === null || requestObj === undefined) {
-            throw new Error('Required parameter "requestObj" was null or undefined when calling getWorkbookWithFormat.');
+            throw new Error('Required parameter "requestObj" was null or undefined when calling exportSpreadsheetAsFormat.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "Buffer");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// Converts a chart of spreadsheet in cloud storage to the specified format.
+    /// </summary>
+    /// <param name="request">Request. <see cref="ExportChartAsFormatRequest" /></param>
+    public async exportChartAsFormat(requestObj:model.ExportChartAsFormatRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling exportChartAsFormat.');
         }
 
         const requestOptions = await requestObj.createRequestOptions(this.configuration);
@@ -120,11 +136,43 @@ export class CellsApi {
     /// <summary>
     /// Converts a spreadsheet on a local drive to the specified format.
     /// </summary>
-    /// <param name="request">Request. <see cref="ConvertWorkbookRequest" /></param>
-    public async convertWorkbook(requestObj:model.ConvertWorkbookRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
+    /// <param name="request">Request. <see cref="ConvertSpreadsheetRequest" /></param>
+    public async convertSpreadsheet(requestObj:model.ConvertSpreadsheetRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
     {
         if (requestObj === null || requestObj === undefined) {
-            throw new Error('Required parameter "requestObj" was null or undefined when calling convertWorkbook.');
+            throw new Error('Required parameter "requestObj" was null or undefined when calling convertSpreadsheet.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "Buffer");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// Converts a chart of spreadsheet on a local drive to image.
+    /// </summary>
+    /// <param name="request">Request. <see cref="ConvertChartToImageRequest" /></param>
+    public async convertChartToImage(requestObj:model.ConvertChartToImageRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling convertChartToImage.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "Buffer");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// Converts a chart of spreadsheet on a local drive to pdf.
+    /// </summary>
+    /// <param name="request">Request. <see cref="ConvertChartToPdfRequest" /></param>
+    public async convertChartToPdf(requestObj:model.ConvertChartToPdfRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling convertChartToPdf.');
         }
 
         const requestOptions = await requestObj.createRequestOptions(this.configuration);
@@ -136,11 +184,11 @@ export class CellsApi {
     /// <summary>
     /// Converts a spreadsheet in cloud storage to the specified format.
     /// </summary>
-    /// <param name="request">Request. <see cref="WorkbookSaveAsRequest" /></param>
-    public async workbookSaveAs(requestObj:model.WorkbookSaveAsRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
+    /// <param name="request">Request. <see cref="SaveSpreadsheetAsRequest" /></param>
+    public async saveSpreadsheetAs(requestObj:model.SaveSpreadsheetAsRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
     {
         if (requestObj === null || requestObj === undefined) {
-            throw new Error('Required parameter "requestObj" was null or undefined when calling workbookSaveAs.');
+            throw new Error('Required parameter "requestObj" was null or undefined when calling saveSpreadsheetAs.');
         }
 
         const requestOptions = await requestObj.createRequestOptions(this.configuration);
@@ -152,11 +200,11 @@ export class CellsApi {
     /// <summary>
     /// Merge local spreadsheet files into a specified format file.
     /// </summary>
-    /// <param name="request">Request. <see cref="MergeFilesRequest" /></param>
-    public async mergeFiles(requestObj:model.MergeFilesRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
+    /// <param name="request">Request. <see cref="MergeSpreadsheetsRequest" /></param>
+    public async mergeSpreadsheets(requestObj:model.MergeSpreadsheetsRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
     {
         if (requestObj === null || requestObj === undefined) {
-            throw new Error('Required parameter "requestObj" was null or undefined when calling mergeFiles.');
+            throw new Error('Required parameter "requestObj" was null or undefined when calling mergeSpreadsheets.');
         }
 
         const requestOptions = await requestObj.createRequestOptions(this.configuration);
@@ -166,13 +214,29 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Merge spreadsheet files in cloud storage into a specified format file.
+    /// Merge spreadsheet files in folder of cloud storage into a specified format file.
     /// </summary>
-    /// <param name="request">Request. <see cref="MergeFilesInRemoteFolderRequest" /></param>
-    public async mergeFilesInRemoteFolder(requestObj:model.MergeFilesInRemoteFolderRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
+    /// <param name="request">Request. <see cref="MergeSpreadsheetsInRemoteFolderRequest" /></param>
+    public async mergeSpreadsheetsInRemoteFolder(requestObj:model.MergeSpreadsheetsInRemoteFolderRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
     {
         if (requestObj === null || requestObj === undefined) {
-            throw new Error('Required parameter "requestObj" was null or undefined when calling mergeFilesInRemoteFolder.');
+            throw new Error('Required parameter "requestObj" was null or undefined when calling mergeSpreadsheetsInRemoteFolder.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "Buffer");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// Merge a spreadsheet file into other spreadsheet in cloud storage, and output a specified format file.
+    /// </summary>
+    /// <param name="request">Request. <see cref="MergeRemoteSpreadsheetRequest" /></param>
+    public async mergeRemoteSpreadsheet(requestObj:model.MergeRemoteSpreadsheetRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling mergeRemoteSpreadsheet.');
         }
 
         const requestOptions = await requestObj.createRequestOptions(this.configuration);
@@ -184,11 +248,11 @@ export class CellsApi {
     /// <summary>
     /// Split a local spreadsheet into the specified format, multi-file.
     /// </summary>
-    /// <param name="request">Request. <see cref="SplitFileRequest" /></param>
-    public async splitFile(requestObj:model.SplitFileRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
+    /// <param name="request">Request. <see cref="SplitSpreadsheetRequest" /></param>
+    public async splitSpreadsheet(requestObj:model.SplitSpreadsheetRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
     {
         if (requestObj === null || requestObj === undefined) {
-            throw new Error('Required parameter "requestObj" was null or undefined when calling splitFile.');
+            throw new Error('Required parameter "requestObj" was null or undefined when calling splitSpreadsheet.');
         }
 
         const requestOptions = await requestObj.createRequestOptions(this.configuration);
@@ -200,11 +264,11 @@ export class CellsApi {
     /// <summary>
     /// Split a spreadsheet in cloud storage into the specified format, multi-file.
     /// </summary>
-    /// <param name="request">Request. <see cref="SplitFileInRemoteRequest" /></param>
-    public async splitFileInRemote(requestObj:model.SplitFileInRemoteRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
+    /// <param name="request">Request. <see cref="SplitRemoteSpreadsheetRequest" /></param>
+    public async splitRemoteSpreadsheet(requestObj:model.SplitRemoteSpreadsheetRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
     {
         if (requestObj === null || requestObj === undefined) {
-            throw new Error('Required parameter "requestObj" was null or undefined when calling splitFileInRemote.');
+            throw new Error('Required parameter "requestObj" was null or undefined when calling splitRemoteSpreadsheet.');
         }
 
         const requestOptions = await requestObj.createRequestOptions(this.configuration);
@@ -232,11 +296,11 @@ export class CellsApi {
     /// <summary>
     /// Search text in the local spreadsheet.
     /// </summary>
-    /// <param name="request">Request. <see cref="SearchTextRequest" /></param>
-    public async searchText(requestObj:model.SearchTextRequest ): Promise<{response: http.ClientResponse, body: model.SearchResponse}>
+    /// <param name="request">Request. <see cref="SearchSpreadsheetContentRequest" /></param>
+    public async searchSpreadsheetContent(requestObj:model.SearchSpreadsheetContentRequest ): Promise<{response: http.ClientResponse, body: model.SearchResponse}>
     {
         if (requestObj === null || requestObj === undefined) {
-            throw new Error('Required parameter "requestObj" was null or undefined when calling searchText.');
+            throw new Error('Required parameter "requestObj" was null or undefined when calling searchSpreadsheetContent.');
         }
 
         const requestOptions = await requestObj.createRequestOptions(this.configuration);
@@ -248,11 +312,43 @@ export class CellsApi {
     /// <summary>
     /// Search text in the remoted spreadsheet.
     /// </summary>
-    /// <param name="request">Request. <see cref="SearchTextInRemoteRequest" /></param>
-    public async searchTextInRemote(requestObj:model.SearchTextInRemoteRequest ): Promise<{response: http.ClientResponse, body: model.SearchResponse}>
+    /// <param name="request">Request. <see cref="SearchContentInRemoteSpreadsheetRequest" /></param>
+    public async searchContentInRemoteSpreadsheet(requestObj:model.SearchContentInRemoteSpreadsheetRequest ): Promise<{response: http.ClientResponse, body: model.SearchResponse}>
     {
         if (requestObj === null || requestObj === undefined) {
-            throw new Error('Required parameter "requestObj" was null or undefined when calling searchTextInRemote.');
+            throw new Error('Required parameter "requestObj" was null or undefined when calling searchContentInRemoteSpreadsheet.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "SearchResponse");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// Search text in the worksheet of remoted spreadsheet.
+    /// </summary>
+    /// <param name="request">Request. <see cref="SearchContentInRemoteWorksheetRequest" /></param>
+    public async searchContentInRemoteWorksheet(requestObj:model.SearchContentInRemoteWorksheetRequest ): Promise<{response: http.ClientResponse, body: model.SearchResponse}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling searchContentInRemoteWorksheet.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "SearchResponse");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// Search text in the range of remoted spreadsheet.
+    /// </summary>
+    /// <param name="request">Request. <see cref="SearchContentInRemoteRangeRequest" /></param>
+    public async searchContentInRemoteRange(requestObj:model.SearchContentInRemoteRangeRequest ): Promise<{response: http.ClientResponse, body: model.SearchResponse}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling searchContentInRemoteRange.');
         }
 
         const requestOptions = await requestObj.createRequestOptions(this.configuration);
@@ -264,11 +360,11 @@ export class CellsApi {
     /// <summary>
     /// Replace text in the local spreadsheet.
     /// </summary>
-    /// <param name="request">Request. <see cref="ReplaceTextRequest" /></param>
-    public async replaceText(requestObj:model.ReplaceTextRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
+    /// <param name="request">Request. <see cref="ReplaceSpreadsheetContentRequest" /></param>
+    public async replaceSpreadsheetContent(requestObj:model.ReplaceSpreadsheetContentRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
     {
         if (requestObj === null || requestObj === undefined) {
-            throw new Error('Required parameter "requestObj" was null or undefined when calling replaceText.');
+            throw new Error('Required parameter "requestObj" was null or undefined when calling replaceSpreadsheetContent.');
         }
 
         const requestOptions = await requestObj.createRequestOptions(this.configuration);
@@ -280,11 +376,43 @@ export class CellsApi {
     /// <summary>
     /// Replace text in the remoted spreadsheet.
     /// </summary>
-    /// <param name="request">Request. <see cref="ReplaceTextInRemoteRequest" /></param>
-    public async replaceTextInRemote(requestObj:model.ReplaceTextInRemoteRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
+    /// <param name="request">Request. <see cref="ReplaceContentInRemoteSpreadsheetRequest" /></param>
+    public async replaceContentInRemoteSpreadsheet(requestObj:model.ReplaceContentInRemoteSpreadsheetRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
     {
         if (requestObj === null || requestObj === undefined) {
-            throw new Error('Required parameter "requestObj" was null or undefined when calling replaceTextInRemote.');
+            throw new Error('Required parameter "requestObj" was null or undefined when calling replaceContentInRemoteSpreadsheet.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "CellsCloudResponse");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// Replace text in the worksheet of remoted spreadsheet.
+    /// </summary>
+    /// <param name="request">Request. <see cref="ReplaceContentInRemoteWorksheetRequest" /></param>
+    public async replaceContentInRemoteWorksheet(requestObj:model.ReplaceContentInRemoteWorksheetRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling replaceContentInRemoteWorksheet.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "CellsCloudResponse");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// Replace text in the range of remoted spreadsheet.
+    /// </summary>
+    /// <param name="request">Request. <see cref="ReplaceContentInRemoteRangeRequest" /></param>
+    public async replaceContentInRemoteRange(requestObj:model.ReplaceContentInRemoteRangeRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling replaceContentInRemoteRange.');
         }
 
         const requestOptions = await requestObj.createRequestOptions(this.configuration);
@@ -296,11 +424,11 @@ export class CellsApi {
     /// <summary>
     /// Search broken links in the local spreadsheet.
     /// </summary>
-    /// <param name="request">Request. <see cref="SearchBrokenLinksRequest" /></param>
-    public async searchBrokenLinks(requestObj:model.SearchBrokenLinksRequest ): Promise<{response: http.ClientResponse, body: model.BrokenLinksReponse}>
+    /// <param name="request">Request. <see cref="SearchSpreadsheetBrokenLinksRequest" /></param>
+    public async searchSpreadsheetBrokenLinks(requestObj:model.SearchSpreadsheetBrokenLinksRequest ): Promise<{response: http.ClientResponse, body: model.BrokenLinksReponse}>
     {
         if (requestObj === null || requestObj === undefined) {
-            throw new Error('Required parameter "requestObj" was null or undefined when calling searchBrokenLinks.');
+            throw new Error('Required parameter "requestObj" was null or undefined when calling searchSpreadsheetBrokenLinks.');
         }
 
         const requestOptions = await requestObj.createRequestOptions(this.configuration);
@@ -312,11 +440,43 @@ export class CellsApi {
     /// <summary>
     /// Search broken links in the remoted spreadsheet.
     /// </summary>
-    /// <param name="request">Request. <see cref="SearchBrokenLinksInRemoteRequest" /></param>
-    public async searchBrokenLinksInRemote(requestObj:model.SearchBrokenLinksInRemoteRequest ): Promise<{response: http.ClientResponse, body: model.BrokenLinksReponse}>
+    /// <param name="request">Request. <see cref="SearchBrokenLinksInRemoteSpreadsheetRequest" /></param>
+    public async searchBrokenLinksInRemoteSpreadsheet(requestObj:model.SearchBrokenLinksInRemoteSpreadsheetRequest ): Promise<{response: http.ClientResponse, body: model.BrokenLinksReponse}>
     {
         if (requestObj === null || requestObj === undefined) {
-            throw new Error('Required parameter "requestObj" was null or undefined when calling searchBrokenLinksInRemote.');
+            throw new Error('Required parameter "requestObj" was null or undefined when calling searchBrokenLinksInRemoteSpreadsheet.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "BrokenLinksReponse");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// Search broken links in the worksheet of remoted spreadsheet.
+    /// </summary>
+    /// <param name="request">Request. <see cref="SearchBrokenLinksInRemoteWorksheetRequest" /></param>
+    public async searchBrokenLinksInRemoteWorksheet(requestObj:model.SearchBrokenLinksInRemoteWorksheetRequest ): Promise<{response: http.ClientResponse, body: model.BrokenLinksReponse}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling searchBrokenLinksInRemoteWorksheet.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "BrokenLinksReponse");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// Search broken links in the range of remoted spreadsheet.
+    /// </summary>
+    /// <param name="request">Request. <see cref="SearchBrokenLinksInRemoteRangeRequest" /></param>
+    public async searchBrokenLinksInRemoteRange(requestObj:model.SearchBrokenLinksInRemoteRangeRequest ): Promise<{response: http.ClientResponse, body: model.BrokenLinksReponse}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling searchBrokenLinksInRemoteRange.');
         }
 
         const requestOptions = await requestObj.createRequestOptions(this.configuration);
@@ -353,6 +513,54 @@ export class CellsApi {
         const requestOptions = await requestObj.createRequestOptions(this.configuration);
         const response = await invokeApiMethod(requestOptions, this.configuration);
         const result =  ObjectSerializer.deserialize(response.body, "any");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// Delete all blank rows which do not contain any data or other object.
+    /// </summary>
+    /// <param name="request">Request. <see cref="DeleteSpreadsheetBlankRowsRequest" /></param>
+    public async deleteSpreadsheetBlankRows(requestObj:model.DeleteSpreadsheetBlankRowsRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling deleteSpreadsheetBlankRows.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "Buffer");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// Delete all blank columns which do not contain any data.
+    /// </summary>
+    /// <param name="request">Request. <see cref="DeleteSpreadsheetBlankColumnsRequest" /></param>
+    public async deleteSpreadsheetBlankColumns(requestObj:model.DeleteSpreadsheetBlankColumnsRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling deleteSpreadsheetBlankColumns.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "Buffer");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// Delete all blank worksheets which do not contain any data or other object.
+    /// </summary>
+    /// <param name="request">Request. <see cref="DeleteSpreadsheetBlankWorksheetsRequest" /></param>
+    public async deleteSpreadsheetBlankWorksheets(requestObj:model.DeleteSpreadsheetBlankWorksheetsRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling deleteSpreadsheetBlankWorksheets.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "Buffer");
         return Promise.resolve({body: result, response});
     }
 

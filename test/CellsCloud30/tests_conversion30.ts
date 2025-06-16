@@ -14,7 +14,7 @@ var path = require('path');
 var assert = require('assert');
 
 
-describe('Conversion test', function() {
+describe('Conversion30 test', function() {
     this.timeout(200000);
     const cellsApi = new api.CellsApi(clientId, clientSecret,"v3.0",ApiURL);
 
@@ -915,7 +915,6 @@ describe('Conversion test', function() {
       it("should call PutConvertWorkbook successfully" , function(){
       
         var localName = "Book1.xlsx"
-        var remoteName = "Book1.xlsx"
 
      
         var format = "csv"
@@ -936,7 +935,6 @@ describe('Conversion test', function() {
       it("should call PutConvertWorkbook successfully" , function(){
       
         var localName = "Book1.xlsx"
-        var remoteName = "Book1.xlsx"
 
      
         var format = "xls"
@@ -957,7 +955,6 @@ describe('Conversion test', function() {
       it("should call PutConvertWorkbook successfully" , function(){
       
         var localName = "Book1.xlsx"
-        var remoteName = "Book1.xlsx"
 
      
         var format = "html"
@@ -978,7 +975,6 @@ describe('Conversion test', function() {
       it("should call PutConvertWorkbook successfully" , function(){
       
         var localName = "Book1.xlsx"
-        var remoteName = "Book1.xlsx"
 
      
         var format = "mhtml"
@@ -999,7 +995,6 @@ describe('Conversion test', function() {
       it("should call PutConvertWorkbook successfully" , function(){
       
         var localName = "Book1.xlsx"
-        var remoteName = "Book1.xlsx"
 
      
         var format = "ods"
@@ -1020,7 +1015,6 @@ describe('Conversion test', function() {
       it("should call PutConvertWorkbook successfully" , function(){
       
         var localName = "Book1.xlsx"
-        var remoteName = "Book1.xlsx"
 
      
         var format = "pdf"
@@ -1041,7 +1035,6 @@ describe('Conversion test', function() {
       it("should call PutConvertWorkbook successfully" , function(){
       
         var localName = "Book1.xlsx"
-        var remoteName = "Book1.xlsx"
 
      
         var format = "xml"
@@ -1062,7 +1055,6 @@ describe('Conversion test', function() {
       it("should call PutConvertWorkbook successfully" , function(){
       
         var localName = "Book1.xlsx"
-        var remoteName = "Book1.xlsx"
 
      
         var format = "txt"
@@ -1083,7 +1075,6 @@ describe('Conversion test', function() {
       it("should call PutConvertWorkbook successfully" , function(){
       
         var localName = "Book1.xlsx"
-        var remoteName = "Book1.xlsx"
 
      
         var format = "tif"
@@ -1104,7 +1095,6 @@ describe('Conversion test', function() {
       it("should call PutConvertWorkbook successfully" , function(){
       
         var localName = "Book1.xlsx"
-        var remoteName = "Book1.xlsx"
 
      
         var format = "xlsb"
@@ -1125,7 +1115,6 @@ describe('Conversion test', function() {
       it("should call PutConvertWorkbook successfully" , function(){
       
         var localName = "Book1.xlsx"
-        var remoteName = "Book1.xlsx"
 
      
         var format = "xps"
@@ -1146,7 +1135,6 @@ describe('Conversion test', function() {
       it("should call PutConvertWorkbook successfully" , function(){
       
         var localName = "Book1.xlsx"
-        var remoteName = "Book1.xlsx"
 
      
         var format = "png"
@@ -1167,7 +1155,6 @@ describe('Conversion test', function() {
       it("should call PutConvertWorkbook successfully" , function(){
       
         var localName = "Book1.xlsx"
-        var remoteName = "Book1.xlsx"
 
      
         var format = "md"
@@ -1188,7 +1175,6 @@ describe('Conversion test', function() {
       it("should call PutConvertWorkbook successfully" , function(){
       
         var localName = "Book1.xlsx"
-        var remoteName = "Book1.xlsx"
 
      
         var format = "svg"
@@ -1209,7 +1195,6 @@ describe('Conversion test', function() {
       it("should call PutConvertWorkbook successfully" , function(){
       
         var localName = "Book1.xlsx"
-        var remoteName = "Book1.xlsx"
 
      
         var format = "docx"
@@ -1230,7 +1215,6 @@ describe('Conversion test', function() {
       it("should call PutConvertWorkbook successfully" , function(){
       
         var localName = "Book1.xlsx"
-        var remoteName = "Book1.xlsx"
 
      
         var format = "pptx"
@@ -1251,7 +1235,6 @@ describe('Conversion test', function() {
       it("should call PutConvertWorkbook successfully" , function(){
       
         var localName = "Book1.xlsx"
-        var remoteName = "Book1.xlsx"
 
      
         var format = "json"
@@ -1272,7 +1255,6 @@ describe('Conversion test', function() {
       it("should call PutConvertWorkbook successfully" , function(){
       
         var localName = "Book1.xlsx"
-        var remoteName = "Book1.xlsx"
 
      
         var format = "sql"
@@ -1293,7 +1275,6 @@ describe('Conversion test', function() {
       it("should call PutConvertWorkbook successfully" , function(){
       
         var localName = "Book1.xlsx"
-        var remoteName = "Book1.xlsx"
 
      
         var format = "csv"
@@ -1316,7 +1297,6 @@ describe('Conversion test', function() {
       it("should call PutConvertWorkbook successfully" , function(){
       
         var localName = "Book1.xlsx"
-        var remoteName = "Book1.xlsx"
 
      
         var format = "xls"
@@ -1339,7 +1319,6 @@ describe('Conversion test', function() {
       it("should call PutConvertWorkbook successfully" , function(){
       
         var localName = "Book1.xlsx"
-        var remoteName = "Book1.xlsx"
 
      
         var format = "html"
@@ -1362,7 +1341,6 @@ describe('Conversion test', function() {
       it("should call PutConvertWorkbook successfully" , function(){
       
         var localName = "Book1.xlsx"
-        var remoteName = "Book1.xlsx"
 
      
         var format = "mhtml"
@@ -1385,7 +1363,6 @@ describe('Conversion test', function() {
       it("should call PutConvertWorkbook successfully" , function(){
       
         var localName = "Book1.xlsx"
-        var remoteName = "Book1.xlsx"
 
      
         var format = "ods"
@@ -1408,7 +1385,6 @@ describe('Conversion test', function() {
       it("should call PutConvertWorkbook successfully" , function(){
       
         var localName = "Book1.xlsx"
-        var remoteName = "Book1.xlsx"
 
      
         var format = "pdf"
@@ -1431,7 +1407,6 @@ describe('Conversion test', function() {
       it("should call PutConvertWorkbook successfully" , function(){
       
         var localName = "Book1.xlsx"
-        var remoteName = "Book1.xlsx"
 
      
         var format = "xml"
@@ -1454,7 +1429,6 @@ describe('Conversion test', function() {
       it("should call PutConvertWorkbook successfully" , function(){
       
         var localName = "Book1.xlsx"
-        var remoteName = "Book1.xlsx"
 
      
         var format = "txt"
@@ -1477,7 +1451,6 @@ describe('Conversion test', function() {
       it("should call PutConvertWorkbook successfully" , function(){
       
         var localName = "Book1.xlsx"
-        var remoteName = "Book1.xlsx"
 
      
         var format = "tif"
@@ -1500,7 +1473,6 @@ describe('Conversion test', function() {
       it("should call PutConvertWorkbook successfully" , function(){
       
         var localName = "Book1.xlsx"
-        var remoteName = "Book1.xlsx"
 
      
         var format = "xlsb"
@@ -1523,7 +1495,6 @@ describe('Conversion test', function() {
       it("should call PutConvertWorkbook successfully" , function(){
       
         var localName = "Book1.xlsx"
-        var remoteName = "Book1.xlsx"
 
      
         var format = "xltm"
@@ -1546,7 +1517,6 @@ describe('Conversion test', function() {
       it("should call PutConvertWorkbook successfully" , function(){
       
         var localName = "Book1.xlsx"
-        var remoteName = "Book1.xlsx"
 
      
         var format = "xps"
@@ -1569,7 +1539,6 @@ describe('Conversion test', function() {
       it("should call PutConvertWorkbook successfully" , function(){
       
         var localName = "Book1.xlsx"
-        var remoteName = "Book1.xlsx"
 
      
         var format = "png"
@@ -1592,7 +1561,6 @@ describe('Conversion test', function() {
       it("should call PutConvertWorkbook successfully" , function(){
       
         var localName = "Book1.xlsx"
-        var remoteName = "Book1.xlsx"
 
      
         var format = "md"
@@ -1615,7 +1583,6 @@ describe('Conversion test', function() {
       it("should call PutConvertWorkbook successfully" , function(){
       
         var localName = "Book1.xlsx"
-        var remoteName = "Book1.xlsx"
 
      
         var format = "svg"
@@ -1638,7 +1605,6 @@ describe('Conversion test', function() {
       it("should call PutConvertWorkbook successfully" , function(){
       
         var localName = "Book1.xlsx"
-        var remoteName = "Book1.xlsx"
 
      
         var format = "docx"
@@ -1661,7 +1627,6 @@ describe('Conversion test', function() {
       it("should call PutConvertWorkbook successfully" , function(){
       
         var localName = "Book1.xlsx"
-        var remoteName = "Book1.xlsx"
 
      
         var format = "pptx"
@@ -1684,7 +1649,6 @@ describe('Conversion test', function() {
       it("should call PutConvertWorkbook successfully" , function(){
       
         var localName = "Book1.xlsx"
-        var remoteName = "Book1.xlsx"
 
      
         var format = "json"
@@ -1707,7 +1671,6 @@ describe('Conversion test', function() {
       it("should call PutConvertWorkbook successfully" , function(){
       
         var localName = "Book1.xlsx"
-        var remoteName = "Book1.xlsx"
 
      
         var format = "sql"

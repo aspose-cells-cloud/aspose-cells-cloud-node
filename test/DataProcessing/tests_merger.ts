@@ -18,8 +18,8 @@ describe('Merger test', function() {
     this.timeout(200000);
     const cellsApi = new api.CellsApi(clientId, clientSecret,"v3.0",ApiURL);
 
-    describe('merge_files_in_remote_folder test', function(){
-      it("should call MergeFilesInRemoteFolder successfully" , function(){
+    describe('merge_remote_spreadsheet test', function(){
+      it("should call MergeRemoteSpreadsheet successfully" , function(){
         var remoteFolder = "TestData/In"
         var book1Xlsx = "Book1.xlsx"
         var bookTextXlsx = "BookText.xlsx"
@@ -36,11 +36,11 @@ describe('Merger test', function() {
         cellsApi.uploadFile(book1XlsxRequest );
      
 
-        var request = new model.MergeFilesInRemoteFolderRequest();
+        var request = new model.MergeRemoteSpreadsheetRequest();
+        request.name =  bookTextXlsx;
+        request.mergedSpreadsheet =  remoteFolder + "/" + book1Xlsx;
         request.folder =  remoteFolder;
-        request.fileMatchExpression =  "xlsx";
-        request.outFormat =  "pdf";
-        return cellsApi.mergeFilesInRemoteFolder(request).then((result) => {
+        return cellsApi.mergeRemoteSpreadsheet(request).then((result) => {
             expect(result.response.statusCode).to.equal(200);
         });
       });

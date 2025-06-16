@@ -98,86 +98,6 @@ describe('LightCells test', function() {
         });
       });
     }); 
-    describe('post_split_xml test', function(){
-      it("should call PostSplit successfully" , function(){
-      
-        var book1Xlsx = "Book1.xlsx"
-
-     
-        var outFormat = "xml"
-
-        var mapFiles = {};           
-
-         mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
-
-        var request = new model.PostSplitRequest();
-        request.file =  mapFiles;
-        request.outFormat =  outFormat;
-        return cellsApi.postSplit(request).then((result) => {
-            expect(result.response.statusCode).to.equal(200);
-        });
-      });
-    }); 
-    describe('post_split_tif test', function(){
-      it("should call PostSplit successfully" , function(){
-      
-        var book1Xlsx = "Book1.xlsx"
-
-     
-        var outFormat = "tif"
-
-        var mapFiles = {};           
-
-         mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
-
-        var request = new model.PostSplitRequest();
-        request.file =  mapFiles;
-        request.outFormat =  outFormat;
-        return cellsApi.postSplit(request).then((result) => {
-            expect(result.response.statusCode).to.equal(200);
-        });
-      });
-    }); 
-    describe('post_split_xlsb test', function(){
-      it("should call PostSplit successfully" , function(){
-      
-        var book1Xlsx = "Book1.xlsx"
-
-     
-        var outFormat = "xlsb"
-
-        var mapFiles = {};           
-
-         mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
-
-        var request = new model.PostSplitRequest();
-        request.file =  mapFiles;
-        request.outFormat =  outFormat;
-        return cellsApi.postSplit(request).then((result) => {
-            expect(result.response.statusCode).to.equal(200);
-        });
-      });
-    }); 
-    describe('post_split_xlsx test', function(){
-      it("should call PostSplit successfully" , function(){
-      
-        var book1Xlsx = "Book1.xlsx"
-
-     
-        var outFormat = "xlsx"
-
-        var mapFiles = {};           
-
-         mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
-
-        var request = new model.PostSplitRequest();
-        request.file =  mapFiles;
-        request.outFormat =  outFormat;
-        return cellsApi.postSplit(request).then((result) => {
-            expect(result.response.statusCode).to.equal(200);
-        });
-      });
-    }); 
     describe('post_split_xps test', function(){
       it("should call PostSplit successfully" , function(){
       
@@ -185,26 +105,6 @@ describe('LightCells test', function() {
 
      
         var outFormat = "xps"
-
-        var mapFiles = {};           
-
-         mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
-
-        var request = new model.PostSplitRequest();
-        request.file =  mapFiles;
-        request.outFormat =  outFormat;
-        return cellsApi.postSplit(request).then((result) => {
-            expect(result.response.statusCode).to.equal(200);
-        });
-      });
-    }); 
-    describe('post_split_png test', function(){
-      it("should call PostSplit successfully" , function(){
-      
-        var book1Xlsx = "Book1.xlsx"
-
-     
-        var outFormat = "png"
 
         var mapFiles = {};           
 
@@ -410,167 +310,6 @@ describe('LightCells test', function() {
         });
       });
     }); 
-    describe('post_assemble_xml test', function(){
-      it("should call PostAssemble successfully" , function(){
-      
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
-
-     
-        var format = "xml"
-
-        var mapFiles = {};           
-
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
-         mapFiles[dataSourceXlsx]= fs.createReadStream(localPath  +dataSourceXlsx) ;
-
-        var request = new model.PostAssembleRequest();
-        request.file =  mapFiles;
-        request.datasource =  "ds";
-        request.outFormat =  format;
-        return cellsApi.postAssemble(request).then((result) => {
-            expect(result.response.statusCode).to.equal(200);
-        });
-      });
-    }); 
-    describe('post_assemble_tif test', function(){
-      it("should call PostAssemble successfully" , function(){
-      
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
-
-     
-        var format = "tif"
-
-        var mapFiles = {};           
-
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
-         mapFiles[dataSourceXlsx]= fs.createReadStream(localPath  +dataSourceXlsx) ;
-
-        var request = new model.PostAssembleRequest();
-        request.file =  mapFiles;
-        request.datasource =  "ds";
-        request.outFormat =  format;
-        return cellsApi.postAssemble(request).then((result) => {
-            expect(result.response.statusCode).to.equal(200);
-        });
-      });
-    }); 
-    describe('post_assemble_xlsb test', function(){
-      it("should call PostAssemble successfully" , function(){
-      
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
-
-     
-        var format = "xlsb"
-
-        var mapFiles = {};           
-
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
-         mapFiles[dataSourceXlsx]= fs.createReadStream(localPath  +dataSourceXlsx) ;
-
-        var request = new model.PostAssembleRequest();
-        request.file =  mapFiles;
-        request.datasource =  "ds";
-        request.outFormat =  format;
-        return cellsApi.postAssemble(request).then((result) => {
-            expect(result.response.statusCode).to.equal(200);
-        });
-      });
-    }); 
-    describe('post_assemble_xlsx test', function(){
-      it("should call PostAssemble successfully" , function(){
-      
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
-
-     
-        var format = "xlsx"
-
-        var mapFiles = {};           
-
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
-         mapFiles[dataSourceXlsx]= fs.createReadStream(localPath  +dataSourceXlsx) ;
-
-        var request = new model.PostAssembleRequest();
-        request.file =  mapFiles;
-        request.datasource =  "ds";
-        request.outFormat =  format;
-        return cellsApi.postAssemble(request).then((result) => {
-            expect(result.response.statusCode).to.equal(200);
-        });
-      });
-    }); 
-    describe('post_assemble_xltx test', function(){
-      it("should call PostAssemble successfully" , function(){
-      
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
-
-     
-        var format = "xltx"
-
-        var mapFiles = {};           
-
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
-         mapFiles[dataSourceXlsx]= fs.createReadStream(localPath  +dataSourceXlsx) ;
-
-        var request = new model.PostAssembleRequest();
-        request.file =  mapFiles;
-        request.datasource =  "ds";
-        request.outFormat =  format;
-        return cellsApi.postAssemble(request).then((result) => {
-            expect(result.response.statusCode).to.equal(200);
-        });
-      });
-    }); 
-    describe('post_assemble_xps test', function(){
-      it("should call PostAssemble successfully" , function(){
-      
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
-
-     
-        var format = "xps"
-
-        var mapFiles = {};           
-
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
-         mapFiles[dataSourceXlsx]= fs.createReadStream(localPath  +dataSourceXlsx) ;
-
-        var request = new model.PostAssembleRequest();
-        request.file =  mapFiles;
-        request.datasource =  "ds";
-        request.outFormat =  format;
-        return cellsApi.postAssemble(request).then((result) => {
-            expect(result.response.statusCode).to.equal(200);
-        });
-      });
-    }); 
-    describe('post_assemble_png test', function(){
-      it("should call PostAssemble successfully" , function(){
-      
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
-
-     
-        var format = "png"
-
-        var mapFiles = {};           
-
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
-         mapFiles[dataSourceXlsx]= fs.createReadStream(localPath  +dataSourceXlsx) ;
-
-        var request = new model.PostAssembleRequest();
-        request.file =  mapFiles;
-        request.datasource =  "ds";
-        request.outFormat =  format;
-        return cellsApi.postAssemble(request).then((result) => {
-            expect(result.response.statusCode).to.equal(200);
-        });
-      });
-    }); 
     describe('post_assemble_md test', function(){
       it("should call PostAssemble successfully" , function(){
       
@@ -686,29 +425,6 @@ describe('LightCells test', function() {
         });
       });
     }); 
-    describe('post_assemble_sql test', function(){
-      it("should call PostAssemble successfully" , function(){
-      
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
-
-     
-        var format = "sql"
-
-        var mapFiles = {};           
-
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
-         mapFiles[dataSourceXlsx]= fs.createReadStream(localPath  +dataSourceXlsx) ;
-
-        var request = new model.PostAssembleRequest();
-        request.file =  mapFiles;
-        request.datasource =  "ds";
-        request.outFormat =  format;
-        return cellsApi.postAssemble(request).then((result) => {
-            expect(result.response.statusCode).to.equal(200);
-        });
-      });
-    }); 
     describe('post_export_csv_workbook test', function(){
       it("should call PostExport successfully" , function(){
       
@@ -753,28 +469,6 @@ describe('LightCells test', function() {
         });
       });
     }); 
-    describe('post_export_ods_workbook test', function(){
-      it("should call PostExport successfully" , function(){
-      
-        var book1Xlsx = "Book1.xlsx"
-
-     
-        var format = "ods"
-        var objectType = "workbook"
-
-        var mapFiles = {};           
-
-         mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
-
-        var request = new model.PostExportRequest();
-        request.file =  mapFiles;
-        request.objectType =  objectType;
-        request.format =  format;
-        return cellsApi.postExport(request).then((result) => {
-            expect(result.response.statusCode).to.equal(200);
-        });
-      });
-    }); 
     describe('post_export_pdf_workbook test', function(){
       it("should call PostExport successfully" , function(){
       
@@ -782,138 +476,6 @@ describe('LightCells test', function() {
 
      
         var format = "pdf"
-        var objectType = "workbook"
-
-        var mapFiles = {};           
-
-         mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
-
-        var request = new model.PostExportRequest();
-        request.file =  mapFiles;
-        request.objectType =  objectType;
-        request.format =  format;
-        return cellsApi.postExport(request).then((result) => {
-            expect(result.response.statusCode).to.equal(200);
-        });
-      });
-    }); 
-    describe('post_export_tif_workbook test', function(){
-      it("should call PostExport successfully" , function(){
-      
-        var book1Xlsx = "Book1.xlsx"
-
-     
-        var format = "tif"
-        var objectType = "workbook"
-
-        var mapFiles = {};           
-
-         mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
-
-        var request = new model.PostExportRequest();
-        request.file =  mapFiles;
-        request.objectType =  objectType;
-        request.format =  format;
-        return cellsApi.postExport(request).then((result) => {
-            expect(result.response.statusCode).to.equal(200);
-        });
-      });
-    }); 
-    describe('post_export_xlsx_workbook test', function(){
-      it("should call PostExport successfully" , function(){
-      
-        var book1Xlsx = "Book1.xlsx"
-
-     
-        var format = "xlsx"
-        var objectType = "workbook"
-
-        var mapFiles = {};           
-
-         mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
-
-        var request = new model.PostExportRequest();
-        request.file =  mapFiles;
-        request.objectType =  objectType;
-        request.format =  format;
-        return cellsApi.postExport(request).then((result) => {
-            expect(result.response.statusCode).to.equal(200);
-        });
-      });
-    }); 
-    describe('post_export_xps_workbook test', function(){
-      it("should call PostExport successfully" , function(){
-      
-        var book1Xlsx = "Book1.xlsx"
-
-     
-        var format = "xps"
-        var objectType = "workbook"
-
-        var mapFiles = {};           
-
-         mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
-
-        var request = new model.PostExportRequest();
-        request.file =  mapFiles;
-        request.objectType =  objectType;
-        request.format =  format;
-        return cellsApi.postExport(request).then((result) => {
-            expect(result.response.statusCode).to.equal(200);
-        });
-      });
-    }); 
-    describe('post_export_md_workbook test', function(){
-      it("should call PostExport successfully" , function(){
-      
-        var book1Xlsx = "Book1.xlsx"
-
-     
-        var format = "md"
-        var objectType = "workbook"
-
-        var mapFiles = {};           
-
-         mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
-
-        var request = new model.PostExportRequest();
-        request.file =  mapFiles;
-        request.objectType =  objectType;
-        request.format =  format;
-        return cellsApi.postExport(request).then((result) => {
-            expect(result.response.statusCode).to.equal(200);
-        });
-      });
-    }); 
-    describe('post_export_svg_workbook test', function(){
-      it("should call PostExport successfully" , function(){
-      
-        var book1Xlsx = "Book1.xlsx"
-
-     
-        var format = "svg"
-        var objectType = "workbook"
-
-        var mapFiles = {};           
-
-         mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
-
-        var request = new model.PostExportRequest();
-        request.file =  mapFiles;
-        request.objectType =  objectType;
-        request.format =  format;
-        return cellsApi.postExport(request).then((result) => {
-            expect(result.response.statusCode).to.equal(200);
-        });
-      });
-    }); 
-    describe('post_export_docx_workbook test', function(){
-      it("should call PostExport successfully" , function(){
-      
-        var book1Xlsx = "Book1.xlsx"
-
-     
-        var format = "docx"
         var objectType = "workbook"
 
         var mapFiles = {};           
@@ -973,28 +535,6 @@ describe('LightCells test', function() {
         });
       });
     }); 
-    describe('post_export_csv_worksheet test', function(){
-      it("should call PostExport successfully" , function(){
-      
-        var book1Xlsx = "Book1.xlsx"
-
-     
-        var format = "csv"
-        var objectType = "worksheet"
-
-        var mapFiles = {};           
-
-         mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
-
-        var request = new model.PostExportRequest();
-        request.file =  mapFiles;
-        request.objectType =  objectType;
-        request.format =  format;
-        return cellsApi.postExport(request).then((result) => {
-            expect(result.response.statusCode).to.equal(200);
-        });
-      });
-    }); 
     describe('post_export_html_worksheet test', function(){
       it("should call PostExport successfully" , function(){
       
@@ -1017,138 +557,6 @@ describe('LightCells test', function() {
         });
       });
     }); 
-    describe('post_export_ods_worksheet test', function(){
-      it("should call PostExport successfully" , function(){
-      
-        var book1Xlsx = "Book1.xlsx"
-
-     
-        var format = "ods"
-        var objectType = "worksheet"
-
-        var mapFiles = {};           
-
-         mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
-
-        var request = new model.PostExportRequest();
-        request.file =  mapFiles;
-        request.objectType =  objectType;
-        request.format =  format;
-        return cellsApi.postExport(request).then((result) => {
-            expect(result.response.statusCode).to.equal(200);
-        });
-      });
-    }); 
-    describe('post_export_pdf_worksheet test', function(){
-      it("should call PostExport successfully" , function(){
-      
-        var book1Xlsx = "Book1.xlsx"
-
-     
-        var format = "pdf"
-        var objectType = "worksheet"
-
-        var mapFiles = {};           
-
-         mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
-
-        var request = new model.PostExportRequest();
-        request.file =  mapFiles;
-        request.objectType =  objectType;
-        request.format =  format;
-        return cellsApi.postExport(request).then((result) => {
-            expect(result.response.statusCode).to.equal(200);
-        });
-      });
-    }); 
-    describe('post_export_xml_worksheet test', function(){
-      it("should call PostExport successfully" , function(){
-      
-        var book1Xlsx = "Book1.xlsx"
-
-     
-        var format = "xml"
-        var objectType = "worksheet"
-
-        var mapFiles = {};           
-
-         mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
-
-        var request = new model.PostExportRequest();
-        request.file =  mapFiles;
-        request.objectType =  objectType;
-        request.format =  format;
-        return cellsApi.postExport(request).then((result) => {
-            expect(result.response.statusCode).to.equal(200);
-        });
-      });
-    }); 
-    describe('post_export_tif_worksheet test', function(){
-      it("should call PostExport successfully" , function(){
-      
-        var book1Xlsx = "Book1.xlsx"
-
-     
-        var format = "tif"
-        var objectType = "worksheet"
-
-        var mapFiles = {};           
-
-         mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
-
-        var request = new model.PostExportRequest();
-        request.file =  mapFiles;
-        request.objectType =  objectType;
-        request.format =  format;
-        return cellsApi.postExport(request).then((result) => {
-            expect(result.response.statusCode).to.equal(200);
-        });
-      });
-    }); 
-    describe('post_export_md_worksheet test', function(){
-      it("should call PostExport successfully" , function(){
-      
-        var book1Xlsx = "Book1.xlsx"
-
-     
-        var format = "md"
-        var objectType = "worksheet"
-
-        var mapFiles = {};           
-
-         mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
-
-        var request = new model.PostExportRequest();
-        request.file =  mapFiles;
-        request.objectType =  objectType;
-        request.format =  format;
-        return cellsApi.postExport(request).then((result) => {
-            expect(result.response.statusCode).to.equal(200);
-        });
-      });
-    }); 
-    describe('post_export_svg_worksheet test', function(){
-      it("should call PostExport successfully" , function(){
-      
-        var book1Xlsx = "Book1.xlsx"
-
-     
-        var format = "svg"
-        var objectType = "worksheet"
-
-        var mapFiles = {};           
-
-         mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
-
-        var request = new model.PostExportRequest();
-        request.file =  mapFiles;
-        request.objectType =  objectType;
-        request.format =  format;
-        return cellsApi.postExport(request).then((result) => {
-            expect(result.response.statusCode).to.equal(200);
-        });
-      });
-    }); 
     describe('post_export_docx_worksheet test', function(){
       it("should call PostExport successfully" , function(){
       
@@ -1156,28 +564,6 @@ describe('LightCells test', function() {
 
      
         var format = "docx"
-        var objectType = "worksheet"
-
-        var mapFiles = {};           
-
-         mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
-
-        var request = new model.PostExportRequest();
-        request.file =  mapFiles;
-        request.objectType =  objectType;
-        request.format =  format;
-        return cellsApi.postExport(request).then((result) => {
-            expect(result.response.statusCode).to.equal(200);
-        });
-      });
-    }); 
-    describe('post_export_pptx_worksheet test', function(){
-      it("should call PostExport successfully" , function(){
-      
-        var book1Xlsx = "Book1.xlsx"
-
-     
-        var format = "pptx"
         var objectType = "worksheet"
 
         var mapFiles = {};           
@@ -1222,28 +608,6 @@ describe('LightCells test', function() {
 
      
         var format = "pdf"
-        var objectType = "chart"
-
-        var mapFiles = {};           
-
-         mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
-
-        var request = new model.PostExportRequest();
-        request.file =  mapFiles;
-        request.objectType =  objectType;
-        request.format =  format;
-        return cellsApi.postExport(request).then((result) => {
-            expect(result.response.statusCode).to.equal(200);
-        });
-      });
-    }); 
-    describe('post_export_tif_chart test', function(){
-      it("should call PostExport successfully" , function(){
-      
-        var book1Xlsx = "Book1.xlsx"
-
-     
-        var format = "tif"
         var objectType = "chart"
 
         var mapFiles = {};           
@@ -1325,28 +689,6 @@ describe('LightCells test', function() {
         });
       });
     }); 
-    describe('post_export_xls_listobject test', function(){
-      it("should call PostExport successfully" , function(){
-      
-        var book1Xlsx = "Book1.xlsx"
-
-     
-        var format = "xls"
-        var objectType = "listobject"
-
-        var mapFiles = {};           
-
-         mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
-
-        var request = new model.PostExportRequest();
-        request.file =  mapFiles;
-        request.objectType =  objectType;
-        request.format =  format;
-        return cellsApi.postExport(request).then((result) => {
-            expect(result.response.statusCode).to.equal(200);
-        });
-      });
-    }); 
     describe('post_export_ods_listobject test', function(){
       it("should call PostExport successfully" , function(){
       
@@ -1391,28 +733,6 @@ describe('LightCells test', function() {
         });
       });
     }); 
-    describe('post_export_xml_listobject test', function(){
-      it("should call PostExport successfully" , function(){
-      
-        var book1Xlsx = "Book1.xlsx"
-
-     
-        var format = "xml"
-        var objectType = "listobject"
-
-        var mapFiles = {};           
-
-         mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
-
-        var request = new model.PostExportRequest();
-        request.file =  mapFiles;
-        request.objectType =  objectType;
-        request.format =  format;
-        return cellsApi.postExport(request).then((result) => {
-            expect(result.response.statusCode).to.equal(200);
-        });
-      });
-    }); 
     describe('post_export_md_listobject test', function(){
       it("should call PostExport successfully" , function(){
       
@@ -1420,28 +740,6 @@ describe('LightCells test', function() {
 
      
         var format = "md"
-        var objectType = "listobject"
-
-        var mapFiles = {};           
-
-         mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
-
-        var request = new model.PostExportRequest();
-        request.file =  mapFiles;
-        request.objectType =  objectType;
-        request.format =  format;
-        return cellsApi.postExport(request).then((result) => {
-            expect(result.response.statusCode).to.equal(200);
-        });
-      });
-    }); 
-    describe('post_export_svg_listobject test', function(){
-      it("should call PostExport successfully" , function(){
-      
-        var book1Xlsx = "Book1.xlsx"
-
-     
-        var format = "svg"
         var objectType = "listobject"
 
         var mapFiles = {};           
@@ -1523,28 +821,6 @@ describe('LightCells test', function() {
         });
       });
     }); 
-    describe('post_export_sql_listobject test', function(){
-      it("should call PostExport successfully" , function(){
-      
-        var book1Xlsx = "Book1.xlsx"
-
-     
-        var format = "sql"
-        var objectType = "listobject"
-
-        var mapFiles = {};           
-
-         mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
-
-        var request = new model.PostExportRequest();
-        request.file =  mapFiles;
-        request.objectType =  objectType;
-        request.format =  format;
-        return cellsApi.postExport(request).then((result) => {
-            expect(result.response.statusCode).to.equal(200);
-        });
-      });
-    }); 
     describe('post_compress_50 test', function(){
       it("should call PostCompress successfully" , function(){
       
@@ -1585,30 +861,6 @@ describe('LightCells test', function() {
         });
       });
     }); 
-    describe('post_merge_csv_true test', function(){
-      it("should call PostMerge successfully" , function(){
-      
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
-
-     
-        var format = "csv"
-        var mergeToOneSheet = true
-
-        var mapFiles = {};           
-
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
-         mapFiles[dataSourceXlsx]= fs.createReadStream(localPath  +dataSourceXlsx) ;
-
-        var request = new model.PostMergeRequest();
-        request.file =  mapFiles;
-        request.outFormat =  format;
-        request.mergeToOneSheet =  mergeToOneSheet;
-        return cellsApi.postMerge(request).then((result) => {
-            expect(result.response.statusCode).to.equal(200);
-        });
-      });
-    }); 
     describe('post_merge_html_true test', function(){
       it("should call PostMerge successfully" , function(){
       
@@ -1633,30 +885,6 @@ describe('LightCells test', function() {
         });
       });
     }); 
-    describe('post_merge_ods_true test', function(){
-      it("should call PostMerge successfully" , function(){
-      
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
-
-     
-        var format = "ods"
-        var mergeToOneSheet = true
-
-        var mapFiles = {};           
-
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
-         mapFiles[dataSourceXlsx]= fs.createReadStream(localPath  +dataSourceXlsx) ;
-
-        var request = new model.PostMergeRequest();
-        request.file =  mapFiles;
-        request.outFormat =  format;
-        request.mergeToOneSheet =  mergeToOneSheet;
-        return cellsApi.postMerge(request).then((result) => {
-            expect(result.response.statusCode).to.equal(200);
-        });
-      });
-    }); 
     describe('post_merge_pdf_true test', function(){
       it("should call PostMerge successfully" , function(){
       
@@ -1665,30 +893,6 @@ describe('LightCells test', function() {
 
      
         var format = "pdf"
-        var mergeToOneSheet = true
-
-        var mapFiles = {};           
-
-         mapFiles[assemblyTestXlsx]= fs.createReadStream(localPath  +assemblyTestXlsx) ;
-         mapFiles[dataSourceXlsx]= fs.createReadStream(localPath  +dataSourceXlsx) ;
-
-        var request = new model.PostMergeRequest();
-        request.file =  mapFiles;
-        request.outFormat =  format;
-        request.mergeToOneSheet =  mergeToOneSheet;
-        return cellsApi.postMerge(request).then((result) => {
-            expect(result.response.statusCode).to.equal(200);
-        });
-      });
-    }); 
-    describe('post_merge_xml_true test', function(){
-      it("should call PostMerge successfully" , function(){
-      
-        var assemblyTestXlsx = "assemblytest.xlsx"
-        var dataSourceXlsx = "datasource.xlsx"
-
-     
-        var format = "xml"
         var mergeToOneSheet = true
 
         var mapFiles = {};           
@@ -2135,46 +1339,6 @@ describe('LightCells test', function() {
 
      
         var format = "pdf"
-
-        var mapFiles = {};           
-
-         mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
-
-        var request = new model.PostRepairRequest();
-        request.file =  mapFiles;
-        request.outFormat =  format;
-        return cellsApi.postRepair(request).then((result) => {
-            expect(result.response.statusCode).to.equal(200);
-        });
-      });
-    }); 
-    describe('post_repair_csv test', function(){
-      it("should call PostRepair successfully" , function(){
-      
-        var book1Xlsx = "Book1.xlsx"
-
-     
-        var format = "csv"
-
-        var mapFiles = {};           
-
-         mapFiles[book1Xlsx]= fs.createReadStream(localPath  +book1Xlsx) ;
-
-        var request = new model.PostRepairRequest();
-        request.file =  mapFiles;
-        request.outFormat =  format;
-        return cellsApi.postRepair(request).then((result) => {
-            expect(result.response.statusCode).to.equal(200);
-        });
-      });
-    }); 
-    describe('post_repair_png test', function(){
-      it("should call PostRepair successfully" , function(){
-      
-        var book1Xlsx = "Book1.xlsx"
-
-     
-        var format = "png"
 
         var mapFiles = {};           
 

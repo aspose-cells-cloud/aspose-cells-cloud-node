@@ -17,7 +17,7 @@ cellsApi.uploadFile(localNameRequest );
  
 var addTextOptionsDataSource = new model.DataSource();
  addTextOptionsDataSource.dataSourceType = "CloudFileSystem"  ;
- addTextOptionsDataSource.dataPath = "BookText.xlsx"  ;
+ addTextOptionsDataSource.dataPath = "TestData/In/BookText.xlsx"  ;
 var addTextOptions = new model.AddTextOptions();
  addTextOptions.dataSource = addTextOptionsDataSource  ;
  addTextOptions.text = "Aspose.Cells Cloud is an excellent product."  ;
