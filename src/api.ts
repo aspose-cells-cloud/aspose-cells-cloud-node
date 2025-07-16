@@ -118,6 +118,22 @@ export class CellsApi {
     }
 
     /// <summary>
+    /// Converts a worksheet of spreadsheet in cloud storage to the specified format.
+    /// </summary>
+    /// <param name="request">Request. <see cref="ExportWorksheetAsFormatRequest" /></param>
+    public async exportWorksheetAsFormat(requestObj:model.ExportWorksheetAsFormatRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling exportWorksheetAsFormat.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "Buffer");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
     /// Converts a chart of spreadsheet in cloud storage to the specified format.
     /// </summary>
     /// <param name="request">Request. <see cref="ExportChartAsFormatRequest" /></param>
@@ -134,6 +150,38 @@ export class CellsApi {
     }
 
     /// <summary>
+    /// Converts a table of spreadsheet in cloud storage to the specified format.
+    /// </summary>
+    /// <param name="request">Request. <see cref="ExportTableAsFormatRequest" /></param>
+    public async exportTableAsFormat(requestObj:model.ExportTableAsFormatRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling exportTableAsFormat.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "Buffer");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// Converts the range of spreadsheet in cloud storage to the specified format.
+    /// </summary>
+    /// <param name="request">Request. <see cref="ExportRangeAsFormatRequest" /></param>
+    public async exportRangeAsFormat(requestObj:model.ExportRangeAsFormatRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling exportRangeAsFormat.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "Buffer");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
     /// Converts a spreadsheet on a local drive to the specified format.
     /// </summary>
     /// <param name="request">Request. <see cref="ConvertSpreadsheetRequest" /></param>
@@ -141,6 +189,198 @@ export class CellsApi {
     {
         if (requestObj === null || requestObj === undefined) {
             throw new Error('Required parameter "requestObj" was null or undefined when calling convertSpreadsheet.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "Buffer");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// Converts a worksheet of spreadsheet on a local drive to the image format.
+    /// </summary>
+    /// <param name="request">Request. <see cref="ConvertWorksheetToImageRequest" /></param>
+    public async convertWorksheetToImage(requestObj:model.ConvertWorksheetToImageRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling convertWorksheetToImage.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "Buffer");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// Converts a worksheet of spreadsheet on a local drive to the pdf file.
+    /// </summary>
+    /// <param name="request">Request. <see cref="ConvertWorksheetToPdfRequest" /></param>
+    public async convertWorksheetToPdf(requestObj:model.ConvertWorksheetToPdfRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling convertWorksheetToPdf.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "Buffer");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// Converts a table of spreadsheet on a local drive to the image file.
+    /// </summary>
+    /// <param name="request">Request. <see cref="ConvertTableToImageRequest" /></param>
+    public async convertTableToImage(requestObj:model.ConvertTableToImageRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling convertTableToImage.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "Buffer");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// Converts a table of spreadsheet on a local drive to the pdf file.
+    /// </summary>
+    /// <param name="request">Request. <see cref="ConvertTableToPdfRequest" /></param>
+    public async convertTableToPdf(requestObj:model.ConvertTableToPdfRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling convertTableToPdf.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "Buffer");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// Converts a table of spreadsheet on a local drive to the csv file.
+    /// </summary>
+    /// <param name="request">Request. <see cref="ConvertTableToCsvRequest" /></param>
+    public async convertTableToCsv(requestObj:model.ConvertTableToCsvRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling convertTableToCsv.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "Buffer");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// Converts a table of spreadsheet on a local drive to the html file.
+    /// </summary>
+    /// <param name="request">Request. <see cref="ConvertTableToHtmlRequest" /></param>
+    public async convertTableToHtml(requestObj:model.ConvertTableToHtmlRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling convertTableToHtml.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "Buffer");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// Converts a table of spreadsheet on a local drive to the json file.
+    /// </summary>
+    /// <param name="request">Request. <see cref="ConvertTableToJsonRequest" /></param>
+    public async convertTableToJson(requestObj:model.ConvertTableToJsonRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling convertTableToJson.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "Buffer");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// Converts a range of spreadsheet on a local drive to the image file.
+    /// </summary>
+    /// <param name="request">Request. <see cref="ConvertRangeToImageRequest" /></param>
+    public async convertRangeToImage(requestObj:model.ConvertRangeToImageRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling convertRangeToImage.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "Buffer");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// Converts a range of spreadsheet on a local drive to the pdf file.
+    /// </summary>
+    /// <param name="request">Request. <see cref="ConvertRangeToPdfRequest" /></param>
+    public async convertRangeToPdf(requestObj:model.ConvertRangeToPdfRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling convertRangeToPdf.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "Buffer");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// Converts a range of spreadsheet on a local drive to the csv file.
+    /// </summary>
+    /// <param name="request">Request. <see cref="ConvertRangeToCsvRequest" /></param>
+    public async convertRangeToCsv(requestObj:model.ConvertRangeToCsvRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling convertRangeToCsv.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "Buffer");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// Converts a range of spreadsheet on a local drive to the html file.
+    /// </summary>
+    /// <param name="request">Request. <see cref="ConvertRangeToHtmlRequest" /></param>
+    public async convertRangeToHtml(requestObj:model.ConvertRangeToHtmlRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling convertRangeToHtml.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "Buffer");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// Converts a range of spreadsheet on a local drive to the json file.
+    /// </summary>
+    /// <param name="request">Request. <see cref="ConvertRangeToJsonRequest" /></param>
+    public async convertRangeToJson(requestObj:model.ConvertRangeToJsonRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling convertRangeToJson.');
         }
 
         const requestOptions = await requestObj.createRequestOptions(this.configuration);
@@ -290,6 +530,38 @@ export class CellsApi {
         const requestOptions = await requestObj.createRequestOptions(this.configuration);
         const response = await invokeApiMethod(requestOptions, this.configuration);
         const result =  ObjectSerializer.deserialize(response.body, "CellsCloudPublicKeyResponse");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// Applies dual-layer password protection to Excel spreadsheets, supporting both open and modify passwords with encryption.
+    /// </summary>
+    /// <param name="request">Request. <see cref="ProtectSpreadsheetRequest" /></param>
+    public async protectSpreadsheet(requestObj:model.ProtectSpreadsheetRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling protectSpreadsheet.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "Buffer");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// Removes dual-layer password protection from Excel spreadsheets, supporting both open and modify passwords with encryption.
+    /// </summary>
+    /// <param name="request">Request. <see cref="UnprotectSpreadsheetRequest" /></param>
+    public async unprotectSpreadsheet(requestObj:model.UnprotectSpreadsheetRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling unprotectSpreadsheet.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "Buffer");
         return Promise.resolve({body: result, response});
     }
 
@@ -4961,7 +5233,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Adds text content to a workbook at specified positions within cells based on provided options using ASP.NET Core Web API.
+    /// Adds text content to a specified location within a document. It requires an object that defines the text to be added and the insertion location.
     /// </summary>
     /// <param name="request">Request. <see cref="PostAddTextContentRequest" /></param>
     public async postAddTextContent(requestObj:model.PostAddTextContentRequest ): Promise<{response: http.ClientResponse, body: model.FileInfo}>
@@ -4977,6 +5249,7 @@ export class CellsApi {
     }
 
     /// <summary>
+    /// The PostTrimContent API is designed to process and trim content within a specified range in a spreadsheet. This API allows users to remove extra spaces, line breaks, or other unnecessary characters from the content of selected cells. It is particularly useful for cleaning up data entries and ensuring consistency in spreadsheet formatting
     /// </summary>
     /// <param name="request">Request. <see cref="PostTrimContentRequest" /></param>
     public async postTrimContent(requestObj:model.PostTrimContentRequest ): Promise<{response: http.ClientResponse, body: model.FileInfo}>
@@ -4992,6 +5265,7 @@ export class CellsApi {
     }
 
     /// <summary>
+    /// Managing inconsistent text case in spreadsheets (Excel, Google Sheets, CSV) can be frustrating, especially with large datasets. The PostUpdateWordCase WEB API solves this by automating text case conversions, ensuring clean and standardized data.
     /// </summary>
     /// <param name="request">Request. <see cref="PostUpdateWordCaseRequest" /></param>
     public async postUpdateWordCase(requestObj:model.PostUpdateWordCaseRequest ): Promise<{response: http.ClientResponse, body: model.FileInfo}>
@@ -5007,6 +5281,7 @@ export class CellsApi {
     }
 
     /// <summary>
+    /// A comprehensive set of tools for cleaning text content within selected cells. It allows users to remove specific characters, character sets, and substrings, ensuring that the text is standardized and free from unwanted symbols or sequences.
     /// </summary>
     /// <param name="request">Request. <see cref="PostRemoveCharactersRequest" /></param>
     public async postRemoveCharacters(requestObj:model.PostRemoveCharactersRequest ): Promise<{response: http.ClientResponse, body: model.FileInfo}>
@@ -5022,6 +5297,7 @@ export class CellsApi {
     }
 
     /// <summary>
+    /// Enhance Excel data through essential text conversions: convert text to numbers, replace characters and line breaks, and remove accents.
     /// </summary>
     /// <param name="request">Request. <see cref="PostConvertTextRequest" /></param>
     public async postConvertText(requestObj:model.PostConvertTextRequest ): Promise<{response: http.ClientResponse, body: model.FileInfo}>
@@ -5037,6 +5313,7 @@ export class CellsApi {
     }
 
     /// <summary>
+    /// Efficiently remove duplicate substrings from Excel cells. Select a range, specify delimiters, and apply options to eliminate repeated text segments.
     /// </summary>
     /// <param name="request">Request. <see cref="PostRemoveDuplicatesRequest" /></param>
     public async postRemoveDuplicates(requestObj:model.PostRemoveDuplicatesRequest ): Promise<{response: http.ClientResponse, body: model.FileInfo}>
@@ -5052,6 +5329,7 @@ export class CellsApi {
     }
 
     /// <summary>
+    /// Effortlessly extract text and numbers from Excel cells with precise options. This API allows extraction of first/last characters, text between delimiters, and numbers from strings, with output as static values or formulas.
     /// </summary>
     /// <param name="request">Request. <see cref="PostExtractTextRequest" /></param>
     public async postExtractText(requestObj:model.PostExtractTextRequest ): Promise<{response: http.ClientResponse, body: model.FileInfo}>
@@ -5067,6 +5345,7 @@ export class CellsApi {
     }
 
     /// <summary>
+    /// Efficiently divides Excel cell content into columns or rows based on specified delimiters or patterns. Supports Character-based splitting, Custom string splitting, Mask and wildcard splitting for pattern-based division, Line break division, Column or row splitting, Delimiter removal or retention.
     /// </summary>
     /// <param name="request">Request. <see cref="PostSplitTextRequest" /></param>
     public async postSplitText(requestObj:model.PostSplitTextRequest ): Promise<{response: http.ClientResponse, body: model.FileInfo}>

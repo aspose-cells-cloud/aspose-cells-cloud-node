@@ -19393,6 +19393,39 @@ export class BaseOperateOptions  {
         Object.assign(this, init);
     } 
 }
+/// Specifies the range of cells within the worksheet where the spreadsheet operations will be performed. This parameter allows users to define the exact area to be processed, ensuring that operations are applied only to the designated cells.   
+export class ScopeOptions  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "scope",
+            baseName: "Scope",
+            type: "string",
+        },
+        {
+            name: "scopeItems",
+            baseName: "ScopeItems",
+            type: "Array<ScopeItem>",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return  ScopeOptions.attributeTypeMap;
+
+    }
+
+    public scope: string;
+    public scopeItems: Array<ScopeItem>;
+
+    public constructor(init?: Partial< ScopeOptions >) {  
+    
+        Object.assign(this, init);
+    } 
+}
 /// Class summary: The features of this class include hands-on learning activities, group projects, interactive discussions, guest speakers, and field trips to real-world applications.   
 export class AddTextOptions  extends BaseOperateOptions  {
     /**
@@ -19410,18 +19443,13 @@ export class AddTextOptions  extends BaseOperateOptions  {
             type: "FileInfo",
         },
         {
+            name: "scopeOptions",
+            baseName: "ScopeOptions",
+            type: "ScopeOptions",
+        },
+        {
             name: "text",
             baseName: "Text",
-            type: "string",
-        },
-        {
-            name: "worksheet",
-            baseName: "Worksheet",
-            type: "string",
-        },
-        {
-            name: "range",
-            baseName: "Range",
             type: "string",
         },
         {
@@ -19450,9 +19478,8 @@ export class AddTextOptions  extends BaseOperateOptions  {
 
     public dataSource: DataSource;
     public fileInfo: FileInfo;
+    public scopeOptions: ScopeOptions;
     public text: string;
-    public worksheet: string;
-    public range: string;
     public selectPoistion: string;
     public selectText: string;
     public skipEmptyCells: boolean;
@@ -19462,7 +19489,7 @@ export class AddTextOptions  extends BaseOperateOptions  {
         Object.assign(this, init);
     } 
 }
-   
+/// Character Count Options.   
 export class CharacterCountOptions  {
     /**
      * Attribute type map
@@ -19677,14 +19704,9 @@ export class ConvertTextOptions  extends BaseOperateOptions  {
             type: "FileInfo",
         },
         {
-            name: "worksheet",
-            baseName: "Worksheet",
-            type: "string",
-        },
-        {
-            name: "range",
-            baseName: "Range",
-            type: "string",
+            name: "scopeOptions",
+            baseName: "ScopeOptions",
+            type: "ScopeOptions",
         },
         {
             name: "convertTextType",
@@ -19712,8 +19734,7 @@ export class ConvertTextOptions  extends BaseOperateOptions  {
 
     public dataSource: DataSource;
     public fileInfo: FileInfo;
-    public worksheet: string;
-    public range: string;
+    public scopeOptions: ScopeOptions;
     public convertTextType: string;
     public sourceCharacters: string;
     public targetCharacters: string;
@@ -20141,14 +20162,9 @@ export class RemoveCharactersOptions  extends BaseOperateOptions  {
             type: "FileInfo",
         },
         {
-            name: "worksheet",
-            baseName: "Worksheet",
-            type: "string",
-        },
-        {
-            name: "range",
-            baseName: "Range",
-            type: "string",
+            name: "scopeOptions",
+            baseName: "ScopeOptions",
+            type: "ScopeOptions",
         },
         {
             name: "removeCharactersByCharacter",
@@ -20171,8 +20187,7 @@ export class RemoveCharactersOptions  extends BaseOperateOptions  {
 
     public dataSource: DataSource;
     public fileInfo: FileInfo;
-    public worksheet: string;
-    public range: string;
+    public scopeOptions: ScopeOptions;
     public removeCharactersByCharacter: RemoveCharactersByCharacter;
     public removeCharactersByPosition: RemoveCharactersByPosition;
 
@@ -20198,19 +20213,9 @@ export class RemoveDuplicatesOptions  extends BaseOperateOptions  {
             type: "FileInfo",
         },
         {
-            name: "worksheet",
-            baseName: "Worksheet",
-            type: "string",
-        },
-        {
-            name: "removeDuplicatesArea",
-            baseName: "RemoveDuplicatesArea",
-            type: "string",
-        },
-        {
-            name: "removeDuplicatesAreaValue",
-            baseName: "RemoveDuplicatesAreaValue",
-            type: "string",
+            name: "scopeOptions",
+            baseName: "ScopeOptions",
+            type: "ScopeOptions",
         }
     ];
     /**
@@ -20223,25 +20228,22 @@ export class RemoveDuplicatesOptions  extends BaseOperateOptions  {
 
     public dataSource: DataSource;
     public fileInfo: FileInfo;
-    public worksheet: string;
-    public removeDuplicatesArea: string;
-    public removeDuplicatesAreaValue: string;
+    public scopeOptions: ScopeOptions;
 
     public constructor(init?: Partial< RemoveDuplicatesOptions >) {  
          super(init);     
         Object.assign(this, init);
     } 
 }
-/// I'm happy to help! Please provide me with the features you would like me to summarize for the class.
-///                
+/// Define the specific range in your Excel worksheet where you want the spreadsheet operations to be performed. This ensures that only the cells within the selected range are processed, and any operations are confined to this area.   
 export class ScopeItem  {
     /**
      * Attribute type map
      */
     public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
-            name: "worksheetName",
-            baseName: "WorksheetName",
+            name: "worksheet",
+            baseName: "Worksheet",
             type: "string",
         },
         {
@@ -20258,44 +20260,10 @@ export class ScopeItem  {
 
     }
 
-    public worksheetName: string;
+    public worksheet: string;
     public ranges: Array<string>;
 
     public constructor(init?: Partial< ScopeItem >) {  
-    
-        Object.assign(this, init);
-    } 
-}
-/// Here is the class summary: "The features discussed include real-time collaboration, templates for various projects, task assignment and tracking, deadline reminders, and file storage and sharing."
-///                
-export class ScopeOptions  {
-    /**
-     * Attribute type map
-     */
-    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
-        {
-            name: "scope",
-            baseName: "Scope",
-            type: "string",
-        },
-        {
-            name: "scopeItems",
-            baseName: "ScopeItems",
-            type: "Array<ScopeItem>",
-        }
-    ];
-    /**
-     * Returns attribute type map
-     */
-    public static getAttributeTypeMap() {
-        return  ScopeOptions.attributeTypeMap;
-
-    }
-
-    public scope: string;
-    public scopeItems: Array<ScopeItem>;
-
-    public constructor(init?: Partial< ScopeOptions >) {  
     
         Object.assign(this, init);
     } 
@@ -20474,8 +20442,7 @@ export class TablePositionInfo  {
         Object.assign(this, init);
     } 
 }
-/// I'm sorry, but you haven't provided any specific content for me to summarize. Please provide the features you would like to be summarized.
-///                
+///    
 export class TrimContentOptions  {
     /**
      * Attribute type map
@@ -20602,7 +20569,7 @@ export class WordCaseOptions  {
         Object.assign(this, init);
     } 
 }
-   
+/// Words Count Options   
 export class WordsCountOptions  {
     /**
      * Attribute type map
@@ -22709,13 +22676,80 @@ export class ExportSpreadsheetAsFormatRequest  {
     }
 
 }
-/// Converts a chart of spreadsheet in cloud storage to the specified format.   
-export class ExportChartAsFormatRequest  {
+/// Converts a worksheet of spreadsheet in cloud storage to the specified format.   
+export class ExportWorksheetAsFormatRequest  {
     /// (Required) The name of the workbook file to be retrieved.  
     public name: string;
       
     public worksheet: string;
-      
+    /// (Required) The desired pdf or image format  (e.g., "png", "Pdf", "svg").  
+    public format: string;
+    /// (Optional) The folder path where the workbook is stored. The default is null.  
+    public folder: string;
+    /// (Optional) The name of the storage if using custom cloud storage. Use default storage if omitted.  
+    public storageName: string;
+    /// (Optional) The folder path where the workbook is stored. The default is null.  
+    public outPath: string;
+    /// Output file Storage Name.  
+    public outStorageName: string;
+    /// Use Custom fonts.  
+    public fontsLocation: string;
+    /// The spreadsheet region setting.  
+    public regoin: string;
+    /// The password for opening spreadsheet file.  
+    public password: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< ExportWorksheetAsFormatRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/{name}/worksheets/{worksheet}".replace("{" + "name" + "}", String(this.name)).replace("{" + "worksheet" + "}", String(this.worksheet));
+        const queryParameters: any = {};
+        /// (Required) The desired pdf or image format  (e.g., "png", "Pdf", "svg"). 
+        // verify required parameter 'format' is not null or undefined
+        if (this.format === null || this.format === undefined) {
+            throw new Error('Required parameter "format" was null or undefined when calling ExportWorksheetAsFormat.');
+        }
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "format", this.format);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fontsLocation", this.fontsLocation);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "regoin", this.regoin);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "GET",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Converts a chart of spreadsheet in cloud storage to the specified format.   
+export class ExportChartAsFormatRequest  {
+    /// (Required) The name of the workbook file to be retrieved.  
+    public name: string;
+    /// worksheet name  
+    public worksheet: string;
+    /// chart index  
     public chartIndex: number;
     /// (Required) The desired pdf or image format  (e.g., "png", "Pdf", "svg").  
     public format: string;
@@ -22748,6 +22782,144 @@ export class ExportChartAsFormatRequest  {
         // verify required parameter 'format' is not null or undefined
         if (this.format === null || this.format === undefined) {
             throw new Error('Required parameter "format" was null or undefined when calling ExportChartAsFormat.');
+        }
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "format", this.format);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fontsLocation", this.fontsLocation);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "regoin", this.regoin);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "GET",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Converts a table of spreadsheet in cloud storage to the specified format.   
+export class ExportTableAsFormatRequest  {
+    /// (Required) The name of the workbook file to be retrieved.  
+    public name: string;
+    /// worksheet name  
+    public worksheet: string;
+    /// table name  
+    public tableName: string;
+    /// (Required) The desired format  (e.g., "png", "Pdf", "svg").  
+    public format: string;
+    /// (Optional) The folder path where the workbook is stored. The default is null.  
+    public folder: string;
+    /// (Optional) The name of the storage if using custom cloud storage. Use default storage if omitted.  
+    public storageName: string;
+    /// (Optional) The folder path where the workbook is stored. The default is null.  
+    public outPath: string;
+    /// Output file Storage Name.  
+    public outStorageName: string;
+    /// Use Custom fonts.  
+    public fontsLocation: string;
+    /// The spreadsheet region setting.  
+    public regoin: string;
+    /// The password for opening spreadsheet file.  
+    public password: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< ExportTableAsFormatRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/{name}/worksheets/{worksheet}/tables/{tableName}".replace("{" + "name" + "}", String(this.name)).replace("{" + "worksheet" + "}", String(this.worksheet)).replace("{" + "tableName" + "}", String(this.tableName));
+        const queryParameters: any = {};
+        /// (Required) The desired format  (e.g., "png", "Pdf", "svg"). 
+        // verify required parameter 'format' is not null or undefined
+        if (this.format === null || this.format === undefined) {
+            throw new Error('Required parameter "format" was null or undefined when calling ExportTableAsFormat.');
+        }
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "format", this.format);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fontsLocation", this.fontsLocation);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "regoin", this.regoin);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "GET",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Converts the range of spreadsheet in cloud storage to the specified format.   
+export class ExportRangeAsFormatRequest  {
+    /// (Required) The name of the workbook file to be retrieved.  
+    public name: string;
+    /// worksheet name  
+    public worksheet: string;
+    /// range: A1:C12  
+    public range: string;
+    /// (Required) The desired format  (e.g., "png", "Pdf", "svg").  
+    public format: string;
+    /// (Optional) The folder path where the workbook is stored. The default is null.  
+    public folder: string;
+    /// (Optional) The name of the storage if using custom cloud storage. Use default storage if omitted.  
+    public storageName: string;
+    /// (Optional) The folder path where the workbook is stored. The default is null.  
+    public outPath: string;
+    /// Output file Storage Name.  
+    public outStorageName: string;
+    /// Use Custom fonts.  
+    public fontsLocation: string;
+    /// The spreadsheet region setting.  
+    public regoin: string;
+    /// The password for opening spreadsheet file.  
+    public password: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< ExportRangeAsFormatRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/{name}/worksheets/{worksheet}/ranges/{range}".replace("{" + "name" + "}", String(this.name)).replace("{" + "worksheet" + "}", String(this.worksheet)).replace("{" + "range" + "}", String(this.range));
+        const queryParameters: any = {};
+        /// (Required) The desired format  (e.g., "png", "Pdf", "svg"). 
+        // verify required parameter 'format' is not null or undefined
+        if (this.format === null || this.format === undefined) {
+            throw new Error('Required parameter "format" was null or undefined when calling ExportRangeAsFormat.');
         }
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "format", this.format);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
@@ -22812,6 +22984,1001 @@ export class ConvertSpreadsheetRequest  {
             throw new Error('Required parameter "format" was null or undefined when calling ConvertSpreadsheet.');
         }
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "format", this.format);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fontsLocation", this.fontsLocation);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "regoin", this.regoin);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+        if (this.spreadsheet !== undefined) {
+            if (typeof this.spreadsheet === 'string') {
+                if (fs.existsSync(this.spreadsheet)) {
+                    const fileName = path.basename( this.spreadsheet)
+                    formParams[fileName] = fs.createReadStream(this.spreadsheet)
+                }
+            }
+            else {
+                for (var key in this.spreadsheet){
+                    formParams[key] = this.spreadsheet[key];
+                }
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        (requestOptions as any).formData = formParams;        
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Converts a worksheet of spreadsheet on a local drive to the image format.   
+export class ConvertWorksheetToImageRequest  {
+    /// Upload spreadsheet file.  
+    public spreadsheet: any;
+    /// worksheet name of spreadsheet.  
+    public worksheet: string;
+    /// image format:svg, png, and so on.  
+    public format: string;
+    /// (Optional) The folder path where the workbook is stored. The default is null.  
+    public outPath: string;
+    /// Output file Storage Name.  
+    public outStorageName: string;
+    /// Use Custom fonts.  
+    public fontsLocation: string;
+    /// The spreadsheet region setting.  
+    public regoin: string;
+    /// The password for opening spreadsheet file.  
+    public password: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< ConvertWorksheetToImageRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/convert/worksheet/image";
+        const queryParameters: any = {};
+        const formParams: any = {};
+        /// worksheet name of spreadsheet. 
+        // verify required parameter 'worksheet' is not null or undefined
+        if (this.worksheet === null || this.worksheet === undefined) {
+            throw new Error('Required parameter "worksheet" was null or undefined when calling ConvertWorksheetToImage.');
+        }
+        /// image format:svg, png, and so on. 
+        // verify required parameter 'format' is not null or undefined
+        if (this.format === null || this.format === undefined) {
+            throw new Error('Required parameter "format" was null or undefined when calling ConvertWorksheetToImage.');
+        }
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "worksheet", this.worksheet);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "format", this.format);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fontsLocation", this.fontsLocation);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "regoin", this.regoin);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+        if (this.spreadsheet !== undefined) {
+            if (typeof this.spreadsheet === 'string') {
+                if (fs.existsSync(this.spreadsheet)) {
+                    const fileName = path.basename( this.spreadsheet)
+                    formParams[fileName] = fs.createReadStream(this.spreadsheet)
+                }
+            }
+            else {
+                for (var key in this.spreadsheet){
+                    formParams[key] = this.spreadsheet[key];
+                }
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        (requestOptions as any).formData = formParams;        
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Converts a worksheet of spreadsheet on a local drive to the pdf file.   
+export class ConvertWorksheetToPdfRequest  {
+    /// Upload spreadsheet file.  
+    public spreadsheet: any;
+    /// worksheet name of spreadsheet.  
+    public worksheet: string;
+    /// (Optional) The folder path where the workbook is stored. The default is null.  
+    public outPath: string;
+    /// Output file Storage Name.  
+    public outStorageName: string;
+    /// Use Custom fonts.  
+    public fontsLocation: string;
+    /// The spreadsheet region setting.  
+    public regoin: string;
+    /// The password for opening spreadsheet file.  
+    public password: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< ConvertWorksheetToPdfRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/convert/worksheet/pdf";
+        const queryParameters: any = {};
+        const formParams: any = {};
+        /// worksheet name of spreadsheet. 
+        // verify required parameter 'worksheet' is not null or undefined
+        if (this.worksheet === null || this.worksheet === undefined) {
+            throw new Error('Required parameter "worksheet" was null or undefined when calling ConvertWorksheetToPdf.');
+        }
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "worksheet", this.worksheet);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fontsLocation", this.fontsLocation);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "regoin", this.regoin);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+        if (this.spreadsheet !== undefined) {
+            if (typeof this.spreadsheet === 'string') {
+                if (fs.existsSync(this.spreadsheet)) {
+                    const fileName = path.basename( this.spreadsheet)
+                    formParams[fileName] = fs.createReadStream(this.spreadsheet)
+                }
+            }
+            else {
+                for (var key in this.spreadsheet){
+                    formParams[key] = this.spreadsheet[key];
+                }
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        (requestOptions as any).formData = formParams;        
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Converts a table of spreadsheet on a local drive to the image file.   
+export class ConvertTableToImageRequest  {
+    /// Upload spreadsheet file.  
+    public spreadsheet: any;
+    /// worksheet name of spreadsheet.  
+    public worksheet: string;
+    /// table name  
+    public tableName: string;
+    /// file format.    
+    public format: string;
+    /// (Optional) The folder path where the workbook is stored. The default is null.  
+    public outPath: string;
+    /// Output file Storage Name.  
+    public outStorageName: string;
+    /// Use Custom fonts.  
+    public fontsLocation: string;
+    /// The spreadsheet region setting.  
+    public regoin: string;
+    /// The password for opening spreadsheet file.  
+    public password: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< ConvertTableToImageRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/convert/table/image";
+        const queryParameters: any = {};
+        const formParams: any = {};
+        /// worksheet name of spreadsheet. 
+        // verify required parameter 'worksheet' is not null or undefined
+        if (this.worksheet === null || this.worksheet === undefined) {
+            throw new Error('Required parameter "worksheet" was null or undefined when calling ConvertTableToImage.');
+        }
+        /// table name 
+        // verify required parameter 'tableName' is not null or undefined
+        if (this.tableName === null || this.tableName === undefined) {
+            throw new Error('Required parameter "tableName" was null or undefined when calling ConvertTableToImage.');
+        }
+        /// file format.   
+        // verify required parameter 'format' is not null or undefined
+        if (this.format === null || this.format === undefined) {
+            throw new Error('Required parameter "format" was null or undefined when calling ConvertTableToImage.');
+        }
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "worksheet", this.worksheet);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "tableName", this.tableName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "format", this.format);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fontsLocation", this.fontsLocation);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "regoin", this.regoin);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+        if (this.spreadsheet !== undefined) {
+            if (typeof this.spreadsheet === 'string') {
+                if (fs.existsSync(this.spreadsheet)) {
+                    const fileName = path.basename( this.spreadsheet)
+                    formParams[fileName] = fs.createReadStream(this.spreadsheet)
+                }
+            }
+            else {
+                for (var key in this.spreadsheet){
+                    formParams[key] = this.spreadsheet[key];
+                }
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        (requestOptions as any).formData = formParams;        
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Converts a table of spreadsheet on a local drive to the pdf file.   
+export class ConvertTableToPdfRequest  {
+    /// Upload spreadsheet file.  
+    public spreadsheet: any;
+    /// worksheet name of spreadsheet.  
+    public worksheet: string;
+    /// table name  
+    public tableName: string;
+    /// (Optional) The folder path where the workbook is stored. The default is null.  
+    public outPath: string;
+    /// Output file Storage Name.  
+    public outStorageName: string;
+    /// Use Custom fonts.  
+    public fontsLocation: string;
+    /// The spreadsheet region setting.  
+    public regoin: string;
+    /// The password for opening spreadsheet file.  
+    public password: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< ConvertTableToPdfRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/convert/table/pdf";
+        const queryParameters: any = {};
+        const formParams: any = {};
+        /// worksheet name of spreadsheet. 
+        // verify required parameter 'worksheet' is not null or undefined
+        if (this.worksheet === null || this.worksheet === undefined) {
+            throw new Error('Required parameter "worksheet" was null or undefined when calling ConvertTableToPdf.');
+        }
+        /// table name 
+        // verify required parameter 'tableName' is not null or undefined
+        if (this.tableName === null || this.tableName === undefined) {
+            throw new Error('Required parameter "tableName" was null or undefined when calling ConvertTableToPdf.');
+        }
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "worksheet", this.worksheet);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "tableName", this.tableName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fontsLocation", this.fontsLocation);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "regoin", this.regoin);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+        if (this.spreadsheet !== undefined) {
+            if (typeof this.spreadsheet === 'string') {
+                if (fs.existsSync(this.spreadsheet)) {
+                    const fileName = path.basename( this.spreadsheet)
+                    formParams[fileName] = fs.createReadStream(this.spreadsheet)
+                }
+            }
+            else {
+                for (var key in this.spreadsheet){
+                    formParams[key] = this.spreadsheet[key];
+                }
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        (requestOptions as any).formData = formParams;        
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Converts a table of spreadsheet on a local drive to the csv file.   
+export class ConvertTableToCsvRequest  {
+    /// Upload spreadsheet file.  
+    public spreadsheet: any;
+    /// worksheet name of spreadsheet.  
+    public worksheet: string;
+    /// table name  
+    public tableName: string;
+    /// (Optional) The folder path where the workbook is stored. The default is null.  
+    public outPath: string;
+    /// Output file Storage Name.  
+    public outStorageName: string;
+    /// Use Custom fonts.  
+    public fontsLocation: string;
+    /// The spreadsheet region setting.  
+    public regoin: string;
+    /// The password for opening spreadsheet file.  
+    public password: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< ConvertTableToCsvRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/convert/table/csv";
+        const queryParameters: any = {};
+        const formParams: any = {};
+        /// worksheet name of spreadsheet. 
+        // verify required parameter 'worksheet' is not null or undefined
+        if (this.worksheet === null || this.worksheet === undefined) {
+            throw new Error('Required parameter "worksheet" was null or undefined when calling ConvertTableToCsv.');
+        }
+        /// table name 
+        // verify required parameter 'tableName' is not null or undefined
+        if (this.tableName === null || this.tableName === undefined) {
+            throw new Error('Required parameter "tableName" was null or undefined when calling ConvertTableToCsv.');
+        }
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "worksheet", this.worksheet);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "tableName", this.tableName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fontsLocation", this.fontsLocation);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "regoin", this.regoin);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+        if (this.spreadsheet !== undefined) {
+            if (typeof this.spreadsheet === 'string') {
+                if (fs.existsSync(this.spreadsheet)) {
+                    const fileName = path.basename( this.spreadsheet)
+                    formParams[fileName] = fs.createReadStream(this.spreadsheet)
+                }
+            }
+            else {
+                for (var key in this.spreadsheet){
+                    formParams[key] = this.spreadsheet[key];
+                }
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        (requestOptions as any).formData = formParams;        
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Converts a table of spreadsheet on a local drive to the html file.   
+export class ConvertTableToHtmlRequest  {
+    /// Upload spreadsheet file.  
+    public spreadsheet: any;
+    /// worksheet name of spreadsheet.  
+    public worksheet: string;
+    /// table name  
+    public tableName: string;
+    /// (Optional) The folder path where the workbook is stored. The default is null.  
+    public outPath: string;
+    /// Output file Storage Name.  
+    public outStorageName: string;
+    /// Use Custom fonts.  
+    public fontsLocation: string;
+    /// The spreadsheet region setting.  
+    public regoin: string;
+    /// The password for opening spreadsheet file.  
+    public password: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< ConvertTableToHtmlRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/convert/table/html";
+        const queryParameters: any = {};
+        const formParams: any = {};
+        /// worksheet name of spreadsheet. 
+        // verify required parameter 'worksheet' is not null or undefined
+        if (this.worksheet === null || this.worksheet === undefined) {
+            throw new Error('Required parameter "worksheet" was null or undefined when calling ConvertTableToHtml.');
+        }
+        /// table name 
+        // verify required parameter 'tableName' is not null or undefined
+        if (this.tableName === null || this.tableName === undefined) {
+            throw new Error('Required parameter "tableName" was null or undefined when calling ConvertTableToHtml.');
+        }
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "worksheet", this.worksheet);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "tableName", this.tableName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fontsLocation", this.fontsLocation);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "regoin", this.regoin);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+        if (this.spreadsheet !== undefined) {
+            if (typeof this.spreadsheet === 'string') {
+                if (fs.existsSync(this.spreadsheet)) {
+                    const fileName = path.basename( this.spreadsheet)
+                    formParams[fileName] = fs.createReadStream(this.spreadsheet)
+                }
+            }
+            else {
+                for (var key in this.spreadsheet){
+                    formParams[key] = this.spreadsheet[key];
+                }
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        (requestOptions as any).formData = formParams;        
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Converts a table of spreadsheet on a local drive to the json file.   
+export class ConvertTableToJsonRequest  {
+    /// Upload spreadsheet file.  
+    public spreadsheet: any;
+    /// worksheet name of spreadsheet.  
+    public worksheet: string;
+    /// table name  
+    public tableName: string;
+    /// (Optional) The folder path where the workbook is stored. The default is null.  
+    public outPath: string;
+    /// Output file Storage Name.  
+    public outStorageName: string;
+    /// Use Custom fonts.  
+    public fontsLocation: string;
+    /// The spreadsheet region setting.  
+    public regoin: string;
+    /// The password for opening spreadsheet file.  
+    public password: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< ConvertTableToJsonRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/convert/table/json";
+        const queryParameters: any = {};
+        const formParams: any = {};
+        /// worksheet name of spreadsheet. 
+        // verify required parameter 'worksheet' is not null or undefined
+        if (this.worksheet === null || this.worksheet === undefined) {
+            throw new Error('Required parameter "worksheet" was null or undefined when calling ConvertTableToJson.');
+        }
+        /// table name 
+        // verify required parameter 'tableName' is not null or undefined
+        if (this.tableName === null || this.tableName === undefined) {
+            throw new Error('Required parameter "tableName" was null or undefined when calling ConvertTableToJson.');
+        }
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "worksheet", this.worksheet);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "tableName", this.tableName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fontsLocation", this.fontsLocation);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "regoin", this.regoin);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+        if (this.spreadsheet !== undefined) {
+            if (typeof this.spreadsheet === 'string') {
+                if (fs.existsSync(this.spreadsheet)) {
+                    const fileName = path.basename( this.spreadsheet)
+                    formParams[fileName] = fs.createReadStream(this.spreadsheet)
+                }
+            }
+            else {
+                for (var key in this.spreadsheet){
+                    formParams[key] = this.spreadsheet[key];
+                }
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        (requestOptions as any).formData = formParams;        
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Converts a range of spreadsheet on a local drive to the image file.   
+export class ConvertRangeToImageRequest  {
+    /// Upload spreadsheet file.  
+    public spreadsheet: any;
+    /// worksheet name of spreadsheet.  
+    public worksheet: string;
+    /// cell area. e.g. A1:C10  
+    public range: string;
+    /// file format. e.g. png, svg, tiff   
+    public format: string;
+    /// Represents if row and column headings are printed with this page.  
+    public printHeadings: boolean;
+    /// (Optional) The folder path where the workbook is stored. The default is null.  
+    public outPath: string;
+    /// Output file Storage Name.  
+    public outStorageName: string;
+    /// Use Custom fonts.  
+    public fontsLocation: string;
+    /// The spreadsheet region setting.  
+    public regoin: string;
+    /// The password for opening spreadsheet file.  
+    public password: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< ConvertRangeToImageRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/convert/range/image";
+        const queryParameters: any = {};
+        const formParams: any = {};
+        /// worksheet name of spreadsheet. 
+        // verify required parameter 'worksheet' is not null or undefined
+        if (this.worksheet === null || this.worksheet === undefined) {
+            throw new Error('Required parameter "worksheet" was null or undefined when calling ConvertRangeToImage.');
+        }
+        /// cell area. e.g. A1:C10 
+        // verify required parameter 'range' is not null or undefined
+        if (this.range === null || this.range === undefined) {
+            throw new Error('Required parameter "range" was null or undefined when calling ConvertRangeToImage.');
+        }
+        /// file format. e.g. png, svg, tiff  
+        // verify required parameter 'format' is not null or undefined
+        if (this.format === null || this.format === undefined) {
+            throw new Error('Required parameter "format" was null or undefined when calling ConvertRangeToImage.');
+        }
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "worksheet", this.worksheet);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "range", this.range);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "format", this.format);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "printHeadings", this.printHeadings);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fontsLocation", this.fontsLocation);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "regoin", this.regoin);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+        if (this.spreadsheet !== undefined) {
+            if (typeof this.spreadsheet === 'string') {
+                if (fs.existsSync(this.spreadsheet)) {
+                    const fileName = path.basename( this.spreadsheet)
+                    formParams[fileName] = fs.createReadStream(this.spreadsheet)
+                }
+            }
+            else {
+                for (var key in this.spreadsheet){
+                    formParams[key] = this.spreadsheet[key];
+                }
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        (requestOptions as any).formData = formParams;        
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Converts a range of spreadsheet on a local drive to the pdf file.   
+export class ConvertRangeToPdfRequest  {
+    /// Upload spreadsheet file.  
+    public spreadsheet: any;
+    /// worksheet name of spreadsheet.  
+    public worksheet: string;
+    /// cell area. e.g. A1:C10  
+    public range: string;
+    /// (Optional) The folder path where the workbook is stored. The default is null.  
+    public outPath: string;
+    /// Output file Storage Name.  
+    public outStorageName: string;
+    /// Use Custom fonts.  
+    public fontsLocation: string;
+    /// The spreadsheet region setting.  
+    public regoin: string;
+    /// The password for opening spreadsheet file.  
+    public password: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< ConvertRangeToPdfRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/convert/range/pdf";
+        const queryParameters: any = {};
+        const formParams: any = {};
+        /// worksheet name of spreadsheet. 
+        // verify required parameter 'worksheet' is not null or undefined
+        if (this.worksheet === null || this.worksheet === undefined) {
+            throw new Error('Required parameter "worksheet" was null or undefined when calling ConvertRangeToPdf.');
+        }
+        /// cell area. e.g. A1:C10 
+        // verify required parameter 'range' is not null or undefined
+        if (this.range === null || this.range === undefined) {
+            throw new Error('Required parameter "range" was null or undefined when calling ConvertRangeToPdf.');
+        }
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "worksheet", this.worksheet);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "range", this.range);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fontsLocation", this.fontsLocation);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "regoin", this.regoin);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+        if (this.spreadsheet !== undefined) {
+            if (typeof this.spreadsheet === 'string') {
+                if (fs.existsSync(this.spreadsheet)) {
+                    const fileName = path.basename( this.spreadsheet)
+                    formParams[fileName] = fs.createReadStream(this.spreadsheet)
+                }
+            }
+            else {
+                for (var key in this.spreadsheet){
+                    formParams[key] = this.spreadsheet[key];
+                }
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        (requestOptions as any).formData = formParams;        
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Converts a range of spreadsheet on a local drive to the csv file.   
+export class ConvertRangeToCsvRequest  {
+    /// Upload spreadsheet file.  
+    public spreadsheet: any;
+    /// worksheet name of spreadsheet.  
+    public worksheet: string;
+    /// cell area. e.g. A1:C10  
+    public range: string;
+    /// (Optional) The folder path where the workbook is stored. The default is null.  
+    public outPath: string;
+    /// Output file Storage Name.  
+    public outStorageName: string;
+    /// Use Custom fonts.  
+    public fontsLocation: string;
+    /// The spreadsheet region setting.  
+    public regoin: string;
+    /// The password for opening spreadsheet file.  
+    public password: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< ConvertRangeToCsvRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/convert/range/csv";
+        const queryParameters: any = {};
+        const formParams: any = {};
+        /// worksheet name of spreadsheet. 
+        // verify required parameter 'worksheet' is not null or undefined
+        if (this.worksheet === null || this.worksheet === undefined) {
+            throw new Error('Required parameter "worksheet" was null or undefined when calling ConvertRangeToCsv.');
+        }
+        /// cell area. e.g. A1:C10 
+        // verify required parameter 'range' is not null or undefined
+        if (this.range === null || this.range === undefined) {
+            throw new Error('Required parameter "range" was null or undefined when calling ConvertRangeToCsv.');
+        }
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "worksheet", this.worksheet);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "range", this.range);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fontsLocation", this.fontsLocation);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "regoin", this.regoin);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+        if (this.spreadsheet !== undefined) {
+            if (typeof this.spreadsheet === 'string') {
+                if (fs.existsSync(this.spreadsheet)) {
+                    const fileName = path.basename( this.spreadsheet)
+                    formParams[fileName] = fs.createReadStream(this.spreadsheet)
+                }
+            }
+            else {
+                for (var key in this.spreadsheet){
+                    formParams[key] = this.spreadsheet[key];
+                }
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        (requestOptions as any).formData = formParams;        
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Converts a range of spreadsheet on a local drive to the html file.   
+export class ConvertRangeToHtmlRequest  {
+    /// Upload spreadsheet file.  
+    public spreadsheet: any;
+    /// worksheet name of spreadsheet.  
+    public worksheet: string;
+    /// cell area. e.g. A1:C10  
+    public range: string;
+    /// (Optional) The folder path where the workbook is stored. The default is null.  
+    public outPath: string;
+    /// Output file Storage Name.  
+    public outStorageName: string;
+    /// Use Custom fonts.  
+    public fontsLocation: string;
+    /// The spreadsheet region setting.  
+    public regoin: string;
+    /// The password for opening spreadsheet file.  
+    public password: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< ConvertRangeToHtmlRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/convert/range/html";
+        const queryParameters: any = {};
+        const formParams: any = {};
+        /// worksheet name of spreadsheet. 
+        // verify required parameter 'worksheet' is not null or undefined
+        if (this.worksheet === null || this.worksheet === undefined) {
+            throw new Error('Required parameter "worksheet" was null or undefined when calling ConvertRangeToHtml.');
+        }
+        /// cell area. e.g. A1:C10 
+        // verify required parameter 'range' is not null or undefined
+        if (this.range === null || this.range === undefined) {
+            throw new Error('Required parameter "range" was null or undefined when calling ConvertRangeToHtml.');
+        }
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "worksheet", this.worksheet);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "range", this.range);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fontsLocation", this.fontsLocation);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "regoin", this.regoin);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+        if (this.spreadsheet !== undefined) {
+            if (typeof this.spreadsheet === 'string') {
+                if (fs.existsSync(this.spreadsheet)) {
+                    const fileName = path.basename( this.spreadsheet)
+                    formParams[fileName] = fs.createReadStream(this.spreadsheet)
+                }
+            }
+            else {
+                for (var key in this.spreadsheet){
+                    formParams[key] = this.spreadsheet[key];
+                }
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        (requestOptions as any).formData = formParams;        
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Converts a range of spreadsheet on a local drive to the json file.   
+export class ConvertRangeToJsonRequest  {
+    /// Upload spreadsheet file.  
+    public spreadsheet: any;
+    /// worksheet name of spreadsheet.  
+    public worksheet: string;
+    /// cell area. e.g. A1:C10  
+    public range: string;
+    /// (Optional) The folder path where the workbook is stored. The default is null.  
+    public outPath: string;
+    /// Output file Storage Name.  
+    public outStorageName: string;
+    /// Use Custom fonts.  
+    public fontsLocation: string;
+    /// The spreadsheet region setting.  
+    public regoin: string;
+    /// The password for opening spreadsheet file.  
+    public password: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< ConvertRangeToJsonRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/convert/range/json";
+        const queryParameters: any = {};
+        const formParams: any = {};
+        /// worksheet name of spreadsheet. 
+        // verify required parameter 'worksheet' is not null or undefined
+        if (this.worksheet === null || this.worksheet === undefined) {
+            throw new Error('Required parameter "worksheet" was null or undefined when calling ConvertRangeToJson.');
+        }
+        /// cell area. e.g. A1:C10 
+        // verify required parameter 'range' is not null or undefined
+        if (this.range === null || this.range === undefined) {
+            throw new Error('Required parameter "range" was null or undefined when calling ConvertRangeToJson.');
+        }
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "worksheet", this.worksheet);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "range", this.range);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fontsLocation", this.fontsLocation);
@@ -23478,6 +24645,158 @@ export class GetPublicKeyRequest  {
     }
 
 }
+/// Applies dual-layer password protection to Excel spreadsheets, supporting both open and modify passwords with encryption.   
+export class ProtectSpreadsheetRequest  {
+    /// Upload spreadsheet file.  
+    public spreadsheet: any;
+    /// Spreadsheet file encryption password.  
+    public password: string;
+    /// Sets the protected password to modify the file.  
+    public modifyPassword: string;
+    /// (Optional) The folder path where the workbook is stored. The default is null.  
+    public outPath: string;
+    /// Output file Storage Name.  
+    public outStorageName: string;
+    /// The spreadsheet region setting.  
+    public regoin: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< ProtectSpreadsheetRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/protection/spreadsheet";
+        const queryParameters: any = {};
+        const formParams: any = {};
+        /// Spreadsheet file encryption password. 
+        // verify required parameter 'password' is not null or undefined
+        if (this.password === null || this.password === undefined) {
+            throw new Error('Required parameter "password" was null or undefined when calling ProtectSpreadsheet.');
+        }
+        /// Sets the protected password to modify the file. 
+        // verify required parameter 'modifyPassword' is not null or undefined
+        if (this.modifyPassword === null || this.modifyPassword === undefined) {
+            throw new Error('Required parameter "modifyPassword" was null or undefined when calling ProtectSpreadsheet.');
+        }
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "modifyPassword", this.modifyPassword);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "regoin", this.regoin);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+        if (this.spreadsheet !== undefined) {
+            if (typeof this.spreadsheet === 'string') {
+                if (fs.existsSync(this.spreadsheet)) {
+                    const fileName = path.basename( this.spreadsheet)
+                    formParams[fileName] = fs.createReadStream(this.spreadsheet)
+                }
+            }
+            else {
+                for (var key in this.spreadsheet){
+                    formParams[key] = this.spreadsheet[key];
+                }
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        (requestOptions as any).formData = formParams;        
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Removes dual-layer password protection from Excel spreadsheets, supporting both open and modify passwords with encryption.   
+export class UnprotectSpreadsheetRequest  {
+    /// Upload spreadsheet file.  
+    public spreadsheet: any;
+    /// Spreadsheet file encryption password.  
+    public password: string;
+    /// Sets the protected password to modify the file.  
+    public modifyPassword: string;
+    /// (Optional) The folder path where the workbook is stored. The default is null.  
+    public outPath: string;
+    /// Output file Storage Name.  
+    public outStorageName: string;
+    /// The spreadsheet region setting.  
+    public regoin: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< UnprotectSpreadsheetRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/unprotection/spreadsheet";
+        const queryParameters: any = {};
+        const formParams: any = {};
+        /// Spreadsheet file encryption password. 
+        // verify required parameter 'password' is not null or undefined
+        if (this.password === null || this.password === undefined) {
+            throw new Error('Required parameter "password" was null or undefined when calling UnprotectSpreadsheet.');
+        }
+        /// Sets the protected password to modify the file. 
+        // verify required parameter 'modifyPassword' is not null or undefined
+        if (this.modifyPassword === null || this.modifyPassword === undefined) {
+            throw new Error('Required parameter "modifyPassword" was null or undefined when calling UnprotectSpreadsheet.');
+        }
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "modifyPassword", this.modifyPassword);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "regoin", this.regoin);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+        if (this.spreadsheet !== undefined) {
+            if (typeof this.spreadsheet === 'string') {
+                if (fs.existsSync(this.spreadsheet)) {
+                    const fileName = path.basename( this.spreadsheet)
+                    formParams[fileName] = fs.createReadStream(this.spreadsheet)
+                }
+            }
+            else {
+                for (var key in this.spreadsheet){
+                    formParams[key] = this.spreadsheet[key];
+                }
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        (requestOptions as any).formData = formParams;        
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
 /// Search text in the local spreadsheet.   
 export class SearchSpreadsheetContentRequest  {
     /// Upload spreadsheet file.  
@@ -23973,7 +25292,7 @@ export class ReplaceContentInRemoteRangeRequest  {
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
-        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/{name}/worksheets/{worksheet}/ranges/{cellarea}/replace/content".replace("{" + "name" + "}", String(this.name)).replace("{" + "worksheet" + "}", String(this.worksheet)).replace("{" + "cellArea" + "}", String(this.cellArea));
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/{name}/worksheets/{worksheet}/ranges/{cellArea}/replace/content".replace("{" + "name" + "}", String(this.name)).replace("{" + "worksheet" + "}", String(this.worksheet)).replace("{" + "cellArea" + "}", String(this.cellArea));
         const queryParameters: any = {};
         /// The searched text. 
         // verify required parameter 'searchText' is not null or undefined
@@ -39080,9 +40399,9 @@ export class PostRunTaskRequest  {
     }
 
 }
-/// Adds text content to a workbook at specified positions within cells based on provided options using ASP.NET Core Web API.   
+/// Adds text content to a specified location within a document. It requires an object that defines the text to be added and the insertion location.   
 export class PostAddTextContentRequest  {
-      
+    /// that specifies the text content and the position where the text should be added.  
     public addTextOptions: AddTextOptions;
     /// extend query parameter
     public extendQueryParameterMap: any;
@@ -39116,7 +40435,7 @@ export class PostAddTextContentRequest  {
     }
 
 }
-   
+/// The PostTrimContent API is designed to process and trim content within a specified range in a spreadsheet. This API allows users to remove extra spaces, line breaks, or other unnecessary characters from the content of selected cells. It is particularly useful for cleaning up data entries and ensuring consistency in spreadsheet formatting   
 export class PostTrimContentRequest  {
       
     public trimContentOptions: TrimContentOptions;
@@ -39152,7 +40471,7 @@ export class PostTrimContentRequest  {
     }
 
 }
-   
+/// Managing inconsistent text case in spreadsheets (Excel, Google Sheets, CSV) can be frustrating, especially with large datasets. The PostUpdateWordCase WEB API solves this by automating text case conversions, ensuring clean and standardized data.   
 export class PostUpdateWordCaseRequest  {
       
     public wordCaseOptions: WordCaseOptions;
@@ -39188,7 +40507,7 @@ export class PostUpdateWordCaseRequest  {
     }
 
 }
-   
+/// A comprehensive set of tools for cleaning text content within selected cells. It allows users to remove specific characters, character sets, and substrings, ensuring that the text is standardized and free from unwanted symbols or sequences.   
 export class PostRemoveCharactersRequest  {
       
     public removeCharactersOptions: RemoveCharactersOptions;
@@ -39224,7 +40543,7 @@ export class PostRemoveCharactersRequest  {
     }
 
 }
-   
+/// Enhance Excel data through essential text conversions: convert text to numbers, replace characters and line breaks, and remove accents.   
 export class PostConvertTextRequest  {
       
     public convertTextOptions: ConvertTextOptions;
@@ -39260,7 +40579,7 @@ export class PostConvertTextRequest  {
     }
 
 }
-   
+/// Efficiently remove duplicate substrings from Excel cells. Select a range, specify delimiters, and apply options to eliminate repeated text segments.   
 export class PostRemoveDuplicatesRequest  {
       
     public removeDuplicatesOptions: RemoveDuplicatesOptions;
@@ -39296,7 +40615,7 @@ export class PostRemoveDuplicatesRequest  {
     }
 
 }
-   
+/// Effortlessly extract text and numbers from Excel cells with precise options. This API allows extraction of first/last characters, text between delimiters, and numbers from strings, with output as static values or formulas.   
 export class PostExtractTextRequest  {
       
     public extractTextOptions: ExtractTextOptions;
@@ -39332,7 +40651,7 @@ export class PostExtractTextRequest  {
     }
 
 }
-   
+/// Efficiently divides Excel cell content into columns or rows based on specified delimiters or patterns. Supports Character-based splitting, Custom string splitting, Mask and wildcard splitting for pattern-based division, Line break division, Column or row splitting, Delimiter removal or retention.   
 export class PostSplitTextRequest  {
       
     public splitTextOptions: SplitTextOptions;
