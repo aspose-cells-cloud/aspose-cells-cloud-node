@@ -113,11 +113,9 @@ Full list of issues covering all changes in this release:
 
 |**Summary**| **Category** |
 | :- |:-------------|
-| Optimize the upload file API  | Improvement |
-| Support delete blank rows, columns, and worksheets. | New Feature |
-| Optimize search context for remote spreadsheet features by splitting them into independent APIs, each dedicated to a specific operational area. | New Feature |
-| Optimize search broken links for remote spreadsheet features by splitting them into independent APIs, each dedicated to a specific operational area. | New Feature |
-| Optimize replace context for remote spreadsheet features by splitting them into independent APIs, each dedicated to a specific operational area. | New Feature |
+| Optimize operate scope options for extProcessingController.  | Improvement |
+| Add protect/unprotect spreadsheet APIs. | New Feature |
+| Add convert worksheet/table/range to other formats. | New Feature |
 
 ## Available SDKs
 
