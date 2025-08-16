@@ -94,24 +94,28 @@ async function invokeApiMethodInternal(requestOptions: request.Options, confgura
     // requestOptions.rejectUnauthorized=false;
 
     requestOptions.headers["x-aspose-client"] = "nodejs sdk";
-    requestOptions.headers["x-aspose-client-version"] = "25.7";
+    requestOptions.headers["x-aspose-client-version"] = "25.8";
     requestOptions.headers["Content-Type"] = "application/json";
     const auth = confguration.authentication;
     if (!notApplyAuthToRequest) {
         await auth.applyToRequest(requestOptions, confguration);
     }
-
+    console.log("run......api method")
     return new Promise<request.RequestResponse>((resolve, reject) => {
         const r = request(requestOptions, async (error, response) => {
             if (error) {
+                console.log("error");
                 reject(error);
             } else {
                 if (response.statusCode >= 200 && response.statusCode <= 299) {
+                    console.log("200");
                     resolve(response);
                 } else if (response.statusCode === 401 && !notApplyAuthToRequest) {
+                    console.log("401");
                     await auth.handle401response(confguration);
                     reject(new NeedRepeatException());
                 } else {
+                    console.log("othjer");
                     try {
                         let bodyContent = response.body;
                         if (bodyContent instanceof Buffer) {

@@ -1,7 +1,7 @@
 import request from "request";
 import { Configuration } from "../internal/configuration";
-import { addQueryParameterToUrl } from "../internal/requestHelper";
 import { ObjectSerializer } from "../internal/objectSerializer";
+import { addQueryParameterToUrl } from "../internal/requestHelper";
 const fs = require('fs');
 const path = require('path');
 
@@ -386,6 +386,75 @@ export class GoogleDriveStorageFile  extends StorageFile  {
 
     public constructor(init?: Partial< GoogleDriveStorageFile >) {  
          super(init);     
+        Object.assign(this, init);
+    } 
+}
+   
+export class AggregateResultByColor  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "aggregateOperation",
+            baseName: "AggregateOperation",
+            type: "string",
+        },
+        {
+            name: "colorName",
+            baseName: "ColorName",
+            type: "string",
+        },
+        {
+            name: "count",
+            baseName: "Count",
+            type: "number",
+        },
+        {
+            name: "sum",
+            baseName: "Sum",
+            type: "number",
+        },
+        {
+            name: "maxValue",
+            baseName: "MaxValue",
+            type: "number",
+        },
+        {
+            name: "minValue",
+            baseName: "MinValue",
+            type: "number",
+        },
+        {
+            name: "averageValue",
+            baseName: "AverageValue",
+            type: "number",
+        },
+        {
+            name: "value",
+            baseName: "Value",
+            type: "number",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return  AggregateResultByColor.attributeTypeMap;
+
+    }
+
+    public aggregateOperation: string;
+    public colorName: string;
+    public count: number;
+    public sum: number;
+    public maxValue: number;
+    public minValue: number;
+    public averageValue: number;
+    public value: number;
+
+    public constructor(init?: Partial< AggregateResultByColor >) {  
+    
         Object.assign(this, init);
     } 
 }
@@ -986,6 +1055,27 @@ export class PaginatedSaveOptions  extends SaveOptions  {
 
     public constructor(init?: Partial< PaginatedSaveOptions >) {  
          super(init);     
+        Object.assign(this, init);
+    } 
+}
+   
+export class SpreadsheetTemplate  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return  SpreadsheetTemplate.attributeTypeMap;
+
+    }
+
+
+    public constructor(init?: Partial< SpreadsheetTemplate >) {  
+    
         Object.assign(this, init);
     } 
 }
@@ -2846,6 +2936,33 @@ export class CellsCloudResponse  {
 
     public constructor(init?: Partial< CellsCloudResponse >) {  
     
+        Object.assign(this, init);
+    } 
+}
+   
+export class AggregateResultByColorResponse  extends CellsCloudResponse  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "aggregateResults",
+            baseName: "AggregateResults",
+            type: "Array<AggregateResultByColor>",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return super.getAttributeTypeMap().concat(AggregateResultByColorResponse.attributeTypeMap) ;
+
+    }
+
+    public aggregateResults: Array<AggregateResultByColor>;
+
+    public constructor(init?: Partial< AggregateResultByColorResponse >) {  
+         super(init);     
         Object.assign(this, init);
     } 
 }
@@ -22067,6 +22184,7 @@ const typeMap = {
     FilesUploadResult,
     StorageFile,
     GoogleDriveStorageFile,
+    AggregateResultByColor,
     BrokenLink,
     CellArea,
     CellsCloudFileInfo,
@@ -22076,6 +22194,7 @@ const typeMap = {
     Range,
     SaveResult,
     PaginatedSaveOptions,
+    SpreadsheetTemplate,
     TextItem,
     DbfSaveOptions,
     DifSaveOptions,
@@ -22100,6 +22219,7 @@ const typeMap = {
     XlsSaveOptions,
     XmlSaveOptions,
     XpsSaveOptions,
+    AggregateResultByColorResponse,
     BrokenLinksReponse,
     CellsCloudFileInfoResponse,
     CellsCloudPublicKeyResponse,
@@ -22506,8 +22626,156 @@ const typeMap = {
     WorksheetDataStatistics,
 };
 
-export {enumsMap, typeMap};
+export { enumsMap, typeMap };
 
+/// The Aggregate by Color API provides a convenient way to perform calculations on cells that share the same fill or font color. This API supports a range of aggregate operations, including count, sum, maximum value, minimum value, and average value, enabling you to analyze and summarize data based on color distinctions.   
+export class AggregateCellsByColorRequest  {
+    /// Upload spreadsheet file.  
+    public spreadsheet: any;
+      
+    public worksheet: string;
+      
+    public range: string;
+      
+    public operation: string;
+      
+    public colorPosition: string;
+    /// The spreadsheet region setting.  
+    public regoin: string;
+    /// The password for opening spreadsheet file.  
+    public password: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< AggregateCellsByColorRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/calculate/aggergate/color";
+        const queryParameters: any = {};
+        const formParams: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "worksheet", this.worksheet);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "range", this.range);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "operation", this.operation);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "colorPosition", this.colorPosition);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "regoin", this.regoin);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+        if (this.spreadsheet !== undefined) {
+            if (typeof this.spreadsheet === 'string') {
+                if (fs.existsSync(this.spreadsheet)) {
+                    const fileName = path.basename( this.spreadsheet)
+                    formParams[fileName] = fs.createReadStream(this.spreadsheet)
+                }
+            }
+            else {
+                for (var key in this.spreadsheet){
+                    formParams[key] = this.spreadsheet[key];
+                }
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        (requestOptions as any).formData = formParams;        
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// The Math Calculate API enables you to perform a variety of mathematical operations on a selected range of cells. You can add or subtract a specific number from all selected cells, as well as multiply or divide individual cells and entire columns. This API simplifies complex calculations and enhances data manipulation capabilities.   
+export class MathCalculateRequest  {
+    /// Upload spreadsheet file.  
+    public spreadsheet: any;
+      
+    public operation: string;
+      
+    public value: string;
+      
+    public worksheet: string;
+      
+    public range: string;
+    /// The spreadsheet region setting.  
+    public regoin: string;
+    /// The password for opening spreadsheet file.  
+    public password: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< MathCalculateRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/calculate/math";
+        const queryParameters: any = {};
+        const formParams: any = {};
+         
+        // verify required parameter 'operation' is not null or undefined
+        if (this.operation === null || this.operation === undefined) {
+            throw new Error('Required parameter "operation" was null or undefined when calling MathCalculate.');
+        }
+         
+        // verify required parameter 'value' is not null or undefined
+        if (this.value === null || this.value === undefined) {
+            throw new Error('Required parameter "value" was null or undefined when calling MathCalculate.');
+        }
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "operation", this.operation);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "value", this.value);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "worksheet", this.worksheet);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "range", this.range);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "regoin", this.regoin);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+        if (this.spreadsheet !== undefined) {
+            if (typeof this.spreadsheet === 'string') {
+                if (fs.existsSync(this.spreadsheet)) {
+                    const fileName = path.basename( this.spreadsheet)
+                    formParams[fileName] = fs.createReadStream(this.spreadsheet)
+                }
+            }
+            else {
+                for (var key in this.spreadsheet){
+                    formParams[key] = this.spreadsheet[key];
+                }
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        (requestOptions as any).formData = formParams;        
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
 /// Get Access Token Result: The Cells Cloud Get Token API acts as a proxy service,
 /// forwarding user requests to the Aspose Cloud authentication server and returning the resulting access token to the client.   
 export class PostAccessTokenRequest  {
@@ -24611,6 +24879,112 @@ export class SplitRemoteSpreadsheetRequest  {
     }
 
 }
+   
+export class ImportDataIntoSpreadsheetRequest  {
+    /// Upload data file.  
+    public datafile: any;
+    /// Upload spreadsheet file.  
+    public spreadsheet: any;
+      
+    public worksheet: string;
+      
+    public startcell: string;
+      
+    public insert: boolean;
+      
+    public convertNumericData: boolean;
+      
+    public splitter: string;
+    /// (Optional) The folder path where the workbook is stored. The default is null.  
+    public outPath: string;
+    /// Output file Storage Name.  
+    public outStorageName: string;
+    /// Use Custom fonts.  
+    public fontsLocation: string;
+    /// The spreadsheet region setting.  
+    public regoin: string;
+    /// The password for opening spreadsheet file.  
+    public password: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< ImportDataIntoSpreadsheetRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/import/data";
+        const queryParameters: any = {};
+        const formParams: any = {};
+         
+        // verify required parameter 'worksheet' is not null or undefined
+        if (this.worksheet === null || this.worksheet === undefined) {
+            throw new Error('Required parameter "worksheet" was null or undefined when calling ImportDataIntoSpreadsheet.');
+        }
+         
+        // verify required parameter 'startcell' is not null or undefined
+        if (this.startcell === null || this.startcell === undefined) {
+            throw new Error('Required parameter "startcell" was null or undefined when calling ImportDataIntoSpreadsheet.');
+        }
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "worksheet", this.worksheet);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "startcell", this.startcell);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "insert", this.insert);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "convertNumericData", this.convertNumericData);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "splitter", this.splitter);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fontsLocation", this.fontsLocation);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "regoin", this.regoin);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+        if (this.datafile !== undefined) {
+            if (typeof this.datafile === 'string') {
+                if (fs.existsSync(this.datafile)) {
+                    const fileName = path.basename( this.datafile)
+                    formParams[fileName] = fs.createReadStream(this.datafile)
+                }
+            }
+            else {
+                for (var key in this.datafile){
+                    formParams[key] = this.datafile[key];
+                }
+            }
+        }
+        if (this.spreadsheet !== undefined) {
+            if (typeof this.spreadsheet === 'string') {
+                if (fs.existsSync(this.spreadsheet)) {
+                    const fileName = path.basename( this.spreadsheet)
+                    formParams[fileName] = fs.createReadStream(this.spreadsheet)
+                }
+            }
+            else {
+                for (var key in this.spreadsheet){
+                    formParams[key] = this.spreadsheet[key];
+                }
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        (requestOptions as any).formData = formParams;        
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
 /// Get an asymmetric public key.   
 export class GetPublicKeyRequest  {
     /// extend query parameter
@@ -24640,6 +25014,432 @@ export class GetPublicKeyRequest  {
             json: true,
         };
 
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// The Web API allows users to create a new spreadsheet with a specified name. Optionally, a template can be provided to initialize the spreadsheet with predefined content or formatting.   
+export class CreateSpreadsheetRequest  {
+    /// Specifies the name of the new spreadsheet. This name will be used to identify the spreadsheet in the system.  
+    public format: string;
+    /// template: Optional.If provided, the new spreadsheet will be created based on the specified template.This can be useful for applying predefined layouts and styles.  
+    public template: string;
+    /// (Optional) The folder path where the workbook is stored. The default is null.  
+    public outPath: string;
+    /// Output file Storage Name.  
+    public outStorageName: string;
+    /// The spreadsheet region setting.  
+    public regoin: string;
+    /// The password for opening spreadsheet file.  
+    public password: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< CreateSpreadsheetRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/spreadsheet/create";
+        const queryParameters: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "format", this.format);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "template", this.template);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "regoin", this.regoin);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+        console.log(localVarPath);
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// The Web API enables users to add a new worksheet to a workbook, specifying the worksheet's type, position, and name. This function provides flexibility in managing workbook structure by allowing detailed control over worksheet addition.   
+export class AddWorksheetToSpreadsheetRequest  {
+    /// Upload spreadsheet file.  
+    public spreadsheet: any;
+    /// Specifies the name of the new worksheet.If not provided, a default name will be assigned.  
+    public sheetType: string;
+    /// Specifies the position at which the new worksheet should be inserted.If not provided, the worksheet will be added at the end of the workbook.  
+    public position: number;
+    /// Specifies the type of worksheet to be added.If not provided, a default worksheet type will be used.  
+    public sheetName: string;
+    /// (Optional) The folder path where the workbook is stored. The default is null.  
+    public outPath: string;
+    /// Output file Storage Name.  
+    public outStorageName: string;
+    /// The spreadsheet region setting.  
+    public regoin: string;
+    /// The password for opening spreadsheet file.  
+    public password: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< AddWorksheetToSpreadsheetRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/spreadsheet/add/worksheet";
+        const queryParameters: any = {};
+        const formParams: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "sheetType", this.sheetType);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "position", this.position);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "sheetName", this.sheetName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "regoin", this.regoin);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+        console.log(localVarPath);
+        if (this.spreadsheet !== undefined) {
+            if (typeof this.spreadsheet === 'string') {
+                if (fs.existsSync(this.spreadsheet)) {
+                    const fileName = path.basename( this.spreadsheet)
+                    console.log(this.spreadsheet);
+                    formParams[fileName] = fs.createReadStream(this.spreadsheet)
+                }
+            }
+            else {
+                for (var key in this.spreadsheet){
+                    formParams[key] = this.spreadsheet[key];
+                }
+            }
+        }
+
+
+        // const bodyParameter = null;
+        
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        (requestOptions as any).formData = formParams;        
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// The Web API endpoint allows users to delete a specified worksheet from a workbook. This function provides a straightforward way to manage workbook structure by removing unnecessary or redundant worksheets.   
+export class DeleteWorksheetFromSpreadsheetRequest  {
+    /// Upload spreadsheet file.  
+    public spreadsheet: any;
+    /// Specifies the name or identifier of the worksheet to be deleted. This parameter is required and must match the name of an existing worksheet in the workbook.  
+    public sheetName: string;
+    /// (Optional) The folder path where the workbook is stored. The default is null.  
+    public outPath: string;
+    /// Output file Storage Name.  
+    public outStorageName: string;
+    /// The spreadsheet region setting.  
+    public regoin: string;
+    /// The password for opening spreadsheet file.  
+    public password: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< DeleteWorksheetFromSpreadsheetRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/spreadsheet/delete/worksheet";
+        const queryParameters: any = {};
+        const formParams: any = {};
+        /// Specifies the name or identifier of the worksheet to be deleted. This parameter is required and must match the name of an existing worksheet in the workbook. 
+        // verify required parameter 'sheetName' is not null or undefined
+        if (this.sheetName === null || this.sheetName === undefined) {
+            throw new Error('Required parameter "sheetName" was null or undefined when calling DeleteWorksheetFromSpreadsheet.');
+        }
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "sheetName", this.sheetName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "regoin", this.regoin);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+        if (this.spreadsheet !== undefined) {
+            if (typeof this.spreadsheet === 'string') {
+                if (fs.existsSync(this.spreadsheet)) {
+                    const fileName = path.basename( this.spreadsheet)
+                    formParams[fileName] = fs.createReadStream(this.spreadsheet)
+                }
+            }
+            else {
+                for (var key in this.spreadsheet){
+                    formParams[key] = this.spreadsheet[key];
+                }
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        (requestOptions as any).formData = formParams;        
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// The Web API endpoint allows users to rename a specified worksheet within a workbook. This function provides a straightforward way to update worksheet names, enhancing workbook organization and readability.   
+export class RenameWorksheetInSpreadsheetRequest  {
+    /// Upload spreadsheet file.  
+    public spreadsheet: any;
+    /// The current name of the worksheet to be renamed.  
+    public sourceName: string;
+    /// The new name for the worksheet.  
+    public targetName: string;
+    /// (Optional) The folder path where the workbook is stored. The default is null.  
+    public outPath: string;
+    /// Output file Storage Name.  
+    public outStorageName: string;
+    /// The spreadsheet region setting.  
+    public regoin: string;
+    /// The password for opening spreadsheet file.  
+    public password: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< RenameWorksheetInSpreadsheetRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/spreadsheet/rename/worksheet";
+        const queryParameters: any = {};
+        const formParams: any = {};
+        /// The current name of the worksheet to be renamed. 
+        // verify required parameter 'sourceName' is not null or undefined
+        if (this.sourceName === null || this.sourceName === undefined) {
+            throw new Error('Required parameter "sourceName" was null or undefined when calling RenameWorksheetInSpreadsheet.');
+        }
+        /// The new name for the worksheet. 
+        // verify required parameter 'targetName' is not null or undefined
+        if (this.targetName === null || this.targetName === undefined) {
+            throw new Error('Required parameter "targetName" was null or undefined when calling RenameWorksheetInSpreadsheet.');
+        }
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "sourceName", this.sourceName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "targetName", this.targetName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "regoin", this.regoin);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+        if (this.spreadsheet !== undefined) {
+            if (typeof this.spreadsheet === 'string') {
+                if (fs.existsSync(this.spreadsheet)) {
+                    const fileName = path.basename( this.spreadsheet)
+                    formParams[fileName] = fs.createReadStream(this.spreadsheet)
+                }
+            }
+            else {
+                for (var key in this.spreadsheet){
+                    formParams[key] = this.spreadsheet[key];
+                }
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        (requestOptions as any).formData = formParams;        
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// The Web API endpoint allows users to move a specified worksheet within a workbook. This function provides a straightforward way to move a worksheet, enhancing workbook organization.   
+export class MoveWorksheetInSpreadsheetRequest  {
+    /// Upload spreadsheet file.  
+    public spreadsheet: any;
+    /// The current name of the worksheet to be moved.  
+    public worksheet: string;
+    /// Move the worksheet to the position  
+    public position: number;
+    /// (Optional) The folder path where the workbook is stored. The default is null.  
+    public outPath: string;
+    /// Output file Storage Name.  
+    public outStorageName: string;
+    /// The spreadsheet region setting.  
+    public regoin: string;
+    /// The password for opening spreadsheet file.  
+    public password: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< MoveWorksheetInSpreadsheetRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/spreadsheet/move/worksheet";
+        const queryParameters: any = {};
+        const formParams: any = {};
+        /// The current name of the worksheet to be moved. 
+        // verify required parameter 'worksheet' is not null or undefined
+        if (this.worksheet === null || this.worksheet === undefined) {
+            throw new Error('Required parameter "worksheet" was null or undefined when calling MoveWorksheetInSpreadsheet.');
+        }
+        /// Move the worksheet to the position 
+        // verify required parameter 'position' is not null or undefined
+        if (this.position === null || this.position === undefined) {
+            throw new Error('Required parameter "position" was null or undefined when calling MoveWorksheetInSpreadsheet.');
+        }
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "worksheet", this.worksheet);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "position", this.position);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "regoin", this.regoin);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+        if (this.spreadsheet !== undefined) {
+            if (typeof this.spreadsheet === 'string') {
+                if (fs.existsSync(this.spreadsheet)) {
+                    const fileName = path.basename( this.spreadsheet)
+                    formParams[fileName] = fs.createReadStream(this.spreadsheet)
+                }
+            }
+            else {
+                for (var key in this.spreadsheet){
+                    formParams[key] = this.spreadsheet[key];
+                }
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        (requestOptions as any).formData = formParams;        
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// The Web API endpoint allows users to compress a spreadsheet to reduce its file size. This function provides a straightforward way to optimize the storage and performance of spreadsheets by applying a specified compression level.   
+export class CompressSpreadsheetRequest  {
+    /// Upload spreadsheet file.  
+    public spreadsheet: any;
+    /// Specifies the compression level to be applied to the spreadsheet. The level should be within a valid range (e.g., 0-9 for most compression algorithms, where 0 is no compression and 9 is maximum compression).  
+    public level: number;
+    /// (Optional) The folder path where the workbook is stored. The default is null.  
+    public outPath: string;
+    /// Output file Storage Name.  
+    public outStorageName: string;
+    /// The spreadsheet region setting.  
+    public regoin: string;
+    /// The password for opening spreadsheet file.  
+    public password: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< CompressSpreadsheetRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/spreadsheet/compress";
+        const queryParameters: any = {};
+        const formParams: any = {};
+        /// Specifies the compression level to be applied to the spreadsheet. The level should be within a valid range (e.g., 0-9 for most compression algorithms, where 0 is no compression and 9 is maximum compression). 
+        // verify required parameter 'level' is not null or undefined
+        if (this.level === null || this.level === undefined) {
+            throw new Error('Required parameter "level" was null or undefined when calling CompressSpreadsheet.');
+        }
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "level", this.level);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "regoin", this.regoin);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+        if (this.spreadsheet !== undefined) {
+            if (typeof this.spreadsheet === 'string') {
+                if (fs.existsSync(this.spreadsheet)) {
+                    const fileName = path.basename( this.spreadsheet)
+                    formParams[fileName] = fs.createReadStream(this.spreadsheet)
+                }
+            }
+            else {
+                for (var key in this.spreadsheet){
+                    formParams[key] = this.spreadsheet[key];
+                }
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        (requestOptions as any).formData = formParams;        
         return Promise.resolve(requestOptions);
 
     }
@@ -25788,6 +26588,101 @@ export class DeleteSpreadsheetBlankWorksheetsRequest  {
         let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/delete/blank-worksheets";
         const queryParameters: any = {};
         const formParams: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "regoin", this.regoin);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+        if (this.spreadsheet !== undefined) {
+            if (typeof this.spreadsheet === 'string') {
+                if (fs.existsSync(this.spreadsheet)) {
+                    const fileName = path.basename( this.spreadsheet)
+                    formParams[fileName] = fs.createReadStream(this.spreadsheet)
+                }
+            }
+            else {
+                for (var key in this.spreadsheet){
+                    formParams[key] = this.spreadsheet[key];
+                }
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        (requestOptions as any).formData = formParams;        
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// The Swap Ranges for Excel API provides a powerful tool to move any two columns, rows, ranges, or individual cells within an Excel file. This API allows users to re-arrange their tables quickly and efficiently, ensuring that the original data formatting is preserved and all existing formulas continue to function correctly. By leveraging this API, users can streamline their data manipulation tasks and maintain the integrity of their spreadsheets.   
+export class SawpRangeRequest  {
+    /// Upload spreadsheet file.  
+    public spreadsheet: any;
+      
+    public worksheet1: string;
+      
+    public range1: string;
+      
+    public worksheet2: string;
+      
+    public range2: string;
+    /// (Optional) The folder path where the workbook is stored. The default is null.  
+    public outPath: string;
+    /// Output file Storage Name.  
+    public outStorageName: string;
+    /// The spreadsheet region setting.  
+    public regoin: string;
+    /// The password for opening spreadsheet file.  
+    public password: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< SawpRangeRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/swap/range";
+        const queryParameters: any = {};
+        const formParams: any = {};
+         
+        // verify required parameter 'worksheet1' is not null or undefined
+        if (this.worksheet1 === null || this.worksheet1 === undefined) {
+            throw new Error('Required parameter "worksheet1" was null or undefined when calling SawpRange.');
+        }
+         
+        // verify required parameter 'range1' is not null or undefined
+        if (this.range1 === null || this.range1 === undefined) {
+            throw new Error('Required parameter "range1" was null or undefined when calling SawpRange.');
+        }
+         
+        // verify required parameter 'worksheet2' is not null or undefined
+        if (this.worksheet2 === null || this.worksheet2 === undefined) {
+            throw new Error('Required parameter "worksheet2" was null or undefined when calling SawpRange.');
+        }
+         
+        // verify required parameter 'range2' is not null or undefined
+        if (this.range2 === null || this.range2 === undefined) {
+            throw new Error('Required parameter "range2" was null or undefined when calling SawpRange.');
+        }
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "worksheet1", this.worksheet1);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "range1", this.range1);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "worksheet2", this.worksheet2);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "range2", this.range2);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "regoin", this.regoin);
