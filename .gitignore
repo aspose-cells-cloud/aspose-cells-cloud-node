@@ -6,4 +6,3 @@ dist
 .swagger-codegen-ignore
 package-lock.json
 reports
-.idea

@@ -53,6 +53,38 @@ export class CellsApi {
     }
 
     /// <summary>
+    /// The Aggregate by Color API provides a convenient way to perform calculations on cells that share the same fill or font color. This API supports a range of aggregate operations, including count, sum, maximum value, minimum value, and average value, enabling you to analyze and summarize data based on color distinctions.
+    /// </summary>
+    /// <param name="request">Request. <see cref="AggregateCellsByColorRequest" /></param>
+    public async aggregateCellsByColor(requestObj:model.AggregateCellsByColorRequest ): Promise<{response: http.ClientResponse, body: model.AggregateResultByColorResponse}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling aggregateCellsByColor.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "AggregateResultByColorResponse");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// The Math Calculate API enables you to perform a variety of mathematical operations on a selected range of cells. You can add or subtract a specific number from all selected cells, as well as multiply or divide individual cells and entire columns. This API simplifies complex calculations and enhances data manipulation capabilities.
+    /// </summary>
+    /// <param name="request">Request. <see cref="MathCalculateRequest" /></param>
+    public async mathCalculate(requestObj:model.MathCalculateRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling mathCalculate.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "Buffer");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
     /// Get Access Token Result: The Cells Cloud Get Token API acts as a proxy service,
     /// forwarding user requests to the Aspose Cloud authentication server and returning the resulting access token to the client.
     /// </summary>
@@ -518,6 +550,21 @@ export class CellsApi {
     }
 
     /// <summary>
+    /// </summary>
+    /// <param name="request">Request. <see cref="ImportDataIntoSpreadsheetRequest" /></param>
+    public async importDataIntoSpreadsheet(requestObj:model.ImportDataIntoSpreadsheetRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling importDataIntoSpreadsheet.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "Buffer");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
     /// Get an asymmetric public key.
     /// </summary>
     /// <param name="request">Request. <see cref="GetPublicKeyRequest" /></param>
@@ -530,6 +577,102 @@ export class CellsApi {
         const requestOptions = await requestObj.createRequestOptions(this.configuration);
         const response = await invokeApiMethod(requestOptions, this.configuration);
         const result =  ObjectSerializer.deserialize(response.body, "CellsCloudPublicKeyResponse");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// The Web API allows users to create a new spreadsheet with a specified name. Optionally, a template can be provided to initialize the spreadsheet with predefined content or formatting.
+    /// </summary>
+    /// <param name="request">Request. <see cref="CreateSpreadsheetRequest" /></param>
+    public async createSpreadsheet(requestObj:model.CreateSpreadsheetRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling createSpreadsheet.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "Buffer");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// The Web API enables users to add a new worksheet to a workbook, specifying the worksheet's type, position, and name. This function provides flexibility in managing workbook structure by allowing detailed control over worksheet addition.
+    /// </summary>
+    /// <param name="request">Request. <see cref="AddWorksheetToSpreadsheetRequest" /></param>
+    public async addWorksheetToSpreadsheet(requestObj:model.AddWorksheetToSpreadsheetRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling addWorksheetToSpreadsheet.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "Buffer");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// The Web API endpoint allows users to delete a specified worksheet from a workbook. This function provides a straightforward way to manage workbook structure by removing unnecessary or redundant worksheets.
+    /// </summary>
+    /// <param name="request">Request. <see cref="DeleteWorksheetFromSpreadsheetRequest" /></param>
+    public async deleteWorksheetFromSpreadsheet(requestObj:model.DeleteWorksheetFromSpreadsheetRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling deleteWorksheetFromSpreadsheet.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "Buffer");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// The Web API endpoint allows users to rename a specified worksheet within a workbook. This function provides a straightforward way to update worksheet names, enhancing workbook organization and readability.
+    /// </summary>
+    /// <param name="request">Request. <see cref="RenameWorksheetInSpreadsheetRequest" /></param>
+    public async renameWorksheetInSpreadsheet(requestObj:model.RenameWorksheetInSpreadsheetRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling renameWorksheetInSpreadsheet.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "Buffer");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// The Web API endpoint allows users to move a specified worksheet within a workbook. This function provides a straightforward way to move a worksheet, enhancing workbook organization.
+    /// </summary>
+    /// <param name="request">Request. <see cref="MoveWorksheetInSpreadsheetRequest" /></param>
+    public async moveWorksheetInSpreadsheet(requestObj:model.MoveWorksheetInSpreadsheetRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling moveWorksheetInSpreadsheet.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "Buffer");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// The Web API endpoint allows users to compress a spreadsheet to reduce its file size. This function provides a straightforward way to optimize the storage and performance of spreadsheets by applying a specified compression level.
+    /// </summary>
+    /// <param name="request">Request. <see cref="CompressSpreadsheetRequest" /></param>
+    public async compressSpreadsheet(requestObj:model.CompressSpreadsheetRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling compressSpreadsheet.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "Buffer");
         return Promise.resolve({body: result, response});
     }
 
@@ -828,6 +971,22 @@ export class CellsApi {
     {
         if (requestObj === null || requestObj === undefined) {
             throw new Error('Required parameter "requestObj" was null or undefined when calling deleteSpreadsheetBlankWorksheets.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "Buffer");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// The Swap Ranges for Excel API provides a powerful tool to move any two columns, rows, ranges, or individual cells within an Excel file. This API allows users to re-arrange their tables quickly and efficiently, ensuring that the original data formatting is preserved and all existing formulas continue to function correctly. By leveraging this API, users can streamline their data manipulation tasks and maintain the integrity of their spreadsheets.
+    /// </summary>
+    /// <param name="request">Request. <see cref="SawpRangeRequest" /></param>
+    public async sawpRange(requestObj:model.SawpRangeRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling sawpRange.');
         }
 
         const requestOptions = await requestObj.createRequestOptions(this.configuration);

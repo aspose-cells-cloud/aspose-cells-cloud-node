@@ -18,10 +18,12 @@ cellsApi.uploadFile(localNameRequest );
 var addTextOptionsDataSource = new model.DataSource();
  addTextOptionsDataSource.dataSourceType = "CloudFileSystem"  ;
  addTextOptionsDataSource.dataPath = "TestData/In/BookText.xlsx"  ;
+var addTextOptionsScopeOptions = new model.ScopeOptions();
+ addTextOptionsScopeOptions.scope = "Workbook"  ;
 var addTextOptions = new model.AddTextOptions();
  addTextOptions.dataSource = addTextOptionsDataSource  ;
  addTextOptions.text = "Aspose.Cells Cloud is an excellent product."  ;
- addTextOptions.worksheet = "202401"  ;
+ addTextOptions.scopeOptions = addTextOptionsScopeOptions  ;
  addTextOptions.selectPoistion = "AtTheBeginning"  ;
  addTextOptions.skipEmptyCells = true  ;
 
