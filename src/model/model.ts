@@ -1,7 +1,7 @@
 import request from "request";
 import { Configuration } from "../internal/configuration";
-import { ObjectSerializer } from "../internal/objectSerializer";
 import { addQueryParameterToUrl } from "../internal/requestHelper";
+import { ObjectSerializer } from "../internal/objectSerializer";
 const fs = require('fs');
 const path = require('path');
 
@@ -429,11 +429,6 @@ export class AggregateResultByColor  {
             name: "averageValue",
             baseName: "AverageValue",
             type: "number",
-        },
-        {
-            name: "value",
-            baseName: "Value",
-            type: "number",
         }
     ];
     /**
@@ -451,7 +446,6 @@ export class AggregateResultByColor  {
     public maxValue: number;
     public minValue: number;
     public averageValue: number;
-    public value: number;
 
     public constructor(init?: Partial< AggregateResultByColor >) {  
     
@@ -2967,7 +2961,7 @@ export class AggregateResultByColorResponse  extends CellsCloudResponse  {
     } 
 }
    
-export class BrokenLinksReponse  extends CellsCloudResponse  {
+export class BrokenLinksResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
      */
@@ -2982,13 +2976,13 @@ export class BrokenLinksReponse  extends CellsCloudResponse  {
      * Returns attribute type map
      */
     public static getAttributeTypeMap() {
-        return super.getAttributeTypeMap().concat(BrokenLinksReponse.attributeTypeMap) ;
+        return super.getAttributeTypeMap().concat(BrokenLinksResponse.attributeTypeMap) ;
 
     }
 
     public brokenLinks: Array<BrokenLink>;
 
-    public constructor(init?: Partial< BrokenLinksReponse >) {  
+    public constructor(init?: Partial< BrokenLinksResponse >) {  
          super(init);     
         Object.assign(this, init);
     } 
@@ -22220,7 +22214,7 @@ const typeMap = {
     XmlSaveOptions,
     XpsSaveOptions,
     AggregateResultByColorResponse,
-    BrokenLinksReponse,
+    BrokenLinksResponse,
     CellsCloudFileInfoResponse,
     CellsCloudPublicKeyResponse,
     CellsCloudResponse,
@@ -22626,22 +22620,22 @@ const typeMap = {
     WorksheetDataStatistics,
 };
 
-export { enumsMap, typeMap };
+export {enumsMap, typeMap};
 
 /// The Aggregate by Color API provides a convenient way to perform calculations on cells that share the same fill or font color. This API supports a range of aggregate operations, including count, sum, maximum value, minimum value, and average value, enabling you to analyze and summarize data based on color distinctions.   
 export class AggregateCellsByColorRequest  {
     /// Upload spreadsheet file.  
     public spreadsheet: any;
-      
+    /// Specified worksheet.  
     public worksheet: string;
-      
+    /// Specified range.  
     public range: string;
-      
+    /// Specify calculation operation methods, including Sum, Count, Average, Min, and Max.  
     public operation: string;
-      
+    /// Indicates the content to sum and count based on background color and/or font color.  
     public colorPosition: string;
     /// The spreadsheet region setting.  
-    public regoin: string;
+    public region: string;
     /// The password for opening spreadsheet file.  
     public password: string;
     /// extend query parameter
@@ -22660,7 +22654,7 @@ export class AggregateCellsByColorRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "range", this.range);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "operation", this.operation);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "colorPosition", this.colorPosition);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "regoin", this.regoin);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         if(this.extendQueryParameterMap !== undefined){
             for (var key in this.extendQueryParameterMap){
@@ -22697,7 +22691,7 @@ export class AggregateCellsByColorRequest  {
     }
 
 }
-/// The Math Calculate API enables you to perform a variety of mathematical operations on a selected range of cells. You can add or subtract a specific number from all selected cells, as well as multiply or divide individual cells and entire columns. This API simplifies complex calculations and enhances data manipulation capabilities.   
+   
 export class MathCalculateRequest  {
     /// Upload spreadsheet file.  
     public spreadsheet: any;
@@ -22710,7 +22704,7 @@ export class MathCalculateRequest  {
       
     public range: string;
     /// The spreadsheet region setting.  
-    public regoin: string;
+    public region: string;
     /// The password for opening spreadsheet file.  
     public password: string;
     /// extend query parameter
@@ -22739,7 +22733,7 @@ export class MathCalculateRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "value", this.value);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "worksheet", this.worksheet);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "range", this.range);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "regoin", this.regoin);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         if(this.extendQueryParameterMap !== undefined){
             for (var key in this.extendQueryParameterMap){
@@ -22896,7 +22890,7 @@ export class ExportSpreadsheetAsFormatRequest  {
     /// Use Custom fonts.  
     public fontsLocation: string;
     /// The spreadsheet region setting.  
-    public regoin: string;
+    public region: string;
     /// The password for opening spreadsheet file.  
     public password: string;
     /// extend query parameter
@@ -22921,7 +22915,7 @@ export class ExportSpreadsheetAsFormatRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fontsLocation", this.fontsLocation);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "regoin", this.regoin);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         if(this.extendQueryParameterMap !== undefined){
             for (var key in this.extendQueryParameterMap){
@@ -22963,7 +22957,7 @@ export class ExportWorksheetAsFormatRequest  {
     /// Use Custom fonts.  
     public fontsLocation: string;
     /// The spreadsheet region setting.  
-    public regoin: string;
+    public region: string;
     /// The password for opening spreadsheet file.  
     public password: string;
     /// extend query parameter
@@ -22988,7 +22982,7 @@ export class ExportWorksheetAsFormatRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fontsLocation", this.fontsLocation);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "regoin", this.regoin);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         if(this.extendQueryParameterMap !== undefined){
             for (var key in this.extendQueryParameterMap){
@@ -23032,7 +23026,7 @@ export class ExportChartAsFormatRequest  {
     /// Use Custom fonts.  
     public fontsLocation: string;
     /// The spreadsheet region setting.  
-    public regoin: string;
+    public region: string;
     /// The password for opening spreadsheet file.  
     public password: string;
     /// extend query parameter
@@ -23057,7 +23051,7 @@ export class ExportChartAsFormatRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fontsLocation", this.fontsLocation);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "regoin", this.regoin);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         if(this.extendQueryParameterMap !== undefined){
             for (var key in this.extendQueryParameterMap){
@@ -23101,7 +23095,7 @@ export class ExportTableAsFormatRequest  {
     /// Use Custom fonts.  
     public fontsLocation: string;
     /// The spreadsheet region setting.  
-    public regoin: string;
+    public region: string;
     /// The password for opening spreadsheet file.  
     public password: string;
     /// extend query parameter
@@ -23126,7 +23120,7 @@ export class ExportTableAsFormatRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fontsLocation", this.fontsLocation);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "regoin", this.regoin);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         if(this.extendQueryParameterMap !== undefined){
             for (var key in this.extendQueryParameterMap){
@@ -23170,7 +23164,7 @@ export class ExportRangeAsFormatRequest  {
     /// Use Custom fonts.  
     public fontsLocation: string;
     /// The spreadsheet region setting.  
-    public regoin: string;
+    public region: string;
     /// The password for opening spreadsheet file.  
     public password: string;
     /// extend query parameter
@@ -23195,7 +23189,7 @@ export class ExportRangeAsFormatRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fontsLocation", this.fontsLocation);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "regoin", this.regoin);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         if(this.extendQueryParameterMap !== undefined){
             for (var key in this.extendQueryParameterMap){
@@ -23231,7 +23225,7 @@ export class ConvertSpreadsheetRequest  {
     /// Use Custom fonts.  
     public fontsLocation: string;
     /// The spreadsheet region setting.  
-    public regoin: string;
+    public region: string;
     /// The password for opening spreadsheet file.  
     public password: string;
     /// extend query parameter
@@ -23255,7 +23249,139 @@ export class ConvertSpreadsheetRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fontsLocation", this.fontsLocation);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "regoin", this.regoin);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+        if (this.spreadsheet !== undefined) {
+            if (typeof this.spreadsheet === 'string') {
+                if (fs.existsSync(this.spreadsheet)) {
+                    const fileName = path.basename( this.spreadsheet)
+                    formParams[fileName] = fs.createReadStream(this.spreadsheet)
+                }
+            }
+            else {
+                for (var key in this.spreadsheet){
+                    formParams[key] = this.spreadsheet[key];
+                }
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        (requestOptions as any).formData = formParams;        
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Converts a spreadsheet on a local drive to the pdf file.   
+export class ConvertSpreadsheetToPdfRequest  {
+    /// Upload spreadsheet file.  
+    public spreadsheet: any;
+    /// (Optional) The folder path where the workbook is stored. The default is null.  
+    public outPath: string;
+    /// Output file Storage Name.  
+    public outStorageName: string;
+    /// Use Custom fonts.  
+    public fontsLocation: string;
+    /// The spreadsheet region setting.  
+    public region: string;
+    /// The password for opening spreadsheet file.  
+    public password: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< ConvertSpreadsheetToPdfRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/convert/spreadsheet/pdf";
+        const queryParameters: any = {};
+        const formParams: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fontsLocation", this.fontsLocation);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+        if (this.spreadsheet !== undefined) {
+            if (typeof this.spreadsheet === 'string') {
+                if (fs.existsSync(this.spreadsheet)) {
+                    const fileName = path.basename( this.spreadsheet)
+                    formParams[fileName] = fs.createReadStream(this.spreadsheet)
+                }
+            }
+            else {
+                for (var key in this.spreadsheet){
+                    formParams[key] = this.spreadsheet[key];
+                }
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        (requestOptions as any).formData = formParams;        
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Converts a spreadsheet on a local drive to the csv file.   
+export class ConvertSpreadsheetToCsvRequest  {
+    /// Upload spreadsheet file.  
+    public spreadsheet: any;
+    /// (Optional) The folder path where the workbook is stored. The default is null.  
+    public outPath: string;
+    /// Output file Storage Name.  
+    public outStorageName: string;
+    /// Use Custom fonts.  
+    public fontsLocation: string;
+    /// The spreadsheet region setting.  
+    public region: string;
+    /// The password for opening spreadsheet file.  
+    public password: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< ConvertSpreadsheetToCsvRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/convert/spreadsheet/csv";
+        const queryParameters: any = {};
+        const formParams: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fontsLocation", this.fontsLocation);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         if(this.extendQueryParameterMap !== undefined){
             for (var key in this.extendQueryParameterMap){
@@ -23307,7 +23433,7 @@ export class ConvertWorksheetToImageRequest  {
     /// Use Custom fonts.  
     public fontsLocation: string;
     /// The spreadsheet region setting.  
-    public regoin: string;
+    public region: string;
     /// The password for opening spreadsheet file.  
     public password: string;
     /// extend query parameter
@@ -23337,7 +23463,7 @@ export class ConvertWorksheetToImageRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fontsLocation", this.fontsLocation);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "regoin", this.regoin);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         if(this.extendQueryParameterMap !== undefined){
             for (var key in this.extendQueryParameterMap){
@@ -23387,7 +23513,7 @@ export class ConvertWorksheetToPdfRequest  {
     /// Use Custom fonts.  
     public fontsLocation: string;
     /// The spreadsheet region setting.  
-    public regoin: string;
+    public region: string;
     /// The password for opening spreadsheet file.  
     public password: string;
     /// extend query parameter
@@ -23411,7 +23537,7 @@ export class ConvertWorksheetToPdfRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fontsLocation", this.fontsLocation);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "regoin", this.regoin);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         if(this.extendQueryParameterMap !== undefined){
             for (var key in this.extendQueryParameterMap){
@@ -23465,7 +23591,7 @@ export class ConvertTableToImageRequest  {
     /// Use Custom fonts.  
     public fontsLocation: string;
     /// The spreadsheet region setting.  
-    public regoin: string;
+    public region: string;
     /// The password for opening spreadsheet file.  
     public password: string;
     /// extend query parameter
@@ -23501,7 +23627,7 @@ export class ConvertTableToImageRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fontsLocation", this.fontsLocation);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "regoin", this.regoin);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         if(this.extendQueryParameterMap !== undefined){
             for (var key in this.extendQueryParameterMap){
@@ -23553,7 +23679,7 @@ export class ConvertTableToPdfRequest  {
     /// Use Custom fonts.  
     public fontsLocation: string;
     /// The spreadsheet region setting.  
-    public regoin: string;
+    public region: string;
     /// The password for opening spreadsheet file.  
     public password: string;
     /// extend query parameter
@@ -23583,7 +23709,7 @@ export class ConvertTableToPdfRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fontsLocation", this.fontsLocation);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "regoin", this.regoin);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         if(this.extendQueryParameterMap !== undefined){
             for (var key in this.extendQueryParameterMap){
@@ -23635,7 +23761,7 @@ export class ConvertTableToCsvRequest  {
     /// Use Custom fonts.  
     public fontsLocation: string;
     /// The spreadsheet region setting.  
-    public regoin: string;
+    public region: string;
     /// The password for opening spreadsheet file.  
     public password: string;
     /// extend query parameter
@@ -23665,7 +23791,7 @@ export class ConvertTableToCsvRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fontsLocation", this.fontsLocation);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "regoin", this.regoin);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         if(this.extendQueryParameterMap !== undefined){
             for (var key in this.extendQueryParameterMap){
@@ -23717,7 +23843,7 @@ export class ConvertTableToHtmlRequest  {
     /// Use Custom fonts.  
     public fontsLocation: string;
     /// The spreadsheet region setting.  
-    public regoin: string;
+    public region: string;
     /// The password for opening spreadsheet file.  
     public password: string;
     /// extend query parameter
@@ -23747,7 +23873,7 @@ export class ConvertTableToHtmlRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fontsLocation", this.fontsLocation);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "regoin", this.regoin);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         if(this.extendQueryParameterMap !== undefined){
             for (var key in this.extendQueryParameterMap){
@@ -23799,7 +23925,7 @@ export class ConvertTableToJsonRequest  {
     /// Use Custom fonts.  
     public fontsLocation: string;
     /// The spreadsheet region setting.  
-    public regoin: string;
+    public region: string;
     /// The password for opening spreadsheet file.  
     public password: string;
     /// extend query parameter
@@ -23829,7 +23955,7 @@ export class ConvertTableToJsonRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fontsLocation", this.fontsLocation);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "regoin", this.regoin);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         if(this.extendQueryParameterMap !== undefined){
             for (var key in this.extendQueryParameterMap){
@@ -23885,7 +24011,7 @@ export class ConvertRangeToImageRequest  {
     /// Use Custom fonts.  
     public fontsLocation: string;
     /// The spreadsheet region setting.  
-    public regoin: string;
+    public region: string;
     /// The password for opening spreadsheet file.  
     public password: string;
     /// extend query parameter
@@ -23922,7 +24048,7 @@ export class ConvertRangeToImageRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fontsLocation", this.fontsLocation);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "regoin", this.regoin);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         if(this.extendQueryParameterMap !== undefined){
             for (var key in this.extendQueryParameterMap){
@@ -23974,7 +24100,7 @@ export class ConvertRangeToPdfRequest  {
     /// Use Custom fonts.  
     public fontsLocation: string;
     /// The spreadsheet region setting.  
-    public regoin: string;
+    public region: string;
     /// The password for opening spreadsheet file.  
     public password: string;
     /// extend query parameter
@@ -24004,7 +24130,7 @@ export class ConvertRangeToPdfRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fontsLocation", this.fontsLocation);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "regoin", this.regoin);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         if(this.extendQueryParameterMap !== undefined){
             for (var key in this.extendQueryParameterMap){
@@ -24056,7 +24182,7 @@ export class ConvertRangeToCsvRequest  {
     /// Use Custom fonts.  
     public fontsLocation: string;
     /// The spreadsheet region setting.  
-    public regoin: string;
+    public region: string;
     /// The password for opening spreadsheet file.  
     public password: string;
     /// extend query parameter
@@ -24086,7 +24212,7 @@ export class ConvertRangeToCsvRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fontsLocation", this.fontsLocation);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "regoin", this.regoin);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         if(this.extendQueryParameterMap !== undefined){
             for (var key in this.extendQueryParameterMap){
@@ -24138,7 +24264,7 @@ export class ConvertRangeToHtmlRequest  {
     /// Use Custom fonts.  
     public fontsLocation: string;
     /// The spreadsheet region setting.  
-    public regoin: string;
+    public region: string;
     /// The password for opening spreadsheet file.  
     public password: string;
     /// extend query parameter
@@ -24168,7 +24294,7 @@ export class ConvertRangeToHtmlRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fontsLocation", this.fontsLocation);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "regoin", this.regoin);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         if(this.extendQueryParameterMap !== undefined){
             for (var key in this.extendQueryParameterMap){
@@ -24220,7 +24346,7 @@ export class ConvertRangeToJsonRequest  {
     /// Use Custom fonts.  
     public fontsLocation: string;
     /// The spreadsheet region setting.  
-    public regoin: string;
+    public region: string;
     /// The password for opening spreadsheet file.  
     public password: string;
     /// extend query parameter
@@ -24250,7 +24376,7 @@ export class ConvertRangeToJsonRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fontsLocation", this.fontsLocation);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "regoin", this.regoin);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         if(this.extendQueryParameterMap !== undefined){
             for (var key in this.extendQueryParameterMap){
@@ -24304,7 +24430,7 @@ export class ConvertChartToImageRequest  {
     /// Use Custom fonts.  
     public fontsLocation: string;
     /// The spreadsheet region setting.  
-    public regoin: string;
+    public region: string;
     /// The password for opening spreadsheet file.  
     public password: string;
     /// extend query parameter
@@ -24340,7 +24466,7 @@ export class ConvertChartToImageRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fontsLocation", this.fontsLocation);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "regoin", this.regoin);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         if(this.extendQueryParameterMap !== undefined){
             for (var key in this.extendQueryParameterMap){
@@ -24392,7 +24518,7 @@ export class ConvertChartToPdfRequest  {
     /// Use Custom fonts.  
     public fontsLocation: string;
     /// The spreadsheet region setting.  
-    public regoin: string;
+    public region: string;
     /// The password for opening spreadsheet file.  
     public password: string;
     /// extend query parameter
@@ -24422,7 +24548,7 @@ export class ConvertChartToPdfRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fontsLocation", this.fontsLocation);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "regoin", this.regoin);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         if(this.extendQueryParameterMap !== undefined){
             for (var key in this.extendQueryParameterMap){
@@ -24478,7 +24604,7 @@ export class SaveSpreadsheetAsRequest  {
     /// Use Custom fonts.  
     public fontsLocation: string;
     /// The spreadsheet region setting.  
-    public regoin: string;
+    public region: string;
     /// The password for opening spreadsheet file.  
     public password: string;
     /// extend query parameter
@@ -24503,7 +24629,7 @@ export class SaveSpreadsheetAsRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fontsLocation", this.fontsLocation);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "regoin", this.regoin);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         if(this.extendQueryParameterMap !== undefined){
             for (var key in this.extendQueryParameterMap){
@@ -24541,7 +24667,7 @@ export class MergeSpreadsheetsRequest  {
     /// Use Custom fonts.  
     public fontsLocation: string;
     /// The spreadsheet region setting.  
-    public regoin: string;
+    public region: string;
     /// The password for opening spreadsheet file.  
     public password: string;
     /// extend query parameter
@@ -24561,7 +24687,7 @@ export class MergeSpreadsheetsRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fontsLocation", this.fontsLocation);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "regoin", this.regoin);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         if(this.extendQueryParameterMap !== undefined){
             for (var key in this.extendQueryParameterMap){
@@ -24617,7 +24743,7 @@ export class MergeSpreadsheetsInRemoteFolderRequest  {
     /// Use Custom fonts.  
     public fontsLocation: string;
     /// The spreadsheet region setting.  
-    public regoin: string;
+    public region: string;
     /// The password for opening spreadsheet file.  
     public password: string;
     /// extend query parameter
@@ -24644,7 +24770,7 @@ export class MergeSpreadsheetsInRemoteFolderRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fontsLocation", this.fontsLocation);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "regoin", this.regoin);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         if(this.extendQueryParameterMap !== undefined){
             for (var key in this.extendQueryParameterMap){
@@ -24688,7 +24814,7 @@ export class MergeRemoteSpreadsheetRequest  {
     /// Use Custom fonts.  
     public fontsLocation: string;
     /// The spreadsheet region setting.  
-    public regoin: string;
+    public region: string;
     /// The password for opening spreadsheet file.  
     public password: string;
     /// extend query parameter
@@ -24715,7 +24841,7 @@ export class MergeRemoteSpreadsheetRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fontsLocation", this.fontsLocation);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "regoin", this.regoin);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         if(this.extendQueryParameterMap !== undefined){
             for (var key in this.extendQueryParameterMap){
@@ -24755,7 +24881,7 @@ export class SplitSpreadsheetRequest  {
     /// Use Custom fonts.  
     public fontsLocation: string;
     /// The spreadsheet region setting.  
-    public regoin: string;
+    public region: string;
     /// The password for opening spreadsheet file.  
     public password: string;
     /// extend query parameter
@@ -24776,7 +24902,7 @@ export class SplitSpreadsheetRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fontsLocation", this.fontsLocation);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "regoin", this.regoin);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         if(this.extendQueryParameterMap !== undefined){
             for (var key in this.extendQueryParameterMap){
@@ -24834,7 +24960,7 @@ export class SplitRemoteSpreadsheetRequest  {
     /// Use Custom fonts.  
     public fontsLocation: string;
     /// The spreadsheet region setting.  
-    public regoin: string;
+    public region: string;
     /// The password for opening spreadsheet file.  
     public password: string;
     /// extend query parameter
@@ -24856,7 +24982,7 @@ export class SplitRemoteSpreadsheetRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fontsLocation", this.fontsLocation);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "regoin", this.regoin);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         if(this.extendQueryParameterMap !== undefined){
             for (var key in this.extendQueryParameterMap){
@@ -24879,21 +25005,21 @@ export class SplitRemoteSpreadsheetRequest  {
     }
 
 }
-   
+/// Import data into a spreadsheet from a supported data file format.   
 export class ImportDataIntoSpreadsheetRequest  {
     /// Upload data file.  
     public datafile: any;
     /// Upload spreadsheet file.  
     public spreadsheet: any;
-      
+    /// Specify the worksheet for importing data  
     public worksheet: string;
-      
+    /// Specify the starting position for importing data  
     public startcell: string;
-      
+    /// The specified import data is for insertion and overwrite.  
     public insert: boolean;
-      
+    /// Specify whether to convert numerical data  
     public convertNumericData: boolean;
-      
+    /// Specify the delimiter for the CSV format.  
     public splitter: string;
     /// (Optional) The folder path where the workbook is stored. The default is null.  
     public outPath: string;
@@ -24902,7 +25028,7 @@ export class ImportDataIntoSpreadsheetRequest  {
     /// Use Custom fonts.  
     public fontsLocation: string;
     /// The spreadsheet region setting.  
-    public regoin: string;
+    public region: string;
     /// The password for opening spreadsheet file.  
     public password: string;
     /// extend query parameter
@@ -24917,12 +25043,12 @@ export class ImportDataIntoSpreadsheetRequest  {
         let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/import/data";
         const queryParameters: any = {};
         const formParams: any = {};
-         
+        /// Specify the worksheet for importing data 
         // verify required parameter 'worksheet' is not null or undefined
         if (this.worksheet === null || this.worksheet === undefined) {
             throw new Error('Required parameter "worksheet" was null or undefined when calling ImportDataIntoSpreadsheet.');
         }
-         
+        /// Specify the starting position for importing data 
         // verify required parameter 'startcell' is not null or undefined
         if (this.startcell === null || this.startcell === undefined) {
             throw new Error('Required parameter "startcell" was null or undefined when calling ImportDataIntoSpreadsheet.');
@@ -24935,7 +25061,7 @@ export class ImportDataIntoSpreadsheetRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fontsLocation", this.fontsLocation);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "regoin", this.regoin);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         if(this.extendQueryParameterMap !== undefined){
             for (var key in this.extendQueryParameterMap){
@@ -25030,7 +25156,7 @@ export class CreateSpreadsheetRequest  {
     /// Output file Storage Name.  
     public outStorageName: string;
     /// The spreadsheet region setting.  
-    public regoin: string;
+    public region: string;
     /// The password for opening spreadsheet file.  
     public password: string;
     /// extend query parameter
@@ -25048,7 +25174,7 @@ export class CreateSpreadsheetRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "template", this.template);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "regoin", this.regoin);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         if(this.extendQueryParameterMap !== undefined){
             for (var key in this.extendQueryParameterMap){
@@ -25058,7 +25184,7 @@ export class CreateSpreadsheetRequest  {
 
 
         // const bodyParameter = null;
-        console.log(localVarPath);
+
         const requestOptions: request.Options = {
             method: "PUT",
             qs: queryParameters,
@@ -25086,7 +25212,7 @@ export class AddWorksheetToSpreadsheetRequest  {
     /// Output file Storage Name.  
     public outStorageName: string;
     /// The spreadsheet region setting.  
-    public regoin: string;
+    public region: string;
     /// The password for opening spreadsheet file.  
     public password: string;
     /// extend query parameter
@@ -25106,19 +25232,17 @@ export class AddWorksheetToSpreadsheetRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "sheetName", this.sheetName);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "regoin", this.regoin);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         if(this.extendQueryParameterMap !== undefined){
             for (var key in this.extendQueryParameterMap){
                 localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
             }
         }
-        console.log(localVarPath);
         if (this.spreadsheet !== undefined) {
             if (typeof this.spreadsheet === 'string') {
                 if (fs.existsSync(this.spreadsheet)) {
                     const fileName = path.basename( this.spreadsheet)
-                    console.log(this.spreadsheet);
                     formParams[fileName] = fs.createReadStream(this.spreadsheet)
                 }
             }
@@ -25131,7 +25255,7 @@ export class AddWorksheetToSpreadsheetRequest  {
 
 
         // const bodyParameter = null;
-        
+
         const requestOptions: request.Options = {
             method: "PUT",
             qs: queryParameters,
@@ -25156,7 +25280,7 @@ export class DeleteWorksheetFromSpreadsheetRequest  {
     /// Output file Storage Name.  
     public outStorageName: string;
     /// The spreadsheet region setting.  
-    public regoin: string;
+    public region: string;
     /// The password for opening spreadsheet file.  
     public password: string;
     /// extend query parameter
@@ -25179,7 +25303,7 @@ export class DeleteWorksheetFromSpreadsheetRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "sheetName", this.sheetName);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "regoin", this.regoin);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         if(this.extendQueryParameterMap !== undefined){
             for (var key in this.extendQueryParameterMap){
@@ -25229,7 +25353,7 @@ export class RenameWorksheetInSpreadsheetRequest  {
     /// Output file Storage Name.  
     public outStorageName: string;
     /// The spreadsheet region setting.  
-    public regoin: string;
+    public region: string;
     /// The password for opening spreadsheet file.  
     public password: string;
     /// extend query parameter
@@ -25258,7 +25382,7 @@ export class RenameWorksheetInSpreadsheetRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "targetName", this.targetName);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "regoin", this.regoin);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         if(this.extendQueryParameterMap !== undefined){
             for (var key in this.extendQueryParameterMap){
@@ -25308,7 +25432,7 @@ export class MoveWorksheetInSpreadsheetRequest  {
     /// Output file Storage Name.  
     public outStorageName: string;
     /// The spreadsheet region setting.  
-    public regoin: string;
+    public region: string;
     /// The password for opening spreadsheet file.  
     public password: string;
     /// extend query parameter
@@ -25337,7 +25461,7 @@ export class MoveWorksheetInSpreadsheetRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "position", this.position);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "regoin", this.regoin);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         if(this.extendQueryParameterMap !== undefined){
             for (var key in this.extendQueryParameterMap){
@@ -25385,7 +25509,7 @@ export class CompressSpreadsheetRequest  {
     /// Output file Storage Name.  
     public outStorageName: string;
     /// The spreadsheet region setting.  
-    public regoin: string;
+    public region: string;
     /// The password for opening spreadsheet file.  
     public password: string;
     /// extend query parameter
@@ -25408,7 +25532,7 @@ export class CompressSpreadsheetRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "level", this.level);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "regoin", this.regoin);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         if(this.extendQueryParameterMap !== undefined){
             for (var key in this.extendQueryParameterMap){
@@ -25458,7 +25582,7 @@ export class ProtectSpreadsheetRequest  {
     /// Output file Storage Name.  
     public outStorageName: string;
     /// The spreadsheet region setting.  
-    public regoin: string;
+    public region: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -25485,7 +25609,7 @@ export class ProtectSpreadsheetRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "modifyPassword", this.modifyPassword);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "regoin", this.regoin);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         if(this.extendQueryParameterMap !== undefined){
             for (var key in this.extendQueryParameterMap){
                 localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
@@ -25534,7 +25658,7 @@ export class UnprotectSpreadsheetRequest  {
     /// Output file Storage Name.  
     public outStorageName: string;
     /// The spreadsheet region setting.  
-    public regoin: string;
+    public region: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -25561,7 +25685,7 @@ export class UnprotectSpreadsheetRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "modifyPassword", this.modifyPassword);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "regoin", this.regoin);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         if(this.extendQueryParameterMap !== undefined){
             for (var key in this.extendQueryParameterMap){
                 localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
@@ -25610,7 +25734,7 @@ export class SearchSpreadsheetContentRequest  {
     /// Specify the cell area for the lookup  
     public cellArea: string;
     /// The spreadsheet region setting.  
-    public regoin: string;
+    public region: string;
     /// The password for opening spreadsheet file.  
     public password: string;
     /// extend query parameter
@@ -25634,7 +25758,7 @@ export class SearchSpreadsheetContentRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "ignoringCase", this.ignoringCase);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "worksheet", this.worksheet);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "cellArea", this.cellArea);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "regoin", this.regoin);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         if(this.extendQueryParameterMap !== undefined){
             for (var key in this.extendQueryParameterMap){
@@ -25684,7 +25808,7 @@ export class SearchContentInRemoteSpreadsheetRequest  {
     /// (Optional) The name of the storage if using custom cloud storage. Use default storage if omitted.  
     public storageName: string;
     /// The spreadsheet region setting.  
-    public regoin: string;
+    public region: string;
     /// The password for opening spreadsheet file.  
     public password: string;
     /// extend query parameter
@@ -25707,7 +25831,7 @@ export class SearchContentInRemoteSpreadsheetRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "ignoringCase", this.ignoringCase);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "regoin", this.regoin);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         if(this.extendQueryParameterMap !== undefined){
             for (var key in this.extendQueryParameterMap){
@@ -25732,11 +25856,11 @@ export class SearchContentInRemoteSpreadsheetRequest  {
 }
 /// Search text in the worksheet of remoted spreadsheet.   
 export class SearchContentInRemoteWorksheetRequest  {
-    /// The name of the workbook file to be search.  
+    /// Specify the search workbook file name.  
     public name: string;
-    /// The name of worksheet  
+    /// Specify the search worksheet name.  
     public worksheet: string;
-    /// The searched text.  
+    /// Specify the search content.  
     public searchText: string;
     /// Ignore the text of the search.  
     public ignoringCase: boolean;
@@ -25745,7 +25869,7 @@ export class SearchContentInRemoteWorksheetRequest  {
     /// (Optional) The name of the storage if using custom cloud storage. Use default storage if omitted.  
     public storageName: string;
     /// The spreadsheet region setting.  
-    public regoin: string;
+    public region: string;
     /// The password for opening spreadsheet file.  
     public password: string;
     /// extend query parameter
@@ -25759,7 +25883,7 @@ export class SearchContentInRemoteWorksheetRequest  {
 
         let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/{name}/worksheets/{worksheet}/search/content".replace("{" + "name" + "}", String(this.name)).replace("{" + "worksheet" + "}", String(this.worksheet));
         const queryParameters: any = {};
-        /// The searched text. 
+        /// Specify the search content. 
         // verify required parameter 'searchText' is not null or undefined
         if (this.searchText === null || this.searchText === undefined) {
             throw new Error('Required parameter "searchText" was null or undefined when calling SearchContentInRemoteWorksheet.');
@@ -25768,7 +25892,7 @@ export class SearchContentInRemoteWorksheetRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "ignoringCase", this.ignoringCase);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "regoin", this.regoin);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         if(this.extendQueryParameterMap !== undefined){
             for (var key in this.extendQueryParameterMap){
@@ -25793,22 +25917,22 @@ export class SearchContentInRemoteWorksheetRequest  {
 }
 /// Search text in the range of remoted spreadsheet.   
 export class SearchContentInRemoteRangeRequest  {
-      
+    /// Specify the search workbook file name.  
     public name: string;
-      
+    /// Specify the search worksheet name.  
     public worksheet: string;
-      
+    /// Specify the search cell area.  
     public cellArea: string;
-      
+    /// Specify the search content.  
     public searchText: string;
-      
+    /// Ignore the text of the search.  
     public ignoringCase: boolean;
-      
+    /// The folder path where the workbook is stored.  
     public folder: string;
     /// (Optional) The name of the storage if using custom cloud storage. Use default storage if omitted.  
     public storageName: string;
     /// The spreadsheet region setting.  
-    public regoin: string;
+    public region: string;
     /// The password for opening spreadsheet file.  
     public password: string;
     /// extend query parameter
@@ -25822,7 +25946,7 @@ export class SearchContentInRemoteRangeRequest  {
 
         let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/{name}/worksheets/{worksheet}/ranges/{cellArea}/search/content".replace("{" + "name" + "}", String(this.name)).replace("{" + "worksheet" + "}", String(this.worksheet)).replace("{" + "cellArea" + "}", String(this.cellArea));
         const queryParameters: any = {};
-         
+        /// Specify the search content. 
         // verify required parameter 'searchText' is not null or undefined
         if (this.searchText === null || this.searchText === undefined) {
             throw new Error('Required parameter "searchText" was null or undefined when calling SearchContentInRemoteRange.');
@@ -25831,7 +25955,7 @@ export class SearchContentInRemoteRangeRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "ignoringCase", this.ignoringCase);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "regoin", this.regoin);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         if(this.extendQueryParameterMap !== undefined){
             for (var key in this.extendQueryParameterMap){
@@ -25858,16 +25982,16 @@ export class SearchContentInRemoteRangeRequest  {
 export class ReplaceSpreadsheetContentRequest  {
     /// Upload spreadsheet file.  
     public spreadsheet: any;
-    /// The searched text.  
+    /// Specify the search content.  
     public searchText: string;
-    /// The replaced text.  
+    /// Specify the replace content.  
     public replaceText: string;
     /// Specify the worksheet for the replace.  
     public worksheet: string;
     /// Specify the cell area for the replace.  
     public cellArea: string;
     /// The spreadsheet region setting.  
-    public regoin: string;
+    public region: string;
     /// The password for opening spreadsheet file.  
     public password: string;
     /// extend query parameter
@@ -25882,12 +26006,12 @@ export class ReplaceSpreadsheetContentRequest  {
         let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/replace/content";
         const queryParameters: any = {};
         const formParams: any = {};
-        /// The searched text. 
+        /// Specify the search content. 
         // verify required parameter 'searchText' is not null or undefined
         if (this.searchText === null || this.searchText === undefined) {
             throw new Error('Required parameter "searchText" was null or undefined when calling ReplaceSpreadsheetContent.');
         }
-        /// The replaced text. 
+        /// Specify the replace content. 
         // verify required parameter 'replaceText' is not null or undefined
         if (this.replaceText === null || this.replaceText === undefined) {
             throw new Error('Required parameter "replaceText" was null or undefined when calling ReplaceSpreadsheetContent.');
@@ -25896,7 +26020,7 @@ export class ReplaceSpreadsheetContentRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "replaceText", this.replaceText);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "worksheet", this.worksheet);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "cellArea", this.cellArea);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "regoin", this.regoin);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         if(this.extendQueryParameterMap !== undefined){
             for (var key in this.extendQueryParameterMap){
@@ -25937,16 +26061,16 @@ export class ReplaceSpreadsheetContentRequest  {
 export class ReplaceContentInRemoteSpreadsheetRequest  {
     /// The name of the workbook file to be replace.  
     public name: string;
-    /// The searched text.  
+    /// Specify the search content.  
     public searchText: string;
-    /// The replaced text.  
+    /// Specify the replace content.  
     public replaceText: string;
     /// The folder path where the workbook is stored.  
     public folder: string;
     /// (Optional) The name of the storage if using custom cloud storage. Use default storage if omitted.  
     public storageName: string;
     /// The spreadsheet region setting.  
-    public regoin: string;
+    public region: string;
     /// The password for opening spreadsheet file.  
     public password: string;
     /// extend query parameter
@@ -25960,12 +26084,12 @@ export class ReplaceContentInRemoteSpreadsheetRequest  {
 
         let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/{name}/replace/content".replace("{" + "name" + "}", String(this.name));
         const queryParameters: any = {};
-        /// The searched text. 
+        /// Specify the search content. 
         // verify required parameter 'searchText' is not null or undefined
         if (this.searchText === null || this.searchText === undefined) {
             throw new Error('Required parameter "searchText" was null or undefined when calling ReplaceContentInRemoteSpreadsheet.');
         }
-        /// The replaced text. 
+        /// Specify the replace content. 
         // verify required parameter 'replaceText' is not null or undefined
         if (this.replaceText === null || this.replaceText === undefined) {
             throw new Error('Required parameter "replaceText" was null or undefined when calling ReplaceContentInRemoteSpreadsheet.');
@@ -25974,7 +26098,7 @@ export class ReplaceContentInRemoteSpreadsheetRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "replaceText", this.replaceText);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "regoin", this.regoin);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         if(this.extendQueryParameterMap !== undefined){
             for (var key in this.extendQueryParameterMap){
@@ -26012,7 +26136,7 @@ export class ReplaceContentInRemoteWorksheetRequest  {
     /// (Optional) The name of the storage if using custom cloud storage. Use default storage if omitted.  
     public storageName: string;
     /// The spreadsheet region setting.  
-    public regoin: string;
+    public region: string;
     /// The password for opening spreadsheet file.  
     public password: string;
     /// extend query parameter
@@ -26040,7 +26164,7 @@ export class ReplaceContentInRemoteWorksheetRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "replaceText", this.replaceText);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "regoin", this.regoin);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         if(this.extendQueryParameterMap !== undefined){
             for (var key in this.extendQueryParameterMap){
@@ -26080,7 +26204,7 @@ export class ReplaceContentInRemoteRangeRequest  {
     /// (Optional) The name of the storage if using custom cloud storage. Use default storage if omitted.  
     public storageName: string;
     /// The spreadsheet region setting.  
-    public regoin: string;
+    public region: string;
     /// The password for opening spreadsheet file.  
     public password: string;
     /// extend query parameter
@@ -26108,7 +26232,7 @@ export class ReplaceContentInRemoteRangeRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "replaceText", this.replaceText);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "regoin", this.regoin);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         if(this.extendQueryParameterMap !== undefined){
             for (var key in this.extendQueryParameterMap){
@@ -26140,7 +26264,7 @@ export class SearchSpreadsheetBrokenLinksRequest  {
     /// Specify the cell area for the replace.  
     public cellArea: string;
     /// The spreadsheet region setting.  
-    public regoin: string;
+    public region: string;
     /// The password for opening spreadsheet file.  
     public password: string;
     /// extend query parameter
@@ -26157,7 +26281,7 @@ export class SearchSpreadsheetBrokenLinksRequest  {
         const formParams: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "worksheet", this.worksheet);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "cellArea", this.cellArea);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "regoin", this.regoin);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         if(this.extendQueryParameterMap !== undefined){
             for (var key in this.extendQueryParameterMap){
@@ -26207,7 +26331,7 @@ export class SearchBrokenLinksInRemoteSpreadsheetRequest  {
     /// (Optional) The name of the storage if using custom cloud storage. Use default storage if omitted.  
     public storageName: string;
     /// The spreadsheet region setting.  
-    public regoin: string;
+    public region: string;
     /// The password for opening spreadsheet file.  
     public password: string;
     /// extend query parameter
@@ -26225,7 +26349,7 @@ export class SearchBrokenLinksInRemoteSpreadsheetRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "cellArea", this.cellArea);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "regoin", this.regoin);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         if(this.extendQueryParameterMap !== undefined){
             for (var key in this.extendQueryParameterMap){
@@ -26259,7 +26383,7 @@ export class SearchBrokenLinksInRemoteWorksheetRequest  {
     /// (Optional) The name of the storage if using custom cloud storage. Use default storage if omitted.  
     public storageName: string;
     /// The spreadsheet region setting.  
-    public regoin: string;
+    public region: string;
     /// The password for opening spreadsheet file.  
     public password: string;
     /// extend query parameter
@@ -26275,7 +26399,7 @@ export class SearchBrokenLinksInRemoteWorksheetRequest  {
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "regoin", this.regoin);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         if(this.extendQueryParameterMap !== undefined){
             for (var key in this.extendQueryParameterMap){
@@ -26311,7 +26435,7 @@ export class SearchBrokenLinksInRemoteRangeRequest  {
     /// (Optional) The name of the storage if using custom cloud storage. Use default storage if omitted.  
     public storageName: string;
     /// The spreadsheet region setting.  
-    public regoin: string;
+    public region: string;
     /// The password for opening spreadsheet file.  
     public password: string;
     /// extend query parameter
@@ -26327,7 +26451,7 @@ export class SearchBrokenLinksInRemoteRangeRequest  {
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "regoin", this.regoin);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         if(this.extendQueryParameterMap !== undefined){
             for (var key in this.extendQueryParameterMap){
@@ -26355,7 +26479,7 @@ export class SpecRequest  {
       
     public version: string;
     /// The spreadsheet region setting.  
-    public regoin: string;
+    public region: string;
     /// The password for opening spreadsheet file.  
     public password: string;
     /// extend query parameter
@@ -26375,7 +26499,7 @@ export class SpecRequest  {
             throw new Error('Required parameter "version" was null or undefined when calling Spec.');
         }
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "version", this.version);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "regoin", this.regoin);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         if(this.extendQueryParameterMap !== undefined){
             for (var key in this.extendQueryParameterMap){
@@ -26401,7 +26525,7 @@ export class SpecRequest  {
    
 export class CodegenSpecRequest  {
     /// The spreadsheet region setting.  
-    public regoin: string;
+    public region: string;
     /// The password for opening spreadsheet file.  
     public password: string;
     /// extend query parameter
@@ -26415,7 +26539,7 @@ export class CodegenSpecRequest  {
 
         let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/codegen/spec";
         const queryParameters: any = {};
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "regoin", this.regoin);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         if(this.extendQueryParameterMap !== undefined){
             for (var key in this.extendQueryParameterMap){
@@ -26438,7 +26562,186 @@ export class CodegenSpecRequest  {
     }
 
 }
-/// Delete all blank rows which do not contain any data or other object.   
+/// The TrimSpreadsheetContent API is designed to process and trim content within a spreadsheet. This API allows users to remove extra spaces, line breaks, or other unnecessary characters from the content of selected cells. It is particularly useful for cleaning up data entries and ensuring consistency in spreadsheet formatting   
+export class TrimSpreadsheetContentRequest  {
+    /// Upload spreadsheet file.  
+    public spreadsheet: any;
+      
+    public trimContent: string;
+      
+    public trimLeading: boolean;
+      
+    public trimTrailing: boolean;
+      
+    public trimSpaceBetweenWordTo1: boolean;
+      
+    public trimNonBreakingSpaces: boolean;
+      
+    public removeExtraLineBreaks: boolean;
+      
+    public removeAllLineBreaks: boolean;
+    /// (Optional) The folder path where the workbook is stored. The default is null.  
+    public outPath: string;
+    /// Output file Storage Name.  
+    public outStorageName: string;
+    /// The spreadsheet region setting.  
+    public region: string;
+    /// The password for opening spreadsheet file.  
+    public password: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< TrimSpreadsheetContentRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/content/trim";
+        const queryParameters: any = {};
+        const formParams: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "trimContent", this.trimContent);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "trimLeading", this.trimLeading);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "trimTrailing", this.trimTrailing);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "trimSpaceBetweenWordTo1", this.trimSpaceBetweenWordTo1);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "trimNonBreakingSpaces", this.trimNonBreakingSpaces);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "removeExtraLineBreaks", this.removeExtraLineBreaks);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "removeAllLineBreaks", this.removeAllLineBreaks);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+        if (this.spreadsheet !== undefined) {
+            if (typeof this.spreadsheet === 'string') {
+                if (fs.existsSync(this.spreadsheet)) {
+                    const fileName = path.basename( this.spreadsheet)
+                    formParams[fileName] = fs.createReadStream(this.spreadsheet)
+                }
+            }
+            else {
+                for (var key in this.spreadsheet){
+                    formParams[key] = this.spreadsheet[key];
+                }
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        (requestOptions as any).formData = formParams;        
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+   
+export class TrimWorksheetRangeRequest  {
+    /// Upload spreadsheet file.  
+    public spreadsheet: any;
+      
+    public worksheet: string;
+      
+    public range: string;
+      
+    public trimContent: string;
+      
+    public trimLeading: boolean;
+      
+    public trimTrailing: boolean;
+      
+    public trimSpaceBetweenWordTo1: boolean;
+      
+    public trimNonBreakingSpaces: boolean;
+      
+    public removeExtraLineBreaks: boolean;
+      
+    public removeAllLineBreaks: boolean;
+    /// (Optional) The folder path where the workbook is stored. The default is null.  
+    public outPath: string;
+    /// Output file Storage Name.  
+    public outStorageName: string;
+    /// The spreadsheet region setting.  
+    public region: string;
+    /// The password for opening spreadsheet file.  
+    public password: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< TrimWorksheetRangeRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/content/trim/worksheet";
+        const queryParameters: any = {};
+        const formParams: any = {};
+         
+        // verify required parameter 'worksheet' is not null or undefined
+        if (this.worksheet === null || this.worksheet === undefined) {
+            throw new Error('Required parameter "worksheet" was null or undefined when calling TrimWorksheetRange.');
+        }
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "worksheet", this.worksheet);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "range", this.range);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "trimContent", this.trimContent);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "trimLeading", this.trimLeading);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "trimTrailing", this.trimTrailing);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "trimSpaceBetweenWordTo1", this.trimSpaceBetweenWordTo1);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "trimNonBreakingSpaces", this.trimNonBreakingSpaces);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "removeExtraLineBreaks", this.removeExtraLineBreaks);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "removeAllLineBreaks", this.removeAllLineBreaks);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+        if (this.spreadsheet !== undefined) {
+            if (typeof this.spreadsheet === 'string') {
+                if (fs.existsSync(this.spreadsheet)) {
+                    const fileName = path.basename( this.spreadsheet)
+                    formParams[fileName] = fs.createReadStream(this.spreadsheet)
+                }
+            }
+            else {
+                for (var key in this.spreadsheet){
+                    formParams[key] = this.spreadsheet[key];
+                }
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        (requestOptions as any).formData = formParams;        
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Delete all blank rows that do not contain any data or other objects.   
 export class DeleteSpreadsheetBlankRowsRequest  {
     /// Upload spreadsheet file.  
     public spreadsheet: any;
@@ -26447,7 +26750,7 @@ export class DeleteSpreadsheetBlankRowsRequest  {
     /// Output file Storage Name.  
     public outStorageName: string;
     /// The spreadsheet region setting.  
-    public regoin: string;
+    public region: string;
     /// The password for opening spreadsheet file.  
     public password: string;
     /// extend query parameter
@@ -26464,7 +26767,7 @@ export class DeleteSpreadsheetBlankRowsRequest  {
         const formParams: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "regoin", this.regoin);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         if(this.extendQueryParameterMap !== undefined){
             for (var key in this.extendQueryParameterMap){
@@ -26501,7 +26804,7 @@ export class DeleteSpreadsheetBlankRowsRequest  {
     }
 
 }
-/// Delete all blank columns which do not contain any data.   
+/// Delete all blank rows that do not contain any data or other objects.   
 export class DeleteSpreadsheetBlankColumnsRequest  {
     /// Upload spreadsheet file.  
     public spreadsheet: any;
@@ -26510,7 +26813,7 @@ export class DeleteSpreadsheetBlankColumnsRequest  {
     /// Output file Storage Name.  
     public outStorageName: string;
     /// The spreadsheet region setting.  
-    public regoin: string;
+    public region: string;
     /// The password for opening spreadsheet file.  
     public password: string;
     /// extend query parameter
@@ -26527,7 +26830,7 @@ export class DeleteSpreadsheetBlankColumnsRequest  {
         const formParams: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "regoin", this.regoin);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         if(this.extendQueryParameterMap !== undefined){
             for (var key in this.extendQueryParameterMap){
@@ -26564,7 +26867,7 @@ export class DeleteSpreadsheetBlankColumnsRequest  {
     }
 
 }
-/// Delete all blank worksheets which do not contain any data or other object.   
+/// Delete all blank rows that do not contain any data or other objects.   
 export class DeleteSpreadsheetBlankWorksheetsRequest  {
     /// Upload spreadsheet file.  
     public spreadsheet: any;
@@ -26573,7 +26876,7 @@ export class DeleteSpreadsheetBlankWorksheetsRequest  {
     /// Output file Storage Name.  
     public outStorageName: string;
     /// The spreadsheet region setting.  
-    public regoin: string;
+    public region: string;
     /// The password for opening spreadsheet file.  
     public password: string;
     /// extend query parameter
@@ -26590,7 +26893,7 @@ export class DeleteSpreadsheetBlankWorksheetsRequest  {
         const formParams: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "regoin", this.regoin);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         if(this.extendQueryParameterMap !== undefined){
             for (var key in this.extendQueryParameterMap){
@@ -26628,29 +26931,29 @@ export class DeleteSpreadsheetBlankWorksheetsRequest  {
 
 }
 /// The Swap Ranges for Excel API provides a powerful tool to move any two columns, rows, ranges, or individual cells within an Excel file. This API allows users to re-arrange their tables quickly and efficiently, ensuring that the original data formatting is preserved and all existing formulas continue to function correctly. By leveraging this API, users can streamline their data manipulation tasks and maintain the integrity of their spreadsheets.   
-export class SawpRangeRequest  {
+export class SwapRangeRequest  {
     /// Upload spreadsheet file.  
     public spreadsheet: any;
-      
+    /// Specify the worksheet that is the source of the exchange data area.  
     public worksheet1: string;
-      
+    /// Specify exchange data source.  
     public range1: string;
-      
+    /// Specify the worksheet that is the target of the exchange data area.  
     public worksheet2: string;
-      
+    /// Specify exchange data target.  
     public range2: string;
     /// (Optional) The folder path where the workbook is stored. The default is null.  
     public outPath: string;
     /// Output file Storage Name.  
     public outStorageName: string;
     /// The spreadsheet region setting.  
-    public regoin: string;
+    public region: string;
     /// The password for opening spreadsheet file.  
     public password: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< SawpRangeRequest >) {  
+    public constructor(init?: Partial< SwapRangeRequest >) {  
         Object.assign(this, init);
     } 
 
@@ -26659,25 +26962,25 @@ export class SawpRangeRequest  {
         let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/swap/range";
         const queryParameters: any = {};
         const formParams: any = {};
-         
+        /// Specify the worksheet that is the source of the exchange data area. 
         // verify required parameter 'worksheet1' is not null or undefined
         if (this.worksheet1 === null || this.worksheet1 === undefined) {
-            throw new Error('Required parameter "worksheet1" was null or undefined when calling SawpRange.');
+            throw new Error('Required parameter "worksheet1" was null or undefined when calling SwapRange.');
         }
-         
+        /// Specify exchange data source. 
         // verify required parameter 'range1' is not null or undefined
         if (this.range1 === null || this.range1 === undefined) {
-            throw new Error('Required parameter "range1" was null or undefined when calling SawpRange.');
+            throw new Error('Required parameter "range1" was null or undefined when calling SwapRange.');
         }
-         
+        /// Specify the worksheet that is the target of the exchange data area. 
         // verify required parameter 'worksheet2' is not null or undefined
         if (this.worksheet2 === null || this.worksheet2 === undefined) {
-            throw new Error('Required parameter "worksheet2" was null or undefined when calling SawpRange.');
+            throw new Error('Required parameter "worksheet2" was null or undefined when calling SwapRange.');
         }
-         
+        /// Specify exchange data target. 
         // verify required parameter 'range2' is not null or undefined
         if (this.range2 === null || this.range2 === undefined) {
-            throw new Error('Required parameter "range2" was null or undefined when calling SawpRange.');
+            throw new Error('Required parameter "range2" was null or undefined when calling SwapRange.');
         }
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "worksheet1", this.worksheet1);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "range1", this.range1);
@@ -26685,7 +26988,7 @@ export class SawpRangeRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "range2", this.range2);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "regoin", this.regoin);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         if(this.extendQueryParameterMap !== undefined){
             for (var key in this.extendQueryParameterMap){

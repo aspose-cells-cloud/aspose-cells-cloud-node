@@ -69,7 +69,6 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// The Math Calculate API enables you to perform a variety of mathematical operations on a selected range of cells. You can add or subtract a specific number from all selected cells, as well as multiply or divide individual cells and entire columns. This API simplifies complex calculations and enhances data manipulation capabilities.
     /// </summary>
     /// <param name="request">Request. <see cref="MathCalculateRequest" /></param>
     public async mathCalculate(requestObj:model.MathCalculateRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
@@ -221,6 +220,38 @@ export class CellsApi {
     {
         if (requestObj === null || requestObj === undefined) {
             throw new Error('Required parameter "requestObj" was null or undefined when calling convertSpreadsheet.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "Buffer");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// Converts a spreadsheet on a local drive to the pdf file.
+    /// </summary>
+    /// <param name="request">Request. <see cref="ConvertSpreadsheetToPdfRequest" /></param>
+    public async convertSpreadsheetToPdf(requestObj:model.ConvertSpreadsheetToPdfRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling convertSpreadsheetToPdf.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "Buffer");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// Converts a spreadsheet on a local drive to the csv file.
+    /// </summary>
+    /// <param name="request">Request. <see cref="ConvertSpreadsheetToCsvRequest" /></param>
+    public async convertSpreadsheetToCsv(requestObj:model.ConvertSpreadsheetToCsvRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling convertSpreadsheetToCsv.');
         }
 
         const requestOptions = await requestObj.createRequestOptions(this.configuration);
@@ -550,6 +581,7 @@ export class CellsApi {
     }
 
     /// <summary>
+    /// Import data into a spreadsheet from a supported data file format.
     /// </summary>
     /// <param name="request">Request. <see cref="ImportDataIntoSpreadsheetRequest" /></param>
     public async importDataIntoSpreadsheet(requestObj:model.ImportDataIntoSpreadsheetRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
@@ -840,7 +872,7 @@ export class CellsApi {
     /// Search broken links in the local spreadsheet.
     /// </summary>
     /// <param name="request">Request. <see cref="SearchSpreadsheetBrokenLinksRequest" /></param>
-    public async searchSpreadsheetBrokenLinks(requestObj:model.SearchSpreadsheetBrokenLinksRequest ): Promise<{response: http.ClientResponse, body: model.BrokenLinksReponse}>
+    public async searchSpreadsheetBrokenLinks(requestObj:model.SearchSpreadsheetBrokenLinksRequest ): Promise<{response: http.ClientResponse, body: model.BrokenLinksResponse}>
     {
         if (requestObj === null || requestObj === undefined) {
             throw new Error('Required parameter "requestObj" was null or undefined when calling searchSpreadsheetBrokenLinks.');
@@ -848,7 +880,7 @@ export class CellsApi {
 
         const requestOptions = await requestObj.createRequestOptions(this.configuration);
         const response = await invokeApiMethod(requestOptions, this.configuration);
-        const result =  ObjectSerializer.deserialize(response.body, "BrokenLinksReponse");
+        const result =  ObjectSerializer.deserialize(response.body, "BrokenLinksResponse");
         return Promise.resolve({body: result, response});
     }
 
@@ -856,7 +888,7 @@ export class CellsApi {
     /// Search broken links in the remoted spreadsheet.
     /// </summary>
     /// <param name="request">Request. <see cref="SearchBrokenLinksInRemoteSpreadsheetRequest" /></param>
-    public async searchBrokenLinksInRemoteSpreadsheet(requestObj:model.SearchBrokenLinksInRemoteSpreadsheetRequest ): Promise<{response: http.ClientResponse, body: model.BrokenLinksReponse}>
+    public async searchBrokenLinksInRemoteSpreadsheet(requestObj:model.SearchBrokenLinksInRemoteSpreadsheetRequest ): Promise<{response: http.ClientResponse, body: model.BrokenLinksResponse}>
     {
         if (requestObj === null || requestObj === undefined) {
             throw new Error('Required parameter "requestObj" was null or undefined when calling searchBrokenLinksInRemoteSpreadsheet.');
@@ -864,7 +896,7 @@ export class CellsApi {
 
         const requestOptions = await requestObj.createRequestOptions(this.configuration);
         const response = await invokeApiMethod(requestOptions, this.configuration);
-        const result =  ObjectSerializer.deserialize(response.body, "BrokenLinksReponse");
+        const result =  ObjectSerializer.deserialize(response.body, "BrokenLinksResponse");
         return Promise.resolve({body: result, response});
     }
 
@@ -872,7 +904,7 @@ export class CellsApi {
     /// Search broken links in the worksheet of remoted spreadsheet.
     /// </summary>
     /// <param name="request">Request. <see cref="SearchBrokenLinksInRemoteWorksheetRequest" /></param>
-    public async searchBrokenLinksInRemoteWorksheet(requestObj:model.SearchBrokenLinksInRemoteWorksheetRequest ): Promise<{response: http.ClientResponse, body: model.BrokenLinksReponse}>
+    public async searchBrokenLinksInRemoteWorksheet(requestObj:model.SearchBrokenLinksInRemoteWorksheetRequest ): Promise<{response: http.ClientResponse, body: model.BrokenLinksResponse}>
     {
         if (requestObj === null || requestObj === undefined) {
             throw new Error('Required parameter "requestObj" was null or undefined when calling searchBrokenLinksInRemoteWorksheet.');
@@ -880,7 +912,7 @@ export class CellsApi {
 
         const requestOptions = await requestObj.createRequestOptions(this.configuration);
         const response = await invokeApiMethod(requestOptions, this.configuration);
-        const result =  ObjectSerializer.deserialize(response.body, "BrokenLinksReponse");
+        const result =  ObjectSerializer.deserialize(response.body, "BrokenLinksResponse");
         return Promise.resolve({body: result, response});
     }
 
@@ -888,7 +920,7 @@ export class CellsApi {
     /// Search broken links in the range of remoted spreadsheet.
     /// </summary>
     /// <param name="request">Request. <see cref="SearchBrokenLinksInRemoteRangeRequest" /></param>
-    public async searchBrokenLinksInRemoteRange(requestObj:model.SearchBrokenLinksInRemoteRangeRequest ): Promise<{response: http.ClientResponse, body: model.BrokenLinksReponse}>
+    public async searchBrokenLinksInRemoteRange(requestObj:model.SearchBrokenLinksInRemoteRangeRequest ): Promise<{response: http.ClientResponse, body: model.BrokenLinksResponse}>
     {
         if (requestObj === null || requestObj === undefined) {
             throw new Error('Required parameter "requestObj" was null or undefined when calling searchBrokenLinksInRemoteRange.');
@@ -896,7 +928,7 @@ export class CellsApi {
 
         const requestOptions = await requestObj.createRequestOptions(this.configuration);
         const response = await invokeApiMethod(requestOptions, this.configuration);
-        const result =  ObjectSerializer.deserialize(response.body, "BrokenLinksReponse");
+        const result =  ObjectSerializer.deserialize(response.body, "BrokenLinksResponse");
         return Promise.resolve({body: result, response});
     }
 
@@ -932,7 +964,38 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Delete all blank rows which do not contain any data or other object.
+    /// The TrimSpreadsheetContent API is designed to process and trim content within a spreadsheet. This API allows users to remove extra spaces, line breaks, or other unnecessary characters from the content of selected cells. It is particularly useful for cleaning up data entries and ensuring consistency in spreadsheet formatting
+    /// </summary>
+    /// <param name="request">Request. <see cref="TrimSpreadsheetContentRequest" /></param>
+    public async trimSpreadsheetContent(requestObj:model.TrimSpreadsheetContentRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling trimSpreadsheetContent.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "Buffer");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// </summary>
+    /// <param name="request">Request. <see cref="TrimWorksheetRangeRequest" /></param>
+    public async trimWorksheetRange(requestObj:model.TrimWorksheetRangeRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling trimWorksheetRange.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "Buffer");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// Delete all blank rows that do not contain any data or other objects.
     /// </summary>
     /// <param name="request">Request. <see cref="DeleteSpreadsheetBlankRowsRequest" /></param>
     public async deleteSpreadsheetBlankRows(requestObj:model.DeleteSpreadsheetBlankRowsRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
@@ -948,7 +1011,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Delete all blank columns which do not contain any data.
+    /// Delete all blank rows that do not contain any data or other objects.
     /// </summary>
     /// <param name="request">Request. <see cref="DeleteSpreadsheetBlankColumnsRequest" /></param>
     public async deleteSpreadsheetBlankColumns(requestObj:model.DeleteSpreadsheetBlankColumnsRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
@@ -964,7 +1027,7 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// Delete all blank worksheets which do not contain any data or other object.
+    /// Delete all blank rows that do not contain any data or other objects.
     /// </summary>
     /// <param name="request">Request. <see cref="DeleteSpreadsheetBlankWorksheetsRequest" /></param>
     public async deleteSpreadsheetBlankWorksheets(requestObj:model.DeleteSpreadsheetBlankWorksheetsRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
@@ -982,11 +1045,11 @@ export class CellsApi {
     /// <summary>
     /// The Swap Ranges for Excel API provides a powerful tool to move any two columns, rows, ranges, or individual cells within an Excel file. This API allows users to re-arrange their tables quickly and efficiently, ensuring that the original data formatting is preserved and all existing formulas continue to function correctly. By leveraging this API, users can streamline their data manipulation tasks and maintain the integrity of their spreadsheets.
     /// </summary>
-    /// <param name="request">Request. <see cref="SawpRangeRequest" /></param>
-    public async sawpRange(requestObj:model.SawpRangeRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
+    /// <param name="request">Request. <see cref="SwapRangeRequest" /></param>
+    public async swapRange(requestObj:model.SwapRangeRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
     {
         if (requestObj === null || requestObj === undefined) {
-            throw new Error('Required parameter "requestObj" was null or undefined when calling sawpRange.');
+            throw new Error('Required parameter "requestObj" was null or undefined when calling swapRange.');
         }
 
         const requestOptions = await requestObj.createRequestOptions(this.configuration);
