@@ -27,7 +27,6 @@ request.name =  remoteName;
 request.picPath =  remoteFolder + "/WaterMark.png";
 request.folder =  remoteFolder;
 request.storageName =  "";
-request.file =  "";
 return cellsApi.putWorkbookBackground(request).then((result) => {
     expect(result.response.statusCode).to.equal(200);
 });
