@@ -69,7 +69,6 @@ export class CellsApi {
     }
 
     /// <summary>
-    /// The Math Calculate API enables you to perform a variety of mathematical operations on a selected range of cells. You can add or subtract a specific number from all selected cells, as well as multiply or divide individual cells and entire columns. This API simplifies complex calculations and enhances data manipulation capabilities.
     /// </summary>
     /// <param name="request">Request. <see cref="MathCalculateRequest" /></param>
     public async mathCalculate(requestObj:model.MathCalculateRequest ): Promise<{response: http.ClientResponse, body: Buffer}>

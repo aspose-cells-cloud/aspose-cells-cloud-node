@@ -1,7 +1,7 @@
 import request from "request";
 import { Configuration } from "../internal/configuration";
-import { ObjectSerializer } from "../internal/objectSerializer";
 import { addQueryParameterToUrl } from "../internal/requestHelper";
+import { ObjectSerializer } from "../internal/objectSerializer";
 const fs = require('fs');
 const path = require('path');
 
@@ -22620,7 +22620,7 @@ const typeMap = {
     WorksheetDataStatistics,
 };
 
-export { enumsMap, typeMap };
+export {enumsMap, typeMap};
 
 /// The Aggregate by Color API provides a convenient way to perform calculations on cells that share the same fill or font color. This API supports a range of aggregate operations, including count, sum, maximum value, minimum value, and average value, enabling you to analyze and summarize data based on color distinctions.   
 export class AggregateCellsByColorRequest  {
@@ -22636,7 +22636,6 @@ export class AggregateCellsByColorRequest  {
     public colorPosition: string;
     /// The spreadsheet region setting.  
     public region: string;
-
     /// The password for opening spreadsheet file.  
     public password: string;
     /// extend query parameter
@@ -22692,7 +22691,7 @@ export class AggregateCellsByColorRequest  {
     }
 
 }
-/// The Math Calculate API enables you to perform a variety of mathematical operations on a selected range of cells. You can add or subtract a specific number from all selected cells, as well as multiply or divide individual cells and entire columns. This API simplifies complex calculations and enhances data manipulation capabilities.   
+   
 export class MathCalculateRequest  {
     /// Upload spreadsheet file.  
     public spreadsheet: any;
@@ -22735,7 +22734,6 @@ export class MathCalculateRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "worksheet", this.worksheet);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "range", this.range);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
-
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         if(this.extendQueryParameterMap !== undefined){
             for (var key in this.extendQueryParameterMap){
@@ -25008,7 +25006,6 @@ export class SplitRemoteSpreadsheetRequest  {
 
 }
 /// Import data into a spreadsheet from a supported data file format.   
-
 export class ImportDataIntoSpreadsheetRequest  {
     /// Upload data file.  
     public datafile: any;
@@ -26992,101 +26989,6 @@ export class SwapRangeRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
-        if(this.extendQueryParameterMap !== undefined){
-            for (var key in this.extendQueryParameterMap){
-                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
-            }
-        }
-        if (this.spreadsheet !== undefined) {
-            if (typeof this.spreadsheet === 'string') {
-                if (fs.existsSync(this.spreadsheet)) {
-                    const fileName = path.basename( this.spreadsheet)
-                    formParams[fileName] = fs.createReadStream(this.spreadsheet)
-                }
-            }
-            else {
-                for (var key in this.spreadsheet){
-                    formParams[key] = this.spreadsheet[key];
-                }
-            }
-        }
-
-
-        // const bodyParameter = null;
-
-        const requestOptions: request.Options = {
-            method: "PUT",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        (requestOptions as any).formData = formParams;        
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-/// The Swap Ranges for Excel API provides a powerful tool to move any two columns, rows, ranges, or individual cells within an Excel file. This API allows users to re-arrange their tables quickly and efficiently, ensuring that the original data formatting is preserved and all existing formulas continue to function correctly. By leveraging this API, users can streamline their data manipulation tasks and maintain the integrity of their spreadsheets.   
-export class SawpRangeRequest  {
-    /// Upload spreadsheet file.  
-    public spreadsheet: any;
-      
-    public worksheet1: string;
-      
-    public range1: string;
-      
-    public worksheet2: string;
-      
-    public range2: string;
-    /// (Optional) The folder path where the workbook is stored. The default is null.  
-    public outPath: string;
-    /// Output file Storage Name.  
-    public outStorageName: string;
-    /// The spreadsheet region setting.  
-    public regoin: string;
-    /// The password for opening spreadsheet file.  
-    public password: string;
-    /// extend query parameter
-    public extendQueryParameterMap: any;
-
-    public constructor(init?: Partial< SawpRangeRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/swap/range";
-        const queryParameters: any = {};
-        const formParams: any = {};
-         
-        // verify required parameter 'worksheet1' is not null or undefined
-        if (this.worksheet1 === null || this.worksheet1 === undefined) {
-            throw new Error('Required parameter "worksheet1" was null or undefined when calling SawpRange.');
-        }
-         
-        // verify required parameter 'range1' is not null or undefined
-        if (this.range1 === null || this.range1 === undefined) {
-            throw new Error('Required parameter "range1" was null or undefined when calling SawpRange.');
-        }
-         
-        // verify required parameter 'worksheet2' is not null or undefined
-        if (this.worksheet2 === null || this.worksheet2 === undefined) {
-            throw new Error('Required parameter "worksheet2" was null or undefined when calling SawpRange.');
-        }
-         
-        // verify required parameter 'range2' is not null or undefined
-        if (this.range2 === null || this.range2 === undefined) {
-            throw new Error('Required parameter "range2" was null or undefined when calling SawpRange.');
-        }
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "worksheet1", this.worksheet1);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "range1", this.range1);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "worksheet2", this.worksheet2);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "range2", this.range2);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "regoin", this.regoin);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         if(this.extendQueryParameterMap !== undefined){
             for (var key in this.extendQueryParameterMap){
