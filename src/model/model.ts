@@ -816,6 +816,51 @@ export class Range  {
     } 
 }
    
+export class RemoveCharactersByPosition  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "theFirstNCharacters",
+            baseName: "TheFirstNCharacters",
+            type: "number",
+        },
+        {
+            name: "theLastNCharacters",
+            baseName: "TheLastNCharacters",
+            type: "number",
+        },
+        {
+            name: "allCharactersBeforeText",
+            baseName: "AllCharactersBeforeText",
+            type: "string",
+        },
+        {
+            name: "allCharactersAfterText",
+            baseName: "AllCharactersAfterText",
+            type: "string",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return  RemoveCharactersByPosition.attributeTypeMap;
+
+    }
+
+    public theFirstNCharacters: number;
+    public theLastNCharacters: number;
+    public allCharactersBeforeText: string;
+    public allCharactersAfterText: string;
+
+    public constructor(init?: Partial< RemoveCharactersByPosition >) {  
+    
+        Object.assign(this, init);
+    } 
+}
+   
 export class SaveResult  {
     /**
      * Attribute type map
@@ -20210,52 +20255,6 @@ export class RemoveCharactersByCharacter  {
         Object.assign(this, init);
     } 
 }
-/// Class summary: Important features to consider when designing a new website include user-friendly navigation, responsive design for different devices, visually appealing layouts, and fast loading speed.
-///                
-export class RemoveCharactersByPosition  {
-    /**
-     * Attribute type map
-     */
-    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
-        {
-            name: "theFirstNCharacters",
-            baseName: "TheFirstNCharacters",
-            type: "number",
-        },
-        {
-            name: "theLastNCharacters",
-            baseName: "TheLastNCharacters",
-            type: "number",
-        },
-        {
-            name: "allCharactersBeforeText",
-            baseName: "AllCharactersBeforeText",
-            type: "string",
-        },
-        {
-            name: "allCharactersAfterText",
-            baseName: "AllCharactersAfterText",
-            type: "string",
-        }
-    ];
-    /**
-     * Returns attribute type map
-     */
-    public static getAttributeTypeMap() {
-        return  RemoveCharactersByPosition.attributeTypeMap;
-
-    }
-
-    public theFirstNCharacters: number;
-    public theLastNCharacters: number;
-    public allCharactersBeforeText: string;
-    public allCharactersAfterText: string;
-
-    public constructor(init?: Partial< RemoveCharactersByPosition >) {  
-    
-        Object.assign(this, init);
-    } 
-}
 /// Class summary: The class features discussing effective communication strategies, developing problem-solving skills, and increasing self-awareness for personal growth.   
 export class RemoveCharactersOptions  extends BaseOperateOptions  {
     /**
@@ -22186,6 +22185,7 @@ const typeMap = {
     Color,
     PdfSecurityOptions,
     Range,
+    RemoveCharactersByPosition,
     SaveResult,
     PaginatedSaveOptions,
     SpreadsheetTemplate,
@@ -22516,7 +22516,6 @@ const typeMap = {
     ExtractTextOptions,
     MergeTableOptions,
     RemoveCharactersByCharacter,
-    RemoveCharactersByPosition,
     RemoveCharactersOptions,
     RemoveDuplicatesOptions,
     ScopeItem,
@@ -25569,6 +25568,69 @@ export class CompressSpreadsheetRequest  {
     }
 
 }
+   
+export class RepairSpreadsheetRequest  {
+    /// Upload spreadsheet file.  
+    public spreadsheet: any;
+    /// (Optional) The folder path where the workbook is stored. The default is null.  
+    public outPath: string;
+    /// Output file Storage Name.  
+    public outStorageName: string;
+    /// The spreadsheet region setting.  
+    public region: string;
+    /// The password for opening spreadsheet file.  
+    public password: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< RepairSpreadsheetRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/spreadsheet/repair";
+        const queryParameters: any = {};
+        const formParams: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+        if (this.spreadsheet !== undefined) {
+            if (typeof this.spreadsheet === 'string') {
+                if (fs.existsSync(this.spreadsheet)) {
+                    const fileName = path.basename( this.spreadsheet)
+                    formParams[fileName] = fs.createReadStream(this.spreadsheet)
+                }
+            }
+            else {
+                for (var key in this.spreadsheet){
+                    formParams[key] = this.spreadsheet[key];
+                }
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        (requestOptions as any).formData = formParams;        
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
 /// Applies dual-layer password protection to Excel spreadsheets, supporting both open and modify passwords with encryption.   
 export class ProtectSpreadsheetRequest  {
     /// Upload spreadsheet file.  
@@ -25683,6 +25745,74 @@ export class UnprotectSpreadsheetRequest  {
         }
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "modifyPassword", this.modifyPassword);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+        if (this.spreadsheet !== undefined) {
+            if (typeof this.spreadsheet === 'string') {
+                if (fs.existsSync(this.spreadsheet)) {
+                    const fileName = path.basename( this.spreadsheet)
+                    formParams[fileName] = fs.createReadStream(this.spreadsheet)
+                }
+            }
+            else {
+                for (var key in this.spreadsheet){
+                    formParams[key] = this.spreadsheet[key];
+                }
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        (requestOptions as any).formData = formParams;        
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+   
+export class SpreadsheetDigitalsignatureRequest  {
+    /// Upload spreadsheet file.  
+    public spreadsheet: any;
+      
+    public password: string;
+    /// (Optional) The folder path where the workbook is stored. The default is null.  
+    public outPath: string;
+    /// Output file Storage Name.  
+    public outStorageName: string;
+    /// The spreadsheet region setting.  
+    public region: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< SpreadsheetDigitalsignatureRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/digitalsignature/spreadsheet";
+        const queryParameters: any = {};
+        const formParams: any = {};
+         
+        // verify required parameter 'password' is not null or undefined
+        if (this.password === null || this.password === undefined) {
+            throw new Error('Required parameter "password" was null or undefined when calling SpreadsheetDigitalsignature.');
+        }
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
@@ -26563,7 +26693,7 @@ export class CodegenSpecRequest  {
 
 }
 /// The TrimSpreadsheetContent API is designed to process and trim content within a spreadsheet. This API allows users to remove extra spaces, line breaks, or other unnecessary characters from the content of selected cells. It is particularly useful for cleaning up data entries and ensuring consistency in spreadsheet formatting   
-export class TrimSpreadsheetContentRequest  {
+export class TrimCharacterRequest  {
     /// Upload spreadsheet file.  
     public spreadsheet: any;
       
@@ -26580,6 +26710,10 @@ export class TrimSpreadsheetContentRequest  {
     public removeExtraLineBreaks: boolean;
       
     public removeAllLineBreaks: boolean;
+      
+    public worksheet: string;
+      
+    public range: string;
     /// (Optional) The folder path where the workbook is stored. The default is null.  
     public outPath: string;
     /// Output file Storage Name.  
@@ -26591,7 +26725,7 @@ export class TrimSpreadsheetContentRequest  {
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< TrimSpreadsheetContentRequest >) {  
+    public constructor(init?: Partial< TrimCharacterRequest >) {  
         Object.assign(this, init);
     } 
 
@@ -26607,6 +26741,8 @@ export class TrimSpreadsheetContentRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "trimNonBreakingSpaces", this.trimNonBreakingSpaces);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "removeExtraLineBreaks", this.removeExtraLineBreaks);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "removeAllLineBreaks", this.removeAllLineBreaks);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "worksheet", this.worksheet);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "range", this.range);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
@@ -26647,7 +26783,823 @@ export class TrimSpreadsheetContentRequest  {
 
 }
    
-export class TrimWorksheetRangeRequest  {
+export class UpdateWordCaseRequest  {
+    /// Upload spreadsheet file.  
+    public spreadsheet: any;
+      
+    public wordCaseType: string;
+      
+    public worksheet: string;
+      
+    public range: string;
+    /// (Optional) The folder path where the workbook is stored. The default is null.  
+    public outPath: string;
+    /// Output file Storage Name.  
+    public outStorageName: string;
+    /// The spreadsheet region setting.  
+    public region: string;
+    /// The password for opening spreadsheet file.  
+    public password: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< UpdateWordCaseRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/content/wordcase";
+        const queryParameters: any = {};
+        const formParams: any = {};
+         
+        // verify required parameter 'wordCaseType' is not null or undefined
+        if (this.wordCaseType === null || this.wordCaseType === undefined) {
+            throw new Error('Required parameter "wordCaseType" was null or undefined when calling UpdateWordCase.');
+        }
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "wordCaseType", this.wordCaseType);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "worksheet", this.worksheet);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "range", this.range);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+        if (this.spreadsheet !== undefined) {
+            if (typeof this.spreadsheet === 'string') {
+                if (fs.existsSync(this.spreadsheet)) {
+                    const fileName = path.basename( this.spreadsheet)
+                    formParams[fileName] = fs.createReadStream(this.spreadsheet)
+                }
+            }
+            else {
+                for (var key in this.spreadsheet){
+                    formParams[key] = this.spreadsheet[key];
+                }
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        (requestOptions as any).formData = formParams;        
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+   
+export class RemoveCharactersRequest  {
+    /// Upload spreadsheet file.  
+    public spreadsheet: any;
+      
+    public theFirstNCharacters: number;
+      
+    public theLastNCharacters: number;
+      
+    public allCharactersBeforeText: string;
+      
+    public allCharactersAfterText: string;
+      
+    public removeTextMethod: string;
+      
+    public characterSets: string;
+      
+    public removeCustomValue: string;
+      
+    public worksheet: string;
+      
+    public range: string;
+    /// (Optional) The folder path where the workbook is stored. The default is null.  
+    public outPath: string;
+    /// Output file Storage Name.  
+    public outStorageName: string;
+    /// The spreadsheet region setting.  
+    public region: string;
+    /// The password for opening spreadsheet file.  
+    public password: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< RemoveCharactersRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/content/remove/characters";
+        const queryParameters: any = {};
+        const formParams: any = {};
+         
+        // verify required parameter 'theFirstNCharacters' is not null or undefined
+        if (this.theFirstNCharacters === null || this.theFirstNCharacters === undefined) {
+            throw new Error('Required parameter "theFirstNCharacters" was null or undefined when calling RemoveCharacters.');
+        }
+         
+        // verify required parameter 'theLastNCharacters' is not null or undefined
+        if (this.theLastNCharacters === null || this.theLastNCharacters === undefined) {
+            throw new Error('Required parameter "theLastNCharacters" was null or undefined when calling RemoveCharacters.');
+        }
+         
+        // verify required parameter 'allCharactersBeforeText' is not null or undefined
+        if (this.allCharactersBeforeText === null || this.allCharactersBeforeText === undefined) {
+            throw new Error('Required parameter "allCharactersBeforeText" was null or undefined when calling RemoveCharacters.');
+        }
+         
+        // verify required parameter 'allCharactersAfterText' is not null or undefined
+        if (this.allCharactersAfterText === null || this.allCharactersAfterText === undefined) {
+            throw new Error('Required parameter "allCharactersAfterText" was null or undefined when calling RemoveCharacters.');
+        }
+         
+        // verify required parameter 'removeTextMethod' is not null or undefined
+        if (this.removeTextMethod === null || this.removeTextMethod === undefined) {
+            throw new Error('Required parameter "removeTextMethod" was null or undefined when calling RemoveCharacters.');
+        }
+         
+        // verify required parameter 'characterSets' is not null or undefined
+        if (this.characterSets === null || this.characterSets === undefined) {
+            throw new Error('Required parameter "characterSets" was null or undefined when calling RemoveCharacters.');
+        }
+         
+        // verify required parameter 'removeCustomValue' is not null or undefined
+        if (this.removeCustomValue === null || this.removeCustomValue === undefined) {
+            throw new Error('Required parameter "removeCustomValue" was null or undefined when calling RemoveCharacters.');
+        }
+         
+        // verify required parameter 'worksheet' is not null or undefined
+        if (this.worksheet === null || this.worksheet === undefined) {
+            throw new Error('Required parameter "worksheet" was null or undefined when calling RemoveCharacters.');
+        }
+         
+        // verify required parameter 'range' is not null or undefined
+        if (this.range === null || this.range === undefined) {
+            throw new Error('Required parameter "range" was null or undefined when calling RemoveCharacters.');
+        }
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "theFirstNCharacters", this.theFirstNCharacters);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "theLastNCharacters", this.theLastNCharacters);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "allCharactersBeforeText", this.allCharactersBeforeText);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "allCharactersAfterText", this.allCharactersAfterText);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "removeTextMethod", this.removeTextMethod);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "characterSets", this.characterSets);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "removeCustomValue", this.removeCustomValue);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "worksheet", this.worksheet);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "range", this.range);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+        if (this.spreadsheet !== undefined) {
+            if (typeof this.spreadsheet === 'string') {
+                if (fs.existsSync(this.spreadsheet)) {
+                    const fileName = path.basename( this.spreadsheet)
+                    formParams[fileName] = fs.createReadStream(this.spreadsheet)
+                }
+            }
+            else {
+                for (var key in this.spreadsheet){
+                    formParams[key] = this.spreadsheet[key];
+                }
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        (requestOptions as any).formData = formParams;        
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+   
+export class AddTextRequest  {
+    /// Upload spreadsheet file.  
+    public spreadsheet: any;
+      
+    public text: string;
+      
+    public position: string;
+      
+    public selectText: string;
+      
+    public skipEmptyCells: boolean;
+      
+    public worksheet: string;
+      
+    public range: string;
+    /// (Optional) The folder path where the workbook is stored. The default is null.  
+    public outPath: string;
+    /// Output file Storage Name.  
+    public outStorageName: string;
+    /// The spreadsheet region setting.  
+    public region: string;
+    /// The password for opening spreadsheet file.  
+    public password: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< AddTextRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/content/add/text";
+        const queryParameters: any = {};
+        const formParams: any = {};
+         
+        // verify required parameter 'text' is not null or undefined
+        if (this.text === null || this.text === undefined) {
+            throw new Error('Required parameter "text" was null or undefined when calling AddText.');
+        }
+         
+        // verify required parameter 'position' is not null or undefined
+        if (this.position === null || this.position === undefined) {
+            throw new Error('Required parameter "position" was null or undefined when calling AddText.');
+        }
+         
+        // verify required parameter 'selectText' is not null or undefined
+        if (this.selectText === null || this.selectText === undefined) {
+            throw new Error('Required parameter "selectText" was null or undefined when calling AddText.');
+        }
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "text", this.text);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "position", this.position);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "selectText", this.selectText);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "skipEmptyCells", this.skipEmptyCells);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "worksheet", this.worksheet);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "range", this.range);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+        if (this.spreadsheet !== undefined) {
+            if (typeof this.spreadsheet === 'string') {
+                if (fs.existsSync(this.spreadsheet)) {
+                    const fileName = path.basename( this.spreadsheet)
+                    formParams[fileName] = fs.createReadStream(this.spreadsheet)
+                }
+            }
+            else {
+                for (var key in this.spreadsheet){
+                    formParams[key] = this.spreadsheet[key];
+                }
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        (requestOptions as any).formData = formParams;        
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+   
+export class ConvertTextRequest  {
+    /// Upload spreadsheet file.  
+    public spreadsheet: any;
+      
+    public convertTextType: string;
+      
+    public sourceCharacters: string;
+      
+    public targetCharacters: string;
+      
+    public worksheet: string;
+      
+    public range: string;
+    /// (Optional) The folder path where the workbook is stored. The default is null.  
+    public outPath: string;
+    /// Output file Storage Name.  
+    public outStorageName: string;
+    /// The spreadsheet region setting.  
+    public region: string;
+    /// The password for opening spreadsheet file.  
+    public password: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< ConvertTextRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/content/convert/text";
+        const queryParameters: any = {};
+        const formParams: any = {};
+         
+        // verify required parameter 'convertTextType' is not null or undefined
+        if (this.convertTextType === null || this.convertTextType === undefined) {
+            throw new Error('Required parameter "convertTextType" was null or undefined when calling ConvertText.');
+        }
+         
+        // verify required parameter 'sourceCharacters' is not null or undefined
+        if (this.sourceCharacters === null || this.sourceCharacters === undefined) {
+            throw new Error('Required parameter "sourceCharacters" was null or undefined when calling ConvertText.');
+        }
+         
+        // verify required parameter 'targetCharacters' is not null or undefined
+        if (this.targetCharacters === null || this.targetCharacters === undefined) {
+            throw new Error('Required parameter "targetCharacters" was null or undefined when calling ConvertText.');
+        }
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "convertTextType", this.convertTextType);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "sourceCharacters", this.sourceCharacters);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "targetCharacters", this.targetCharacters);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "worksheet", this.worksheet);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "range", this.range);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+        if (this.spreadsheet !== undefined) {
+            if (typeof this.spreadsheet === 'string') {
+                if (fs.existsSync(this.spreadsheet)) {
+                    const fileName = path.basename( this.spreadsheet)
+                    formParams[fileName] = fs.createReadStream(this.spreadsheet)
+                }
+            }
+            else {
+                for (var key in this.spreadsheet){
+                    formParams[key] = this.spreadsheet[key];
+                }
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        (requestOptions as any).formData = formParams;        
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+   
+export class ExtractTextRequest  {
+    /// Upload spreadsheet file.  
+    public spreadsheet: any;
+      
+    public extractTextType: string;
+      
+    public beforeText: string;
+      
+    public afterText: string;
+      
+    public beforePosition: number;
+      
+    public afterPosition: number;
+      
+    public outPositionRange: string;
+      
+    public worksheet: string;
+      
+    public range: string;
+    /// (Optional) The folder path where the workbook is stored. The default is null.  
+    public outPath: string;
+    /// Output file Storage Name.  
+    public outStorageName: string;
+    /// The spreadsheet region setting.  
+    public region: string;
+    /// The password for opening spreadsheet file.  
+    public password: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< ExtractTextRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/content/extract/text";
+        const queryParameters: any = {};
+        const formParams: any = {};
+         
+        // verify required parameter 'extractTextType' is not null or undefined
+        if (this.extractTextType === null || this.extractTextType === undefined) {
+            throw new Error('Required parameter "extractTextType" was null or undefined when calling ExtractText.');
+        }
+         
+        // verify required parameter 'beforeText' is not null or undefined
+        if (this.beforeText === null || this.beforeText === undefined) {
+            throw new Error('Required parameter "beforeText" was null or undefined when calling ExtractText.');
+        }
+         
+        // verify required parameter 'afterText' is not null or undefined
+        if (this.afterText === null || this.afterText === undefined) {
+            throw new Error('Required parameter "afterText" was null or undefined when calling ExtractText.');
+        }
+         
+        // verify required parameter 'beforePosition' is not null or undefined
+        if (this.beforePosition === null || this.beforePosition === undefined) {
+            throw new Error('Required parameter "beforePosition" was null or undefined when calling ExtractText.');
+        }
+         
+        // verify required parameter 'afterPosition' is not null or undefined
+        if (this.afterPosition === null || this.afterPosition === undefined) {
+            throw new Error('Required parameter "afterPosition" was null or undefined when calling ExtractText.');
+        }
+         
+        // verify required parameter 'outPositionRange' is not null or undefined
+        if (this.outPositionRange === null || this.outPositionRange === undefined) {
+            throw new Error('Required parameter "outPositionRange" was null or undefined when calling ExtractText.');
+        }
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "extractTextType", this.extractTextType);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "beforeText", this.beforeText);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "afterText", this.afterText);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "beforePosition", this.beforePosition);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "afterPosition", this.afterPosition);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPositionRange", this.outPositionRange);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "worksheet", this.worksheet);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "range", this.range);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+        if (this.spreadsheet !== undefined) {
+            if (typeof this.spreadsheet === 'string') {
+                if (fs.existsSync(this.spreadsheet)) {
+                    const fileName = path.basename( this.spreadsheet)
+                    formParams[fileName] = fs.createReadStream(this.spreadsheet)
+                }
+            }
+            else {
+                for (var key in this.spreadsheet){
+                    formParams[key] = this.spreadsheet[key];
+                }
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        (requestOptions as any).formData = formParams;        
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+   
+export class SplitTextRequest  {
+    /// Upload spreadsheet file.  
+    public spreadsheet: any;
+      
+    public splitDelimitersType: string;
+      
+    public customDelimiter: string;
+      
+    public keepDelimitersInResultingCells: boolean;
+      
+    public keepDelimitersPosition: string;
+      
+    public howToSplit: string;
+      
+    public worksheet: string;
+      
+    public range: string;
+    /// (Optional) The folder path where the workbook is stored. The default is null.  
+    public outPath: string;
+    /// Output file Storage Name.  
+    public outStorageName: string;
+    /// The spreadsheet region setting.  
+    public region: string;
+    /// The password for opening spreadsheet file.  
+    public password: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< SplitTextRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/content/split/text";
+        const queryParameters: any = {};
+        const formParams: any = {};
+         
+        // verify required parameter 'splitDelimitersType' is not null or undefined
+        if (this.splitDelimitersType === null || this.splitDelimitersType === undefined) {
+            throw new Error('Required parameter "splitDelimitersType" was null or undefined when calling SplitText.');
+        }
+         
+        // verify required parameter 'customDelimiter' is not null or undefined
+        if (this.customDelimiter === null || this.customDelimiter === undefined) {
+            throw new Error('Required parameter "customDelimiter" was null or undefined when calling SplitText.');
+        }
+         
+        // verify required parameter 'keepDelimitersInResultingCells' is not null or undefined
+        if (this.keepDelimitersInResultingCells === null || this.keepDelimitersInResultingCells === undefined) {
+            throw new Error('Required parameter "keepDelimitersInResultingCells" was null or undefined when calling SplitText.');
+        }
+         
+        // verify required parameter 'keepDelimitersPosition' is not null or undefined
+        if (this.keepDelimitersPosition === null || this.keepDelimitersPosition === undefined) {
+            throw new Error('Required parameter "keepDelimitersPosition" was null or undefined when calling SplitText.');
+        }
+         
+        // verify required parameter 'howToSplit' is not null or undefined
+        if (this.howToSplit === null || this.howToSplit === undefined) {
+            throw new Error('Required parameter "howToSplit" was null or undefined when calling SplitText.');
+        }
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "splitDelimitersType", this.splitDelimitersType);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "customDelimiter", this.customDelimiter);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "keepDelimitersInResultingCells", this.keepDelimitersInResultingCells);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "keepDelimitersPosition", this.keepDelimitersPosition);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "howToSplit", this.howToSplit);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "worksheet", this.worksheet);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "range", this.range);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+        if (this.spreadsheet !== undefined) {
+            if (typeof this.spreadsheet === 'string') {
+                if (fs.existsSync(this.spreadsheet)) {
+                    const fileName = path.basename( this.spreadsheet)
+                    formParams[fileName] = fs.createReadStream(this.spreadsheet)
+                }
+            }
+            else {
+                for (var key in this.spreadsheet){
+                    formParams[key] = this.spreadsheet[key];
+                }
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        (requestOptions as any).formData = formParams;        
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Delete all blank rows that do not contain any data or other objects.   
+export class RemoveSpreadsheetBlankRowsRequest  {
+    /// Upload spreadsheet file.  
+    public spreadsheet: any;
+    /// (Optional) The folder path where the workbook is stored. The default is null.  
+    public outPath: string;
+    /// Output file Storage Name.  
+    public outStorageName: string;
+    /// The spreadsheet region setting.  
+    public region: string;
+    /// The password for opening spreadsheet file.  
+    public password: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< RemoveSpreadsheetBlankRowsRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/remove/blank-rows";
+        const queryParameters: any = {};
+        const formParams: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+        if (this.spreadsheet !== undefined) {
+            if (typeof this.spreadsheet === 'string') {
+                if (fs.existsSync(this.spreadsheet)) {
+                    const fileName = path.basename( this.spreadsheet)
+                    formParams[fileName] = fs.createReadStream(this.spreadsheet)
+                }
+            }
+            else {
+                for (var key in this.spreadsheet){
+                    formParams[key] = this.spreadsheet[key];
+                }
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        (requestOptions as any).formData = formParams;        
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Delete all blank rows that do not contain any data or other objects.   
+export class RemoveSpreadsheetBlankColumnsRequest  {
+    /// Upload spreadsheet file.  
+    public spreadsheet: any;
+    /// (Optional) The folder path where the workbook is stored. The default is null.  
+    public outPath: string;
+    /// Output file Storage Name.  
+    public outStorageName: string;
+    /// The spreadsheet region setting.  
+    public region: string;
+    /// The password for opening spreadsheet file.  
+    public password: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< RemoveSpreadsheetBlankColumnsRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/remove/blank-columns";
+        const queryParameters: any = {};
+        const formParams: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+        if (this.spreadsheet !== undefined) {
+            if (typeof this.spreadsheet === 'string') {
+                if (fs.existsSync(this.spreadsheet)) {
+                    const fileName = path.basename( this.spreadsheet)
+                    formParams[fileName] = fs.createReadStream(this.spreadsheet)
+                }
+            }
+            else {
+                for (var key in this.spreadsheet){
+                    formParams[key] = this.spreadsheet[key];
+                }
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        (requestOptions as any).formData = formParams;        
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Delete all blank rows that do not contain any data or other objects.   
+export class RemoveSpreadsheetBlankWorksheetsRequest  {
+    /// Upload spreadsheet file.  
+    public spreadsheet: any;
+    /// (Optional) The folder path where the workbook is stored. The default is null.  
+    public outPath: string;
+    /// Output file Storage Name.  
+    public outStorageName: string;
+    /// The spreadsheet region setting.  
+    public region: string;
+    /// The password for opening spreadsheet file.  
+    public password: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< RemoveSpreadsheetBlankWorksheetsRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/remove/blank-worksheets";
+        const queryParameters: any = {};
+        const formParams: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+        if (this.spreadsheet !== undefined) {
+            if (typeof this.spreadsheet === 'string') {
+                if (fs.existsSync(this.spreadsheet)) {
+                    const fileName = path.basename( this.spreadsheet)
+                    formParams[fileName] = fs.createReadStream(this.spreadsheet)
+                }
+            }
+            else {
+                for (var key in this.spreadsheet){
+                    formParams[key] = this.spreadsheet[key];
+                }
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        (requestOptions as any).formData = formParams;        
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+   
+export class RemoveDuplicatesRequest  {
     /// Upload spreadsheet file.  
     public spreadsheet: any;
       
@@ -26655,19 +27607,7 @@ export class TrimWorksheetRangeRequest  {
       
     public range: string;
       
-    public trimContent: string;
-      
-    public trimLeading: boolean;
-      
-    public trimTrailing: boolean;
-      
-    public trimSpaceBetweenWordTo1: boolean;
-      
-    public trimNonBreakingSpaces: boolean;
-      
-    public removeExtraLineBreaks: boolean;
-      
-    public removeAllLineBreaks: boolean;
+    public table: string;
     /// (Optional) The folder path where the workbook is stored. The default is null.  
     public outPath: string;
     /// Output file Storage Name.  
@@ -26679,218 +27619,18 @@ export class TrimWorksheetRangeRequest  {
     /// extend query parameter
     public extendQueryParameterMap: any;
 
-    public constructor(init?: Partial< TrimWorksheetRangeRequest >) {  
+    public constructor(init?: Partial< RemoveDuplicatesRequest >) {  
         Object.assign(this, init);
     } 
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
-        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/content/trim/worksheet";
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/remove/duplicates";
         const queryParameters: any = {};
         const formParams: any = {};
-         
-        // verify required parameter 'worksheet' is not null or undefined
-        if (this.worksheet === null || this.worksheet === undefined) {
-            throw new Error('Required parameter "worksheet" was null or undefined when calling TrimWorksheetRange.');
-        }
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "worksheet", this.worksheet);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "range", this.range);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "trimContent", this.trimContent);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "trimLeading", this.trimLeading);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "trimTrailing", this.trimTrailing);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "trimSpaceBetweenWordTo1", this.trimSpaceBetweenWordTo1);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "trimNonBreakingSpaces", this.trimNonBreakingSpaces);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "removeExtraLineBreaks", this.removeExtraLineBreaks);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "removeAllLineBreaks", this.removeAllLineBreaks);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
-        if(this.extendQueryParameterMap !== undefined){
-            for (var key in this.extendQueryParameterMap){
-                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
-            }
-        }
-        if (this.spreadsheet !== undefined) {
-            if (typeof this.spreadsheet === 'string') {
-                if (fs.existsSync(this.spreadsheet)) {
-                    const fileName = path.basename( this.spreadsheet)
-                    formParams[fileName] = fs.createReadStream(this.spreadsheet)
-                }
-            }
-            else {
-                for (var key in this.spreadsheet){
-                    formParams[key] = this.spreadsheet[key];
-                }
-            }
-        }
-
-
-        // const bodyParameter = null;
-
-        const requestOptions: request.Options = {
-            method: "PUT",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        (requestOptions as any).formData = formParams;        
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-/// Delete all blank rows that do not contain any data or other objects.   
-export class DeleteSpreadsheetBlankRowsRequest  {
-    /// Upload spreadsheet file.  
-    public spreadsheet: any;
-    /// (Optional) The folder path where the workbook is stored. The default is null.  
-    public outPath: string;
-    /// Output file Storage Name.  
-    public outStorageName: string;
-    /// The spreadsheet region setting.  
-    public region: string;
-    /// The password for opening spreadsheet file.  
-    public password: string;
-    /// extend query parameter
-    public extendQueryParameterMap: any;
-
-    public constructor(init?: Partial< DeleteSpreadsheetBlankRowsRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/delete/blank-rows";
-        const queryParameters: any = {};
-        const formParams: any = {};
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
-        if(this.extendQueryParameterMap !== undefined){
-            for (var key in this.extendQueryParameterMap){
-                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
-            }
-        }
-        if (this.spreadsheet !== undefined) {
-            if (typeof this.spreadsheet === 'string') {
-                if (fs.existsSync(this.spreadsheet)) {
-                    const fileName = path.basename( this.spreadsheet)
-                    formParams[fileName] = fs.createReadStream(this.spreadsheet)
-                }
-            }
-            else {
-                for (var key in this.spreadsheet){
-                    formParams[key] = this.spreadsheet[key];
-                }
-            }
-        }
-
-
-        // const bodyParameter = null;
-
-        const requestOptions: request.Options = {
-            method: "PUT",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        (requestOptions as any).formData = formParams;        
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-/// Delete all blank rows that do not contain any data or other objects.   
-export class DeleteSpreadsheetBlankColumnsRequest  {
-    /// Upload spreadsheet file.  
-    public spreadsheet: any;
-    /// (Optional) The folder path where the workbook is stored. The default is null.  
-    public outPath: string;
-    /// Output file Storage Name.  
-    public outStorageName: string;
-    /// The spreadsheet region setting.  
-    public region: string;
-    /// The password for opening spreadsheet file.  
-    public password: string;
-    /// extend query parameter
-    public extendQueryParameterMap: any;
-
-    public constructor(init?: Partial< DeleteSpreadsheetBlankColumnsRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/delete/blank-columns";
-        const queryParameters: any = {};
-        const formParams: any = {};
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
-        if(this.extendQueryParameterMap !== undefined){
-            for (var key in this.extendQueryParameterMap){
-                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
-            }
-        }
-        if (this.spreadsheet !== undefined) {
-            if (typeof this.spreadsheet === 'string') {
-                if (fs.existsSync(this.spreadsheet)) {
-                    const fileName = path.basename( this.spreadsheet)
-                    formParams[fileName] = fs.createReadStream(this.spreadsheet)
-                }
-            }
-            else {
-                for (var key in this.spreadsheet){
-                    formParams[key] = this.spreadsheet[key];
-                }
-            }
-        }
-
-
-        // const bodyParameter = null;
-
-        const requestOptions: request.Options = {
-            method: "PUT",
-            qs: queryParameters,
-            uri: localVarPath,
-            json: true,
-        };
-
-        (requestOptions as any).formData = formParams;        
-        return Promise.resolve(requestOptions);
-
-    }
-
-}
-/// Delete all blank rows that do not contain any data or other objects.   
-export class DeleteSpreadsheetBlankWorksheetsRequest  {
-    /// Upload spreadsheet file.  
-    public spreadsheet: any;
-    /// (Optional) The folder path where the workbook is stored. The default is null.  
-    public outPath: string;
-    /// Output file Storage Name.  
-    public outStorageName: string;
-    /// The spreadsheet region setting.  
-    public region: string;
-    /// The password for opening spreadsheet file.  
-    public password: string;
-    /// extend query parameter
-    public extendQueryParameterMap: any;
-
-    public constructor(init?: Partial< DeleteSpreadsheetBlankWorksheetsRequest >) {  
-        Object.assign(this, init);
-    } 
-
-    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
-
-        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/delete/blank-worksheets";
-        const queryParameters: any = {};
-        const formParams: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "table", this.table);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);

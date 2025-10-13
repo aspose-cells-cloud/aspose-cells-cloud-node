@@ -709,6 +709,21 @@ export class CellsApi {
     }
 
     /// <summary>
+    /// </summary>
+    /// <param name="request">Request. <see cref="RepairSpreadsheetRequest" /></param>
+    public async repairSpreadsheet(requestObj:model.RepairSpreadsheetRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling repairSpreadsheet.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "Buffer");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
     /// Applies dual-layer password protection to Excel spreadsheets, supporting both open and modify passwords with encryption.
     /// </summary>
     /// <param name="request">Request. <see cref="ProtectSpreadsheetRequest" /></param>
@@ -732,6 +747,21 @@ export class CellsApi {
     {
         if (requestObj === null || requestObj === undefined) {
             throw new Error('Required parameter "requestObj" was null or undefined when calling unprotectSpreadsheet.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "Buffer");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// </summary>
+    /// <param name="request">Request. <see cref="SpreadsheetDigitalsignatureRequest" /></param>
+    public async spreadsheetDigitalsignature(requestObj:model.SpreadsheetDigitalsignatureRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling spreadsheetDigitalsignature.');
         }
 
         const requestOptions = await requestObj.createRequestOptions(this.configuration);
@@ -966,11 +996,11 @@ export class CellsApi {
     /// <summary>
     /// The TrimSpreadsheetContent API is designed to process and trim content within a spreadsheet. This API allows users to remove extra spaces, line breaks, or other unnecessary characters from the content of selected cells. It is particularly useful for cleaning up data entries and ensuring consistency in spreadsheet formatting
     /// </summary>
-    /// <param name="request">Request. <see cref="TrimSpreadsheetContentRequest" /></param>
-    public async trimSpreadsheetContent(requestObj:model.TrimSpreadsheetContentRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
+    /// <param name="request">Request. <see cref="TrimCharacterRequest" /></param>
+    public async trimCharacter(requestObj:model.TrimCharacterRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
     {
         if (requestObj === null || requestObj === undefined) {
-            throw new Error('Required parameter "requestObj" was null or undefined when calling trimSpreadsheetContent.');
+            throw new Error('Required parameter "requestObj" was null or undefined when calling trimCharacter.');
         }
 
         const requestOptions = await requestObj.createRequestOptions(this.configuration);
@@ -981,11 +1011,86 @@ export class CellsApi {
 
     /// <summary>
     /// </summary>
-    /// <param name="request">Request. <see cref="TrimWorksheetRangeRequest" /></param>
-    public async trimWorksheetRange(requestObj:model.TrimWorksheetRangeRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
+    /// <param name="request">Request. <see cref="UpdateWordCaseRequest" /></param>
+    public async updateWordCase(requestObj:model.UpdateWordCaseRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
     {
         if (requestObj === null || requestObj === undefined) {
-            throw new Error('Required parameter "requestObj" was null or undefined when calling trimWorksheetRange.');
+            throw new Error('Required parameter "requestObj" was null or undefined when calling updateWordCase.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "Buffer");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// </summary>
+    /// <param name="request">Request. <see cref="RemoveCharactersRequest" /></param>
+    public async removeCharacters(requestObj:model.RemoveCharactersRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling removeCharacters.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "Buffer");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// </summary>
+    /// <param name="request">Request. <see cref="AddTextRequest" /></param>
+    public async addText(requestObj:model.AddTextRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling addText.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "Buffer");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// </summary>
+    /// <param name="request">Request. <see cref="ConvertTextRequest" /></param>
+    public async convertText(requestObj:model.ConvertTextRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling convertText.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "Buffer");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// </summary>
+    /// <param name="request">Request. <see cref="ExtractTextRequest" /></param>
+    public async extractText(requestObj:model.ExtractTextRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling extractText.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "Buffer");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// </summary>
+    /// <param name="request">Request. <see cref="SplitTextRequest" /></param>
+    public async splitText(requestObj:model.SplitTextRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling splitText.');
         }
 
         const requestOptions = await requestObj.createRequestOptions(this.configuration);
@@ -997,11 +1102,11 @@ export class CellsApi {
     /// <summary>
     /// Delete all blank rows that do not contain any data or other objects.
     /// </summary>
-    /// <param name="request">Request. <see cref="DeleteSpreadsheetBlankRowsRequest" /></param>
-    public async deleteSpreadsheetBlankRows(requestObj:model.DeleteSpreadsheetBlankRowsRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
+    /// <param name="request">Request. <see cref="RemoveSpreadsheetBlankRowsRequest" /></param>
+    public async removeSpreadsheetBlankRows(requestObj:model.RemoveSpreadsheetBlankRowsRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
     {
         if (requestObj === null || requestObj === undefined) {
-            throw new Error('Required parameter "requestObj" was null or undefined when calling deleteSpreadsheetBlankRows.');
+            throw new Error('Required parameter "requestObj" was null or undefined when calling removeSpreadsheetBlankRows.');
         }
 
         const requestOptions = await requestObj.createRequestOptions(this.configuration);
@@ -1013,11 +1118,11 @@ export class CellsApi {
     /// <summary>
     /// Delete all blank rows that do not contain any data or other objects.
     /// </summary>
-    /// <param name="request">Request. <see cref="DeleteSpreadsheetBlankColumnsRequest" /></param>
-    public async deleteSpreadsheetBlankColumns(requestObj:model.DeleteSpreadsheetBlankColumnsRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
+    /// <param name="request">Request. <see cref="RemoveSpreadsheetBlankColumnsRequest" /></param>
+    public async removeSpreadsheetBlankColumns(requestObj:model.RemoveSpreadsheetBlankColumnsRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
     {
         if (requestObj === null || requestObj === undefined) {
-            throw new Error('Required parameter "requestObj" was null or undefined when calling deleteSpreadsheetBlankColumns.');
+            throw new Error('Required parameter "requestObj" was null or undefined when calling removeSpreadsheetBlankColumns.');
         }
 
         const requestOptions = await requestObj.createRequestOptions(this.configuration);
@@ -1029,11 +1134,26 @@ export class CellsApi {
     /// <summary>
     /// Delete all blank rows that do not contain any data or other objects.
     /// </summary>
-    /// <param name="request">Request. <see cref="DeleteSpreadsheetBlankWorksheetsRequest" /></param>
-    public async deleteSpreadsheetBlankWorksheets(requestObj:model.DeleteSpreadsheetBlankWorksheetsRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
+    /// <param name="request">Request. <see cref="RemoveSpreadsheetBlankWorksheetsRequest" /></param>
+    public async removeSpreadsheetBlankWorksheets(requestObj:model.RemoveSpreadsheetBlankWorksheetsRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
     {
         if (requestObj === null || requestObj === undefined) {
-            throw new Error('Required parameter "requestObj" was null or undefined when calling deleteSpreadsheetBlankWorksheets.');
+            throw new Error('Required parameter "requestObj" was null or undefined when calling removeSpreadsheetBlankWorksheets.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "Buffer");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// </summary>
+    /// <param name="request">Request. <see cref="RemoveDuplicatesRequest" /></param>
+    public async removeDuplicates(requestObj:model.RemoveDuplicatesRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling removeDuplicates.');
         }
 
         const requestOptions = await requestObj.createRequestOptions(this.configuration);
