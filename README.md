@@ -1,11 +1,10 @@
-![](https://img.shields.io/badge/aspose.cells%20Cloud%20SDK-v25.8.0-green?style=for-the-badge&logo=nodedotjs)[![Product Page](https://img.shields.io/badge/Product-0288d1?style=for-the-badge&logo=Google-Chrome&logoColor=white)](https://products.aspose.cloud/cells/nodejs/) [![Documentation](https://img.shields.io/badge/Documentation-388e3c?style=for-the-badge&logo=Hugo&logoColor=white)](https://docs.aspose.cloud/cells/) [![API Ref](https://img.shields.io/badge/Reference-f39c12?style=for-the-badge&logo=html5&logoColor=white)](https://reference.aspose.cloud/cells/) [![Examples](https://img.shields.io/badge/Examples-1565c0?style=for-the-badge&logo=Github&logoColor=white)](https://github.com/aspose-cells-cloud/aspose-cells-cloud-node/tree/master/examples) [![Blog](https://img.shields.io/badge/Blog-d32f2f?style=for-the-badge&logo=WordPress&logoColor=white)](https://blog.aspose.cloud/categories/aspose.cells-cloud-product-family/) [![Support](https://img.shields.io/badge/Support-7b1fa2?style=for-the-badge&logo=Discourse&logoColor=white)](https://forum.aspose.cloud/c/cells/7) [![License](https://img.shields.io/github/license/aspose-cells-cloud/aspose-cells-cloud-go?style=for-the-badge&logo=rocket&logoColor=white)](https://github.com/aspose-cells-cloud/aspose-cells-cloud-node/blob/master/LICENSE)
+![](https://img.shields.io/badge/aspose.cells%20Cloud%20SDK-v25.9.1-green?style=for-the-badge&logo=nodedotjs)[![Product Page](https://img.shields.io/badge/Product-0288d1?style=for-the-badge&logo=Google-Chrome&logoColor=white)](https://products.aspose.cloud/cells/nodejs/) [![Documentation](https://img.shields.io/badge/Documentation-388e3c?style=for-the-badge&logo=Hugo&logoColor=white)](https://docs.aspose.cloud/cells/) [![API Ref](https://img.shields.io/badge/Reference-f39c12?style=for-the-badge&logo=html5&logoColor=white)](https://reference.aspose.cloud/cells/) [![Examples](https://img.shields.io/badge/Examples-1565c0?style=for-the-badge&logo=Github&logoColor=white)](https://github.com/aspose-cells-cloud/aspose-cells-cloud-node/tree/master/examples) [![Blog](https://img.shields.io/badge/Blog-d32f2f?style=for-the-badge&logo=WordPress&logoColor=white)](https://blog.aspose.cloud/categories/aspose.cells-cloud-product-family/) [![Support](https://img.shields.io/badge/Support-7b1fa2?style=for-the-badge&logo=Discourse&logoColor=white)](https://forum.aspose.cloud/c/cells/7) [![License](https://img.shields.io/github/license/aspose-cells-cloud/aspose-cells-cloud-go?style=for-the-badge&logo=rocket&logoColor=white)](https://github.com/aspose-cells-cloud/aspose-cells-cloud-node/blob/master/LICENSE)
 
-Node.js Cloud SDK wraps Aspose.Cells REST API so you could seamlessly integrate Microsoft Excel® document generation, manipulation, conversion & inspection features into your own Node.js applications.
+Aspose.Cells Cloud SDK for NodeJs empowers developers to programmatically manage Excel files with precision. This comprehensive NodeJs library supports advanced Excel operations like cell data formatting, dynamic formulas, pivot tables, conditional styling, charts, hyperlinks, comments, and data validation. It also enables seamless Excel file conversion (XLSX, CSV, PDF, ODS), document splitting/merging, and file repair. Designed for cloud integration, this API-first solution accelerates spreadsheet automation while ensuring data integrity across platforms like AWS, Azure, and Google Cloud.
 
 # Node.js package for Aspose.Cells Cloud
 
-This repository contains Aspose.Cells Cloud SDK for Node.js source code. This SDK enables you to engage with various aspects of worksheets such as cell data, cell formatting, formulas, charts, pivot tables, data validation, comments, drawing objects, images, hyperlinks, as well as text and number formatting. Additionally, it offers functionalities for manipulating rows, columns, and protection settings. With Aspose.Cells Cloud SDK for Node.js, you can extend your applications to append and split worksheets, merge cells, and convert worksheets to a range of supported file formats, seamlessly integrating with the powerful Aspose.Cells Cloud REST APIs.
-We encourage you to dive into the Developer's Guide & API Reference for a comprehensive insight into everything Aspose.Cells Cloud API can offer. Enhance your Node.js applications today by leveraging the full suite of features aimed at making worksheet management as efficient as possible.
+Enhance your NodeJs applications with [Aspose.Cells Cloud](https://products.aspose.cloud/cells/nodejs) – a powerful, cloud-based SDK that enables seamless integration with [Excel, ODS, CSV, Json and other spreadsheet document formats](https://docs.aspose.cloud/cells/supported-file-formats/). Leveraging its robust REST API, developers can effortlessly create, read, edit, convert, and manipulate spreadsheet content programmatically—without requiring any local office software.
 
 ## Quick Start Guide
 
@@ -107,21 +106,15 @@ describe('quicktest', function(){
 - Import/Export: Facilitates importing data from various sources into spreadsheets and exporting spreadsheet data to other formats.
 - Security Management: Offers a range of security features like data encryption, access control, and permission management to safeguard the security and integrity of spreadsheet data.
 
-## Feature & Enhancements in Version v25.8.0
+## Feature & Enhancements in Version v25.9.0
 
 Full list of issues covering all changes in this release:
 
 |**Summary**| **Category** |
 | :- |:-------------|
-| Support of Authorization in Aspose.Cells Cloud Docker Container | New Feature  |
-| New Feature: Aggregate cells by color in CalculateController. | New Feature  |
-| New Feature: Math Calculations in CalculateController. | New Feature  |
-| New Feature: Adding/Deleting/Renaming worksheet in ManagementController. | New Feature  |
-| New Feature: Adding/Deleting worksheet in ManagementController. | New Feature  |
-| New Feature: create spreadsheet in ManagementController. | New Feature  |
-| New feature: Redesign the data import into the Spreadsheet. | New Feature  |
-| New feature: Swap data ranges in the spreadsheet. | New Feature  |
-| Fix the code generator of the cells cloud SDK specification for the enum query parameter. | Bug  |
+| Support trim spreadsheet content in Cells Cloud 4.0. | Improvement  |
+| Support trim worksheet range content in Cells Cloud 4.0. | Improvement  |
+| Fix few issues about spelling error. | Bug  |
 
 ## Available SDKs
 
