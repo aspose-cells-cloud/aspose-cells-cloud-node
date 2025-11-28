@@ -53,6 +53,37 @@ export class CellsApi {
     }
 
     /// <summary>
+    /// Translates the entire spreadsheet to the specified target language.
+    /// </summary>
+    /// <param name="request">Request. <see cref="TranslationSpreadsheetRequest" /></param>
+    public async translationSpreadsheet(requestObj:model.TranslationSpreadsheetRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling translationSpreadsheet.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "Buffer");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// </summary>
+    /// <param name="request">Request. <see cref="TranslateTextFileRequest" /></param>
+    public async translateTextFile(requestObj:model.TranslateTextFileRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling translateTextFile.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "Buffer");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
     /// The Aggregate by Color API provides a convenient way to perform calculations on cells that share the same fill or font color. This API supports a range of aggregate operations, including count, sum, maximum value, minimum value, and average value, enabling you to analyze and summarize data based on color distinctions.
     /// </summary>
     /// <param name="request">Request. <see cref="AggregateCellsByColorRequest" /></param>
@@ -236,6 +267,21 @@ export class CellsApi {
     {
         if (requestObj === null || requestObj === undefined) {
             throw new Error('Required parameter "requestObj" was null or undefined when calling convertSpreadsheetToPdf.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "Buffer");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// </summary>
+    /// <param name="request">Request. <see cref="ConvertSpreadsheetToJsonRequest" /></param>
+    public async convertSpreadsheetToJson(requestObj:model.ConvertSpreadsheetToJsonRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling convertSpreadsheetToJson.');
         }
 
         const requestOptions = await requestObj.createRequestOptions(this.configuration);
@@ -1010,6 +1056,7 @@ export class CellsApi {
     }
 
     /// <summary>
+    /// Specify changing the text case in a spreadsheet to switch between uppercase, lowercase, capitalizing the first letter of each word, or capitalizing the first letter of a sentence, and adjust the text according to specific needs.
     /// </summary>
     /// <param name="request">Request. <see cref="UpdateWordCaseRequest" /></param>
     public async updateWordCase(requestObj:model.UpdateWordCaseRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
@@ -1025,6 +1072,7 @@ export class CellsApi {
     }
 
     /// <summary>
+    /// Deletes user-defined characters, predefined symbol sets, or any substring from every cell in the chosen range while preserving formulas, formatting and data-validation.
     /// </summary>
     /// <param name="request">Request. <see cref="RemoveCharactersRequest" /></param>
     public async removeCharacters(requestObj:model.RemoveCharactersRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
@@ -1040,6 +1088,39 @@ export class CellsApi {
     }
 
     /// <summary>
+    /// Deletes characters from every cell in the target range by position (first/last N, before/after a substring, or between two delimiters) while preserving formulas, formatting and data-validation.
+    /// </summary>
+    /// <param name="request">Request. <see cref="RemoveCharactersByPositionRequest" /></param>
+    public async removeCharactersByPosition(requestObj:model.RemoveCharactersByPositionRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling removeCharactersByPosition.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "Buffer");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// Finds and removes repeated substrings inside every cell of the chosen range, using user-defined or preset delimiters, while preserving formulas, formatting and data-validation.
+    /// </summary>
+    /// <param name="request">Request. <see cref="RemoveDuplicateSubstringsRequest" /></param>
+    public async removeDuplicateSubstrings(requestObj:model.RemoveDuplicateSubstringsRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling removeDuplicateSubstrings.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "Buffer");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// Specify appending text to multiple cells at once, allowing you to add prefixes, suffixes, labels, or any specific characters. You can choose the exact position of the text—in the beginning, at the end, or before or after certain characters in the cell.
     /// </summary>
     /// <param name="request">Request. <see cref="AddTextRequest" /></param>
     public async addText(requestObj:model.AddTextRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
@@ -1055,6 +1136,7 @@ export class CellsApi {
     }
 
     /// <summary>
+    /// Indicates converting the numbers stored as text into the correct number format, replacing unwanted characters and line breaks with the desired characters, and converting accented characters to their equivalent characters without accents.
     /// </summary>
     /// <param name="request">Request. <see cref="ConvertTextRequest" /></param>
     public async convertText(requestObj:model.ConvertTextRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
@@ -1070,6 +1152,7 @@ export class CellsApi {
     }
 
     /// <summary>
+    /// Indicates extracting substrings, text characters, and numbers from a spreadsheet cell into another cell without having to use complex FIND, MIN, LEFT, or RIGHT formulas.
     /// </summary>
     /// <param name="request">Request. <see cref="ExtractTextRequest" /></param>
     public async extractText(requestObj:model.ExtractTextRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
@@ -1085,6 +1168,7 @@ export class CellsApi {
     }
 
     /// <summary>
+    /// Indicates performing text segmentation on the specified area according to the segmentation method, and outputting to the designated interval.
     /// </summary>
     /// <param name="request">Request. <see cref="SplitTextRequest" /></param>
     public async splitText(requestObj:model.SplitTextRequest ): Promise<{response: http.ClientResponse, body: Buffer}>

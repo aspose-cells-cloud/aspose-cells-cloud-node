@@ -22621,6 +22621,136 @@ const typeMap = {
 
 export {enumsMap, typeMap};
 
+/// Translates the entire spreadsheet to the specified target language.   
+export class TranslationSpreadsheetRequest  {
+    /// Upload spreadsheet file.  
+    public spreadsheet: any;
+    /// The target language code for translation (e.g., "es", "fr", "de").  
+    public targetLanguage: string;
+    /// The spreadsheet region setting.  
+    public region: string;
+    /// The password for opening spreadsheet file.  
+    public password: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< TranslationSpreadsheetRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/translate/spreadsheet";
+        const queryParameters: any = {};
+        const formParams: any = {};
+        /// The target language code for translation (e.g., "es", "fr", "de"). 
+        // verify required parameter 'targetLanguage' is not null or undefined
+        if (this.targetLanguage === null || this.targetLanguage === undefined) {
+            throw new Error('Required parameter "targetLanguage" was null or undefined when calling TranslationSpreadsheet.');
+        }
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "targetLanguage", this.targetLanguage);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+        if (this.spreadsheet !== undefined) {
+            if (typeof this.spreadsheet === 'string') {
+                if (fs.existsSync(this.spreadsheet)) {
+                    const fileName = path.basename( this.spreadsheet)
+                    formParams[fileName] = fs.createReadStream(this.spreadsheet)
+                }
+            }
+            else {
+                for (var key in this.spreadsheet){
+                    formParams[key] = this.spreadsheet[key];
+                }
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        (requestOptions as any).formData = formParams;        
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+   
+export class TranslateTextFileRequest  {
+    /// Upload spreadsheet file.  
+    public spreadsheet: any;
+    /// The target language code for translation (e.g., "es", "fr", "de").  
+    public targetLanguage: string;
+    /// The spreadsheet region setting.  
+    public region: string;
+    /// The password for opening spreadsheet file.  
+    public password: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< TranslateTextFileRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/translate/text";
+        const queryParameters: any = {};
+        const formParams: any = {};
+        /// The target language code for translation (e.g., "es", "fr", "de"). 
+        // verify required parameter 'targetLanguage' is not null or undefined
+        if (this.targetLanguage === null || this.targetLanguage === undefined) {
+            throw new Error('Required parameter "targetLanguage" was null or undefined when calling TranslateTextFile.');
+        }
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "targetLanguage", this.targetLanguage);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+        if (this.spreadsheet !== undefined) {
+            if (typeof this.spreadsheet === 'string') {
+                if (fs.existsSync(this.spreadsheet)) {
+                    const fileName = path.basename( this.spreadsheet)
+                    formParams[fileName] = fs.createReadStream(this.spreadsheet)
+                }
+            }
+            else {
+                for (var key in this.spreadsheet){
+                    formParams[key] = this.spreadsheet[key];
+                }
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        (requestOptions as any).formData = formParams;        
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
 /// The Aggregate by Color API provides a convenient way to perform calculations on cells that share the same fill or font color. This API supports a range of aggregate operations, including count, sum, maximum value, minimum value, and average value, enabling you to analyze and summarize data based on color distinctions.   
 export class AggregateCellsByColorRequest  {
     /// Upload spreadsheet file.  
@@ -23309,6 +23439,72 @@ export class ConvertSpreadsheetToPdfRequest  {
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
         let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/convert/spreadsheet/pdf";
+        const queryParameters: any = {};
+        const formParams: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fontsLocation", this.fontsLocation);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+        if (this.spreadsheet !== undefined) {
+            if (typeof this.spreadsheet === 'string') {
+                if (fs.existsSync(this.spreadsheet)) {
+                    const fileName = path.basename( this.spreadsheet)
+                    formParams[fileName] = fs.createReadStream(this.spreadsheet)
+                }
+            }
+            else {
+                for (var key in this.spreadsheet){
+                    formParams[key] = this.spreadsheet[key];
+                }
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        (requestOptions as any).formData = formParams;        
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+   
+export class ConvertSpreadsheetToJsonRequest  {
+    /// Upload spreadsheet file.  
+    public spreadsheet: any;
+    /// (Optional) The folder path where the workbook is stored. The default is null.  
+    public outPath: string;
+    /// Output file Storage Name.  
+    public outStorageName: string;
+    /// Use Custom fonts.  
+    public fontsLocation: string;
+    /// The spreadsheet region setting.  
+    public region: string;
+    /// The password for opening spreadsheet file.  
+    public password: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< ConvertSpreadsheetToJsonRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/convert/spreadsheet/json";
         const queryParameters: any = {};
         const formParams: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
@@ -26577,7 +26773,7 @@ export class SearchBrokenLinksInRemoteRangeRequest  {
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
-        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/{name}/worksheets/{worksheet}/ranges/{cellArea}search/broken-links".replace("{" + "name" + "}", String(this.name)).replace("{" + "worksheet" + "}", String(this.worksheet)).replace("{" + "cellArea" + "}", String(this.cellArea));
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/{name}/worksheets/{worksheet}/ranges/{cellArea}/search/broken-links".replace("{" + "name" + "}", String(this.name)).replace("{" + "worksheet" + "}", String(this.worksheet)).replace("{" + "cellArea" + "}", String(this.cellArea));
         const queryParameters: any = {};
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
@@ -26696,23 +26892,23 @@ export class CodegenSpecRequest  {
 export class TrimCharacterRequest  {
     /// Upload spreadsheet file.  
     public spreadsheet: any;
-      
+    /// Specify the trim content.  
     public trimContent: string;
-      
+    /// Specify to trim content from the beginning.  
     public trimLeading: boolean;
-      
+    /// Specify to trim content from the end.  
     public trimTrailing: boolean;
-      
+    /// Remove excess spaces between words within a cell.  
     public trimSpaceBetweenWordTo1: boolean;
-      
+    /// Remove non-breaking spaces.  
     public trimNonBreakingSpaces: boolean;
-      
+    /// Remove extra line breaks.  
     public removeExtraLineBreaks: boolean;
-      
+    /// Remove all line breaks.  
     public removeAllLineBreaks: boolean;
-      
+    /// Specify the worksheet of spreadsheet.  
     public worksheet: string;
-      
+    /// Specify the worksheet range of spreadsheet.  
     public range: string;
     /// (Optional) The folder path where the workbook is stored. The default is null.  
     public outPath: string;
@@ -26782,15 +26978,15 @@ export class TrimCharacterRequest  {
     }
 
 }
-   
+/// Specify changing the text case in a spreadsheet to switch between uppercase, lowercase, capitalizing the first letter of each word, or capitalizing the first letter of a sentence, and adjust the text according to specific needs.   
 export class UpdateWordCaseRequest  {
     /// Upload spreadsheet file.  
     public spreadsheet: any;
-      
+    /// Specify text case: Upper Case, Lower Case, Proper Case, Sentence Case.  
     public wordCaseType: string;
-      
+    /// Specify the worksheet of spreadsheet.  
     public worksheet: string;
-      
+    /// Specify the worksheet range of spreadsheet.  
     public range: string;
     /// (Optional) The folder path where the workbook is stored. The default is null.  
     public outPath: string;
@@ -26812,7 +27008,7 @@ export class UpdateWordCaseRequest  {
         let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/content/wordcase";
         const queryParameters: any = {};
         const formParams: any = {};
-         
+        /// Specify text case: Upper Case, Lower Case, Proper Case, Sentence Case. 
         // verify required parameter 'wordCaseType' is not null or undefined
         if (this.wordCaseType === null || this.wordCaseType === undefined) {
             throw new Error('Required parameter "wordCaseType" was null or undefined when calling UpdateWordCase.');
@@ -26859,27 +27055,21 @@ export class UpdateWordCaseRequest  {
     }
 
 }
-   
+/// Deletes user-defined characters, predefined symbol sets, or any substring from every cell in the chosen range while preserving formulas, formatting and data-validation.   
 export class RemoveCharactersRequest  {
     /// Upload spreadsheet file.  
     public spreadsheet: any;
-      
-    public theFirstNCharacters: number;
-      
-    public theLastNCharacters: number;
-      
-    public allCharactersBeforeText: string;
-      
-    public allCharactersAfterText: string;
-      
+    /// Specify the removal of text method type.  
     public removeTextMethod: string;
-      
+    /// Specify the character sets.  
     public characterSets: string;
-      
+    /// Specify the remove custom value.  
     public removeCustomValue: string;
       
+    public caseSensitive: boolean;
+    /// Specify the worksheet of spreadsheet.  
     public worksheet: string;
-      
+    /// Specify the worksheet range of spreadsheet.  
     public range: string;
     /// (Optional) The folder path where the workbook is stored. The default is null.  
     public outPath: string;
@@ -26901,58 +27091,10 @@ export class RemoveCharactersRequest  {
         let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/content/remove/characters";
         const queryParameters: any = {};
         const formParams: any = {};
-         
-        // verify required parameter 'theFirstNCharacters' is not null or undefined
-        if (this.theFirstNCharacters === null || this.theFirstNCharacters === undefined) {
-            throw new Error('Required parameter "theFirstNCharacters" was null or undefined when calling RemoveCharacters.');
-        }
-         
-        // verify required parameter 'theLastNCharacters' is not null or undefined
-        if (this.theLastNCharacters === null || this.theLastNCharacters === undefined) {
-            throw new Error('Required parameter "theLastNCharacters" was null or undefined when calling RemoveCharacters.');
-        }
-         
-        // verify required parameter 'allCharactersBeforeText' is not null or undefined
-        if (this.allCharactersBeforeText === null || this.allCharactersBeforeText === undefined) {
-            throw new Error('Required parameter "allCharactersBeforeText" was null or undefined when calling RemoveCharacters.');
-        }
-         
-        // verify required parameter 'allCharactersAfterText' is not null or undefined
-        if (this.allCharactersAfterText === null || this.allCharactersAfterText === undefined) {
-            throw new Error('Required parameter "allCharactersAfterText" was null or undefined when calling RemoveCharacters.');
-        }
-         
-        // verify required parameter 'removeTextMethod' is not null or undefined
-        if (this.removeTextMethod === null || this.removeTextMethod === undefined) {
-            throw new Error('Required parameter "removeTextMethod" was null or undefined when calling RemoveCharacters.');
-        }
-         
-        // verify required parameter 'characterSets' is not null or undefined
-        if (this.characterSets === null || this.characterSets === undefined) {
-            throw new Error('Required parameter "characterSets" was null or undefined when calling RemoveCharacters.');
-        }
-         
-        // verify required parameter 'removeCustomValue' is not null or undefined
-        if (this.removeCustomValue === null || this.removeCustomValue === undefined) {
-            throw new Error('Required parameter "removeCustomValue" was null or undefined when calling RemoveCharacters.');
-        }
-         
-        // verify required parameter 'worksheet' is not null or undefined
-        if (this.worksheet === null || this.worksheet === undefined) {
-            throw new Error('Required parameter "worksheet" was null or undefined when calling RemoveCharacters.');
-        }
-         
-        // verify required parameter 'range' is not null or undefined
-        if (this.range === null || this.range === undefined) {
-            throw new Error('Required parameter "range" was null or undefined when calling RemoveCharacters.');
-        }
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "theFirstNCharacters", this.theFirstNCharacters);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "theLastNCharacters", this.theLastNCharacters);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "allCharactersBeforeText", this.allCharactersBeforeText);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "allCharactersAfterText", this.allCharactersAfterText);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "removeTextMethod", this.removeTextMethod);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "characterSets", this.characterSets);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "removeCustomValue", this.removeCustomValue);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "caseSensitive", this.caseSensitive);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "worksheet", this.worksheet);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "range", this.range);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
@@ -26994,21 +27136,188 @@ export class RemoveCharactersRequest  {
     }
 
 }
-   
-export class AddTextRequest  {
+/// Deletes characters from every cell in the target range by position (first/last N, before/after a substring, or between two delimiters) while preserving formulas, formatting and data-validation.   
+export class RemoveCharactersByPositionRequest  {
+    /// Upload spreadsheet file.  
+    public spreadsheet: any;
+    /// Specify removing the first n characters from selected cells.  
+    public theFirstNCharacters: number;
+    /// Specify removing the last n characters from selected cells.  
+    public theLastNCharacters: number;
+    /// Specify using targeted removal options to delete text that is located before certain characters.  
+    public allCharactersBeforeText: string;
+    /// Specify using targeted removal options to delete text that is located after certain characters.  
+    public allCharactersAfterText: string;
+      
+    public caseSensitive: boolean;
+    /// Specify the worksheet of spreadsheet.  
+    public worksheet: string;
+    /// Specify the worksheet range of spreadsheet.  
+    public range: string;
+    /// (Optional) The folder path where the workbook is stored. The default is null.  
+    public outPath: string;
+    /// Output file Storage Name.  
+    public outStorageName: string;
+    /// The spreadsheet region setting.  
+    public region: string;
+    /// The password for opening spreadsheet file.  
+    public password: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< RemoveCharactersByPositionRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/content/remove/characters-by-position";
+        const queryParameters: any = {};
+        const formParams: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "theFirstNCharacters", this.theFirstNCharacters);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "theLastNCharacters", this.theLastNCharacters);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "allCharactersBeforeText", this.allCharactersBeforeText);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "allCharactersAfterText", this.allCharactersAfterText);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "caseSensitive", this.caseSensitive);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "worksheet", this.worksheet);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "range", this.range);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+        if (this.spreadsheet !== undefined) {
+            if (typeof this.spreadsheet === 'string') {
+                if (fs.existsSync(this.spreadsheet)) {
+                    const fileName = path.basename( this.spreadsheet)
+                    formParams[fileName] = fs.createReadStream(this.spreadsheet)
+                }
+            }
+            else {
+                for (var key in this.spreadsheet){
+                    formParams[key] = this.spreadsheet[key];
+                }
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        (requestOptions as any).formData = formParams;        
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Finds and removes repeated substrings inside every cell of the chosen range, using user-defined or preset delimiters, while preserving formulas, formatting and data-validation.   
+export class RemoveDuplicateSubstringsRequest  {
     /// Upload spreadsheet file.  
     public spreadsheet: any;
       
-    public text: string;
+    public delimiters: string;
       
-    public position: string;
+    public treatConsecutiveDelimitersAsOne: boolean;
       
-    public selectText: string;
-      
-    public skipEmptyCells: boolean;
+    public caseSensitive: boolean;
       
     public worksheet: string;
       
+    public range: string;
+    /// (Optional) The folder path where the workbook is stored. The default is null.  
+    public outPath: string;
+    /// Output file Storage Name.  
+    public outStorageName: string;
+    /// The spreadsheet region setting.  
+    public region: string;
+    /// The password for opening spreadsheet file.  
+    public password: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< RemoveDuplicateSubstringsRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/content/remove/duplicate-substrings";
+        const queryParameters: any = {};
+        const formParams: any = {};
+         
+        // verify required parameter 'delimiters' is not null or undefined
+        if (this.delimiters === null || this.delimiters === undefined) {
+            throw new Error('Required parameter "delimiters" was null or undefined when calling RemoveDuplicateSubstrings.');
+        }
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "delimiters", this.delimiters);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "treatConsecutiveDelimitersAsOne", this.treatConsecutiveDelimitersAsOne);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "caseSensitive", this.caseSensitive);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "worksheet", this.worksheet);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "range", this.range);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+        if (this.spreadsheet !== undefined) {
+            if (typeof this.spreadsheet === 'string') {
+                if (fs.existsSync(this.spreadsheet)) {
+                    const fileName = path.basename( this.spreadsheet)
+                    formParams[fileName] = fs.createReadStream(this.spreadsheet)
+                }
+            }
+            else {
+                for (var key in this.spreadsheet){
+                    formParams[key] = this.spreadsheet[key];
+                }
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        (requestOptions as any).formData = formParams;        
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Specify appending text to multiple cells at once, allowing you to add prefixes, suffixes, labels, or any specific characters. You can choose the exact position of the text—in the beginning, at the end, or before or after certain characters in the cell.   
+export class AddTextRequest  {
+    /// Upload spreadsheet file.  
+    public spreadsheet: any;
+    /// Specify the added text content.  
+    public text: string;
+    /// Indicates the specific location for adding text content.None, AtTheBeginning, AtTheEnd, BeforeText, AfterText.    
+    public position: string;
+    /// Indicates selecting the specific position to add text based on the content of the text.  
+    public selectText: string;
+    /// Indicates skip empty cells.  
+    public skipEmptyCells: boolean;
+    /// Specify the worksheet of spreadsheet.  
+    public worksheet: string;
+    /// Specify the worksheet range of spreadsheet.  
     public range: string;
     /// (Optional) The folder path where the workbook is stored. The default is null.  
     public outPath: string;
@@ -27030,20 +27339,15 @@ export class AddTextRequest  {
         let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/content/add/text";
         const queryParameters: any = {};
         const formParams: any = {};
-         
+        /// Specify the added text content. 
         // verify required parameter 'text' is not null or undefined
         if (this.text === null || this.text === undefined) {
             throw new Error('Required parameter "text" was null or undefined when calling AddText.');
         }
-         
+        /// Indicates the specific location for adding text content.None, AtTheBeginning, AtTheEnd, BeforeText, AfterText.   
         // verify required parameter 'position' is not null or undefined
         if (this.position === null || this.position === undefined) {
             throw new Error('Required parameter "position" was null or undefined when calling AddText.');
-        }
-         
-        // verify required parameter 'selectText' is not null or undefined
-        if (this.selectText === null || this.selectText === undefined) {
-            throw new Error('Required parameter "selectText" was null or undefined when calling AddText.');
         }
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "text", this.text);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "position", this.position);
@@ -27090,19 +27394,19 @@ export class AddTextRequest  {
     }
 
 }
-   
+/// Indicates converting the numbers stored as text into the correct number format, replacing unwanted characters and line breaks with the desired characters, and converting accented characters to their equivalent characters without accents.   
 export class ConvertTextRequest  {
     /// Upload spreadsheet file.  
     public spreadsheet: any;
-      
+    /// Indicates the conversion of text type.  
     public convertTextType: string;
-      
+    /// Indicates the source characters.  
     public sourceCharacters: string;
-      
+    /// Indicates the target characters.  
     public targetCharacters: string;
-      
+    /// Specify the worksheet of spreadsheet.  
     public worksheet: string;
-      
+    /// Specify the worksheet range of spreadsheet.  
     public range: string;
     /// (Optional) The folder path where the workbook is stored. The default is null.  
     public outPath: string;
@@ -27124,20 +27428,10 @@ export class ConvertTextRequest  {
         let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/content/convert/text";
         const queryParameters: any = {};
         const formParams: any = {};
-         
+        /// Indicates the conversion of text type. 
         // verify required parameter 'convertTextType' is not null or undefined
         if (this.convertTextType === null || this.convertTextType === undefined) {
             throw new Error('Required parameter "convertTextType" was null or undefined when calling ConvertText.');
-        }
-         
-        // verify required parameter 'sourceCharacters' is not null or undefined
-        if (this.sourceCharacters === null || this.sourceCharacters === undefined) {
-            throw new Error('Required parameter "sourceCharacters" was null or undefined when calling ConvertText.');
-        }
-         
-        // verify required parameter 'targetCharacters' is not null or undefined
-        if (this.targetCharacters === null || this.targetCharacters === undefined) {
-            throw new Error('Required parameter "targetCharacters" was null or undefined when calling ConvertText.');
         }
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "convertTextType", this.convertTextType);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "sourceCharacters", this.sourceCharacters);
@@ -27183,25 +27477,25 @@ export class ConvertTextRequest  {
     }
 
 }
-   
+/// Indicates extracting substrings, text characters, and numbers from a spreadsheet cell into another cell without having to use complex FIND, MIN, LEFT, or RIGHT formulas.   
 export class ExtractTextRequest  {
     /// Upload spreadsheet file.  
     public spreadsheet: any;
-      
+    /// Indicates extract text type.  
     public extractTextType: string;
-      
-    public beforeText: string;
-      
-    public afterText: string;
-      
-    public beforePosition: number;
-      
-    public afterPosition: number;
-      
+    /// Indicates the output location for the extracted text.  
     public outPositionRange: string;
-      
+    /// Indicates extracting the text before the specified characters or substrings.  
+    public beforeText: string;
+    /// Indicates extracting the text after the specified characters or substrings.  
+    public afterText: string;
+    /// Indicates retrieving the first character or a specified number of characters from the left side of the selected cell.  
+    public beforePosition: number;
+    /// Indicates retrieving the first character or a specified number of characters from the right side of the selected cell.  
+    public afterPosition: number;
+    /// Specify the worksheet of spreadsheet.  
     public worksheet: string;
-      
+    /// Specify the worksheet range of spreadsheet.  
     public range: string;
     /// (Optional) The folder path where the workbook is stored. The default is null.  
     public outPath: string;
@@ -27223,42 +27517,22 @@ export class ExtractTextRequest  {
         let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/content/extract/text";
         const queryParameters: any = {};
         const formParams: any = {};
-         
+        /// Indicates extract text type. 
         // verify required parameter 'extractTextType' is not null or undefined
         if (this.extractTextType === null || this.extractTextType === undefined) {
             throw new Error('Required parameter "extractTextType" was null or undefined when calling ExtractText.');
         }
-         
-        // verify required parameter 'beforeText' is not null or undefined
-        if (this.beforeText === null || this.beforeText === undefined) {
-            throw new Error('Required parameter "beforeText" was null or undefined when calling ExtractText.');
-        }
-         
-        // verify required parameter 'afterText' is not null or undefined
-        if (this.afterText === null || this.afterText === undefined) {
-            throw new Error('Required parameter "afterText" was null or undefined when calling ExtractText.');
-        }
-         
-        // verify required parameter 'beforePosition' is not null or undefined
-        if (this.beforePosition === null || this.beforePosition === undefined) {
-            throw new Error('Required parameter "beforePosition" was null or undefined when calling ExtractText.');
-        }
-         
-        // verify required parameter 'afterPosition' is not null or undefined
-        if (this.afterPosition === null || this.afterPosition === undefined) {
-            throw new Error('Required parameter "afterPosition" was null or undefined when calling ExtractText.');
-        }
-         
+        /// Indicates the output location for the extracted text. 
         // verify required parameter 'outPositionRange' is not null or undefined
         if (this.outPositionRange === null || this.outPositionRange === undefined) {
             throw new Error('Required parameter "outPositionRange" was null or undefined when calling ExtractText.');
         }
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "extractTextType", this.extractTextType);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPositionRange", this.outPositionRange);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "beforeText", this.beforeText);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "afterText", this.afterText);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "beforePosition", this.beforePosition);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "afterPosition", this.afterPosition);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPositionRange", this.outPositionRange);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "worksheet", this.worksheet);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "range", this.range);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
@@ -27300,23 +27574,23 @@ export class ExtractTextRequest  {
     }
 
 }
-   
+/// Indicates performing text segmentation on the specified area according to the segmentation method, and outputting to the designated interval.   
 export class SplitTextRequest  {
     /// Upload spreadsheet file.  
     public spreadsheet: any;
-      
-    public splitDelimitersType: string;
-      
-    public customDelimiter: string;
-      
+    /// Indicates the custom delimiter.  
+    public delimiters: string;
+    /// Indicates keep delimiters in resulting cells.  
     public keepDelimitersInResultingCells: boolean;
-      
+    /// Indicates keep delimiters position.  
     public keepDelimitersPosition: string;
-      
+    /// Indicates  
     public howToSplit: string;
-      
+    /// Indicates split delimiters type.  
+    public outPositionRange: string;
+    /// Specify the worksheet of spreadsheet.  
     public worksheet: string;
-      
+    /// Specify the worksheet range of spreadsheet.  
     public range: string;
     /// (Optional) The folder path where the workbook is stored. The default is null.  
     public outPath: string;
@@ -27338,36 +27612,16 @@ export class SplitTextRequest  {
         let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/content/split/text";
         const queryParameters: any = {};
         const formParams: any = {};
-         
-        // verify required parameter 'splitDelimitersType' is not null or undefined
-        if (this.splitDelimitersType === null || this.splitDelimitersType === undefined) {
-            throw new Error('Required parameter "splitDelimitersType" was null or undefined when calling SplitText.');
+        /// Indicates the custom delimiter. 
+        // verify required parameter 'delimiters' is not null or undefined
+        if (this.delimiters === null || this.delimiters === undefined) {
+            throw new Error('Required parameter "delimiters" was null or undefined when calling SplitText.');
         }
-         
-        // verify required parameter 'customDelimiter' is not null or undefined
-        if (this.customDelimiter === null || this.customDelimiter === undefined) {
-            throw new Error('Required parameter "customDelimiter" was null or undefined when calling SplitText.');
-        }
-         
-        // verify required parameter 'keepDelimitersInResultingCells' is not null or undefined
-        if (this.keepDelimitersInResultingCells === null || this.keepDelimitersInResultingCells === undefined) {
-            throw new Error('Required parameter "keepDelimitersInResultingCells" was null or undefined when calling SplitText.');
-        }
-         
-        // verify required parameter 'keepDelimitersPosition' is not null or undefined
-        if (this.keepDelimitersPosition === null || this.keepDelimitersPosition === undefined) {
-            throw new Error('Required parameter "keepDelimitersPosition" was null or undefined when calling SplitText.');
-        }
-         
-        // verify required parameter 'howToSplit' is not null or undefined
-        if (this.howToSplit === null || this.howToSplit === undefined) {
-            throw new Error('Required parameter "howToSplit" was null or undefined when calling SplitText.');
-        }
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "splitDelimitersType", this.splitDelimitersType);
-        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "customDelimiter", this.customDelimiter);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "delimiters", this.delimiters);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "keepDelimitersInResultingCells", this.keepDelimitersInResultingCells);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "keepDelimitersPosition", this.keepDelimitersPosition);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "howToSplit", this.howToSplit);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPositionRange", this.outPositionRange);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "worksheet", this.worksheet);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "range", this.range);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);

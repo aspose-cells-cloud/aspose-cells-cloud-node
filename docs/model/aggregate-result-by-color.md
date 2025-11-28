@@ -1,8 +1,10 @@
 # **aggregateResultByColor**
 
+ 
+
 ## **Properties**
 
-| Property Name | Property Type | Nullable |  ReadOnly | DefaultValue | Description |
+| Property Name | Property Type | Nullable |  ReadOnly | DefaultValue | Description | 
 | :- | :- | :- |:- |  :- | :- |
 |AggregateOperation|String|true|false |  ||
 |ColorName|String|true|false |  ||
@@ -11,3 +13,4 @@
 |MaxValue|Floating|true|false |  ||
 |MinValue|Floating|true|false |  ||
 |AverageValue|Floating|true|false |  ||
+

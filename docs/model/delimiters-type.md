@@ -1,4 +1,4 @@
-# **wordCaseType**
+# **delimitersType**
 
  
 
