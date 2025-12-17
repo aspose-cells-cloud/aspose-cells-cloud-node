@@ -25134,6 +25134,120 @@ export class SplitSpreadsheetRequest  {
     }
 
 }
+/// Split an Excel worksheet into multiple sheets by column value.   
+export class SplitTableRequest  {
+    /// Upload spreadsheet file.  
+    public spreadsheet: any;
+    /// Worksheet containing the table.  
+    public worksheet: string;
+    /// Data table that needs to be split.  
+    public tableName: string;
+    /// Column name to split by.  
+    public splitColumnName: string;
+    /// Whether to keep the data in the split column.  
+    public saveSplitColumn: boolean;
+    /// Export destination control: true - Creates new workbook files containing the split data; false - Adds a new worksheet to the current workbook.  
+    public toNewWorkbook: boolean;
+    /// true - Exports table data as **multiple separate files** (returned as ZIP archive);false - Stores all data in a **single file** with multiple sheets. Default: false.  
+    public toMultipleFiles: boolean;
+    /// (Optional) The folder path where the workbook is stored. The default is null.  
+    public outPath: string;
+    /// Output file Storage Name.  
+    public outStorageName: string;
+    /// Use Custom fonts.  
+    public fontsLocation: string;
+    /// The spreadsheet region setting.  
+    public region: string;
+    /// The password for opening spreadsheet file.  
+    public password: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< SplitTableRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/split/table";
+        const queryParameters: any = {};
+        const formParams: any = {};
+        /// Worksheet containing the table. 
+        // verify required parameter 'worksheet' is not null or undefined
+        if (this.worksheet === null || this.worksheet === undefined) {
+            throw new Error('Required parameter "worksheet" was null or undefined when calling SplitTable.');
+        }
+        /// Data table that needs to be split. 
+        // verify required parameter 'tableName' is not null or undefined
+        if (this.tableName === null || this.tableName === undefined) {
+            throw new Error('Required parameter "tableName" was null or undefined when calling SplitTable.');
+        }
+        /// Column name to split by. 
+        // verify required parameter 'splitColumnName' is not null or undefined
+        if (this.splitColumnName === null || this.splitColumnName === undefined) {
+            throw new Error('Required parameter "splitColumnName" was null or undefined when calling SplitTable.');
+        }
+        /// Whether to keep the data in the split column. 
+        // verify required parameter 'saveSplitColumn' is not null or undefined
+        if (this.saveSplitColumn === null || this.saveSplitColumn === undefined) {
+            throw new Error('Required parameter "saveSplitColumn" was null or undefined when calling SplitTable.');
+        }
+        /// Export destination control: true - Creates new workbook files containing the split data; false - Adds a new worksheet to the current workbook. 
+        // verify required parameter 'toNewWorkbook' is not null or undefined
+        if (this.toNewWorkbook === null || this.toNewWorkbook === undefined) {
+            throw new Error('Required parameter "toNewWorkbook" was null or undefined when calling SplitTable.');
+        }
+        /// true - Exports table data as **multiple separate files** (returned as ZIP archive);false - Stores all data in a **single file** with multiple sheets. Default: false. 
+        // verify required parameter 'toMultipleFiles' is not null or undefined
+        if (this.toMultipleFiles === null || this.toMultipleFiles === undefined) {
+            throw new Error('Required parameter "toMultipleFiles" was null or undefined when calling SplitTable.');
+        }
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "worksheet", this.worksheet);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "tableName", this.tableName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "splitColumnName", this.splitColumnName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "saveSplitColumn", this.saveSplitColumn);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "toNewWorkbook", this.toNewWorkbook);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "toMultipleFiles", this.toMultipleFiles);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fontsLocation", this.fontsLocation);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+        if (this.spreadsheet !== undefined) {
+            if (typeof this.spreadsheet === 'string') {
+                if (fs.existsSync(this.spreadsheet)) {
+                    const fileName = path.basename( this.spreadsheet)
+                    formParams[fileName] = fs.createReadStream(this.spreadsheet)
+                }
+            }
+            else {
+                for (var key in this.spreadsheet){
+                    formParams[key] = this.spreadsheet[key];
+                }
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        (requestOptions as any).formData = formParams;        
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
 /// Split a spreadsheet in cloud storage into the specified format, multi-file.   
 export class SplitRemoteSpreadsheetRequest  {
     /// The name of the workbook file to be split.  
@@ -27224,9 +27338,9 @@ export class RemoveCharactersByPositionRequest  {
 export class RemoveDuplicateSubstringsRequest  {
     /// Upload spreadsheet file.  
     public spreadsheet: any;
-      
+    /// comma, semicolon, space, tab, line-break   
     public delimiters: string;
-      
+    /// collapse adjacent delimiters into a single separator.  
     public treatConsecutiveDelimitersAsOne: boolean;
       
     public caseSensitive: boolean;
@@ -27254,7 +27368,7 @@ export class RemoveDuplicateSubstringsRequest  {
         let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/content/remove/duplicate-substrings";
         const queryParameters: any = {};
         const formParams: any = {};
-         
+        /// comma, semicolon, space, tab, line-break  
         // verify required parameter 'delimiters' is not null or undefined
         if (this.delimiters === null || this.delimiters === undefined) {
             throw new Error('Required parameter "delimiters" was null or undefined when calling RemoveDuplicateSubstrings.');

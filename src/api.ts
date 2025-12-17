@@ -611,6 +611,22 @@ export class CellsApi {
     }
 
     /// <summary>
+    /// Split an Excel worksheet into multiple sheets by column value.
+    /// </summary>
+    /// <param name="request">Request. <see cref="SplitTableRequest" /></param>
+    public async splitTable(requestObj:model.SplitTableRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling splitTable.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "Buffer");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
     /// Split a spreadsheet in cloud storage into the specified format, multi-file.
     /// </summary>
     /// <param name="request">Request. <see cref="SplitRemoteSpreadsheetRequest" /></param>
