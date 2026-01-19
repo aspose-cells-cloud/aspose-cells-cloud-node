@@ -1,5 +1,5 @@
 
-# **Spreadsheet Cloud API: translateTextFile**
+# **Spreadsheet Cloud API: flipData**
 
  
 
@@ -13,16 +13,20 @@
 ### **Endpoint** 
 
 ```
-PUT http://api.aspose.cloud/v4.0/cells/ai/translate/text
+PUT http://api.aspose.cloud/v4.0/cells/flip
 ```
 ### **Function Description**
 
-### The request parameters of **translateTextFile** API are: 
+### The request parameters of **flipData** API are: 
 
 | Parameter Name | Type | Path/Query String/HTTPBody | Description | 
 | :- | :- | :- |:- | 
 |Spreadsheet|File|FormData|Upload spreadsheet file.|
-|targetLanguage|String|Query|The target language code for translation (e.g., "es", "fr", "de").|
+|worksheet|String|Query||
+|cellArea|String|Query||
+|Horizontal|Boolean|Query||
+|outPath|String|Query|(Optional) The folder path where the workbook is stored. The default is null.|
+|outStorageName|String|Query|Output file Storage Name.|
 |region|String|Query|The spreadsheet region setting.|
 |password|String|Query|The password for opening spreadsheet file.|
 
@@ -36,4 +40,4 @@ File
 
 ## OpenAPI Specification
 
-The [OpenAPI Specification](https://reference.aspose.cloud/cells/#/AIController/TranslateTextFile) defines a publicly accessible programming interface and lets you carry out REST interactions directly from a web browser.
+The [OpenAPI Specification](https://reference.aspose.cloud/cells/#/TransformController/FlipData) defines a publicly accessible programming interface and lets you carry out REST interactions directly from a web browser.

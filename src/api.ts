@@ -1,7 +1,7 @@
 /*
 * MIT License
 * 
-* Copyright (c) 2025 Aspose.Cells Cloud
+* Copyright (c) 2026 Aspose.Cells Cloud
 * Permission is hereby granted, free of charge, to any person obtaining a copy
 * of this software and associated documentation files (the "Software"), to deal
 * in the Software without restriction, including without limitation the rights
@@ -50,6 +50,22 @@ export class CellsApi {
      */
     constructor(clientId: string, clientSecret: string, apiVersion?:string, baseUrl?: string, debugMode?: boolean) {
         this.configuration = new Configuration(clientId, clientSecret,apiVersion, baseUrl, debugMode);
+    }
+
+    /// <summary>
+    /// Translates the entire spreadsheet to the specified target language.
+    /// </summary>
+    /// <param name="request">Request. <see cref="DecomposeUserTaskRequest" /></param>
+    public async decomposeUserTask(requestObj:model.DecomposeUserTaskRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling decomposeUserTask.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "Buffer");
+        return Promise.resolve({body: result, response});
     }
 
     /// <summary>
@@ -330,6 +346,37 @@ export class CellsApi {
     {
         if (requestObj === null || requestObj === undefined) {
             throw new Error('Required parameter "requestObj" was null or undefined when calling convertWorksheetToPdf.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "Buffer");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// Converts a worksheet of spreadsheet on a local drive to the html file.
+    /// </summary>
+    /// <param name="request">Request. <see cref="ConvertWorksheetToHtmlRequest" /></param>
+    public async convertWorksheetToHtml(requestObj:model.ConvertWorksheetToHtmlRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling convertWorksheetToHtml.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "Buffer");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// </summary>
+    /// <param name="request">Request. <see cref="ConvertWorksheetToHtmlTableRequest" /></param>
+    public async convertWorksheetToHtmlTable(requestObj:model.ConvertWorksheetToHtmlTableRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling convertWorksheetToHtmlTable.');
         }
 
         const requestOptions = await requestObj.createRequestOptions(this.configuration);
@@ -650,6 +697,51 @@ export class CellsApi {
     {
         if (requestObj === null || requestObj === undefined) {
             throw new Error('Required parameter "requestObj" was null or undefined when calling importDataIntoSpreadsheet.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "Buffer");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// </summary>
+    /// <param name="request">Request. <see cref="ImportJSONDataIntoSpreadsheetRequest" /></param>
+    public async importJSONDataIntoSpreadsheet(requestObj:model.ImportJSONDataIntoSpreadsheetRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling importJSONDataIntoSpreadsheet.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "Buffer");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// </summary>
+    /// <param name="request">Request. <see cref="ImportXMLDataIntoSpreadsheetRequest" /></param>
+    public async importXMLDataIntoSpreadsheet(requestObj:model.ImportXMLDataIntoSpreadsheetRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling importXMLDataIntoSpreadsheet.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "Buffer");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// </summary>
+    /// <param name="request">Request. <see cref="ImportCSVDataIntoSpreadsheetRequest" /></param>
+    public async importCSVDataIntoSpreadsheet(requestObj:model.ImportCSVDataIntoSpreadsheetRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling importCSVDataIntoSpreadsheet.');
         }
 
         const requestOptions = await requestObj.createRequestOptions(this.configuration);
@@ -1270,6 +1362,21 @@ export class CellsApi {
     {
         if (requestObj === null || requestObj === undefined) {
             throw new Error('Required parameter "requestObj" was null or undefined when calling swapRange.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "Buffer");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// </summary>
+    /// <param name="request">Request. <see cref="FlipDataRequest" /></param>
+    public async flipData(requestObj:model.FlipDataRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling flipData.');
         }
 
         const requestOptions = await requestObj.createRequestOptions(this.configuration);

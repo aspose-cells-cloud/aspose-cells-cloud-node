@@ -22622,6 +22622,54 @@ const typeMap = {
 export {enumsMap, typeMap};
 
 /// Translates the entire spreadsheet to the specified target language.   
+export class DecomposeUserTaskRequest  {
+      
+    public taskDescription: string;
+    /// The spreadsheet region setting.  
+    public region: string;
+    /// The password for opening spreadsheet file.  
+    public password: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< DecomposeUserTaskRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/ai/task/decompose";
+        const queryParameters: any = {};
+         
+        // verify required parameter 'taskDescription' is not null or undefined
+        if (this.taskDescription === null || this.taskDescription === undefined) {
+            throw new Error('Required parameter "taskDescription" was null or undefined when calling DecomposeUserTask.');
+        }
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "taskDescription", this.taskDescription);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Translates the entire spreadsheet to the specified target language.   
 export class TranslationSpreadsheetRequest  {
     /// Upload spreadsheet file.  
     public spreadsheet: any;
@@ -22640,7 +22688,7 @@ export class TranslationSpreadsheetRequest  {
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
-        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/translate/spreadsheet";
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/ai/translate/spreadsheet";
         const queryParameters: any = {};
         const formParams: any = {};
         /// The target language code for translation (e.g., "es", "fr", "de"). 
@@ -22705,7 +22753,7 @@ export class TranslateTextFileRequest  {
 
     public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
 
-        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/translate/text";
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/ai/translate/text";
         const queryParameters: any = {};
         const formParams: any = {};
         /// The target language code for translation (e.g., "es", "fr", "de"). 
@@ -23732,6 +23780,145 @@ export class ConvertWorksheetToPdfRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fontsLocation", this.fontsLocation);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+        if (this.spreadsheet !== undefined) {
+            if (typeof this.spreadsheet === 'string') {
+                if (fs.existsSync(this.spreadsheet)) {
+                    const fileName = path.basename( this.spreadsheet)
+                    formParams[fileName] = fs.createReadStream(this.spreadsheet)
+                }
+            }
+            else {
+                for (var key in this.spreadsheet){
+                    formParams[key] = this.spreadsheet[key];
+                }
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        (requestOptions as any).formData = formParams;        
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Converts a worksheet of spreadsheet on a local drive to the html file.   
+export class ConvertWorksheetToHtmlRequest  {
+    /// Upload spreadsheet file.  
+    public spreadsheet: any;
+    /// worksheet name of spreadsheet.  
+    public worksheet: string;
+    /// (Optional) The folder path where the workbook is stored. The default is null.  
+    public outPath: string;
+    /// Output file Storage Name.  
+    public outStorageName: string;
+    /// Use Custom fonts.  
+    public fontsLocation: string;
+    /// The spreadsheet region setting.  
+    public region: string;
+    /// The password for opening spreadsheet file.  
+    public password: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< ConvertWorksheetToHtmlRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/convert/worksheet/html";
+        const queryParameters: any = {};
+        const formParams: any = {};
+        /// worksheet name of spreadsheet. 
+        // verify required parameter 'worksheet' is not null or undefined
+        if (this.worksheet === null || this.worksheet === undefined) {
+            throw new Error('Required parameter "worksheet" was null or undefined when calling ConvertWorksheetToHtml.');
+        }
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "worksheet", this.worksheet);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fontsLocation", this.fontsLocation);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+        if (this.spreadsheet !== undefined) {
+            if (typeof this.spreadsheet === 'string') {
+                if (fs.existsSync(this.spreadsheet)) {
+                    const fileName = path.basename( this.spreadsheet)
+                    formParams[fileName] = fs.createReadStream(this.spreadsheet)
+                }
+            }
+            else {
+                for (var key in this.spreadsheet){
+                    formParams[key] = this.spreadsheet[key];
+                }
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        (requestOptions as any).formData = formParams;        
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+   
+export class ConvertWorksheetToHtmlTableRequest  {
+    /// Upload spreadsheet file.  
+    public spreadsheet: any;
+      
+    public worksheet: string;
+    /// The spreadsheet region setting.  
+    public region: string;
+    /// The password for opening spreadsheet file.  
+    public password: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< ConvertWorksheetToHtmlTableRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/convert/worksheet/html-table";
+        const queryParameters: any = {};
+        const formParams: any = {};
+         
+        // verify required parameter 'worksheet' is not null or undefined
+        if (this.worksheet === null || this.worksheet === undefined) {
+            throw new Error('Required parameter "worksheet" was null or undefined when calling ConvertWorksheetToHtmlTable.');
+        }
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "worksheet", this.worksheet);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         if(this.extendQueryParameterMap !== undefined){
@@ -25361,6 +25548,312 @@ export class ImportDataIntoSpreadsheetRequest  {
         // verify required parameter 'startcell' is not null or undefined
         if (this.startcell === null || this.startcell === undefined) {
             throw new Error('Required parameter "startcell" was null or undefined when calling ImportDataIntoSpreadsheet.');
+        }
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "worksheet", this.worksheet);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "startcell", this.startcell);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "insert", this.insert);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "convertNumericData", this.convertNumericData);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "splitter", this.splitter);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fontsLocation", this.fontsLocation);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+        if (this.datafile !== undefined) {
+            if (typeof this.datafile === 'string') {
+                if (fs.existsSync(this.datafile)) {
+                    const fileName = path.basename( this.datafile)
+                    formParams[fileName] = fs.createReadStream(this.datafile)
+                }
+            }
+            else {
+                for (var key in this.datafile){
+                    formParams[key] = this.datafile[key];
+                }
+            }
+        }
+        if (this.spreadsheet !== undefined) {
+            if (typeof this.spreadsheet === 'string') {
+                if (fs.existsSync(this.spreadsheet)) {
+                    const fileName = path.basename( this.spreadsheet)
+                    formParams[fileName] = fs.createReadStream(this.spreadsheet)
+                }
+            }
+            else {
+                for (var key in this.spreadsheet){
+                    formParams[key] = this.spreadsheet[key];
+                }
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        (requestOptions as any).formData = formParams;        
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+   
+export class ImportJSONDataIntoSpreadsheetRequest  {
+    /// Upload data file.  
+    public datafile: any;
+    /// Upload spreadsheet file.  
+    public spreadsheet: any;
+      
+    public worksheet: string;
+      
+    public startcell: string;
+      
+    public insert: boolean;
+    /// (Optional) The folder path where the workbook is stored. The default is null.  
+    public outPath: string;
+    /// Output file Storage Name.  
+    public outStorageName: string;
+    /// Use Custom fonts.  
+    public fontsLocation: string;
+    /// The spreadsheet region setting.  
+    public region: string;
+    /// The password for opening spreadsheet file.  
+    public password: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< ImportJSONDataIntoSpreadsheetRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/import/data/json";
+        const queryParameters: any = {};
+        const formParams: any = {};
+         
+        // verify required parameter 'worksheet' is not null or undefined
+        if (this.worksheet === null || this.worksheet === undefined) {
+            throw new Error('Required parameter "worksheet" was null or undefined when calling ImportJSONDataIntoSpreadsheet.');
+        }
+         
+        // verify required parameter 'startcell' is not null or undefined
+        if (this.startcell === null || this.startcell === undefined) {
+            throw new Error('Required parameter "startcell" was null or undefined when calling ImportJSONDataIntoSpreadsheet.');
+        }
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "worksheet", this.worksheet);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "startcell", this.startcell);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "insert", this.insert);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fontsLocation", this.fontsLocation);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+        if (this.datafile !== undefined) {
+            if (typeof this.datafile === 'string') {
+                if (fs.existsSync(this.datafile)) {
+                    const fileName = path.basename( this.datafile)
+                    formParams[fileName] = fs.createReadStream(this.datafile)
+                }
+            }
+            else {
+                for (var key in this.datafile){
+                    formParams[key] = this.datafile[key];
+                }
+            }
+        }
+        if (this.spreadsheet !== undefined) {
+            if (typeof this.spreadsheet === 'string') {
+                if (fs.existsSync(this.spreadsheet)) {
+                    const fileName = path.basename( this.spreadsheet)
+                    formParams[fileName] = fs.createReadStream(this.spreadsheet)
+                }
+            }
+            else {
+                for (var key in this.spreadsheet){
+                    formParams[key] = this.spreadsheet[key];
+                }
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        (requestOptions as any).formData = formParams;        
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+   
+export class ImportXMLDataIntoSpreadsheetRequest  {
+    /// Upload data file.  
+    public datafile: any;
+    /// Upload spreadsheet file.  
+    public spreadsheet: any;
+      
+    public worksheet: string;
+      
+    public startcell: string;
+      
+    public insert: boolean;
+    /// (Optional) The folder path where the workbook is stored. The default is null.  
+    public outPath: string;
+    /// Output file Storage Name.  
+    public outStorageName: string;
+    /// Use Custom fonts.  
+    public fontsLocation: string;
+    /// The spreadsheet region setting.  
+    public region: string;
+    /// The password for opening spreadsheet file.  
+    public password: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< ImportXMLDataIntoSpreadsheetRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/import/data/xml";
+        const queryParameters: any = {};
+        const formParams: any = {};
+         
+        // verify required parameter 'worksheet' is not null or undefined
+        if (this.worksheet === null || this.worksheet === undefined) {
+            throw new Error('Required parameter "worksheet" was null or undefined when calling ImportXMLDataIntoSpreadsheet.');
+        }
+         
+        // verify required parameter 'startcell' is not null or undefined
+        if (this.startcell === null || this.startcell === undefined) {
+            throw new Error('Required parameter "startcell" was null or undefined when calling ImportXMLDataIntoSpreadsheet.');
+        }
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "worksheet", this.worksheet);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "startcell", this.startcell);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "insert", this.insert);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fontsLocation", this.fontsLocation);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+        if (this.datafile !== undefined) {
+            if (typeof this.datafile === 'string') {
+                if (fs.existsSync(this.datafile)) {
+                    const fileName = path.basename( this.datafile)
+                    formParams[fileName] = fs.createReadStream(this.datafile)
+                }
+            }
+            else {
+                for (var key in this.datafile){
+                    formParams[key] = this.datafile[key];
+                }
+            }
+        }
+        if (this.spreadsheet !== undefined) {
+            if (typeof this.spreadsheet === 'string') {
+                if (fs.existsSync(this.spreadsheet)) {
+                    const fileName = path.basename( this.spreadsheet)
+                    formParams[fileName] = fs.createReadStream(this.spreadsheet)
+                }
+            }
+            else {
+                for (var key in this.spreadsheet){
+                    formParams[key] = this.spreadsheet[key];
+                }
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        (requestOptions as any).formData = formParams;        
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+   
+export class ImportCSVDataIntoSpreadsheetRequest  {
+    /// Upload data file.  
+    public datafile: any;
+    /// Upload spreadsheet file.  
+    public spreadsheet: any;
+      
+    public worksheet: string;
+      
+    public startcell: string;
+      
+    public insert: boolean;
+      
+    public convertNumericData: boolean;
+      
+    public splitter: string;
+    /// (Optional) The folder path where the workbook is stored. The default is null.  
+    public outPath: string;
+    /// Output file Storage Name.  
+    public outStorageName: string;
+    /// Use Custom fonts.  
+    public fontsLocation: string;
+    /// The spreadsheet region setting.  
+    public region: string;
+    /// The password for opening spreadsheet file.  
+    public password: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< ImportCSVDataIntoSpreadsheetRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/import/data/csv";
+        const queryParameters: any = {};
+        const formParams: any = {};
+         
+        // verify required parameter 'worksheet' is not null or undefined
+        if (this.worksheet === null || this.worksheet === undefined) {
+            throw new Error('Required parameter "worksheet" was null or undefined when calling ImportCSVDataIntoSpreadsheet.');
+        }
+         
+        // verify required parameter 'startcell' is not null or undefined
+        if (this.startcell === null || this.startcell === undefined) {
+            throw new Error('Required parameter "startcell" was null or undefined when calling ImportCSVDataIntoSpreadsheet.');
         }
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "worksheet", this.worksheet);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "startcell", this.startcell);
@@ -27423,7 +27916,7 @@ export class AddTextRequest  {
     public spreadsheet: any;
     /// Specify the added text content.  
     public text: string;
-    /// Indicates the specific location for adding text content.None, AtTheBeginning, AtTheEnd, BeforeText, AfterText.    
+    /// Indicates the specific location for adding text content.None, AtTheBeginning, AtTheEnd, BeforeText, AfterText.  
     public position: string;
     /// Indicates selecting the specific position to add text based on the content of the text.  
     public selectText: string;
@@ -27458,7 +27951,7 @@ export class AddTextRequest  {
         if (this.text === null || this.text === undefined) {
             throw new Error('Required parameter "text" was null or undefined when calling AddText.');
         }
-        /// Indicates the specific location for adding text content.None, AtTheBeginning, AtTheEnd, BeforeText, AfterText.   
+        /// Indicates the specific location for adding text content.None, AtTheBeginning, AtTheEnd, BeforeText, AfterText. 
         // verify required parameter 'position' is not null or undefined
         if (this.position === null || this.position === undefined) {
             throw new Error('Required parameter "position" was null or undefined when calling AddText.');
@@ -28094,6 +28587,88 @@ export class SwapRangeRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "range1", this.range1);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "worksheet2", this.worksheet2);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "range2", this.range2);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+        if (this.spreadsheet !== undefined) {
+            if (typeof this.spreadsheet === 'string') {
+                if (fs.existsSync(this.spreadsheet)) {
+                    const fileName = path.basename( this.spreadsheet)
+                    formParams[fileName] = fs.createReadStream(this.spreadsheet)
+                }
+            }
+            else {
+                for (var key in this.spreadsheet){
+                    formParams[key] = this.spreadsheet[key];
+                }
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        (requestOptions as any).formData = formParams;        
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+   
+export class FlipDataRequest  {
+    /// Upload spreadsheet file.  
+    public spreadsheet: any;
+      
+    public worksheet: string;
+      
+    public cellArea: string;
+      
+    public horizontal: boolean;
+    /// (Optional) The folder path where the workbook is stored. The default is null.  
+    public outPath: string;
+    /// Output file Storage Name.  
+    public outStorageName: string;
+    /// The spreadsheet region setting.  
+    public region: string;
+    /// The password for opening spreadsheet file.  
+    public password: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< FlipDataRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/flip";
+        const queryParameters: any = {};
+        const formParams: any = {};
+         
+        // verify required parameter 'worksheet' is not null or undefined
+        if (this.worksheet === null || this.worksheet === undefined) {
+            throw new Error('Required parameter "worksheet" was null or undefined when calling FlipData.');
+        }
+         
+        // verify required parameter 'cellArea' is not null or undefined
+        if (this.cellArea === null || this.cellArea === undefined) {
+            throw new Error('Required parameter "cellArea" was null or undefined when calling FlipData.');
+        }
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "worksheet", this.worksheet);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "cellArea", this.cellArea);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "horizontal", this.horizontal);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);

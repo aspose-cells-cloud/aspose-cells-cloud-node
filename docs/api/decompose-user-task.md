@@ -1,7 +1,7 @@
 
-# **Spreadsheet Cloud API: translateTextFile**
+# **Spreadsheet Cloud API: decomposeUserTask**
 
- 
+Translates the entire spreadsheet to the specified target language. 
 
 
 ## **Quick Start**
@@ -13,16 +13,15 @@
 ### **Endpoint** 
 
 ```
-PUT http://api.aspose.cloud/v4.0/cells/ai/translate/text
+PUT http://api.aspose.cloud/v4.0/cells/ai/task/decompose
 ```
 ### **Function Description**
 
-### The request parameters of **translateTextFile** API are: 
+### The request parameters of **decomposeUserTask** API are: 
 
 | Parameter Name | Type | Path/Query String/HTTPBody | Description | 
 | :- | :- | :- |:- | 
-|Spreadsheet|File|FormData|Upload spreadsheet file.|
-|targetLanguage|String|Query|The target language code for translation (e.g., "es", "fr", "de").|
+|TaskDescription|String|Query||
 |region|String|Query|The spreadsheet region setting.|
 |password|String|Query|The password for opening spreadsheet file.|
 
@@ -36,4 +35,4 @@ File
 
 ## OpenAPI Specification
 
-The [OpenAPI Specification](https://reference.aspose.cloud/cells/#/AIController/TranslateTextFile) defines a publicly accessible programming interface and lets you carry out REST interactions directly from a web browser.
+The [OpenAPI Specification](https://reference.aspose.cloud/cells/#/AIController/DecomposeUserTask) defines a publicly accessible programming interface and lets you carry out REST interactions directly from a web browser.
