@@ -28,4 +28,5 @@ jobs:
 
     - name: Run tests
       working-directory: ${{ github.workspace }}
-      run: npm test
+      run: |
+        npx cross-env JUNIT_REPORT_PATH=integration_tests_result.xml mocha -r ts-node/register example/**/*.ts --timeout 250000 --reporter mocha-jenkins-reporter
