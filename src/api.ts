@@ -1537,6 +1537,54 @@ export class CellsApi {
     }
 
     /// <summary>
+    /// Switch rows and columns in the spreadsheet.
+    /// </summary>
+    /// <param name="request">Request. <see cref="TransposeDataRequest" /></param>
+    public async transposeData(requestObj:model.TransposeDataRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling transposeData.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "Buffer");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// Switch rows and columns in the spreadsheet.
+    /// </summary>
+    /// <param name="request">Request. <see cref="UnpivotRangeRequest" /></param>
+    public async unpivotRange(requestObj:model.UnpivotRangeRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling unpivotRange.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "Buffer");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// Switch rows and columns in the spreadsheet.
+    /// </summary>
+    /// <param name="request">Request. <see cref="UnpivotTableRequest" /></param>
+    public async unpivotTable(requestObj:model.UnpivotTableRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling unpivotTable.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "Buffer");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
     /// </summary>
     /// <param name="request">Request. <see cref="DownloadFileRequest" /></param>
     public async downloadFile(requestObj:model.DownloadFileRequest ): Promise<{response: http.ClientResponse, body: Buffer}>

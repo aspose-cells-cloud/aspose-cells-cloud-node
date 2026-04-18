@@ -1,7 +1,7 @@
 
-# **Spreadsheet Cloud API: codegenSpec**
+# **Spreadsheet Cloud API: unpivotTable**
 
- 
+Switch rows and columns in the spreadsheet. 
 
 
 ## **Quick Start**
@@ -13,28 +13,34 @@
 ### **Endpoint** 
 
 ```
-GET http://api.aspose.cloud/v4.0/cells/codegen/spec
+PUT http://api.aspose.cloud/v4.0/cells/unpivot/table
 ```
 ### **Function Description**
 
-### The request parameters of **codegenSpec** API are: 
+### The request parameters of **unpivotTable** API are: 
 
 | Parameter Name | Type | Path/Query String/HTTPBody | Description | 
 | :- | :- | :- |:- | 
+|Spreadsheet|File|FormData|Upload spreadsheet file.|
+|worksheet|String|Query|The worksheet name.|
+|index|Integer|Query|A specified data range|
+|skipEmptyValue|Boolean|Query||
+|outPath|String|Query|(Optional) The folder path where the workbook is stored. The default is null.|
+|outStorageName|String|Query|Output file Storage Name.|
 |region|String|Query|Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.|
 |password|String|Query|The password for opening spreadsheet file.|
 
 ### **Response Description**
 ```json
 {
-Void
+File
 }
 ```
 
 
 ## OpenAPI Specification
 
-The [OpenAPI Specification](https://reference.aspose.cloud/cells/#/SpecificationController/CodegenSpec) defines a publicly accessible programming interface and lets you carry out REST interactions directly from a web browser.
+The [OpenAPI Specification](https://reference.aspose.cloud/cells/#/TransformController/UnpivotTable) defines a publicly accessible programming interface and lets you carry out REST interactions directly from a web browser.
 
 [[Back to API list]](../DeveloperGuide.md#api-reference)  
 [[Back to README]](../../README.md)

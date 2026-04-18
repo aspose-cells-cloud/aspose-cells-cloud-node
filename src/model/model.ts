@@ -49,8 +49,8 @@ export class Point {
     public static getAttributeTypeMap() {
         return ValueType.attributeTypeMap;
     }
-    public x: number;
-    public y: number;
+    public x!: number;
+    public y!: number;
     public constructor(init?: Partial<Point>) {        
         Object.assign(this, init);
     }        
@@ -81,8 +81,8 @@ export class DiscUsage  {
 
     }
 
-    public usedSize: number;
-    public totalSize: number;
+    public usedSize!: number;
+    public totalSize!: number;
 
     public constructor(init?: Partial< DiscUsage >) {  
     
@@ -114,8 +114,8 @@ export class ObjectExist  {
 
     }
 
-    public exists: boolean;
-    public isFolder: boolean;
+    public exists!: boolean;
+    public isFolder!: boolean;
 
     public constructor(init?: Partial< ObjectExist >) {  
     
@@ -183,11 +183,11 @@ export class StorageFile  {
 
     }
 
-    public name: string;
-    public isFolder: boolean;
-    public modifiedDate: Date;
-    public size: number;
-    public path: string;
+    public name!: string;
+    public isFolder!: boolean;
+    public modifiedDate!: Date;
+    public size!: number;
+    public path!: string;
 
     public constructor(init?: Partial< StorageFile >) {  
     
@@ -219,8 +219,8 @@ export class FileVersion  extends StorageFile  {
 
     }
 
-    public versionId: string;
-    public isLatest: boolean;
+    public versionId!: string;
+    public isLatest!: boolean;
 
     public constructor(init?: Partial< FileVersion >) {  
          super(init);     
@@ -247,7 +247,7 @@ export class StorageExist  {
 
     }
 
-    public exists: boolean;
+    public exists!: boolean;
 
     public constructor(init?: Partial< StorageExist >) {  
     
@@ -274,7 +274,7 @@ export class FileVersions  {
 
     }
 
-    public value: Array<FileVersion>;
+    public value!: Array<FileVersion>;
 
     public constructor(init?: Partial< FileVersions >) {  
     
@@ -301,7 +301,7 @@ export class FilesList  {
 
     }
 
-    public value: Array<StorageFile>;
+    public value!: Array<StorageFile>;
 
     public constructor(init?: Partial< FilesList >) {  
     
@@ -354,8 +354,8 @@ export class FilesUploadResult  {
 
     }
 
-    public uploaded: Array<string>;
-    public errors: Array<Error>;
+    public uploaded!: Array<string>;
+    public errors!: Array<Error>;
 
     public constructor(init?: Partial< FilesUploadResult >) {  
     
@@ -382,7 +382,7 @@ export class GoogleDriveStorageFile  extends StorageFile  {
 
     }
 
-    public mimeType: string;
+    public mimeType!: string;
 
     public constructor(init?: Partial< GoogleDriveStorageFile >) {  
          super(init);     
@@ -439,13 +439,13 @@ export class AggregateResultByColor  {
 
     }
 
-    public aggregateOperation: string;
-    public colorName: string;
-    public count: number;
-    public sum: number;
-    public maxValue: number;
-    public minValue: number;
-    public averageValue: number;
+    public aggregateOperation!: string;
+    public colorName!: string;
+    public count!: number;
+    public sum!: number;
+    public maxValue!: number;
+    public minValue!: number;
+    public averageValue!: number;
 
     public constructor(init?: Partial< AggregateResultByColor >) {  
     
@@ -487,10 +487,10 @@ export class BrokenLink  {
 
     }
 
-    public filename: string;
-    public worksheet: string;
-    public position: string;
-    public linkAddress: string;
+    public filename!: string;
+    public worksheet!: string;
+    public position!: string;
+    public linkAddress!: string;
 
     public constructor(init?: Partial< BrokenLink >) {  
     
@@ -532,10 +532,10 @@ export class CellArea  {
 
     }
 
-    public endColumn: number;
-    public endRow: number;
-    public startColumn: number;
-    public startRow: number;
+    public endColumn!: number;
+    public endRow!: number;
+    public startColumn!: number;
+    public startRow!: number;
 
     public constructor(init?: Partial< CellArea >) {  
     
@@ -577,10 +577,10 @@ export class CellsCloudFileInfo  {
 
     }
 
-    public name: string;
-    public size: number;
-    public folder: string;
-    public storage: string;
+    public name!: string;
+    public size!: number;
+    public folder!: string;
+    public storage!: string;
 
     public constructor(init?: Partial< CellsCloudFileInfo >) {  
     
@@ -612,8 +612,8 @@ export class CellsCloudPublicKey  {
 
     }
 
-    public exponent: string;
-    public modulus: string;
+    public exponent!: string;
+    public modulus!: string;
 
     public constructor(init?: Partial< CellsCloudPublicKey >) {  
     
@@ -655,10 +655,10 @@ export class Color  {
 
     }
 
-    public a: number;
-    public r: number;
-    public g: number;
-    public b: number;
+    public a!: number;
+    public r!: number;
+    public g!: number;
+    public b!: number;
 
     public constructor(init?: Partial< Color >) {  
     
@@ -725,15 +725,15 @@ export class PdfSecurityOptions  {
 
     }
 
-    public annotationsPermission: boolean;
-    public assembleDocumentPermission: boolean;
-    public extractContentPermission: boolean;
-    public fillFormsPermission: boolean;
-    public fullQualityPrintPermission: boolean;
-    public modifyDocumentPermission: boolean;
-    public ownerPassword: string;
-    public printPermission: boolean;
-    public userPassword: string;
+    public annotationsPermission!: boolean;
+    public assembleDocumentPermission!: boolean;
+    public extractContentPermission!: boolean;
+    public fillFormsPermission!: boolean;
+    public fullQualityPrintPermission!: boolean;
+    public modifyDocumentPermission!: boolean;
+    public ownerPassword!: string;
+    public printPermission!: boolean;
+    public userPassword!: string;
 
     public constructor(init?: Partial< PdfSecurityOptions >) {  
     
@@ -800,15 +800,15 @@ export class Range  {
 
     }
 
-    public columnCount: number;
-    public columnWidth: number;
-    public firstColumn: number;
-    public firstRow: number;
-    public name: string;
-    public refersTo: string;
-    public rowCount: number;
-    public rowHeight: number;
-    public worksheet: string;
+    public columnCount!: number;
+    public columnWidth!: number;
+    public firstColumn!: number;
+    public firstRow!: number;
+    public name!: string;
+    public refersTo!: string;
+    public rowCount!: number;
+    public rowHeight!: number;
+    public worksheet!: string;
 
     public constructor(init?: Partial< Range >) {  
     
@@ -850,10 +850,10 @@ export class RemoveCharactersByPosition  {
 
     }
 
-    public theFirstNCharacters: number;
-    public theLastNCharacters: number;
-    public allCharactersBeforeText: string;
-    public allCharactersAfterText: string;
+    public theFirstNCharacters!: number;
+    public theLastNCharacters!: number;
+    public allCharactersBeforeText!: string;
+    public allCharactersAfterText!: string;
 
     public constructor(init?: Partial< RemoveCharactersByPosition >) {  
     
@@ -880,7 +880,7 @@ export class SaveResult  {
 
     }
 
-    public documents: Array<CellsCloudFileInfo>;
+    public documents!: Array<CellsCloudFileInfo>;
 
     public constructor(init?: Partial< SaveResult >) {  
     
@@ -967,19 +967,19 @@ export class SaveOptions  {
 
     }
 
-    public saveFormat: string;
-    public cachedFileFolder: string;
-    public clearData: boolean;
-    public createDirectory: boolean;
-    public enableHTTPCompression: boolean;
-    public refreshChartCache: boolean;
-    public sortNames: boolean;
-    public validateMergedAreas: boolean;
-    public mergeAreas: boolean;
-    public sortExternalNames: boolean;
-    public checkExcelRestriction: boolean;
-    public updateSmartArt: boolean;
-    public encryptDocumentProperties: boolean;
+    public saveFormat!: string;
+    public cachedFileFolder!: string;
+    public clearData!: boolean;
+    public createDirectory!: boolean;
+    public enableHTTPCompression!: boolean;
+    public refreshChartCache!: boolean;
+    public sortNames!: boolean;
+    public validateMergedAreas!: boolean;
+    public mergeAreas!: boolean;
+    public sortExternalNames!: boolean;
+    public checkExcelRestriction!: boolean;
+    public updateSmartArt!: boolean;
+    public encryptDocumentProperties!: boolean;
 
     public constructor(init?: Partial< SaveOptions >) {  
     
@@ -1076,21 +1076,21 @@ export class PaginatedSaveOptions  extends SaveOptions  {
 
     }
 
-    public defaultFont: string;
-    public checkWorkbookDefaultFont: boolean;
-    public checkFontCompatibility: boolean;
-    public isFontSubstitutionCharGranularity: boolean;
-    public onePagePerSheet: boolean;
-    public allColumnsInOnePagePerSheet: boolean;
-    public ignoreError: boolean;
-    public outputBlankPageWhenNothingToPrint: boolean;
-    public pageIndex: number;
-    public pageCount: number;
-    public printingPageType: string;
-    public gridlineType: string;
-    public textCrossType: string;
-    public defaultEditLanguage: string;
-    public emfRenderSetting: string;
+    public defaultFont!: string;
+    public checkWorkbookDefaultFont!: boolean;
+    public checkFontCompatibility!: boolean;
+    public isFontSubstitutionCharGranularity!: boolean;
+    public onePagePerSheet!: boolean;
+    public allColumnsInOnePagePerSheet!: boolean;
+    public ignoreError!: boolean;
+    public outputBlankPageWhenNothingToPrint!: boolean;
+    public pageIndex!: number;
+    public pageCount!: number;
+    public printingPageType!: string;
+    public gridlineType!: string;
+    public textCrossType!: string;
+    public defaultEditLanguage!: string;
+    public emfRenderSetting!: string;
 
     public constructor(init?: Partial< PaginatedSaveOptions >) {  
          super(init);     
@@ -1153,10 +1153,10 @@ export class TextItem  {
 
     }
 
-    public filename: string;
-    public worksheet: string;
-    public position: string;
-    public content: string;
+    public filename!: string;
+    public worksheet!: string;
+    public position!: string;
+    public content!: string;
 
     public constructor(init?: Partial< TextItem >) {  
     
@@ -1183,7 +1183,7 @@ export class DbfSaveOptions  extends SaveOptions  {
 
     }
 
-    public exportAsString: boolean;
+    public exportAsString!: boolean;
 
     public constructor(init?: Partial< DbfSaveOptions >) {  
          super(init);     
@@ -1372,31 +1372,31 @@ export class ImageOrPrintOptions  {
 
     }
 
-    public textCrossType: string;
-    public gridlineType: string;
-    public outputBlankPageWhenNothingToPrint: boolean;
-    public checkWorkbookDefaultFont: boolean;
-    public defaultFont: string;
-    public isOptimized: boolean;
-    public pageCount: number;
-    public pageIndex: number;
-    public isFontSubstitutionCharGranularity: boolean;
-    public transparent: boolean;
-    public onlyArea: boolean;
-    public sVGFitToViewPort: boolean;
-    public embededImageNameInSvg: string;
-    public allColumnsInOnePagePerSheet: boolean;
-    public printWithStatusDialog: boolean;
-    public horizontalResolution: number;
-    public verticalResolution: number;
-    public defaultEditLanguage: string;
-    public tiffColorDepth: string;
-    public tiffCompression: string;
-    public printingPage: string;
-    public quality: number;
-    public imageType: string;
-    public onePagePerSheet: boolean;
-    public tiffBinarizationMethod: string;
+    public textCrossType!: string;
+    public gridlineType!: string;
+    public outputBlankPageWhenNothingToPrint!: boolean;
+    public checkWorkbookDefaultFont!: boolean;
+    public defaultFont!: string;
+    public isOptimized!: boolean;
+    public pageCount!: number;
+    public pageIndex!: number;
+    public isFontSubstitutionCharGranularity!: boolean;
+    public transparent!: boolean;
+    public onlyArea!: boolean;
+    public sVGFitToViewPort!: boolean;
+    public embededImageNameInSvg!: string;
+    public allColumnsInOnePagePerSheet!: boolean;
+    public printWithStatusDialog!: boolean;
+    public horizontalResolution!: number;
+    public verticalResolution!: number;
+    public defaultEditLanguage!: string;
+    public tiffColorDepth!: string;
+    public tiffCompression!: string;
+    public printingPage!: string;
+    public quality!: number;
+    public imageType!: string;
+    public onePagePerSheet!: boolean;
+    public tiffBinarizationMethod!: string;
 
     public constructor(init?: Partial< ImageOrPrintOptions >) {  
     
@@ -1613,45 +1613,45 @@ export class HtmlSaveOptions  extends SaveOptions  {
 
     }
 
-    public exportPageHeaders: boolean;
-    public exportPageFooters: boolean;
-    public exportRowColumnHeadings: boolean;
-    public showAllSheets: boolean;
-    public imageOptions: ImageOrPrintOptions;
-    public saveAsSingleFile: boolean;
-    public exportHiddenWorksheet: boolean;
-    public exportGridLines: boolean;
-    public presentationPreference: boolean;
-    public cellCssPrefix: string;
-    public tableCssId: string;
-    public isFullPathLink: boolean;
-    public exportWorksheetCSSSeparately: boolean;
-    public exportSimilarBorderStyle: boolean;
-    public mergeEmptyTdForcely: boolean;
-    public exportCellCoordinate: boolean;
-    public exportExtraHeadings: boolean;
-    public exportHeadings: boolean;
-    public exportFormula: boolean;
-    public addTooltipText: boolean;
-    public exportBogusRowData: boolean;
-    public excludeUnusedStyles: boolean;
-    public exportDocumentProperties: boolean;
-    public exportWorksheetProperties: boolean;
-    public exportWorkbookProperties: boolean;
-    public exportFrameScriptsAndProperties: boolean;
-    public attachedFilesDirectory: string;
-    public attachedFilesUrlPrefix: string;
-    public encoding: string;
-    public exportActiveWorksheetOnly: boolean;
-    public exportChartImageFormat: string;
-    public exportImagesAsBase64: boolean;
-    public hiddenColDisplayType: string;
-    public hiddenRowDisplayType: string;
-    public htmlCrossStringType: string;
-    public isExpImageToTempDir: boolean;
-    public pageTitle: string;
-    public parseHtmlTagInCell: boolean;
-    public cellNameAttribute: string;
+    public exportPageHeaders!: boolean;
+    public exportPageFooters!: boolean;
+    public exportRowColumnHeadings!: boolean;
+    public showAllSheets!: boolean;
+    public imageOptions!: ImageOrPrintOptions;
+    public saveAsSingleFile!: boolean;
+    public exportHiddenWorksheet!: boolean;
+    public exportGridLines!: boolean;
+    public presentationPreference!: boolean;
+    public cellCssPrefix!: string;
+    public tableCssId!: string;
+    public isFullPathLink!: boolean;
+    public exportWorksheetCSSSeparately!: boolean;
+    public exportSimilarBorderStyle!: boolean;
+    public mergeEmptyTdForcely!: boolean;
+    public exportCellCoordinate!: boolean;
+    public exportExtraHeadings!: boolean;
+    public exportHeadings!: boolean;
+    public exportFormula!: boolean;
+    public addTooltipText!: boolean;
+    public exportBogusRowData!: boolean;
+    public excludeUnusedStyles!: boolean;
+    public exportDocumentProperties!: boolean;
+    public exportWorksheetProperties!: boolean;
+    public exportWorkbookProperties!: boolean;
+    public exportFrameScriptsAndProperties!: boolean;
+    public attachedFilesDirectory!: string;
+    public attachedFilesUrlPrefix!: string;
+    public encoding!: string;
+    public exportActiveWorksheetOnly!: boolean;
+    public exportChartImageFormat!: string;
+    public exportImagesAsBase64!: boolean;
+    public hiddenColDisplayType!: string;
+    public hiddenRowDisplayType!: string;
+    public htmlCrossStringType!: string;
+    public isExpImageToTempDir!: boolean;
+    public pageTitle!: string;
+    public parseHtmlTagInCell!: boolean;
+    public cellNameAttribute!: string;
 
     public constructor(init?: Partial< HtmlSaveOptions >) {  
          super(init);     
@@ -1733,18 +1733,18 @@ export class ImageSaveOptions  extends SaveOptions  {
 
     }
 
-    public chartImageType: string;
-    public embededImageNameInSvg: string;
-    public horizontalResolution: number;
-    public imageFormat: string;
-    public isCellAutoFit: boolean;
-    public onePagePerSheet: boolean;
-    public onlyArea: boolean;
-    public printingPage: string;
-    public printWithStatusDialog: boolean;
-    public quality: number;
-    public tiffCompression: string;
-    public verticalResolution: number;
+    public chartImageType!: string;
+    public embededImageNameInSvg!: string;
+    public horizontalResolution!: number;
+    public imageFormat!: string;
+    public isCellAutoFit!: boolean;
+    public onePagePerSheet!: boolean;
+    public onlyArea!: boolean;
+    public printingPage!: string;
+    public printWithStatusDialog!: boolean;
+    public quality!: number;
+    public tiffCompression!: string;
+    public verticalResolution!: number;
 
     public constructor(init?: Partial< ImageSaveOptions >) {  
          super(init);     
@@ -1786,10 +1786,10 @@ export class JsonSaveOptions  extends SaveOptions  {
 
     }
 
-    public exportArea: CellArea;
-    public hasHeaderRow: boolean;
-    public exportAsString: boolean;
-    public indent: string;
+    public exportArea!: CellArea;
+    public hasHeaderRow!: boolean;
+    public exportAsString!: boolean;
+    public indent!: string;
 
     public constructor(init?: Partial< JsonSaveOptions >) {  
          super(init);     
@@ -1826,9 +1826,9 @@ export class MarkdownSaveOptions  extends SaveOptions  {
 
     }
 
-    public encoding: string;
-    public formatStrategy: string;
-    public lineSeparator: string;
+    public encoding!: string;
+    public formatStrategy!: string;
+    public lineSeparator!: string;
 
     public constructor(init?: Partial< MarkdownSaveOptions >) {  
          super(init);     
@@ -2045,45 +2045,45 @@ export class MHtmlSaveOptions  extends SaveOptions  {
 
     }
 
-    public exportPageHeaders: boolean;
-    public exportPageFooters: boolean;
-    public exportRowColumnHeadings: boolean;
-    public showAllSheets: boolean;
-    public imageOptions: ImageOrPrintOptions;
-    public saveAsSingleFile: boolean;
-    public exportHiddenWorksheet: boolean;
-    public exportGridLines: boolean;
-    public presentationPreference: boolean;
-    public cellCssPrefix: string;
-    public tableCssId: string;
-    public isFullPathLink: boolean;
-    public exportWorksheetCSSSeparately: boolean;
-    public exportSimilarBorderStyle: boolean;
-    public mergeEmptyTdForcely: boolean;
-    public exportCellCoordinate: boolean;
-    public exportExtraHeadings: boolean;
-    public exportHeadings: boolean;
-    public exportFormula: boolean;
-    public addTooltipText: boolean;
-    public exportBogusRowData: boolean;
-    public excludeUnusedStyles: boolean;
-    public exportDocumentProperties: boolean;
-    public exportWorksheetProperties: boolean;
-    public exportWorkbookProperties: boolean;
-    public exportFrameScriptsAndProperties: boolean;
-    public attachedFilesDirectory: string;
-    public attachedFilesUrlPrefix: string;
-    public encoding: string;
-    public exportActiveWorksheetOnly: boolean;
-    public exportChartImageFormat: string;
-    public exportImagesAsBase64: boolean;
-    public hiddenColDisplayType: string;
-    public hiddenRowDisplayType: string;
-    public htmlCrossStringType: string;
-    public isExpImageToTempDir: boolean;
-    public pageTitle: string;
-    public parseHtmlTagInCell: boolean;
-    public cellNameAttribute: string;
+    public exportPageHeaders!: boolean;
+    public exportPageFooters!: boolean;
+    public exportRowColumnHeadings!: boolean;
+    public showAllSheets!: boolean;
+    public imageOptions!: ImageOrPrintOptions;
+    public saveAsSingleFile!: boolean;
+    public exportHiddenWorksheet!: boolean;
+    public exportGridLines!: boolean;
+    public presentationPreference!: boolean;
+    public cellCssPrefix!: string;
+    public tableCssId!: string;
+    public isFullPathLink!: boolean;
+    public exportWorksheetCSSSeparately!: boolean;
+    public exportSimilarBorderStyle!: boolean;
+    public mergeEmptyTdForcely!: boolean;
+    public exportCellCoordinate!: boolean;
+    public exportExtraHeadings!: boolean;
+    public exportHeadings!: boolean;
+    public exportFormula!: boolean;
+    public addTooltipText!: boolean;
+    public exportBogusRowData!: boolean;
+    public excludeUnusedStyles!: boolean;
+    public exportDocumentProperties!: boolean;
+    public exportWorksheetProperties!: boolean;
+    public exportWorkbookProperties!: boolean;
+    public exportFrameScriptsAndProperties!: boolean;
+    public attachedFilesDirectory!: string;
+    public attachedFilesUrlPrefix!: string;
+    public encoding!: string;
+    public exportActiveWorksheetOnly!: boolean;
+    public exportChartImageFormat!: string;
+    public exportImagesAsBase64!: boolean;
+    public hiddenColDisplayType!: string;
+    public hiddenRowDisplayType!: string;
+    public htmlCrossStringType!: string;
+    public isExpImageToTempDir!: boolean;
+    public pageTitle!: string;
+    public parseHtmlTagInCell!: boolean;
+    public cellNameAttribute!: string;
 
     public constructor(init?: Partial< MHtmlSaveOptions >) {  
          super(init);     
@@ -2120,9 +2120,9 @@ export class OdsSaveOptions  extends SaveOptions  {
 
     }
 
-    public generatorType: string;
-    public odfStrictVersion: string;
-    public ignorePivotTables: boolean;
+    public generatorType!: string;
+    public odfStrictVersion!: string;
+    public ignorePivotTables!: boolean;
 
     public constructor(init?: Partial< OdsSaveOptions >) {  
          super(init);     
@@ -2169,11 +2169,11 @@ export class OoxmlSaveOptions  extends SaveOptions  {
 
     }
 
-    public exportCellName: boolean;
-    public updateZoom: boolean;
-    public enableZip64: boolean;
-    public embedOoxmlAsOleObject: boolean;
-    public compressionType: string;
+    public exportCellName!: boolean;
+    public updateZoom!: boolean;
+    public enableZip64!: boolean;
+    public embedOoxmlAsOleObject!: boolean;
+    public compressionType!: string;
 
     public constructor(init?: Partial< OoxmlSaveOptions >) {  
          super(init);     
@@ -2205,8 +2205,8 @@ export class PclSaveOptions  extends SaveOptions  {
 
     }
 
-    public fontFullName: string;
-    public fontPclName: string;
+    public fontFullName!: string;
+    public fontPclName!: string;
 
     public constructor(init?: Partial< PclSaveOptions >) {  
          super(init);     
@@ -2283,17 +2283,17 @@ export class RenderingWatermark  {
 
     }
 
-    public rotation: number;
-    public scaleToPagePercent: number;
-    public opacity: number;
-    public isBackground: boolean;
-    public text: string;
-    public font: RenderingFont;
-    public image: Array<number>;
-    public hAlignment: string;
-    public vAlignment: string;
-    public offsetX: number;
-    public offsetY: number;
+    public rotation!: number;
+    public scaleToPagePercent!: number;
+    public opacity!: number;
+    public isBackground!: boolean;
+    public text!: string;
+    public font!: RenderingFont;
+    public image!: Array<number>;
+    public hAlignment!: string;
+    public vAlignment!: string;
+    public offsetX!: number;
+    public offsetY!: number;
 
     public constructor(init?: Partial< RenderingWatermark >) {  
     
@@ -2410,25 +2410,25 @@ export class PdfSaveOptions  extends SaveOptions  {
 
     }
 
-    public displayDocTitle: boolean;
-    public exportDocumentStructure: boolean;
-    public emfRenderSetting: string;
-    public customPropertiesExport: string;
-    public optimizationType: string;
-    public producer: string;
-    public pdfCompression: string;
-    public fontEncoding: string;
-    public watermark: RenderingWatermark;
-    public calculateFormula: boolean;
-    public checkFontCompatibility: boolean;
-    public compliance: string;
-    public defaultFont: string;
-    public onePagePerSheet: boolean;
-    public printingPageType: string;
-    public securityOptions: PdfSecurityOptions;
-    public desiredPPI: number;
-    public jpegQuality: number;
-    public imageType: string;
+    public displayDocTitle!: boolean;
+    public exportDocumentStructure!: boolean;
+    public emfRenderSetting!: string;
+    public customPropertiesExport!: string;
+    public optimizationType!: string;
+    public producer!: string;
+    public pdfCompression!: string;
+    public fontEncoding!: string;
+    public watermark!: RenderingWatermark;
+    public calculateFormula!: boolean;
+    public checkFontCompatibility!: boolean;
+    public compliance!: string;
+    public defaultFont!: string;
+    public onePagePerSheet!: boolean;
+    public printingPageType!: string;
+    public securityOptions!: PdfSecurityOptions;
+    public desiredPPI!: number;
+    public jpegQuality!: number;
+    public imageType!: string;
 
     public constructor(init?: Partial< PdfSaveOptions >) {  
          super(init);     
@@ -2465,9 +2465,9 @@ export class PptxSaveOptions  extends PaginatedSaveOptions  {
 
     }
 
-    public ignoreHiddenRows: boolean;
-    public adjustFontSizeForRowType: string;
-    public exportViewType: string;
+    public ignoreHiddenRows!: boolean;
+    public adjustFontSizeForRowType!: string;
+    public exportViewType!: string;
 
     public constructor(init?: Partial< PptxSaveOptions >) {  
          super(init);     
@@ -2504,9 +2504,9 @@ export class SaveOptionsData  {
 
     }
 
-    public saveOptions: SaveOptions;
-    public filename: string;
-    public storageName: string;
+    public saveOptions!: SaveOptions;
+    public filename!: string;
+    public storageName!: string;
 
     public constructor(init?: Partial< SaveOptionsData >) {  
     
@@ -2543,9 +2543,9 @@ export class SpreadsheetML2003SaveOptions  extends SaveOptions  {
 
     }
 
-    public exportColumnIndexOfCell: boolean;
-    public isIndentedFormatting: boolean;
-    public limitAsXls: boolean;
+    public exportColumnIndexOfCell!: boolean;
+    public isIndentedFormatting!: boolean;
+    public limitAsXls!: boolean;
 
     public constructor(init?: Partial< SpreadsheetML2003SaveOptions >) {  
          super(init);     
@@ -2637,20 +2637,20 @@ export class SqlScriptSaveOptions  extends SaveOptions  {
 
     }
 
-    public checkIfTableExists: boolean;
-    public columnTypeMap: string;
-    public checkAllDataForColumnType: boolean;
-    public addBlankLineBetweenRows: boolean;
-    public separator: string;
-    public operatorType: string;
-    public primaryKey: number;
-    public createTable: boolean;
-    public idName: string;
-    public startId: number;
-    public tableName: string;
-    public exportAsString: boolean;
-    public exportArea: CellArea;
-    public hasHeaderRow: boolean;
+    public checkIfTableExists!: boolean;
+    public columnTypeMap!: string;
+    public checkAllDataForColumnType!: boolean;
+    public addBlankLineBetweenRows!: boolean;
+    public separator!: string;
+    public operatorType!: string;
+    public primaryKey!: number;
+    public createTable!: boolean;
+    public idName!: string;
+    public startId!: number;
+    public tableName!: string;
+    public exportAsString!: boolean;
+    public exportArea!: CellArea;
+    public hasHeaderRow!: boolean;
 
     public constructor(init?: Partial< SqlScriptSaveOptions >) {  
          super(init);     
@@ -2737,19 +2737,19 @@ export class SvgSaveOptions  extends SaveOptions  {
 
     }
 
-    public sheetIndex: number;
-    public chartImageType: string;
-    public embededImageNameInSvg: string;
-    public horizontalResolution: number;
-    public imageFormat: string;
-    public isCellAutoFit: boolean;
-    public onePagePerSheet: boolean;
-    public onlyArea: boolean;
-    public printingPage: string;
-    public printWithStatusDialog: boolean;
-    public quality: number;
-    public tiffCompression: string;
-    public verticalResolution: number;
+    public sheetIndex!: number;
+    public chartImageType!: string;
+    public embededImageNameInSvg!: string;
+    public horizontalResolution!: number;
+    public imageFormat!: string;
+    public isCellAutoFit!: boolean;
+    public onePagePerSheet!: boolean;
+    public onlyArea!: boolean;
+    public printingPage!: string;
+    public printWithStatusDialog!: boolean;
+    public quality!: number;
+    public tiffCompression!: string;
+    public verticalResolution!: number;
 
     public constructor(init?: Partial< SvgSaveOptions >) {  
          super(init);     
@@ -2791,10 +2791,10 @@ export class TxtSaveOptions  extends SaveOptions  {
 
     }
 
-    public quoteType: string;
-    public separator: string;
-    public separatorString: string;
-    public alwaysQuoted: boolean;
+    public quoteType!: string;
+    public separator!: string;
+    public separatorString!: string;
+    public alwaysQuoted!: boolean;
 
     public constructor(init?: Partial< TxtSaveOptions >) {  
          super(init);     
@@ -2826,8 +2826,8 @@ export class XlsbSaveOptions  extends SaveOptions  {
 
     }
 
-    public exportAllColumnIndexes: boolean;
-    public compressionType: string;
+    public exportAllColumnIndexes!: boolean;
+    public compressionType!: string;
 
     public constructor(init?: Partial< XlsbSaveOptions >) {  
          super(init);     
@@ -2859,8 +2859,8 @@ export class XlsSaveOptions  extends SaveOptions  {
 
     }
 
-    public matchColor: boolean;
-    public wpsCompatibility: boolean;
+    public matchColor!: boolean;
+    public wpsCompatibility!: boolean;
 
     public constructor(init?: Partial< XlsSaveOptions >) {  
          super(init);     
@@ -2912,12 +2912,12 @@ export class XmlSaveOptions  extends SaveOptions  {
 
     }
 
-    public sheetIndexes: Array<number>;
-    public exportArea: CellArea;
-    public hasHeaderRow: boolean;
-    public xmlMapName: string;
-    public sheetNameAsElementName: boolean;
-    public dataAsAttribute: boolean;
+    public sheetIndexes!: Array<number>;
+    public exportArea!: CellArea;
+    public hasHeaderRow!: boolean;
+    public xmlMapName!: string;
+    public sheetNameAsElementName!: boolean;
+    public dataAsAttribute!: boolean;
 
     public constructor(init?: Partial< XmlSaveOptions >) {  
          super(init);     
@@ -2970,8 +2970,8 @@ export class CellsCloudResponse  {
 
     }
 
-    public code: number;
-    public status: string;
+    public code!: number;
+    public status!: string;
 
     public constructor(init?: Partial< CellsCloudResponse >) {  
     
@@ -2998,7 +2998,7 @@ export class AggregateResultByColorResponse  extends CellsCloudResponse  {
 
     }
 
-    public aggregateResults: Array<AggregateResultByColor>;
+    public aggregateResults!: Array<AggregateResultByColor>;
 
     public constructor(init?: Partial< AggregateResultByColorResponse >) {  
          super(init);     
@@ -3025,7 +3025,7 @@ export class BrokenLinksResponse  extends CellsCloudResponse  {
 
     }
 
-    public brokenLinks: Array<BrokenLink>;
+    public brokenLinks!: Array<BrokenLink>;
 
     public constructor(init?: Partial< BrokenLinksResponse >) {  
          super(init);     
@@ -3052,7 +3052,7 @@ export class CellsCloudFileInfoResponse  extends CellsCloudResponse  {
 
     }
 
-    public fileInfo: CellsCloudFileInfo;
+    public fileInfo!: CellsCloudFileInfo;
 
     public constructor(init?: Partial< CellsCloudFileInfoResponse >) {  
          super(init);     
@@ -3079,7 +3079,7 @@ export class CellsCloudPublicKeyResponse  extends CellsCloudResponse  {
 
     }
 
-    public cellsCloudPublicKey: CellsCloudPublicKey;
+    public cellsCloudPublicKey!: CellsCloudPublicKey;
 
     public constructor(init?: Partial< CellsCloudPublicKeyResponse >) {  
          super(init);     
@@ -3106,7 +3106,7 @@ export class SaveResponse  extends CellsCloudResponse  {
 
     }
 
-    public saveResult: SaveResult;
+    public saveResult!: SaveResult;
 
     public constructor(init?: Partial< SaveResponse >) {  
          super(init);     
@@ -3133,7 +3133,7 @@ export class SearchResponse  extends CellsCloudResponse  {
 
     }
 
-    public textItems: Array<TextItem>;
+    public textItems!: Array<TextItem>;
 
     public constructor(init?: Partial< SearchResponse >) {  
          super(init);     
@@ -3180,11 +3180,11 @@ export class RenderingFont  {
 
     }
 
-    public name: string;
-    public size: number;
-    public bold: boolean;
-    public italic: boolean;
-    public color: Color;
+    public name!: string;
+    public size!: number;
+    public bold!: boolean;
+    public italic!: boolean;
+    public color!: Color;
 
     public constructor(init?: Partial< RenderingFont >) {  
     
@@ -3244,9 +3244,9 @@ export class AboveAverage  {
 
     }
 
-    public isAboveAverage: boolean;
-    public isEqualAverage: boolean;
-    public stdDev: number;
+    public isAboveAverage!: boolean;
+    public isEqualAverage!: boolean;
+    public stdDev!: number;
 
     public constructor(init?: Partial< AboveAverage >) {  
     
@@ -3284,9 +3284,9 @@ export class AbstractCalculationEngine  {
 
     }
 
-    public isParamLiteralRequired: boolean;
-    public isParamArrayModeRequired: boolean;
-    public processBuiltInFunctions: boolean;
+    public isParamLiteralRequired!: boolean;
+    public isParamArrayModeRequired!: boolean;
+    public processBuiltInFunctions!: boolean;
 
     public constructor(init?: Partial< AbstractCalculationEngine >) {  
     
@@ -3324,9 +3324,9 @@ export class AbstractCalculationMonitor  {
 
     }
 
-    public originalValue: Object;
-    public valueChanged: boolean;
-    public calculatedValue: Object;
+    public originalValue!: Object;
+    public valueChanged!: boolean;
+    public calculatedValue!: Object;
 
     public constructor(init?: Partial< AbstractCalculationMonitor >) {  
     
@@ -3353,7 +3353,7 @@ export class LinkElement  {
 
     }
 
-    public link: Link;
+    public link!: Link;
 
     public constructor(init?: Partial< LinkElement >) {  
     
@@ -3405,12 +3405,12 @@ export class DataSorter  {
 
     }
 
-    public caseSensitive: boolean;
-    public hasHeaders: boolean;
-    public keyList: Array<SortKey>;
-    public sortLeftToRight: boolean;
-    public sortAsNumber: boolean;
-    public keys: Array<DataSorterKey>;
+    public caseSensitive!: boolean;
+    public hasHeaders!: boolean;
+    public keyList!: Array<SortKey>;
+    public sortLeftToRight!: boolean;
+    public sortAsNumber!: boolean;
+    public keys!: Array<DataSorterKey>;
 
     public constructor(init?: Partial< DataSorter >) {  
     
@@ -3478,15 +3478,15 @@ export class FilterColumn  {
 
     }
 
-    public fieldIndex: number;
-    public filterType: string;
-    public multipleFilters: MultipleFilters;
-    public colorFilter: ColorFilter;
-    public customFilters: Array<CustomFilter>;
-    public dynamicFilter: DynamicFilter;
-    public iconFilter: IconFilter;
-    public top10Filter: Top10Filter;
-    public visibledropdown: string;
+    public fieldIndex!: number;
+    public filterType!: string;
+    public multipleFilters!: MultipleFilters;
+    public colorFilter!: ColorFilter;
+    public customFilters!: Array<CustomFilter>;
+    public dynamicFilter!: DynamicFilter;
+    public iconFilter!: IconFilter;
+    public top10Filter!: Top10Filter;
+    public visibledropdown!: string;
 
     public constructor(init?: Partial< FilterColumn >) {  
     
@@ -3528,10 +3528,10 @@ export class Link  {
 
     }
 
-    public href: string;
-    public rel: string;
-    public title: string;
-    public type: string;
+    public href!: string;
+    public rel!: string;
+    public title!: string;
+    public type!: string;
 
     public constructor(init?: Partial< Link >) {  
     
@@ -3573,10 +3573,10 @@ export class AutoFilter  extends LinkElement  {
 
     }
 
-    public filterColumns: Array<FilterColumn>;
-    public range: string;
-    public sorter: DataSorter;
-    public showFilterButton: boolean;
+    public filterColumns!: Array<FilterColumn>;
+    public range!: string;
+    public sorter!: DataSorter;
+    public showFilterButton!: boolean;
 
     public constructor(init?: Partial< AutoFilter >) {  
          super(init);     
@@ -3638,14 +3638,14 @@ export class AutoFitterOptions  {
 
     }
 
-    public autoFitMergedCellsType: string;
-    public ignoreHidden: boolean;
-    public onlyAuto: boolean;
-    public defaultEditLanguage: string;
-    public maxRowHeight: number;
-    public autoFitWrappedTextType: string;
-    public formatStrategy: string;
-    public forRendering: boolean;
+    public autoFitMergedCellsType!: string;
+    public ignoreHidden!: boolean;
+    public onlyAuto!: boolean;
+    public defaultEditLanguage!: string;
+    public maxRowHeight!: number;
+    public autoFitWrappedTextType!: string;
+    public formatStrategy!: string;
+    public forRendering!: boolean;
 
     public constructor(init?: Partial< AutoFitterOptions >) {  
     
@@ -3678,8 +3678,8 @@ export class ThemeColor  {
 
     }
 
-    public colorType: string;
-    public tint: number;
+    public colorType!: string;
+    public tint!: number;
 
     public constructor(init?: Partial< ThemeColor >) {  
     
@@ -3727,11 +3727,11 @@ export class Border  {
 
     }
 
-    public lineStyle: string;
-    public color: Color;
-    public borderType: string;
-    public themeColor: ThemeColor;
-    public argbColor: number;
+    public lineStyle!: string;
+    public color!: Color;
+    public borderType!: string;
+    public themeColor!: ThemeColor;
+    public argbColor!: number;
 
     public constructor(init?: Partial< Border >) {  
     
@@ -3809,17 +3809,17 @@ export class Workbook  {
 
     }
 
-    public fileName: string;
-    public links: Array<Link>;
-    public worksheets: LinkElement;
-    public defaultStyle: LinkElement;
-    public documentProperties: LinkElement;
-    public names: LinkElement;
-    public settings: LinkElement;
-    public isWriteProtected: string;
-    public isProtected: string;
-    public isEncryption: string;
-    public password: string;
+    public fileName!: string;
+    public links!: Array<Link>;
+    public worksheets!: LinkElement;
+    public defaultStyle!: LinkElement;
+    public documentProperties!: LinkElement;
+    public names!: LinkElement;
+    public settings!: LinkElement;
+    public isWriteProtected!: string;
+    public isProtected!: string;
+    public isEncryption!: string;
+    public password!: string;
 
     public constructor(init?: Partial< Workbook >) {  
     
@@ -3877,13 +3877,13 @@ export class CalculationOptions  {
 
     }
 
-    public calcStackSize: number;
-    public ignoreError: boolean;
-    public precisionStrategy: string;
-    public recursive: boolean;
-    public customEngine: AbstractCalculationEngine;
-    public calculationMonitor: AbstractCalculationMonitor;
-    public linkedDataSources: Array<Workbook>;
+    public calcStackSize!: number;
+    public ignoreError!: boolean;
+    public precisionStrategy!: string;
+    public recursive!: boolean;
+    public customEngine!: AbstractCalculationEngine;
+    public calculationMonitor!: AbstractCalculationMonitor;
+    public linkedDataSources!: Array<Workbook>;
 
     public constructor(init?: Partial< CalculationOptions >) {  
     
@@ -3985,22 +3985,22 @@ export class Cell  extends LinkElement  {
 
     }
 
-    public name: string;
-    public row: number;
-    public column: number;
-    public value: string;
-    public type: string;
-    public formula: string;
-    public isFormula: boolean;
-    public isMerged: boolean;
-    public isArrayHeader: boolean;
-    public isInArray: boolean;
-    public isErrorValue: boolean;
-    public isInTable: boolean;
-    public isStyleSet: boolean;
-    public htmlString: string;
-    public style: LinkElement;
-    public worksheet: string;
+    public name!: string;
+    public row!: number;
+    public column!: number;
+    public value!: string;
+    public type!: string;
+    public formula!: string;
+    public isFormula!: boolean;
+    public isMerged!: boolean;
+    public isArrayHeader!: boolean;
+    public isInArray!: boolean;
+    public isErrorValue!: boolean;
+    public isInTable!: boolean;
+    public isStyleSet!: boolean;
+    public htmlString!: string;
+    public style!: LinkElement;
+    public worksheet!: string;
 
     public constructor(init?: Partial< Cell >) {  
          super(init);     
@@ -4052,12 +4052,12 @@ export class Cells  extends LinkElement  {
 
     }
 
-    public maxRow: number;
-    public maxColumn: number;
-    public cellCount: number;
-    public rows: LinkElement;
-    public columns: LinkElement;
-    public cellList: Array<LinkElement>;
+    public maxRow!: number;
+    public maxColumn!: number;
+    public cellCount!: number;
+    public rows!: LinkElement;
+    public columns!: LinkElement;
+    public cellList!: Array<LinkElement>;
 
     public constructor(init?: Partial< Cells >) {  
          super(init);     
@@ -4120,14 +4120,14 @@ export class CellsColor  {
 
     }
 
-    public color: Color;
-    public colorIndex: number;
-    public isShapeColor: boolean;
-    public tint: number;
-    public argb: number;
-    public themeColor: ThemeColor;
-    public type: string;
-    public transparency: number;
+    public color!: Color;
+    public colorIndex!: number;
+    public isShapeColor!: boolean;
+    public tint!: number;
+    public argb!: number;
+    public themeColor!: ThemeColor;
+    public type!: string;
+    public transparency!: number;
 
     public constructor(init?: Partial< CellsColor >) {  
     
@@ -4179,12 +4179,12 @@ export class CellsDocumentProperty  {
 
     }
 
-    public name: string;
-    public value: string;
-    public isLinkedToContent: string;
-    public source: string;
-    public type: string;
-    public isGeneratedName: string;
+    public name!: string;
+    public value!: string;
+    public isLinkedToContent!: string;
+    public source!: string;
+    public type!: string;
+    public isGeneratedName!: string;
 
     public constructor(init?: Partial< CellsDocumentProperty >) {  
     
@@ -4211,7 +4211,7 @@ export class CellsDocumentProperties  {
 
     }
 
-    public documentPropertyList: Array<CellsDocumentProperty>;
+    public documentPropertyList!: Array<CellsDocumentProperty>;
 
     public constructor(init?: Partial< CellsDocumentProperties >) {  
     
@@ -4258,11 +4258,11 @@ export class ColorFilter  {
 
     }
 
-    public filterByFillColor: boolean;
-    public pattern: string;
-    public color: CellsColor;
-    public foregroundColorColor: CellsColor;
-    public backgroundColor: CellsColor;
+    public filterByFillColor!: boolean;
+    public pattern!: string;
+    public color!: CellsColor;
+    public foregroundColorColor!: CellsColor;
+    public backgroundColor!: CellsColor;
 
     public constructor(init?: Partial< ColorFilter >) {  
     
@@ -4300,9 +4300,9 @@ export class ConditionalFormattingValue  {
 
     }
 
-    public isGTE: boolean;
-    public type: string;
-    public value: Object;
+    public isGTE!: boolean;
+    public type!: string;
+    public value!: Object;
 
     public constructor(init?: Partial< ConditionalFormattingValue >) {  
     
@@ -4356,12 +4356,12 @@ export class ColorScale  {
 
     }
 
-    public maxCfvo: ConditionalFormattingValue;
-    public maxColor: Color;
-    public midCfvo: ConditionalFormattingValue;
-    public midColor: Color;
-    public minCfvo: ConditionalFormattingValue;
-    public minColor: Color;
+    public maxCfvo!: ConditionalFormattingValue;
+    public maxColor!: Color;
+    public midCfvo!: ConditionalFormattingValue;
+    public midColor!: Color;
+    public minCfvo!: ConditionalFormattingValue;
+    public minColor!: Color;
 
     public constructor(init?: Partial< ColorScale >) {  
     
@@ -4408,11 +4408,11 @@ export class Column  extends LinkElement  {
 
     }
 
-    public groupLevel: number;
-    public index: number;
-    public isHidden: boolean;
-    public width: number;
-    public style: LinkElement;
+    public groupLevel!: number;
+    public index!: number;
+    public isHidden!: boolean;
+    public width!: number;
+    public style!: LinkElement;
 
     public constructor(init?: Partial< Column >) {  
          super(init);     
@@ -4449,9 +4449,9 @@ export class Columns  extends LinkElement  {
 
     }
 
-    public maxColumn: number;
-    public columnsCount: number;
-    public columnsList: Array<LinkElement>;
+    public maxColumn!: number;
+    public columnsCount!: number;
+    public columnsList!: Array<LinkElement>;
 
     public constructor(init?: Partial< Columns >) {  
          super(init);     
@@ -4528,17 +4528,17 @@ export class Comment  extends LinkElement  {
 
     }
 
-    public cellName: string;
-    public author: string;
-    public htmlNote: string;
-    public note: string;
-    public autoSize: boolean;
-    public isVisible: boolean;
-    public width: number;
-    public height: number;
-    public textHorizontalAlignment: string;
-    public textOrientationType: string;
-    public textVerticalAlignment: string;
+    public cellName!: string;
+    public author!: string;
+    public htmlNote!: string;
+    public note!: string;
+    public autoSize!: boolean;
+    public isVisible!: boolean;
+    public width!: number;
+    public height!: number;
+    public textHorizontalAlignment!: string;
+    public textOrientationType!: string;
+    public textVerticalAlignment!: string;
 
     public constructor(init?: Partial< Comment >) {  
          super(init);     
@@ -4565,7 +4565,7 @@ export class Comments  extends LinkElement  {
 
     }
 
-    public commentList: Array<LinkElement>;
+    public commentList!: Array<LinkElement>;
 
     public constructor(init?: Partial< Comments >) {  
          super(init);     
@@ -4657,20 +4657,20 @@ export class FormatCondition  extends LinkElement  {
 
     }
 
-    public priority: number;
-    public type: string;
-    public stopIfTrue: boolean;
-    public aboveAverage: AboveAverage;
-    public colorScale: ColorScale;
-    public dataBar: DataBar;
-    public formula1: string;
-    public formula2: string;
-    public iconSet: IconSet;
-    public operator: string;
-    public style: Style;
-    public text: string;
-    public timePeriod: string;
-    public top10: Top10;
+    public priority!: number;
+    public type!: string;
+    public stopIfTrue!: boolean;
+    public aboveAverage!: AboveAverage;
+    public colorScale!: ColorScale;
+    public dataBar!: DataBar;
+    public formula1!: string;
+    public formula2!: string;
+    public iconSet!: IconSet;
+    public operator!: string;
+    public style!: Style;
+    public text!: string;
+    public timePeriod!: string;
+    public top10!: Top10;
 
     public constructor(init?: Partial< FormatCondition >) {  
          super(init);     
@@ -4702,8 +4702,8 @@ export class ConditionalFormatting  extends LinkElement  {
 
     }
 
-    public sqref: string;
-    public formatConditions: Array<FormatCondition>;
+    public sqref!: string;
+    public formatConditions!: Array<FormatCondition>;
 
     public constructor(init?: Partial< ConditionalFormatting >) {  
          super(init);     
@@ -4741,9 +4741,9 @@ export class ConditionalFormattingIcon  {
 
     }
 
-    public imageData: string;
-    public index: number;
-    public type: string;
+    public imageData!: string;
+    public index!: number;
+    public type!: string;
 
     public constructor(init?: Partial< ConditionalFormattingIcon >) {  
     
@@ -4775,8 +4775,8 @@ export class ConditionalFormattings  extends LinkElement  {
 
     }
 
-    public count: number;
-    public conditionalFormattingList: Array<ConditionalFormatting>;
+    public count!: number;
+    public conditionalFormattingList!: Array<ConditionalFormatting>;
 
     public constructor(init?: Partial< ConditionalFormattings >) {  
          super(init);     
@@ -4833,13 +4833,13 @@ export class CopyOptions  {
 
     }
 
-    public columnCharacterWidth: boolean;
-    public copyInvalidFormulasAsValues: boolean;
-    public copyNames: boolean;
-    public extendToAdjacentRange: boolean;
-    public referToDestinationSheet: boolean;
-    public referToSheetWithSameName: boolean;
-    public copyTheme: boolean;
+    public columnCharacterWidth!: boolean;
+    public copyInvalidFormulasAsValues!: boolean;
+    public copyNames!: boolean;
+    public extendToAdjacentRange!: boolean;
+    public referToDestinationSheet!: boolean;
+    public referToSheetWithSameName!: boolean;
+    public copyTheme!: boolean;
 
     public constructor(init?: Partial< CopyOptions >) {  
     
@@ -4891,7 +4891,7 @@ export class CriteriaMultipleFilter  extends MultipleFilter  {
 
     }
 
-    public criteria: string;
+    public criteria!: string;
 
     public constructor(init?: Partial< CriteriaMultipleFilter >) {  
          super(init);     
@@ -4924,8 +4924,8 @@ export class CustomFilter  {
 
     }
 
-    public criteria: Object;
-    public filterOperatorType: string;
+    public criteria!: Object;
+    public filterOperatorType!: string;
 
     public constructor(init?: Partial< CustomFilter >) {  
     
@@ -4958,8 +4958,8 @@ export class DataBarBorder  {
 
     }
 
-    public color: Color;
-    public type: string;
+    public color!: Color;
+    public type!: string;
 
     public constructor(init?: Partial< DataBarBorder >) {  
     
@@ -5003,10 +5003,10 @@ export class NegativeBarFormat  {
 
     }
 
-    public borderColor: Color;
-    public borderColorType: string;
-    public color: Color;
-    public colorType: string;
+    public borderColor!: Color;
+    public borderColorType!: string;
+    public color!: Color;
+    public colorType!: string;
 
     public constructor(init?: Partial< NegativeBarFormat >) {  
     
@@ -5089,18 +5089,18 @@ export class DataBar  {
 
     }
 
-    public axisColor: Color;
-    public axisPosition: string;
-    public barBorder: DataBarBorder;
-    public barFillType: string;
-    public color: Color;
-    public direction: string;
-    public maxCfvo: ConditionalFormattingValue;
-    public maxLength: number;
-    public minCfvo: ConditionalFormattingValue;
-    public minLength: number;
-    public negativeBarFormat: NegativeBarFormat;
-    public showValue: boolean;
+    public axisColor!: Color;
+    public axisPosition!: string;
+    public barBorder!: DataBarBorder;
+    public barFillType!: string;
+    public color!: Color;
+    public direction!: string;
+    public maxCfvo!: ConditionalFormattingValue;
+    public maxLength!: number;
+    public minCfvo!: ConditionalFormattingValue;
+    public minLength!: number;
+    public negativeBarFormat!: NegativeBarFormat;
+    public showValue!: boolean;
 
     public constructor(init?: Partial< DataBar >) {  
     
@@ -5137,9 +5137,9 @@ export class DataFill  {
 
     }
 
-    public ranges: Array<Range>;
-    public dataFillDefaultValue: DataFillValue;
-    public dataColumnFillValueList: Array<DataColumnFillValue>;
+    public ranges!: Array<Range>;
+    public dataFillDefaultValue!: DataFillValue;
+    public dataColumnFillValueList!: Array<DataColumnFillValue>;
 
     public constructor(init?: Partial< DataFill >) {  
     
@@ -5176,9 +5176,9 @@ export class DataCleansing  {
 
     }
 
-    public ranges: Array<Range>;
-    public needFillData: boolean;
-    public dataFill: DataFill;
+    public ranges!: Array<Range>;
+    public needFillData!: boolean;
+    public dataFill!: DataFill;
 
     public constructor(init?: Partial< DataCleansing >) {  
     
@@ -5225,11 +5225,11 @@ export class DataFillValue  {
 
     }
 
-    public defaultBoolean: boolean;
-    public defaultString: string;
-    public defaultNumber: number;
-    public defaultDouble: number;
-    public defaultDate: string;
+    public defaultBoolean!: boolean;
+    public defaultString!: string;
+    public defaultNumber!: number;
+    public defaultDouble!: number;
+    public defaultDate!: string;
 
     public constructor(init?: Partial< DataFillValue >) {  
     
@@ -5261,8 +5261,8 @@ export class DataColumnFillValue  {
 
     }
 
-    public columnIndex: number;
-    public dataFillValue: DataFillValue;
+    public columnIndex!: number;
+    public dataFillValue!: DataFillValue;
 
     public constructor(init?: Partial< DataColumnFillValue >) {  
     
@@ -5294,8 +5294,8 @@ export class DataItem  {
 
     }
 
-    public dataItemType: string;
-    public value: string;
+    public dataItemType!: string;
+    public value!: string;
 
     public constructor(init?: Partial< DataItem >) {  
     
@@ -5348,12 +5348,12 @@ export class DataSorterKey  {
 
     }
 
-    public order: string;
-    public index: number;
-    public type: string;
-    public iconSetType: string;
-    public iconId: number;
-    public color: Color;
+    public order!: string;
+    public index!: number;
+    public type!: string;
+    public iconSetType!: string;
+    public iconId!: number;
+    public color!: Color;
 
     public constructor(init?: Partial< DataSorterKey >) {  
     
@@ -5405,12 +5405,12 @@ export class SortKey  {
 
     }
 
-    public key: number;
-    public sortOrder: string;
-    public customList: Array<string>;
-    public order: string;
-    public index: number;
-    public type: string;
+    public key!: number;
+    public sortOrder!: string;
+    public customList!: Array<string>;
+    public order!: string;
+    public index!: number;
+    public type!: string;
 
     public constructor(init?: Partial< SortKey >) {  
     
@@ -5442,8 +5442,8 @@ export class DataSource  {
 
     }
 
-    public dataSourceType: string;
-    public dataPath: string;
+    public dataSourceType!: string;
+    public dataPath!: string;
 
     public constructor(init?: Partial< DataSource >) {  
     
@@ -5500,13 +5500,13 @@ export class DateTimeGroupItem  extends MultipleFilter  {
 
     }
 
-    public dateTimeGroupingType: string;
-    public day: number;
-    public hour: number;
-    public minute: number;
-    public month: number;
-    public second: number;
-    public year: number;
+    public dateTimeGroupingType!: string;
+    public day!: number;
+    public hour!: number;
+    public minute!: number;
+    public month!: number;
+    public second!: number;
+    public year!: number;
 
     public constructor(init?: Partial< DateTimeGroupItem >) {  
          super(init);     
@@ -5538,8 +5538,8 @@ export class DeduplicationRegion  {
 
     }
 
-    public ranges: Array<Range>;
-    public worksheetNameList: Array<string>;
+    public ranges!: Array<Range>;
+    public worksheetNameList!: Array<string>;
 
     public constructor(init?: Partial< DeduplicationRegion >) {  
     
@@ -5577,9 +5577,9 @@ export class DynamicFilter  {
 
     }
 
-    public dynamicFilterType: string;
-    public maxValue: Object;
-    public value: Object;
+    public dynamicFilterType!: string;
+    public maxValue!: Object;
+    public value!: Object;
 
     public constructor(init?: Partial< DynamicFilter >) {  
     
@@ -5616,9 +5616,9 @@ export class FileInfo  {
 
     }
 
-    public filename: string;
-    public fileSize: number;
-    public fileContent: string;
+    public filename!: string;
+    public fileSize!: number;
+    public fileContent!: string;
 
     public constructor(init?: Partial< FileInfo >) {  
     
@@ -5650,8 +5650,8 @@ export class FileSource  {
 
     }
 
-    public fileSourceType: string;
-    public filePath: string;
+    public fileSourceType!: string;
+    public filePath!: string;
 
     public constructor(init?: Partial< FileSource >) {  
     
@@ -5678,7 +5678,7 @@ export class FilesResult  {
 
     }
 
-    public files: Array<FileInfo>;
+    public files!: Array<FileInfo>;
 
     public constructor(init?: Partial< FilesResult >) {  
     
@@ -5711,8 +5711,8 @@ export class IconFilter  {
 
     }
 
-    public iconId: number;
-    public iconSetType: string;
+    public iconId!: number;
+    public iconSetType!: string;
 
     public constructor(init?: Partial< IconFilter >) {  
     
@@ -5745,8 +5745,8 @@ export class MultipleFilters  {
 
     }
 
-    public matchBlank: boolean;
-    public multipleFilterList: Array<MultipleFilter>;
+    public matchBlank!: boolean;
+    public multipleFilterList!: Array<MultipleFilter>;
 
     public constructor(init?: Partial< MultipleFilters >) {  
     
@@ -5794,11 +5794,11 @@ export class Top10Filter  {
 
     }
 
-    public fieldIndex: number;
-    public criteria: string;
-    public isPercent: boolean;
-    public isTop: boolean;
-    public items: number;
+    public fieldIndex!: number;
+    public criteria!: string;
+    public isPercent!: boolean;
+    public isTop!: boolean;
+    public items!: number;
 
     public constructor(init?: Partial< Top10Filter >) {  
     
@@ -5871,16 +5871,16 @@ export class Font  {
 
     }
 
-    public color: Color;
-    public doubleSize: number;
-    public isBold: boolean;
-    public isItalic: boolean;
-    public isStrikeout: boolean;
-    public isSubscript: boolean;
-    public isSuperscript: boolean;
-    public name: string;
-    public size: number;
-    public underline: string;
+    public color!: Color;
+    public doubleSize!: number;
+    public isBold!: boolean;
+    public isItalic!: boolean;
+    public isStrikeout!: boolean;
+    public isSubscript!: boolean;
+    public isSuperscript!: boolean;
+    public name!: string;
+    public size!: number;
+    public underline!: string;
 
     public constructor(init?: Partial< Font >) {  
     
@@ -5932,12 +5932,12 @@ export class TextOptions  extends Font  {
 
     }
 
-    public fill: FillFormat;
-    public kerning: number;
-    public outline: LineFormat;
-    public shadow: ShadowEffect;
-    public spacing: number;
-    public underlineColor: CellsColor;
+    public fill!: FillFormat;
+    public kerning!: number;
+    public outline!: LineFormat;
+    public shadow!: ShadowEffect;
+    public spacing!: number;
+    public underlineColor!: CellsColor;
 
     public constructor(init?: Partial< TextOptions >) {  
          super(init);     
@@ -5985,11 +5985,11 @@ export class FontSetting  {
 
     }
 
-    public font: Font;
-    public length: number;
-    public startIndex: number;
-    public textOptions: TextOptions;
-    public type: string;
+    public font!: Font;
+    public length!: number;
+    public startIndex!: number;
+    public textOptions!: TextOptions;
+    public type!: string;
 
     public constructor(init?: Partial< FontSetting >) {  
     
@@ -6042,12 +6042,12 @@ export class IconSet  {
 
     }
 
-    public cfIcons: Array<ConditionalFormattingIcon>;
-    public cfvos: Array<ConditionalFormattingValue>;
-    public isCustom: boolean;
-    public reverse: boolean;
-    public showValue: boolean;
-    public iconSetType: string;
+    public cfIcons!: Array<ConditionalFormattingIcon>;
+    public cfvos!: Array<ConditionalFormattingValue>;
+    public isCustom!: boolean;
+    public reverse!: boolean;
+    public showValue!: boolean;
+    public iconSetType!: string;
 
     public constructor(init?: Partial< IconSet >) {  
     
@@ -6185,29 +6185,29 @@ export class Style  {
 
     }
 
-    public font: Font;
-    public name: string;
-    public cultureCustom: string;
-    public custom: string;
-    public backgroundColor: Color;
-    public foregroundColor: Color;
-    public isFormulaHidden: boolean;
-    public isDateTime: boolean;
-    public isTextWrapped: boolean;
-    public isGradient: boolean;
-    public isLocked: boolean;
-    public isPercent: boolean;
-    public shrinkToFit: boolean;
-    public indentLevel: number;
-    public number: number;
-    public rotationAngle: number;
-    public pattern: string;
-    public textDirection: string;
-    public verticalAlignment: string;
-    public horizontalAlignment: string;
-    public borderCollection: Array<Border>;
-    public backgroundThemeColor: ThemeColor;
-    public foregroundThemeColor: ThemeColor;
+    public font!: Font;
+    public name!: string;
+    public cultureCustom!: string;
+    public custom!: string;
+    public backgroundColor!: Color;
+    public foregroundColor!: Color;
+    public isFormulaHidden!: boolean;
+    public isDateTime!: boolean;
+    public isTextWrapped!: boolean;
+    public isGradient!: boolean;
+    public isLocked!: boolean;
+    public isPercent!: boolean;
+    public shrinkToFit!: boolean;
+    public indentLevel!: number;
+    public number!: number;
+    public rotationAngle!: number;
+    public pattern!: string;
+    public textDirection!: string;
+    public verticalAlignment!: string;
+    public horizontalAlignment!: string;
+    public borderCollection!: Array<Border>;
+    public backgroundThemeColor!: ThemeColor;
+    public foregroundThemeColor!: ThemeColor;
 
     public constructor(init?: Partial< Style >) {  
     
@@ -6246,9 +6246,9 @@ export class Top10  {
 
     }
 
-    public isBottom: boolean;
-    public isPercent: boolean;
-    public rank: number;
+    public isBottom!: boolean;
+    public isPercent!: boolean;
+    public rank!: number;
 
     public constructor(init?: Partial< Top10 >) {  
     
@@ -6285,9 +6285,9 @@ export class FormulaFormatCondition  {
 
     }
 
-    public formula1: string;
-    public formula2: string;
-    public operator: string;
+    public formula1!: string;
+    public formula2!: string;
+    public operator!: string;
 
     public constructor(init?: Partial< FormulaFormatCondition >) {  
     
@@ -6365,17 +6365,17 @@ export class FormulaSettings  {
 
     }
 
-    public calculateOnOpen: boolean;
-    public calculateOnSave: boolean;
-    public forceFullCalculation: boolean;
-    public calculationMode: string;
-    public calculationId: string;
-    public enableIterativeCalculation: boolean;
-    public maxIteration: number;
-    public maxChange: number;
-    public precisionAsDisplayed: boolean;
-    public enableCalculationChain: boolean;
-    public preservePaddingSpaces: boolean;
+    public calculateOnOpen!: boolean;
+    public calculateOnSave!: boolean;
+    public forceFullCalculation!: boolean;
+    public calculationMode!: string;
+    public calculationId!: string;
+    public enableIterativeCalculation!: boolean;
+    public maxIteration!: number;
+    public maxChange!: number;
+    public precisionAsDisplayed!: boolean;
+    public enableCalculationChain!: boolean;
+    public preservePaddingSpaces!: boolean;
 
     public constructor(init?: Partial< FormulaSettings >) {  
     
@@ -6467,11 +6467,11 @@ export class GlobalizationSettings  {
 
     }
 
-    public chartSettings: ChartGlobalizationSettings;
-    public pivotSettings: PivotGlobalizationSettings;
-    public listSeparator: string;
-    public rowSeparatorOfFormulaArray: string;
-    public columnSeparatorOfFormulaArray: string;
+    public chartSettings!: ChartGlobalizationSettings;
+    public pivotSettings!: PivotGlobalizationSettings;
+    public listSeparator!: string;
+    public rowSeparatorOfFormulaArray!: string;
+    public columnSeparatorOfFormulaArray!: string;
 
     public constructor(init?: Partial< GlobalizationSettings >) {  
     
@@ -6509,9 +6509,9 @@ export class HorizontalPageBreak  {
 
     }
 
-    public row: number;
-    public endColumn: number;
-    public startColumn: number;
+    public row!: number;
+    public endColumn!: number;
+    public startColumn!: number;
 
     public constructor(init?: Partial< HorizontalPageBreak >) {  
     
@@ -6579,11 +6579,11 @@ export class Hyperlink  extends LinkElement  {
 
     }
 
-    public address: string;
-    public area: CellArea;
-    public screenTip: string;
-    public textToDisplay: string;
-    public linkType: string;
+    public address!: string;
+    public area!: CellArea;
+    public screenTip!: string;
+    public textToDisplay!: string;
+    public linkType!: string;
 
     public constructor(init?: Partial< Hyperlink >) {  
          super(init);     
@@ -6615,8 +6615,8 @@ export class Hyperlinks  extends LinkElement  {
 
     }
 
-    public count: number;
-    public hyperlinkList: Array<LinkElement>;
+    public count!: number;
+    public hyperlinkList!: Array<LinkElement>;
 
     public constructor(init?: Partial< Hyperlinks >) {  
          super(init);     
@@ -6693,17 +6693,17 @@ export class LoadOptions  {
 
     }
 
-    public convertNumericData: string;
-    public interruptMonitor: string;
-    public languageCode: string;
-    public loadDataOptions: string;
-    public loadFormat: string;
-    public onlyLoadDocumentProperties: string;
-    public parsingFormulaOnOpen: string;
-    public password: string;
-    public region: string;
-    public standardFont: string;
-    public standardFontSize: number;
+    public convertNumericData!: string;
+    public interruptMonitor!: string;
+    public languageCode!: string;
+    public loadDataOptions!: string;
+    public loadFormat!: string;
+    public onlyLoadDocumentProperties!: string;
+    public parsingFormulaOnOpen!: string;
+    public password!: string;
+    public region!: string;
+    public standardFont!: string;
+    public standardFontSize!: number;
 
     public constructor(init?: Partial< LoadOptions >) {  
     
@@ -6745,10 +6745,10 @@ export class MergedCell  extends LinkElement  {
 
     }
 
-    public endColumn: number;
-    public endRow: number;
-    public startColumn: number;
-    public startRow: number;
+    public endColumn!: number;
+    public endRow!: number;
+    public startColumn!: number;
+    public startRow!: number;
 
     public constructor(init?: Partial< MergedCell >) {  
          super(init);     
@@ -6780,8 +6780,8 @@ export class MergedCells  extends LinkElement  {
 
     }
 
-    public count: number;
-    public mergedCellList: Array<LinkElement>;
+    public count!: number;
+    public mergedCellList!: Array<LinkElement>;
 
     public constructor(init?: Partial< MergedCells >) {  
          super(init);     
@@ -6838,13 +6838,13 @@ export class Name  extends LinkElement  {
 
     }
 
-    public comment: string;
-    public worksheetIndex: number;
-    public isReferred: boolean;
-    public isVisible: boolean;
-    public r1C1RefersTo: string;
-    public refersTo: string;
-    public text: string;
+    public comment!: string;
+    public worksheetIndex!: number;
+    public isReferred!: boolean;
+    public isVisible!: boolean;
+    public r1C1RefersTo!: string;
+    public refersTo!: string;
+    public text!: string;
 
     public constructor(init?: Partial< Name >) {  
          super(init);     
@@ -6876,8 +6876,8 @@ export class Names  extends LinkElement  {
 
     }
 
-    public count: number;
-    public nameList: Array<LinkElement>;
+    public count!: number;
+    public nameList!: Array<LinkElement>;
 
     public constructor(init?: Partial< Names >) {  
          super(init);     
@@ -6924,11 +6924,11 @@ export class PageSection  {
 
     }
 
-    public section: number;
-    public context: string;
-    public picture: string;
-    public fisrtPageContext: string;
-    public evenPageContext: string;
+    public section!: number;
+    public context!: string;
+    public picture!: string;
+    public fisrtPageContext!: string;
+    public evenPageContext!: string;
 
     public constructor(init?: Partial< PageSection >) {  
     
@@ -7120,40 +7120,40 @@ export class PageSetup  {
 
     }
 
-    public blackAndWhite: boolean;
-    public bottomMargin: number;
-    public centerHorizontally: boolean;
-    public centerVertically: boolean;
-    public firstPageNumber: number;
-    public fitToPagesTall: number;
-    public fitToPagesWide: number;
-    public footerMargin: number;
-    public headerMargin: number;
-    public isAutoFirstPageNumber: boolean;
-    public isHFAlignMargins: boolean;
-    public isHFDiffFirst: boolean;
-    public isHFDiffOddEven: boolean;
-    public isHFScaleWithDoc: boolean;
-    public isPercentScale: boolean;
-    public leftMargin: number;
-    public order: string;
-    public orientation: string;
-    public paperSize: string;
-    public printArea: string;
-    public printComments: string;
-    public printCopies: number;
-    public printDraft: boolean;
-    public printErrors: string;
-    public printGridlines: boolean;
-    public printHeadings: boolean;
-    public printQuality: number;
-    public printTitleColumns: string;
-    public printTitleRows: string;
-    public rightMargin: number;
-    public topMargin: number;
-    public zoom: number;
-    public header: Array<PageSection>;
-    public footer: Array<PageSection>;
+    public blackAndWhite!: boolean;
+    public bottomMargin!: number;
+    public centerHorizontally!: boolean;
+    public centerVertically!: boolean;
+    public firstPageNumber!: number;
+    public fitToPagesTall!: number;
+    public fitToPagesWide!: number;
+    public footerMargin!: number;
+    public headerMargin!: number;
+    public isAutoFirstPageNumber!: boolean;
+    public isHFAlignMargins!: boolean;
+    public isHFDiffFirst!: boolean;
+    public isHFDiffOddEven!: boolean;
+    public isHFScaleWithDoc!: boolean;
+    public isPercentScale!: boolean;
+    public leftMargin!: number;
+    public order!: string;
+    public orientation!: string;
+    public paperSize!: string;
+    public printArea!: string;
+    public printComments!: string;
+    public printCopies!: number;
+    public printDraft!: boolean;
+    public printErrors!: string;
+    public printGridlines!: boolean;
+    public printHeadings!: boolean;
+    public printQuality!: number;
+    public printTitleColumns!: string;
+    public printTitleRows!: string;
+    public rightMargin!: number;
+    public topMargin!: number;
+    public zoom!: number;
+    public header!: Array<PageSection>;
+    public footer!: Array<PageSection>;
 
     public constructor(init?: Partial< PageSetup >) {  
     
@@ -7196,10 +7196,10 @@ export class PasteOptions  {
 
     }
 
-    public onlyVisibleCells: boolean;
-    public pasteType: string;
-    public skipBlanks: boolean;
-    public transpose: boolean;
+    public onlyVisibleCells!: boolean;
+    public pasteType!: string;
+    public skipBlanks!: boolean;
+    public transpose!: boolean;
 
     public constructor(init?: Partial< PasteOptions >) {  
     
@@ -7307,23 +7307,23 @@ export class Protection  {
 
     }
 
-    public allowDeletingColumn: boolean;
-    public allowDeletingRow: boolean;
-    public allowFiltering: boolean;
-    public allowFormattingCell: boolean;
-    public allowFormattingColumn: boolean;
-    public allowFormattingRow: boolean;
-    public allowInsertingColumn: boolean;
-    public allowInsertingHyperlink: boolean;
-    public allowInsertingRow: boolean;
-    public allowSorting: boolean;
-    public allowUsingPivotTable: boolean;
-    public allowEditingContent: boolean;
-    public allowEditingObject: boolean;
-    public allowEditingScenario: boolean;
-    public password: string;
-    public allowSelectingLockedCell: boolean;
-    public allowSelectingUnlockedCell: boolean;
+    public allowDeletingColumn!: boolean;
+    public allowDeletingRow!: boolean;
+    public allowFiltering!: boolean;
+    public allowFormattingCell!: boolean;
+    public allowFormattingColumn!: boolean;
+    public allowFormattingRow!: boolean;
+    public allowInsertingColumn!: boolean;
+    public allowInsertingHyperlink!: boolean;
+    public allowInsertingRow!: boolean;
+    public allowSorting!: boolean;
+    public allowUsingPivotTable!: boolean;
+    public allowEditingContent!: boolean;
+    public allowEditingObject!: boolean;
+    public allowEditingScenario!: boolean;
+    public password!: string;
+    public allowSelectingLockedCell!: boolean;
+    public allowSelectingUnlockedCell!: boolean;
 
     public constructor(init?: Partial< Protection >) {  
     
@@ -7425,22 +7425,22 @@ export class ProtectSheetParameter  {
 
     }
 
-    public protectionType: string;
-    public password: string;
-    public allowEditArea: Array<string>;
-    public allowDeletingColumn: string;
-    public allowDeletingRow: string;
-    public allowFiltering: string;
-    public allowFormattingCell: string;
-    public allowFormattingColumn: string;
-    public allowFormattingRow: string;
-    public allowInsertingColumn: string;
-    public allowInsertingHyperlink: string;
-    public allowInsertingRow: string;
-    public allowSelectingLockedCell: string;
-    public allowSelectingUnlockedCell: string;
-    public allowSorting: string;
-    public allowUsingPivotTable: string;
+    public protectionType!: string;
+    public password!: string;
+    public allowEditArea!: Array<string>;
+    public allowDeletingColumn!: string;
+    public allowDeletingRow!: string;
+    public allowFiltering!: string;
+    public allowFormattingCell!: string;
+    public allowFormattingColumn!: string;
+    public allowFormattingRow!: string;
+    public allowInsertingColumn!: string;
+    public allowInsertingHyperlink!: string;
+    public allowInsertingRow!: string;
+    public allowSelectingLockedCell!: string;
+    public allowSelectingUnlockedCell!: string;
+    public allowSorting!: string;
+    public allowUsingPivotTable!: string;
 
     public constructor(init?: Partial< ProtectSheetParameter >) {  
     
@@ -7468,7 +7468,7 @@ export class Ranges  {
 
     }
 
-    public rangeList: Array<Range>;
+    public rangeList!: Array<Range>;
 
     public constructor(init?: Partial< Ranges >) {  
     
@@ -7525,13 +7525,13 @@ export class Row  extends LinkElement  {
 
     }
 
-    public groupLevel: number;
-    public height: number;
-    public index: number;
-    public isBlank: boolean;
-    public isHeightMatched: boolean;
-    public isHidden: boolean;
-    public style: LinkElement;
+    public groupLevel!: number;
+    public height!: number;
+    public index!: number;
+    public isBlank!: boolean;
+    public isHeightMatched!: boolean;
+    public isHidden!: boolean;
+    public style!: LinkElement;
 
     public constructor(init?: Partial< Row >) {  
          super(init);     
@@ -7568,9 +7568,9 @@ export class Rows  extends LinkElement  {
 
     }
 
-    public maxRow: number;
-    public rowsCount: number;
-    public rowsList: Array<LinkElement>;
+    public maxRow!: number;
+    public rowsCount!: number;
+    public rowsList!: Array<LinkElement>;
 
     public constructor(init?: Partial< Rows >) {  
          super(init);     
@@ -7602,8 +7602,8 @@ export class SingleValue  {
 
     }
 
-    public value: string;
-    public valueType: ValueType;
+    public value!: string;
+    public valueType!: ValueType;
 
     public constructor(init?: Partial< SingleValue >) {  
     
@@ -7630,7 +7630,7 @@ export class SplitResult  {
 
     }
 
-    public documents: Array<CellsCloudFileInfo>;
+    public documents!: Array<CellsCloudFileInfo>;
 
     public constructor(init?: Partial< SplitResult >) {  
     
@@ -7678,7 +7678,7 @@ export class Styles  extends LinkElement  {
 
     }
 
-    public styleList: Array<Style>;
+    public styleList!: Array<Style>;
 
     public constructor(init?: Partial< Styles >) {  
          super(init);     
@@ -7705,7 +7705,7 @@ export class TextFormatCondition  extends FormulaFormatCondition  {
 
     }
 
-    public text: string;
+    public text!: string;
 
     public constructor(init?: Partial< TextFormatCondition >) {  
          super(init);     
@@ -7732,7 +7732,7 @@ export class TextItems  extends LinkElement  {
 
     }
 
-    public textItemList: Array<TextItem>;
+    public textItemList!: Array<TextItem>;
 
     public constructor(init?: Partial< TextItems >) {  
          super(init);     
@@ -7785,12 +7785,12 @@ export class FillFormat  {
 
     }
 
-    public type: string;
-    public solidFill: SolidFill;
-    public patternFill: PatternFill;
-    public textureFill: TextureFill;
-    public gradientFill: GradientFill;
-    public imageData: string;
+    public type!: string;
+    public solidFill!: SolidFill;
+    public patternFill!: PatternFill;
+    public textureFill!: TextureFill;
+    public gradientFill!: GradientFill;
+    public imageData!: string;
 
     public constructor(init?: Partial< FillFormat >) {  
     
@@ -7867,17 +7867,17 @@ export class LineFormat  extends FillFormat  {
 
     }
 
-    public beginArrowheadLength: string;
-    public beginArrowheadStyle: string;
-    public beginArrowheadWidth: string;
-    public capType: string;
-    public compoundType: string;
-    public dashStyle: string;
-    public endArrowheadLength: string;
-    public endArrowheadStyle: string;
-    public endArrowheadWidth: string;
-    public joinType: string;
-    public weight: number;
+    public beginArrowheadLength!: string;
+    public beginArrowheadStyle!: string;
+    public beginArrowheadWidth!: string;
+    public capType!: string;
+    public compoundType!: string;
+    public dashStyle!: string;
+    public endArrowheadLength!: string;
+    public endArrowheadStyle!: string;
+    public endArrowheadWidth!: string;
+    public joinType!: string;
+    public weight!: number;
 
     public constructor(init?: Partial< LineFormat >) {  
          super(init);     
@@ -7935,13 +7935,13 @@ export class ShadowEffect  {
 
     }
 
-    public angle: number;
-    public blur: number;
-    public color: CellsColor;
-    public distance: number;
-    public presetType: string;
-    public size: number;
-    public transparency: number;
+    public angle!: number;
+    public blur!: number;
+    public color!: CellsColor;
+    public distance!: number;
+    public presetType!: string;
+    public size!: number;
+    public transparency!: number;
 
     public constructor(init?: Partial< ShadowEffect >) {  
     
@@ -7968,7 +7968,7 @@ export class TimePeriodFormatCondition  {
 
     }
 
-    public timePeriod: string;
+    public timePeriod!: string;
 
     public constructor(init?: Partial< TimePeriodFormatCondition >) {  
     
@@ -8070,22 +8070,22 @@ export class Validation  extends LinkElement  {
 
     }
 
-    public alertStyle: string;
-    public areaList: Array<CellArea>;
-    public errorMessage: string;
-    public errorTitle: string;
-    public formula1: string;
-    public formula2: string;
-    public ignoreBlank: boolean;
-    public inCellDropDown: boolean;
-    public inputMessage: string;
-    public inputTitle: string;
-    public operator: string;
-    public showError: boolean;
-    public showInput: boolean;
-    public type: string;
-    public value1: string;
-    public value2: string;
+    public alertStyle!: string;
+    public areaList!: Array<CellArea>;
+    public errorMessage!: string;
+    public errorTitle!: string;
+    public formula1!: string;
+    public formula2!: string;
+    public ignoreBlank!: boolean;
+    public inCellDropDown!: boolean;
+    public inputMessage!: string;
+    public inputTitle!: string;
+    public operator!: string;
+    public showError!: boolean;
+    public showInput!: boolean;
+    public type!: string;
+    public value1!: string;
+    public value2!: string;
 
     public constructor(init?: Partial< Validation >) {  
          super(init);     
@@ -8117,8 +8117,8 @@ export class Validations  extends LinkElement  {
 
     }
 
-    public count: number;
-    public validationList: Array<LinkElement>;
+    public count!: number;
+    public validationList!: Array<LinkElement>;
 
     public constructor(init?: Partial< Validations >) {  
          super(init);     
@@ -8156,9 +8156,9 @@ export class VerticalPageBreak  {
 
     }
 
-    public column: number;
-    public endRow: number;
-    public startRow: number;
+    public column!: number;
+    public endRow!: number;
+    public startRow!: number;
 
     public constructor(init?: Partial< VerticalPageBreak >) {  
     
@@ -8222,10 +8222,10 @@ export class WriteProtection  {
 
     }
 
-    public author: string;
-    public recommendReadOnly: boolean;
-    public isWriteProtected: boolean;
-    public password: string;
+    public author!: string;
+    public recommendReadOnly!: boolean;
+    public isWriteProtected!: boolean;
+    public password!: string;
 
     public constructor(init?: Partial< WriteProtection >) {  
     
@@ -8558,68 +8558,68 @@ export class WorkbookSettings  {
 
     }
 
-    public autoCompressPictures: boolean;
-    public autoRecover: boolean;
-    public buildVersion: string;
-    public calcMode: string;
-    public calculationId: string;
-    public checkComptiliblity: boolean;
-    public checkExcelRestriction: boolean;
-    public crashSave: boolean;
-    public createCalcChain: boolean;
-    public dataExtractLoad: boolean;
-    public date1904: boolean;
-    public displayDrawingObjects: string;
-    public enableMacros: boolean;
-    public firstVisibleTab: number;
-    public hidePivotFieldList: boolean;
-    public isDefaultEncrypted: boolean;
-    public isHidden: boolean;
-    public isHScrollBarVisible: boolean;
-    public isMinimized: boolean;
-    public isVScrollBarVisible: boolean;
-    public iteration: boolean;
-    public languageCode: string;
-    public maxChange: number;
-    public maxIteration: number;
-    public memorySetting: string;
-    public numberDecimalSeparator: string;
-    public numberGroupSeparator: string;
-    public parsingFormulaOnOpen: boolean;
-    public precisionAsDisplayed: boolean;
-    public recalculateBeforeSave: boolean;
-    public reCalculateOnOpen: boolean;
-    public recommendReadOnly: boolean;
-    public region: string;
-    public removePersonalInformation: boolean;
-    public repairLoad: boolean;
-    public shared: boolean;
-    public sheetTabBarWidth: number;
-    public showTabs: boolean;
-    public updateAdjacentCellsBorder: boolean;
-    public updateLinksType: string;
-    public windowHeight: number;
-    public windowLeft: number;
-    public windowTop: number;
-    public windowWidth: number;
-    public author: string;
-    public checkCustomNumberFormat: boolean;
-    public protectionType: string;
-    public globalizationSettings: GlobalizationSettings;
-    public password: string;
-    public writeProtection: WriteProtection;
-    public isEncrypted: boolean;
-    public isProtected: boolean;
-    public maxRow: number;
-    public maxColumn: number;
-    public significantDigits: number;
-    public checkCompatibility: boolean;
-    public paperSize: string;
-    public maxRowsOfSharedFormula: number;
-    public compliance: string;
-    public quotePrefixToStyle: boolean;
-    public formulaSettings: FormulaSettings;
-    public forceFullCalculate: boolean;
+    public autoCompressPictures!: boolean;
+    public autoRecover!: boolean;
+    public buildVersion!: string;
+    public calcMode!: string;
+    public calculationId!: string;
+    public checkComptiliblity!: boolean;
+    public checkExcelRestriction!: boolean;
+    public crashSave!: boolean;
+    public createCalcChain!: boolean;
+    public dataExtractLoad!: boolean;
+    public date1904!: boolean;
+    public displayDrawingObjects!: string;
+    public enableMacros!: boolean;
+    public firstVisibleTab!: number;
+    public hidePivotFieldList!: boolean;
+    public isDefaultEncrypted!: boolean;
+    public isHidden!: boolean;
+    public isHScrollBarVisible!: boolean;
+    public isMinimized!: boolean;
+    public isVScrollBarVisible!: boolean;
+    public iteration!: boolean;
+    public languageCode!: string;
+    public maxChange!: number;
+    public maxIteration!: number;
+    public memorySetting!: string;
+    public numberDecimalSeparator!: string;
+    public numberGroupSeparator!: string;
+    public parsingFormulaOnOpen!: boolean;
+    public precisionAsDisplayed!: boolean;
+    public recalculateBeforeSave!: boolean;
+    public reCalculateOnOpen!: boolean;
+    public recommendReadOnly!: boolean;
+    public region!: string;
+    public removePersonalInformation!: boolean;
+    public repairLoad!: boolean;
+    public shared!: boolean;
+    public sheetTabBarWidth!: number;
+    public showTabs!: boolean;
+    public updateAdjacentCellsBorder!: boolean;
+    public updateLinksType!: string;
+    public windowHeight!: number;
+    public windowLeft!: number;
+    public windowTop!: number;
+    public windowWidth!: number;
+    public author!: string;
+    public checkCustomNumberFormat!: boolean;
+    public protectionType!: string;
+    public globalizationSettings!: GlobalizationSettings;
+    public password!: string;
+    public writeProtection!: WriteProtection;
+    public isEncrypted!: boolean;
+    public isProtected!: boolean;
+    public maxRow!: number;
+    public maxColumn!: number;
+    public significantDigits!: number;
+    public checkCompatibility!: boolean;
+    public paperSize!: string;
+    public maxRowsOfSharedFormula!: number;
+    public compliance!: string;
+    public quotePrefixToStyle!: boolean;
+    public formulaSettings!: FormulaSettings;
+    public forceFullCalculate!: boolean;
 
     public constructor(init?: Partial< WorkbookSettings >) {  
     
@@ -8802,38 +8802,38 @@ export class Worksheet  {
 
     }
 
-    public links: Array<Link>;
-    public displayRightToLeft: boolean;
-    public displayZeros: boolean;
-    public firstVisibleColumn: number;
-    public firstVisibleRow: number;
-    public name: string;
-    public index: number;
-    public isGridlinesVisible: boolean;
-    public isOutlineShown: boolean;
-    public isPageBreakPreview: boolean;
-    public isVisible: boolean;
-    public isProtected: boolean;
-    public isRowColumnHeadersVisible: boolean;
-    public isRulerVisible: boolean;
-    public isSelected: boolean;
-    public tabColor: Color;
-    public transitionEntry: boolean;
-    public transitionEvaluation: boolean;
-    public type: string;
-    public viewType: string;
-    public visibilityType: string;
-    public zoom: number;
-    public cells: LinkElement;
-    public charts: LinkElement;
-    public autoShapes: LinkElement;
-    public oleObjects: LinkElement;
-    public comments: LinkElement;
-    public pictures: LinkElement;
-    public mergedCells: LinkElement;
-    public validations: LinkElement;
-    public conditionalFormattings: LinkElement;
-    public hyperlinks: LinkElement;
+    public links!: Array<Link>;
+    public displayRightToLeft!: boolean;
+    public displayZeros!: boolean;
+    public firstVisibleColumn!: number;
+    public firstVisibleRow!: number;
+    public name!: string;
+    public index!: number;
+    public isGridlinesVisible!: boolean;
+    public isOutlineShown!: boolean;
+    public isPageBreakPreview!: boolean;
+    public isVisible!: boolean;
+    public isProtected!: boolean;
+    public isRowColumnHeadersVisible!: boolean;
+    public isRulerVisible!: boolean;
+    public isSelected!: boolean;
+    public tabColor!: Color;
+    public transitionEntry!: boolean;
+    public transitionEvaluation!: boolean;
+    public type!: string;
+    public viewType!: string;
+    public visibilityType!: string;
+    public zoom!: number;
+    public cells!: LinkElement;
+    public charts!: LinkElement;
+    public autoShapes!: LinkElement;
+    public oleObjects!: LinkElement;
+    public comments!: LinkElement;
+    public pictures!: LinkElement;
+    public mergedCells!: LinkElement;
+    public validations!: LinkElement;
+    public conditionalFormattings!: LinkElement;
+    public hyperlinks!: LinkElement;
 
     public constructor(init?: Partial< Worksheet >) {  
     
@@ -8860,7 +8860,7 @@ export class Worksheets  extends LinkElement  {
 
     }
 
-    public worksheetList: Array<LinkElement>;
+    public worksheetList!: Array<LinkElement>;
 
     public constructor(init?: Partial< Worksheets >) {  
          super(init);     
@@ -8888,7 +8888,7 @@ export class XmlDataBinding  {
 
     }
 
-    public url: string;
+    public url!: string;
 
     public constructor(init?: Partial< XmlDataBinding >) {  
     
@@ -8926,9 +8926,9 @@ export class XmlMap  {
 
     }
 
-    public name: string;
-    public rootElementName: string;
-    public dataBinding: XmlDataBinding;
+    public name!: string;
+    public rootElementName!: string;
+    public dataBinding!: XmlDataBinding;
 
     public constructor(init?: Partial< XmlMap >) {  
     
@@ -8981,8 +8981,8 @@ export class OperateObject  {
 
     }
 
-    public operateObjectType: string;
-    public position: OperateObjectPosition;
+    public operateObjectType!: string;
+    public position!: OperateObjectPosition;
 
     public constructor(init?: Partial< OperateObject >) {  
     
@@ -9009,7 +9009,7 @@ export class OperateParameter  {
 
     }
 
-    public operateType: string;
+    public operateType!: string;
 
     public constructor(init?: Partial< OperateParameter >) {  
     
@@ -9051,10 +9051,10 @@ export class CellsObjectOperateTaskParameter  extends TaskParameter  {
 
     }
 
-    public operateObject: OperateObject;
-    public operateParameter: OperateParameter;
-    public destinationDataSource: DataSource;
-    public destinationWorkbook: FileSource;
+    public operateObject!: OperateObject;
+    public operateParameter!: OperateParameter;
+    public destinationDataSource!: DataSource;
+    public destinationWorkbook!: FileSource;
 
     public constructor(init?: Partial< CellsObjectOperateTaskParameter >) {  
          super(init);     
@@ -9101,11 +9101,11 @@ export class ConvertTaskParameter  extends TaskParameter  {
 
     }
 
-    public dataSource: DataSource;
-    public workbook: FileSource;
-    public destinationFile: string;
-    public region: string;
-    public saveOptions: SaveOptions;
+    public dataSource!: DataSource;
+    public workbook!: FileSource;
+    public destinationFile!: string;
+    public region!: string;
+    public saveOptions!: SaveOptions;
 
     public constructor(init?: Partial< ConvertTaskParameter >) {  
          super(init);     
@@ -9177,16 +9177,16 @@ export class ConvertWorksheetTaskParameter  extends TaskParameter  {
 
     }
 
-    public dataSource: DataSource;
-    public workbook: FileSource;
-    public sheet: string;
-    public targetDataSource: DataSource;
-    public target: FileSource;
-    public format: string;
-    public area: string;
-    public pageIndex: number;
-    public verticalResolution: number;
-    public horizontalResolution: number;
+    public dataSource!: DataSource;
+    public workbook!: FileSource;
+    public sheet!: string;
+    public targetDataSource!: DataSource;
+    public target!: FileSource;
+    public format!: string;
+    public area!: string;
+    public pageIndex!: number;
+    public verticalResolution!: number;
+    public horizontalResolution!: number;
 
     public constructor(init?: Partial< ConvertWorksheetTaskParameter >) {  
          super(init);     
@@ -9233,11 +9233,11 @@ export class ImportOption  {
 
     }
 
-    public destinationWorksheet: string;
-    public isInsert: boolean;
-    public importDataType: string;
-    public dataSource: DataSource;
-    public source: FileSource;
+    public destinationWorksheet!: string;
+    public isInsert!: boolean;
+    public importDataType!: string;
+    public dataSource!: DataSource;
+    public source!: FileSource;
 
     public constructor(init?: Partial< ImportOption >) {  
     
@@ -9284,11 +9284,11 @@ export class ImportDataTaskParameter  extends TaskParameter  {
 
     }
 
-    public dataSource: DataSource;
-    public workbook: FileSource;
-    public importOption: ImportOption;
-    public targetDataSource: DataSource;
-    public destinationWorkbook: FileSource;
+    public dataSource!: DataSource;
+    public workbook!: FileSource;
+    public importOption!: ImportOption;
+    public targetDataSource!: DataSource;
+    public destinationWorkbook!: FileSource;
 
     public constructor(init?: Partial< ImportDataTaskParameter >) {  
          super(init);     
@@ -9325,9 +9325,9 @@ export class ResultDestination  {
 
     }
 
-    public destinationType: string;
-    public inputFile: string;
-    public outputFile: string;
+    public destinationType!: string;
+    public inputFile!: string;
+    public outputFile!: string;
 
     public constructor(init?: Partial< ResultDestination >) {  
     
@@ -9359,8 +9359,8 @@ export class TaskRunResult  {
 
     }
 
-    public description: string;
-    public outFileList: Array<DataSource>;
+    public description!: string;
+    public outFileList!: Array<DataSource>;
 
     public constructor(init?: Partial< TaskRunResult >) {  
     
@@ -9387,7 +9387,7 @@ export class SaveFilesToCloudResult  extends TaskRunResult  {
 
     }
 
-    public savedFiles: Array<Link>;
+    public savedFiles!: Array<Link>;
 
     public constructor(init?: Partial< SaveFilesToCloudResult >) {  
          super(init);     
@@ -9419,8 +9419,8 @@ export class SaveResultTaskParameter  extends TaskParameter  {
 
     }
 
-    public resultSource: string;
-    public resultDestination: ResultDestination;
+    public resultSource!: string;
+    public resultDestination!: ResultDestination;
 
     public constructor(init?: Partial< SaveResultTaskParameter >) {  
          super(init);     
@@ -9472,12 +9472,12 @@ export class SmartMarkerTaskParameter  extends TaskParameter  {
 
     }
 
-    public sourceWorkbook: FileSource;
-    public destinationWorkbook: FileSource;
-    public xmlFile: FileSource;
-    public dataSource: DataSource;
-    public targetDataSource: DataSource;
-    public xMLFileDataSource: DataSource;
+    public sourceWorkbook!: FileSource;
+    public destinationWorkbook!: FileSource;
+    public xmlFile!: FileSource;
+    public dataSource!: DataSource;
+    public targetDataSource!: DataSource;
+    public xMLFileDataSource!: DataSource;
 
     public constructor(init?: Partial< SmartMarkerTaskParameter >) {  
          super(init);     
@@ -9539,14 +9539,14 @@ export class SplitWorkbookTaskParameter  extends TaskParameter  {
 
     }
 
-    public workbook: FileSource;
-    public destinationFilePosition: FileSource;
-    public dataSource: DataSource;
-    public targetDataSource: DataSource;
-    public destinationFileFormat: string;
-    public splitNameRule: string;
-    public verticalResolution: number;
-    public horizontalResolution: number;
+    public workbook!: FileSource;
+    public destinationFilePosition!: FileSource;
+    public dataSource!: DataSource;
+    public targetDataSource!: DataSource;
+    public destinationFileFormat!: string;
+    public splitNameRule!: string;
+    public verticalResolution!: number;
+    public horizontalResolution!: number;
 
     public constructor(init?: Partial< SplitWorkbookTaskParameter >) {  
          super(init);     
@@ -9578,8 +9578,8 @@ export class TaskDescription  {
 
     }
 
-    public taskType: string;
-    public taskParameter: TaskParameter;
+    public taskType!: string;
+    public taskParameter!: TaskParameter;
 
     public constructor(init?: Partial< TaskDescription >) {  
     
@@ -9606,7 +9606,7 @@ export class TaskData  {
 
     }
 
-    public tasks: Array<TaskDescription>;
+    public tasks!: Array<TaskDescription>;
 
     public constructor(init?: Partial< TaskData >) {  
     
@@ -9704,17 +9704,17 @@ export class ChartOperateParameter  extends OperateParameter  {
 
     }
 
-    public chartIndex: number;
-    public chartType: string;
-    public upperLeftRow: number;
-    public upperLeftColumn: number;
-    public lowerRightRow: number;
-    public lowerRightColumn: number;
-    public area: string;
-    public isVertical: boolean;
-    public categoryData: string;
-    public isAutoGetSerialName: boolean;
-    public title: string;
+    public chartIndex!: number;
+    public chartType!: string;
+    public upperLeftRow!: number;
+    public upperLeftColumn!: number;
+    public lowerRightRow!: number;
+    public lowerRightColumn!: number;
+    public area!: string;
+    public isVertical!: boolean;
+    public categoryData!: string;
+    public isAutoGetSerialName!: boolean;
+    public title!: string;
 
     public constructor(init?: Partial< ChartOperateParameter >) {  
          super(init);     
@@ -9841,27 +9841,27 @@ export class ListObject  extends LinkElement  {
 
     }
 
-    public autoFilter: AutoFilter;
-    public displayName: string;
-    public startColumn: number;
-    public startRow: number;
-    public endColumn: number;
-    public endRow: number;
-    public listColumns: Array<ListColumn>;
-    public showHeaderRow: boolean;
-    public showTableStyleColumnStripes: boolean;
-    public showTableStyleFirstColumn: boolean;
-    public showTableStyleLastColumn: boolean;
-    public showTableStyleRowStripes: boolean;
-    public showTotals: boolean;
-    public tableStyleName: string;
-    public tableStyleType: string;
-    public dataRange: Range;
-    public dataSourceType: string;
-    public comment: string;
-    public xmlMap: XmlMap;
-    public alternativeText: string;
-    public alternativeDescription: string;
+    public autoFilter!: AutoFilter;
+    public displayName!: string;
+    public startColumn!: number;
+    public startRow!: number;
+    public endColumn!: number;
+    public endRow!: number;
+    public listColumns!: Array<ListColumn>;
+    public showHeaderRow!: boolean;
+    public showTableStyleColumnStripes!: boolean;
+    public showTableStyleFirstColumn!: boolean;
+    public showTableStyleLastColumn!: boolean;
+    public showTableStyleRowStripes!: boolean;
+    public showTotals!: boolean;
+    public tableStyleName!: string;
+    public tableStyleType!: string;
+    public dataRange!: Range;
+    public dataSourceType!: string;
+    public comment!: string;
+    public xmlMap!: XmlMap;
+    public alternativeText!: string;
+    public alternativeDescription!: string;
 
     public constructor(init?: Partial< ListObject >) {  
          super(init);     
@@ -9888,7 +9888,7 @@ export class ListObjectOperateParameter  extends OperateParameter  {
 
     }
 
-    public listObject: ListObject;
+    public listObject!: ListObject;
 
     public constructor(init?: Partial< ListObjectOperateParameter >) {  
          super(init);     
@@ -9945,13 +9945,13 @@ export class OperateObjectPosition  {
 
     }
 
-    public dataSource: DataSource;
-    public workbook: FileSource;
-    public sheetName: string;
-    public chartIndex: number;
-    public shapeIndex: number;
-    public cellName: string;
-    public listObjectIndex: number;
+    public dataSource!: DataSource;
+    public workbook!: FileSource;
+    public sheetName!: string;
+    public chartIndex!: number;
+    public shapeIndex!: number;
+    public cellName!: string;
+    public listObjectIndex!: number;
 
     public constructor(init?: Partial< OperateObjectPosition >) {  
     
@@ -10003,12 +10003,12 @@ export class PageBreakOperateParameter  extends OperateParameter  {
 
     }
 
-    public pageBreakType: string;
-    public index: number;
-    public row: number;
-    public column: number;
-    public startIndex: number;
-    public endIndex: number;
+    public pageBreakType!: string;
+    public index!: number;
+    public row!: number;
+    public column!: number;
+    public startIndex!: number;
+    public endIndex!: number;
 
     public constructor(init?: Partial< PageBreakOperateParameter >) {  
          super(init);     
@@ -10035,7 +10035,7 @@ export class PageSetupOperateParameter  extends OperateParameter  {
 
     }
 
-    public pageSetup: PageSetup;
+    public pageSetup!: PageSetup;
 
     public constructor(init?: Partial< PageSetupOperateParameter >) {  
          super(init);     
@@ -10097,14 +10097,14 @@ export class PivotTableOperateParameter  extends OperateParameter  {
 
     }
 
-    public sourceData: string;
-    public destCellName: string;
-    public tableName: string;
-    public useSameSource: boolean;
-    public pivotTableIndex: number;
-    public pivotFieldRows: Array<number>;
-    public pivotFieldColumns: Array<number>;
-    public pivotFieldData: Array<number>;
+    public sourceData!: string;
+    public destCellName!: string;
+    public tableName!: string;
+    public useSameSource!: boolean;
+    public pivotTableIndex!: number;
+    public pivotFieldRows!: Array<number>;
+    public pivotFieldColumns!: Array<number>;
+    public pivotFieldData!: Array<number>;
 
     public constructor(init?: Partial< PivotTableOperateParameter >) {  
          super(init);     
@@ -10306,42 +10306,42 @@ export class Shape  extends LinkElement  {
 
     }
 
-    public name: string;
-    public msoDrawingType: string;
-    public autoShapeType: string;
-    public placement: string;
-    public upperLeftRow: number;
-    public top: number;
-    public upperLeftColumn: number;
-    public left: number;
-    public lowerRightRow: number;
-    public bottom: number;
-    public lowerRightColumn: number;
-    public right: number;
-    public width: number;
-    public height: number;
-    public x: number;
-    public y: number;
-    public rotationAngle: number;
-    public htmlText: string;
-    public text: string;
-    public alternativeText: string;
-    public textHorizontalAlignment: string;
-    public textHorizontalOverflow: string;
-    public textOrientationType: string;
-    public textVerticalAlignment: string;
-    public textVerticalOverflow: string;
-    public isGroup: boolean;
-    public isHidden: boolean;
-    public isLockAspectRatio: boolean;
-    public isLocked: boolean;
-    public isPrintable: boolean;
-    public isTextWrapped: boolean;
-    public isWordArt: boolean;
-    public linkedCell: string;
-    public zOrderPosition: number;
-    public font: Font;
-    public hyperlink: string;
+    public name!: string;
+    public msoDrawingType!: string;
+    public autoShapeType!: string;
+    public placement!: string;
+    public upperLeftRow!: number;
+    public top!: number;
+    public upperLeftColumn!: number;
+    public left!: number;
+    public lowerRightRow!: number;
+    public bottom!: number;
+    public lowerRightColumn!: number;
+    public right!: number;
+    public width!: number;
+    public height!: number;
+    public x!: number;
+    public y!: number;
+    public rotationAngle!: number;
+    public htmlText!: string;
+    public text!: string;
+    public alternativeText!: string;
+    public textHorizontalAlignment!: string;
+    public textHorizontalOverflow!: string;
+    public textOrientationType!: string;
+    public textVerticalAlignment!: string;
+    public textVerticalOverflow!: string;
+    public isGroup!: boolean;
+    public isHidden!: boolean;
+    public isLockAspectRatio!: boolean;
+    public isLocked!: boolean;
+    public isPrintable!: boolean;
+    public isTextWrapped!: boolean;
+    public isWordArt!: boolean;
+    public linkedCell!: string;
+    public zOrderPosition!: number;
+    public font!: Font;
+    public hyperlink!: string;
 
     public constructor(init?: Partial< Shape >) {  
          super(init);     
@@ -10368,7 +10368,7 @@ export class ShapeOperateParameter  extends OperateParameter  {
 
     }
 
-    public shape: Shape;
+    public shape!: Shape;
 
     public constructor(init?: Partial< ShapeOperateParameter >) {  
          super(init);     
@@ -10416,7 +10416,7 @@ export class WorkbookSettingsOperateParameter  extends OperateParameter  {
 
     }
 
-    public workbookSettings: WorkbookSettings;
+    public workbookSettings!: WorkbookSettings;
 
     public constructor(init?: Partial< WorkbookSettingsOperateParameter >) {  
          super(init);     
@@ -10448,8 +10448,8 @@ export class WorksheetMovingRequest  {
 
     }
 
-    public destinationWorksheet: string;
-    public position: string;
+    public destinationWorksheet!: string;
+    public position!: string;
 
     public constructor(init?: Partial< WorksheetMovingRequest >) {  
     
@@ -10491,10 +10491,10 @@ export class WorksheetOperateParameter  extends OperateParameter  {
 
     }
 
-    public name: string;
-    public sheetType: string;
-    public newName: string;
-    public movingRequest: WorksheetMovingRequest;
+    public name!: string;
+    public sheetType!: string;
+    public newName!: string;
+    public movingRequest!: WorksheetMovingRequest;
 
     public constructor(init?: Partial< WorksheetOperateParameter >) {  
          super(init);     
@@ -10542,11 +10542,11 @@ export class ListColumn  {
 
     }
 
-    public name: string;
-    public range: Range;
-    public totalsCalculation: string;
-    public formula: string;
-    public totalsRowLabel: string;
+    public name!: string;
+    public range!: Range;
+    public totalsCalculation!: string;
+    public formula!: string;
+    public totalsRowLabel!: string;
 
     public constructor(init?: Partial< ListColumn >) {  
     
@@ -10573,7 +10573,7 @@ export class ListObjects  extends LinkElement  {
 
     }
 
-    public listObjectList: Array<LinkElement>;
+    public listObjectList!: Array<LinkElement>;
 
     public constructor(init?: Partial< ListObjects >) {  
          super(init);     
@@ -10625,12 +10625,12 @@ export class ArcShape  extends Shape  {
 
     }
 
-    public beginArrowheadLength: string;
-    public beginArrowheadStyle: string;
-    public beginArrowheadWidth: string;
-    public endArrowheadLength: string;
-    public endArrowheadStyle: string;
-    public endArrowheadWidth: string;
+    public beginArrowheadLength!: string;
+    public beginArrowheadStyle!: string;
+    public beginArrowheadWidth!: string;
+    public endArrowheadLength!: string;
+    public endArrowheadStyle!: string;
+    public endArrowheadWidth!: string;
 
     public constructor(init?: Partial< ArcShape >) {  
          super(init);     
@@ -10657,7 +10657,7 @@ export class ArcShapeResponse  extends CellsCloudResponse  {
 
     }
 
-    public shape: ArcShape;
+    public shape!: ArcShape;
 
     public constructor(init?: Partial< ArcShapeResponse >) {  
          super(init);     
@@ -10684,7 +10684,7 @@ export class AutoFilterResponse  extends CellsCloudResponse  {
 
     }
 
-    public autoFilter: AutoFilter;
+    public autoFilter!: AutoFilter;
 
     public constructor(init?: Partial< AutoFilterResponse >) {  
          super(init);     
@@ -10732,7 +10732,7 @@ export class AutoShapeResponse  extends CellsCloudResponse  {
 
     }
 
-    public autoShape: AutoShape;
+    public autoShape!: AutoShape;
 
     public constructor(init?: Partial< AutoShapeResponse >) {  
          super(init);     
@@ -10759,7 +10759,7 @@ export class AutoShapes  extends LinkElement  {
 
     }
 
-    public autoShapeList: Array<LinkElement>;
+    public autoShapeList!: Array<LinkElement>;
 
     public constructor(init?: Partial< AutoShapes >) {  
          super(init);     
@@ -10786,7 +10786,7 @@ export class AutoShapesResponse  extends CellsCloudResponse  {
 
     }
 
-    public autoShapes: AutoShapes;
+    public autoShapes!: AutoShapes;
 
     public constructor(init?: Partial< AutoShapesResponse >) {  
          super(init);     
@@ -10978,40 +10978,40 @@ export class Axis  extends LinkElement  {
 
     }
 
-    public area: Area;
-    public axisBetweenCategories: boolean;
-    public axisLine: Line;
-    public baseUnitScale: string;
-    public categoryType: string;
-    public crossAt: number;
-    public crossType: string;
-    public displayUnit: string;
-    public displayUnitLabel: DisplayUnitLabel;
-    public hasMultiLevelLabels: boolean;
-    public isAutomaticMajorUnit: boolean;
-    public isAutomaticMaxValue: boolean;
-    public isAutomaticMinorUnit: boolean;
-    public isAutomaticMinValue: boolean;
-    public isDisplayUnitLabelShown: boolean;
-    public isLogarithmic: boolean;
-    public isPlotOrderReversed: boolean;
-    public isVisible: boolean;
-    public logBase: number;
-    public majorGridLines: Line;
-    public majorTickMark: string;
-    public majorUnit: number;
-    public majorUnitScale: string;
-    public maxValue: number;
-    public minorGridLines: Line;
-    public minorTickMark: string;
-    public minorUnit: number;
-    public minorUnitScale: string;
-    public minValue: number;
-    public tickLabelPosition: string;
-    public tickLabels: TickLabels;
-    public tickLabelSpacing: number;
-    public tickMarkSpacing: number;
-    public title: Title;
+    public area!: Area;
+    public axisBetweenCategories!: boolean;
+    public axisLine!: Line;
+    public baseUnitScale!: string;
+    public categoryType!: string;
+    public crossAt!: number;
+    public crossType!: string;
+    public displayUnit!: string;
+    public displayUnitLabel!: DisplayUnitLabel;
+    public hasMultiLevelLabels!: boolean;
+    public isAutomaticMajorUnit!: boolean;
+    public isAutomaticMaxValue!: boolean;
+    public isAutomaticMinorUnit!: boolean;
+    public isAutomaticMinValue!: boolean;
+    public isDisplayUnitLabelShown!: boolean;
+    public isLogarithmic!: boolean;
+    public isPlotOrderReversed!: boolean;
+    public isVisible!: boolean;
+    public logBase!: number;
+    public majorGridLines!: Line;
+    public majorTickMark!: string;
+    public majorUnit!: number;
+    public majorUnitScale!: string;
+    public maxValue!: number;
+    public minorGridLines!: Line;
+    public minorTickMark!: string;
+    public minorUnit!: number;
+    public minorUnitScale!: string;
+    public minValue!: number;
+    public tickLabelPosition!: string;
+    public tickLabels!: TickLabels;
+    public tickLabelSpacing!: number;
+    public tickMarkSpacing!: number;
+    public title!: Title;
 
     public constructor(init?: Partial< Axis >) {  
          super(init);     
@@ -11038,7 +11038,7 @@ export class AxisResponse  extends CellsCloudResponse  {
 
     }
 
-    public axis: Axis;
+    public axis!: Axis;
 
     public constructor(init?: Partial< AxisResponse >) {  
          super(init);     
@@ -11065,7 +11065,7 @@ export class BorderResponse  extends CellsCloudResponse  {
 
     }
 
-    public border: Border;
+    public border!: Border;
 
     public constructor(init?: Partial< BorderResponse >) {  
          super(init);     
@@ -11113,7 +11113,7 @@ export class ButtonResponse  extends CellsCloudResponse  {
 
     }
 
-    public shape: Button;
+    public shape!: Button;
 
     public constructor(init?: Partial< ButtonResponse >) {  
          super(init);     
@@ -11140,7 +11140,7 @@ export class CalculateFormulaResponse  extends CellsCloudResponse  {
 
     }
 
-    public result: string;
+    public result!: string;
 
     public constructor(init?: Partial< CalculateFormulaResponse >) {  
          super(init);     
@@ -11167,7 +11167,7 @@ export class CellResponse  extends CellsCloudResponse  {
 
     }
 
-    public cell: Cell;
+    public cell!: Cell;
 
     public constructor(init?: Partial< CellResponse >) {  
          super(init);     
@@ -11194,7 +11194,7 @@ export class CellsDocumentPropertiesResponse  extends CellsCloudResponse  {
 
     }
 
-    public documentProperties: CellsDocumentProperties;
+    public documentProperties!: CellsDocumentProperties;
 
     public constructor(init?: Partial< CellsDocumentPropertiesResponse >) {  
          super(init);     
@@ -11221,7 +11221,7 @@ export class CellsDocumentPropertyResponse  extends CellsCloudResponse  {
 
     }
 
-    public documentProperty: CellsDocumentProperty;
+    public documentProperty!: CellsDocumentProperty;
 
     public constructor(init?: Partial< CellsDocumentPropertyResponse >) {  
          super(init);     
@@ -11269,7 +11269,7 @@ export class CellsDrawingResponse  extends CellsCloudResponse  {
 
     }
 
-    public shape: CellsDrawing;
+    public shape!: CellsDrawing;
 
     public constructor(init?: Partial< CellsDrawingResponse >) {  
          super(init);     
@@ -11296,7 +11296,7 @@ export class CellsResponse  extends CellsCloudResponse  {
 
     }
 
-    public cells: Cells;
+    public cells!: Cells;
 
     public constructor(init?: Partial< CellsResponse >) {  
          super(init);     
@@ -11379,18 +11379,18 @@ export class ChartFrame  {
 
     }
 
-    public area: Area;
-    public autoScaleFont: boolean;
-    public backgroundMode: string;
-    public border: Line;
-    public font: Font;
-    public isAutomaticSize: boolean;
-    public isInnerMode: boolean;
-    public shadow: boolean;
-    public width: number;
-    public height: number;
-    public x: number;
-    public y: number;
+    public area!: Area;
+    public autoScaleFont!: boolean;
+    public backgroundMode!: string;
+    public border!: Line;
+    public font!: Font;
+    public isAutomaticSize!: boolean;
+    public isInnerMode!: boolean;
+    public shadow!: boolean;
+    public width!: number;
+    public height!: number;
+    public x!: number;
+    public y!: number;
 
     public constructor(init?: Partial< ChartFrame >) {  
     
@@ -11438,7 +11438,7 @@ export class ChartAreaResponse  extends CellsCloudResponse  {
 
     }
 
-    public chartArea: ChartArea;
+    public chartArea!: ChartArea;
 
     public constructor(init?: Partial< ChartAreaResponse >) {  
          super(init);     
@@ -11500,14 +11500,14 @@ export class ChartDataTable  extends LinkElement  {
 
     }
 
-    public autoScaleFont: boolean;
-    public backgroundMode: string;
-    public border: Line;
-    public font: Font;
-    public hasBorderHorizontal: boolean;
-    public hasBorderOutline: boolean;
-    public hasBorderVertical: boolean;
-    public showLegendKey: boolean;
+    public autoScaleFont!: boolean;
+    public backgroundMode!: string;
+    public border!: Line;
+    public font!: Font;
+    public hasBorderHorizontal!: boolean;
+    public hasBorderOutline!: boolean;
+    public hasBorderVertical!: boolean;
+    public showLegendKey!: boolean;
 
     public constructor(init?: Partial< ChartDataTable >) {  
          super(init);     
@@ -11534,7 +11534,7 @@ export class ChartDataTableResponse  extends CellsCloudResponse  {
 
     }
 
-    public chartDataTable: ChartDataTable;
+    public chartDataTable!: ChartDataTable;
 
     public constructor(init?: Partial< ChartDataTableResponse >) {  
          super(init);     
@@ -11601,15 +11601,15 @@ export class ChartPoint  extends LinkElement  {
 
     }
 
-    public area: Area;
-    public border: Line;
-    public dataLabels: DataLabels;
-    public explosion: number;
-    public marker: Marker;
-    public shadow: boolean;
-    public xValue: Object;
-    public yValue: Object;
-    public isInSecondaryPlot: boolean;
+    public area!: Area;
+    public border!: Line;
+    public dataLabels!: DataLabels;
+    public explosion!: number;
+    public marker!: Marker;
+    public shadow!: boolean;
+    public xValue!: Object;
+    public yValue!: Object;
+    public isInSecondaryPlot!: boolean;
 
     public constructor(init?: Partial< ChartPoint >) {  
          super(init);     
@@ -11636,7 +11636,7 @@ export class ChartPointResponse  extends CellsCloudResponse  {
 
     }
 
-    public chartPoint: ChartPoint;
+    public chartPoint!: ChartPoint;
 
     public constructor(init?: Partial< ChartPointResponse >) {  
          super(init);     
@@ -11663,7 +11663,7 @@ export class ChartPoints  extends LinkElement  {
 
     }
 
-    public chartPointList: Array<ChartPoint>;
+    public chartPointList!: Array<ChartPoint>;
 
     public constructor(init?: Partial< ChartPoints >) {  
          super(init);     
@@ -11690,7 +11690,7 @@ export class ChartPointsResponse  extends CellsCloudResponse  {
 
     }
 
-    public chartPoints: ChartPoints;
+    public chartPoints!: ChartPoints;
 
     public constructor(init?: Partial< ChartPointsResponse >) {  
          super(init);     
@@ -11927,49 +11927,49 @@ export class Chart  extends LinkElement  {
 
     }
 
-    public autoScaling: boolean;
-    public backWall: Walls;
-    public categoryAxis: Axis;
-    public chartArea: ChartArea;
-    public chartDataTable: ChartDataTable;
-    public chartObject: LinkElement;
-    public depthPercent: number;
-    public elevation: number;
-    public firstSliceAngle: number;
-    public floor: Floor;
-    public gapDepth: number;
-    public gapWidth: number;
-    public heightPercent: number;
-    public hidePivotFieldButtons: boolean;
-    public is3D: boolean;
-    public isRectangularCornered: boolean;
-    public legend: Legend;
-    public name: string;
-    public nSeries: SeriesItems;
-    public pageSetup: LinkElement;
-    public perspective: number;
-    public pivotSource: string;
-    public placement: string;
-    public plotArea: PlotArea;
-    public plotEmptyCellsType: string;
-    public plotVisibleCells: boolean;
-    public printSize: string;
-    public rightAngleAxes: boolean;
-    public rotationAngle: number;
-    public secondCategoryAxis: LinkElement;
-    public secondValueAxis: LinkElement;
-    public seriesAxis: LinkElement;
-    public shapes: LinkElement;
-    public showDataTable: boolean;
-    public showLegend: boolean;
-    public sideWall: LinkElement;
-    public sizeWithWindow: boolean;
-    public style: number;
-    public title: LinkElement;
-    public type: string;
-    public valueAxis: Axis;
-    public walls: LinkElement;
-    public wallsAndGridlines2D: boolean;
+    public autoScaling!: boolean;
+    public backWall!: Walls;
+    public categoryAxis!: Axis;
+    public chartArea!: ChartArea;
+    public chartDataTable!: ChartDataTable;
+    public chartObject!: LinkElement;
+    public depthPercent!: number;
+    public elevation!: number;
+    public firstSliceAngle!: number;
+    public floor!: Floor;
+    public gapDepth!: number;
+    public gapWidth!: number;
+    public heightPercent!: number;
+    public hidePivotFieldButtons!: boolean;
+    public is3D!: boolean;
+    public isRectangularCornered!: boolean;
+    public legend!: Legend;
+    public name!: string;
+    public nSeries!: SeriesItems;
+    public pageSetup!: LinkElement;
+    public perspective!: number;
+    public pivotSource!: string;
+    public placement!: string;
+    public plotArea!: PlotArea;
+    public plotEmptyCellsType!: string;
+    public plotVisibleCells!: boolean;
+    public printSize!: string;
+    public rightAngleAxes!: boolean;
+    public rotationAngle!: number;
+    public secondCategoryAxis!: LinkElement;
+    public secondValueAxis!: LinkElement;
+    public seriesAxis!: LinkElement;
+    public shapes!: LinkElement;
+    public showDataTable!: boolean;
+    public showLegend!: boolean;
+    public sideWall!: LinkElement;
+    public sizeWithWindow!: boolean;
+    public style!: number;
+    public title!: LinkElement;
+    public type!: string;
+    public valueAxis!: Axis;
+    public walls!: LinkElement;
+    public wallsAndGridlines2D!: boolean;
 
     public constructor(init?: Partial< Chart >) {  
          super(init);     
@@ -11996,7 +11996,7 @@ export class ChartResponse  extends CellsCloudResponse  {
 
     }
 
-    public chart: Chart;
+    public chart!: Chart;
 
     public constructor(init?: Partial< ChartResponse >) {  
          super(init);     
@@ -12023,7 +12023,7 @@ export class Charts  extends LinkElement  {
 
     }
 
-    public chartList: Array<LinkElement>;
+    public chartList!: Array<LinkElement>;
 
     public constructor(init?: Partial< Charts >) {  
          super(init);     
@@ -12050,7 +12050,7 @@ export class ChartsResponse  extends CellsCloudResponse  {
 
     }
 
-    public charts: Charts;
+    public charts!: Charts;
 
     public constructor(init?: Partial< ChartsResponse >) {  
          super(init);     
@@ -12087,9 +12087,9 @@ export class CheckBox  extends Shape  {
 
     }
 
-    public checkedValue: string;
-    public shadow: boolean;
-    public value: boolean;
+    public checkedValue!: string;
+    public shadow!: boolean;
+    public value!: boolean;
 
     public constructor(init?: Partial< CheckBox >) {  
          super(init);     
@@ -12116,7 +12116,7 @@ export class CheckBoxResponse  extends CellsCloudResponse  {
 
     }
 
-    public shape: CheckBox;
+    public shape!: CheckBox;
 
     public constructor(init?: Partial< CheckBoxResponse >) {  
          super(init);     
@@ -12153,9 +12153,9 @@ export class CheckedExternalReferenceResponse  extends CellsCloudResponse  {
 
     }
 
-    public referenceOtherWorkbook: boolean;
-    public referenceOtherWorksheet: boolean;
-    public formulas: Array<string>;
+    public referenceOtherWorkbook!: boolean;
+    public referenceOtherWorksheet!: boolean;
+    public formulas!: Array<string>;
 
     public constructor(init?: Partial< CheckedExternalReferenceResponse >) {  
          super(init);     
@@ -12187,8 +12187,8 @@ export class CheckedFormulaErrorsResponse  extends CellsCloudResponse  {
 
     }
 
-    public isFormulasErrors: boolean;
-    public formulasErrors: Array<string>;
+    public isFormulasErrors!: boolean;
+    public formulasErrors!: Array<string>;
 
     public constructor(init?: Partial< CheckedFormulaErrorsResponse >) {  
          super(init);     
@@ -12215,7 +12215,7 @@ export class ColumnResponse  extends CellsCloudResponse  {
 
     }
 
-    public column: Column;
+    public column!: Column;
 
     public constructor(init?: Partial< ColumnResponse >) {  
          super(init);     
@@ -12242,7 +12242,7 @@ export class ColumnsResponse  extends CellsCloudResponse  {
 
     }
 
-    public columns: Columns;
+    public columns!: Columns;
 
     public constructor(init?: Partial< ColumnsResponse >) {  
          super(init);     
@@ -12294,12 +12294,12 @@ export class ComboBox  extends Shape  {
 
     }
 
-    public dropDownLines: number;
-    public inputRange: string;
-    public selectedCell: LinkElement;
-    public selectedIndex: number;
-    public selectedValue: string;
-    public shadow: boolean;
+    public dropDownLines!: number;
+    public inputRange!: string;
+    public selectedCell!: LinkElement;
+    public selectedIndex!: number;
+    public selectedValue!: string;
+    public shadow!: boolean;
 
     public constructor(init?: Partial< ComboBox >) {  
          super(init);     
@@ -12326,7 +12326,7 @@ export class ComboBoxResponse  extends CellsCloudResponse  {
 
     }
 
-    public shape: ComboBox;
+    public shape!: ComboBox;
 
     public constructor(init?: Partial< ComboBoxResponse >) {  
          super(init);     
@@ -12353,7 +12353,7 @@ export class CommentResponse  extends CellsCloudResponse  {
 
     }
 
-    public comment: Comment;
+    public comment!: Comment;
 
     public constructor(init?: Partial< CommentResponse >) {  
          super(init);     
@@ -12380,7 +12380,7 @@ export class CommentShape  extends Shape  {
 
     }
 
-    public comment: LinkElement;
+    public comment!: LinkElement;
 
     public constructor(init?: Partial< CommentShape >) {  
          super(init);     
@@ -12407,7 +12407,7 @@ export class CommentShapeResponse  extends CellsCloudResponse  {
 
     }
 
-    public comment: CommentShape;
+    public comment!: CommentShape;
 
     public constructor(init?: Partial< CommentShapeResponse >) {  
          super(init);     
@@ -12434,7 +12434,7 @@ export class CommentsResponse  extends CellsCloudResponse  {
 
     }
 
-    public comments: Comments;
+    public comments!: Comments;
 
     public constructor(init?: Partial< CommentsResponse >) {  
          super(init);     
@@ -12461,7 +12461,7 @@ export class ConditionalFormattingResponse  extends CellsCloudResponse  {
 
     }
 
-    public conditionalFormatting: ConditionalFormatting;
+    public conditionalFormatting!: ConditionalFormatting;
 
     public constructor(init?: Partial< ConditionalFormattingResponse >) {  
          super(init);     
@@ -12488,7 +12488,7 @@ export class ConditionalFormattingsResponse  extends CellsCloudResponse  {
 
     }
 
-    public conditionalFormattings: ConditionalFormattings;
+    public conditionalFormattings!: ConditionalFormattings;
 
     public constructor(init?: Partial< ConditionalFormattingsResponse >) {  
          super(init);     
@@ -12605,25 +12605,25 @@ export class DataLabels  extends ChartFrame  {
 
     }
 
-    public isAutoText: boolean;
-    public isDeleted: boolean;
-    public linkedSource: string;
-    public number: number;
-    public numberFormat: string;
-    public numberFormatLinked: boolean;
-    public position: string;
-    public rotationAngle: number;
-    public separator: string;
-    public showBubbleSize: boolean;
-    public showCategoryName: boolean;
-    public showLegendKey: boolean;
-    public showPercentage: boolean;
-    public showSeriesName: boolean;
-    public showValue: boolean;
-    public text: string;
-    public textDirection: string;
-    public textHorizontalAlignment: string;
-    public textVerticalAlignment: string;
+    public isAutoText!: boolean;
+    public isDeleted!: boolean;
+    public linkedSource!: string;
+    public number!: number;
+    public numberFormat!: string;
+    public numberFormatLinked!: boolean;
+    public position!: string;
+    public rotationAngle!: number;
+    public separator!: string;
+    public showBubbleSize!: boolean;
+    public showCategoryName!: boolean;
+    public showLegendKey!: boolean;
+    public showPercentage!: boolean;
+    public showSeriesName!: boolean;
+    public showValue!: boolean;
+    public text!: string;
+    public textDirection!: string;
+    public textHorizontalAlignment!: string;
+    public textVerticalAlignment!: string;
 
     public constructor(init?: Partial< DataLabels >) {  
          super(init);     
@@ -12650,7 +12650,7 @@ export class DataLabelsResponse  extends CellsCloudResponse  {
 
     }
 
-    public dataLabels: DataLabels;
+    public dataLabels!: DataLabels;
 
     public constructor(init?: Partial< DataLabelsResponse >) {  
          super(init);     
@@ -12697,11 +12697,11 @@ export class DisplayUnitLabel  extends ChartFrame  {
 
     }
 
-    public linkedSource: string;
-    public rotationAngle: number;
-    public text: string;
-    public textHorizontalAlignment: string;
-    public textVerticalAlignment: string;
+    public linkedSource!: string;
+    public rotationAngle!: number;
+    public text!: string;
+    public textHorizontalAlignment!: string;
+    public textVerticalAlignment!: string;
 
     public constructor(init?: Partial< DisplayUnitLabel >) {  
          super(init);     
@@ -12728,7 +12728,7 @@ export class DisplayUnitLabelResponse  extends CellsCloudResponse  {
 
     }
 
-    public displayUnitLabel: DisplayUnitLabel;
+    public displayUnitLabel!: DisplayUnitLabel;
 
     public constructor(init?: Partial< DisplayUnitLabelResponse >) {  
          super(init);     
@@ -12760,8 +12760,8 @@ export class DropBars  extends LinkElement  {
 
     }
 
-    public area: Area;
-    public border: Line;
+    public area!: Area;
+    public border!: Line;
 
     public constructor(init?: Partial< DropBars >) {  
          super(init);     
@@ -12788,7 +12788,7 @@ export class DropBarsResponse  extends CellsCloudResponse  {
 
     }
 
-    public dropBars: DropBars;
+    public dropBars!: DropBars;
 
     public constructor(init?: Partial< DropBarsResponse >) {  
          super(init);     
@@ -12905,25 +12905,25 @@ export class Line  {
 
     }
 
-    public beginArrowLength: string;
-    public beginArrowWidth: string;
-    public beginType: string;
-    public capType: string;
-    public color: Color;
-    public compoundType: string;
-    public dashType: string;
-    public endArrowLength: string;
-    public endArrowWidth: string;
-    public endType: string;
-    public gradientFill: GradientFill;
-    public isAuto: boolean;
-    public isAutomaticColor: boolean;
-    public isVisible: boolean;
-    public joinType: string;
-    public style: string;
-    public transparency: number;
-    public weight: string;
-    public weightPt: number;
+    public beginArrowLength!: string;
+    public beginArrowWidth!: string;
+    public beginType!: string;
+    public capType!: string;
+    public color!: Color;
+    public compoundType!: string;
+    public dashType!: string;
+    public endArrowLength!: string;
+    public endArrowWidth!: string;
+    public endType!: string;
+    public gradientFill!: GradientFill;
+    public isAuto!: boolean;
+    public isAutomaticColor!: boolean;
+    public isVisible!: boolean;
+    public joinType!: string;
+    public style!: string;
+    public transparency!: number;
+    public weight!: string;
+    public weightPt!: number;
 
     public constructor(init?: Partial< Line >) {  
     
@@ -12980,13 +12980,13 @@ export class ErrorBar  extends Line  {
 
     }
 
-    public link: Link;
-    public amount: number;
-    public displayType: string;
-    public minusValue: string;
-    public plusValue: string;
-    public showMarkerTTop: boolean;
-    public type: string;
+    public link!: Link;
+    public amount!: number;
+    public displayType!: string;
+    public minusValue!: string;
+    public plusValue!: string;
+    public showMarkerTTop!: boolean;
+    public type!: string;
 
     public constructor(init?: Partial< ErrorBar >) {  
          super(init);     
@@ -13013,7 +13013,7 @@ export class ErrorBarResponse  extends CellsCloudResponse  {
 
     }
 
-    public errorBar: ErrorBar;
+    public errorBar!: ErrorBar;
 
     public constructor(init?: Partial< ErrorBarResponse >) {  
          super(init);     
@@ -13040,7 +13040,7 @@ export class FillFormatResponse  extends CellsCloudResponse  {
 
     }
 
-    public fillFormat: FillFormat;
+    public fillFormat!: FillFormat;
 
     public constructor(init?: Partial< FillFormatResponse >) {  
          super(init);     
@@ -13072,8 +13072,8 @@ export class FindResponse  extends CellsCloudResponse  {
 
     }
 
-    public count: number;
-    public textItems: TextItems;
+    public count!: number;
+    public textItems!: TextItems;
 
     public constructor(init?: Partial< FindResponse >) {  
          super(init);     
@@ -13126,12 +13126,12 @@ export class Area  {
 
     }
 
-    public backgroundColor: Color;
-    public fillFormat: FillFormat;
-    public foregroundColor: Color;
-    public format: string;
-    public invertIfNegative: boolean;
-    public transparency: number;
+    public backgroundColor!: Color;
+    public fillFormat!: FillFormat;
+    public foregroundColor!: Color;
+    public format!: string;
+    public invertIfNegative!: boolean;
+    public transparency!: number;
 
     public constructor(init?: Partial< Area >) {  
     
@@ -13158,7 +13158,7 @@ export class Floor  extends Area  {
 
     }
 
-    public border: Line;
+    public border!: Line;
 
     public constructor(init?: Partial< Floor >) {  
          super(init);     
@@ -13185,7 +13185,7 @@ export class FloorResponse  extends CellsCloudResponse  {
 
     }
 
-    public floor: Floor;
+    public floor!: Floor;
 
     public constructor(init?: Partial< FloorResponse >) {  
          super(init);     
@@ -13297,24 +13297,24 @@ export class Form  extends Shape  {
 
     }
 
-    public formType: string;
-    public checkedValue: string;
-    public shadow: boolean;
-    public inputRange: string;
-    public selectedIndex: number;
-    public selectedValue: string;
-    public selectedCell: LinkElement;
-    public dropDownLines: number;
-    public itemCount: number;
-    public selectedCells: Array<LinkElement>;
-    public selectionType: string;
-    public isChecked: boolean;
-    public currentValue: number;
-    public min: number;
-    public max: number;
-    public incrementalChange: number;
-    public pageChange: number;
-    public isHorizontal: boolean;
+    public formType!: string;
+    public checkedValue!: string;
+    public shadow!: boolean;
+    public inputRange!: string;
+    public selectedIndex!: number;
+    public selectedValue!: string;
+    public selectedCell!: LinkElement;
+    public dropDownLines!: number;
+    public itemCount!: number;
+    public selectedCells!: Array<LinkElement>;
+    public selectionType!: string;
+    public isChecked!: boolean;
+    public currentValue!: number;
+    public min!: number;
+    public max!: number;
+    public incrementalChange!: number;
+    public pageChange!: number;
+    public isHorizontal!: boolean;
 
     public constructor(init?: Partial< Form >) {  
          super(init);     
@@ -13341,7 +13341,7 @@ export class FormResponse  extends CellsCloudResponse  {
 
     }
 
-    public form: Form;
+    public form!: Form;
 
     public constructor(init?: Partial< FormResponse >) {  
          super(init);     
@@ -13368,7 +13368,7 @@ export class Forms  extends LinkElement  {
 
     }
 
-    public formList: Array<LinkElement>;
+    public formList!: Array<LinkElement>;
 
     public constructor(init?: Partial< Forms >) {  
          super(init);     
@@ -13395,7 +13395,7 @@ export class FormsResponse  extends CellsCloudResponse  {
 
     }
 
-    public forms: Forms;
+    public forms!: Forms;
 
     public constructor(init?: Partial< FormsResponse >) {  
          super(init);     
@@ -13422,7 +13422,7 @@ export class GroupBox  extends Shape  {
 
     }
 
-    public shadow: boolean;
+    public shadow!: boolean;
 
     public constructor(init?: Partial< GroupBox >) {  
          super(init);     
@@ -13449,7 +13449,7 @@ export class GroupBoxResponse  extends CellsCloudResponse  {
 
     }
 
-    public shape: GroupBox;
+    public shape!: GroupBox;
 
     public constructor(init?: Partial< GroupBoxResponse >) {  
          super(init);     
@@ -13476,7 +13476,7 @@ export class HorizontalPageBreakResponse  extends CellsCloudResponse  {
 
     }
 
-    public horizontalPageBreak: HorizontalPageBreak;
+    public horizontalPageBreak!: HorizontalPageBreak;
 
     public constructor(init?: Partial< HorizontalPageBreakResponse >) {  
          super(init);     
@@ -13503,7 +13503,7 @@ export class HorizontalPageBreaksResponse  extends CellsCloudResponse  {
 
     }
 
-    public horizontalPageBreaks: HorizontalPageBreaks;
+    public horizontalPageBreaks!: HorizontalPageBreaks;
 
     public constructor(init?: Partial< HorizontalPageBreaksResponse >) {  
          super(init);     
@@ -13530,7 +13530,7 @@ export class HyperlinkResponse  extends CellsCloudResponse  {
 
     }
 
-    public hyperlink: Hyperlink;
+    public hyperlink!: Hyperlink;
 
     public constructor(init?: Partial< HyperlinkResponse >) {  
          super(init);     
@@ -13557,7 +13557,7 @@ export class HyperlinksResponse  extends CellsCloudResponse  {
 
     }
 
-    public hyperlinks: Hyperlinks;
+    public hyperlinks!: Hyperlinks;
 
     public constructor(init?: Partial< HyperlinksResponse >) {  
          super(init);     
@@ -13605,7 +13605,7 @@ export class LabelResponse  extends CellsCloudResponse  {
 
     }
 
-    public shape: Label;
+    public shape!: Label;
 
     public constructor(init?: Partial< LabelResponse >) {  
          super(init);     
@@ -13632,7 +13632,7 @@ export class LegendEntries  extends LinkElement  {
 
     }
 
-    public legendEntryList: Array<LinkElement>;
+    public legendEntryList!: Array<LinkElement>;
 
     public constructor(init?: Partial< LegendEntries >) {  
          super(init);     
@@ -13659,7 +13659,7 @@ export class LegendEntriesResponse  extends CellsCloudResponse  {
 
     }
 
-    public legendEntries: LegendEntries;
+    public legendEntries!: LegendEntries;
 
     public constructor(init?: Partial< LegendEntriesResponse >) {  
          super(init);     
@@ -13701,10 +13701,10 @@ export class LegendEntry  extends LinkElement  {
 
     }
 
-    public autoScaleFont: boolean;
-    public backgroundMode: string;
-    public font: Font;
-    public isDeleted: boolean;
+    public autoScaleFont!: boolean;
+    public backgroundMode!: string;
+    public font!: Font;
+    public isDeleted!: boolean;
 
     public constructor(init?: Partial< LegendEntry >) {  
          super(init);     
@@ -13731,7 +13731,7 @@ export class LegendEntryResponse  extends CellsCloudResponse  {
 
     }
 
-    public legendEntry: LegendEntry;
+    public legendEntry!: LegendEntry;
 
     public constructor(init?: Partial< LegendEntryResponse >) {  
          super(init);     
@@ -13763,8 +13763,8 @@ export class Legend  extends ChartFrame  {
 
     }
 
-    public position: string;
-    public legendEntries: LinkElement;
+    public position!: string;
+    public legendEntries!: LinkElement;
 
     public constructor(init?: Partial< Legend >) {  
          super(init);     
@@ -13791,7 +13791,7 @@ export class LegendResponse  extends CellsCloudResponse  {
 
     }
 
-    public legend: Legend;
+    public legend!: Legend;
 
     public constructor(init?: Partial< LegendResponse >) {  
          super(init);     
@@ -13818,7 +13818,7 @@ export class LineResponse  extends CellsCloudResponse  {
 
     }
 
-    public line: Line;
+    public line!: Line;
 
     public constructor(init?: Partial< LineResponse >) {  
          super(init);     
@@ -13870,12 +13870,12 @@ export class LineShape  extends Shape  {
 
     }
 
-    public beginArrowheadLength: string;
-    public beginArrowheadStyle: string;
-    public beginArrowheadWidth: string;
-    public endArrowheadLength: string;
-    public endArrowheadStyle: string;
-    public endArrowheadWidth: string;
+    public beginArrowheadLength!: string;
+    public beginArrowheadStyle!: string;
+    public beginArrowheadWidth!: string;
+    public endArrowheadLength!: string;
+    public endArrowheadStyle!: string;
+    public endArrowheadWidth!: string;
 
     public constructor(init?: Partial< LineShape >) {  
          super(init);     
@@ -13902,7 +13902,7 @@ export class LineShapeResponse  extends CellsCloudResponse  {
 
     }
 
-    public shape: LineShape;
+    public shape!: LineShape;
 
     public constructor(init?: Partial< LineShapeResponse >) {  
          super(init);     
@@ -13959,13 +13959,13 @@ export class ListBox  extends Shape  {
 
     }
 
-    public inputRange: string;
-    public itemCount: number;
-    public pageChange: number;
-    public selectedCells: Array<LinkElement>;
-    public selectedIndex: number;
-    public selectionType: string;
-    public shadow: boolean;
+    public inputRange!: string;
+    public itemCount!: number;
+    public pageChange!: number;
+    public selectedCells!: Array<LinkElement>;
+    public selectedIndex!: number;
+    public selectionType!: string;
+    public shadow!: boolean;
 
     public constructor(init?: Partial< ListBox >) {  
          super(init);     
@@ -13992,7 +13992,7 @@ export class ListBoxResponse  extends CellsCloudResponse  {
 
     }
 
-    public shape: ListBox;
+    public shape!: ListBox;
 
     public constructor(init?: Partial< ListBoxResponse >) {  
          super(init);     
@@ -14019,7 +14019,7 @@ export class ListObjectResponse  extends CellsCloudResponse  {
 
     }
 
-    public listObject: ListObject;
+    public listObject!: ListObject;
 
     public constructor(init?: Partial< ListObjectResponse >) {  
          super(init);     
@@ -14046,7 +14046,7 @@ export class ListObjectsResponse  extends CellsCloudResponse  {
 
     }
 
-    public listObjects: ListObjects;
+    public listObjects!: ListObjects;
 
     public constructor(init?: Partial< ListObjectsResponse >) {  
          super(init);     
@@ -14073,7 +14073,7 @@ export class MergedCellResponse  extends CellsCloudResponse  {
 
     }
 
-    public mergedCell: MergedCell;
+    public mergedCell!: MergedCell;
 
     public constructor(init?: Partial< MergedCellResponse >) {  
          super(init);     
@@ -14100,7 +14100,7 @@ export class MergedCellsResponse  extends CellsCloudResponse  {
 
     }
 
-    public mergedCells: MergedCells;
+    public mergedCells!: MergedCells;
 
     public constructor(init?: Partial< MergedCellsResponse >) {  
          super(init);     
@@ -14127,7 +14127,7 @@ export class NameResponse  extends CellsCloudResponse  {
 
     }
 
-    public name: Name;
+    public name!: Name;
 
     public constructor(init?: Partial< NameResponse >) {  
          super(init);     
@@ -14154,7 +14154,7 @@ export class NamesResponse  extends CellsCloudResponse  {
 
     }
 
-    public names: Names;
+    public names!: Names;
 
     public constructor(init?: Partial< NamesResponse >) {  
          super(init);     
@@ -14211,13 +14211,13 @@ export class OleObject  extends Shape  {
 
     }
 
-    public displayAsIcon: boolean;
-    public fileFormatType: string;
-    public imageSourceFullName: string;
-    public isAutoSize: boolean;
-    public isLink: boolean;
-    public progID: string;
-    public sourceFullName: string;
+    public displayAsIcon!: boolean;
+    public fileFormatType!: string;
+    public imageSourceFullName!: string;
+    public isAutoSize!: boolean;
+    public isLink!: boolean;
+    public progID!: string;
+    public sourceFullName!: string;
 
     public constructor(init?: Partial< OleObject >) {  
          super(init);     
@@ -14244,7 +14244,7 @@ export class OleObjectResponse  extends CellsCloudResponse  {
 
     }
 
-    public oleObject: OleObject;
+    public oleObject!: OleObject;
 
     public constructor(init?: Partial< OleObjectResponse >) {  
          super(init);     
@@ -14271,7 +14271,7 @@ export class OleObjects  extends LinkElement  {
 
     }
 
-    public oleObjectList: Array<LinkElement>;
+    public oleObjectList!: Array<LinkElement>;
 
     public constructor(init?: Partial< OleObjects >) {  
          super(init);     
@@ -14298,7 +14298,7 @@ export class OleObjectsResponse  extends CellsCloudResponse  {
 
     }
 
-    public oleObjects: OleObjects;
+    public oleObjects!: OleObjects;
 
     public constructor(init?: Partial< OleObjectsResponse >) {  
          super(init);     
@@ -14346,7 +14346,7 @@ export class OvalResponse  extends CellsCloudResponse  {
 
     }
 
-    public shape: Oval;
+    public shape!: Oval;
 
     public constructor(init?: Partial< OvalResponse >) {  
          super(init);     
@@ -14373,7 +14373,7 @@ export class PageSectionsResponse  extends CellsCloudResponse  {
 
     }
 
-    public pageSections: Array<PageSection>;
+    public pageSections!: Array<PageSection>;
 
     public constructor(init?: Partial< PageSectionsResponse >) {  
          super(init);     
@@ -14400,7 +14400,7 @@ export class PageSetupResponse  extends CellsCloudResponse  {
 
     }
 
-    public pageSetup: PageSetup;
+    public pageSetup!: PageSetup;
 
     public constructor(init?: Partial< PageSetupResponse >) {  
          super(init);     
@@ -14452,12 +14452,12 @@ export class Picture  extends Shape  {
 
     }
 
-    public borderLineColor: Color;
-    public borderWeight: number;
-    public originalHeight: number;
-    public originalWidth: number;
-    public imageFormat: string;
-    public sourceFullName: string;
+    public borderLineColor!: Color;
+    public borderWeight!: number;
+    public originalHeight!: number;
+    public originalWidth!: number;
+    public imageFormat!: string;
+    public sourceFullName!: string;
 
     public constructor(init?: Partial< Picture >) {  
          super(init);     
@@ -14484,7 +14484,7 @@ export class PictureResponse  extends CellsCloudResponse  {
 
     }
 
-    public picture: Picture;
+    public picture!: Picture;
 
     public constructor(init?: Partial< PictureResponse >) {  
          super(init);     
@@ -14511,7 +14511,7 @@ export class Pictures  extends LinkElement  {
 
     }
 
-    public pictureList: Array<LinkElement>;
+    public pictureList!: Array<LinkElement>;
 
     public constructor(init?: Partial< Pictures >) {  
          super(init);     
@@ -14538,7 +14538,7 @@ export class PicturesResponse  extends CellsCloudResponse  {
 
     }
 
-    public pictures: Pictures;
+    public pictures!: Pictures;
 
     public constructor(init?: Partial< PicturesResponse >) {  
          super(init);     
@@ -14756,45 +14756,45 @@ export class PivotField  {
 
     }
 
-    public autoShowCount: number;
-    public autoShowField: number;
-    public autoSortField: number;
-    public baseField: number;
-    public baseIndex: number;
-    public baseItem: number;
-    public baseItemPosition: string;
-    public currentPageItem: number;
-    public dataDisplayFormat: string;
-    public displayName: string;
-    public dragToColumn: boolean;
-    public dragToData: boolean;
-    public dragToHide: boolean;
-    public dragToPage: boolean;
-    public dragToRow: boolean;
-    public function: string;
-    public insertBlankRow: boolean;
-    public isAscendShow: boolean;
-    public isAscendSort: boolean;
-    public isAutoShow: boolean;
-    public isAutoSort: boolean;
-    public isAutoSubtotals: boolean;
-    public isCalculatedField: boolean;
-    public isIncludeNewItemsInFilter: boolean;
-    public isInsertPageBreaksBetweenItems: boolean;
-    public isMultipleItemSelectionAllowed: boolean;
-    public isRepeatItemLabels: boolean;
-    public itemCount: number;
-    public items: Array<string>;
-    public name: string;
-    public number: number;
-    public numberFormat: string;
-    public originalItems: Array<string>;
-    public pivotItems: Array<PivotItem>;
-    public position: number;
-    public showAllItems: boolean;
-    public showCompact: boolean;
-    public showInOutlineForm: boolean;
-    public showSubtotalAtTop: boolean;
+    public autoShowCount!: number;
+    public autoShowField!: number;
+    public autoSortField!: number;
+    public baseField!: number;
+    public baseIndex!: number;
+    public baseItem!: number;
+    public baseItemPosition!: string;
+    public currentPageItem!: number;
+    public dataDisplayFormat!: string;
+    public displayName!: string;
+    public dragToColumn!: boolean;
+    public dragToData!: boolean;
+    public dragToHide!: boolean;
+    public dragToPage!: boolean;
+    public dragToRow!: boolean;
+    public function!: string;
+    public insertBlankRow!: boolean;
+    public isAscendShow!: boolean;
+    public isAscendSort!: boolean;
+    public isAutoShow!: boolean;
+    public isAutoSort!: boolean;
+    public isAutoSubtotals!: boolean;
+    public isCalculatedField!: boolean;
+    public isIncludeNewItemsInFilter!: boolean;
+    public isInsertPageBreaksBetweenItems!: boolean;
+    public isMultipleItemSelectionAllowed!: boolean;
+    public isRepeatItemLabels!: boolean;
+    public itemCount!: number;
+    public items!: Array<string>;
+    public name!: string;
+    public number!: number;
+    public numberFormat!: string;
+    public originalItems!: Array<string>;
+    public pivotItems!: Array<PivotItem>;
+    public position!: number;
+    public showAllItems!: boolean;
+    public showCompact!: boolean;
+    public showInOutlineForm!: boolean;
+    public showSubtotalAtTop!: boolean;
 
     public constructor(init?: Partial< PivotField >) {  
     
@@ -14821,7 +14821,7 @@ export class PivotFieldResponse  extends CellsCloudResponse  {
 
     }
 
-    public pivotField: PivotField;
+    public pivotField!: PivotField;
 
     public constructor(init?: Partial< PivotFieldResponse >) {  
          super(init);     
@@ -14893,16 +14893,16 @@ export class PivotFilter  {
 
     }
 
-    public autoFilter: AutoFilter;
-    public evaluationOrder: number;
-    public fieldIndex: number;
-    public filterType: string;
-    public valueFieldIndex: number;
-    public memberPropertyFieldIndex: number;
-    public name: string;
-    public value1: string;
-    public value2: string;
-    public top10Filter: Top10Filter;
+    public autoFilter!: AutoFilter;
+    public evaluationOrder!: number;
+    public fieldIndex!: number;
+    public filterType!: string;
+    public valueFieldIndex!: number;
+    public memberPropertyFieldIndex!: number;
+    public name!: string;
+    public value1!: string;
+    public value2!: string;
+    public top10Filter!: Top10Filter;
 
     public constructor(init?: Partial< PivotFilter >) {  
     
@@ -14929,7 +14929,7 @@ export class PivotFilterResponse  extends CellsCloudResponse  {
 
     }
 
-    public pivotFilter: PivotFilter;
+    public pivotFilter!: PivotFilter;
 
     public constructor(init?: Partial< PivotFilterResponse >) {  
          super(init);     
@@ -14956,7 +14956,7 @@ export class PivotFiltersResponse  extends CellsCloudResponse  {
 
     }
 
-    public pivotFilters: Array<PivotFilter>;
+    public pivotFilters!: Array<PivotFilter>;
 
     public constructor(init?: Partial< PivotFiltersResponse >) {  
          super(init);     
@@ -15318,74 +15318,74 @@ export class PivotTable  extends LinkElement  {
 
     }
 
-    public altTextDescription: string;
-    public altTextTitle: string;
-    public autoFormatType: string;
-    public baseFields: Array<PivotField>;
-    public columnFields: Array<PivotField>;
-    public columnGrand: boolean;
-    public columnHeaderCaption: string;
-    public columnRange: CellArea;
-    public customListSort: boolean;
-    public dataBodyRange: CellArea;
-    public dataField: PivotField;
-    public dataFields: Array<PivotField>;
-    public dataSource: Array<string>;
-    public displayErrorString: boolean;
-    public displayImmediateItems: boolean;
-    public displayNullString: boolean;
-    public enableDataValueEditing: boolean;
-    public enableDrilldown: boolean;
-    public enableFieldDialog: boolean;
-    public enableFieldList: boolean;
-    public enableWizard: boolean;
-    public errorString: string;
-    public fieldListSortAscending: boolean;
-    public grandTotalName: string;
-    public hasBlankRows: boolean;
-    public indent: number;
-    public isAutoFormat: boolean;
-    public isGridDropZones: boolean;
-    public isMultipleFieldFilters: boolean;
-    public isSelected: boolean;
-    public itemPrintTitles: boolean;
-    public manualUpdate: boolean;
-    public mergeLabels: boolean;
-    public missingItemsLimit: string;
-    public name: string;
-    public nullString: string;
-    public pageFieldOrder: string;
-    public pageFields: Array<PivotField>;
-    public pageFieldWrapCount: number;
-    public pivotFilters: Array<PivotFilter>;
-    public pivotTableStyleName: string;
-    public pivotTableStyleType: string;
-    public preserveFormatting: boolean;
-    public printDrill: boolean;
-    public printTitles: boolean;
-    public refreshDataFlag: boolean;
-    public refreshDataOnOpeningFile: boolean;
-    public rowFields: Array<PivotField>;
-    public rowGrand: boolean;
-    public rowHeaderCaption: string;
-    public rowRange: CellArea;
-    public saveData: boolean;
-    public showDataTips: boolean;
-    public showDrill: boolean;
-    public showEmptyCol: boolean;
-    public showEmptyRow: boolean;
-    public showMemberPropertyTips: boolean;
-    public showPivotStyleColumnHeader: boolean;
-    public showPivotStyleColumnStripes: boolean;
-    public showPivotStyleLastColumn: boolean;
-    public showPivotStyleRowHeader: boolean;
-    public showPivotStyleRowStripes: boolean;
-    public showRowHeaderCaption: boolean;
-    public showValuesRow: boolean;
-    public subtotalHiddenPageItems: boolean;
-    public tableRange1: CellArea;
-    public tableRange2: CellArea;
-    public tag: string;
+    public altTextDescription!: string;
+    public altTextTitle!: string;
+    public autoFormatType!: string;
+    public baseFields!: Array<PivotField>;
+    public columnFields!: Array<PivotField>;
+    public columnGrand!: boolean;
+    public columnHeaderCaption!: string;
+    public columnRange!: CellArea;
+    public customListSort!: boolean;
+    public dataBodyRange!: CellArea;
+    public dataField!: PivotField;
+    public dataFields!: Array<PivotField>;
+    public dataSource!: Array<string>;
+    public displayErrorString!: boolean;
+    public displayImmediateItems!: boolean;
+    public displayNullString!: boolean;
+    public enableDataValueEditing!: boolean;
+    public enableDrilldown!: boolean;
+    public enableFieldDialog!: boolean;
+    public enableFieldList!: boolean;
+    public enableWizard!: boolean;
+    public errorString!: string;
+    public fieldListSortAscending!: boolean;
+    public grandTotalName!: string;
+    public hasBlankRows!: boolean;
+    public indent!: number;
+    public isAutoFormat!: boolean;
+    public isGridDropZones!: boolean;
+    public isMultipleFieldFilters!: boolean;
+    public isSelected!: boolean;
+    public itemPrintTitles!: boolean;
+    public manualUpdate!: boolean;
+    public mergeLabels!: boolean;
+    public missingItemsLimit!: string;
+    public name!: string;
+    public nullString!: string;
+    public pageFieldOrder!: string;
+    public pageFields!: Array<PivotField>;
+    public pageFieldWrapCount!: number;
+    public pivotFilters!: Array<PivotFilter>;
+    public pivotTableStyleName!: string;
+    public pivotTableStyleType!: string;
+    public preserveFormatting!: boolean;
+    public printDrill!: boolean;
+    public printTitles!: boolean;
+    public refreshDataFlag!: boolean;
+    public refreshDataOnOpeningFile!: boolean;
+    public rowFields!: Array<PivotField>;
+    public rowGrand!: boolean;
+    public rowHeaderCaption!: string;
+    public rowRange!: CellArea;
+    public saveData!: boolean;
+    public showDataTips!: boolean;
+    public showDrill!: boolean;
+    public showEmptyCol!: boolean;
+    public showEmptyRow!: boolean;
+    public showMemberPropertyTips!: boolean;
+    public showPivotStyleColumnHeader!: boolean;
+    public showPivotStyleColumnStripes!: boolean;
+    public showPivotStyleLastColumn!: boolean;
+    public showPivotStyleRowHeader!: boolean;
+    public showPivotStyleRowStripes!: boolean;
+    public showRowHeaderCaption!: boolean;
+    public showValuesRow!: boolean;
+    public subtotalHiddenPageItems!: boolean;
+    public tableRange1!: CellArea;
+    public tableRange2!: CellArea;
+    public tag!: string;
 
     public constructor(init?: Partial< PivotTable >) {  
          super(init);     
@@ -15412,7 +15412,7 @@ export class PivotTableResponse  extends CellsCloudResponse  {
 
     }
 
-    public pivotTable: PivotTable;
+    public pivotTable!: PivotTable;
 
     public constructor(init?: Partial< PivotTableResponse >) {  
          super(init);     
@@ -15439,7 +15439,7 @@ export class PivotTables  extends LinkElement  {
 
     }
 
-    public pivotTableList: Array<LinkElement>;
+    public pivotTableList!: Array<LinkElement>;
 
     public constructor(init?: Partial< PivotTables >) {  
          super(init);     
@@ -15466,7 +15466,7 @@ export class PivotTablesResponse  extends CellsCloudResponse  {
 
     }
 
-    public pivotTables: PivotTables;
+    public pivotTables!: PivotTables;
 
     public constructor(init?: Partial< PivotTablesResponse >) {  
          super(init);     
@@ -15508,10 +15508,10 @@ export class PlotArea  extends ChartFrame  {
 
     }
 
-    public innerHeight: number;
-    public innerWidth: number;
-    public innerX: number;
-    public innerY: number;
+    public innerHeight!: number;
+    public innerWidth!: number;
+    public innerX!: number;
+    public innerY!: number;
 
     public constructor(init?: Partial< PlotArea >) {  
          super(init);     
@@ -15538,7 +15538,7 @@ export class PlotAreaResponse  extends CellsCloudResponse  {
 
     }
 
-    public plotArea: PlotArea;
+    public plotArea!: PlotArea;
 
     public constructor(init?: Partial< PlotAreaResponse >) {  
          super(init);     
@@ -15575,9 +15575,9 @@ export class RadioButton  extends Shape  {
 
     }
 
-    public groupBox: GroupBox;
-    public isChecked: boolean;
-    public shadow: boolean;
+    public groupBox!: GroupBox;
+    public isChecked!: boolean;
+    public shadow!: boolean;
 
     public constructor(init?: Partial< RadioButton >) {  
          super(init);     
@@ -15604,7 +15604,7 @@ export class RadioButtonResponse  extends CellsCloudResponse  {
 
     }
 
-    public shape: RadioButton;
+    public shape!: RadioButton;
 
     public constructor(init?: Partial< RadioButtonResponse >) {  
          super(init);     
@@ -15631,7 +15631,7 @@ export class RangeResponse  extends CellsCloudResponse  {
 
     }
 
-    public range: Range;
+    public range!: Range;
 
     public constructor(init?: Partial< RangeResponse >) {  
          super(init);     
@@ -15658,7 +15658,7 @@ export class RangesResponse  extends CellsCloudResponse  {
 
     }
 
-    public ranges: Ranges;
+    public ranges!: Ranges;
 
     public constructor(init?: Partial< RangesResponse >) {  
          super(init);     
@@ -15685,7 +15685,7 @@ export class RangeValueResponse  extends CellsCloudResponse  {
 
     }
 
-    public cellsList: Array<Cell>;
+    public cellsList!: Array<Cell>;
 
     public constructor(init?: Partial< RangeValueResponse >) {  
          super(init);     
@@ -15733,7 +15733,7 @@ export class RectangleShapeResponse  extends CellsCloudResponse  {
 
     }
 
-    public shape: RectangleShape;
+    public shape!: RectangleShape;
 
     public constructor(init?: Partial< RectangleShapeResponse >) {  
          super(init);     
@@ -15760,7 +15760,7 @@ export class RowResponse  extends CellsCloudResponse  {
 
     }
 
-    public row: Row;
+    public row!: Row;
 
     public constructor(init?: Partial< RowResponse >) {  
          super(init);     
@@ -15787,7 +15787,7 @@ export class RowsResponse  extends CellsCloudResponse  {
 
     }
 
-    public rows: Rows;
+    public rows!: Rows;
 
     public constructor(init?: Partial< RowsResponse >) {  
          super(init);     
@@ -15814,7 +15814,7 @@ export class SaveFilesToCloudResultResponse  extends CellsCloudResponse  {
 
     }
 
-    public saveFilesToCloudResult: SaveFilesToCloudResult;
+    public saveFilesToCloudResult!: SaveFilesToCloudResult;
 
     public constructor(init?: Partial< SaveFilesToCloudResultResponse >) {  
          super(init);     
@@ -15871,13 +15871,13 @@ export class ScrollBar  extends Shape  {
 
     }
 
-    public currentValue: number;
-    public incrementalChange: number;
-    public isHorizontal: boolean;
-    public max: number;
-    public min: number;
-    public pageChange: number;
-    public shadow: boolean;
+    public currentValue!: number;
+    public incrementalChange!: number;
+    public isHorizontal!: boolean;
+    public max!: number;
+    public min!: number;
+    public pageChange!: number;
+    public shadow!: boolean;
 
     public constructor(init?: Partial< ScrollBar >) {  
          super(init);     
@@ -15904,7 +15904,7 @@ export class ScrollBarResponse  extends CellsCloudResponse  {
 
     }
 
-    public shape: ScrollBar;
+    public shape!: ScrollBar;
 
     public constructor(init?: Partial< ScrollBarResponse >) {  
          super(init);     
@@ -15947,10 +15947,10 @@ export class SeriesItems  extends LinkElement  {
 
     }
 
-    public categoryData: string;
-    public isColorVaried: boolean;
-    public secondCatergoryData: string;
-    public seriesList: Array<Series>;
+    public categoryData!: string;
+    public isColorVaried!: boolean;
+    public secondCatergoryData!: string;
+    public seriesList!: Array<Series>;
 
     public constructor(init?: Partial< SeriesItems >) {  
          super(init);     
@@ -15977,7 +15977,7 @@ export class SeriesesResponse  extends CellsCloudResponse  {
 
     }
 
-    public serieses: SeriesItems;
+    public serieses!: SeriesItems;
 
     public constructor(init?: Partial< SeriesesResponse >) {  
          super(init);     
@@ -16229,52 +16229,52 @@ export class Series  extends LinkElement  {
 
     }
 
-    public area: Area;
-    public bar3DShapeType: string;
-    public border: Line;
-    public bubbleScale: number;
-    public bubbleSizes: string;
-    public countOfDataValues: number;
-    public dataLabels: DataLabels;
-    public displayName: string;
-    public doughnutHoleSize: number;
-    public downBars: DropBars;
-    public dropLines: Line;
-    public explosion: number;
-    public firstSliceAngle: number;
-    public gapWidth: number;
-    public has3DEffect: boolean;
-    public hasDropLines: boolean;
-    public hasHiLoLines: boolean;
-    public hasLeaderLines: boolean;
-    public hasRadarAxisLabels: boolean;
-    public hasSeriesLines: boolean;
-    public hasUpDownBars: boolean;
-    public hiLoLines: Line;
-    public isAutoSplit: boolean;
-    public isColorVaried: boolean;
-    public leaderLines: Line;
-    public legendEntry: LegendEntry;
-    public marker: Marker;
-    public name: string;
-    public overlap: number;
-    public plotOnSecondAxis: boolean;
-    public points: LinkElement;
-    public secondPlotSize: number;
-    public seriesLines: Line;
-    public shadow: boolean;
-    public showNegativeBubbles: boolean;
-    public sizeRepresents: string;
-    public smooth: boolean;
-    public splitType: string;
-    public splitValue: number;
-    public trendLines: Trendlines;
-    public type: string;
-    public upBars: DropBars;
-    public values: string;
-    public xErrorBar: ErrorBar;
-    public xValues: string;
-    public yErrorBar: ErrorBar;
+    public area!: Area;
+    public bar3DShapeType!: string;
+    public border!: Line;
+    public bubbleScale!: number;
+    public bubbleSizes!: string;
+    public countOfDataValues!: number;
+    public dataLabels!: DataLabels;
+    public displayName!: string;
+    public doughnutHoleSize!: number;
+    public downBars!: DropBars;
+    public dropLines!: Line;
+    public explosion!: number;
+    public firstSliceAngle!: number;
+    public gapWidth!: number;
+    public has3DEffect!: boolean;
+    public hasDropLines!: boolean;
+    public hasHiLoLines!: boolean;
+    public hasLeaderLines!: boolean;
+    public hasRadarAxisLabels!: boolean;
+    public hasSeriesLines!: boolean;
+    public hasUpDownBars!: boolean;
+    public hiLoLines!: Line;
+    public isAutoSplit!: boolean;
+    public isColorVaried!: boolean;
+    public leaderLines!: Line;
+    public legendEntry!: LegendEntry;
+    public marker!: Marker;
+    public name!: string;
+    public overlap!: number;
+    public plotOnSecondAxis!: boolean;
+    public points!: LinkElement;
+    public secondPlotSize!: number;
+    public seriesLines!: Line;
+    public shadow!: boolean;
+    public showNegativeBubbles!: boolean;
+    public sizeRepresents!: string;
+    public smooth!: boolean;
+    public splitType!: string;
+    public splitValue!: number;
+    public trendLines!: Trendlines;
+    public type!: string;
+    public upBars!: DropBars;
+    public values!: string;
+    public xErrorBar!: ErrorBar;
+    public xValues!: string;
+    public yErrorBar!: ErrorBar;
 
     public constructor(init?: Partial< Series >) {  
          super(init);     
@@ -16301,7 +16301,7 @@ export class SeriesResponse  extends CellsCloudResponse  {
 
     }
 
-    public series: Series;
+    public series!: Series;
 
     public constructor(init?: Partial< SeriesResponse >) {  
          super(init);     
@@ -16328,7 +16328,7 @@ export class ShapeResponse  extends CellsCloudResponse  {
 
     }
 
-    public shape: Shape;
+    public shape!: Shape;
 
     public constructor(init?: Partial< ShapeResponse >) {  
          super(init);     
@@ -16355,7 +16355,7 @@ export class Shapes  extends LinkElement  {
 
     }
 
-    public shapeList: Array<LinkElement>;
+    public shapeList!: Array<LinkElement>;
 
     public constructor(init?: Partial< Shapes >) {  
          super(init);     
@@ -16382,7 +16382,7 @@ export class ShapesResponse  extends CellsCloudResponse  {
 
     }
 
-    public shapes: Shapes;
+    public shapes!: Shapes;
 
     public constructor(init?: Partial< ShapesResponse >) {  
          super(init);     
@@ -16409,7 +16409,7 @@ export class SingleValueResponse  extends CellsCloudResponse  {
 
     }
 
-    public value: SingleValue;
+    public value!: SingleValue;
 
     public constructor(init?: Partial< SingleValueResponse >) {  
          super(init);     
@@ -16567,33 +16567,33 @@ export class SparklineGroup  {
 
     }
 
-    public displayHidden: boolean;
-    public firstPointColor: CellsColor;
-    public highPointColor: CellsColor;
-    public horizontalAxisColor: CellsColor;
-    public horizontalAxisDateRange: string;
-    public lastPointColor: CellsColor;
-    public lineWeight: number;
-    public lowPointColor: CellsColor;
-    public markersColor: CellsColor;
-    public negativePointsColor: CellsColor;
-    public plotEmptyCellsType: string;
-    public plotRightToLeft: boolean;
-    public presetStyle: string;
-    public seriesColor: CellsColor;
-    public showFirstPoint: boolean;
-    public showHighPoint: boolean;
-    public showHorizontalAxis: boolean;
-    public showLastPoint: boolean;
-    public showLowPoint: boolean;
-    public showMarkers: boolean;
-    public showNegativePoints: boolean;
-    public sparklineCollection: Array<Sparkline>;
-    public type: string;
-    public verticalAxisMaxValue: number;
-    public verticalAxisMaxValueType: string;
-    public verticalAxisMinValue: number;
-    public verticalAxisMinValueType: string;
+    public displayHidden!: boolean;
+    public firstPointColor!: CellsColor;
+    public highPointColor!: CellsColor;
+    public horizontalAxisColor!: CellsColor;
+    public horizontalAxisDateRange!: string;
+    public lastPointColor!: CellsColor;
+    public lineWeight!: number;
+    public lowPointColor!: CellsColor;
+    public markersColor!: CellsColor;
+    public negativePointsColor!: CellsColor;
+    public plotEmptyCellsType!: string;
+    public plotRightToLeft!: boolean;
+    public presetStyle!: string;
+    public seriesColor!: CellsColor;
+    public showFirstPoint!: boolean;
+    public showHighPoint!: boolean;
+    public showHorizontalAxis!: boolean;
+    public showLastPoint!: boolean;
+    public showLowPoint!: boolean;
+    public showMarkers!: boolean;
+    public showNegativePoints!: boolean;
+    public sparklineCollection!: Array<Sparkline>;
+    public type!: string;
+    public verticalAxisMaxValue!: number;
+    public verticalAxisMaxValueType!: string;
+    public verticalAxisMinValue!: number;
+    public verticalAxisMinValueType!: string;
 
     public constructor(init?: Partial< SparklineGroup >) {  
     
@@ -16620,7 +16620,7 @@ export class SparklineGroupResponse  extends CellsCloudResponse  {
 
     }
 
-    public sparklineGroup: SparklineGroup;
+    public sparklineGroup!: SparklineGroup;
 
     public constructor(init?: Partial< SparklineGroupResponse >) {  
          super(init);     
@@ -16648,7 +16648,7 @@ export class SparklineGroups  {
 
     }
 
-    public sparklineGroupList: Array<SparklineGroup>;
+    public sparklineGroupList!: Array<SparklineGroup>;
 
     public constructor(init?: Partial< SparklineGroups >) {  
     
@@ -16675,7 +16675,7 @@ export class SparklineGroupsResponse  extends CellsCloudResponse  {
 
     }
 
-    public sparklineGroups: SparklineGroups;
+    public sparklineGroups!: SparklineGroups;
 
     public constructor(init?: Partial< SparklineGroupsResponse >) {  
          super(init);     
@@ -16722,11 +16722,11 @@ export class Spinner  extends Shape  {
 
     }
 
-    public currentValue: number;
-    public incrementalChange: number;
-    public max: number;
-    public min: number;
-    public shadow: boolean;
+    public currentValue!: number;
+    public incrementalChange!: number;
+    public max!: number;
+    public min!: number;
+    public shadow!: boolean;
 
     public constructor(init?: Partial< Spinner >) {  
          super(init);     
@@ -16753,7 +16753,7 @@ export class SpinnerResponse  extends CellsCloudResponse  {
 
     }
 
-    public shape: Spinner;
+    public shape!: Spinner;
 
     public constructor(init?: Partial< SpinnerResponse >) {  
          super(init);     
@@ -16780,7 +16780,7 @@ export class SplitResultResponse  extends CellsCloudResponse  {
 
     }
 
-    public result: SplitResult;
+    public result!: SplitResult;
 
     public constructor(init?: Partial< SplitResultResponse >) {  
          super(init);     
@@ -16807,7 +16807,7 @@ export class StyleResponse  extends CellsCloudResponse  {
 
     }
 
-    public style: Style;
+    public style!: Style;
 
     public constructor(init?: Partial< StyleResponse >) {  
          super(init);     
@@ -16834,7 +16834,7 @@ export class StylesResponse  extends CellsCloudResponse  {
 
     }
 
-    public styles: Styles;
+    public styles!: Styles;
 
     public constructor(init?: Partial< StylesResponse >) {  
          super(init);     
@@ -16861,7 +16861,7 @@ export class TaskRunResultResponse  extends CellsCloudResponse  {
 
     }
 
-    public taskRunResult: TaskRunResult;
+    public taskRunResult!: TaskRunResult;
 
     public constructor(init?: Partial< TaskRunResultResponse >) {  
          super(init);     
@@ -16909,7 +16909,7 @@ export class TextBoxResponse  extends CellsCloudResponse  {
 
     }
 
-    public shape: TextBox;
+    public shape!: TextBox;
 
     public constructor(init?: Partial< TextBoxResponse >) {  
          super(init);     
@@ -16936,7 +16936,7 @@ export class TextItemResponse  extends CellsCloudResponse  {
 
     }
 
-    public textItem: TextItem;
+    public textItem!: TextItem;
 
     public constructor(init?: Partial< TextItemResponse >) {  
          super(init);     
@@ -16963,7 +16963,7 @@ export class TextItemsResponse  extends CellsCloudResponse  {
 
     }
 
-    public textItems: TextItems;
+    public textItems!: TextItems;
 
     public constructor(init?: Partial< TextItemsResponse >) {  
          super(init);     
@@ -17040,17 +17040,17 @@ export class TickLabels  extends LinkElement  {
 
     }
 
-    public autoScaleFont: boolean;
-    public backgroundMode: string;
-    public font: Font;
-    public number: number;
-    public numberFormat: string;
-    public numberFormatLinked: boolean;
-    public offset: number;
-    public rotationAngle: number;
-    public textDirection: string;
-    public readingOrder: string;
-    public directionType: string;
+    public autoScaleFont!: boolean;
+    public backgroundMode!: string;
+    public font!: Font;
+    public number!: number;
+    public numberFormat!: string;
+    public numberFormatLinked!: boolean;
+    public offset!: number;
+    public rotationAngle!: number;
+    public textDirection!: string;
+    public readingOrder!: string;
+    public directionType!: string;
 
     public constructor(init?: Partial< TickLabels >) {  
          super(init);     
@@ -17077,7 +17077,7 @@ export class TickLabelsResponse  extends CellsCloudResponse  {
 
     }
 
-    public tickLabels: TickLabels;
+    public tickLabels!: TickLabels;
 
     public constructor(init?: Partial< TickLabelsResponse >) {  
          super(init);     
@@ -17134,13 +17134,13 @@ export class Title  extends ChartFrame  {
 
     }
 
-    public isVisible: boolean;
-    public linkedSource: string;
-    public rotationAngle: number;
-    public text: string;
-    public textDirection: string;
-    public textHorizontalAlignment: string;
-    public textVerticalAlignment: string;
+    public isVisible!: boolean;
+    public linkedSource!: string;
+    public rotationAngle!: number;
+    public text!: string;
+    public textDirection!: string;
+    public textHorizontalAlignment!: string;
+    public textVerticalAlignment!: string;
 
     public constructor(init?: Partial< Title >) {  
          super(init);     
@@ -17167,7 +17167,7 @@ export class TitleResponse  extends CellsCloudResponse  {
 
     }
 
-    public title: Title;
+    public title!: Title;
 
     public constructor(init?: Partial< TitleResponse >) {  
          super(init);     
@@ -17254,19 +17254,19 @@ export class Trendline  extends Line  {
 
     }
 
-    public link: Link;
-    public backward: number;
-    public dataLabels: DataLabels;
-    public displayEquation: boolean;
-    public displayRSquared: boolean;
-    public forward: number;
-    public intercept: number;
-    public isNameAuto: boolean;
-    public legendEntry: LegendEntry;
-    public name: string;
-    public order: number;
-    public period: number;
-    public type: string;
+    public link!: Link;
+    public backward!: number;
+    public dataLabels!: DataLabels;
+    public displayEquation!: boolean;
+    public displayRSquared!: boolean;
+    public forward!: number;
+    public intercept!: number;
+    public isNameAuto!: boolean;
+    public legendEntry!: LegendEntry;
+    public name!: string;
+    public order!: number;
+    public period!: number;
+    public type!: string;
 
     public constructor(init?: Partial< Trendline >) {  
          super(init);     
@@ -17293,7 +17293,7 @@ export class TrendlineResponse  extends CellsCloudResponse  {
 
     }
 
-    public trendline: Trendline;
+    public trendline!: Trendline;
 
     public constructor(init?: Partial< TrendlineResponse >) {  
          super(init);     
@@ -17320,7 +17320,7 @@ export class Trendlines  extends LinkElement  {
 
     }
 
-    public trendlineList: Array<Trendline>;
+    public trendlineList!: Array<Trendline>;
 
     public constructor(init?: Partial< Trendlines >) {  
          super(init);     
@@ -17347,7 +17347,7 @@ export class TrendlinesResponse  extends CellsCloudResponse  {
 
     }
 
-    public trendlines: Trendlines;
+    public trendlines!: Trendlines;
 
     public constructor(init?: Partial< TrendlinesResponse >) {  
          super(init);     
@@ -17374,7 +17374,7 @@ export class ValidationResponse  extends CellsCloudResponse  {
 
     }
 
-    public validation: Validation;
+    public validation!: Validation;
 
     public constructor(init?: Partial< ValidationResponse >) {  
          super(init);     
@@ -17401,7 +17401,7 @@ export class ValidationsResponse  extends CellsCloudResponse  {
 
     }
 
-    public validations: Validations;
+    public validations!: Validations;
 
     public constructor(init?: Partial< ValidationsResponse >) {  
          super(init);     
@@ -17428,7 +17428,7 @@ export class VerticalPageBreakResponse  extends CellsCloudResponse  {
 
     }
 
-    public verticalPageBreak: VerticalPageBreak;
+    public verticalPageBreak!: VerticalPageBreak;
 
     public constructor(init?: Partial< VerticalPageBreakResponse >) {  
          super(init);     
@@ -17455,7 +17455,7 @@ export class VerticalPageBreaksResponse  extends CellsCloudResponse  {
 
     }
 
-    public verticalPageBreaks: VerticalPageBreaks;
+    public verticalPageBreaks!: VerticalPageBreaks;
 
     public constructor(init?: Partial< VerticalPageBreaksResponse >) {  
          super(init);     
@@ -17502,11 +17502,11 @@ export class Walls  extends Floor  {
 
     }
 
-    public centerX: number;
-    public centerY: number;
-    public depth: number;
-    public height: number;
-    public width: number;
+    public centerX!: number;
+    public centerY!: number;
+    public depth!: number;
+    public height!: number;
+    public width!: number;
 
     public constructor(init?: Partial< Walls >) {  
          super(init);     
@@ -17533,7 +17533,7 @@ export class WallsResponse  extends CellsCloudResponse  {
 
     }
 
-    public walls: Walls;
+    public walls!: Walls;
 
     public constructor(init?: Partial< WallsResponse >) {  
          super(init);     
@@ -17565,8 +17565,8 @@ export class WorkbookReplaceResponse  extends CellsCloudResponse  {
 
     }
 
-    public matches: number;
-    public workbook: LinkElement;
+    public matches!: number;
+    public workbook!: LinkElement;
 
     public constructor(init?: Partial< WorkbookReplaceResponse >) {  
          super(init);     
@@ -17593,7 +17593,7 @@ export class WorkbookResponse  extends CellsCloudResponse  {
 
     }
 
-    public workbook: Workbook;
+    public workbook!: Workbook;
 
     public constructor(init?: Partial< WorkbookResponse >) {  
          super(init);     
@@ -17620,7 +17620,7 @@ export class WorkbookSettingsResponse  extends CellsCloudResponse  {
 
     }
 
-    public settings: WorkbookSettings;
+    public settings!: WorkbookSettings;
 
     public constructor(init?: Partial< WorkbookSettingsResponse >) {  
          super(init);     
@@ -17647,7 +17647,7 @@ export class WorkbooksResponse  extends CellsCloudResponse  {
 
     }
 
-    public workbooks: Array<LinkElement>;
+    public workbooks!: Array<LinkElement>;
 
     public constructor(init?: Partial< WorkbooksResponse >) {  
          super(init);     
@@ -17679,8 +17679,8 @@ export class WorksheetReplaceResponse  extends CellsCloudResponse  {
 
     }
 
-    public matches: number;
-    public worksheet: LinkElement;
+    public matches!: number;
+    public worksheet!: LinkElement;
 
     public constructor(init?: Partial< WorksheetReplaceResponse >) {  
          super(init);     
@@ -17707,7 +17707,7 @@ export class WorksheetResponse  extends CellsCloudResponse  {
 
     }
 
-    public worksheet: Worksheet;
+    public worksheet!: Worksheet;
 
     public constructor(init?: Partial< WorksheetResponse >) {  
          super(init);     
@@ -17734,7 +17734,7 @@ export class WorksheetsResponse  extends CellsCloudResponse  {
 
     }
 
-    public worksheets: Worksheets;
+    public worksheets!: Worksheets;
 
     public constructor(init?: Partial< WorksheetsResponse >) {  
          super(init);     
@@ -17771,9 +17771,9 @@ export class AnalyzeExcelRequest  {
 
     }
 
-    public files: Array<FileInfo>;
-    public needThumbnail: boolean;
-    public buildSuggestoinSheet: boolean;
+    public files!: Array<FileInfo>;
+    public needThumbnail!: boolean;
+    public buildSuggestoinSheet!: boolean;
 
     public constructor(init?: Partial< AnalyzeExcelRequest >) {  
     
@@ -17805,8 +17805,8 @@ export class MatchConditionRequest  {
 
     }
 
-    public regexPattern: string;
-    public fullMatchConditions: Array<string>;
+    public regexPattern!: string;
+    public fullMatchConditions!: Array<string>;
 
     public constructor(init?: Partial< MatchConditionRequest >) {  
     
@@ -17878,16 +17878,16 @@ export class BatchConvertRequest  {
 
     }
 
-    public sourceFolder: string;
-    public sourceStorage: string;
-    public matchCondition: MatchConditionRequest;
-    public format: string;
-    public outFolder: string;
-    public outStorage: string;
-    public region: string;
-    public pageWideFitOnPerSheet: boolean;
-    public pageTallFitOnPerSheet: boolean;
-    public saveOptions: SaveOptions;
+    public sourceFolder!: string;
+    public sourceStorage!: string;
+    public matchCondition!: MatchConditionRequest;
+    public format!: string;
+    public outFolder!: string;
+    public outStorage!: string;
+    public region!: string;
+    public pageWideFitOnPerSheet!: boolean;
+    public pageTallFitOnPerSheet!: boolean;
+    public saveOptions!: SaveOptions;
 
     public constructor(init?: Partial< BatchConvertRequest >) {  
     
@@ -17939,12 +17939,12 @@ export class BatchLockRequest  {
 
     }
 
-    public sourceFolder: string;
-    public sourceStorage: string;
-    public matchCondition: MatchConditionRequest;
-    public password: string;
-    public outFolder: string;
-    public outStorage: string;
+    public sourceFolder!: string;
+    public sourceStorage!: string;
+    public matchCondition!: MatchConditionRequest;
+    public password!: string;
+    public outFolder!: string;
+    public outStorage!: string;
 
     public constructor(init?: Partial< BatchLockRequest >) {  
     
@@ -18001,13 +18001,13 @@ export class BatchProtectRequest  {
 
     }
 
-    public sourceFolder: string;
-    public sourceStorage: string;
-    public matchCondition: MatchConditionRequest;
-    public protectionType: string;
-    public password: string;
-    public outFolder: string;
-    public outStorage: string;
+    public sourceFolder!: string;
+    public sourceStorage!: string;
+    public matchCondition!: MatchConditionRequest;
+    public protectionType!: string;
+    public password!: string;
+    public outFolder!: string;
+    public outStorage!: string;
 
     public constructor(init?: Partial< BatchProtectRequest >) {  
     
@@ -18079,16 +18079,16 @@ export class BatchSplitRequest  {
 
     }
 
-    public sourceFolder: string;
-    public sourceStorage: string;
-    public matchCondition: MatchConditionRequest;
-    public format: string;
-    public fromIndex: number;
-    public toIndex: number;
-    public outFolder: string;
-    public outStorage: string;
-    public region: string;
-    public saveOptions: SaveOptions;
+    public sourceFolder!: string;
+    public sourceStorage!: string;
+    public matchCondition!: MatchConditionRequest;
+    public format!: string;
+    public fromIndex!: number;
+    public toIndex!: number;
+    public outFolder!: string;
+    public outStorage!: string;
+    public region!: string;
+    public saveOptions!: SaveOptions;
 
     public constructor(init?: Partial< BatchSplitRequest >) {  
     
@@ -18125,9 +18125,9 @@ export class ColorFilterRequest  {
 
     }
 
-    public pattern: string;
-    public foregroundColor: CellsColor;
-    public backgroundColor: CellsColor;
+    public pattern!: string;
+    public foregroundColor!: CellsColor;
+    public backgroundColor!: CellsColor;
 
     public constructor(init?: Partial< ColorFilterRequest >) {  
     
@@ -18159,8 +18159,8 @@ export class ConvertParameter  {
 
     }
 
-    public name: string;
-    public value: string;
+    public name!: string;
+    public value!: string;
 
     public constructor(init?: Partial< ConvertParameter >) {  
     
@@ -18217,13 +18217,13 @@ export class CreatePivotTableRequest  {
 
     }
 
-    public name: string;
-    public sourceData: string;
-    public destCellName: string;
-    public useSameSource: boolean;
-    public pivotFieldRows: Array<number>;
-    public pivotFieldColumns: Array<number>;
-    public pivotFieldData: Array<number>;
+    public name!: string;
+    public sourceData!: string;
+    public destCellName!: string;
+    public useSameSource!: boolean;
+    public pivotFieldRows!: Array<number>;
+    public pivotFieldColumns!: Array<number>;
+    public pivotFieldData!: Array<number>;
 
     public constructor(init?: Partial< CreatePivotTableRequest >) {  
     
@@ -18270,11 +18270,11 @@ export class DataCleansingRequest  {
 
     }
 
-    public file: FileInfo;
-    public checkExcelRestriction: boolean;
-    public region: string;
-    public outFileFormat: string;
-    public dataCleansing: DataCleansing;
+    public file!: FileInfo;
+    public checkExcelRestriction!: boolean;
+    public region!: string;
+    public outFileFormat!: string;
+    public dataCleansing!: DataCleansing;
 
     public constructor(init?: Partial< DataCleansingRequest >) {  
     
@@ -18321,11 +18321,11 @@ export class DataDeduplicationRequest  {
 
     }
 
-    public file: FileInfo;
-    public deduplicationRegion: DeduplicationRegion;
-    public outFileFormat: string;
-    public checkExcelRestriction: boolean;
-    public region: string;
+    public file!: FileInfo;
+    public deduplicationRegion!: DeduplicationRegion;
+    public outFileFormat!: string;
+    public checkExcelRestriction!: boolean;
+    public region!: string;
 
     public constructor(init?: Partial< DataDeduplicationRequest >) {  
     
@@ -18372,11 +18372,11 @@ export class DataFillRequest  {
 
     }
 
-    public file: FileInfo;
-    public outFileFormat: string;
-    public checkExcelRestriction: boolean;
-    public region: string;
-    public dataFill: DataFill;
+    public file!: FileInfo;
+    public outFileFormat!: string;
+    public checkExcelRestriction!: boolean;
+    public region!: string;
+    public dataFill!: DataFill;
 
     public constructor(init?: Partial< DataFillRequest >) {  
     
@@ -18408,8 +18408,8 @@ export class AppliedStep  {
 
     }
 
-    public stepName: string;
-    public appliedOperate: AppliedOperate;
+    public stepName!: string;
+    public appliedOperate!: AppliedOperate;
 
     public constructor(init?: Partial< AppliedStep >) {  
     
@@ -18441,8 +18441,8 @@ export class LoadData  {
 
     }
 
-    public loadTo: LoadTo;
-    public dataQuery: DataQuery;
+    public loadTo!: LoadTo;
+    public dataQuery!: DataQuery;
 
     public constructor(init?: Partial< LoadData >) {  
     
@@ -18494,12 +18494,12 @@ export class DataTransformationRequest  {
 
     }
 
-    public fileInfo: FileInfo;
-    public dataSource: DataSource;
-    public loadData: LoadData;
-    public appliedSteps: Array<AppliedStep>;
-    public region: string;
-    public outFormat: string;
+    public fileInfo!: FileInfo;
+    public dataSource!: DataSource;
+    public loadData!: LoadData;
+    public appliedSteps!: Array<AppliedStep>;
+    public region!: string;
+    public outFormat!: string;
 
     public constructor(init?: Partial< DataTransformationRequest >) {  
     
@@ -18546,11 +18546,11 @@ export class DeleteIncompleteRowsRequest  {
 
     }
 
-    public file: FileInfo;
-    public outFileFormat: string;
-    public checkExcelRestriction: boolean;
-    public region: string;
-    public ranges: Array<Range>;
+    public file!: FileInfo;
+    public outFileFormat!: string;
+    public checkExcelRestriction!: boolean;
+    public region!: string;
+    public ranges!: Array<Range>;
 
     public constructor(init?: Partial< DeleteIncompleteRowsRequest >) {  
     
@@ -18587,9 +18587,9 @@ export class ImportPosition  {
 
     }
 
-    public sheetName: string;
-    public rowIndex: number;
-    public columnIndex: number;
+    public sheetName!: string;
+    public rowIndex!: number;
+    public columnIndex!: number;
 
     public constructor(init?: Partial< ImportPosition >) {  
     
@@ -18626,9 +18626,9 @@ export class ImportJsonRequest  {
 
     }
 
-    public jsonFileSource: DataSource;
-    public importPosition: ImportPosition;
-    public jsonContent: string;
+    public jsonFileSource!: DataSource;
+    public importPosition!: ImportPosition;
+    public jsonContent!: string;
 
     public constructor(init?: Partial< ImportJsonRequest >) {  
     
@@ -18665,9 +18665,9 @@ export class ImportXMLRequest  {
 
     }
 
-    public xMLFileSource: DataSource;
-    public importPosition: ImportPosition;
-    public xMLContent: string;
+    public xMLFileSource!: DataSource;
+    public importPosition!: ImportPosition;
+    public xMLContent!: string;
 
     public constructor(init?: Partial< ImportXMLRequest >) {  
     
@@ -18694,7 +18694,7 @@ export class PasswordRequest  {
 
     }
 
-    public password: string;
+    public password!: string;
 
     public constructor(init?: Partial< PasswordRequest >) {  
     
@@ -18721,7 +18721,7 @@ export class PivotTableFieldRequest  {
 
     }
 
-    public data: Array<number>;
+    public data!: Array<number>;
 
     public constructor(init?: Partial< PivotTableFieldRequest >) {  
     
@@ -18784,14 +18784,14 @@ export class DigitalSignature  {
 
     }
 
-    public comments: string;
-    public signTime: string;
-    public id: string;
-    public password: string;
-    public image: Array<number>;
-    public providerId: string;
-    public isValid: boolean;
-    public xAdESType: string;
+    public comments!: string;
+    public signTime!: string;
+    public id!: string;
+    public password!: string;
+    public image!: Array<number>;
+    public providerId!: string;
+    public isValid!: boolean;
+    public xAdESType!: string;
 
     public constructor(init?: Partial< DigitalSignature >) {  
     
@@ -18848,13 +18848,13 @@ export class ProtectWorkbookRequest  {
 
     }
 
-    public awaysOpenReadOnly: boolean;
-    public encryptWithPassword: string;
-    public protectCurrentSheet: Protection;
-    public protectAllSheets: Protection;
-    public protectWorkbookStructure: string;
-    public digitalSignature: DigitalSignature;
-    public markAsFinal: boolean;
+    public awaysOpenReadOnly!: boolean;
+    public encryptWithPassword!: string;
+    public protectCurrentSheet!: Protection;
+    public protectAllSheets!: Protection;
+    public protectWorkbookStructure!: string;
+    public digitalSignature!: DigitalSignature;
+    public markAsFinal!: boolean;
 
     public constructor(init?: Partial< ProtectWorkbookRequest >) {  
     
@@ -18896,10 +18896,10 @@ export class RangeConvertRequest  {
 
     }
 
-    public source: Range;
-    public imageType: string;
-    public imageOrPrintOptions: ImageOrPrintOptions;
-    public pageSetup: PageSetup;
+    public source!: Range;
+    public imageType!: string;
+    public imageOrPrintOptions!: ImageOrPrintOptions;
+    public pageSetup!: PageSetup;
 
     public constructor(init?: Partial< RangeConvertRequest >) {  
     
@@ -18946,11 +18946,11 @@ export class RangeCopyRequest  {
 
     }
 
-    public operate: string;
-    public source: Range;
-    public target: Range;
-    public targetWorkbook: string;
-    public pasteOptions: PasteOptions;
+    public operate!: string;
+    public source!: Range;
+    public target!: Range;
+    public targetWorkbook!: string;
+    public pasteOptions!: PasteOptions;
 
     public constructor(init?: Partial< RangeCopyRequest >) {  
     
@@ -18992,10 +18992,10 @@ export class RangeSetOutlineBorderRequest  {
 
     }
 
-    public range: Range;
-    public borderEdge: string;
-    public borderStyle: string;
-    public borderColor: Color;
+    public range!: Range;
+    public borderEdge!: string;
+    public borderStyle!: string;
+    public borderColor!: Color;
 
     public constructor(init?: Partial< RangeSetOutlineBorderRequest >) {  
     
@@ -19027,8 +19027,8 @@ export class RangeSetStyleRequest  {
 
     }
 
-    public range: Range;
-    public style: Style;
+    public range!: Range;
+    public style!: Style;
 
     public constructor(init?: Partial< RangeSetStyleRequest >) {  
     
@@ -19060,8 +19060,8 @@ export class RangeSortRequest  {
 
     }
 
-    public dataSorter: DataSorter;
-    public cellArea: Range;
+    public dataSorter!: DataSorter;
+    public cellArea!: Range;
 
     public constructor(init?: Partial< RangeSortRequest >) {  
     
@@ -19098,9 +19098,9 @@ export class TableTotalRequest  {
 
     }
 
-    public listColumnIndex: number;
-    public totalsCalculation: string;
-    public customFormula: string;
+    public listColumnIndex!: number;
+    public totalsCalculation!: string;
+    public customFormula!: string;
 
     public constructor(init?: Partial< TableTotalRequest >) {  
     
@@ -19152,12 +19152,12 @@ export class TextWaterMarkerRequest  {
 
     }
 
-    public text: string;
-    public fontName: string;
-    public fontSize: number;
-    public height: number;
-    public width: number;
-    public imageAdaptOption: string;
+    public text!: string;
+    public fontName!: string;
+    public fontSize!: number;
+    public height!: number;
+    public width!: number;
+    public imageAdaptOption!: string;
 
     public constructor(init?: Partial< TextWaterMarkerRequest >) {  
     
@@ -19194,9 +19194,9 @@ export class WorkbookEncryptionRequest  {
 
     }
 
-    public encryptionType: string;
-    public keyLength: number;
-    public password: string;
+    public encryptionType!: string;
+    public keyLength!: number;
+    public password!: string;
 
     public constructor(init?: Partial< WorkbookEncryptionRequest >) {  
     
@@ -19228,8 +19228,8 @@ export class WorkbookProtectionRequest  {
 
     }
 
-    public protectionType: string;
-    public password: string;
+    public protectionType!: string;
+    public password!: string;
 
     public constructor(init?: Partial< WorkbookProtectionRequest >) {  
     
@@ -19256,7 +19256,7 @@ export class AppliedOperate  {
 
     }
 
-    public appliedOperateType: string;
+    public appliedOperateType!: string;
 
     public constructor(init?: Partial< AppliedOperate >) {  
     
@@ -19303,11 +19303,11 @@ export class DataQuery  {
 
     }
 
-    public name: string;
-    public dataSourceDataType: string;
-    public dataSource: DataSource;
-    public fileInfo: FileInfo;
-    public dataItem: DataItem;
+    public name!: string;
+    public dataSourceDataType!: string;
+    public dataSource!: DataSource;
+    public fileInfo!: FileInfo;
+    public dataItem!: DataItem;
 
     public constructor(init?: Partial< DataQuery >) {  
     
@@ -19344,9 +19344,9 @@ export class LoadTo  {
 
     }
 
-    public worksheet: string;
-    public beginRowIndex: number;
-    public beginColumnIndex: number;
+    public worksheet!: string;
+    public beginRowIndex!: number;
+    public beginColumnIndex!: number;
 
     public constructor(init?: Partial< LoadTo >) {  
     
@@ -19393,11 +19393,11 @@ export class MergeQueries  extends AppliedOperate  {
 
     }
 
-    public dataQueryNameA: string;
-    public dataAIndexField: string;
-    public dataQueryNameB: string;
-    public dataBIndexField: string;
-    public joinType: string;
+    public dataQueryNameA!: string;
+    public dataAIndexField!: string;
+    public dataQueryNameB!: string;
+    public dataBIndexField!: string;
+    public joinType!: string;
 
     public constructor(init?: Partial< MergeQueries >) {  
          super(init);     
@@ -19429,8 +19429,8 @@ export class PivotColumn  extends AppliedOperate  {
 
     }
 
-    public pivotColumnName: string;
-    public valueColumnNames: Array<string>;
+    public pivotColumnName!: string;
+    public valueColumnNames!: Array<string>;
 
     public constructor(init?: Partial< PivotColumn >) {  
          super(init);     
@@ -19467,9 +19467,9 @@ export class UnpivotColumn  extends AppliedOperate  {
 
     }
 
-    public unpivotColumnNames: Array<string>;
-    public columnMapName: string;
-    public valueMapName: string;
+    public unpivotColumnNames!: Array<string>;
+    public columnMapName!: string;
+    public valueMapName!: string;
 
     public constructor(init?: Partial< UnpivotColumn >) {  
          super(init);     
@@ -19512,10 +19512,10 @@ export class PivotItem  {
 
     }
 
-    public index: number;
-    public isHidden: boolean;
-    public name: string;
-    public value: string;
+    public index!: number;
+    public isHidden!: boolean;
+    public name!: string;
+    public value!: string;
 
     public constructor(init?: Partial< PivotItem >) {  
     
@@ -19542,7 +19542,7 @@ export class BaseOperateOptions  {
 
     }
 
-    public name: string;
+    public name!: string;
 
     public constructor(init?: Partial< BaseOperateOptions >) {  
     
@@ -19574,8 +19574,8 @@ export class ScopeOptions  {
 
     }
 
-    public scope: string;
-    public scopeItems: Array<ScopeItem>;
+    public scope!: string;
+    public scopeItems!: Array<ScopeItem>;
 
     public constructor(init?: Partial< ScopeOptions >) {  
     
@@ -19632,13 +19632,13 @@ export class AddTextOptions  extends BaseOperateOptions  {
 
     }
 
-    public dataSource: DataSource;
-    public fileInfo: FileInfo;
-    public scopeOptions: ScopeOptions;
-    public text: string;
-    public selectPoistion: string;
-    public selectText: string;
-    public skipEmptyCells: boolean;
+    public dataSource!: DataSource;
+    public fileInfo!: FileInfo;
+    public scopeOptions!: ScopeOptions;
+    public text!: string;
+    public selectPoistion!: string;
+    public selectText!: string;
+    public skipEmptyCells!: boolean;
 
     public constructor(init?: Partial< AddTextOptions >) {  
          super(init);     
@@ -19670,8 +19670,8 @@ export class CharacterCountOptions  {
 
     }
 
-    public dataSource: DataSource;
-    public fileInfo: FileInfo;
+    public dataSource!: DataSource;
+    public fileInfo!: FileInfo;
 
     public constructor(init?: Partial< CharacterCountOptions >) {  
     
@@ -19718,11 +19718,11 @@ export class CheckExternalReferenceOptions  {
 
     }
 
-    public dataSource: DataSource;
-    public fileInfo: FileInfo;
-    public worksheet: string;
-    public ranged_Table: string;
-    public chartIndex: number;
+    public dataSource!: DataSource;
+    public fileInfo!: FileInfo;
+    public worksheet!: string;
+    public ranged_Table!: string;
+    public chartIndex!: number;
 
     public constructor(init?: Partial< CheckExternalReferenceOptions >) {  
     
@@ -19769,11 +19769,11 @@ export class CheckFormulaErrorOptions  {
 
     }
 
-    public dataSource: DataSource;
-    public fileInfo: FileInfo;
-    public sheetName: string;
-    public chartIndex: number;
-    public names: Array<string>;
+    public dataSource!: DataSource;
+    public fileInfo!: FileInfo;
+    public sheetName!: string;
+    public chartIndex!: number;
+    public names!: Array<string>;
 
     public constructor(init?: Partial< CheckFormulaErrorOptions >) {  
     
@@ -19830,13 +19830,13 @@ export class CombinationSourceData  {
 
     }
 
-    public tag: string;
-    public dataSource: DataSource;
-    public fileInfo: FileInfo;
-    public worksheet: string;
-    public tableName: string;
-    public cellArea: string;
-    public hasHeader: boolean;
+    public tag!: string;
+    public dataSource!: DataSource;
+    public fileInfo!: FileInfo;
+    public worksheet!: string;
+    public tableName!: string;
+    public cellArea!: string;
+    public hasHeader!: boolean;
 
     public constructor(init?: Partial< CombinationSourceData >) {  
     
@@ -19888,12 +19888,12 @@ export class ConvertTextOptions  extends BaseOperateOptions  {
 
     }
 
-    public dataSource: DataSource;
-    public fileInfo: FileInfo;
-    public scopeOptions: ScopeOptions;
-    public convertTextType: string;
-    public sourceCharacters: string;
-    public targetCharacters: string;
+    public dataSource!: DataSource;
+    public fileInfo!: FileInfo;
+    public scopeOptions!: ScopeOptions;
+    public convertTextType!: string;
+    public sourceCharacters!: string;
+    public targetCharacters!: string;
 
     public constructor(init?: Partial< ConvertTextOptions >) {  
          super(init);     
@@ -19945,12 +19945,12 @@ export class ConvertWorkbookOptions  extends BaseOperateOptions  {
 
     }
 
-    public dataSource: DataSource;
-    public fileInfo: FileInfo;
-    public pageSetup: PageSetup;
-    public saveOptions: SaveOptions;
-    public convertFormat: string;
-    public checkExcelRestriction: boolean;
+    public dataSource!: DataSource;
+    public fileInfo!: FileInfo;
+    public pageSetup!: PageSetup;
+    public saveOptions!: SaveOptions;
+    public convertFormat!: string;
+    public checkExcelRestriction!: boolean;
 
     public constructor(init?: Partial< ConvertWorkbookOptions >) {  
          super(init);     
@@ -20012,14 +20012,14 @@ export class ConvertWorksheetOptions  extends BaseOperateOptions  {
 
     }
 
-    public dataSource: DataSource;
-    public fileInfo: FileInfo;
-    public worksheetName: string;
-    public pageSetup: PageSetup;
-    public imageOrPrintOptions: ImageOrPrintOptions;
-    public convertFormat: string;
-    public checkExcelRestriction: boolean;
-    public region: string;
+    public dataSource!: DataSource;
+    public fileInfo!: FileInfo;
+    public worksheetName!: string;
+    public pageSetup!: PageSetup;
+    public imageOrPrintOptions!: ImageOrPrintOptions;
+    public convertFormat!: string;
+    public checkExcelRestriction!: boolean;
+    public region!: string;
 
     public constructor(init?: Partial< ConvertWorksheetOptions >) {  
          super(init);     
@@ -20066,11 +20066,11 @@ export class DataOutputLocation  {
 
     }
 
-    public dataSource: DataSource;
-    public fileInfo: FileInfo;
-    public worksheet: string;
-    public beginRowIndex: number;
-    public beginColumnIndex: number;
+    public dataSource!: DataSource;
+    public fileInfo!: FileInfo;
+    public worksheet!: string;
+    public beginRowIndex!: number;
+    public beginColumnIndex!: number;
 
     public constructor(init?: Partial< DataOutputLocation >) {  
     
@@ -20142,16 +20142,16 @@ export class ExtractTextOptions  extends BaseOperateOptions  {
 
     }
 
-    public dataSource: DataSource;
-    public fileInfo: FileInfo;
-    public worksheet: string;
-    public range: string;
-    public extractTextType: string;
-    public beforeText: string;
-    public afterText: string;
-    public beforePosition: number;
-    public afterPosition: number;
-    public outPositionRange: string;
+    public dataSource!: DataSource;
+    public fileInfo!: FileInfo;
+    public worksheet!: string;
+    public range!: string;
+    public extractTextType!: string;
+    public beforeText!: string;
+    public afterText!: string;
+    public beforePosition!: number;
+    public afterPosition!: number;
+    public outPositionRange!: string;
 
     public constructor(init?: Partial< ExtractTextOptions >) {  
          super(init);     
@@ -20203,12 +20203,12 @@ export class MergeTableOptions  {
 
     }
 
-    public mainTable: CombinationSourceData;
-    public secondaryTable: CombinationSourceData;
-    public dataMergeType: string;
-    public overwriteMainTable: boolean;
-    public syncDataToTargetWorkbook: boolean;
-    public mergedDataToPosition: DataOutputLocation;
+    public mainTable!: CombinationSourceData;
+    public secondaryTable!: CombinationSourceData;
+    public dataMergeType!: string;
+    public overwriteMainTable!: boolean;
+    public syncDataToTargetWorkbook!: boolean;
+    public mergedDataToPosition!: DataOutputLocation;
 
     public constructor(init?: Partial< MergeTableOptions >) {  
     
@@ -20246,9 +20246,9 @@ export class RemoveCharactersByCharacter  {
 
     }
 
-    public removeTextMethod: string;
-    public removeCharacters: Array<string>;
-    public removeCharacterSetsType: string;
+    public removeTextMethod!: string;
+    public removeCharacters!: Array<string>;
+    public removeCharacterSetsType!: string;
 
     public constructor(init?: Partial< RemoveCharactersByCharacter >) {  
     
@@ -20295,11 +20295,11 @@ export class RemoveCharactersOptions  extends BaseOperateOptions  {
 
     }
 
-    public dataSource: DataSource;
-    public fileInfo: FileInfo;
-    public scopeOptions: ScopeOptions;
-    public removeCharactersByCharacter: RemoveCharactersByCharacter;
-    public removeCharactersByPosition: RemoveCharactersByPosition;
+    public dataSource!: DataSource;
+    public fileInfo!: FileInfo;
+    public scopeOptions!: ScopeOptions;
+    public removeCharactersByCharacter!: RemoveCharactersByCharacter;
+    public removeCharactersByPosition!: RemoveCharactersByPosition;
 
     public constructor(init?: Partial< RemoveCharactersOptions >) {  
          super(init);     
@@ -20336,9 +20336,9 @@ export class RemoveDuplicatesOptions  extends BaseOperateOptions  {
 
     }
 
-    public dataSource: DataSource;
-    public fileInfo: FileInfo;
-    public scopeOptions: ScopeOptions;
+    public dataSource!: DataSource;
+    public fileInfo!: FileInfo;
+    public scopeOptions!: ScopeOptions;
 
     public constructor(init?: Partial< RemoveDuplicatesOptions >) {  
          super(init);     
@@ -20370,8 +20370,8 @@ export class ScopeItem  {
 
     }
 
-    public worksheet: string;
-    public ranges: Array<string>;
+    public worksheet!: string;
+    public ranges!: Array<string>;
 
     public constructor(init?: Partial< ScopeItem >) {  
     
@@ -20408,9 +20408,9 @@ export class SpecifyCellsObject  {
 
     }
 
-    public worksheetName: string;
-    public pageIndex: number;
-    public region: string;
+    public worksheetName!: string;
+    public pageIndex!: number;
+    public region!: string;
 
     public constructor(init?: Partial< SpecifyCellsObject >) {  
     
@@ -20447,9 +20447,9 @@ export class SpecifyWordsCountOptions  {
 
     }
 
-    public dataSource: DataSource;
-    public fileInfo: FileInfo;
-    public searchWord: string;
+    public dataSource!: DataSource;
+    public fileInfo!: FileInfo;
+    public searchWord!: string;
 
     public constructor(init?: Partial< SpecifyWordsCountOptions >) {  
     
@@ -20516,15 +20516,15 @@ export class SplitTextOptions  extends BaseOperateOptions  {
 
     }
 
-    public dataSource: DataSource;
-    public fileInfo: FileInfo;
-    public worksheet: string;
-    public range: string;
-    public splitDelimitersType: string;
-    public customDelimiter: string;
-    public keepDelimitersInResultingCells: boolean;
-    public keepDelimitersPosition: string;
-    public howToSplit: string;
+    public dataSource!: DataSource;
+    public fileInfo!: FileInfo;
+    public worksheet!: string;
+    public range!: string;
+    public splitDelimitersType!: string;
+    public customDelimiter!: string;
+    public keepDelimitersInResultingCells!: boolean;
+    public keepDelimitersPosition!: string;
+    public howToSplit!: string;
 
     public constructor(init?: Partial< SplitTextOptions >) {  
          super(init);     
@@ -20617,16 +20617,16 @@ export class TrimContentOptions  {
 
     }
 
-    public dataSource: DataSource;
-    public fileInfo: FileInfo;
-    public trimContent: string;
-    public trimLeading: boolean;
-    public trimTrailing: boolean;
-    public trimSpaceBetweenWordTo1: boolean;
-    public trimNonBreakingSpaces: boolean;
-    public removeExtraLineBreaks: boolean;
-    public removeAllLineBreaks: boolean;
-    public scopeOptions: ScopeOptions;
+    public dataSource!: DataSource;
+    public fileInfo!: FileInfo;
+    public trimContent!: string;
+    public trimLeading!: boolean;
+    public trimTrailing!: boolean;
+    public trimSpaceBetweenWordTo1!: boolean;
+    public trimNonBreakingSpaces!: boolean;
+    public removeExtraLineBreaks!: boolean;
+    public removeAllLineBreaks!: boolean;
+    public scopeOptions!: ScopeOptions;
 
     public constructor(init?: Partial< TrimContentOptions >) {  
     
@@ -20669,10 +20669,10 @@ export class WordCaseOptions  {
 
     }
 
-    public dataSource: DataSource;
-    public fileInfo: FileInfo;
-    public wordCaseType: string;
-    public scopeOptions: ScopeOptions;
+    public dataSource!: DataSource;
+    public fileInfo!: FileInfo;
+    public wordCaseType!: string;
+    public scopeOptions!: ScopeOptions;
 
     public constructor(init?: Partial< WordCaseOptions >) {  
     
@@ -20704,8 +20704,8 @@ export class WordsCountOptions  {
 
     }
 
-    public dataSource: DataSource;
-    public fileInfo: FileInfo;
+    public dataSource!: DataSource;
+    public fileInfo!: FileInfo;
 
     public constructor(init?: Partial< WordsCountOptions >) {  
     
@@ -20757,12 +20757,12 @@ export class CellValue  {
 
     }
 
-    public rowIndex: number;
-    public columnIndex: number;
-    public type: string;
-    public value: string;
-    public formula: string;
-    public style: Style;
+    public rowIndex!: number;
+    public columnIndex!: number;
+    public type!: string;
+    public value!: string;
+    public formula!: string;
+    public style!: Style;
 
     public constructor(init?: Partial< CellValue >) {  
     
@@ -20799,9 +20799,9 @@ export class CustomParserConfig  {
 
     }
 
-    public columnIndex: number;
-    public parseMethod: string;
-    public customStyle: string;
+    public columnIndex!: number;
+    public parseMethod!: string;
+    public customStyle!: string;
 
     public constructor(init?: Partial< CustomParserConfig >) {  
     
@@ -20838,9 +20838,9 @@ export class Import2DimensionDoubleArrayOption  extends ImportOption  {
 
     }
 
-    public firstRow: number;
-    public firstColumn: number;
-    public data: Array<number>;
+    public firstRow!: number;
+    public firstColumn!: number;
+    public data!: Array<number>;
 
     public constructor(init?: Partial< Import2DimensionDoubleArrayOption >) {  
          super(init);     
@@ -20877,9 +20877,9 @@ export class Import2DimensionIntArrayOption  extends ImportOption  {
 
     }
 
-    public firstRow: number;
-    public firstColumn: number;
-    public data: Array<number>;
+    public firstRow!: number;
+    public firstColumn!: number;
+    public data!: Array<number>;
 
     public constructor(init?: Partial< Import2DimensionIntArrayOption >) {  
          super(init);     
@@ -20916,9 +20916,9 @@ export class Import2DimensionStringArrayOption  extends ImportOption  {
 
     }
 
-    public firstRow: number;
-    public firstColumn: number;
-    public data: Array<string>;
+    public firstRow!: number;
+    public firstColumn!: number;
+    public data!: Array<string>;
 
     public constructor(init?: Partial< Import2DimensionStringArrayOption >) {  
          super(init);     
@@ -20945,7 +20945,7 @@ export class ImportBatchDataOption  extends ImportOption  {
 
     }
 
-    public batchData: Array<CellValue>;
+    public batchData!: Array<CellValue>;
 
     public constructor(init?: Partial< ImportBatchDataOption >) {  
          super(init);     
@@ -20997,12 +20997,12 @@ export class ImportCSVDataOption  extends ImportOption  {
 
     }
 
-    public separatorString: string;
-    public convertNumericData: boolean;
-    public firstRow: number;
-    public firstColumn: number;
-    public sourceFile: string;
-    public customParsers: Array<CustomParserConfig>;
+    public separatorString!: string;
+    public convertNumericData!: boolean;
+    public firstRow!: number;
+    public firstColumn!: number;
+    public sourceFile!: string;
+    public customParsers!: Array<CustomParserConfig>;
 
     public constructor(init?: Partial< ImportCSVDataOption >) {  
          super(init);     
@@ -21044,10 +21044,10 @@ export class ImportDoubleArrayOption  extends ImportOption  {
 
     }
 
-    public firstRow: number;
-    public firstColumn: number;
-    public isVertical: boolean;
-    public data: Array<number>;
+    public firstRow!: number;
+    public firstColumn!: number;
+    public isVertical!: boolean;
+    public data!: Array<number>;
 
     public constructor(init?: Partial< ImportDoubleArrayOption >) {  
          super(init);     
@@ -21089,10 +21089,10 @@ export class ImportIntArrayOption  extends ImportOption  {
 
     }
 
-    public firstRow: number;
-    public firstColumn: number;
-    public isVertical: boolean;
-    public data: Array<number>;
+    public firstRow!: number;
+    public firstColumn!: number;
+    public isVertical!: boolean;
+    public data!: Array<number>;
 
     public constructor(init?: Partial< ImportIntArrayOption >) {  
          super(init);     
@@ -21144,12 +21144,12 @@ export class ImportPictureOption  extends ImportOption  {
 
     }
 
-    public upperLeftRow: number;
-    public upperLeftColumn: number;
-    public lowerRightRow: number;
-    public lowerRightColumn: number;
-    public filename: string;
-    public data: string;
+    public upperLeftRow!: number;
+    public upperLeftColumn!: number;
+    public lowerRightRow!: number;
+    public lowerRightColumn!: number;
+    public filename!: string;
+    public data!: string;
 
     public constructor(init?: Partial< ImportPictureOption >) {  
          super(init);     
@@ -21191,10 +21191,10 @@ export class ImportStringArrayOption  extends ImportOption  {
 
     }
 
-    public firstRow: number;
-    public firstColumn: number;
-    public isVertical: boolean;
-    public data: Array<string>;
+    public firstRow!: number;
+    public firstColumn!: number;
+    public isVertical!: boolean;
+    public data!: Array<string>;
 
     public constructor(init?: Partial< ImportStringArrayOption >) {  
          super(init);     
@@ -21237,10 +21237,10 @@ export class GradientFill  {
 
     }
 
-    public fillType: string;
-    public directionType: string;
-    public angle: number;
-    public gradientStops: Array<GradientFillStop>;
+    public fillType!: string;
+    public directionType!: string;
+    public angle!: number;
+    public gradientStops!: Array<GradientFillStop>;
 
     public constructor(init?: Partial< GradientFill >) {  
     
@@ -21298,13 +21298,13 @@ export class PatternFill  {
 
     }
 
-    public pattern: string;
-    public backgroundCellsColor: CellsColor;
-    public foregroundCellsColor: CellsColor;
-    public foregroundColor: Color;
-    public backgroundColor: Color;
-    public backTransparency: number;
-    public foreTransparency: number;
+    public pattern!: string;
+    public backgroundCellsColor!: CellsColor;
+    public foregroundCellsColor!: CellsColor;
+    public foregroundColor!: Color;
+    public backgroundColor!: Color;
+    public backTransparency!: number;
+    public foreTransparency!: number;
 
     public constructor(init?: Partial< PatternFill >) {  
     
@@ -21342,9 +21342,9 @@ export class SolidFill  {
 
     }
 
-    public color: Color;
-    public cellsColor: CellsColor;
-    public transparency: number;
+    public color!: Color;
+    public cellsColor!: CellsColor;
+    public transparency!: number;
 
     public constructor(init?: Partial< SolidFill >) {  
     
@@ -21397,12 +21397,12 @@ export class TextureFill  {
 
     }
 
-    public type: string;
-    public transparency: number;
-    public scale: number;
-    public tilePicOption: TilePicOption;
-    public picFormatOption: PicFormatOption;
-    public image: LinkElement;
+    public type!: string;
+    public transparency!: number;
+    public scale!: number;
+    public tilePicOption!: TilePicOption;
+    public picFormatOption!: PicFormatOption;
+    public image!: LinkElement;
 
     public constructor(init?: Partial< TextureFill >) {  
     
@@ -21439,9 +21439,9 @@ export class GradientFillStop  {
 
     }
 
-    public color: Color;
-    public position: number;
-    public transparency: number;
+    public color!: Color;
+    public position!: number;
+    public transparency!: number;
 
     public constructor(init?: Partial< GradientFillStop >) {  
     
@@ -21515,12 +21515,12 @@ export class PicFormatOption  {
 
     }
 
-    public type: string;
-    public scale: number;
-    public left: number;
-    public right: number;
-    public top: number;
-    public bottom: number;
+    public type!: string;
+    public scale!: number;
+    public left!: number;
+    public right!: number;
+    public top!: number;
+    public bottom!: number;
 
     public constructor(init?: Partial< PicFormatOption >) {  
     
@@ -21573,12 +21573,12 @@ export class TilePicOption  {
 
     }
 
-    public offsetX: number;
-    public offsetY: number;
-    public scaleX: number;
-    public scaleY: number;
-    public alignmentType: string;
-    public mirrorType: string;
+    public offsetX!: number;
+    public offsetY!: number;
+    public scaleX!: number;
+    public scaleY!: number;
+    public alignmentType!: string;
+    public mirrorType!: string;
 
     public constructor(init?: Partial< TilePicOption >) {  
     
@@ -21621,10 +21621,10 @@ export class Marker  {
 
     }
 
-    public border: Line;
-    public area: Area;
-    public markerSize: number;
-    public markerStyle: string;
+    public border!: Line;
+    public area!: Area;
+    public markerSize!: number;
+    public markerStyle!: string;
 
     public constructor(init?: Partial< Marker >) {  
     
@@ -21683,9 +21683,9 @@ export class Sparkline  {
 
     }
 
-    public column: number;
-    public dataRange: string;
-    public row: number;
+    public column!: number;
+    public dataRange!: string;
+    public row!: number;
 
     public constructor(init?: Partial< Sparkline >) {  
     
@@ -21752,15 +21752,15 @@ export class AnalyzedColumnDescription  {
 
     }
 
-    public index: number;
-    public columnIndex: number;
-    public title: string;
-    public repetitionRate: number;
-    public columnDataDataType: string;
-    public numberCategoryType: string;
-    public textCategoryType: string;
-    public styleNumber: number;
-    public columnDataExceptionDescription: string;
+    public index!: number;
+    public columnIndex!: number;
+    public title!: string;
+    public repetitionRate!: number;
+    public columnDataDataType!: string;
+    public numberCategoryType!: string;
+    public textCategoryType!: string;
+    public styleNumber!: number;
+    public columnDataExceptionDescription!: string;
 
     public constructor(init?: Partial< AnalyzedColumnDescription >) {  
     
@@ -21862,22 +21862,22 @@ export class AnalyzedTableDescription  {
 
     }
 
-    public name: string;
-    public sheetName: string;
-    public columns: Array<AnalyzedColumnDescription>;
-    public dateColumns: Array<number>;
-    public numberColumns: Array<number>;
-    public textColumns: Array<number>;
-    public exceptionColumns: Array<number>;
-    public hasTableHeaderRow: boolean;
-    public hasTableTotalRow: boolean;
-    public startDataColumnIndex: number;
-    public endDataColumnIndex: number;
-    public startDataRowIndex: number;
-    public endDataRowIndex: number;
-    public thumbnail: string;
-    public discoverCharts: Array<DiscoverChart>;
-    public discoverPivotTables: Array<DiscoverPivotTable>;
+    public name!: string;
+    public sheetName!: string;
+    public columns!: Array<AnalyzedColumnDescription>;
+    public dateColumns!: Array<number>;
+    public numberColumns!: Array<number>;
+    public textColumns!: Array<number>;
+    public exceptionColumns!: Array<number>;
+    public hasTableHeaderRow!: boolean;
+    public hasTableTotalRow!: boolean;
+    public startDataColumnIndex!: number;
+    public endDataColumnIndex!: number;
+    public startDataRowIndex!: number;
+    public endDataRowIndex!: number;
+    public thumbnail!: string;
+    public discoverCharts!: Array<DiscoverChart>;
+    public discoverPivotTables!: Array<DiscoverPivotTable>;
 
     public constructor(init?: Partial< AnalyzedTableDescription >) {  
     
@@ -21904,7 +21904,7 @@ export class ExcelDataStatistics  {
 
     }
 
-    public worksheetDataStatistics: Array<WorksheetDataStatistics>;
+    public worksheetDataStatistics!: Array<WorksheetDataStatistics>;
 
     public constructor(init?: Partial< ExcelDataStatistics >) {  
     
@@ -21951,11 +21951,11 @@ export class AnalyzedResult  {
 
     }
 
-    public filename: string;
-    public description: string;
-    public basicStatistics: ExcelDataStatistics;
-    public results: Array<AnalyzedTableDescription>;
-    public suggestedFile: string;
+    public filename!: string;
+    public description!: string;
+    public basicStatistics!: ExcelDataStatistics;
+    public results!: Array<AnalyzedTableDescription>;
+    public suggestedFile!: string;
 
     public constructor(init?: Partial< AnalyzedResult >) {  
     
@@ -22007,12 +22007,12 @@ export class DiscoverChart  {
 
     }
 
-    public name: string;
-    public sheetName: string;
-    public title: string;
-    public type: string;
-    public dataRange: string;
-    public thumbnail: string;
+    public name!: string;
+    public sheetName!: string;
+    public title!: string;
+    public type!: string;
+    public dataRange!: string;
+    public thumbnail!: string;
 
     public constructor(init?: Partial< DiscoverChart >) {  
     
@@ -22069,13 +22069,13 @@ export class DiscoverPivotTable  {
 
     }
 
-    public name: string;
-    public title: string;
-    public dataRange: string;
-    public pivotFieldRows: Array<number>;
-    public pivotFieldColumns: Array<number>;
-    public pivotFieldData: Array<number>;
-    public thumbnail: string;
+    public name!: string;
+    public title!: string;
+    public dataRange!: string;
+    public pivotFieldRows!: Array<number>;
+    public pivotFieldColumns!: Array<number>;
+    public pivotFieldData!: Array<number>;
+    public thumbnail!: string;
 
     public constructor(init?: Partial< DiscoverPivotTable >) {  
     
@@ -22147,16 +22147,16 @@ export class WorksheetDataStatistics  {
 
     }
 
-    public name: string;
-    public chartsCount: number;
-    public tablesCount: number;
-    public pivotTablesCount: number;
-    public shapesCount: number;
-    public hyperlinksCount: number;
-    public queryTablesCount: number;
-    public cellsCount: number;
-    public cellsCountInTable: number;
-    public cellsCountIsFormula: number;
+    public name!: string;
+    public chartsCount!: number;
+    public tablesCount!: number;
+    public pivotTablesCount!: number;
+    public shapesCount!: number;
+    public hyperlinksCount!: number;
+    public queryTablesCount!: number;
+    public cellsCount!: number;
+    public cellsCountInTable!: number;
+    public cellsCountIsFormula!: number;
 
     public constructor(init?: Partial< WorksheetDataStatistics >) {  
     
@@ -22624,11 +22624,11 @@ export {enumsMap, typeMap};
 /// AI task decomposition: Convert user objectives to sequential action plans with formatted file export.   
 export class DecomposeUserTaskRequest  {
     /// Decompose user task description.  
-    public taskDescription: string;
-    /// The spreadsheet region setting.  
-    public region: string;
+    public taskDescription!: string;
+    /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
+    public region!: string;
     /// The password for opening spreadsheet file.  
-    public password: string;
+    public password!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -22666,13 +22666,13 @@ export class DecomposeUserTaskRequest  {
 /// Translates the entire spreadsheet to the specified target language.   
 export class TranslateSpreadsheetRequest  {
     /// Upload spreadsheet file.  
-    public spreadsheet: any;
+    public spreadsheet!: any;
     /// The target language code for translation (e.g., "es", "fr", "de").  
-    public targetLanguage: string;
-    /// The spreadsheet region setting.  
-    public region: string;
+    public targetLanguage!: string;
+    /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
+    public region!: string;
     /// The password for opening spreadsheet file.  
-    public password: string;
+    public password!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -22731,13 +22731,13 @@ export class TranslateSpreadsheetRequest  {
 /// Translates text file content to the specified target language.   
 export class TranslateTextFileRequest  {
     /// Upload spreadsheet file.  
-    public spreadsheet: any;
+    public spreadsheet!: any;
     /// The target language code for translation (e.g., "es", "fr", "de").  
-    public targetLanguage: string;
-    /// The spreadsheet region setting.  
-    public region: string;
+    public targetLanguage!: string;
+    /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
+    public region!: string;
     /// The password for opening spreadsheet file.  
-    public password: string;
+    public password!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -22796,19 +22796,19 @@ export class TranslateTextFileRequest  {
 /// The Aggregate by Color API provides a convenient way to perform calculations on cells that share the same fill or font color. This API supports a range of aggregate operations, including count, sum, maximum value, minimum value, and average value, enabling you to analyze and summarize data based on color distinctions.   
 export class AggregateCellsByColorRequest  {
     /// Upload spreadsheet file.  
-    public spreadsheet: any;
+    public spreadsheet!: any;
     /// Specified worksheet.  
-    public worksheet: string;
+    public worksheet!: string;
     /// Specified range.  
-    public range: string;
+    public range!: string;
     /// Specify calculation operation methods, including Sum, Count, Average, Min, and Max.  
-    public operation: string;
+    public operation!: string;
     /// Indicates the content to sum and count based on background color and/or font color.  
-    public colorPosition: string;
-    /// The spreadsheet region setting.  
-    public region: string;
+    public colorPosition!: string;
+    /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
+    public region!: string;
     /// The password for opening spreadsheet file.  
-    public password: string;
+    public password!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -22865,19 +22865,19 @@ export class AggregateCellsByColorRequest  {
    
 export class MathCalculateRequest  {
     /// Upload spreadsheet file.  
-    public spreadsheet: any;
+    public spreadsheet!: any;
       
-    public operation: string;
+    public operation!: string;
       
-    public value: string;
+    public value!: string;
       
-    public worksheet: string;
+    public worksheet!: string;
       
-    public range: string;
-    /// The spreadsheet region setting.  
-    public region: string;
+    public range!: string;
+    /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
+    public region!: string;
     /// The password for opening spreadsheet file.  
-    public password: string;
+    public password!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -23047,23 +23047,23 @@ export class CheckCloudServiceHealthRequest  {
 /// Converts a spreadsheet in cloud storage to the specified format.   
 export class ExportSpreadsheetAsFormatRequest  {
     /// (Required) The name of the workbook file to be retrieved.  
-    public name: string;
+    public name!: string;
     /// (Required) The desired output format (e.g., "Xlsx", "Pdf", "Csv").  
-    public format: string;
+    public format!: string;
     /// (Optional) The folder path where the workbook is stored. The default is null.  
-    public folder: string;
+    public folder!: string;
     /// (Optional) The name of the storage if using custom cloud storage. Use default storage if omitted.  
-    public storageName: string;
+    public storageName!: string;
     /// (Optional) The folder path where the workbook is stored. The default is null.  
-    public outPath: string;
+    public outPath!: string;
     /// Output file Storage Name.  
-    public outStorageName: string;
+    public outStorageName!: string;
     /// Use Custom fonts.  
-    public fontsLocation: string;
-    /// The spreadsheet region setting.  
-    public region: string;
+    public fontsLocation!: string;
+    /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
+    public region!: string;
     /// The password for opening spreadsheet file.  
-    public password: string;
+    public password!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -23112,25 +23112,25 @@ export class ExportSpreadsheetAsFormatRequest  {
 /// Converts a worksheet of spreadsheet in cloud storage to the specified format.   
 export class ExportWorksheetAsFormatRequest  {
     /// (Required) The name of the workbook file to be retrieved.  
-    public name: string;
+    public name!: string;
       
-    public worksheet: string;
+    public worksheet!: string;
     /// (Required) The desired pdf or image format  (e.g., "png", "Pdf", "svg").  
-    public format: string;
+    public format!: string;
     /// (Optional) The folder path where the workbook is stored. The default is null.  
-    public folder: string;
+    public folder!: string;
     /// (Optional) The name of the storage if using custom cloud storage. Use default storage if omitted.  
-    public storageName: string;
+    public storageName!: string;
     /// (Optional) The folder path where the workbook is stored. The default is null.  
-    public outPath: string;
+    public outPath!: string;
     /// Output file Storage Name.  
-    public outStorageName: string;
+    public outStorageName!: string;
     /// Use Custom fonts.  
-    public fontsLocation: string;
-    /// The spreadsheet region setting.  
-    public region: string;
+    public fontsLocation!: string;
+    /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
+    public region!: string;
     /// The password for opening spreadsheet file.  
-    public password: string;
+    public password!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -23179,27 +23179,27 @@ export class ExportWorksheetAsFormatRequest  {
 /// Converts a chart of spreadsheet in cloud storage to the specified format.   
 export class ExportChartAsFormatRequest  {
     /// (Required) The name of the workbook file to be retrieved.  
-    public name: string;
+    public name!: string;
     /// worksheet name  
-    public worksheet: string;
+    public worksheet!: string;
     /// chart index  
-    public chartIndex: number;
+    public chartIndex!: number;
     /// (Required) The desired pdf or image format  (e.g., "png", "Pdf", "svg").  
-    public format: string;
+    public format!: string;
     /// (Optional) The folder path where the workbook is stored. The default is null.  
-    public folder: string;
+    public folder!: string;
     /// (Optional) The name of the storage if using custom cloud storage. Use default storage if omitted.  
-    public storageName: string;
+    public storageName!: string;
     /// (Optional) The folder path where the workbook is stored. The default is null.  
-    public outPath: string;
+    public outPath!: string;
     /// Output file Storage Name.  
-    public outStorageName: string;
+    public outStorageName!: string;
     /// Use Custom fonts.  
-    public fontsLocation: string;
-    /// The spreadsheet region setting.  
-    public region: string;
+    public fontsLocation!: string;
+    /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
+    public region!: string;
     /// The password for opening spreadsheet file.  
-    public password: string;
+    public password!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -23248,27 +23248,27 @@ export class ExportChartAsFormatRequest  {
 /// Converts a table of spreadsheet in cloud storage to the specified format.   
 export class ExportTableAsFormatRequest  {
     /// (Required) The name of the workbook file to be retrieved.  
-    public name: string;
+    public name!: string;
     /// worksheet name  
-    public worksheet: string;
+    public worksheet!: string;
     /// table name  
-    public tableName: string;
+    public tableName!: string;
     /// (Required) The desired format  (e.g., "png", "Pdf", "svg").  
-    public format: string;
+    public format!: string;
     /// (Optional) The folder path where the workbook is stored. The default is null.  
-    public folder: string;
+    public folder!: string;
     /// (Optional) The name of the storage if using custom cloud storage. Use default storage if omitted.  
-    public storageName: string;
+    public storageName!: string;
     /// (Optional) The folder path where the workbook is stored. The default is null.  
-    public outPath: string;
+    public outPath!: string;
     /// Output file Storage Name.  
-    public outStorageName: string;
+    public outStorageName!: string;
     /// Use Custom fonts.  
-    public fontsLocation: string;
-    /// The spreadsheet region setting.  
-    public region: string;
+    public fontsLocation!: string;
+    /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
+    public region!: string;
     /// The password for opening spreadsheet file.  
-    public password: string;
+    public password!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -23317,27 +23317,27 @@ export class ExportTableAsFormatRequest  {
 /// Converts the range of spreadsheet in cloud storage to the specified format.   
 export class ExportRangeAsFormatRequest  {
     /// (Required) The name of the workbook file to be retrieved.  
-    public name: string;
+    public name!: string;
     /// worksheet name  
-    public worksheet: string;
+    public worksheet!: string;
     /// range: A1:C12  
-    public range: string;
+    public range!: string;
     /// (Required) The desired format  (e.g., "png", "Pdf", "svg").  
-    public format: string;
+    public format!: string;
     /// (Optional) The folder path where the workbook is stored. The default is null.  
-    public folder: string;
+    public folder!: string;
     /// (Optional) The name of the storage if using custom cloud storage. Use default storage if omitted.  
-    public storageName: string;
+    public storageName!: string;
     /// (Optional) The folder path where the workbook is stored. The default is null.  
-    public outPath: string;
+    public outPath!: string;
     /// Output file Storage Name.  
-    public outStorageName: string;
+    public outStorageName!: string;
     /// Use Custom fonts.  
-    public fontsLocation: string;
-    /// The spreadsheet region setting.  
-    public region: string;
+    public fontsLocation!: string;
+    /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
+    public region!: string;
     /// The password for opening spreadsheet file.  
-    public password: string;
+    public password!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -23386,19 +23386,19 @@ export class ExportRangeAsFormatRequest  {
 /// Converts a spreadsheet on a local drive to the specified format.   
 export class ConvertSpreadsheetRequest  {
     /// Upload spreadsheet file.  
-    public spreadsheet: any;
+    public spreadsheet!: any;
     /// (Required) The desired output format (e.g., "Xlsx", "Pdf", "Csv").  
-    public format: string;
+    public format!: string;
     /// (Optional) The folder path where the workbook is stored. The default is null.  
-    public outPath: string;
+    public outPath!: string;
     /// Output file Storage Name.  
-    public outStorageName: string;
+    public outStorageName!: string;
     /// Use Custom fonts.  
-    public fontsLocation: string;
-    /// The spreadsheet region setting.  
-    public region: string;
+    public fontsLocation!: string;
+    /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
+    public region!: string;
     /// The password for opening spreadsheet file.  
-    public password: string;
+    public password!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -23460,17 +23460,17 @@ export class ConvertSpreadsheetRequest  {
 /// Converts a spreadsheet on a local drive to the pdf file.   
 export class ConvertSpreadsheetToPdfRequest  {
     /// Upload spreadsheet file.  
-    public spreadsheet: any;
+    public spreadsheet!: any;
     /// (Optional) The folder path where the workbook is stored. The default is null.  
-    public outPath: string;
+    public outPath!: string;
     /// Output file Storage Name.  
-    public outStorageName: string;
+    public outStorageName!: string;
     /// Use Custom fonts.  
-    public fontsLocation: string;
-    /// The spreadsheet region setting.  
-    public region: string;
+    public fontsLocation!: string;
+    /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
+    public region!: string;
     /// The password for opening spreadsheet file.  
-    public password: string;
+    public password!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -23526,17 +23526,17 @@ export class ConvertSpreadsheetToPdfRequest  {
 /// Converts a spreadsheet on a local drive to the JSON file.   
 export class ConvertSpreadsheetToJsonRequest  {
     /// Upload spreadsheet file.  
-    public spreadsheet: any;
+    public spreadsheet!: any;
     /// (Optional) The folder path where the workbook is stored. The default is null.  
-    public outPath: string;
+    public outPath!: string;
     /// Output file Storage Name.  
-    public outStorageName: string;
+    public outStorageName!: string;
     /// Use Custom fonts.  
-    public fontsLocation: string;
-    /// The spreadsheet region setting.  
-    public region: string;
+    public fontsLocation!: string;
+    /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
+    public region!: string;
     /// The password for opening spreadsheet file.  
-    public password: string;
+    public password!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -23592,17 +23592,17 @@ export class ConvertSpreadsheetToJsonRequest  {
 /// Converts a spreadsheet on a local drive to the csv file.   
 export class ConvertSpreadsheetToCsvRequest  {
     /// Upload spreadsheet file.  
-    public spreadsheet: any;
+    public spreadsheet!: any;
     /// (Optional) The folder path where the workbook is stored. The default is null.  
-    public outPath: string;
+    public outPath!: string;
     /// Output file Storage Name.  
-    public outStorageName: string;
+    public outStorageName!: string;
     /// Use Custom fonts.  
-    public fontsLocation: string;
-    /// The spreadsheet region setting.  
-    public region: string;
+    public fontsLocation!: string;
+    /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
+    public region!: string;
     /// The password for opening spreadsheet file.  
-    public password: string;
+    public password!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -23658,21 +23658,21 @@ export class ConvertSpreadsheetToCsvRequest  {
 /// Converts a worksheet of spreadsheet on a local drive to the image format.   
 export class ConvertWorksheetToImageRequest  {
     /// Upload spreadsheet file.  
-    public spreadsheet: any;
+    public spreadsheet!: any;
     /// worksheet name of spreadsheet.  
-    public worksheet: string;
+    public worksheet!: string;
     /// image format:svg, png, and so on.  
-    public format: string;
+    public format!: string;
     /// (Optional) The folder path where the workbook is stored. The default is null.  
-    public outPath: string;
+    public outPath!: string;
     /// Output file Storage Name.  
-    public outStorageName: string;
+    public outStorageName!: string;
     /// Use Custom fonts.  
-    public fontsLocation: string;
-    /// The spreadsheet region setting.  
-    public region: string;
+    public fontsLocation!: string;
+    /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
+    public region!: string;
     /// The password for opening spreadsheet file.  
-    public password: string;
+    public password!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -23740,19 +23740,19 @@ export class ConvertWorksheetToImageRequest  {
 /// Converts a worksheet of spreadsheet on a local drive to the pdf file.   
 export class ConvertWorksheetToPdfRequest  {
     /// Upload spreadsheet file.  
-    public spreadsheet: any;
+    public spreadsheet!: any;
     /// worksheet name of spreadsheet.  
-    public worksheet: string;
+    public worksheet!: string;
     /// (Optional) The folder path where the workbook is stored. The default is null.  
-    public outPath: string;
+    public outPath!: string;
     /// Output file Storage Name.  
-    public outStorageName: string;
+    public outStorageName!: string;
     /// Use Custom fonts.  
-    public fontsLocation: string;
-    /// The spreadsheet region setting.  
-    public region: string;
+    public fontsLocation!: string;
+    /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
+    public region!: string;
     /// The password for opening spreadsheet file.  
-    public password: string;
+    public password!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -23814,19 +23814,19 @@ export class ConvertWorksheetToPdfRequest  {
 /// Converts a worksheet of spreadsheet on a local drive to the JSON file.   
 export class ConvertWorksheetToJsonRequest  {
     /// Upload spreadsheet file.  
-    public spreadsheet: any;
+    public spreadsheet!: any;
     /// worksheet name of spreadsheet.  
-    public worksheet: string;
+    public worksheet!: string;
     /// (Optional) The folder path where the workbook is stored. The default is null.  
-    public outPath: string;
+    public outPath!: string;
     /// Output file Storage Name.  
-    public outStorageName: string;
+    public outStorageName!: string;
     /// Use Custom fonts.  
-    public fontsLocation: string;
-    /// The spreadsheet region setting.  
-    public region: string;
+    public fontsLocation!: string;
+    /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
+    public region!: string;
     /// The password for opening spreadsheet file.  
-    public password: string;
+    public password!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -23888,19 +23888,19 @@ export class ConvertWorksheetToJsonRequest  {
 /// Converts a worksheet of spreadsheet on a local drive to the CSV file.   
 export class ConvertWorksheetToCsvRequest  {
     /// Upload spreadsheet file.  
-    public spreadsheet: any;
+    public spreadsheet!: any;
     /// worksheet name of spreadsheet.  
-    public worksheet: string;
+    public worksheet!: string;
     /// (Optional) The folder path where the workbook is stored. The default is null.  
-    public outPath: string;
+    public outPath!: string;
     /// Output file Storage Name.  
-    public outStorageName: string;
+    public outStorageName!: string;
     /// Use Custom fonts.  
-    public fontsLocation: string;
-    /// The spreadsheet region setting.  
-    public region: string;
+    public fontsLocation!: string;
+    /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
+    public region!: string;
     /// The password for opening spreadsheet file.  
-    public password: string;
+    public password!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -23962,19 +23962,19 @@ export class ConvertWorksheetToCsvRequest  {
 /// Converts a worksheet of spreadsheet on a local drive to the html file.   
 export class ConvertWorksheetToHtmlRequest  {
     /// Upload spreadsheet file.  
-    public spreadsheet: any;
+    public spreadsheet!: any;
     /// worksheet name of spreadsheet.  
-    public worksheet: string;
+    public worksheet!: string;
     /// (Optional) The folder path where the workbook is stored. The default is null.  
-    public outPath: string;
+    public outPath!: string;
     /// Output file Storage Name.  
-    public outStorageName: string;
+    public outStorageName!: string;
     /// Use Custom fonts.  
-    public fontsLocation: string;
-    /// The spreadsheet region setting.  
-    public region: string;
+    public fontsLocation!: string;
+    /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
+    public region!: string;
     /// The password for opening spreadsheet file.  
-    public password: string;
+    public password!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -24036,13 +24036,13 @@ export class ConvertWorksheetToHtmlRequest  {
 /// Converts a worksheet of spreadsheet on a local drive to the HTML table file.   
 export class ConvertWorksheetToHtmlTableRequest  {
     /// Upload spreadsheet file.  
-    public spreadsheet: any;
+    public spreadsheet!: any;
     /// worksheet name of spreadsheet.  
-    public worksheet: string;
-    /// The spreadsheet region setting.  
-    public region: string;
+    public worksheet!: string;
+    /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
+    public region!: string;
     /// The password for opening spreadsheet file.  
-    public password: string;
+    public password!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -24101,23 +24101,23 @@ export class ConvertWorksheetToHtmlTableRequest  {
 /// Converts a table of spreadsheet on a local drive to the image file.   
 export class ConvertTableToImageRequest  {
     /// Upload spreadsheet file.  
-    public spreadsheet: any;
+    public spreadsheet!: any;
     /// worksheet name of spreadsheet.  
-    public worksheet: string;
+    public worksheet!: string;
     /// table name  
-    public tableName: string;
+    public tableName!: string;
     /// file format.    
-    public format: string;
+    public format!: string;
     /// (Optional) The folder path where the workbook is stored. The default is null.  
-    public outPath: string;
+    public outPath!: string;
     /// Output file Storage Name.  
-    public outStorageName: string;
+    public outStorageName!: string;
     /// Use Custom fonts.  
-    public fontsLocation: string;
-    /// The spreadsheet region setting.  
-    public region: string;
+    public fontsLocation!: string;
+    /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
+    public region!: string;
     /// The password for opening spreadsheet file.  
-    public password: string;
+    public password!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -24191,21 +24191,21 @@ export class ConvertTableToImageRequest  {
 /// Converts a table of spreadsheet on a local drive to the pdf file.   
 export class ConvertTableToPdfRequest  {
     /// Upload spreadsheet file.  
-    public spreadsheet: any;
+    public spreadsheet!: any;
     /// worksheet name of spreadsheet.  
-    public worksheet: string;
+    public worksheet!: string;
     /// table name  
-    public tableName: string;
+    public tableName!: string;
     /// (Optional) The folder path where the workbook is stored. The default is null.  
-    public outPath: string;
+    public outPath!: string;
     /// Output file Storage Name.  
-    public outStorageName: string;
+    public outStorageName!: string;
     /// Use Custom fonts.  
-    public fontsLocation: string;
-    /// The spreadsheet region setting.  
-    public region: string;
+    public fontsLocation!: string;
+    /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
+    public region!: string;
     /// The password for opening spreadsheet file.  
-    public password: string;
+    public password!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -24273,21 +24273,21 @@ export class ConvertTableToPdfRequest  {
 /// Converts a table of spreadsheet on a local drive to the csv file.   
 export class ConvertTableToCsvRequest  {
     /// Upload spreadsheet file.  
-    public spreadsheet: any;
+    public spreadsheet!: any;
     /// worksheet name of spreadsheet.  
-    public worksheet: string;
+    public worksheet!: string;
     /// table name  
-    public tableName: string;
+    public tableName!: string;
     /// (Optional) The folder path where the workbook is stored. The default is null.  
-    public outPath: string;
+    public outPath!: string;
     /// Output file Storage Name.  
-    public outStorageName: string;
+    public outStorageName!: string;
     /// Use Custom fonts.  
-    public fontsLocation: string;
-    /// The spreadsheet region setting.  
-    public region: string;
+    public fontsLocation!: string;
+    /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
+    public region!: string;
     /// The password for opening spreadsheet file.  
-    public password: string;
+    public password!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -24355,21 +24355,21 @@ export class ConvertTableToCsvRequest  {
 /// Converts a table of spreadsheet on a local drive to the html file.   
 export class ConvertTableToHtmlRequest  {
     /// Upload spreadsheet file.  
-    public spreadsheet: any;
+    public spreadsheet!: any;
     /// worksheet name of spreadsheet.  
-    public worksheet: string;
+    public worksheet!: string;
     /// table name  
-    public tableName: string;
+    public tableName!: string;
     /// (Optional) The folder path where the workbook is stored. The default is null.  
-    public outPath: string;
+    public outPath!: string;
     /// Output file Storage Name.  
-    public outStorageName: string;
+    public outStorageName!: string;
     /// Use Custom fonts.  
-    public fontsLocation: string;
-    /// The spreadsheet region setting.  
-    public region: string;
+    public fontsLocation!: string;
+    /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
+    public region!: string;
     /// The password for opening spreadsheet file.  
-    public password: string;
+    public password!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -24437,21 +24437,21 @@ export class ConvertTableToHtmlRequest  {
 /// Converts a table of spreadsheet on a local drive to the json file.   
 export class ConvertTableToJsonRequest  {
     /// Upload spreadsheet file.  
-    public spreadsheet: any;
+    public spreadsheet!: any;
     /// worksheet name of spreadsheet.  
-    public worksheet: string;
+    public worksheet!: string;
     /// table name  
-    public tableName: string;
+    public tableName!: string;
     /// (Optional) The folder path where the workbook is stored. The default is null.  
-    public outPath: string;
+    public outPath!: string;
     /// Output file Storage Name.  
-    public outStorageName: string;
+    public outStorageName!: string;
     /// Use Custom fonts.  
-    public fontsLocation: string;
-    /// The spreadsheet region setting.  
-    public region: string;
+    public fontsLocation!: string;
+    /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
+    public region!: string;
     /// The password for opening spreadsheet file.  
-    public password: string;
+    public password!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -24519,25 +24519,25 @@ export class ConvertTableToJsonRequest  {
 /// Converts a range of spreadsheet on a local drive to the image file.   
 export class ConvertRangeToImageRequest  {
     /// Upload spreadsheet file.  
-    public spreadsheet: any;
+    public spreadsheet!: any;
     /// worksheet name of spreadsheet.  
-    public worksheet: string;
+    public worksheet!: string;
     /// cell area. e.g. A1:C10  
-    public range: string;
+    public range!: string;
     /// file format. e.g. png, svg, tiff   
-    public format: string;
+    public format!: string;
     /// Represents if row and column headings are printed with this page.  
-    public printHeadings: boolean;
+    public printHeadings!: boolean;
     /// (Optional) The folder path where the workbook is stored. The default is null.  
-    public outPath: string;
+    public outPath!: string;
     /// Output file Storage Name.  
-    public outStorageName: string;
+    public outStorageName!: string;
     /// Use Custom fonts.  
-    public fontsLocation: string;
-    /// The spreadsheet region setting.  
-    public region: string;
+    public fontsLocation!: string;
+    /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
+    public region!: string;
     /// The password for opening spreadsheet file.  
-    public password: string;
+    public password!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -24612,21 +24612,21 @@ export class ConvertRangeToImageRequest  {
 /// Converts a range of spreadsheet on a local drive to the pdf file.   
 export class ConvertRangeToPdfRequest  {
     /// Upload spreadsheet file.  
-    public spreadsheet: any;
+    public spreadsheet!: any;
     /// worksheet name of spreadsheet.  
-    public worksheet: string;
+    public worksheet!: string;
     /// cell area. e.g. A1:C10  
-    public range: string;
+    public range!: string;
     /// (Optional) The folder path where the workbook is stored. The default is null.  
-    public outPath: string;
+    public outPath!: string;
     /// Output file Storage Name.  
-    public outStorageName: string;
+    public outStorageName!: string;
     /// Use Custom fonts.  
-    public fontsLocation: string;
-    /// The spreadsheet region setting.  
-    public region: string;
+    public fontsLocation!: string;
+    /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
+    public region!: string;
     /// The password for opening spreadsheet file.  
-    public password: string;
+    public password!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -24694,21 +24694,21 @@ export class ConvertRangeToPdfRequest  {
 /// Converts a range of spreadsheet on a local drive to the csv file.   
 export class ConvertRangeToCsvRequest  {
     /// Upload spreadsheet file.  
-    public spreadsheet: any;
+    public spreadsheet!: any;
     /// worksheet name of spreadsheet.  
-    public worksheet: string;
+    public worksheet!: string;
     /// cell area. e.g. A1:C10  
-    public range: string;
+    public range!: string;
     /// (Optional) The folder path where the workbook is stored. The default is null.  
-    public outPath: string;
+    public outPath!: string;
     /// Output file Storage Name.  
-    public outStorageName: string;
+    public outStorageName!: string;
     /// Use Custom fonts.  
-    public fontsLocation: string;
-    /// The spreadsheet region setting.  
-    public region: string;
+    public fontsLocation!: string;
+    /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
+    public region!: string;
     /// The password for opening spreadsheet file.  
-    public password: string;
+    public password!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -24776,21 +24776,21 @@ export class ConvertRangeToCsvRequest  {
 /// Converts a range of spreadsheet on a local drive to the html file.   
 export class ConvertRangeToHtmlRequest  {
     /// Upload spreadsheet file.  
-    public spreadsheet: any;
+    public spreadsheet!: any;
     /// worksheet name of spreadsheet.  
-    public worksheet: string;
+    public worksheet!: string;
     /// cell area. e.g. A1:C10  
-    public range: string;
+    public range!: string;
     /// (Optional) The folder path where the workbook is stored. The default is null.  
-    public outPath: string;
+    public outPath!: string;
     /// Output file Storage Name.  
-    public outStorageName: string;
+    public outStorageName!: string;
     /// Use Custom fonts.  
-    public fontsLocation: string;
-    /// The spreadsheet region setting.  
-    public region: string;
+    public fontsLocation!: string;
+    /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
+    public region!: string;
     /// The password for opening spreadsheet file.  
-    public password: string;
+    public password!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -24858,21 +24858,21 @@ export class ConvertRangeToHtmlRequest  {
 /// Converts a range of spreadsheet on a local drive to the json file.   
 export class ConvertRangeToJsonRequest  {
     /// Upload spreadsheet file.  
-    public spreadsheet: any;
+    public spreadsheet!: any;
     /// worksheet name of spreadsheet.  
-    public worksheet: string;
+    public worksheet!: string;
     /// cell area. e.g. A1:C10  
-    public range: string;
+    public range!: string;
     /// (Optional) The folder path where the workbook is stored. The default is null.  
-    public outPath: string;
+    public outPath!: string;
     /// Output file Storage Name.  
-    public outStorageName: string;
+    public outStorageName!: string;
     /// Use Custom fonts.  
-    public fontsLocation: string;
-    /// The spreadsheet region setting.  
-    public region: string;
+    public fontsLocation!: string;
+    /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
+    public region!: string;
     /// The password for opening spreadsheet file.  
-    public password: string;
+    public password!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -24940,23 +24940,23 @@ export class ConvertRangeToJsonRequest  {
 /// Converts a chart of spreadsheet on a local drive to image.   
 export class ConvertChartToImageRequest  {
     /// Upload spreadsheet file.  
-    public spreadsheet: any;
+    public spreadsheet!: any;
     /// worksheet name of spreadsheet.  
-    public worksheet: string;
+    public worksheet!: string;
     /// chart index of worksheet.  
-    public chartIndex: number;
+    public chartIndex!: number;
     /// (Required) The desired image type (e.g., svg, png, jpg).  
-    public format: string;
+    public format!: string;
     /// (Optional) The folder path where the workbook is stored. The default is null.  
-    public outPath: string;
+    public outPath!: string;
     /// Output file Storage Name.  
-    public outStorageName: string;
+    public outStorageName!: string;
     /// Use Custom fonts.  
-    public fontsLocation: string;
-    /// The spreadsheet region setting.  
-    public region: string;
+    public fontsLocation!: string;
+    /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
+    public region!: string;
     /// The password for opening spreadsheet file.  
-    public password: string;
+    public password!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -25030,21 +25030,21 @@ export class ConvertChartToImageRequest  {
 /// Converts a chart of spreadsheet on a local drive to pdf.   
 export class ConvertChartToPdfRequest  {
     /// Upload spreadsheet file.  
-    public spreadsheet: any;
+    public spreadsheet!: any;
     /// worksheet name of spreadsheet.  
-    public worksheet: string;
+    public worksheet!: string;
     /// chart index of worksheet.  
-    public chartIndex: number;
+    public chartIndex!: number;
     /// (Optional) The folder path where the workbook is stored. The default is null.  
-    public outPath: string;
+    public outPath!: string;
     /// Output file Storage Name.  
-    public outStorageName: string;
+    public outStorageName!: string;
     /// Use Custom fonts.  
-    public fontsLocation: string;
-    /// The spreadsheet region setting.  
-    public region: string;
+    public fontsLocation!: string;
+    /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
+    public region!: string;
     /// The password for opening spreadsheet file.  
-    public password: string;
+    public password!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -25112,25 +25112,25 @@ export class ConvertChartToPdfRequest  {
 /// Converts a spreadsheet in cloud storage to the specified format.   
 export class SaveSpreadsheetAsRequest  {
     /// (Required) The name of the workbook file to be converted.  
-    public name: string;
+    public name!: string;
     /// (Required) The desired output format (e.g., "Xlsx", "Pdf", "Csv").  
-    public format: string;
+    public format!: string;
     /// (Optional) Save options data. The default is null.  
-    public saveOptionsData: SaveOptionsData;
+    public saveOptionsData!: SaveOptionsData;
     /// (Optional) The folder path where the workbook is stored. The default is null.  
-    public folder: string;
+    public folder!: string;
     /// (Optional) The name of the storage if using custom cloud storage. Use default storage if omitted.  
-    public storageName: string;
+    public storageName!: string;
     /// (Optional) The folder path where the workbook is stored. The default is null.  
-    public outPath: string;
+    public outPath!: string;
     /// Output file Storage Name.  
-    public outStorageName: string;
+    public outStorageName!: string;
     /// Use Custom fonts.  
-    public fontsLocation: string;
-    /// The spreadsheet region setting.  
-    public region: string;
+    public fontsLocation!: string;
+    /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
+    public region!: string;
     /// The password for opening spreadsheet file.  
-    public password: string;
+    public password!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -25179,21 +25179,21 @@ export class SaveSpreadsheetAsRequest  {
 /// Merge local spreadsheet files into a specified format file.   
 export class MergeSpreadsheetsRequest  {
     /// Upload spreadsheet file.  
-    public spreadsheet: any;
+    public spreadsheet!: any;
     /// The out file format.  
-    public outFormat: string;
+    public outFormat!: string;
     /// Whether to combine all data into a single worksheet.  
-    public mergeInOneSheet: boolean;
+    public mergeInOneSheet!: boolean;
     /// (Optional) The folder path where the workbook is stored. The default is null.  
-    public outPath: string;
+    public outPath!: string;
     /// Output file Storage Name.  
-    public outStorageName: string;
+    public outStorageName!: string;
     /// Use Custom fonts.  
-    public fontsLocation: string;
-    /// The spreadsheet region setting.  
-    public region: string;
+    public fontsLocation!: string;
+    /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
+    public region!: string;
     /// The password for opening spreadsheet file.  
-    public password: string;
+    public password!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -25251,25 +25251,25 @@ export class MergeSpreadsheetsRequest  {
 /// Merge spreadsheet files in folder of cloud storage into a specified format file.   
 export class MergeSpreadsheetsInRemoteFolderRequest  {
     /// The folder used to store the merged files.  
-    public folder: string;
+    public folder!: string;
       
-    public fileMatchExpression: string;
+    public fileMatchExpression!: string;
     /// The out file format.  
-    public outFormat: string;
+    public outFormat!: string;
     /// Whether to combine all data into a single worksheet.  
-    public mergeInOneSheet: boolean;
+    public mergeInOneSheet!: boolean;
     /// (Optional) The name of the storage if using custom cloud storage. Use default storage if omitted.  
-    public storageName: string;
+    public storageName!: string;
     /// (Optional) The folder path where the workbook is stored. The default is null.  
-    public outPath: string;
+    public outPath!: string;
     /// Output file Storage Name.  
-    public outStorageName: string;
+    public outStorageName!: string;
     /// Use Custom fonts.  
-    public fontsLocation: string;
-    /// The spreadsheet region setting.  
-    public region: string;
+    public fontsLocation!: string;
+    /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
+    public region!: string;
     /// The password for opening spreadsheet file.  
-    public password: string;
+    public password!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -25320,27 +25320,27 @@ export class MergeSpreadsheetsInRemoteFolderRequest  {
 /// Merge a spreadsheet file into other spreadsheet in cloud storage, and output a specified format file.   
 export class MergeRemoteSpreadsheetRequest  {
     /// The name of the workbook file to be split.  
-    public name: string;
+    public name!: string;
       
-    public mergedSpreadsheet: string;
+    public mergedSpreadsheet!: string;
     /// The folder path where the workbook is stored.  
-    public folder: string;
+    public folder!: string;
     /// The out file format.  
-    public outFormat: string;
+    public outFormat!: string;
     /// Whether to combine all data into a single worksheet.  
-    public mergeInOneSheet: boolean;
+    public mergeInOneSheet!: boolean;
     /// (Optional) The name of the storage if using custom cloud storage. Use default storage if omitted.  
-    public storageName: string;
+    public storageName!: string;
     /// (Optional) The folder path where the workbook is stored. The default is null.  
-    public outPath: string;
+    public outPath!: string;
     /// Output file Storage Name.  
-    public outStorageName: string;
+    public outStorageName!: string;
     /// Use Custom fonts.  
-    public fontsLocation: string;
-    /// The spreadsheet region setting.  
-    public region: string;
+    public fontsLocation!: string;
+    /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
+    public region!: string;
     /// The password for opening spreadsheet file.  
-    public password: string;
+    public password!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -25391,23 +25391,23 @@ export class MergeRemoteSpreadsheetRequest  {
 /// Split a local spreadsheet into the specified format, multi-file.   
 export class SplitSpreadsheetRequest  {
     /// Upload spreadsheet file.  
-    public spreadsheet: any;
+    public spreadsheet!: any;
     /// Begin worksheet index.  
-    public from: number;
+    public from!: number;
     /// End worksheet index.  
-    public to: number;
+    public to!: number;
     /// The out file format.  
-    public outFormat: string;
+    public outFormat!: string;
     /// (Optional) The folder path where the workbook is stored. The default is null.  
-    public outPath: string;
+    public outPath!: string;
     /// Output file Storage Name.  
-    public outStorageName: string;
+    public outStorageName!: string;
     /// Use Custom fonts.  
-    public fontsLocation: string;
-    /// The spreadsheet region setting.  
-    public region: string;
+    public fontsLocation!: string;
+    /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
+    public region!: string;
     /// The password for opening spreadsheet file.  
-    public password: string;
+    public password!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -25466,31 +25466,31 @@ export class SplitSpreadsheetRequest  {
 /// Split an Excel worksheet tale into multiple sheets by column value.   
 export class SplitTableRequest  {
     /// Upload spreadsheet file.  
-    public spreadsheet: any;
+    public spreadsheet!: any;
     /// Worksheet containing the table.  
-    public worksheet: string;
+    public worksheet!: string;
     /// Data table that needs to be split.  
-    public tableName: string;
+    public tableName!: string;
     /// Column name to split by.  
-    public splitColumnName: string;
+    public splitColumnName!: string;
     /// Whether to keep the data in the split column.  
-    public saveSplitColumn: boolean;
+    public saveSplitColumn!: boolean;
       
-    public splitRowNumber: number;
+    public splitRowNumber!: number;
     /// Export destination control: true - Creates new workbook files containing the split data; false - Adds a new worksheet to the current workbook.  
-    public toNewWorkbook: boolean;
+    public toNewWorkbook!: boolean;
     /// true - Exports table data as **multiple separate files** (returned as ZIP archive);false - Stores all data in a **single file** with multiple sheets. Default: false.  
-    public toMultipleFiles: boolean;
+    public toMultipleFiles!: boolean;
     /// (Optional) The folder path where the workbook is stored. The default is null.  
-    public outPath: string;
+    public outPath!: string;
     /// Output file Storage Name.  
-    public outStorageName: string;
+    public outStorageName!: string;
     /// Use Custom fonts.  
-    public fontsLocation: string;
-    /// The spreadsheet region setting.  
-    public region: string;
+    public fontsLocation!: string;
+    /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
+    public region!: string;
     /// The password for opening spreadsheet file.  
-    public password: string;
+    public password!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -25588,27 +25588,27 @@ export class SplitTableRequest  {
 /// Split a spreadsheet in cloud storage into the specified format, multi-file.   
 export class SplitRemoteSpreadsheetRequest  {
     /// The name of the workbook file to be split.  
-    public name: string;
+    public name!: string;
     /// The folder path where the workbook is stored.  
-    public folder: string;
+    public folder!: string;
     /// Begin worksheet index.  
-    public from: number;
+    public from!: number;
     /// End worksheet index.  
-    public to: number;
+    public to!: number;
     /// The desired output format (e.g., "Xlsx", "Pdf", "Csv").  
-    public outFormat: string;
+    public outFormat!: string;
     /// (Optional) The name of the storage if using custom cloud storage. Use default storage if omitted.  
-    public storageName: string;
+    public storageName!: string;
     /// (Optional) The folder path where the workbook is stored. The default is null.  
-    public outPath: string;
+    public outPath!: string;
     /// Output file Storage Name.  
-    public outStorageName: string;
+    public outStorageName!: string;
     /// Use Custom fonts.  
-    public fontsLocation: string;
-    /// The spreadsheet region setting.  
-    public region: string;
+    public fontsLocation!: string;
+    /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
+    public region!: string;
     /// The password for opening spreadsheet file.  
-    public password: string;
+    public password!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -25654,29 +25654,29 @@ export class SplitRemoteSpreadsheetRequest  {
 /// Import data into a spreadsheet from a supported data file format.   
 export class ImportDataIntoSpreadsheetRequest  {
     /// Upload data file.  
-    public datafile: any;
+    public datafile!: any;
     /// Upload spreadsheet file.  
-    public spreadsheet: any;
+    public spreadsheet!: any;
     /// Specify the worksheet for importing data  
-    public worksheet: string;
+    public worksheet!: string;
     /// Specify the starting position for importing data  
-    public startcell: string;
+    public startcell!: string;
     /// The specified import data is for insertion and overwrite.  
-    public insert: boolean;
+    public insert!: boolean;
     /// Specify whether to convert numerical data  
-    public convertNumericData: boolean;
+    public convertNumericData!: boolean;
     /// Specify the delimiter for the CSV format.  
-    public splitter: string;
+    public splitter!: string;
     /// (Optional) The folder path where the workbook is stored. The default is null.  
-    public outPath: string;
+    public outPath!: string;
     /// Output file Storage Name.  
-    public outStorageName: string;
+    public outStorageName!: string;
     /// Use Custom fonts.  
-    public fontsLocation: string;
-    /// The spreadsheet region setting.  
-    public region: string;
+    public fontsLocation!: string;
+    /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
+    public region!: string;
     /// The password for opening spreadsheet file.  
-    public password: string;
+    public password!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -25760,25 +25760,25 @@ export class ImportDataIntoSpreadsheetRequest  {
 /// Import JSON data file into the local spreadsheet.   
 export class ImportJSONDataIntoSpreadsheetRequest  {
     /// Upload data file.  
-    public datafile: any;
+    public datafile!: any;
     /// Upload spreadsheet file.  
-    public spreadsheet: any;
+    public spreadsheet!: any;
     /// Need to import JSON data into the worksheet.  
-    public worksheet: string;
+    public worksheet!: string;
     /// Starting position for data import  
-    public startcell: string;
+    public startcell!: string;
     /// Controls the insertion behavior. true: inserts data; false: overwrites existing data.  
-    public insert: boolean;
+    public insert!: boolean;
     /// (Optional) The folder path where the workbook is stored. The default is null.  
-    public outPath: string;
+    public outPath!: string;
     /// Output file Storage Name.  
-    public outStorageName: string;
+    public outStorageName!: string;
     /// Use Custom fonts.  
-    public fontsLocation: string;
-    /// The spreadsheet region setting.  
-    public region: string;
+    public fontsLocation!: string;
+    /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
+    public region!: string;
     /// The password for opening spreadsheet file.  
-    public password: string;
+    public password!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -25860,25 +25860,25 @@ export class ImportJSONDataIntoSpreadsheetRequest  {
 /// Import XML data file into the local spreadsheet.   
 export class ImportXMLDataIntoSpreadsheetRequest  {
     /// Upload data file.  
-    public datafile: any;
+    public datafile!: any;
     /// Upload spreadsheet file.  
-    public spreadsheet: any;
+    public spreadsheet!: any;
     /// Need to import XML data into the worksheet.  
-    public worksheet: string;
+    public worksheet!: string;
     /// Starting position for data import  
-    public startcell: string;
+    public startcell!: string;
     /// Controls the insertion behavior. true: inserts data; false: overwrites existing data.  
-    public insert: boolean;
+    public insert!: boolean;
     /// (Optional) The folder path where the workbook is stored. The default is null.  
-    public outPath: string;
+    public outPath!: string;
     /// Output file Storage Name.  
-    public outStorageName: string;
+    public outStorageName!: string;
     /// Use Custom fonts.  
-    public fontsLocation: string;
-    /// The spreadsheet region setting.  
-    public region: string;
+    public fontsLocation!: string;
+    /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
+    public region!: string;
     /// The password for opening spreadsheet file.  
-    public password: string;
+    public password!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -25960,29 +25960,29 @@ export class ImportXMLDataIntoSpreadsheetRequest  {
 /// Import CSV data file into the local spreadsheet.   
 export class ImportCSVDataIntoSpreadsheetRequest  {
     /// Upload data file.  
-    public datafile: any;
+    public datafile!: any;
     /// Upload spreadsheet file.  
-    public spreadsheet: any;
+    public spreadsheet!: any;
     /// Need to import CSV data into the worksheet.  
-    public worksheet: string;
+    public worksheet!: string;
     /// Starting position for data import  
-    public startcell: string;
+    public startcell!: string;
     /// Controls the insertion behavior. true: inserts data; false: overwrites existing data.  
-    public insert: boolean;
+    public insert!: boolean;
     /// Whether the string in text file is converted to numeric data.  
-    public convertNumericData: boolean;
+    public convertNumericData!: boolean;
       
-    public splitter: string;
+    public splitter!: string;
     /// (Optional) The folder path where the workbook is stored. The default is null.  
-    public outPath: string;
+    public outPath!: string;
     /// Output file Storage Name.  
-    public outStorageName: string;
+    public outStorageName!: string;
     /// Use Custom fonts.  
-    public fontsLocation: string;
-    /// The spreadsheet region setting.  
-    public region: string;
+    public fontsLocation!: string;
+    /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
+    public region!: string;
     /// The password for opening spreadsheet file.  
-    public password: string;
+    public password!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -26100,17 +26100,17 @@ export class GetPublicKeyRequest  {
 /// The Web API allows users to create a new spreadsheet with a specified name. Optionally, a template can be provided to initialize the spreadsheet with predefined content or formatting.   
 export class CreateSpreadsheetRequest  {
     /// Specifies the name of the new spreadsheet. This name will be used to identify the spreadsheet in the system.  
-    public format: string;
+    public format!: string;
     /// template: Optional.If provided, the new spreadsheet will be created based on the specified template.This can be useful for applying predefined layouts and styles.  
-    public template: string;
+    public template!: string;
     /// (Optional) The folder path where the workbook is stored. The default is null.  
-    public outPath: string;
+    public outPath!: string;
     /// Output file Storage Name.  
-    public outStorageName: string;
-    /// The spreadsheet region setting.  
-    public region: string;
+    public outStorageName!: string;
+    /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
+    public region!: string;
     /// The password for opening spreadsheet file.  
-    public password: string;
+    public password!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -26152,11 +26152,11 @@ export class CreateSpreadsheetRequest  {
 /// Fetches a complete list of worksheets from the currently active local spreadsheet.   
 export class GetWorksheetsWithLocalSpreadsheetRequest  {
     /// Upload spreadsheet file.  
-    public spreadsheet: any;
-    /// The spreadsheet region setting.  
-    public region: string;
+    public spreadsheet!: any;
+    /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
+    public region!: string;
     /// The password for opening spreadsheet file.  
-    public password: string;
+    public password!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -26209,21 +26209,21 @@ export class GetWorksheetsWithLocalSpreadsheetRequest  {
 /// The Web API enables users to add a new worksheet to a workbook, specifying the worksheet's type, position, and name. This function provides flexibility in managing workbook structure by allowing detailed control over worksheet addition.   
 export class AddWorksheetToSpreadsheetRequest  {
     /// Upload spreadsheet file.  
-    public spreadsheet: any;
+    public spreadsheet!: any;
     /// Specifies the name of the new worksheet.If not provided, a default name will be assigned.  
-    public sheetType: string;
+    public sheetType!: string;
     /// Specifies the position at which the new worksheet should be inserted.If not provided, the worksheet will be added at the end of the workbook.  
-    public position: number;
+    public position!: number;
     /// Specifies the type of worksheet to be added.If not provided, a default worksheet type will be used.  
-    public sheetName: string;
+    public sheetName!: string;
     /// (Optional) The folder path where the workbook is stored. The default is null.  
-    public outPath: string;
+    public outPath!: string;
     /// Output file Storage Name.  
-    public outStorageName: string;
-    /// The spreadsheet region setting.  
-    public region: string;
+    public outStorageName!: string;
+    /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
+    public region!: string;
     /// The password for opening spreadsheet file.  
-    public password: string;
+    public password!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -26281,17 +26281,17 @@ export class AddWorksheetToSpreadsheetRequest  {
 /// The Web API endpoint allows users to delete a specified worksheet from a workbook. This function provides a straightforward way to manage workbook structure by removing unnecessary or redundant worksheets.   
 export class DeleteWorksheetFromSpreadsheetRequest  {
     /// Upload spreadsheet file.  
-    public spreadsheet: any;
+    public spreadsheet!: any;
     /// Specifies the name or identifier of the worksheet to be deleted. This parameter is required and must match the name of an existing worksheet in the workbook.  
-    public sheetName: string;
+    public sheetName!: string;
     /// (Optional) The folder path where the workbook is stored. The default is null.  
-    public outPath: string;
+    public outPath!: string;
     /// Output file Storage Name.  
-    public outStorageName: string;
-    /// The spreadsheet region setting.  
-    public region: string;
+    public outStorageName!: string;
+    /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
+    public region!: string;
     /// The password for opening spreadsheet file.  
-    public password: string;
+    public password!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -26352,19 +26352,19 @@ export class DeleteWorksheetFromSpreadsheetRequest  {
 /// The Web API endpoint allows users to rename a specified worksheet within a workbook. This function provides a straightforward way to update worksheet names, enhancing workbook organization and readability.   
 export class RenameWorksheetInSpreadsheetRequest  {
     /// Upload spreadsheet file.  
-    public spreadsheet: any;
+    public spreadsheet!: any;
     /// The current name of the worksheet to be renamed.  
-    public sourceName: string;
+    public sourceName!: string;
     /// The new name for the worksheet.  
-    public targetName: string;
+    public targetName!: string;
     /// (Optional) The folder path where the workbook is stored. The default is null.  
-    public outPath: string;
+    public outPath!: string;
     /// Output file Storage Name.  
-    public outStorageName: string;
-    /// The spreadsheet region setting.  
-    public region: string;
+    public outStorageName!: string;
+    /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
+    public region!: string;
     /// The password for opening spreadsheet file.  
-    public password: string;
+    public password!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -26431,19 +26431,19 @@ export class RenameWorksheetInSpreadsheetRequest  {
 /// The Web API endpoint allows users to move a specified worksheet within a workbook. This function provides a straightforward way to move a worksheet, enhancing workbook organization.   
 export class MoveWorksheetInSpreadsheetRequest  {
     /// Upload spreadsheet file.  
-    public spreadsheet: any;
+    public spreadsheet!: any;
     /// The current name of the worksheet to be moved.  
-    public worksheet: string;
+    public worksheet!: string;
     /// Move the worksheet to the position  
-    public position: number;
+    public position!: number;
     /// (Optional) The folder path where the workbook is stored. The default is null.  
-    public outPath: string;
+    public outPath!: string;
     /// Output file Storage Name.  
-    public outStorageName: string;
-    /// The spreadsheet region setting.  
-    public region: string;
+    public outStorageName!: string;
+    /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
+    public region!: string;
     /// The password for opening spreadsheet file.  
-    public password: string;
+    public password!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -26510,17 +26510,17 @@ export class MoveWorksheetInSpreadsheetRequest  {
 /// The Web API endpoint allows users to compress a spreadsheet to reduce its file size. This function provides a straightforward way to optimize the storage and performance of spreadsheets by applying a specified compression level.   
 export class CompressSpreadsheetRequest  {
     /// Upload spreadsheet file.  
-    public spreadsheet: any;
+    public spreadsheet!: any;
     /// Specifies the compression level to be applied to the spreadsheet. The level should be within a valid range (e.g., 0-9 for most compression algorithms, where 0 is no compression and 9 is maximum compression).  
-    public level: number;
+    public level!: number;
     /// (Optional) The folder path where the workbook is stored. The default is null.  
-    public outPath: string;
+    public outPath!: string;
     /// Output file Storage Name.  
-    public outStorageName: string;
-    /// The spreadsheet region setting.  
-    public region: string;
+    public outStorageName!: string;
+    /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
+    public region!: string;
     /// The password for opening spreadsheet file.  
-    public password: string;
+    public password!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -26581,15 +26581,15 @@ export class CompressSpreadsheetRequest  {
 /// The Web API endpoint allows users to repair a spreadsheet.   
 export class RepairSpreadsheetRequest  {
     /// Upload spreadsheet file.  
-    public spreadsheet: any;
+    public spreadsheet!: any;
     /// (Optional) The folder path where the workbook is stored. The default is null.  
-    public outPath: string;
+    public outPath!: string;
     /// Output file Storage Name.  
-    public outStorageName: string;
-    /// The spreadsheet region setting.  
-    public region: string;
+    public outStorageName!: string;
+    /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
+    public region!: string;
     /// The password for opening spreadsheet file.  
-    public password: string;
+    public password!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -26644,17 +26644,17 @@ export class RepairSpreadsheetRequest  {
 /// Get all merged cell area form a remote spreadsheet worksheet.   
 export class GetMergedCellsInRemotedWorksheetRequest  {
     /// spreadsheet name  
-    public name: string;
+    public name!: string;
     /// worksheet name  
-    public worksheet: string;
+    public worksheet!: string;
     /// The cloud storage path of the spreadsheet.  
-    public folder: string;
+    public folder!: string;
     /// (Optional) The name of the storage if using custom cloud storage. Use default storage if omitted.  
-    public storageName: string;
-    /// The spreadsheet region setting.  
-    public region: string;
+    public storageName!: string;
+    /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
+    public region!: string;
     /// The password for opening spreadsheet file.  
-    public password: string;
+    public password!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -26694,13 +26694,13 @@ export class GetMergedCellsInRemotedWorksheetRequest  {
 /// Get all merged cell area form a local spreadsheet worksheet.   
 export class GetMergedCellsInWorksheetRequest  {
     /// Upload spreadsheet file.  
-    public spreadsheet: any;
+    public spreadsheet!: any;
       
-    public worksheet: string;
-    /// The spreadsheet region setting.  
-    public region: string;
+    public worksheet!: string;
+    /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
+    public region!: string;
     /// The password for opening spreadsheet file.  
-    public password: string;
+    public password!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -26759,17 +26759,17 @@ export class GetMergedCellsInWorksheetRequest  {
    
 export class AcceptAllRevisionsRequest  {
     /// Upload spreadsheet file.  
-    public spreadsheet: any;
+    public spreadsheet!: any;
     /// (Optional) The folder path where the workbook is stored. The default is null.  
-    public outPath: string;
+    public outPath!: string;
     /// Output file Storage Name.  
-    public outStorageName: string;
+    public outStorageName!: string;
     /// Use Custom fonts.  
-    public fontsLocation: string;
-    /// The spreadsheet region setting.  
-    public region: string;
+    public fontsLocation!: string;
+    /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
+    public region!: string;
     /// The password for opening spreadsheet file.  
-    public password: string;
+    public password!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -26825,21 +26825,21 @@ export class AcceptAllRevisionsRequest  {
    
 export class AcceptAllRevisionsInRemoteSpreadsheetRequest  {
       
-    public name: string;
+    public name!: string;
       
-    public folder: string;
+    public folder!: string;
     /// (Optional) The name of the storage if using custom cloud storage. Use default storage if omitted.  
-    public storageName: string;
+    public storageName!: string;
     /// (Optional) The folder path where the workbook is stored. The default is null.  
-    public outPath: string;
+    public outPath!: string;
     /// Output file Storage Name.  
-    public outStorageName: string;
+    public outStorageName!: string;
     /// Use Custom fonts.  
-    public fontsLocation: string;
-    /// The spreadsheet region setting.  
-    public region: string;
+    public fontsLocation!: string;
+    /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
+    public region!: string;
     /// The password for opening spreadsheet file.  
-    public password: string;
+    public password!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -26882,17 +26882,17 @@ export class AcceptAllRevisionsInRemoteSpreadsheetRequest  {
 /// Applies dual-layer password protection to Excel spreadsheets, supporting both open and modify passwords with encryption.   
 export class ProtectSpreadsheetRequest  {
     /// Upload spreadsheet file.  
-    public spreadsheet: any;
+    public spreadsheet!: any;
     /// Spreadsheet file encryption password.  
-    public password: string;
+    public password!: string;
     /// Sets the protected password to modify the file.  
-    public modifyPassword: string;
+    public modifyPassword!: string;
     /// (Optional) The folder path where the workbook is stored. The default is null.  
-    public outPath: string;
+    public outPath!: string;
     /// Output file Storage Name.  
-    public outStorageName: string;
-    /// The spreadsheet region setting.  
-    public region: string;
+    public outStorageName!: string;
+    /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
+    public region!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -26958,17 +26958,17 @@ export class ProtectSpreadsheetRequest  {
 /// Removes dual-layer password protection from Excel spreadsheets, supporting both open and modify passwords with encryption.   
 export class UnprotectSpreadsheetRequest  {
     /// Upload spreadsheet file.  
-    public spreadsheet: any;
+    public spreadsheet!: any;
     /// Spreadsheet file encryption password.  
-    public password: string;
+    public password!: string;
     /// Sets the protected password to modify the file.  
-    public modifyPassword: string;
+    public modifyPassword!: string;
     /// (Optional) The folder path where the workbook is stored. The default is null.  
-    public outPath: string;
+    public outPath!: string;
     /// Output file Storage Name.  
-    public outStorageName: string;
-    /// The spreadsheet region setting.  
-    public region: string;
+    public outStorageName!: string;
+    /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
+    public region!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -27034,15 +27034,15 @@ export class UnprotectSpreadsheetRequest  {
    
 export class SpreadsheetDigitalsignatureRequest  {
     /// Upload spreadsheet file.  
-    public spreadsheet: any;
+    public spreadsheet!: any;
       
-    public password: string;
+    public password!: string;
     /// (Optional) The folder path where the workbook is stored. The default is null.  
-    public outPath: string;
+    public outPath!: string;
     /// Output file Storage Name.  
-    public outStorageName: string;
-    /// The spreadsheet region setting.  
-    public region: string;
+    public outStorageName!: string;
+    /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
+    public region!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -27102,15 +27102,15 @@ export class SpreadsheetDigitalsignatureRequest  {
 /// Get all text items in the remote spreadsheet.   
 export class SearchAllTextItemsInRemoteSpreadsheetRequest  {
     /// The name of the workbook file.  
-    public name: string;
+    public name!: string;
     /// The folder path where the workbook is stored.  
-    public folder: string;
+    public folder!: string;
     /// (Optional) The name of the storage if using custom cloud storage. Use default storage if omitted.  
-    public storageName: string;
-    /// The spreadsheet region setting.  
-    public region: string;
+    public storageName!: string;
+    /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
+    public region!: string;
     /// The password for opening spreadsheet file.  
-    public password: string;
+    public password!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -27155,11 +27155,11 @@ export class SearchAllTextItemsInRemoteSpreadsheetRequest  {
 /// Get all text items in the remote spreadsheet.   
 export class SearchSpreadsheetAllTextItemsRequest  {
     /// Upload spreadsheet file.  
-    public spreadsheet: any;
-    /// The spreadsheet region setting.  
-    public region: string;
+    public spreadsheet!: any;
+    /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
+    public region!: string;
     /// The password for opening spreadsheet file.  
-    public password: string;
+    public password!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -27212,19 +27212,19 @@ export class SearchSpreadsheetAllTextItemsRequest  {
 /// Search text in the local spreadsheet.   
 export class SearchSpreadsheetContentRequest  {
     /// Upload spreadsheet file.  
-    public spreadsheet: any;
+    public spreadsheet!: any;
     /// The searched text.  
-    public searchText: string;
+    public searchText!: string;
     /// Ignore the text of the search.  
-    public ignoringCase: boolean;
+    public ignoringCase!: boolean;
     /// Specify the worksheet for the lookup.  
-    public worksheet: string;
+    public worksheet!: string;
     /// Specify the cell area for the lookup  
-    public cellArea: string;
-    /// The spreadsheet region setting.  
-    public region: string;
+    public cellArea!: string;
+    /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
+    public region!: string;
     /// The password for opening spreadsheet file.  
-    public password: string;
+    public password!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -27286,19 +27286,19 @@ export class SearchSpreadsheetContentRequest  {
 /// Search text in the remoted spreadsheet.   
 export class SearchContentInRemoteSpreadsheetRequest  {
     /// The name of the workbook file to be search.  
-    public name: string;
+    public name!: string;
     /// The searched text.  
-    public searchText: string;
+    public searchText!: string;
     /// Ignore the text of the search.  
-    public ignoringCase: boolean;
+    public ignoringCase!: boolean;
     /// The folder path where the workbook is stored.  
-    public folder: string;
+    public folder!: string;
     /// (Optional) The name of the storage if using custom cloud storage. Use default storage if omitted.  
-    public storageName: string;
-    /// The spreadsheet region setting.  
-    public region: string;
+    public storageName!: string;
+    /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
+    public region!: string;
     /// The password for opening spreadsheet file.  
-    public password: string;
+    public password!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -27345,21 +27345,21 @@ export class SearchContentInRemoteSpreadsheetRequest  {
 /// Search text in the worksheet of remoted spreadsheet.   
 export class SearchContentInRemoteWorksheetRequest  {
     /// Specify the search workbook file name.  
-    public name: string;
+    public name!: string;
     /// Specify the search worksheet name.  
-    public worksheet: string;
+    public worksheet!: string;
     /// Specify the search content.  
-    public searchText: string;
+    public searchText!: string;
     /// Ignore the text of the search.  
-    public ignoringCase: boolean;
+    public ignoringCase!: boolean;
     /// The folder path where the workbook is stored.  
-    public folder: string;
+    public folder!: string;
     /// (Optional) The name of the storage if using custom cloud storage. Use default storage if omitted.  
-    public storageName: string;
-    /// The spreadsheet region setting.  
-    public region: string;
+    public storageName!: string;
+    /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
+    public region!: string;
     /// The password for opening spreadsheet file.  
-    public password: string;
+    public password!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -27406,23 +27406,23 @@ export class SearchContentInRemoteWorksheetRequest  {
 /// Search text in the range of remoted spreadsheet.   
 export class SearchContentInRemoteRangeRequest  {
     /// Specify the search workbook file name.  
-    public name: string;
+    public name!: string;
     /// Specify the search worksheet name.  
-    public worksheet: string;
+    public worksheet!: string;
     /// Specify the search cell area.  
-    public cellArea: string;
+    public cellArea!: string;
     /// Specify the search content.  
-    public searchText: string;
+    public searchText!: string;
     /// Ignore the text of the search.  
-    public ignoringCase: boolean;
+    public ignoringCase!: boolean;
     /// The folder path where the workbook is stored.  
-    public folder: string;
+    public folder!: string;
     /// (Optional) The name of the storage if using custom cloud storage. Use default storage if omitted.  
-    public storageName: string;
-    /// The spreadsheet region setting.  
-    public region: string;
+    public storageName!: string;
+    /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
+    public region!: string;
     /// The password for opening spreadsheet file.  
-    public password: string;
+    public password!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -27469,19 +27469,19 @@ export class SearchContentInRemoteRangeRequest  {
 /// Replace text in the local spreadsheet.   
 export class ReplaceSpreadsheetContentRequest  {
     /// Upload spreadsheet file.  
-    public spreadsheet: any;
+    public spreadsheet!: any;
     /// Specify the search content.  
-    public searchText: string;
+    public searchText!: string;
     /// Specify the replace content.  
-    public replaceText: string;
+    public replaceText!: string;
     /// Specify the worksheet for the replace.  
-    public worksheet: string;
+    public worksheet!: string;
     /// Specify the cell area for the replace.  
-    public cellArea: string;
-    /// The spreadsheet region setting.  
-    public region: string;
+    public cellArea!: string;
+    /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
+    public region!: string;
     /// The password for opening spreadsheet file.  
-    public password: string;
+    public password!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -27548,19 +27548,19 @@ export class ReplaceSpreadsheetContentRequest  {
 /// Replace text in the remoted spreadsheet.   
 export class ReplaceContentInRemoteSpreadsheetRequest  {
     /// The name of the workbook file to be replace.  
-    public name: string;
+    public name!: string;
     /// Specify the search content.  
-    public searchText: string;
+    public searchText!: string;
     /// Specify the replace content.  
-    public replaceText: string;
+    public replaceText!: string;
     /// The folder path where the workbook is stored.  
-    public folder: string;
+    public folder!: string;
     /// (Optional) The name of the storage if using custom cloud storage. Use default storage if omitted.  
-    public storageName: string;
-    /// The spreadsheet region setting.  
-    public region: string;
+    public storageName!: string;
+    /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
+    public region!: string;
     /// The password for opening spreadsheet file.  
-    public password: string;
+    public password!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -27612,21 +27612,21 @@ export class ReplaceContentInRemoteSpreadsheetRequest  {
 /// Replace text in the worksheet of remoted spreadsheet.   
 export class ReplaceContentInRemoteWorksheetRequest  {
     /// The name of the workbook file to be replace.  
-    public name: string;
+    public name!: string;
     /// Specify the worksheet for the replace.  
-    public worksheet: string;
+    public worksheet!: string;
     /// The searched text.  
-    public searchText: string;
+    public searchText!: string;
     /// The replaced text.  
-    public replaceText: string;
+    public replaceText!: string;
     /// The folder path where the workbook is stored.  
-    public folder: string;
+    public folder!: string;
     /// (Optional) The name of the storage if using custom cloud storage. Use default storage if omitted.  
-    public storageName: string;
-    /// The spreadsheet region setting.  
-    public region: string;
+    public storageName!: string;
+    /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
+    public region!: string;
     /// The password for opening spreadsheet file.  
-    public password: string;
+    public password!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -27678,23 +27678,23 @@ export class ReplaceContentInRemoteWorksheetRequest  {
 /// Replace text in the range of remoted spreadsheet.   
 export class ReplaceContentInRemoteRangeRequest  {
     /// The name of the workbook file to be replace.  
-    public name: string;
+    public name!: string;
     /// The searched text.  
-    public searchText: string;
+    public searchText!: string;
     /// The replaced text.  
-    public replaceText: string;
+    public replaceText!: string;
     /// The worksheet name.  
-    public worksheet: string;
+    public worksheet!: string;
     /// The cell area for the replace.  
-    public cellArea: string;
+    public cellArea!: string;
     /// The folder path where the workbook is stored.  
-    public folder: string;
+    public folder!: string;
     /// (Optional) The name of the storage if using custom cloud storage. Use default storage if omitted.  
-    public storageName: string;
-    /// The spreadsheet region setting.  
-    public region: string;
+    public storageName!: string;
+    /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
+    public region!: string;
     /// The password for opening spreadsheet file.  
-    public password: string;
+    public password!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -27746,15 +27746,15 @@ export class ReplaceContentInRemoteRangeRequest  {
 /// Search broken links in the local spreadsheet.   
 export class SearchSpreadsheetBrokenLinksRequest  {
     /// Upload spreadsheet file.  
-    public spreadsheet: any;
+    public spreadsheet!: any;
     /// Specify the worksheet for the replace.  
-    public worksheet: string;
+    public worksheet!: string;
     /// Specify the cell area for the replace.  
-    public cellArea: string;
-    /// The spreadsheet region setting.  
-    public region: string;
+    public cellArea!: string;
+    /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
+    public region!: string;
     /// The password for opening spreadsheet file.  
-    public password: string;
+    public password!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -27809,19 +27809,19 @@ export class SearchSpreadsheetBrokenLinksRequest  {
 /// Search broken links in the remoted spreadsheet.   
 export class SearchBrokenLinksInRemoteSpreadsheetRequest  {
     /// The name of the workbook file to be search.  
-    public name: string;
+    public name!: string;
     /// Specify the worksheet for the lookup.  
-    public worksheet: string;
+    public worksheet!: string;
     /// Specify the cell area for the lookup  
-    public cellArea: string;
+    public cellArea!: string;
     /// The folder path where the workbook is stored.  
-    public folder: string;
+    public folder!: string;
     /// (Optional) The name of the storage if using custom cloud storage. Use default storage if omitted.  
-    public storageName: string;
-    /// The spreadsheet region setting.  
-    public region: string;
+    public storageName!: string;
+    /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
+    public region!: string;
     /// The password for opening spreadsheet file.  
-    public password: string;
+    public password!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -27863,17 +27863,17 @@ export class SearchBrokenLinksInRemoteSpreadsheetRequest  {
 /// Search broken links in the worksheet of remoted spreadsheet.   
 export class SearchBrokenLinksInRemoteWorksheetRequest  {
     /// The name of the workbook file to be search.  
-    public name: string;
+    public name!: string;
     /// Specify the worksheet for the lookup.  
-    public worksheet: string;
+    public worksheet!: string;
     /// The folder path where the workbook is stored.  
-    public folder: string;
+    public folder!: string;
     /// (Optional) The name of the storage if using custom cloud storage. Use default storage if omitted.  
-    public storageName: string;
-    /// The spreadsheet region setting.  
-    public region: string;
+    public storageName!: string;
+    /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
+    public region!: string;
     /// The password for opening spreadsheet file.  
-    public password: string;
+    public password!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -27913,19 +27913,19 @@ export class SearchBrokenLinksInRemoteWorksheetRequest  {
 /// Search broken links in the range of remoted spreadsheet.   
 export class SearchBrokenLinksInRemoteRangeRequest  {
     /// The name of the workbook file to be search.  
-    public name: string;
+    public name!: string;
     /// Specify the worksheet for the lookup.  
-    public worksheet: string;
+    public worksheet!: string;
     /// Specify the cell area for the lookup  
-    public cellArea: string;
+    public cellArea!: string;
     /// The folder path where the workbook is stored.  
-    public folder: string;
+    public folder!: string;
     /// (Optional) The name of the storage if using custom cloud storage. Use default storage if omitted.  
-    public storageName: string;
-    /// The spreadsheet region setting.  
-    public region: string;
+    public storageName!: string;
+    /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
+    public region!: string;
     /// The password for opening spreadsheet file.  
-    public password: string;
+    public password!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -27965,11 +27965,11 @@ export class SearchBrokenLinksInRemoteRangeRequest  {
 /// Get the specifications   
 export class SpecRequest  {
       
-    public version: string;
-    /// The spreadsheet region setting.  
-    public region: string;
+    public version!: string;
+    /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
+    public region!: string;
     /// The password for opening spreadsheet file.  
-    public password: string;
+    public password!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -28012,10 +28012,10 @@ export class SpecRequest  {
 }
    
 export class CodegenSpecRequest  {
-    /// The spreadsheet region setting.  
-    public region: string;
+    /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
+    public region!: string;
     /// The password for opening spreadsheet file.  
-    public password: string;
+    public password!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -28053,33 +28053,33 @@ export class CodegenSpecRequest  {
 /// The TrimSpreadsheetContent API is designed to process and trim content within a spreadsheet. This API allows users to remove extra spaces, line breaks, or other unnecessary characters from the content of selected cells. It is particularly useful for cleaning up data entries and ensuring consistency in spreadsheet formatting   
 export class TrimCharacterRequest  {
     /// Upload spreadsheet file.  
-    public spreadsheet: any;
+    public spreadsheet!: any;
     /// Specify the trim content.  
-    public trimContent: string;
+    public trimContent!: string;
     /// Specify to trim content from the beginning.  
-    public trimLeading: boolean;
+    public trimLeading!: boolean;
     /// Specify to trim content from the end.  
-    public trimTrailing: boolean;
+    public trimTrailing!: boolean;
     /// Remove excess spaces between words within a cell.  
-    public trimSpaceBetweenWordTo1: boolean;
+    public trimSpaceBetweenWordTo1!: boolean;
     /// Remove non-breaking spaces.  
-    public trimNonBreakingSpaces: boolean;
+    public trimNonBreakingSpaces!: boolean;
     /// Remove extra line breaks.  
-    public removeExtraLineBreaks: boolean;
+    public removeExtraLineBreaks!: boolean;
     /// Remove all line breaks.  
-    public removeAllLineBreaks: boolean;
+    public removeAllLineBreaks!: boolean;
     /// Specify the worksheet of spreadsheet.  
-    public worksheet: string;
+    public worksheet!: string;
     /// Specify the worksheet range of spreadsheet.  
-    public range: string;
+    public range!: string;
     /// (Optional) The folder path where the workbook is stored. The default is null.  
-    public outPath: string;
+    public outPath!: string;
     /// Output file Storage Name.  
-    public outStorageName: string;
-    /// The spreadsheet region setting.  
-    public region: string;
+    public outStorageName!: string;
+    /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
+    public region!: string;
     /// The password for opening spreadsheet file.  
-    public password: string;
+    public password!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -28143,21 +28143,21 @@ export class TrimCharacterRequest  {
 /// Specify changing the text case in a spreadsheet to switch between uppercase, lowercase, capitalizing the first letter of each word, or capitalizing the first letter of a sentence, and adjust the text according to specific needs.   
 export class UpdateWordCaseRequest  {
     /// Upload spreadsheet file.  
-    public spreadsheet: any;
+    public spreadsheet!: any;
     /// Specify text case: Upper Case, Lower Case, Proper Case, Sentence Case.  
-    public wordCaseType: string;
+    public wordCaseType!: string;
     /// Specify the worksheet of spreadsheet.  
-    public worksheet: string;
+    public worksheet!: string;
     /// Specify the worksheet range of spreadsheet.  
-    public range: string;
+    public range!: string;
     /// (Optional) The folder path where the workbook is stored. The default is null.  
-    public outPath: string;
+    public outPath!: string;
     /// Output file Storage Name.  
-    public outStorageName: string;
-    /// The spreadsheet region setting.  
-    public region: string;
+    public outStorageName!: string;
+    /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
+    public region!: string;
     /// The password for opening spreadsheet file.  
-    public password: string;
+    public password!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -28220,27 +28220,27 @@ export class UpdateWordCaseRequest  {
 /// Deletes user-defined characters, predefined symbol sets, or any substring from every cell in the chosen range while preserving formulas, formatting and data-validation.   
 export class RemoveCharactersRequest  {
     /// Upload spreadsheet file.  
-    public spreadsheet: any;
+    public spreadsheet!: any;
     /// Specify the removal of text method type.  
-    public removeTextMethod: string;
+    public removeTextMethod!: string;
     /// Specify the character sets.  
-    public characterSets: string;
+    public characterSets!: string;
     /// Specify the remove custom value.  
-    public removeCustomValue: string;
+    public removeCustomValue!: string;
       
-    public caseSensitive: boolean;
+    public caseSensitive!: boolean;
     /// Specify the worksheet of spreadsheet.  
-    public worksheet: string;
+    public worksheet!: string;
     /// Specify the worksheet range of spreadsheet.  
-    public range: string;
+    public range!: string;
     /// (Optional) The folder path where the workbook is stored. The default is null.  
-    public outPath: string;
+    public outPath!: string;
     /// Output file Storage Name.  
-    public outStorageName: string;
-    /// The spreadsheet region setting.  
-    public region: string;
+    public outStorageName!: string;
+    /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
+    public region!: string;
     /// The password for opening spreadsheet file.  
-    public password: string;
+    public password!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -28301,29 +28301,29 @@ export class RemoveCharactersRequest  {
 /// Deletes characters from every cell in the target range by position (first/last N, before/after a substring, or between two delimiters) while preserving formulas, formatting and data-validation.   
 export class RemoveCharactersByPositionRequest  {
     /// Upload spreadsheet file.  
-    public spreadsheet: any;
+    public spreadsheet!: any;
     /// Specify removing the first n characters from selected cells.  
-    public theFirstNCharacters: number;
+    public theFirstNCharacters!: number;
     /// Specify removing the last n characters from selected cells.  
-    public theLastNCharacters: number;
+    public theLastNCharacters!: number;
     /// Specify using targeted removal options to delete text that is located before certain characters.  
-    public allCharactersBeforeText: string;
+    public allCharactersBeforeText!: string;
     /// Specify using targeted removal options to delete text that is located after certain characters.  
-    public allCharactersAfterText: string;
+    public allCharactersAfterText!: string;
       
-    public caseSensitive: boolean;
+    public caseSensitive!: boolean;
     /// Specify the worksheet of spreadsheet.  
-    public worksheet: string;
+    public worksheet!: string;
     /// Specify the worksheet range of spreadsheet.  
-    public range: string;
+    public range!: string;
     /// (Optional) The folder path where the workbook is stored. The default is null.  
-    public outPath: string;
+    public outPath!: string;
     /// Output file Storage Name.  
-    public outStorageName: string;
-    /// The spreadsheet region setting.  
-    public region: string;
+    public outStorageName!: string;
+    /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
+    public region!: string;
     /// The password for opening spreadsheet file.  
-    public password: string;
+    public password!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -28385,25 +28385,25 @@ export class RemoveCharactersByPositionRequest  {
 /// Finds and removes repeated substrings inside every cell of the chosen range, using user-defined or preset delimiters, while preserving formulas, formatting and data-validation.   
 export class RemoveDuplicateSubstringsRequest  {
     /// Upload spreadsheet file.  
-    public spreadsheet: any;
+    public spreadsheet!: any;
     /// comma, semicolon, space, tab, line-break   
-    public delimiters: string;
+    public delimiters!: string;
     /// collapse adjacent delimiters into a single separator.  
-    public treatConsecutiveDelimitersAsOne: boolean;
+    public treatConsecutiveDelimitersAsOne!: boolean;
       
-    public caseSensitive: boolean;
+    public caseSensitive!: boolean;
       
-    public worksheet: string;
+    public worksheet!: string;
       
-    public range: string;
+    public range!: string;
     /// (Optional) The folder path where the workbook is stored. The default is null.  
-    public outPath: string;
+    public outPath!: string;
     /// Output file Storage Name.  
-    public outStorageName: string;
-    /// The spreadsheet region setting.  
-    public region: string;
+    public outStorageName!: string;
+    /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
+    public region!: string;
     /// The password for opening spreadsheet file.  
-    public password: string;
+    public password!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -28468,27 +28468,27 @@ export class RemoveDuplicateSubstringsRequest  {
 /// Specify appending text to multiple cells at once, allowing you to add prefixes, suffixes, labels, or any specific characters. You can choose the exact position of the text—in the beginning, at the end, or before or after certain characters in the cell.   
 export class AddTextRequest  {
     /// Upload spreadsheet file.  
-    public spreadsheet: any;
+    public spreadsheet!: any;
     /// Specify the added text content.  
-    public text: string;
+    public text!: string;
     /// Indicates the specific location for adding text content.None, AtTheBeginning, AtTheEnd, BeforeText, AfterText.  
-    public position: string;
+    public position!: string;
     /// Indicates selecting the specific position to add text based on the content of the text.  
-    public selectText: string;
+    public selectText!: string;
     /// Indicates skip empty cells.  
-    public skipEmptyCells: boolean;
+    public skipEmptyCells!: boolean;
     /// Specify the worksheet of spreadsheet.  
-    public worksheet: string;
+    public worksheet!: string;
     /// Specify the worksheet range of spreadsheet.  
-    public range: string;
+    public range!: string;
     /// (Optional) The folder path where the workbook is stored. The default is null.  
-    public outPath: string;
+    public outPath!: string;
     /// Output file Storage Name.  
-    public outStorageName: string;
-    /// The spreadsheet region setting.  
-    public region: string;
+    public outStorageName!: string;
+    /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
+    public region!: string;
     /// The password for opening spreadsheet file.  
-    public password: string;
+    public password!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -28559,25 +28559,25 @@ export class AddTextRequest  {
 /// Indicates converting the numbers stored as text into the correct number format, replacing unwanted characters and line breaks with the desired characters, and converting accented characters to their equivalent characters without accents.   
 export class ConvertTextRequest  {
     /// Upload spreadsheet file.  
-    public spreadsheet: any;
+    public spreadsheet!: any;
     /// Indicates the conversion of text type.  
-    public convertTextType: string;
+    public convertTextType!: string;
     /// Indicates the source characters.  
-    public sourceCharacters: string;
+    public sourceCharacters!: string;
     /// Indicates the target characters.  
-    public targetCharacters: string;
+    public targetCharacters!: string;
     /// Specify the worksheet of spreadsheet.  
-    public worksheet: string;
+    public worksheet!: string;
     /// Specify the worksheet range of spreadsheet.  
-    public range: string;
+    public range!: string;
     /// (Optional) The folder path where the workbook is stored. The default is null.  
-    public outPath: string;
+    public outPath!: string;
     /// Output file Storage Name.  
-    public outStorageName: string;
-    /// The spreadsheet region setting.  
-    public region: string;
+    public outStorageName!: string;
+    /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
+    public region!: string;
     /// The password for opening spreadsheet file.  
-    public password: string;
+    public password!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -28642,31 +28642,31 @@ export class ConvertTextRequest  {
 /// Indicates extracting substrings, text characters, and numbers from a spreadsheet cell into another cell without having to use complex FIND, MIN, LEFT, or RIGHT formulas.   
 export class ExtractTextRequest  {
     /// Upload spreadsheet file.  
-    public spreadsheet: any;
+    public spreadsheet!: any;
     /// Indicates extract text type.  
-    public extractTextType: string;
+    public extractTextType!: string;
     /// Indicates the output location for the extracted text.  
-    public outPositionRange: string;
+    public outPositionRange!: string;
     /// Indicates extracting the text before the specified characters or substrings.  
-    public beforeText: string;
+    public beforeText!: string;
     /// Indicates extracting the text after the specified characters or substrings.  
-    public afterText: string;
+    public afterText!: string;
     /// Indicates retrieving the first character or a specified number of characters from the left side of the selected cell.  
-    public beforePosition: number;
+    public beforePosition!: number;
     /// Indicates retrieving the first character or a specified number of characters from the right side of the selected cell.  
-    public afterPosition: number;
+    public afterPosition!: number;
     /// Specify the worksheet of spreadsheet.  
-    public worksheet: string;
+    public worksheet!: string;
     /// Specify the worksheet range of spreadsheet.  
-    public range: string;
+    public range!: string;
     /// (Optional) The folder path where the workbook is stored. The default is null.  
-    public outPath: string;
+    public outPath!: string;
     /// Output file Storage Name.  
-    public outStorageName: string;
-    /// The spreadsheet region setting.  
-    public region: string;
+    public outStorageName!: string;
+    /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
+    public region!: string;
     /// The password for opening spreadsheet file.  
-    public password: string;
+    public password!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -28739,29 +28739,29 @@ export class ExtractTextRequest  {
 /// Indicates performing text segmentation on the specified area according to the segmentation method, and outputting to the designated interval.   
 export class SplitTextRequest  {
     /// Upload spreadsheet file.  
-    public spreadsheet: any;
+    public spreadsheet!: any;
     /// Indicates the custom delimiter.  
-    public delimiters: string;
+    public delimiters!: string;
     /// Indicates keep delimiters in resulting cells.  
-    public keepDelimitersInResultingCells: boolean;
+    public keepDelimitersInResultingCells!: boolean;
     /// Indicates keep delimiters position.  
-    public keepDelimitersPosition: string;
+    public keepDelimitersPosition!: string;
     /// Indicates  
-    public howToSplit: string;
+    public howToSplit!: string;
     /// Indicates split delimiters type.  
-    public outPositionRange: string;
+    public outPositionRange!: string;
     /// Specify the worksheet of spreadsheet.  
-    public worksheet: string;
+    public worksheet!: string;
     /// Specify the worksheet range of spreadsheet.  
-    public range: string;
+    public range!: string;
     /// (Optional) The folder path where the workbook is stored. The default is null.  
-    public outPath: string;
+    public outPath!: string;
     /// Output file Storage Name.  
-    public outStorageName: string;
-    /// The spreadsheet region setting.  
-    public region: string;
+    public outStorageName!: string;
+    /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
+    public region!: string;
     /// The password for opening spreadsheet file.  
-    public password: string;
+    public password!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -28828,15 +28828,15 @@ export class SplitTextRequest  {
 /// Delete all blank rows that do not contain any data or other objects.   
 export class RemoveSpreadsheetBlankRowsRequest  {
     /// Upload spreadsheet file.  
-    public spreadsheet: any;
+    public spreadsheet!: any;
     /// (Optional) The folder path where the workbook is stored. The default is null.  
-    public outPath: string;
+    public outPath!: string;
     /// Output file Storage Name.  
-    public outStorageName: string;
-    /// The spreadsheet region setting.  
-    public region: string;
+    public outStorageName!: string;
+    /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
+    public region!: string;
     /// The password for opening spreadsheet file.  
-    public password: string;
+    public password!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -28891,15 +28891,15 @@ export class RemoveSpreadsheetBlankRowsRequest  {
 /// Delete all blank rows that do not contain any data or other objects.   
 export class RemoveSpreadsheetBlankColumnsRequest  {
     /// Upload spreadsheet file.  
-    public spreadsheet: any;
+    public spreadsheet!: any;
     /// (Optional) The folder path where the workbook is stored. The default is null.  
-    public outPath: string;
+    public outPath!: string;
     /// Output file Storage Name.  
-    public outStorageName: string;
-    /// The spreadsheet region setting.  
-    public region: string;
+    public outStorageName!: string;
+    /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
+    public region!: string;
     /// The password for opening spreadsheet file.  
-    public password: string;
+    public password!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -28954,15 +28954,15 @@ export class RemoveSpreadsheetBlankColumnsRequest  {
 /// Delete all blank rows that do not contain any data or other objects.   
 export class RemoveSpreadsheetBlankWorksheetsRequest  {
     /// Upload spreadsheet file.  
-    public spreadsheet: any;
+    public spreadsheet!: any;
     /// (Optional) The folder path where the workbook is stored. The default is null.  
-    public outPath: string;
+    public outPath!: string;
     /// Output file Storage Name.  
-    public outStorageName: string;
-    /// The spreadsheet region setting.  
-    public region: string;
+    public outStorageName!: string;
+    /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
+    public region!: string;
     /// The password for opening spreadsheet file.  
-    public password: string;
+    public password!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -29017,21 +29017,21 @@ export class RemoveSpreadsheetBlankWorksheetsRequest  {
 /// Removes duplicate values in the worksheet/range/table.   
 export class RemoveDuplicatesRequest  {
     /// Upload spreadsheet file.  
-    public spreadsheet: any;
+    public spreadsheet!: any;
     /// The worksheet name.  
-    public worksheet: string;
+    public worksheet!: string;
     /// Range name that need deduplication.  
-    public range: string;
+    public range!: string;
     /// Table name that need deduplication.  
-    public table: string;
+    public table!: string;
     /// (Optional) The folder path where the workbook is stored. The default is null.  
-    public outPath: string;
+    public outPath!: string;
     /// Output file Storage Name.  
-    public outStorageName: string;
-    /// The spreadsheet region setting.  
-    public region: string;
+    public outStorageName!: string;
+    /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
+    public region!: string;
     /// The password for opening spreadsheet file.  
-    public password: string;
+    public password!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -29089,23 +29089,23 @@ export class RemoveDuplicatesRequest  {
 /// The Swap Ranges for Excel API provides a powerful tool to move any two columns, rows, ranges, or individual cells within an Excel file. This API allows users to re-arrange their tables quickly and efficiently, ensuring that the original data formatting is preserved and all existing formulas continue to function correctly. By leveraging this API, users can streamline their data manipulation tasks and maintain the integrity of their spreadsheets.   
 export class SwapRangeRequest  {
     /// Upload spreadsheet file.  
-    public spreadsheet: any;
+    public spreadsheet!: any;
     /// Specify the worksheet that is the source of the exchange data area.  
-    public worksheet1: string;
+    public worksheet1!: string;
     /// Specify exchange data source.  
-    public range1: string;
+    public range1!: string;
     /// Specify the worksheet that is the target of the exchange data area.  
-    public worksheet2: string;
+    public worksheet2!: string;
     /// Specify exchange data target.  
-    public range2: string;
+    public range2!: string;
     /// (Optional) The folder path where the workbook is stored. The default is null.  
-    public outPath: string;
+    public outPath!: string;
     /// Output file Storage Name.  
-    public outStorageName: string;
-    /// The spreadsheet region setting.  
-    public region: string;
+    public outStorageName!: string;
+    /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
+    public region!: string;
     /// The password for opening spreadsheet file.  
-    public password: string;
+    public password!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -29184,21 +29184,21 @@ export class SwapRangeRequest  {
 /// Transposes a specified data range (rows become columns, columns become rows).   
 export class FlipDataRequest  {
     /// Upload spreadsheet file.  
-    public spreadsheet: any;
+    public spreadsheet!: any;
     /// The worksheet name.  
-    public worksheet: string;
+    public worksheet!: string;
     /// A specified data range  
-    public cellArea: string;
+    public cellArea!: string;
     /// Horizontal/Vertical Flip.  
-    public horizontal: boolean;
+    public horizontal!: boolean;
     /// (Optional) The folder path where the workbook is stored. The default is null.  
-    public outPath: string;
+    public outPath!: string;
     /// Output file Storage Name.  
-    public outStorageName: string;
-    /// The spreadsheet region setting.  
-    public region: string;
+    public outStorageName!: string;
+    /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
+    public region!: string;
     /// The password for opening spreadsheet file.  
-    public password: string;
+    public password!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -29263,14 +29263,257 @@ export class FlipDataRequest  {
     }
 
 }
+/// Switch rows and columns in the spreadsheet.   
+export class TransposeDataRequest  {
+    /// Upload spreadsheet file.  
+    public spreadsheet!: any;
+    /// The worksheet name.  
+    public worksheet!: string;
+    /// A specified data range  
+    public cellArea!: string;
+    /// (Optional) The folder path where the workbook is stored. The default is null.  
+    public outPath!: string;
+    /// Output file Storage Name.  
+    public outStorageName!: string;
+    /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
+    public region!: string;
+    /// The password for opening spreadsheet file.  
+    public password!: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< TransposeDataRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/transpose";
+        const queryParameters: any = {};
+        const formParams: any = {};
+        /// The worksheet name. 
+        // verify required parameter 'worksheet' is not null or undefined
+        if (this.worksheet === null || this.worksheet === undefined) {
+            throw new Error('Required parameter "worksheet" was null or undefined when calling TransposeData.');
+        }
+        /// A specified data range 
+        // verify required parameter 'cellArea' is not null or undefined
+        if (this.cellArea === null || this.cellArea === undefined) {
+            throw new Error('Required parameter "cellArea" was null or undefined when calling TransposeData.');
+        }
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "worksheet", this.worksheet);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "cellArea", this.cellArea);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+        if (this.spreadsheet !== undefined) {
+            if (typeof this.spreadsheet === 'string') {
+                if (fs.existsSync(this.spreadsheet)) {
+                    const fileName = path.basename( this.spreadsheet)
+                    formParams[fileName] = fs.createReadStream(this.spreadsheet)
+                }
+            }
+            else {
+                for (var key in this.spreadsheet){
+                    formParams[key] = this.spreadsheet[key];
+                }
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        (requestOptions as any).formData = formParams;        
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Switch rows and columns in the spreadsheet.   
+export class UnpivotRangeRequest  {
+    /// Upload spreadsheet file.  
+    public spreadsheet!: any;
+    /// The worksheet name.  
+    public worksheet!: string;
+    /// A specified data range  
+    public cellArea!: string;
+      
+    public skipEmptyValue!: boolean;
+    /// (Optional) The folder path where the workbook is stored. The default is null.  
+    public outPath!: string;
+    /// Output file Storage Name.  
+    public outStorageName!: string;
+    /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
+    public region!: string;
+    /// The password for opening spreadsheet file.  
+    public password!: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< UnpivotRangeRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/unpivot/range";
+        const queryParameters: any = {};
+        const formParams: any = {};
+        /// The worksheet name. 
+        // verify required parameter 'worksheet' is not null or undefined
+        if (this.worksheet === null || this.worksheet === undefined) {
+            throw new Error('Required parameter "worksheet" was null or undefined when calling UnpivotRange.');
+        }
+        /// A specified data range 
+        // verify required parameter 'cellArea' is not null or undefined
+        if (this.cellArea === null || this.cellArea === undefined) {
+            throw new Error('Required parameter "cellArea" was null or undefined when calling UnpivotRange.');
+        }
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "worksheet", this.worksheet);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "cellArea", this.cellArea);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "skipEmptyValue", this.skipEmptyValue);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+        if (this.spreadsheet !== undefined) {
+            if (typeof this.spreadsheet === 'string') {
+                if (fs.existsSync(this.spreadsheet)) {
+                    const fileName = path.basename( this.spreadsheet)
+                    formParams[fileName] = fs.createReadStream(this.spreadsheet)
+                }
+            }
+            else {
+                for (var key in this.spreadsheet){
+                    formParams[key] = this.spreadsheet[key];
+                }
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        (requestOptions as any).formData = formParams;        
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Switch rows and columns in the spreadsheet.   
+export class UnpivotTableRequest  {
+    /// Upload spreadsheet file.  
+    public spreadsheet!: any;
+    /// The worksheet name.  
+    public worksheet!: string;
+    /// A specified data range  
+    public index!: number;
+      
+    public skipEmptyValue!: boolean;
+    /// (Optional) The folder path where the workbook is stored. The default is null.  
+    public outPath!: string;
+    /// Output file Storage Name.  
+    public outStorageName!: string;
+    /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
+    public region!: string;
+    /// The password for opening spreadsheet file.  
+    public password!: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< UnpivotTableRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/unpivot/table";
+        const queryParameters: any = {};
+        const formParams: any = {};
+        /// The worksheet name. 
+        // verify required parameter 'worksheet' is not null or undefined
+        if (this.worksheet === null || this.worksheet === undefined) {
+            throw new Error('Required parameter "worksheet" was null or undefined when calling UnpivotTable.');
+        }
+        /// A specified data range 
+        // verify required parameter 'index' is not null or undefined
+        if (this.index === null || this.index === undefined) {
+            throw new Error('Required parameter "index" was null or undefined when calling UnpivotTable.');
+        }
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "worksheet", this.worksheet);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "index", this.index);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "skipEmptyValue", this.skipEmptyValue);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+        if (this.spreadsheet !== undefined) {
+            if (typeof this.spreadsheet === 'string') {
+                if (fs.existsSync(this.spreadsheet)) {
+                    const fileName = path.basename( this.spreadsheet)
+                    formParams[fileName] = fs.createReadStream(this.spreadsheet)
+                }
+            }
+            else {
+                for (var key in this.spreadsheet){
+                    formParams[key] = this.spreadsheet[key];
+                }
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        (requestOptions as any).formData = formParams;        
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
    
 export class DownloadFileRequest  {
       
-    public path: string;
+    public path!: string;
       
-    public storageName: string;
+    public storageName!: string;
       
-    public versionId: string;
+    public versionId!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -29308,11 +29551,11 @@ export class DownloadFileRequest  {
    
 export class UploadFileRequest  {
     /// Upload files to cloud storage.  
-    public uploadFiles: any;
+    public uploadFiles!: any;
       
-    public path: string;
+    public path!: string;
       
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -29364,15 +29607,15 @@ export class UploadFileRequest  {
    
 export class CopyFileRequest  {
       
-    public srcPath: string;
+    public srcPath!: string;
       
-    public destPath: string;
+    public destPath!: string;
       
-    public srcStorageName: string;
+    public srcStorageName!: string;
       
-    public destStorageName: string;
+    public destStorageName!: string;
       
-    public versionId: string;
+    public versionId!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -29417,15 +29660,15 @@ export class CopyFileRequest  {
    
 export class MoveFileRequest  {
       
-    public srcPath: string;
+    public srcPath!: string;
       
-    public destPath: string;
+    public destPath!: string;
       
-    public srcStorageName: string;
+    public srcStorageName!: string;
       
-    public destStorageName: string;
+    public destStorageName!: string;
       
-    public versionId: string;
+    public versionId!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -29470,11 +29713,11 @@ export class MoveFileRequest  {
    
 export class DeleteFileRequest  {
       
-    public path: string;
+    public path!: string;
       
-    public storageName: string;
+    public storageName!: string;
       
-    public versionId: string;
+    public versionId!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -29512,9 +29755,9 @@ export class DeleteFileRequest  {
    
 export class GetFilesListRequest  {
       
-    public path: string;
+    public path!: string;
       
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -29551,9 +29794,9 @@ export class GetFilesListRequest  {
    
 export class CreateFolderRequest  {
       
-    public path: string;
+    public path!: string;
       
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -29590,13 +29833,13 @@ export class CreateFolderRequest  {
    
 export class CopyFolderRequest  {
       
-    public srcPath: string;
+    public srcPath!: string;
       
-    public destPath: string;
+    public destPath!: string;
       
-    public srcStorageName: string;
+    public srcStorageName!: string;
       
-    public destStorageName: string;
+    public destStorageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -29640,13 +29883,13 @@ export class CopyFolderRequest  {
    
 export class MoveFolderRequest  {
       
-    public srcPath: string;
+    public srcPath!: string;
       
-    public destPath: string;
+    public destPath!: string;
       
-    public srcStorageName: string;
+    public srcStorageName!: string;
       
-    public destStorageName: string;
+    public destStorageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -29690,11 +29933,11 @@ export class MoveFolderRequest  {
    
 export class DeleteFolderRequest  {
       
-    public path: string;
+    public path!: string;
       
-    public storageName: string;
+    public storageName!: string;
       
-    public recursive: boolean;
+    public recursive!: boolean;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -29732,7 +29975,7 @@ export class DeleteFolderRequest  {
    
 export class StorageExistsRequest  {
       
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -29768,11 +30011,11 @@ export class StorageExistsRequest  {
    
 export class ObjectExistsRequest  {
       
-    public path: string;
+    public path!: string;
       
-    public storageName: string;
+    public storageName!: string;
       
-    public versionId: string;
+    public versionId!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -29810,7 +30053,7 @@ export class ObjectExistsRequest  {
    
 export class GetDiscUsageRequest  {
       
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -29847,9 +30090,9 @@ export class GetDiscUsageRequest  {
    
 export class GetFileVersionsRequest  {
       
-    public path: string;
+    public path!: string;
       
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -29886,7 +30129,7 @@ export class GetFileVersionsRequest  {
 /// Perform business analysis of data in Excel files.   
 export class PostAnalyzeExcelRequest  {
     /// Excel files and analysis output requirements  
-    public analyzeExcelRequest: AnalyzeExcelRequest;
+    public analyzeExcelRequest!: AnalyzeExcelRequest;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -29922,13 +30165,13 @@ export class PostAnalyzeExcelRequest  {
 /// Retrieve the description of auto filters from a worksheet.   
 export class GetWorksheetAutoFilterRequest  {
     /// The workbook name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -29966,35 +30209,35 @@ export class GetWorksheetAutoFilterRequest  {
 /// Apply a date filter in the worksheet.   
 export class PutWorksheetDateFilterRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// Represents the range to which the specified AutoFilter applies.  
-    public range: string;
+    public range!: string;
     /// The integer offset of the field on which you want to base the filter (from the left of the list; the leftmost field is field 0).  
-    public fieldIndex: number;
+    public fieldIndex!: number;
     /// Specifies how to group dateTime values (Day, Hour, Minute, Month, Second, Year).  
-    public dateTimeGroupingType: string;
+    public dateTimeGroupingType!: string;
     /// The year.  
-    public year: number;
+    public year!: number;
     /// The month.  
-    public month: number;
+    public month!: number;
     /// The day.  
-    public day: number;
+    public day!: number;
     /// The hour.  
-    public hour: number;
+    public hour!: number;
     /// The minute.  
-    public minute: number;
+    public minute!: number;
     /// The second.  
-    public second: number;
+    public second!: number;
     /// Match all blank cell in the list.  
-    public matchBlanks: boolean;
+    public matchBlanks!: boolean;
     /// Refresh auto filters to hide or unhide the rows.  
-    public refresh: boolean;
+    public refresh!: boolean;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -30058,23 +30301,23 @@ export class PutWorksheetDateFilterRequest  {
 /// Add a filter for a column in the worksheet.   
 export class PutWorksheetFilterRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// Represents the range to which the specified AutoFilter applies.  
-    public range: string;
+    public range!: string;
     /// The integer offset of the field on which you want to base the filter (from the left of the list; the leftmost field is field 0).  
-    public fieldIndex: number;
+    public fieldIndex!: number;
     /// The custom criteria.  
-    public criteria: string;
+    public criteria!: string;
     /// Match all blank cell in the list.  
-    public matchBlanks: boolean;
+    public matchBlanks!: boolean;
     /// Refresh auto filters to hide or unhide the rows.  
-    public refresh: boolean;
+    public refresh!: boolean;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -30132,25 +30375,25 @@ export class PutWorksheetFilterRequest  {
 /// Add an icon filter in the worksheet.   
 export class PutWorksheetIconFilterRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// Represents the range to which the specified AutoFilter applies.  
-    public range: string;
+    public range!: string;
     /// The integer offset of the field on which you want to base the filter (from the left of the list; the leftmost field is field 0).  
-    public fieldIndex: number;
+    public fieldIndex!: number;
     /// The icon set type.  
-    public iconSetType: string;
+    public iconSetType!: string;
     /// The icon id.  
-    public iconId: number;
+    public iconId!: number;
     /// Match all blank cell in the list.  
-    public matchBlanks: boolean;
+    public matchBlanks!: boolean;
     /// Refresh auto filters to hide or unhide the rows.  
-    public refresh: boolean;
+    public refresh!: boolean;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -30214,31 +30457,31 @@ export class PutWorksheetIconFilterRequest  {
 /// Filter a list with custom criteria in the worksheet.   
 export class PutWorksheetCustomFilterRequest  {
     /// The workbook name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// Represents the range to which the specified AutoFilter applies.  
-    public range: string;
+    public range!: string;
     /// The integer offset of the field on which you want to base the filter (from the left of the list; the leftmost field is field 0).  
-    public fieldIndex: number;
+    public fieldIndex!: number;
     /// The filter operator type  
-    public operatorType1: string;
+    public operatorType1!: string;
     /// The custom criteria.  
-    public criteria1: string;
+    public criteria1!: string;
     /// true/false  
-    public isAnd: boolean;
+    public isAnd!: boolean;
       
-    public operatorType2: string;
+    public operatorType2!: string;
     /// The custom criteria.  
-    public criteria2: string;
+    public criteria2!: string;
     /// Match all blank cell in the list.  
-    public matchBlanks: boolean;
+    public matchBlanks!: boolean;
     /// Refresh auto filters to hide or unhide the rows.  
-    public refresh: boolean;
+    public refresh!: boolean;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -30305,23 +30548,23 @@ export class PutWorksheetCustomFilterRequest  {
 /// Add a dynamic filter in the worksheet.   
 export class PutWorksheetDynamicFilterRequest  {
     /// The workbook name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// Represents the range to which the specified AutoFilter applies.  
-    public range: string;
+    public range!: string;
     /// The integer offset of the field on which you want to base the filter (from the left of the list; the leftmost field is field 0).  
-    public fieldIndex: number;
+    public fieldIndex!: number;
     /// Dynamic filter type.  
-    public dynamicFilterType: string;
+    public dynamicFilterType!: string;
     /// Match all blank cell in the list.  
-    public matchBlanks: boolean;
+    public matchBlanks!: boolean;
     /// Refresh auto filters to hide or unhide the rows.  
-    public refresh: boolean;
+    public refresh!: boolean;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -30379,27 +30622,27 @@ export class PutWorksheetDynamicFilterRequest  {
 /// Filter the top 10 items in the list in the worksheet.   
 export class PutWorksheetFilterTop10Request  {
     /// The workbook name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// Represents the range to which the specified AutoFilter applies.  
-    public range: string;
+    public range!: string;
     /// The integer offset of the field on which you want to base the filter (from the left of the list; the leftmost field is field 0).  
-    public fieldIndex: number;
+    public fieldIndex!: number;
     /// Indicates whether filter from top or bottom  
-    public isTop: boolean;
+    public isTop!: boolean;
     /// Indicates whether the items is percent or count  
-    public isPercent: boolean;
+    public isPercent!: boolean;
     /// The item count  
-    public itemCount: number;
+    public itemCount!: number;
     /// Match all blank cell in the list.  
-    public matchBlanks: boolean;
+    public matchBlanks!: boolean;
     /// Refresh auto filters to hide or unhide the rows.  
-    public refresh: boolean;
+    public refresh!: boolean;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -30469,23 +30712,23 @@ export class PutWorksheetFilterTop10Request  {
 /// Add a color filter in the worksheet.   
 export class PutWorksheetColorFilterRequest  {
     /// The workbook name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// Represents the range to which the specified AutoFilter applies.  
-    public range: string;
+    public range!: string;
     /// The integer offset of the field on which you want to base the filter (from the left of the list; the leftmost field is field 0).  
-    public fieldIndex: number;
+    public fieldIndex!: number;
     /// color filter request.  
-    public colorFilter: ColorFilterRequest;
+    public colorFilter!: ColorFilterRequest;
     /// Match all blank cell in the list.  
-    public matchBlanks: boolean;
+    public matchBlanks!: boolean;
     /// Refresh auto filters to hide or unhide the rows.  
-    public refresh: boolean;
+    public refresh!: boolean;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -30537,15 +30780,15 @@ export class PutWorksheetColorFilterRequest  {
 /// Match all blank cells in the list.   
 export class PostWorksheetMatchBlanksRequest  {
     /// The workbook name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The integer offset of the field on which you want to base the filter (from the left of the list; the leftmost field is field 0).  
-    public fieldIndex: number;
+    public fieldIndex!: number;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -30589,15 +30832,15 @@ export class PostWorksheetMatchBlanksRequest  {
 /// Match all not blank cells in the list.   
 export class PostWorksheetMatchNonBlanksRequest  {
     /// The workbook name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The integer offset of the field on which you want to base the filter (from the left of the list; the leftmost field is field 0).  
-    public fieldIndex: number;
+    public fieldIndex!: number;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -30641,13 +30884,13 @@ export class PostWorksheetMatchNonBlanksRequest  {
 /// Refresh auto filters in the worksheet.   
 export class PostWorksheetAutoFilterRefreshRequest  {
     /// The workbook name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -30685,29 +30928,29 @@ export class PostWorksheetAutoFilterRefreshRequest  {
 /// Remove a date filter in the worksheet.   
 export class DeleteWorksheetDateFilterRequest  {
     /// The workbook name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The integer offset of the field on which you want to base the filter (from the left of the list; the leftmost field is field 0).  
-    public fieldIndex: number;
+    public fieldIndex!: number;
     /// Specifies how to group dateTime values.  
-    public dateTimeGroupingType: string;
+    public dateTimeGroupingType!: string;
     /// The year.  
-    public year: number;
+    public year!: number;
     /// The month.  
-    public month: number;
+    public month!: number;
     /// The day.  
-    public day: number;
+    public day!: number;
     /// The hour.  
-    public hour: number;
+    public hour!: number;
     /// The minute.  
-    public minute: number;
+    public minute!: number;
     /// The second.  
-    public second: number;
+    public second!: number;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -30763,17 +31006,17 @@ export class DeleteWorksheetDateFilterRequest  {
 /// Delete a filter for a column in the worksheet.   
 export class DeleteWorksheetFilterRequest  {
     /// The workbook name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The integer offset of the field on which you want to base the filter (from the left of the list; the leftmost field is field 0).  
-    public fieldIndex: number;
+    public fieldIndex!: number;
     /// The custom criteria.  
-    public criteria: string;
+    public criteria!: string;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -30818,13 +31061,13 @@ export class DeleteWorksheetFilterRequest  {
 /// Get autoshapes description in worksheet.   
 export class GetWorksheetAutoshapesRequest  {
     /// The workbook name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// Document's folder.  
-    public folder: string;
+    public folder!: string;
     /// Storage name.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -30862,17 +31105,17 @@ export class GetWorksheetAutoshapesRequest  {
 /// Get autoshape description in some format.   
 export class GetWorksheetAutoshapeWithFormatRequest  {
     /// The workbook name.  
-    public name: string;
+    public name!: string;
     /// Worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The autoshape number.  
-    public autoshapeNumber: number;
+    public autoshapeNumber!: number;
     /// Autoshape conversion format.  
-    public format: string;
+    public format!: string;
     /// The document folder.  
-    public folder: string;
+    public folder!: string;
     /// Storage name.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -30911,7 +31154,7 @@ export class GetWorksheetAutoshapeWithFormatRequest  {
 /// Batch converting files that meet specific matching conditions.   
 export class PostBatchConvertRequest  {
     /// BatchConvertRequest Batch conversion file request.   
-    public batchConvertRequest: BatchConvertRequest;
+    public batchConvertRequest!: BatchConvertRequest;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -30947,7 +31190,7 @@ export class PostBatchConvertRequest  {
 /// Batch protecting files that meet specific matching conditions.   
 export class PostBatchProtectRequest  {
     /// BatchProtectRequest Batch protection file request.    
-    public batchProtectRequest: BatchProtectRequest;
+    public batchProtectRequest!: BatchProtectRequest;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -30983,7 +31226,7 @@ export class PostBatchProtectRequest  {
 /// Batch locking files that meet specific matching conditions.   
 export class PostBatchLockRequest  {
     /// BatchLockRequest Batch locking file request.    
-    public batchLockRequest: BatchLockRequest;
+    public batchLockRequest!: BatchLockRequest;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -31019,7 +31262,7 @@ export class PostBatchLockRequest  {
 /// Batch unlocking files that meet specific matching conditions.   
 export class PostBatchUnlockRequest  {
     /// BatchLockRequest Batch locking file request.    
-    public batchLockRequest: BatchLockRequest;
+    public batchLockRequest!: BatchLockRequest;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -31055,7 +31298,7 @@ export class PostBatchUnlockRequest  {
 /// Batch splitting files that meet specific matching conditions.   
 export class PostBatchSplitRequest  {
     /// BatchSplitRequest Batch splitting file request.    
-    public batchSplitRequest: BatchSplitRequest;
+    public batchSplitRequest!: BatchSplitRequest;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -31091,23 +31334,23 @@ export class PostBatchSplitRequest  {
 /// Clear cell area contents in the worksheet.   
 export class PostClearContentsRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// Represents the range to which the specified cells applies.  
-    public range: string;
+    public range!: string;
     /// The start row index.  
-    public startRow: number;
+    public startRow!: number;
     /// The start column index.  
-    public startColumn: number;
+    public startColumn!: number;
     /// The end row index.  
-    public endRow: number;
+    public endRow!: number;
     /// The end column index.  
-    public endColumn: number;
+    public endColumn!: number;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -31150,23 +31393,23 @@ export class PostClearContentsRequest  {
 /// Clear cell formats in the worksheet.   
 export class PostClearFormatsRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// Represents the range to which the specified cells applies.  
-    public range: string;
+    public range!: string;
     /// The start row index.  
-    public startRow: number;
+    public startRow!: number;
     /// The start column index.  
-    public startColumn: number;
+    public startColumn!: number;
     /// The end row index.  
-    public endRow: number;
+    public endRow!: number;
     /// The end column index.  
-    public endColumn: number;
+    public endColumn!: number;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -31209,17 +31452,17 @@ export class PostClearFormatsRequest  {
 /// Update cell range styles in the worksheet.   
 export class PostUpdateWorksheetRangeStyleRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// Represents the range to which the specified cells applies.  
-    public range: string;
+    public range!: string;
     /// Style with update style settings.  
-    public style: Style;
+    public style!: Style;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -31263,21 +31506,21 @@ export class PostUpdateWorksheetRangeStyleRequest  {
 /// Merge cells in the worksheet.   
 export class PostWorksheetMergeRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The start row index.  
-    public startRow: number;
+    public startRow!: number;
     /// The start column index.  
-    public startColumn: number;
+    public startColumn!: number;
     /// The total rows number.  
-    public totalRows: number;
+    public totalRows!: number;
     /// The total columns number.  
-    public totalColumns: number;
+    public totalColumns!: number;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -31339,21 +31582,21 @@ export class PostWorksheetMergeRequest  {
 /// Unmerge cells in the worksheet.   
 export class PostWorksheetUnmergeRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The start row index.  
-    public startRow: number;
+    public startRow!: number;
     /// The start column index.  
-    public startColumn: number;
+    public startColumn!: number;
     /// The total rows number.  
-    public totalRows: number;
+    public totalRows!: number;
     /// The total columns number.  
-    public totalColumns: number;
+    public totalColumns!: number;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -31415,17 +31658,17 @@ export class PostWorksheetUnmergeRequest  {
 /// Retrieve cell descriptions in a specified format.   
 export class GetWorksheetCellsRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// Begginig offset.  
-    public offest: number;
+    public offest!: number;
     /// Maximum amount of cells in the response.  
-    public count: number;
+    public count!: number;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -31465,15 +31708,15 @@ export class GetWorksheetCellsRequest  {
 /// Retrieve cell data using either cell reference or method name in the worksheet.   
 export class GetWorksheetCellRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The cell's or method name. (Method name like firstcell, endcell etc.)  
-    public cellOrMethodName: string;
+    public cellOrMethodName!: string;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -31511,15 +31754,15 @@ export class GetWorksheetCellRequest  {
 /// Retrieve cell style descriptions in the worksheet.   
 export class GetWorksheetCellStyleRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// Cell's name.  
-    public cellName: string;
+    public cellName!: string;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -31557,21 +31800,21 @@ export class GetWorksheetCellStyleRequest  {
 /// Set cell value using cell name in the worksheet.   
 export class PostWorksheetCellSetValueRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The cell name.  
-    public cellName: string;
+    public cellName!: string;
     /// The cell value.  
-    public value: string;
+    public value!: string;
     /// The value type.  
-    public type: string;
+    public type!: string;
     /// Formula for cell  
-    public formula: string;
+    public formula!: string;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -31612,17 +31855,17 @@ export class PostWorksheetCellSetValueRequest  {
 /// Set cell style using cell name in the worksheet.   
 export class PostUpdateWorksheetCellStyleRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The cell name.  
-    public cellName: string;
+    public cellName!: string;
     /// Style with update style settings.  
-    public style: Style;
+    public style!: Style;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -31660,19 +31903,19 @@ export class PostUpdateWorksheetCellStyleRequest  {
 /// Set the value of the range in the worksheet.   
 export class PostSetCellRangeValueRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// Cell area (like "A1:C2")  
-    public cellarea: string;
+    public cellarea!: string;
     /// Range value  
-    public value: string;
+    public value!: string;
     /// Value data type (like "int")  
-    public type: string;
+    public type!: string;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -31728,23 +31971,23 @@ export class PostSetCellRangeValueRequest  {
 /// Copy data from a source cell to a destination cell in the worksheet.   
 export class PostCopyCellIntoCellRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The destination cell name.  
-    public destCellName: string;
+    public destCellName!: string;
     /// The destination worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The source worksheet name.  
-    public worksheet: string;
+    public worksheet!: string;
     /// The source cell name.  
-    public cellname: string;
+    public cellname!: string;
     /// The source row index.  
-    public row: number;
+    public row!: number;
     /// The source column index.  
-    public column: number;
+    public column!: number;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -31791,15 +32034,15 @@ export class PostCopyCellIntoCellRequest  {
 /// Retrieve the HTML string containing data and specific formats in this cell.   
 export class GetCellHtmlStringRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The cell name.  
-    public cellName: string;
+    public cellName!: string;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -31837,15 +32080,15 @@ export class GetCellHtmlStringRequest  {
 /// Set the HTML string containing data and specific formats in this cell.   
 export class PostSetCellHtmlStringRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The cell name.  
-    public cellName: string;
+    public cellName!: string;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -31883,17 +32126,17 @@ export class PostSetCellHtmlStringRequest  {
 /// Calculate cell formula in the worksheet.   
 export class PostCellCalculateRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The cell name.  
-    public cellName: string;
+    public cellName!: string;
     /// Calculation Options  
-    public options: CalculationOptions;
+    public options!: CalculationOptions;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -31931,17 +32174,17 @@ export class PostCellCalculateRequest  {
 /// Set cell characters in the worksheet.   
 export class PostCellCharactersRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The cell name.  
-    public cellName: string;
+    public cellName!: string;
       
-    public options: Array<FontSetting>;
+    public options!: Array<FontSetting>;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -31979,17 +32222,17 @@ export class PostCellCharactersRequest  {
 /// Retrieve descriptions of worksheet columns.   
 export class GetWorksheetColumnsRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The workdook folder.  
-    public offset: number;
+    public offset!: number;
       
-    public count: number;
+    public count!: number;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -32029,19 +32272,19 @@ export class GetWorksheetColumnsRequest  {
 /// Set worksheet column width.   
 export class PostSetWorksheetColumnWidthRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The column index.  
-    public columnIndex: number;
+    public columnIndex!: number;
     /// Gets and sets the column width in unit of characters.  
-    public width: number;
+    public width!: number;
       
-    public count: number;
+    public count!: number;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -32086,15 +32329,15 @@ export class PostSetWorksheetColumnWidthRequest  {
 /// Retrieve worksheet column data by column index.   
 export class GetWorksheetColumnRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The column index.  
-    public columnIndex: number;
+    public columnIndex!: number;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -32132,19 +32375,19 @@ export class GetWorksheetColumnRequest  {
 /// Insert worksheet columns in the worksheet.   
 export class PutInsertWorksheetColumnsRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The column index.  
-    public columnIndex: number;
+    public columnIndex!: number;
     /// The number of columns.  
-    public columns: number;
+    public columns!: number;
     /// Indicates if references in other worksheets will be updated.  
-    public updateReference: boolean;
+    public updateReference!: boolean;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -32189,19 +32432,19 @@ export class PutInsertWorksheetColumnsRequest  {
 /// Delete worksheet columns in the worksheet.   
 export class DeleteWorksheetColumnsRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The column index.  
-    public columnIndex: number;
+    public columnIndex!: number;
     /// The number of columns.  
-    public columns: number;
+    public columns!: number;
     /// Indicates if references in other worksheets will be updated.  
-    public updateReference: boolean;
+    public updateReference!: boolean;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -32251,17 +32494,17 @@ export class DeleteWorksheetColumnsRequest  {
 /// Hide worksheet columns in the worksheet.   
 export class PostHideWorksheetColumnsRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The begin column index to be operated.  
-    public startColumn: number;
+    public startColumn!: number;
     /// Number of columns to be operated.  
-    public totalColumns: number;
+    public totalColumns!: number;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -32311,19 +32554,19 @@ export class PostHideWorksheetColumnsRequest  {
 /// Unhide worksheet columns in the worksheet.   
 export class PostUnhideWorksheetColumnsRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The begin column index to be operated.  
-    public startColumn: number;
+    public startColumn!: number;
     /// Number of columns to be operated.  
-    public totalColumns: number;
+    public totalColumns!: number;
     /// Gets and sets the column width in unit of characters.  
-    public width: number;
+    public width!: number;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -32374,19 +32617,19 @@ export class PostUnhideWorksheetColumnsRequest  {
 /// Group worksheet columns in the worksheet.   
 export class PostGroupWorksheetColumnsRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The first column index to be operated.  
-    public firstIndex: number;
+    public firstIndex!: number;
     /// The last column index to be operated.  
-    public lastIndex: number;
+    public lastIndex!: number;
     /// columns visible state  
-    public hide: boolean;
+    public hide!: boolean;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -32437,17 +32680,17 @@ export class PostGroupWorksheetColumnsRequest  {
 /// Ungroup worksheet columns.   
 export class PostUngroupWorksheetColumnsRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The first column index to be operated.  
-    public firstIndex: number;
+    public firstIndex!: number;
     /// The last column index to be operated.  
-    public lastIndex: number;
+    public lastIndex!: number;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -32497,21 +32740,21 @@ export class PostUngroupWorksheetColumnsRequest  {
 /// Copy data from source columns to destination columns in the worksheet.   
 export class PostCopyWorksheetColumnsRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// Source column index  
-    public sourceColumnIndex: number;
+    public sourceColumnIndex!: number;
     /// Destination column index  
-    public destinationColumnIndex: number;
+    public destinationColumnIndex!: number;
     /// The copied column number  
-    public columnNumber: number;
+    public columnNumber!: number;
     /// The destination worksheet name.  
-    public worksheet: string;
+    public worksheet!: string;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -32568,17 +32811,17 @@ export class PostCopyWorksheetColumnsRequest  {
 /// Set column style in the worksheet.   
 export class PostColumnStyleRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The column index.  
-    public columnIndex: number;
+    public columnIndex!: number;
     /// Represents display style of excel document,such as font,color,alignment,border,etc.  
-    public style: Style;
+    public style!: Style;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -32616,17 +32859,17 @@ export class PostColumnStyleRequest  {
 /// Retrieve descriptions of rows in the worksheet.   
 export class GetWorksheetRowsRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// Row offset.  
-    public offset: number;
+    public offset!: number;
     /// Display rows number.  
-    public count: number;
+    public count!: number;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -32666,15 +32909,15 @@ export class GetWorksheetRowsRequest  {
 /// Retrieve row data by the row's index in the worksheet.   
 export class GetWorksheetRowRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The row index.  
-    public rowIndex: number;
+    public rowIndex!: number;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -32712,15 +32955,15 @@ export class GetWorksheetRowRequest  {
 /// Delete a row in the worksheet.   
 export class DeleteWorksheetRowRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The row index.  
-    public rowIndex: number;
+    public rowIndex!: number;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -32758,19 +33001,19 @@ export class DeleteWorksheetRowRequest  {
 /// Delete several rows in the worksheet.   
 export class DeleteWorksheetRowsRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The begin row index to be operated.  
-    public startrow: number;
+    public startrow!: number;
     /// Number of rows to be operated.  
-    public totalRows: number;
+    public totalRows!: number;
     /// Indicates if update references in other worksheets.  
-    public updateReference: boolean;
+    public updateReference!: boolean;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -32816,19 +33059,19 @@ export class DeleteWorksheetRowsRequest  {
 /// Insert several new rows in the worksheet.   
 export class PutInsertWorksheetRowsRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The begin row index to be operated.  
-    public startrow: number;
+    public startrow!: number;
     /// Number of rows to be operated.  
-    public totalRows: number;
+    public totalRows!: number;
     /// Indicates if update references in other worksheets.  
-    public updateReference: boolean;
+    public updateReference!: boolean;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -32874,15 +33117,15 @@ export class PutInsertWorksheetRowsRequest  {
 /// Insert a new row in the worksheet.   
 export class PutInsertWorksheetRowRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The new row index.  
-    public rowIndex: number;
+    public rowIndex!: number;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -32920,19 +33163,19 @@ export class PutInsertWorksheetRowRequest  {
 /// Update height of rows in the worksheet.   
 export class PostUpdateWorksheetRowRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The row index.  
-    public rowIndex: number;
+    public rowIndex!: number;
     /// The new row height.  
-    public height: number;
+    public height!: number;
       
-    public count: number;
+    public count!: number;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -32972,17 +33215,17 @@ export class PostUpdateWorksheetRowRequest  {
 /// Hide rows in worksheet.   
 export class PostHideWorksheetRowsRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The begin row index to be operated.  
-    public startrow: number;
+    public startrow!: number;
     /// Number of rows to be operated.  
-    public totalRows: number;
+    public totalRows!: number;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -33032,19 +33275,19 @@ export class PostHideWorksheetRowsRequest  {
 /// Unhide rows in the worksheet.   
 export class PostUnhideWorksheetRowsRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The begin row index to be operated.  
-    public startrow: number;
+    public startrow!: number;
     /// Number of rows to be operated.  
-    public totalRows: number;
+    public totalRows!: number;
     /// The new row height.  
-    public height: number;
+    public height!: number;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -33095,19 +33338,19 @@ export class PostUnhideWorksheetRowsRequest  {
 /// Group rows in the worksheet.   
 export class PostGroupWorksheetRowsRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The first row index to be operated.  
-    public firstIndex: number;
+    public firstIndex!: number;
     /// The last row index to be operated.  
-    public lastIndex: number;
+    public lastIndex!: number;
     /// rows visible state  
-    public hide: boolean;
+    public hide!: boolean;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -33158,19 +33401,19 @@ export class PostGroupWorksheetRowsRequest  {
 /// Ungroup rows in the worksheet.   
 export class PostUngroupWorksheetRowsRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The first row index to be operated.  
-    public firstIndex: number;
+    public firstIndex!: number;
     /// The last row index to be operated.  
-    public lastIndex: number;
+    public lastIndex!: number;
     /// Is all row to be operated  
-    public isAll: boolean;
+    public isAll!: boolean;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -33221,21 +33464,21 @@ export class PostUngroupWorksheetRowsRequest  {
 /// Copy data and formats from specific entire rows in the worksheet.   
 export class PostCopyWorksheetRowsRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// Source row index  
-    public sourceRowIndex: number;
+    public sourceRowIndex!: number;
     /// Destination row index  
-    public destinationRowIndex: number;
+    public destinationRowIndex!: number;
     /// The copied row number  
-    public rowNumber: number;
+    public rowNumber!: number;
     /// The worksheet name.  
-    public worksheet: string;
+    public worksheet!: string;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -33292,17 +33535,17 @@ export class PostCopyWorksheetRowsRequest  {
 /// Apply formats to an entire row in the worksheet.   
 export class PostRowStyleRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The row index.  
-    public rowIndex: number;
+    public rowIndex!: number;
     /// Style description.  
-    public style: Style;
+    public style!: Style;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -33408,15 +33651,15 @@ export class GetCellsCloudServiceStatusRequest  {
 /// Retrieve chart area description in the worksheet.   
 export class GetChartAreaRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The chart index.  
-    public chartIndex: number;
+    public chartIndex!: number;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -33454,15 +33697,15 @@ export class GetChartAreaRequest  {
 /// Retrieve chart area fill format description in the worksheet.   
 export class GetChartAreaFillFormatRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The chart index.  
-    public chartIndex: number;
+    public chartIndex!: number;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -33500,15 +33743,15 @@ export class GetChartAreaFillFormatRequest  {
 /// Retrieve chart area border description.   
 export class GetChartAreaBorderRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The chart index.  
-    public chartIndex: number;
+    public chartIndex!: number;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -33546,13 +33789,13 @@ export class GetChartAreaBorderRequest  {
 /// Retrieve descriptions of charts in the worksheet.   
 export class GetWorksheetChartsRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -33590,17 +33833,17 @@ export class GetWorksheetChartsRequest  {
 /// Retrieve the chart in a specified format.   
 export class GetWorksheetChartRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The chart number.  
-    public chartNumber: number;
+    public chartNumber!: number;
     /// Chart conversion format.(PNG/TIFF/JPEG/GIF/EMF/BMP)  
-    public format: string;
+    public format!: string;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -33639,41 +33882,41 @@ export class GetWorksheetChartRequest  {
 /// Add a new chart in the worksheet.   
 export class PutWorksheetChartRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// Chart type, please refer property Type in chart resource.  
-    public chartType: string;
+    public chartType!: string;
     /// Upper-left row for the new chart.  
-    public upperLeftRow: number;
+    public upperLeftRow!: number;
     /// Upper-left column for the new chart.  
-    public upperLeftColumn: number;
+    public upperLeftColumn!: number;
     /// Lower-left row for the new chart.  
-    public lowerRightRow: number;
+    public lowerRightRow!: number;
     /// Lower-left column for the new chart.  
-    public lowerRightColumn: number;
+    public lowerRightColumn!: number;
     /// Specify the values from which to plot the data series.  
-    public area: string;
+    public area!: string;
     /// Specify whether to plot the series from a range of cell values by row or by column.   
-    public isVertical: boolean;
+    public isVertical!: boolean;
     /// Get or set the range of category axis values. It can be a range of cells (e.g., "D1:E10").  
-    public categoryData: string;
+    public categoryData!: string;
     /// Specify whether to auto-update the serial name.  
-    public isAutoGetSerialName: boolean;
+    public isAutoGetSerialName!: boolean;
     /// Specify the chart title name.  
-    public title: string;
+    public title!: string;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// Represents the specified chart's data label values display behavior. True to display the values, False to hide them.  
-    public dataLabels: boolean;
+    public dataLabels!: boolean;
     /// Represents data label position (Center/InsideBase/InsideEnd/OutsideEnd/Above/Below/Left/Right/BestFit/Moved).  
-    public dataLabelsPosition: string;
+    public dataLabelsPosition!: string;
     /// The source is the data of the pivotTable. If PivotSource is not empty, the chart is a PivotChart.  
-    public pivotTableSheet: string;
+    public pivotTableSheet!: string;
     /// The pivot table name.  
-    public pivotTableName: string;
+    public pivotTableName!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -33730,15 +33973,15 @@ export class PutWorksheetChartRequest  {
 /// Delete a chart by index in the worksheet.   
 export class DeleteWorksheetChartRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The chart index.  
-    public chartIndex: number;
+    public chartIndex!: number;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -33776,17 +34019,17 @@ export class DeleteWorksheetChartRequest  {
 /// Update chart properties in the worksheet.   
 export class PostWorksheetChartRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The chart index.  
-    public chartIndex: number;
+    public chartIndex!: number;
     /// Chart Represents a specified chart.  
-    public chart: Chart;
+    public chart!: Chart;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -33824,15 +34067,15 @@ export class PostWorksheetChartRequest  {
 /// Retrieve chart legend description in the worksheet.   
 export class GetWorksheetChartLegendRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The chart index.  
-    public chartIndex: number;
+    public chartIndex!: number;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -33870,17 +34113,17 @@ export class GetWorksheetChartLegendRequest  {
 /// Update chart legend in the worksheet.   
 export class PostWorksheetChartLegendRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The chart index.  
-    public chartIndex: number;
+    public chartIndex!: number;
       
-    public legend: Legend;
+    public legend!: Legend;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -33918,15 +34161,15 @@ export class PostWorksheetChartLegendRequest  {
 /// Show chart legend in the worksheet.   
 export class PutWorksheetChartLegendRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The chart index.  
-    public chartIndex: number;
+    public chartIndex!: number;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -33964,15 +34207,15 @@ export class PutWorksheetChartLegendRequest  {
 /// Hides chart legend in the worksheet.   
 export class DeleteWorksheetChartLegendRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The chart index.  
-    public chartIndex: number;
+    public chartIndex!: number;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -34010,13 +34253,13 @@ export class DeleteWorksheetChartLegendRequest  {
 /// Clear the charts in the worksheets.   
 export class DeleteWorksheetChartsRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -34054,15 +34297,15 @@ export class DeleteWorksheetChartsRequest  {
 /// Retrieve chart title description in the worksheet.   
 export class GetWorksheetChartTitleRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The chart index.  
-    public chartIndex: number;
+    public chartIndex!: number;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -34100,17 +34343,17 @@ export class GetWorksheetChartTitleRequest  {
 /// Update chart title in the worksheet.   
 export class PostWorksheetChartTitleRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The chart index.  
-    public chartIndex: number;
+    public chartIndex!: number;
     /// TitleChart title  
-    public title: Title;
+    public title!: Title;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -34148,17 +34391,17 @@ export class PostWorksheetChartTitleRequest  {
 /// Set chart title in the worksheet.   
 export class PutWorksheetChartTitleRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The chart index.  
-    public chartIndex: number;
+    public chartIndex!: number;
     /// TitleChart title.  
-    public title: Title;
+    public title!: Title;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -34196,15 +34439,15 @@ export class PutWorksheetChartTitleRequest  {
 /// Hide chart title in the worksheet.   
 export class DeleteWorksheetChartTitleRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The chart index.  
-    public chartIndex: number;
+    public chartIndex!: number;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -34242,15 +34485,15 @@ export class DeleteWorksheetChartTitleRequest  {
 /// Retrieve descriptions of chart seriesaxis in the chart.   
 export class GetChartSeriesAxisRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The chart index.  
-    public chartIndex: number;
+    public chartIndex!: number;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -34288,15 +34531,15 @@ export class GetChartSeriesAxisRequest  {
 /// Retrieve descriptions of chart series axis in the chart.   
 export class GetChartCategoryAxisRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The chart index.  
-    public chartIndex: number;
+    public chartIndex!: number;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -34334,15 +34577,15 @@ export class GetChartCategoryAxisRequest  {
 /// Retrieve chart value axis in the chart.   
 export class GetChartValueAxisRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The chart index.  
-    public chartIndex: number;
+    public chartIndex!: number;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -34380,15 +34623,15 @@ export class GetChartValueAxisRequest  {
 /// Retrieve chart second category axis in the chart   
 export class GetChartSecondCategoryAxisRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The chart index.  
-    public chartIndex: number;
+    public chartIndex!: number;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -34426,15 +34669,15 @@ export class GetChartSecondCategoryAxisRequest  {
 /// Retrieve chart second value axis in the chart.   
 export class GetChartSecondValueAxisRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The chart index.  
-    public chartIndex: number;
+    public chartIndex!: number;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -34472,17 +34715,17 @@ export class GetChartSecondValueAxisRequest  {
 /// Update chart series axis in the chart.   
 export class PostChartSeriesAxisRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The chart index.  
-    public chartIndex: number;
+    public chartIndex!: number;
     /// Axis   
-    public axis: Axis;
+    public axis!: Axis;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -34520,17 +34763,17 @@ export class PostChartSeriesAxisRequest  {
 /// Update chart category axis in the chart.   
 export class PostChartCategoryAxisRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The chart index.  
-    public chartIndex: number;
+    public chartIndex!: number;
     /// Axis   
-    public axis: Axis;
+    public axis!: Axis;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -34568,17 +34811,17 @@ export class PostChartCategoryAxisRequest  {
 /// Update chart value axis in the chart.   
 export class PostChartValueAxisRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The chart index.  
-    public chartIndex: number;
+    public chartIndex!: number;
     /// Axis   
-    public axis: Axis;
+    public axis!: Axis;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -34616,17 +34859,17 @@ export class PostChartValueAxisRequest  {
 /// Update chart sencond category axis in the chart.   
 export class PostChartSecondCategoryAxisRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The chart index.  
-    public chartIndex: number;
+    public chartIndex!: number;
     /// Axis   
-    public axis: Axis;
+    public axis!: Axis;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -34664,17 +34907,17 @@ export class PostChartSecondCategoryAxisRequest  {
 /// Update chart sencond value axis in the chart.   
 export class PostChartSecondValueAxisRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The chart index.  
-    public chartIndex: number;
+    public chartIndex!: number;
     /// Axis   
-    public axis: Axis;
+    public axis!: Axis;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -34712,13 +34955,13 @@ export class PostChartSecondValueAxisRequest  {
 /// Retrieve descriptions of conditional formattings in a worksheet.   
 export class GetWorksheetConditionalFormattingsRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -34756,15 +34999,15 @@ export class GetWorksheetConditionalFormattingsRequest  {
 /// Retrieve conditional formatting descriptions in the worksheet.   
 export class GetWorksheetConditionalFormattingRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The conditional formatting index.  
-    public index: number;
+    public index!: number;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -34802,17 +35045,17 @@ export class GetWorksheetConditionalFormattingRequest  {
 /// Add conditional formatting in the worksheet.   
 export class PutWorksheetConditionalFormattingRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
       
-    public formatcondition: FormatCondition;
+    public formatcondition!: FormatCondition;
     /// Adds a conditional formatted cell range.  
-    public cellArea: string;
+    public cellArea!: string;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -34856,25 +35099,25 @@ export class PutWorksheetConditionalFormattingRequest  {
 /// Add a format condition in the worksheet.   
 export class PutWorksheetFormatConditionRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// Gets the Conditional Formatting element at the specified index.  
-    public index: number;
+    public index!: number;
     /// Adds a conditional formatted cell range.  
-    public cellArea: string;
+    public cellArea!: string;
     /// Format condition type(CellValue/Expression/ColorScale/DataBar/IconSet/Top10/UniqueValues/DuplicateValues/ContainsText/NotContainsText/BeginsWith/EndsWith/ContainsBlanks/NotContainsBlanks/ContainsErrors/NotContainsErrors/TimePeriod/AboveAverage).  
-    public type: string;
+    public type!: string;
     /// Represents the operator type of conditional format and data validation(Between/Equal/GreaterThan/GreaterOrEqual/LessThan/None/NotBetween/NotEqual).  
-    public operatorType: string;
+    public operatorType!: string;
     /// The value or expression associated with conditional formatting.  
-    public formula1: string;
+    public formula1!: string;
     /// The value or expression associated with conditional formatting.  
-    public formula2: string;
+    public formula2!: string;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -34942,17 +35185,17 @@ export class PutWorksheetFormatConditionRequest  {
 /// Add a cell area for the format condition in the worksheet.   
 export class PutWorksheetFormatConditionAreaRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// Gets the Conditional Formatting element at the specified index.  
-    public index: number;
+    public index!: number;
     /// Adds a conditional formatted cell range.  
-    public cellArea: string;
+    public cellArea!: string;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -34996,23 +35239,23 @@ export class PutWorksheetFormatConditionAreaRequest  {
 /// Add a condition for the format condition in the worksheet.   
 export class PutWorksheetFormatConditionConditionRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// Gets the Conditional Formatting element at the specified index.  
-    public index: number;
+    public index!: number;
     /// Format condition type(CellValue/Expression/ColorScale/DataBar/IconSet/Top10/UniqueValues/DuplicateValues/ContainsText/NotContainsText/BeginsWith/EndsWith/ContainsBlanks/NotContainsBlanks/ContainsErrors/NotContainsErrors/TimePeriod/AboveAverage).  
-    public type: string;
+    public type!: string;
     /// Represents the operator type of conditional format and data validation(Between/Equal/GreaterThan/GreaterOrEqual/LessThan/None/NotBetween/NotEqual).  
-    public operatorType: string;
+    public operatorType!: string;
     /// The value or expression associated with conditional formatting.  
-    public formula1: string;
+    public formula1!: string;
     /// The value or expression associated with conditional formatting.  
-    public formula2: string;
+    public formula2!: string;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -35074,13 +35317,13 @@ export class PutWorksheetFormatConditionConditionRequest  {
 /// Clear all conditional formattings in the worksheet.   
 export class DeleteWorksheetConditionalFormattingsRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -35118,15 +35361,15 @@ export class DeleteWorksheetConditionalFormattingsRequest  {
 /// Remove a conditional formatting.   
 export class DeleteWorksheetConditionalFormattingRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// Gets the Conditional Formatting element at the specified index.  
-    public index: number;
+    public index!: number;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -35164,21 +35407,21 @@ export class DeleteWorksheetConditionalFormattingRequest  {
 /// Remove cell area from conditional formatting.   
 export class DeleteWorksheetConditionalFormattingAreaRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The start row of the range.  
-    public startRow: number;
+    public startRow!: number;
     /// The start column of the range.  
-    public startColumn: number;
+    public startColumn!: number;
     /// The number of rows of the range.  
-    public totalRows: number;
+    public totalRows!: number;
     /// The number of columns of the range.  
-    public totalColumns: number;
+    public totalColumns!: number;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -35240,37 +35483,37 @@ export class DeleteWorksheetConditionalFormattingAreaRequest  {
 /// Retrieve workbooks in various formats.   
 export class GetWorkbookRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The conversion format(CSV/XLS/HTML/MHTML/ODS/PDF/XML/TXT/TIFF/XLSB/XLSM/XLSX/XLTM/XLTX/XPS/PNG/JPG/JPEG/GIF/EMF/BMP/MD[Markdown]/Numbers).  
-    public format: string;
+    public format!: string;
     /// The password needed to open an Excel file.  
-    public password: string;
+    public password!: string;
     /// Specifies whether set workbook rows to be autofit.  
-    public isAutoFit: boolean;
+    public isAutoFit!: boolean;
     /// Specifies whether only save table data.Only use pdf to excel.  
-    public onlySaveTable: boolean;
+    public onlySaveTable!: boolean;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// Path to save the result. If it's a single file, the `outPath` should encompass both the filename and extension. In the case of multiple files, the `outPath` should only include the folder.  
-    public outPath: string;
+    public outPath!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// The storage name where the output file is situated.  
-    public outStorageName: string;
+    public outStorageName!: string;
     /// Whether check restriction of excel file when user modify cells related objects.  
-    public checkExcelRestriction: boolean;
+    public checkExcelRestriction!: boolean;
     /// The regional settings for workbook.  
-    public region: string;
+    public region!: string;
     /// The page wide fit on worksheet.  
-    public pageWideFitOnPerSheet: boolean;
+    public pageWideFitOnPerSheet!: boolean;
     /// The page tall fit on worksheet.  
-    public pageTallFitOnPerSheet: boolean;
+    public pageTallFitOnPerSheet!: boolean;
     /// When converting to PDF format, one page per sheet.  
-    public onePagePerSheet: boolean;
+    public onePagePerSheet!: boolean;
       
-    public onlyAutofitTable: boolean;
+    public onlyAutofitTable!: boolean;
     /// Use Custom fonts.  
-    public fontsLocation: string;
+    public fontsLocation!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -35321,37 +35564,37 @@ export class GetWorkbookRequest  {
 /// Convert the workbook from the requested content into files in different formats.   
 export class PutConvertWorkbookRequest  {
     /// File to upload  
-    public file: any;
+    public file!: any;
     /// The format to convert(CSV/XLS/HTML/MHTML/ODS/PDF/XML/TXT/TIFF/XLSB/XLSM/XLSX/XLTM/XLTX/XPS/PNG/JPG/JPEG/GIF/EMF/BMP/MD[Markdown]/Numbers).  
-    public format: string;
+    public format!: string;
     /// The password needed to open an Excel file.  
-    public password: string;
+    public password!: string;
     /// Path to save the result. If it's a single file, the `outPath` should encompass both the filename and extension. In the case of multiple files, the `outPath` should only include the folder.  
-    public outPath: string;
+    public outPath!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// Whether check restriction of excel file when user modify cells related objects.  
-    public checkExcelRestriction: boolean;
+    public checkExcelRestriction!: boolean;
     /// The format of the input file stream.   
-    public streamFormat: string;
+    public streamFormat!: string;
     /// The regional settings for workbook.  
-    public region: string;
+    public region!: string;
     /// The page wide fit on worksheet.  
-    public pageWideFitOnPerSheet: boolean;
+    public pageWideFitOnPerSheet!: boolean;
     /// The page tall fit on worksheet.  
-    public pageTallFitOnPerSheet: boolean;
+    public pageTallFitOnPerSheet!: boolean;
     /// Convert the specified worksheet.   
-    public sheetName: string;
+    public sheetName!: string;
     /// Convert the specified page  of worksheet, sheetName is required.   
-    public pageIndex: number;
+    public pageIndex!: number;
     /// When converting to PDF format, one page per sheet.   
-    public onePagePerSheet: boolean;
+    public onePagePerSheet!: boolean;
     /// Auto-fits all rows in this workbook.  
-    public autoRowsFit: boolean;
+    public autoRowsFit!: boolean;
     /// Auto-fits the columns width in this workbook.  
-    public autoColumnsFit: boolean;
+    public autoColumnsFit!: boolean;
     /// Use Custom fonts.  
-    public fontsLocation: string;
+    public fontsLocation!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -35422,33 +35665,33 @@ export class PutConvertWorkbookRequest  {
 /// Save an Excel file in various formats.   
 export class PostWorkbookSaveAsRequest  {
     /// The workbook name.  
-    public name: string;
+    public name!: string;
     /// newfilename to save the result.The `newfilename` should encompass both the filename and extension.  
-    public newfilename: string;
+    public newfilename!: string;
       
-    public saveOptions: SaveOptions;
+    public saveOptions!: SaveOptions;
     /// Indicates if Autofit rows in workbook.  
-    public isAutoFitRows: boolean;
+    public isAutoFitRows!: boolean;
     /// Indicates if Autofit columns in workbook.  
-    public isAutoFitColumns: boolean;
+    public isAutoFitColumns!: boolean;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// The storage name where the output file is situated.  
-    public outStorageName: string;
+    public outStorageName!: string;
     /// Whether check restriction of excel file when user modify cells related objects.  
-    public checkExcelRestriction: boolean;
+    public checkExcelRestriction!: boolean;
     /// The regional settings for workbook.  
-    public region: string;
+    public region!: string;
     /// The page wide fit on worksheet.  
-    public pageWideFitOnPerSheet: boolean;
+    public pageWideFitOnPerSheet!: boolean;
     /// The page tall fit on worksheet.  
-    public pageTallFitOnPerSheet: boolean;
+    public pageTallFitOnPerSheet!: boolean;
       
-    public onePagePerSheet: boolean;
+    public onePagePerSheet!: boolean;
     /// Use Custom fonts.  
-    public fontsLocation: string;
+    public fontsLocation!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -35501,15 +35744,15 @@ export class PostWorkbookSaveAsRequest  {
 /// Convert Excel file to PDF files.   
 export class PostConvertWorkbookToPDFRequest  {
     /// File to upload  
-    public file: any;
+    public file!: any;
     /// The password needed to open an Excel file.  
-    public password: string;
+    public password!: string;
     /// Whether check restriction of excel file when user modify cells related objects.  
-    public checkExcelRestriction: boolean;
+    public checkExcelRestriction!: boolean;
     /// The regional settings for workbook.  
-    public region: string;
+    public region!: string;
     /// Use Custom fonts.  
-    public fontsLocation: string;
+    public fontsLocation!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -35564,13 +35807,13 @@ export class PostConvertWorkbookToPDFRequest  {
 /// Convert Excel file to PNG files.   
 export class PostConvertWorkbookToPNGRequest  {
     /// File to upload  
-    public file: any;
+    public file!: any;
     /// The password needed to open an Excel file.  
-    public password: string;
+    public password!: string;
     /// Whether check restriction of excel file when user modify cells related objects.  
-    public checkExcelRestriction: boolean;
+    public checkExcelRestriction!: boolean;
     /// The regional settings for workbook.  
-    public region: string;
+    public region!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -35624,15 +35867,15 @@ export class PostConvertWorkbookToPNGRequest  {
 /// Convert Excel file to Docx files.   
 export class PostConvertWorkbookToDocxRequest  {
     /// File to upload  
-    public file: any;
+    public file!: any;
     /// The password needed to open an Excel file.  
-    public password: string;
+    public password!: string;
     /// Whether check restriction of excel file when user modify cells related objects.  
-    public checkExcelRestriction: boolean;
+    public checkExcelRestriction!: boolean;
     /// The regional settings for workbook.  
-    public region: string;
+    public region!: string;
     /// Use Custom fonts.  
-    public fontsLocation: string;
+    public fontsLocation!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -35687,15 +35930,15 @@ export class PostConvertWorkbookToDocxRequest  {
 /// Convert Excel file to Pptx files.   
 export class PostConvertWorkbookToPptxRequest  {
     /// File to upload  
-    public file: any;
+    public file!: any;
     /// The password needed to open an Excel file.  
-    public password: string;
+    public password!: string;
     /// Whether check restriction of excel file when user modify cells related objects.  
-    public checkExcelRestriction: boolean;
+    public checkExcelRestriction!: boolean;
     /// The regional settings for workbook.  
-    public region: string;
+    public region!: string;
     /// Use Custom fonts.  
-    public fontsLocation: string;
+    public fontsLocation!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -35750,15 +35993,15 @@ export class PostConvertWorkbookToPptxRequest  {
 /// Convert Excel file to HTML files.   
 export class PostConvertWorkbookToHtmlRequest  {
     /// File to upload  
-    public file: any;
+    public file!: any;
     /// The password needed to open an Excel file.  
-    public password: string;
+    public password!: string;
     /// Whether check restriction of excel file when user modify cells related objects.  
-    public checkExcelRestriction: boolean;
+    public checkExcelRestriction!: boolean;
     /// The regional settings for workbook.  
-    public region: string;
+    public region!: string;
     /// Use Custom fonts.  
-    public fontsLocation: string;
+    public fontsLocation!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -35813,15 +36056,15 @@ export class PostConvertWorkbookToHtmlRequest  {
 /// Convert Excel file to Markdown files.   
 export class PostConvertWorkbookToMarkdownRequest  {
     /// File to upload  
-    public file: any;
+    public file!: any;
     /// The password needed to open an Excel file.  
-    public password: string;
+    public password!: string;
     /// Whether check restriction of excel file when user modify cells related objects.  
-    public checkExcelRestriction: boolean;
+    public checkExcelRestriction!: boolean;
     /// The regional settings for workbook.  
-    public region: string;
+    public region!: string;
     /// Use Custom fonts.  
-    public fontsLocation: string;
+    public fontsLocation!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -35876,15 +36119,15 @@ export class PostConvertWorkbookToMarkdownRequest  {
 /// Convert Excel file to Json files.   
 export class PostConvertWorkbookToJsonRequest  {
     /// File to upload  
-    public file: any;
+    public file!: any;
     /// The password needed to open an Excel file.  
-    public password: string;
+    public password!: string;
     /// Whether check restriction of excel file when user modify cells related objects.  
-    public checkExcelRestriction: boolean;
+    public checkExcelRestriction!: boolean;
     /// The regional settings for workbook.  
-    public region: string;
+    public region!: string;
     /// Use Custom fonts.  
-    public fontsLocation: string;
+    public fontsLocation!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -35939,13 +36182,13 @@ export class PostConvertWorkbookToJsonRequest  {
 /// Convert Excel file to SQL Script files.   
 export class PostConvertWorkbookToSQLRequest  {
     /// File to upload  
-    public file: any;
+    public file!: any;
     /// The password needed to open an Excel file.  
-    public password: string;
+    public password!: string;
     /// Whether check restriction of excel file when user modify cells related objects.  
-    public checkExcelRestriction: boolean;
+    public checkExcelRestriction!: boolean;
     /// The regional settings for workbook.  
-    public region: string;
+    public region!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -35999,13 +36242,13 @@ export class PostConvertWorkbookToSQLRequest  {
 /// Convert Excel file to Csv files.   
 export class PostConvertWorkbookToCSVRequest  {
     /// File to upload  
-    public file: any;
+    public file!: any;
     /// The password needed to open an Excel file.  
-    public password: string;
+    public password!: string;
     /// Whether check restriction of excel file when user modify cells related objects.  
-    public checkExcelRestriction: boolean;
+    public checkExcelRestriction!: boolean;
     /// The regional settings for workbook.  
-    public region: string;
+    public region!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -36059,9 +36302,9 @@ export class PostConvertWorkbookToCSVRequest  {
    
 export class PostConvertWorksheetToImageRequest  {
       
-    public convertWorksheetOptions: ConvertWorksheetOptions;
+    public convertWorksheetOptions!: ConvertWorksheetOptions;
     /// Use Custom fonts.  
-    public fontsLocation: string;
+    public fontsLocation!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -36098,9 +36341,9 @@ export class PostConvertWorksheetToImageRequest  {
    
 export class PostConvertWorkbookRequest  {
       
-    public convertWorkbookOptions: ConvertWorkbookOptions;
+    public convertWorkbookOptions!: ConvertWorkbookOptions;
     /// Use Custom fonts.  
-    public fontsLocation: string;
+    public fontsLocation!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -36137,7 +36380,7 @@ export class PostConvertWorkbookRequest  {
 /// Export Excel internal elements or the workbook itself to various format files.   
 export class CheckWrokbookExternalReferenceRequest  {
       
-    public checkExternalReferenceOptions: CheckExternalReferenceOptions;
+    public checkExternalReferenceOptions!: CheckExternalReferenceOptions;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -36173,7 +36416,7 @@ export class CheckWrokbookExternalReferenceRequest  {
    
 export class CheckWorkbookFormulaErrorsRequest  {
       
-    public formulaErrorOptions: CheckFormulaErrorOptions;
+    public formulaErrorOptions!: CheckFormulaErrorOptions;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -36209,19 +36452,19 @@ export class CheckWorkbookFormulaErrorsRequest  {
 /// Export Excel internal elements or the workbook itself to various format files.   
 export class PostExportRequest  {
     /// File to upload  
-    public file: any;
+    public file!: any;
     /// Exported object type:workbook/worksheet/chart/comment/picture/shape/listobject/oleobject.  
-    public objectType: string;
+    public objectType!: string;
     /// The conversion format(CSV/XLS/HTML/MHTML/ODS/PDF/XML/TXT/TIFF/XLSB/XLSM/XLSX/XLTM/XLTX/XPS/PNG/JPG/JPEG/GIF/EMF/BMP/MD[Markdown]/Numbers).  
-    public format: string;
+    public format!: string;
     /// The password needed to open an Excel file.  
-    public password: string;
+    public password!: string;
     /// Whether check restriction of excel file when user modify cells related objects.  
-    public checkExcelRestriction: boolean;
+    public checkExcelRestriction!: boolean;
     /// The regional settings for workbook.  
-    public region: string;
+    public region!: string;
     /// Use Custom fonts.  
-    public fontsLocation: string;
+    public fontsLocation!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -36279,21 +36522,21 @@ export class PostExportRequest  {
 /// When there are XML Maps in an Excel file, export XML data. When there is no XML map in the Excel file, convert the Excel file to an XML file.   
 export class PostWorkbookExportXMLRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The password needed to open an Excel file.  
-    public password: string;
+    public password!: string;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// Path to save the result. If it's a single file, the `outPath` should encompass both the filename and extension. In the case of multiple files, the `outPath` should only include the folder.  
-    public outPath: string;
+    public outPath!: string;
     /// The storage name where the output file is situated.  
-    public outStorageName: string;
+    public outStorageName!: string;
     /// Whether check restriction of excel file when user modify cells related objects.  
-    public checkExcelRestriction: boolean;
+    public checkExcelRestriction!: boolean;
     /// The regional settings for workbook.  
-    public region: string;
+    public region!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -36336,23 +36579,23 @@ export class PostWorkbookExportXMLRequest  {
 /// Import a JSON data file into the workbook. The JSON data file can either be a cloud file or data from an HTTP URI.   
 export class PostWorkbookImportJsonRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// Import Json request.  
-    public importJsonRequest: ImportJsonRequest;
+    public importJsonRequest!: ImportJsonRequest;
     /// The password needed to open an Excel file.  
-    public password: string;
+    public password!: string;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// Path to save the result. If it's a single file, the `outPath` should encompass both the filename and extension. In the case of multiple files, the `outPath` should only include the folder.  
-    public outPath: string;
+    public outPath!: string;
     /// The storage name where the output file is situated.  
-    public outStorageName: string;
+    public outStorageName!: string;
     /// Whether check restriction of excel file when user modify cells related objects.  
-    public checkExcelRestriction: boolean;
+    public checkExcelRestriction!: boolean;
     /// The regional settings for workbook.  
-    public region: string;
+    public region!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -36395,23 +36638,23 @@ export class PostWorkbookImportJsonRequest  {
 /// Import an XML data file into an Excel file. The XML data file can either be a cloud file or data from an HTTP URI.   
 export class PostWorkbookImportXMLRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// Import XML request.  
-    public importXMLRequest: ImportXMLRequest;
+    public importXMLRequest!: ImportXMLRequest;
     /// The password needed to open an Excel file.  
-    public password: string;
+    public password!: string;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// Path to save the result. If it's a single file, the `outPath` should encompass both the filename and extension. In the case of multiple files, the `outPath` should only include the folder.  
-    public outPath: string;
+    public outPath!: string;
     /// The storage name where the output file is situated.  
-    public outStorageName: string;
+    public outStorageName!: string;
     /// Whether check restriction of excel file when user modify cells related objects.  
-    public checkExcelRestriction: boolean;
+    public checkExcelRestriction!: boolean;
     /// The regional settings for workbook.  
-    public region: string;
+    public region!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -36454,17 +36697,17 @@ export class PostWorkbookImportXMLRequest  {
 /// Import data into the Excel file.   
 export class PostImportDataRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// Import option. They are include of ImportCSVDataOption, ImportBatchDataOption, ImportPictureOption, ImportStringArrayOption, Import2DimensionStringArrayOption, and so on.    
-    public importOption: ImportOption;
+    public importOption!: ImportOption;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// The regional settings for workbook.  
-    public region: string;
+    public region!: string;
     /// Use Custom fonts.  
-    public fontsLocation: string;
+    public fontsLocation!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -36504,19 +36747,19 @@ export class PostImportDataRequest  {
 /// Data cleaning of spreadsheet files is a data management process used to identify, correct, and remove errors, incompleteness, duplicates, or inaccuracies in tables and ranges.   
 export class PostWorkbookDataCleansingRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// data cleansing content.  
-    public dataCleansing: DataCleansing;
+    public dataCleansing!: DataCleansing;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// The file password.   
-    public password: string;
+    public password!: string;
     /// The regional settings for workbook.  
-    public region: string;
+    public region!: string;
       
-    public checkExcelRestriction: boolean;
+    public checkExcelRestriction!: boolean;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -36557,7 +36800,7 @@ export class PostWorkbookDataCleansingRequest  {
 /// Data cleansing of spreadsheet files is a data management process used to identify, correct, and remove errors, incompleteness, duplicates, or inaccuracies in tables and ranges.   
 export class PostDataCleansingRequest  {
       
-    public dataCleansingRequest: DataCleansingRequest;
+    public dataCleansingRequest!: DataCleansingRequest;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -36593,19 +36836,19 @@ export class PostDataCleansingRequest  {
 /// Data deduplication of spreadsheet files is mainly used to eliminate duplicate data in tables and ranges.   
 export class PostWorkbookDataDeduplicationRequest  {
       
-    public name: string;
+    public name!: string;
       
-    public deduplicationRegion: DeduplicationRegion;
+    public deduplicationRegion!: DeduplicationRegion;
       
-    public folder: string;
+    public folder!: string;
       
-    public storageName: string;
+    public storageName!: string;
       
-    public password: string;
+    public password!: string;
       
-    public region: string;
+    public region!: string;
       
-    public checkExcelRestriction: boolean;
+    public checkExcelRestriction!: boolean;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -36646,7 +36889,7 @@ export class PostWorkbookDataDeduplicationRequest  {
 /// Data deduplication of spreadsheet files is mainly used to eliminate duplicate data in tables and ranges.   
 export class PostDataDeduplicationRequest  {
       
-    public dataDeduplicationRequest: DataDeduplicationRequest;
+    public dataDeduplicationRequest!: DataDeduplicationRequest;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -36682,19 +36925,19 @@ export class PostDataDeduplicationRequest  {
 /// Data filling for spreadsheet files is primarily used to fill empty data in tables and ranges.   
 export class PostWorkbookDataFillRequest  {
       
-    public name: string;
+    public name!: string;
       
-    public dataFill: DataFill;
+    public dataFill!: DataFill;
       
-    public folder: string;
+    public folder!: string;
       
-    public storageName: string;
+    public storageName!: string;
       
-    public password: string;
+    public password!: string;
       
-    public region: string;
+    public region!: string;
       
-    public checkExcelRestriction: boolean;
+    public checkExcelRestriction!: boolean;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -36735,7 +36978,7 @@ export class PostWorkbookDataFillRequest  {
 /// Data filling for spreadsheet files is primarily used to fill empty data in tables and ranges.   
 export class PostDataFillRequest  {
       
-    public dataFillRequest: DataFillRequest;
+    public dataFillRequest!: DataFillRequest;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -36771,7 +37014,7 @@ export class PostDataFillRequest  {
 /// Deleting incomplete rows of spreadsheet files is mainly used to eliminate incomplete rows in tables and ranges.   
 export class PostDeleteIncompleteRowsRequest  {
       
-    public deleteIncompleteRowsRequest: DeleteIncompleteRowsRequest;
+    public deleteIncompleteRowsRequest!: DeleteIncompleteRowsRequest;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -36807,7 +37050,7 @@ export class PostDeleteIncompleteRowsRequest  {
 /// Transform spreadsheet data is mainly used to pivot columns, unpivot columns.   
 export class PostDataTransformationRequest  {
       
-    public dataTransformationRequest: DataTransformationRequest;
+    public dataTransformationRequest!: DataTransformationRequest;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -36843,13 +37086,13 @@ export class PostDataTransformationRequest  {
 /// Retrieve descriptions of hyperlinks in the worksheet.   
 export class GetWorksheetHyperlinksRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -36887,15 +37130,15 @@ export class GetWorksheetHyperlinksRequest  {
 /// Retrieve hyperlink description by index in the worksheet.   
 export class GetWorksheetHyperlinkRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The hyperlink's index.  
-    public hyperlinkIndex: number;
+    public hyperlinkIndex!: number;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -36933,15 +37176,15 @@ export class GetWorksheetHyperlinkRequest  {
 /// Delete hyperlink by index in the worksheet.   
 export class DeleteWorksheetHyperlinkRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The hyperlink's index.  
-    public hyperlinkIndex: number;
+    public hyperlinkIndex!: number;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -36979,17 +37222,17 @@ export class DeleteWorksheetHyperlinkRequest  {
 /// Update hyperlink by index in the worksheet.   
 export class PostWorksheetHyperlinkRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The hyperlink's index.  
-    public hyperlinkIndex: number;
+    public hyperlinkIndex!: number;
     /// Hyperlink object  
-    public hyperlink: Hyperlink;
+    public hyperlink!: Hyperlink;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -37027,23 +37270,23 @@ export class PostWorksheetHyperlinkRequest  {
 /// Add hyperlink in the worksheet.   
 export class PutWorksheetHyperlinkRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// First row of the hyperlink range.  
-    public firstRow: number;
+    public firstRow!: number;
     /// First column of the hyperlink range.  
-    public firstColumn: number;
+    public firstColumn!: number;
     /// Number of rows in this hyperlink range.  
-    public totalRows: number;
+    public totalRows!: number;
     /// Number of columns of this hyperlink range.  
-    public totalColumns: number;
+    public totalColumns!: number;
     /// Address of the hyperlink.  
-    public address: string;
+    public address!: string;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -37111,13 +37354,13 @@ export class PutWorksheetHyperlinkRequest  {
 /// Delete all hyperlinks in the worksheet.   
 export class DeleteWorksheetHyperlinksRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -37155,17 +37398,17 @@ export class DeleteWorksheetHyperlinksRequest  {
 /// Assemble data files with template files to generate files in various formats.   
 export class PostAssembleRequest  {
     /// File to upload  
-    public file: any;
+    public file!: any;
       
-    public datasource: string;
+    public datasource!: string;
     /// The format to convert(CSV/XLS/HTML/MHTML/ODS/PDF/XML/TXT/TIFF/XLSB/XLSM/XLSX/XLTM/XLTX/XPS/PNG/JPG/JPEG/GIF/EMF/BMP/MD[Markdown]/Numbers)  
-    public outFormat: string;
+    public outFormat!: string;
     /// The password needed to open an Excel file.  
-    public password: string;
+    public password!: string;
     /// Whether check restriction of excel file when user modify cells related objects.  
-    public checkExcelRestriction: boolean;
+    public checkExcelRestriction!: boolean;
     /// The regional settings for workbook.  
-    public region: string;
+    public region!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -37226,13 +37469,13 @@ export class PostAssembleRequest  {
 /// Compress files and generate target files in various formats, supported file formats are include Xls, Xlsx, Xlsm, Xlsb, Ods and more.   
 export class PostCompressRequest  {
     /// File to upload  
-    public file: any;
+    public file!: any;
     /// Compress level. The compression ratio 1-100.  
-    public compressLevel: number;
+    public compressLevel!: number;
     /// The password needed to open an Excel file.  
-    public password: string;
+    public password!: string;
     /// Whether check restriction of excel file when user modify cells related objects.  
-    public checkExcelRestriction: boolean;
+    public checkExcelRestriction!: boolean;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -37286,17 +37529,17 @@ export class PostCompressRequest  {
 /// Merge cells in the worksheet.   
 export class PostMergeRequest  {
     /// File to upload  
-    public file: any;
+    public file!: any;
     /// The output data file format.(CSV/XLS/HTML/MHTML/ODS/PDF/XML/TXT/TIFF/XLSB/XLSM/XLSX/XLTM/XLTX/XPS/PNG/JPG/JPEG/GIF/EMF/BMP/MD[Markdown]/Numbers)  
-    public outFormat: string;
+    public outFormat!: string;
     /// Merge all workbooks into a sheet.  
-    public mergeToOneSheet: boolean;
+    public mergeToOneSheet!: boolean;
     /// The password needed to open an Excel file.  
-    public password: string;
+    public password!: string;
     /// Whether check restriction of excel file when user modify cells related objects.  
-    public checkExcelRestriction: boolean;
+    public checkExcelRestriction!: boolean;
     /// The regional settings for workbook.  
-    public region: string;
+    public region!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -37352,19 +37595,19 @@ export class PostMergeRequest  {
 /// Split Excel spreadsheet files based on worksheets and create output files in various formats.   
 export class PostSplitRequest  {
     /// File to upload  
-    public file: any;
+    public file!: any;
     /// The output data file format.(CSV/XLS/HTML/MHTML/ODS/PDF/XML/TXT/TIFF/XLSB/XLSM/XLSX/XLTM/XLTX/XPS/PNG/JPG/JPEG/GIF/EMF/BMP/MD[Markdown]/Numbers)  
-    public outFormat: string;
+    public outFormat!: string;
     /// The password needed to open an Excel file.  
-    public password: string;
+    public password!: string;
     /// sheet index  
-    public from: number;
+    public from!: number;
     /// sheet index  
-    public to: number;
+    public to!: number;
     /// Whether check restriction of excel file when user modify cells related objects.  
-    public checkExcelRestriction: boolean;
+    public checkExcelRestriction!: boolean;
     /// The regional settings for workbook.  
-    public region: string;
+    public region!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -37426,15 +37669,15 @@ export class PostSplitRequest  {
 /// Search for specified text within Excel files.   
 export class PostSearchRequest  {
     /// File to upload  
-    public file: any;
+    public file!: any;
     /// Find content  
-    public text: string;
+    public text!: string;
     /// The password needed to open an Excel file.  
-    public password: string;
+    public password!: string;
     /// The worksheet name. Locate the specified text content in the worksheet.  
-    public sheetname: string;
+    public sheetname!: string;
     /// Whether check restriction of excel file when user modify cells related objects.  
-    public checkExcelRestriction: boolean;
+    public checkExcelRestriction!: boolean;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -37494,17 +37737,17 @@ export class PostSearchRequest  {
 /// Replace specified text with new text in Excel files.   
 export class PostReplaceRequest  {
     /// File to upload  
-    public file: any;
+    public file!: any;
     /// Find content  
-    public text: string;
+    public text!: string;
     /// Replace content  
-    public newtext: string;
+    public newtext!: string;
     /// The password needed to open an Excel file.  
-    public password: string;
+    public password!: string;
     /// The worksheet name. Locate the specified text content in the worksheet.  
-    public sheetname: string;
+    public sheetname!: string;
     /// Whether check restriction of excel file when user modify cells related objects.  
-    public checkExcelRestriction: boolean;
+    public checkExcelRestriction!: boolean;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -37570,15 +37813,15 @@ export class PostReplaceRequest  {
 /// Import data into an Excel file and generate output files in various formats.   
 export class PostImportRequest  {
     /// File to upload  
-    public file: any;
+    public file!: any;
     /// The output data file format.(CSV/XLS/HTML/MHTML/ODS/PDF/XML/TXT/TIFF/XLSB/XLSM/XLSX/XLTM/XLTX/XPS/PNG/JPG/JPEG/GIF/EMF/BMP/MD[Markdown]/Numbers)  
-    public outFormat: string;
+    public outFormat!: string;
     /// The password needed to open an Excel file.  
-    public password: string;
+    public password!: string;
     /// Whether check restriction of excel file when user modify cells related objects.  
-    public checkExcelRestriction: boolean;
+    public checkExcelRestriction!: boolean;
     /// The regional settings for workbook.  
-    public region: string;
+    public region!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -37633,19 +37876,19 @@ export class PostImportRequest  {
 /// Add Text Watermark to Excel files and generate output files in various formats.   
 export class PostWatermarkRequest  {
     /// File to upload  
-    public file: any;
+    public file!: any;
     /// background text.  
-    public text: string;
+    public text!: string;
     /// e.g. #1032ff  
-    public color: string;
+    public color!: string;
     /// The output data file format.(CSV/XLS/HTML/MHTML/ODS/PDF/XML/TXT/TIFF/XLSB/XLSM/XLSX/XLTM/XLTX/XPS/PNG/JPG/JPEG/GIF/EMF/BMP/MD[Markdown]/Numbers)  
-    public outFormat: string;
+    public outFormat!: string;
     /// The password needed to open an Excel file.  
-    public password: string;
+    public password!: string;
     /// Whether check restriction of excel file when user modify cells related objects.  
-    public checkExcelRestriction: boolean;
+    public checkExcelRestriction!: boolean;
     /// The regional settings for workbook.  
-    public region: string;
+    public region!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -37712,19 +37955,19 @@ export class PostWatermarkRequest  {
 /// Clear internal elements in Excel files and generate output files in various formats.   
 export class PostClearObjectsRequest  {
     /// File to upload  
-    public file: any;
+    public file!: any;
     /// chart/comment/picture/shape/listobject/hyperlink/oleobject/pivottable/validation/Background  
-    public objecttype: string;
+    public objecttype!: string;
     /// The worksheet name, specify the scope of the deletion.  
-    public sheetname: string;
+    public sheetname!: string;
     /// The output data file format.(CSV/XLS/HTML/MHTML/ODS/PDF/XML/TXT/TIFF/XLSB/XLSM/XLSX/XLTM/XLTX/XPS/PNG/JPG/JPEG/GIF/EMF/BMP/MD[Markdown]/Numbers)  
-    public outFormat: string;
+    public outFormat!: string;
     /// The password needed to open an Excel file.  
-    public password: string;
+    public password!: string;
     /// Whether check restriction of excel file when user modify cells related objects.  
-    public checkExcelRestriction: boolean;
+    public checkExcelRestriction!: boolean;
     /// The regional settings for workbook.  
-    public region: string;
+    public region!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -37786,17 +38029,17 @@ export class PostClearObjectsRequest  {
 /// Reverse rows or columns in Excel files and create output files in various formats.   
 export class PostReverseRequest  {
     /// File to upload  
-    public file: any;
+    public file!: any;
     /// rows/cols/both  
-    public rotateType: string;
+    public rotateType!: string;
     /// The output data file format.(CSV/XLS/HTML/MHTML/ODS/PDF/XML/TXT/TIFF/XLSB/XLSM/XLSX/XLTM/XLTX/XPS/PNG/JPG/JPEG/GIF/EMF/BMP/MD[Markdown]/Numbers)  
-    public outFormat: string;
+    public outFormat!: string;
     /// The password needed to open an Excel file.  
-    public password: string;
+    public password!: string;
     /// Whether check restriction of excel file when user modify cells related objects.  
-    public checkExcelRestriction: boolean;
+    public checkExcelRestriction!: boolean;
     /// The regional settings for workbook.  
-    public region: string;
+    public region!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -37857,9 +38100,9 @@ export class PostReverseRequest  {
 /// Repair abnormal files and generate files in various formats.   
 export class PostRepairRequest  {
     /// File to upload  
-    public file: any;
+    public file!: any;
     /// The output data file format.(CSV/XLS/HTML/MHTML/ODS/PDF/XML/TXT/TIFF/XLSB/XLSM/XLSX/XLTM/XLTX/XPS/PNG/JPG/JPEG/GIF/EMF/BMP/MD[Markdown]/Numbers)  
-    public outFormat: string;
+    public outFormat!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -37911,17 +38154,17 @@ export class PostRepairRequest  {
 /// Rotate rows, columns, or other objects in Excel files and save them in various formats.   
 export class PostRotateRequest  {
     /// File to upload  
-    public file: any;
+    public file!: any;
     /// 270/90/row/col/row2col  
-    public rotateType: string;
+    public rotateType!: string;
     /// The output data file format.(CSV/XLS/HTML/MHTML/ODS/PDF/XML/TXT/TIFF/XLSB/XLSM/XLSX/XLTM/XLTX/XPS/PNG/JPG/JPEG/GIF/EMF/BMP/MD[Markdown]/Numbers)  
-    public outFormat: string;
+    public outFormat!: string;
     /// The password needed to open an Excel file.  
-    public password: string;
+    public password!: string;
     /// Whether check restriction of excel file when user modify cells related objects.  
-    public checkExcelRestriction: boolean;
+    public checkExcelRestriction!: boolean;
     /// The regional settings for workbook.  
-    public region: string;
+    public region!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -37982,17 +38225,17 @@ export class PostRotateRequest  {
 /// Update document properties in Excel file, and save them is various formats.   
 export class PostMetadataRequest  {
     /// File to upload  
-    public file: any;
+    public file!: any;
     /// document properties  
-    public cellsDocuments: Array<CellsDocumentProperty>;
+    public cellsDocuments!: Array<CellsDocumentProperty>;
     /// The password needed to open an Excel file.  
-    public password: string;
+    public password!: string;
     /// Whether check restriction of excel file when user modify cells related objects.  
-    public checkExcelRestriction: boolean;
+    public checkExcelRestriction!: boolean;
     /// The output data file format.(CSV/XLS/HTML/MHTML/ODS/PDF/XML/TXT/TIFF/XLSB/XLSM/XLSX/XLTM/XLTX/XPS/PNG/JPG/JPEG/GIF/EMF/BMP/MD[Markdown]/Numbers)  
-    public outFormat: string;
+    public outFormat!: string;
     /// The regional settings for workbook.  
-    public region: string;
+    public region!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -38047,13 +38290,13 @@ export class PostMetadataRequest  {
 /// Get cells document properties.   
 export class GetMetadataRequest  {
     /// File to upload  
-    public file: any;
+    public file!: any;
     /// Cells document property name.  
-    public type: string;
+    public type!: string;
     /// The password needed to open an Excel file.  
-    public password: string;
+    public password!: string;
     /// Whether check restriction of excel file when user modify cells related objects.  
-    public checkExcelRestriction: boolean;
+    public checkExcelRestriction!: boolean;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -38107,15 +38350,15 @@ export class GetMetadataRequest  {
 /// Delete cells document properties in Excel file, and save them is various formats.   
 export class DeleteMetadataRequest  {
     /// File to upload  
-    public file: any;
+    public file!: any;
     /// Cells document property name.  
-    public type: string;
+    public type!: string;
     /// The output data file format.(CSV/XLS/HTML/MHTML/ODS/PDF/XML/TXT/TIFF/XLSB/XLSM/XLSX/XLTM/XLTX/XPS/PNG/JPG/JPEG/GIF/EMF/BMP/MD[Markdown]/Numbers)  
-    public outFormat: string;
+    public outFormat!: string;
     /// The password needed to open an Excel file.  
-    public password: string;
+    public password!: string;
     /// Whether check restriction of excel file when user modify cells related objects.  
-    public checkExcelRestriction: boolean;
+    public checkExcelRestriction!: boolean;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -38170,13 +38413,13 @@ export class DeleteMetadataRequest  {
 /// Retrieve descriptions of ListObjects in the worksheet.   
 export class GetWorksheetListObjectsRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -38214,17 +38457,17 @@ export class GetWorksheetListObjectsRequest  {
 /// Retrieve list object description by index in the worksheet.   
 export class GetWorksheetListObjectRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// list object index.  
-    public listobjectindex: number;
+    public listobjectindex!: number;
       
-    public format: string;
+    public format!: string;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -38263,27 +38506,27 @@ export class GetWorksheetListObjectRequest  {
 /// Add a ListObject in the worksheet.   
 export class PutWorksheetListObjectRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The start row of the list range.  
-    public startRow: number;
+    public startRow!: number;
     /// The start column of the list range.  
-    public startColumn: number;
+    public startColumn!: number;
     /// The start row of the list range.  
-    public endRow: number;
+    public endRow!: number;
     /// The start column of the list range.  
-    public endColumn: number;
+    public endColumn!: number;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// Indicate whether the range has headers.  
-    public hasHeaders: boolean;
+    public hasHeaders!: boolean;
     /// Indicate whether display name.  
-    public displayName: string;
+    public displayName!: string;
     /// Indicate whether show totals.  
-    public showTotals: boolean;
+    public showTotals!: boolean;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -38328,13 +38571,13 @@ export class PutWorksheetListObjectRequest  {
 /// Delete ListObjects in the worksheet.   
 export class DeleteWorksheetListObjectsRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -38372,15 +38615,15 @@ export class DeleteWorksheetListObjectsRequest  {
 /// Delete list object by index in the worksheet.   
 export class DeleteWorksheetListObjectRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// List object index.  
-    public listObjectIndex: number;
+    public listObjectIndex!: number;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -38418,17 +38661,17 @@ export class DeleteWorksheetListObjectRequest  {
 /// Update list object by index in the worksheet.   
 export class PostWorksheetListObjectRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// list Object index  
-    public listObjectIndex: number;
+    public listObjectIndex!: number;
     /// listObject dto in request body.  
-    public listObject: ListObject;
+    public listObject!: ListObject;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -38466,15 +38709,15 @@ export class PostWorksheetListObjectRequest  {
 /// Convert list object to range in the worksheet.   
 export class PostWorksheetListObjectConvertToRangeRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// List object index.  
-    public listObjectIndex: number;
+    public listObjectIndex!: number;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -38512,19 +38755,19 @@ export class PostWorksheetListObjectConvertToRangeRequest  {
 /// Create a pivot table with a list object in the worksheet.   
 export class PostWorksheetListObjectSummarizeWithPivotTableRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The list object index.  
-    public listObjectIndex: number;
+    public listObjectIndex!: number;
     /// The target worksheet name.  
-    public destsheetName: string;
+    public destsheetName!: string;
     /// Create pivot table request.  
-    public createPivotTableRequest: CreatePivotTableRequest;
+    public createPivotTableRequest!: CreatePivotTableRequest;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -38568,17 +38811,17 @@ export class PostWorksheetListObjectSummarizeWithPivotTableRequest  {
 /// Sort list object in the worksheet.   
 export class PostWorksheetListObjectSortTableRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The list object index.  
-    public listObjectIndex: number;
+    public listObjectIndex!: number;
     /// Represents sort order for the data range.  
-    public dataSorter: DataSorter;
+    public dataSorter!: DataSorter;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -38616,15 +38859,15 @@ export class PostWorksheetListObjectSortTableRequest  {
 /// Remove duplicates in list object.   
 export class PostWorksheetListObjectRemoveDuplicatesRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The list object index.  
-    public listObjectIndex: number;
+    public listObjectIndex!: number;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -38662,19 +38905,19 @@ export class PostWorksheetListObjectRemoveDuplicatesRequest  {
 /// Insert slicer for list object.   
 export class PostWorksheetListObjectInsertSlicerRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// List object index.  
-    public listObjectIndex: number;
+    public listObjectIndex!: number;
     /// The index of ListColumn in ListObject.ListColumns   
-    public columnIndex: number;
+    public columnIndex!: number;
     /// The cell in the upper-left corner of the Slicer range.   
-    public destCellName: string;
+    public destCellName!: string;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -38724,19 +38967,19 @@ export class PostWorksheetListObjectInsertSlicerRequest  {
 /// Update list column in list object.   
 export class PostWorksheetListColumnRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The list object index.  
-    public listObjectIndex: number;
+    public listObjectIndex!: number;
     /// Represents table column index.  
-    public columnIndex: number;
+    public columnIndex!: number;
     /// Represents table column description.  
-    public listColumn: ListColumn;
+    public listColumn!: ListColumn;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -38774,17 +39017,17 @@ export class PostWorksheetListColumnRequest  {
 /// Update total of list columns in the table.   
 export class PostWorksheetListColumnsTotalRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// List object index.  
-    public listObjectIndex: number;
+    public listObjectIndex!: number;
     /// Represents table column description.  
-    public tableTotalRequests: Array<TableTotalRequest>;
+    public tableTotalRequests!: Array<TableTotalRequest>;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -38822,13 +39065,13 @@ export class PostWorksheetListColumnsTotalRequest  {
 /// Retrieve descriptions of OLE objects in the worksheet.   
 export class GetWorksheetOleObjectsRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -38866,17 +39109,17 @@ export class GetWorksheetOleObjectsRequest  {
 /// Retrieve the OLE object in a specified format in the worksheet.   
 export class GetWorksheetOleObjectRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The object number.  
-    public objectNumber: number;
+    public objectNumber!: number;
     /// Object conversion format(PNG/TIFF/JPEG/GIF/EMF/BMP).  
-    public format: string;
+    public format!: string;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -38915,13 +39158,13 @@ export class GetWorksheetOleObjectRequest  {
 /// Delete all OLE objects in the worksheet.   
 export class DeleteWorksheetOleObjectsRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worsheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -38959,15 +39202,15 @@ export class DeleteWorksheetOleObjectsRequest  {
 /// Delete an OLE object in the worksheet.   
 export class DeleteWorksheetOleObjectRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worsheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// Ole object index.  
-    public oleObjectIndex: number;
+    public oleObjectIndex!: number;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -39005,17 +39248,17 @@ export class DeleteWorksheetOleObjectRequest  {
 /// Update an OLE object in worksheet.   
 export class PostUpdateWorksheetOleObjectRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worsheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// Ole object index.  
-    public oleObjectIndex: number;
+    public oleObjectIndex!: number;
     /// Ole Object description.  
-    public ole: OleObject;
+    public ole!: OleObject;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -39053,25 +39296,25 @@ export class PostUpdateWorksheetOleObjectRequest  {
 /// Add an OLE object in the worksheet.   
 export class PutWorksheetOleObjectRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worsheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// Upper left row index  
-    public upperLeftRow: number;
+    public upperLeftRow!: number;
     /// Upper left column index  
-    public upperLeftColumn: number;
+    public upperLeftColumn!: number;
     /// Height of oleObject, in unit of pixel  
-    public height: number;
+    public height!: number;
     /// Width of oleObject, in unit of pixel  
-    public width: number;
+    public width!: number;
     /// OLE filename path(full file name).  
-    public oleFile: string;
+    public oleFile!: string;
     /// Image filename path(full file name).  
-    public imageFile: string;
+    public imageFile!: string;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -39115,13 +39358,13 @@ export class PutWorksheetOleObjectRequest  {
 /// Retrieve descriptions of vertical page breaks in the worksheet.   
 export class GetVerticalPageBreaksRequest  {
     /// The workbook name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -39159,13 +39402,13 @@ export class GetVerticalPageBreaksRequest  {
 /// Retrieve descriptions of horizontal page breaks in the worksheet.   
 export class GetHorizontalPageBreaksRequest  {
     /// The workbook name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -39203,15 +39446,15 @@ export class GetHorizontalPageBreaksRequest  {
 /// Retrieve a vertical page break description in the worksheet.   
 export class GetVerticalPageBreakRequest  {
     /// The workbook name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The zero based index of the element.  
-    public index: number;
+    public index!: number;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -39249,15 +39492,15 @@ export class GetVerticalPageBreakRequest  {
 /// Retrieve a horizontal page break descripton in the worksheet.   
 export class GetHorizontalPageBreakRequest  {
     /// The workbook name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The zero based index of the element.  
-    public index: number;
+    public index!: number;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -39295,23 +39538,23 @@ export class GetHorizontalPageBreakRequest  {
 /// Add a vertical page break in the worksheet.   
 export class PutVerticalPageBreakRequest  {
     /// The workbook name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// Cell name  
-    public cellname: string;
+    public cellname!: string;
     /// Column index, zero based.  
-    public column: number;
+    public column!: number;
     /// Row index, zero based.  
-    public row: number;
+    public row!: number;
     /// Start row index, zero based.  
-    public startRow: number;
+    public startRow!: number;
     /// End row index, zero based.  
-    public endRow: number;
+    public endRow!: number;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -39354,23 +39597,23 @@ export class PutVerticalPageBreakRequest  {
 /// Add a horizontal page breaks in the worksheet.   
 export class PutHorizontalPageBreakRequest  {
     /// The workbook name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// Cell name  
-    public cellname: string;
+    public cellname!: string;
     /// Row index, zero based.  
-    public row: number;
+    public row!: number;
     /// Column index, zero based.  
-    public column: number;
+    public column!: number;
     /// Start column index, zero based.  
-    public startColumn: number;
+    public startColumn!: number;
     /// End column index, zero based.  
-    public endColumn: number;
+    public endColumn!: number;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -39413,15 +39656,15 @@ export class PutHorizontalPageBreakRequest  {
 /// Delete vertical page breaks in the worksheet.   
 export class DeleteVerticalPageBreaksRequest  {
     /// The workbook name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// Column index, zero based.  
-    public column: number;
+    public column!: number;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -39460,15 +39703,15 @@ export class DeleteVerticalPageBreaksRequest  {
 /// Delete horizontal page breaks in the worksheet.   
 export class DeleteHorizontalPageBreaksRequest  {
     /// The workbook name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// Row index, zero based.  
-    public row: number;
+    public row!: number;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -39507,15 +39750,15 @@ export class DeleteHorizontalPageBreaksRequest  {
 /// Delete a vertical page break in the worksheet.   
 export class DeleteVerticalPageBreakRequest  {
     /// The workbook name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// Removes the vertical page break element at a specified name. Element index, zero based.  
-    public index: number;
+    public index!: number;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -39553,15 +39796,15 @@ export class DeleteVerticalPageBreakRequest  {
 /// Delete a horizontal page break in the worksheet.   
 export class DeleteHorizontalPageBreakRequest  {
     /// The workbook name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// Removes the horizontal page break element at a specified name. Element index, zero based.  
-    public index: number;
+    public index!: number;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -39599,13 +39842,13 @@ export class DeleteHorizontalPageBreakRequest  {
 /// Retrieve page setup description in the worksheet.   
 export class GetPageSetupRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -39643,15 +39886,15 @@ export class GetPageSetupRequest  {
 /// Update page setup in the worksheet.   
 export class PostPageSetupRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// PageSetup Page Setup description.  
-    public pageSetup: PageSetup;
+    public pageSetup!: PageSetup;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -39689,13 +39932,13 @@ export class PostPageSetupRequest  {
 /// Clear header and footer in the worksheet.   
 export class DeleteHeaderFooterRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -39733,13 +39976,13 @@ export class DeleteHeaderFooterRequest  {
 /// Retrieve page header description in the worksheet.   
 export class GetHeaderRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -39777,19 +40020,19 @@ export class GetHeaderRequest  {
 /// Update page header in the worksheet.   
 export class PostHeaderRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// 0:Left Section. 1:Center Section 2:Right Section  
-    public section: number;
+    public section!: number;
     /// Header format script.  
-    public script: string;
+    public script!: string;
     /// Is first page(true/false).  
-    public isFirstPage: boolean;
+    public isFirstPage!: boolean;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -39845,13 +40088,13 @@ export class PostHeaderRequest  {
 /// Retrieve page footer description in the worksheet.   
 export class GetFooterRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -39889,19 +40132,19 @@ export class GetFooterRequest  {
 /// Update page footer in the worksheet.   
 export class PostFooterRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// 0:Left Section. 1:Center Section 2:Right Section  
-    public section: number;
+    public section!: number;
     /// Header format script.  
-    public script: string;
+    public script!: string;
     /// Is first page(true/false).  
-    public isFirstPage: boolean;
+    public isFirstPage!: boolean;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -39957,13 +40200,13 @@ export class PostFooterRequest  {
 /// Set the scale at which the page will fit wide when printed on the sheet.   
 export class PostFitWideToPagesRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -40001,13 +40244,13 @@ export class PostFitWideToPagesRequest  {
 /// Set the scale at which the page will fit tall when printed on the sheet.   
 export class PostFitTallToPagesRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -40045,13 +40288,13 @@ export class PostFitTallToPagesRequest  {
 /// Retrieve descriptions of pictures in the worksheet.   
 export class GetWorksheetPicturesRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -40089,17 +40332,17 @@ export class GetWorksheetPicturesRequest  {
 /// Retrieve a picture by number in the worksheet.   
 export class GetWorksheetPictureWithFormatRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The picture index.  
-    public pictureNumber: number;
+    public pictureNumber!: number;
     /// Picture conversion format(PNG/TIFF/JPEG/GIF/EMF/BMP).  
-    public format: string;
+    public format!: string;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -40143,25 +40386,25 @@ export class GetWorksheetPictureWithFormatRequest  {
 /// Add a new picture in the worksheet.   
 export class PutWorksheetAddPictureRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worsheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// Pictute object  
-    public picture: Picture;
+    public picture!: Picture;
     /// The image upper left row.  
-    public upperLeftRow: number;
+    public upperLeftRow!: number;
     /// The image upper left column.  
-    public upperLeftColumn: number;
+    public upperLeftColumn!: number;
     /// The image low right row.  
-    public lowerRightRow: number;
+    public lowerRightRow!: number;
     /// The image low right column.  
-    public lowerRightColumn: number;
+    public lowerRightColumn!: number;
     /// The picture path, if not provided the picture data is inspected in the request body.  
-    public picturePath: string;
+    public picturePath!: string;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -40204,17 +40447,17 @@ export class PutWorksheetAddPictureRequest  {
 /// add new picture in the cells.   
 export class AddPictureInCellRequest  {
       
-    public name: string;
+    public name!: string;
       
-    public sheetName: string;
+    public sheetName!: string;
       
-    public cellName: string;
+    public cellName!: string;
       
-    public picturePath: string;
+    public picturePath!: string;
       
-    public folder: string;
+    public folder!: string;
       
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -40264,17 +40507,17 @@ export class AddPictureInCellRequest  {
 /// Update a picture by index in the worksheet.   
 export class PostWorksheetPictureRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The picture's index.  
-    public pictureIndex: number;
+    public pictureIndex!: number;
     /// Picture object description.  
-    public picture: Picture;
+    public picture!: Picture;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -40312,15 +40555,15 @@ export class PostWorksheetPictureRequest  {
 /// Delete a picture object by index in the worksheet.   
 export class DeleteWorksheetPictureRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worsheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// Picture index.  
-    public pictureIndex: number;
+    public pictureIndex!: number;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -40358,13 +40601,13 @@ export class DeleteWorksheetPictureRequest  {
 /// Delete all pictures in the worksheet.   
 export class DeleteWorksheetPicturesRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -40402,13 +40645,13 @@ export class DeleteWorksheetPicturesRequest  {
 /// Retrieve descriptions of pivottables  in the worksheet.   
 export class GetWorksheetPivotTablesRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -40446,15 +40689,15 @@ export class GetWorksheetPivotTablesRequest  {
 /// Retrieve PivotTable information by index in the worksheet.   
 export class GetWorksheetPivotTableRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// Gets the PivotTable report by index.  
-    public pivottableIndex: number;
+    public pivottableIndex!: number;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -40492,19 +40735,19 @@ export class GetWorksheetPivotTableRequest  {
 /// Retrieve descriptions of pivot fields in the PivotTable.   
 export class GetPivotTableFieldRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The PivotTable index.  
-    public pivotTableIndex: number;
+    public pivotTableIndex!: number;
     /// The pivot field index of PivotTable.  
-    public pivotFieldIndex: number;
+    public pivotFieldIndex!: number;
     /// The field area type(column/row).  
-    public pivotFieldType: string;
+    public pivotFieldType!: string;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -40554,15 +40797,15 @@ export class GetPivotTableFieldRequest  {
 /// Gets PivotTable filters in worksheet.   
 export class GetWorksheetPivotTableFiltersRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The PivotTable index.  
-    public pivotTableIndex: number;
+    public pivotTableIndex!: number;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -40600,17 +40843,17 @@ export class GetWorksheetPivotTableFiltersRequest  {
 /// Retrieve PivotTable filters in the worksheet.   
 export class GetWorksheetPivotTableFilterRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The PivotTable index in the worksheet.  
-    public pivotTableIndex: number;
+    public pivotTableIndex!: number;
     /// The pivot filter index of PivotTable.  
-    public filterIndex: number;
+    public filterIndex!: number;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -40648,21 +40891,21 @@ export class GetWorksheetPivotTableFilterRequest  {
 /// Add a PivotTable in the worksheet.   
 export class PutWorksheetPivotTableRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The data for the new PivotTable cache.  
-    public sourceData: string;
+    public sourceData!: string;
     /// The cell in the upper-left corner of the destination range for the PivotTable report.  
-    public destCellName: string;
+    public destCellName!: string;
     /// The name of the new PivotTable.  
-    public tableName: string;
+    public tableName!: string;
     /// Indicates whether using same data source when another existing PivotTable has used this data source. If the property is true, it will save memory.  
-    public useSameSource: boolean;
+    public useSameSource!: boolean;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -40704,21 +40947,21 @@ export class PutWorksheetPivotTableRequest  {
 /// Add a pivot field in the PivotTable.   
 export class PutPivotTableFieldRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The PivotTable index.  
-    public pivotTableIndex: number;
+    public pivotTableIndex!: number;
     /// The fields area type.  
-    public pivotFieldType: string;
+    public pivotFieldType!: string;
     /// PivotTableFieldRequest The PivotTable field request.  
-    public pivotTableFieldRequest: PivotTableFieldRequest;
+    public pivotTableFieldRequest!: PivotTableFieldRequest;
     /// Whether the specific PivotTable calculate(true/false).  
-    public needReCalculate: boolean;
+    public needReCalculate!: boolean;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -40763,19 +41006,19 @@ export class PutPivotTableFieldRequest  {
 /// Add a pivot filter to the PivotTable.   
 export class PutWorksheetPivotTableFilterRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// Gets the PivotTable report by index.  
-    public pivotTableIndex: number;
+    public pivotTableIndex!: number;
     /// PivotFilter Pivot filter description.  
-    public filter: PivotFilter;
+    public filter!: PivotFilter;
     /// Whether the specific PivotTable calculate(true/false).  
-    public needReCalculate: boolean;
+    public needReCalculate!: boolean;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -40814,25 +41057,25 @@ export class PutWorksheetPivotTableFilterRequest  {
 /// Hide a pivot field item in the PivotTable.   
 export class PostPivotTableFieldHideItemRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The PivotTable index.  
-    public pivotTableIndex: number;
+    public pivotTableIndex!: number;
     /// Represents PivotTable field type(Undefined/Row/Column/Page/Data).  
-    public pivotFieldType: string;
+    public pivotFieldType!: string;
     /// The pivot field index.  
-    public fieldIndex: number;
+    public fieldIndex!: number;
     /// The index of the pivot item in the pivot field.  
-    public itemIndex: number;
+    public itemIndex!: number;
     /// Whether the specific PivotItem is hidden(true/false).  
-    public isHide: boolean;
+    public isHide!: boolean;
     /// Whether the specific PivotTable calculate(true/false).  
-    public needReCalculate: boolean;
+    public needReCalculate!: boolean;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -40895,21 +41138,21 @@ export class PostPivotTableFieldHideItemRequest  {
 /// Move a pivot field in the PivotTable.   
 export class PostPivotTableFieldMoveToRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The PivotTable index.  
-    public pivotTableIndex: number;
+    public pivotTableIndex!: number;
     /// The pivot field index.  
-    public fieldIndex: number;
+    public fieldIndex!: number;
     /// The fields area type(Column/Row/Page/Data/Undefined).  
-    public from: string;
+    public from!: string;
     /// The fields area type(Column/Row/Page/Data/Undefined).  
-    public to: string;
+    public to!: string;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -40965,23 +41208,23 @@ export class PostPivotTableFieldMoveToRequest  {
 /// Update cell style in the PivotTable.   
 export class PostPivotTableCellStyleRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The PivotTable index.  
-    public pivotTableIndex: number;
+    public pivotTableIndex!: number;
     /// The column index of the cell.  
-    public column: number;
+    public column!: number;
     /// The row index of the cell.  
-    public row: number;
+    public row!: number;
     /// Style Style description in request body.  
-    public style: Style;
+    public style!: Style;
     /// Whether the specific PivotTable calculate(true/false).  
-    public needReCalculate: boolean;
+    public needReCalculate!: boolean;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -41032,19 +41275,19 @@ export class PostPivotTableCellStyleRequest  {
 /// Update style in the PivotTable.   
 export class PostPivotTableStyleRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The PivotTable index.  
-    public pivotTableIndex: number;
+    public pivotTableIndex!: number;
     /// StyleStyle description in request body.  
-    public style: Style;
+    public style!: Style;
     /// Whether the specific PivotTable calculate(true/false).  
-    public needReCalculate: boolean;
+    public needReCalculate!: boolean;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -41083,21 +41326,21 @@ export class PostPivotTableStyleRequest  {
 /// Update pivot fields in the PivotTable.   
 export class PostPivotTableUpdatePivotFieldsRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The PivotTable index.  
-    public pivotTableIndex: number;
+    public pivotTableIndex!: number;
     /// Represents PivotTable field type(Undefined/Row/Column/Page/Data).  
-    public pivotFieldType: string;
+    public pivotFieldType!: string;
     /// PivotFieldRepresents pivot field.  
-    public pivotField: PivotField;
+    public pivotField!: PivotField;
     /// Whether the specific PivotTable calculate(true/false).  
-    public needReCalculate: boolean;
+    public needReCalculate!: boolean;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -41142,23 +41385,23 @@ export class PostPivotTableUpdatePivotFieldsRequest  {
 /// Update pivot field in the PivotTable.   
 export class PostPivotTableUpdatePivotFieldRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The PivotTable index.  
-    public pivotTableIndex: number;
+    public pivotTableIndex!: number;
     /// The pivot field index.  
-    public pivotFieldIndex: number;
+    public pivotFieldIndex!: number;
     /// Represents PivotTable field type(Undefined/Row/Column/Page/Data).  
-    public pivotFieldType: string;
+    public pivotFieldType!: string;
     /// Represents pivot field.  
-    public pivotField: PivotField;
+    public pivotField!: PivotField;
     /// Whether the specific PivotTable calculate(true/false).  
-    public needReCalculate: boolean;
+    public needReCalculate!: boolean;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -41203,15 +41446,15 @@ export class PostPivotTableUpdatePivotFieldRequest  {
 /// Calculate pivottable's data to cells.   
 export class PostWorksheetPivotTableCalculateRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// Gets the PivotTable report by index.  
-    public pivotTableIndex: number;
+    public pivotTableIndex!: number;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -41249,21 +41492,21 @@ export class PostWorksheetPivotTableCalculateRequest  {
 /// Move PivotTable in the worksheet.   
 export class PostWorksheetPivotTableMoveRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// Gets the PivotTable report by index.  
-    public pivotTableIndex: number;
+    public pivotTableIndex!: number;
     /// Row index.  
-    public row: number;
+    public row!: number;
     /// Column index.  
-    public column: number;
+    public column!: number;
     /// The dest cell name.  
-    public destCellName: string;
+    public destCellName!: string;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -41304,13 +41547,13 @@ export class PostWorksheetPivotTableMoveRequest  {
 /// Delete PivotTables in the worksheet.   
 export class DeleteWorksheetPivotTablesRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -41348,15 +41591,15 @@ export class DeleteWorksheetPivotTablesRequest  {
 /// Delete PivotTable by index in the worksheet.   
 export class DeleteWorksheetPivotTableRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// Gets the PivotTable report by index.  
-    public pivotTableIndex: number;
+    public pivotTableIndex!: number;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -41394,19 +41637,19 @@ export class DeleteWorksheetPivotTableRequest  {
 /// Delete a pivot field in the PivotTable.   
 export class DeletePivotTableFieldRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// Gets the PivotTable report by index.  
-    public pivotTableIndex: number;
+    public pivotTableIndex!: number;
     /// The fields area type.  
-    public pivotFieldType: string;
+    public pivotFieldType!: string;
     /// PivotTableFieldRequest PivotTable field request.  
-    public pivotTableFieldRequest: PivotTableFieldRequest;
+    public pivotTableFieldRequest!: PivotTableFieldRequest;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -41450,17 +41693,17 @@ export class DeletePivotTableFieldRequest  {
 /// Delete all pivot filters in the PivotTable.   
 export class DeleteWorksheetPivotTableFiltersRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The PivotTable index.  
-    public pivotTableIndex: number;
+    public pivotTableIndex!: number;
     /// Whether the specific PivotTable calculate(true/false).  
-    public needReCalculate: boolean;
+    public needReCalculate!: boolean;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -41499,19 +41742,19 @@ export class DeleteWorksheetPivotTableFiltersRequest  {
 /// Delete a pivot filter in the PivotTable.   
 export class DeleteWorksheetPivotTableFilterRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// Gets the PivotTable report by index.  
-    public pivotTableIndex: number;
+    public pivotTableIndex!: number;
     /// Gets the PivotField Object at the specific index.  
-    public fieldIndex: number;
+    public fieldIndex!: number;
     /// Whether the specific PivotTable calculate(true/false).  
-    public needReCalculate: boolean;
+    public needReCalculate!: boolean;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -41550,13 +41793,13 @@ export class DeleteWorksheetPivotTableFilterRequest  {
 /// Retrieve descriptions of Excel file properties.   
 export class GetDocumentPropertiesRequest  {
     /// The workbook name.  
-    public name: string;
+    public name!: string;
     /// Excel property type.  
-    public type: string;
+    public type!: string;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -41595,13 +41838,13 @@ export class GetDocumentPropertiesRequest  {
 /// Set or add an Excel property.   
 export class PutDocumentPropertyRequest  {
     /// The workbook name.  
-    public name: string;
+    public name!: string;
     /// Get or set the value of the property.  
-    public property: CellsDocumentProperty;
+    public property!: CellsDocumentProperty;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -41639,13 +41882,13 @@ export class PutDocumentPropertyRequest  {
 /// Get Excel property by name.   
 export class GetDocumentPropertyRequest  {
     /// The workbook name.  
-    public name: string;
+    public name!: string;
     /// The property name.  
-    public propertyName: string;
+    public propertyName!: string;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -41683,15 +41926,15 @@ export class GetDocumentPropertyRequest  {
 /// Delete an Excel property.   
 export class DeleteDocumentPropertyRequest  {
     /// The workbook name.  
-    public name: string;
+    public name!: string;
     /// The property name.  
-    public propertyName: string;
+    public propertyName!: string;
       
-    public type: string;
+    public type!: string;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -41730,11 +41973,11 @@ export class DeleteDocumentPropertyRequest  {
 /// Delete all custom document properties and reset built-in ones.   
 export class DeleteDocumentPropertiesRequest  {
     /// The workbook name.  
-    public name: string;
+    public name!: string;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -41772,15 +42015,15 @@ export class DeleteDocumentPropertiesRequest  {
 /// Excel file digital signature.   
 export class PostDigitalSignatureRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The digital signature file path should include both the folder and the file name, along with the extension.  
-    public digitalsignaturefile: string;
+    public digitalsignaturefile!: string;
     /// The password needed to open an Excel file.  
-    public password: string;
+    public password!: string;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -41830,13 +42073,13 @@ export class PostDigitalSignatureRequest  {
 /// Excel Encryption.   
 export class PostEncryptWorkbookRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// WorkbookEncryptionRequestEncryption parameters.  
-    public encryption: WorkbookEncryptionRequest;
+    public encryption!: WorkbookEncryptionRequest;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -41874,13 +42117,13 @@ export class PostEncryptWorkbookRequest  {
 /// Excel files decryption.   
 export class DeleteDecryptWorkbookRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// WorkbookEncryptionRequestEncryption parameters.  
-    public encryption: WorkbookEncryptionRequest;
+    public encryption!: WorkbookEncryptionRequest;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -41918,13 +42161,13 @@ export class DeleteDecryptWorkbookRequest  {
 /// Excel protection.   
 export class PostProtectWorkbookRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The protection settings.  
-    public protectWorkbookRequest: ProtectWorkbookRequest;
+    public protectWorkbookRequest!: ProtectWorkbookRequest;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -41962,13 +42205,13 @@ export class PostProtectWorkbookRequest  {
 /// Excel unprotection.   
 export class DeleteUnProtectWorkbookRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// Protection settings, only password can be specified.  
-    public password: string;
+    public password!: string;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -42012,13 +42255,13 @@ export class DeleteUnProtectWorkbookRequest  {
 /// Excel file write protection.   
 export class PutDocumentProtectFromChangesRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The password needed to open an Excel file.  
-    public password: PasswordRequest;
+    public password!: PasswordRequest;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -42056,11 +42299,11 @@ export class PutDocumentProtectFromChangesRequest  {
 /// Excel file cancel write protection.   
 export class DeleteDocumentUnProtectFromChangesRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -42098,9 +42341,9 @@ export class DeleteDocumentUnProtectFromChangesRequest  {
 /// Unlock Excel files.   
 export class PostUnlockRequest  {
     /// File to upload  
-    public file: any;
+    public file!: any;
     /// The password needed to open an Excel file.  
-    public password: string;
+    public password!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -42157,9 +42400,9 @@ export class PostUnlockRequest  {
 /// Lock Excel files.   
 export class PostLockRequest  {
     /// File to upload  
-    public file: any;
+    public file!: any;
     /// The password needed to open an Excel file.  
-    public password: string;
+    public password!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -42216,11 +42459,11 @@ export class PostLockRequest  {
 /// Excel files encryption.   
 export class PostProtectRequest  {
     /// File to upload  
-    public file: any;
+    public file!: any;
       
-    public protectWorkbookRequest: ProtectWorkbookRequest;
+    public protectWorkbookRequest!: ProtectWorkbookRequest;
     /// The password needed to open an Excel file.  
-    public password: string;
+    public password!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -42272,15 +42515,15 @@ export class PostProtectRequest  {
 /// Copy content from the source range to the destination range in the worksheet.   
 export class PostWorksheetCellsRangesCopyRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// RangeCopyRequestcopydata,copystyle,copyto,copyvalue  
-    public rangeOperate: RangeCopyRequest;
+    public rangeOperate!: RangeCopyRequest;
     /// Original workbook folder.  
-    public folder: string;
+    public folder!: string;
     /// Storage name.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -42318,15 +42561,15 @@ export class PostWorksheetCellsRangesCopyRequest  {
 /// Merge a range of cells into a single cell.   
 export class PostWorksheetCellsRangeMergeRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// Rangerange description.  
-    public range: Range;
+    public range!: Range;
     /// Original workbook folder.  
-    public folder: string;
+    public folder!: string;
     /// Storage name.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -42364,15 +42607,15 @@ export class PostWorksheetCellsRangeMergeRequest  {
 /// Unmerge merged cells within this range.   
 export class PostWorksheetCellsRangeUnMergeRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// Range range description.  
-    public range: Range;
+    public range!: Range;
     /// Original workbook folder.  
-    public folder: string;
+    public folder!: string;
     /// Storage name.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -42410,15 +42653,15 @@ export class PostWorksheetCellsRangeUnMergeRequest  {
 /// Set the style for the specified range.   
 export class PostWorksheetCellsRangeStyleRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// RangeSetStyleRequest Range Set Style Request   
-    public rangeOperate: RangeSetStyleRequest;
+    public rangeOperate!: RangeSetStyleRequest;
     /// Original workbook folder.  
-    public folder: string;
+    public folder!: string;
     /// Storage name.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -42456,23 +42699,23 @@ export class PostWorksheetCellsRangeStyleRequest  {
 /// Retrieve the values of cells within the specified range.   
 export class GetWorksheetCellsRangeValueRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The range name.  
-    public namerange: string;
+    public namerange!: string;
     /// Gets the index of the first row of the range.  
-    public firstRow: number;
+    public firstRow!: number;
     /// Gets the index of the first columnn of the range.  
-    public firstColumn: number;
+    public firstColumn!: number;
     /// Gets the count of rows in the range.  
-    public rowCount: number;
+    public rowCount!: number;
     /// Gets the count of columns in the range.  
-    public columnCount: number;
+    public columnCount!: number;
     /// Original workbook folder.  
-    public folder: string;
+    public folder!: string;
     /// Storage name.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -42515,21 +42758,21 @@ export class GetWorksheetCellsRangeValueRequest  {
 /// Assign a value to the range; if necessary, the value will be converted to another data type, and the cell's number format will be reset.   
 export class PostWorksheetCellsRangeValueRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The range in worksheet.   
-    public range: Range;
+    public range!: Range;
     /// Input value.  
-    public value: string;
+    public value!: string;
     /// True: converted to other data type if appropriate.  
-    public isConverted: boolean;
+    public isConverted!: boolean;
     /// True: set the number format to cell's style when converting to other data type.  
-    public setStyle: boolean;
+    public setStyle!: boolean;
     /// Original workbook folder.  
-    public folder: string;
+    public folder!: string;
     /// Storage name.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -42575,19 +42818,19 @@ export class PostWorksheetCellsRangeValueRequest  {
 /// Move the current range to the destination range.   
 export class PostWorksheetCellsRangeMoveToRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// range in worksheet   
-    public range: Range;
+    public range!: Range;
     /// The start row of the dest range.  
-    public destRow: number;
+    public destRow!: number;
     /// The start column of the dest range.  
-    public destColumn: number;
+    public destColumn!: number;
     /// Original workbook folder.  
-    public folder: string;
+    public folder!: string;
     /// Storage name.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -42637,15 +42880,15 @@ export class PostWorksheetCellsRangeMoveToRequest  {
 /// Perform data sorting around a range of cells.   
 export class PostWorksheetCellsRangeSortRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// RangeSortRequest Range Sort Request   
-    public rangeSortRequest: RangeSortRequest;
+    public rangeSortRequest!: RangeSortRequest;
     /// Original workbook folder.  
-    public folder: string;
+    public folder!: string;
     /// Storage name.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -42683,15 +42926,15 @@ export class PostWorksheetCellsRangeSortRequest  {
 /// Apply an outline border around a range of cells.   
 export class PostWorksheetCellsRangeOutlineBorderRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// RangeSetOutlineBorderRequest Range Set OutlineBorder Request.  
-    public rangeOperate: RangeSetOutlineBorderRequest;
+    public rangeOperate!: RangeSetOutlineBorderRequest;
     /// Original workbook folder.  
-    public folder: string;
+    public folder!: string;
     /// Storage name.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -42729,17 +42972,17 @@ export class PostWorksheetCellsRangeOutlineBorderRequest  {
 /// Set the column width of the specified range.   
 export class PostWorksheetCellsRangeColumnWidthRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// Range The range object.  
-    public range: Range;
+    public range!: Range;
     /// Sets the column width of this range.  
-    public value: number;
+    public value!: number;
     /// Original workbook folder.  
-    public folder: string;
+    public folder!: string;
     /// Storage name.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -42783,17 +43026,17 @@ export class PostWorksheetCellsRangeColumnWidthRequest  {
 /// Sets row height of range.   
 export class PostWorksheetCellsRangeRowHeightRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The range object.  
-    public range: Range;
+    public range!: Range;
     /// Sets the column height of this range.  
-    public value: number;
+    public value!: number;
     /// Original workbook folder.  
-    public folder: string;
+    public folder!: string;
     /// Storage name.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -42837,15 +43080,15 @@ export class PostWorksheetCellsRangeRowHeightRequest  {
    
 export class PostWorksheetCellsRangeToImageRequest  {
       
-    public name: string;
+    public name!: string;
       
-    public sheetName: string;
+    public sheetName!: string;
       
-    public rangeConvertRequest: RangeConvertRequest;
+    public rangeConvertRequest!: RangeConvertRequest;
       
-    public folder: string;
+    public folder!: string;
       
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -42883,17 +43126,17 @@ export class PostWorksheetCellsRangeToImageRequest  {
 /// Insert a range of cells and shift existing cells based on the specified shift option.   
 export class PutWorksheetCellsRangeRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The range object.  
-    public range: string;
+    public range!: string;
     /// Represent the shift options when deleting a range of cells(Down/Left/None/Right/Up).  
-    public shift: string;
+    public shift!: string;
     /// Original workbook folder.  
-    public folder: string;
+    public folder!: string;
     /// Storage name.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -42943,17 +43186,17 @@ export class PutWorksheetCellsRangeRequest  {
 /// Delete a range of cells and shift existing cells based on the specified shift option.   
 export class DeleteWorksheetCellsRangeRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The range object.  
-    public range: string;
+    public range!: string;
     /// Represent the shift options when deleting a range of cells(Down/Left/None/Right/Up).  
-    public shift: string;
+    public shift!: string;
     /// Original workbook folder.  
-    public folder: string;
+    public folder!: string;
     /// Storage name.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -43003,13 +43246,13 @@ export class DeleteWorksheetCellsRangeRequest  {
 /// Retrieve descriptions of shapes in the worksheet.   
 export class GetWorksheetShapesRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -43047,15 +43290,15 @@ export class GetWorksheetShapesRequest  {
 /// Retrieve description of shape in the worksheet.   
 export class GetWorksheetShapeRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// shape index in worksheet shapes.  
-    public shapeindex: number;
+    public shapeindex!: number;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -43093,29 +43336,29 @@ export class GetWorksheetShapeRequest  {
 /// Add a shape in the worksheet.   
 export class PutWorksheetShapeRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
       
-    public shapeDTO: Shape;
+    public shapeDTO!: Shape;
     /// Shape object type  
-    public drawingType: string;
+    public drawingType!: string;
     /// Upper left row index.  
-    public upperLeftRow: number;
+    public upperLeftRow!: number;
     /// Upper left column index.  
-    public upperLeftColumn: number;
+    public upperLeftColumn!: number;
     /// Represents the vertical offset of Spinner from its left row, in unit of pixel.  
-    public top: number;
+    public top!: number;
     /// Represents the horizontal offset of Spinner from its left column, in unit of pixel.  
-    public left: number;
+    public left!: number;
     /// Represents the height of Spinner, in unit of pixel.  
-    public width: number;
+    public width!: number;
     /// Represents the width of Spinner, in unit of pixel.  
-    public height: number;
+    public height!: number;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -43160,13 +43403,13 @@ export class PutWorksheetShapeRequest  {
 /// Delete all shapes in the worksheet.   
 export class DeleteWorksheetShapesRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -43204,15 +43447,15 @@ export class DeleteWorksheetShapesRequest  {
 /// Delete a shape in the worksheet.   
 export class DeleteWorksheetShapeRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// shape index in worksheet shapes.  
-    public shapeindex: number;
+    public shapeindex!: number;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -43250,17 +43493,17 @@ export class DeleteWorksheetShapeRequest  {
 /// Update a shape in the worksheet.   
 export class PostWorksheetShapeRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// shape index in worksheet shapes.  
-    public shapeindex: number;
+    public shapeindex!: number;
     /// The shape description.  
-    public dto: Shape;
+    public dto!: Shape;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -43298,15 +43541,15 @@ export class PostWorksheetShapeRequest  {
 /// Group shapes in the worksheet.   
 export class PostWorksheetGroupShapeRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// Shape index array.  
-    public listShape: Array<number>;
+    public listShape!: Array<number>;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -43344,15 +43587,15 @@ export class PostWorksheetGroupShapeRequest  {
 /// Ungroup shapes in the worksheet.   
 export class PostWorksheetUngroupShapeRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
       
-    public shapeindex: number;
+    public shapeindex!: number;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -43390,13 +43633,13 @@ export class PostWorksheetUngroupShapeRequest  {
 /// Retrieve descriptions of sparkline groups in the worksheet.   
 export class GetWorksheetSparklineGroupsRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -43434,15 +43677,15 @@ export class GetWorksheetSparklineGroupsRequest  {
 /// Retrieve description of a sparkline group in the worksheet.   
 export class GetWorksheetSparklineGroupRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The zero based index of the element.  
-    public sparklineIndex: number;
+    public sparklineIndex!: number;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -43480,13 +43723,13 @@ export class GetWorksheetSparklineGroupRequest  {
 /// Delete sparkline groups in the worksheet.   
 export class DeleteWorksheetSparklineGroupsRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -43524,15 +43767,15 @@ export class DeleteWorksheetSparklineGroupsRequest  {
 /// Delete a sparkline group in the worksheet.   
 export class DeleteWorksheetSparklineGroupRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The zero based index of the element.  
-    public sparklineIndex: number;
+    public sparklineIndex!: number;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -43570,21 +43813,21 @@ export class DeleteWorksheetSparklineGroupRequest  {
 /// Add a sparkline group in the worksheet.   
 export class PutWorksheetSparklineGroupRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// Represents the sparkline types(Line/Column/Stacked).  
-    public type: string;
+    public type!: string;
     /// Specifies the data range of the sparkline group.  
-    public dataRange: string;
+    public dataRange!: string;
     /// Specifies whether to plot the sparklines from the data range by row or by column.  
-    public isVertical: boolean;
+    public isVertical!: boolean;
     /// Specifies where the sparklines to be placed.  
-    public locationRange: string;
+    public locationRange!: string;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -43646,17 +43889,17 @@ export class PutWorksheetSparklineGroupRequest  {
 /// Update a sparkline group in the worksheet.   
 export class PostWorksheetSparklineGroupRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The zero based index of the element.  
-    public sparklineGroupIndex: number;
+    public sparklineGroupIndex!: number;
     /// Spark line group description.  
-    public sparklineGroup: SparklineGroup;
+    public sparklineGroup!: SparklineGroup;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -43694,7 +43937,7 @@ export class PostWorksheetSparklineGroupRequest  {
    
 export class PostCharacterCountRequest  {
       
-    public characterCountOptions: CharacterCountOptions;
+    public characterCountOptions!: CharacterCountOptions;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -43730,7 +43973,7 @@ export class PostCharacterCountRequest  {
    
 export class PostWordsCountRequest  {
       
-    public wordsCountOptions: WordsCountOptions;
+    public wordsCountOptions!: WordsCountOptions;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -43766,7 +44009,7 @@ export class PostWordsCountRequest  {
    
 export class PostSpecifyWordsCountRequest  {
       
-    public specifyWordsCountOptions: SpecifyWordsCountOptions;
+    public specifyWordsCountOptions!: SpecifyWordsCountOptions;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -43802,7 +44045,7 @@ export class PostSpecifyWordsCountRequest  {
 /// Run tasks.   
 export class PostRunTaskRequest  {
     /// Task Data Descrition  
-    public taskData: TaskData;
+    public taskData!: TaskData;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -43838,7 +44081,7 @@ export class PostRunTaskRequest  {
 /// Adds text content to a specified location within a document. It requires an object that defines the text to be added and the insertion location.   
 export class PostAddTextContentRequest  {
     /// that specifies the text content and the position where the text should be added.  
-    public addTextOptions: AddTextOptions;
+    public addTextOptions!: AddTextOptions;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -43874,7 +44117,7 @@ export class PostAddTextContentRequest  {
 /// The PostTrimContent API is designed to process and trim content within a specified range in a spreadsheet. This API allows users to remove extra spaces, line breaks, or other unnecessary characters from the content of selected cells. It is particularly useful for cleaning up data entries and ensuring consistency in spreadsheet formatting   
 export class PostTrimContentRequest  {
       
-    public trimContentOptions: TrimContentOptions;
+    public trimContentOptions!: TrimContentOptions;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -43910,7 +44153,7 @@ export class PostTrimContentRequest  {
 /// Managing inconsistent text case in spreadsheets (Excel, Google Sheets, CSV) can be frustrating, especially with large datasets. The PostUpdateWordCase WEB API solves this by automating text case conversions, ensuring clean and standardized data.   
 export class PostUpdateWordCaseRequest  {
       
-    public wordCaseOptions: WordCaseOptions;
+    public wordCaseOptions!: WordCaseOptions;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -43946,7 +44189,7 @@ export class PostUpdateWordCaseRequest  {
 /// A comprehensive set of tools for cleaning text content within selected cells. It allows users to remove specific characters, character sets, and substrings, ensuring that the text is standardized and free from unwanted symbols or sequences.   
 export class PostRemoveCharactersRequest  {
       
-    public removeCharactersOptions: RemoveCharactersOptions;
+    public removeCharactersOptions!: RemoveCharactersOptions;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -43982,7 +44225,7 @@ export class PostRemoveCharactersRequest  {
 /// Enhance Excel data through essential text conversions: convert text to numbers, replace characters and line breaks, and remove accents.   
 export class PostConvertTextRequest  {
       
-    public convertTextOptions: ConvertTextOptions;
+    public convertTextOptions!: ConvertTextOptions;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -44018,7 +44261,7 @@ export class PostConvertTextRequest  {
 /// Efficiently remove duplicate substrings from Excel cells. Select a range, specify delimiters, and apply options to eliminate repeated text segments.   
 export class PostRemoveDuplicatesRequest  {
       
-    public removeDuplicatesOptions: RemoveDuplicatesOptions;
+    public removeDuplicatesOptions!: RemoveDuplicatesOptions;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -44054,7 +44297,7 @@ export class PostRemoveDuplicatesRequest  {
 /// Effortlessly extract text and numbers from Excel cells with precise options. This API allows extraction of first/last characters, text between delimiters, and numbers from strings, with output as static values or formulas.   
 export class PostExtractTextRequest  {
       
-    public extractTextOptions: ExtractTextOptions;
+    public extractTextOptions!: ExtractTextOptions;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -44090,7 +44333,7 @@ export class PostExtractTextRequest  {
 /// Efficiently divides Excel cell content into columns or rows based on specified delimiters or patterns. Supports Character-based splitting, Custom string splitting, Mask and wildcard splitting for pattern-based division, Line break division, Column or row splitting, Delimiter removal or retention.   
 export class PostSplitTextRequest  {
       
-    public splitTextOptions: SplitTextOptions;
+    public splitTextOptions!: SplitTextOptions;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -44126,11 +44369,11 @@ export class PostSplitTextRequest  {
 /// Retrieve the description of the default style for the workbook .   
 export class GetWorkbookDefaultStyleRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -44168,11 +44411,11 @@ export class GetWorkbookDefaultStyleRequest  {
 /// Retrieve text items in the workbook.   
 export class GetWorkbookTextItemsRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -44210,11 +44453,11 @@ export class GetWorkbookTextItemsRequest  {
 /// Retrieve named ranges in the workbook.   
 export class GetWorkbookNamesRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -44252,13 +44495,13 @@ export class GetWorkbookNamesRequest  {
 /// Define a new name in the workbook.   
 export class PutWorkbookNameRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// Name  
-    public newName: Name;
+    public newName!: Name;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -44296,13 +44539,13 @@ export class PutWorkbookNameRequest  {
 /// Retrieve description of a named range in the workbook.   
 export class GetWorkbookNameRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The name.  
-    public nameName: string;
+    public nameName!: string;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -44340,15 +44583,15 @@ export class GetWorkbookNameRequest  {
 /// Update a named range in the workbook.   
 export class PostWorkbookNameRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// the Aspose.Cells.Name element name.  
-    public nameName: string;
+    public nameName!: string;
     /// Namenew name.  
-    public newName: Name;
+    public newName!: Name;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -44386,13 +44629,13 @@ export class PostWorkbookNameRequest  {
 /// Retrieve the value of a named range in the workbook.   
 export class GetWorkbookNameValueRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// the Aspose.Cells.Name element name.  
-    public nameName: string;
+    public nameName!: string;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -44430,11 +44673,11 @@ export class GetWorkbookNameValueRequest  {
 /// Delete all named ranges in the workbook.   
 export class DeleteWorkbookNamesRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -44472,13 +44715,13 @@ export class DeleteWorkbookNamesRequest  {
 /// Delete a named range in the workbook.   
 export class DeleteWorkbookNameRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// the Aspose.Cells.Name element name.  
-    public nameName: string;
+    public nameName!: string;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -44516,15 +44759,15 @@ export class DeleteWorkbookNameRequest  {
 /// Merge a workbook into the existing workbook.   
 export class PostWorkbooksMergeRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The workbook to merge with.  
-    public mergeWith: string;
+    public mergeWith!: string;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// Storage name.  
-    public mergedStorageName: string;
+    public mergedStorageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -44569,13 +44812,13 @@ export class PostWorkbooksMergeRequest  {
 /// Search for text in the workbook.   
 export class PostWorkbooksTextSearchRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// Text sample.  
-    public text: string;
+    public text!: string;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -44619,15 +44862,15 @@ export class PostWorkbooksTextSearchRequest  {
 /// Replace text in the workbook.   
 export class PostWorkbookTextReplaceRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The old value.  
-    public oldValue: string;
+    public oldValue!: string;
     /// The new value.  
-    public newValue: string;
+    public newValue!: string;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -44677,17 +44920,17 @@ export class PostWorkbookTextReplaceRequest  {
 /// Smart marker processing.   
 export class PostWorkbookGetSmartMarkerResultRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The xml file full path, if empty the data is read from request body.  
-    public xmlFile: string;
+    public xmlFile!: string;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The path to save result  
-    public outPath: string;
+    public outPath!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// The storage name where the result file is situated.  
-    public outStorageName: string;
+    public outStorageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -44728,19 +44971,19 @@ export class PostWorkbookGetSmartMarkerResultRequest  {
 /// Create a new workbook using different methods.   
 export class PutWorkbookCreateRequest  {
     /// The new document name.  
-    public name: string;
+    public name!: string;
     /// The template file, if the data not provided default workbook is created.  
-    public templateFile: string;
+    public templateFile!: string;
     /// Smart marker data file, if the data not provided the request content is checked for the data.  
-    public dataFile: string;
+    public dataFile!: string;
     /// Specifies whether to write over targer file.  
-    public isWriteOver: boolean;
+    public isWriteOver!: boolean;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
       
-    public checkExcelRestriction: boolean;
+    public checkExcelRestriction!: boolean;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -44782,27 +45025,27 @@ export class PutWorkbookCreateRequest  {
 /// Split the workbook with a specific format.   
 export class PostWorkbookSplitRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// Split format.  
-    public format: string;
+    public format!: string;
       
-    public outFolder: string;
+    public outFolder!: string;
     /// Start worksheet index.  
-    public from: number;
+    public from!: number;
     /// End worksheet index.  
-    public to: number;
+    public to!: number;
     /// Image horizontal resolution.  
-    public horizontalResolution: number;
+    public horizontalResolution!: number;
     /// Image vertical resolution.  
-    public verticalResolution: number;
+    public verticalResolution!: number;
     /// rule name : sheetname  newguid   
-    public splitNameRule: string;
+    public splitNameRule!: string;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
       
-    public outStorageName: string;
+    public outStorageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -44848,15 +45091,15 @@ export class PostWorkbookSplitRequest  {
 /// Calculate all formulas in the workbook.   
 export class PostWorkbookCalculateFormulaRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// CalculationOptions Calculation Options.  
-    public options: CalculationOptions;
+    public options!: CalculationOptions;
     /// ignore Error.  
-    public ignoreError: boolean;
+    public ignoreError!: boolean;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -44895,21 +45138,21 @@ export class PostWorkbookCalculateFormulaRequest  {
 /// Autofit rows in the workbook.   
 export class PostAutofitWorkbookRowsRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// Start row.  
-    public startRow: number;
+    public startRow!: number;
     /// End row.  
-    public endRow: number;
+    public endRow!: number;
     /// Only auto.  
-    public onlyAuto: boolean;
+    public onlyAuto!: boolean;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// First column index.  
-    public firstColumn: number;
+    public firstColumn!: number;
     /// Last column index.  
-    public lastColumn: number;
+    public lastColumn!: number;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -44952,15 +45195,15 @@ export class PostAutofitWorkbookRowsRequest  {
 /// Autofit columns in the workbook.   
 export class PostAutofitWorkbookColumnsRequest  {
       
-    public name: string;
+    public name!: string;
     /// The start column index.  
-    public startColumn: number;
+    public startColumn!: number;
     /// The end column index.  
-    public endColumn: number;
+    public endColumn!: number;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -45000,11 +45243,11 @@ export class PostAutofitWorkbookColumnsRequest  {
 /// Retrieve descriptions of workbook settings.   
 export class GetWorkbookSettingsRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -45042,13 +45285,13 @@ export class GetWorkbookSettingsRequest  {
 /// Update setting in the workbook.   
 export class PostWorkbookSettingsRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// Workbook Setting description.  
-    public settings: WorkbookSettings;
+    public settings!: WorkbookSettings;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -45086,17 +45329,17 @@ export class PostWorkbookSettingsRequest  {
 /// Set background in the workbook.   
 export class PutWorkbookBackgroundRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The picture full path.  
-    public picPath: string;
+    public picPath!: string;
       
-    public imageAdaptOption: string;
+    public imageAdaptOption!: string;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// File to upload  
-    public file: any;
+    public file!: any;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -45151,11 +45394,11 @@ export class PutWorkbookBackgroundRequest  {
 /// Delete background in the workbook.   
 export class DeleteWorkbookBackgroundRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -45193,13 +45436,13 @@ export class DeleteWorkbookBackgroundRequest  {
 /// Set water marker in the workbook.   
 export class PutWorkbookWaterMarkerRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// Text water marker request  
-    public textWaterMarkerRequest: TextWaterMarkerRequest;
+    public textWaterMarkerRequest!: TextWaterMarkerRequest;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -45237,11 +45480,11 @@ export class PutWorkbookWaterMarkerRequest  {
 /// Get page count in the workbook.   
 export class GetPageCountRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -45279,11 +45522,11 @@ export class GetPageCountRequest  {
 /// Get all style in the workbook.   
 export class GetAllStylesRequest  {
       
-    public name: string;
+    public name!: string;
       
-    public folder: string;
+    public folder!: string;
       
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -45321,11 +45564,11 @@ export class GetAllStylesRequest  {
 /// Retrieve the description of worksheets from a workbook.   
 export class GetWorksheetsRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -45363,27 +45606,27 @@ export class GetWorksheetsRequest  {
 /// Retrieve the worksheet in a specified format from the workbook.   
 export class GetWorksheetWithFormatRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// Export format(CSV/XLS/HTML/MHTML/ODS/PDF/XML/TXT/TIFF/XLSB/XLSM/XLSX/XLTM/XLTX/XPS/PNG/JPG/JPEG/GIF/EMF/BMP/MD[Markdown]/Numbers).  
-    public format: string;
+    public format!: string;
     /// Image vertical resolution.  
-    public verticalResolution: number;
+    public verticalResolution!: number;
     /// Image horizontal resolution.  
-    public horizontalResolution: number;
+    public horizontalResolution!: number;
     /// Represents the range to be printed.  
-    public area: string;
+    public area!: string;
     /// Represents the page to be printed  
-    public pageIndex: number;
+    public pageIndex!: number;
       
-    public onePagePerSheet: boolean;
+    public onePagePerSheet!: boolean;
       
-    public printHeadings: boolean;
+    public printHeadings!: boolean;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -45428,15 +45671,15 @@ export class GetWorksheetWithFormatRequest  {
 /// Change worksheet visibility in the workbook.   
 export class PutChangeVisibilityWorksheetRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// Worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// New worksheet visibility value.  
-    public isVisible: boolean;
+    public isVisible!: boolean;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -45480,13 +45723,13 @@ export class PutChangeVisibilityWorksheetRequest  {
 /// Set active worksheet index in the workbook.   
 export class PutActiveWorksheetRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -45524,19 +45767,19 @@ export class PutActiveWorksheetRequest  {
 /// Insert a new worksheet in the workbook.   
 export class PutInsertNewWorksheetRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
       
-    public index: number;
+    public index!: number;
     /// Specifies the worksheet type(VB/Worksheet/Chart/BIFF4Macro/InternationalMacro/Other/Dialog).  
-    public sheettype: string;
+    public sheettype!: string;
       
-    public newsheetname: string;
+    public newsheetname!: string;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -45593,17 +45836,17 @@ export class PutInsertNewWorksheetRequest  {
 /// Add a new worksheet in the workbook.   
 export class PutAddNewWorksheetRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The new sheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The new sheet position.  
-    public position: number;
+    public position!: number;
     /// Specifies the worksheet type(VB/Worksheet/Chart/BIFF4Macro/InternationalMacro/Other/Dialog).  
-    public sheettype: string;
+    public sheettype!: string;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -45643,13 +45886,13 @@ export class PutAddNewWorksheetRequest  {
 /// Delete a worksheet in the workbook.   
 export class DeleteWorksheetRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -45687,13 +45930,13 @@ export class DeleteWorksheetRequest  {
 /// Delete matched worksheets in the workbook.   
 export class DeleteWorksheetsRequest  {
       
-    public name: string;
+    public name!: string;
       
-    public matchCondition: MatchConditionRequest;
+    public matchCondition!: MatchConditionRequest;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -45731,15 +45974,15 @@ export class DeleteWorksheetsRequest  {
 /// Move worksheet in the workbook.   
 export class PostMoveWorksheetRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// WorksheetMovingRequest with moving parameters.  
-    public moving: WorksheetMovingRequest;
+    public moving!: WorksheetMovingRequest;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -45777,15 +46020,15 @@ export class PostMoveWorksheetRequest  {
 /// Protect worksheet.   
 export class PutProtectWorksheetRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// ProtectSheetParameter with protection settings.  
-    public protectParameter: ProtectSheetParameter;
+    public protectParameter!: ProtectSheetParameter;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -45823,15 +46066,15 @@ export class PutProtectWorksheetRequest  {
 /// Unprotect worksheet.   
 export class DeleteUnprotectWorksheetRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// WorksheetResponse with protection settings. Only password is used here.  
-    public protectParameter: ProtectSheetParameter;
+    public protectParameter!: ProtectSheetParameter;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -45869,13 +46112,13 @@ export class DeleteUnprotectWorksheetRequest  {
 /// Retrieve text items in the worksheet.   
 export class GetWorksheetTextItemsRequest  {
     /// Workbook name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -45913,13 +46156,13 @@ export class GetWorksheetTextItemsRequest  {
 /// Retrieve the description of comments in the worksheet.   
 export class GetWorksheetCommentsRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -45957,15 +46200,15 @@ export class GetWorksheetCommentsRequest  {
 /// Retrieve the description of comment in the worksheet.   
 export class GetWorksheetCommentRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The cell name  
-    public cellName: string;
+    public cellName!: string;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -46003,17 +46246,17 @@ export class GetWorksheetCommentRequest  {
 /// Add cell comment in the worksheet.   
 export class PutWorksheetCommentRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The cell name.  
-    public cellName: string;
+    public cellName!: string;
     /// Comment object.  
-    public comment: Comment;
+    public comment!: Comment;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -46051,17 +46294,17 @@ export class PutWorksheetCommentRequest  {
 /// Update cell comment in the worksheet.   
 export class PostWorksheetCommentRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The cell name.  
-    public cellName: string;
+    public cellName!: string;
     /// Comment object.  
-    public comment: Comment;
+    public comment!: Comment;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -46099,15 +46342,15 @@ export class PostWorksheetCommentRequest  {
 /// Delete cell comment in the worksheet.   
 export class DeleteWorksheetCommentRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The cell name.  
-    public cellName: string;
+    public cellName!: string;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -46145,13 +46388,13 @@ export class DeleteWorksheetCommentRequest  {
 /// Delete all comments in the worksheet.   
 export class DeleteWorksheetCommentsRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -46189,13 +46432,13 @@ export class DeleteWorksheetCommentsRequest  {
 /// Get worksheet merged cells.   
 export class GetWorksheetMergedCellsRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The workseet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -46233,15 +46476,15 @@ export class GetWorksheetMergedCellsRequest  {
 /// Retrieve description of a merged cell by its index in the worksheet.   
 export class GetWorksheetMergedCellRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// Worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// Merged cell index.  
-    public mergedCellIndex: number;
+    public mergedCellIndex!: number;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -46279,15 +46522,15 @@ export class GetWorksheetMergedCellRequest  {
 /// Calculate formula in the worksheet.   
 export class GetWorksheetCalculateFormulaRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The formula.  
-    public formula: string;
+    public formula!: string;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -46331,15 +46574,15 @@ export class GetWorksheetCalculateFormulaRequest  {
 /// Calculate formula in the worksheet.   
 export class PostWorksheetCalculateFormulaRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// Worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The formula.  
-    public formula: string;
+    public formula!: string;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -46383,15 +46626,15 @@ export class PostWorksheetCalculateFormulaRequest  {
 /// Search for text in the worksheet.   
 export class PostWorksheetTextSearchRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// Text to search.  
-    public text: string;
+    public text!: string;
     /// Original workbook folder.  
-    public folder: string;
+    public folder!: string;
     /// Storage name.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -46435,17 +46678,17 @@ export class PostWorksheetTextSearchRequest  {
 /// Replace old text with new text in the worksheet.   
 export class PostWorksheetTextReplaceRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// Worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The old text to replace.  
-    public oldValue: string;
+    public oldValue!: string;
     /// The new text to replace by.  
-    public newValue: string;
+    public newValue!: string;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -46495,17 +46738,17 @@ export class PostWorksheetTextReplaceRequest  {
 /// Sort a range in the worksheet.   
 export class PostWorksheetRangeSortRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The area needed to sort.  
-    public cellArea: string;
+    public cellArea!: string;
     /// DataSorter with sorting settings.  
-    public dataSorter: DataSorter;
+    public dataSorter!: DataSorter;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -46549,21 +46792,21 @@ export class PostWorksheetRangeSortRequest  {
 /// Autofit a row in the worksheet.   
 export class PostAutofitWorksheetRowRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The row index.  
-    public rowIndex: number;
+    public rowIndex!: number;
     /// The first column index.  
-    public firstColumn: number;
+    public firstColumn!: number;
     /// The last column index.  
-    public lastColumn: number;
+    public lastColumn!: number;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
       
-    public rowCount: number;
+    public rowCount!: number;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -46610,19 +46853,19 @@ export class PostAutofitWorksheetRowRequest  {
 /// Autofit rows in the worksheet.   
 export class PostAutofitWorksheetRowsRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The start row index.  
-    public startRow: number;
+    public startRow!: number;
     /// The end row index.  
-    public endRow: number;
+    public endRow!: number;
     /// Autofits all rows in this worksheet.  
-    public onlyAuto: boolean;
+    public onlyAuto!: boolean;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -46663,19 +46906,19 @@ export class PostAutofitWorksheetRowsRequest  {
 /// Autofit columns in the worksheet.   
 export class PostAutofitWorksheetColumnsRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The start column index.  
-    public startColumn: number;
+    public startColumn!: number;
     /// The end column index.  
-    public endColumn: number;
+    public endColumn!: number;
       
-    public onlyAuto: boolean;
+    public onlyAuto!: boolean;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -46716,19 +46959,19 @@ export class PostAutofitWorksheetColumnsRequest  {
 /// Set background image in the worksheet.   
 export class PutWorksheetBackgroundRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// picture full filename.  
-    public picPath: string;
+    public picPath!: string;
       
-    public imageAdaptOption: string;
+    public imageAdaptOption!: string;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// File to upload  
-    public file: any;
+    public file!: any;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -46783,13 +47026,13 @@ export class PutWorksheetBackgroundRequest  {
 /// Delete background image in the worksheet.   
 export class DeleteWorksheetBackgroundRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -46827,21 +47070,21 @@ export class DeleteWorksheetBackgroundRequest  {
 /// Set freeze panes in the worksheet.   
 export class PutWorksheetFreezePanesRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// Row index.  
-    public row: number;
+    public row!: number;
     /// Column index.  
-    public column: number;
+    public column!: number;
     /// Number of visible rows in top pane, no more than row index.  
-    public freezedRows: number;
+    public freezedRows!: number;
     /// Number of visible columns in left pane, no more than column index.  
-    public freezedColumns: number;
+    public freezedColumns!: number;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -46903,21 +47146,21 @@ export class PutWorksheetFreezePanesRequest  {
 /// Unfreeze panes in worksheet.   
 export class DeleteWorksheetFreezePanesRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// Row index.  
-    public row: number;
+    public row!: number;
     /// Column index.  
-    public column: number;
+    public column!: number;
     /// Number of visible rows in top pane, no more than row index.  
-    public freezedRows: number;
+    public freezedRows!: number;
     /// Number of visible columns in left pane, no more than column index.  
-    public freezedColumns: number;
+    public freezedColumns!: number;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -46979,21 +47222,21 @@ export class DeleteWorksheetFreezePanesRequest  {
 /// Copy contents and formats from another worksheet.   
 export class PostCopyWorksheetRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// Source worksheet.  
-    public sourceSheet: string;
+    public sourceSheet!: string;
     /// Represents the copy options.  
-    public options: CopyOptions;
+    public options!: CopyOptions;
     /// source Workbook.  
-    public sourceWorkbook: string;
+    public sourceWorkbook!: string;
     /// Original workbook folder.  
-    public sourceFolder: string;
+    public sourceFolder!: string;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -47039,15 +47282,15 @@ export class PostCopyWorksheetRequest  {
 /// Rename worksheet in the workbook.   
 export class PostRenameWorksheetRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// New worksheet name.  
-    public newname: string;
+    public newname!: string;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -47091,15 +47334,15 @@ export class PostRenameWorksheetRequest  {
 /// Update worksheet properties in the workbook.   
 export class PostUpdateWorksheetPropertyRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The worksheet description.  
-    public sheet: Worksheet;
+    public sheet!: Worksheet;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -47137,11 +47380,11 @@ export class PostUpdateWorksheetPropertyRequest  {
 /// Retrieve descriptions of ranges in the worksheets.   
 export class GetNamedRangesRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -47179,13 +47422,13 @@ export class GetNamedRangesRequest  {
 /// Retrieve values in range.   
 export class GetNamedRangeValueRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// Range name.  
-    public namerange: string;
+    public namerange!: string;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -47223,15 +47466,15 @@ export class GetNamedRangeValueRequest  {
 /// Update the scaling percentage in the worksheet. It should be between 10 and 400.   
 export class PostUpdateWorksheetZoomRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// Represents the scaling factor in percentage. It should be between 10 and 400.  
-    public value: number;
+    public value!: number;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -47275,13 +47518,13 @@ export class PostUpdateWorksheetZoomRequest  {
 /// Get page count in the worksheet.   
 export class GetWorksheetPageCountRequest  {
     /// The file name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -47319,13 +47562,13 @@ export class GetWorksheetPageCountRequest  {
 /// Retrieve descriptions of validations in the worksheet.   
 export class GetWorksheetValidationsRequest  {
     /// The workbook name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -47363,15 +47606,15 @@ export class GetWorksheetValidationsRequest  {
 /// Retrieve a validation by its index in the worksheet.   
 export class GetWorksheetValidationRequest  {
     /// The workbook name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The validation index.  
-    public validationIndex: number;
+    public validationIndex!: number;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -47409,15 +47652,15 @@ export class GetWorksheetValidationRequest  {
 /// Add a validation at index in the worksheet.   
 export class PutWorksheetValidationRequest  {
     /// The workbook name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// Specified cells area  
-    public range: string;
+    public range!: string;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -47456,17 +47699,17 @@ export class PutWorksheetValidationRequest  {
 /// Update a validation by index in the worksheet.   
 export class PostWorksheetValidationRequest  {
     /// The workbook name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The validation index.  
-    public validationIndex: number;
+    public validationIndex!: number;
     /// Validation description.  
-    public validation: Validation;
+    public validation!: Validation;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -47504,15 +47747,15 @@ export class PostWorksheetValidationRequest  {
 /// Delete a validation by index in worksheet.   
 export class DeleteWorksheetValidationRequest  {
     /// The workbook name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The validation index.  
-    public validationIndex: number;
+    public validationIndex!: number;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 
@@ -47550,13 +47793,13 @@ export class DeleteWorksheetValidationRequest  {
 /// Delete all validations in the worksheet.   
 export class DeleteWorksheetValidationsRequest  {
     /// The workbook name.  
-    public name: string;
+    public name!: string;
     /// The worksheet name.  
-    public sheetName: string;
+    public sheetName!: string;
     /// The folder where the file is situated.  
-    public folder: string;
+    public folder!: string;
     /// The storage name where the file is situated.  
-    public storageName: string;
+    public storageName!: string;
     /// extend query parameter
     public extendQueryParameterMap: any;
 

@@ -52,7 +52,7 @@ export class ObjectSerializer {
         } else if (type.lastIndexOf("Array<", 0) === 0) { // string.startsWith pre es6
             let subType: string = type.replace("Array<", ""); 
             subType = subType.substring(0, subType.length - 1); 
-            const transformedData = [];
+            const transformedData: any[] = [];
             for (const index in data) {
                 if (data.hasOwnProperty(index)) {
                     const date = data[index];
@@ -99,7 +99,7 @@ export class ObjectSerializer {
         } else if (type.lastIndexOf("Array<", 0) === 0) { // string.startsWith pre es6
             let subType: string = type.replace("Array<", ""); // Array<Type> => Type>
             subType = subType.substring(0, subType.length - 1); // Type> => Type
-            const transformedData = [];
+            const transformedData: any[] = [];
             for (const index in data) {
                 if (data.hasOwnProperty(index)) {
                     const date = data[index];

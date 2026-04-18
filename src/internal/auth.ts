@@ -46,9 +46,9 @@ export interface IAuthentication {
  * Implements OAuth authentication 
  */
 export class OAuth implements IAuthentication {
-    private accessToken: string;
-    private refreshToken: string;
-    private getTime: number;
+    private accessToken!: string;
+    private refreshToken!: string;
+    private getTime!: number;
      /**
       * Apply authentication settings to header and query params.
       */

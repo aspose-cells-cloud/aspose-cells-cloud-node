@@ -5,17 +5,15 @@
         "noUnusedLocals": true,
         "noUnusedParameters": true,
         "skipLibCheck": true,
-        "suppressImplicitAnyIndexErrors": true,
-        "target": "ES6",        
-        "moduleResolution": "node",
-        "removeComments": false,
-        "sourceMap": false,
-        "noLib": false,
-        "declaration": true,
+        "target": "ES6",
         "lib": ["es5", "es6", "scripthost"],
-        "outDir": "dist"
+        "outDir": "dist",
+        "rootDir": ".", 
+        "strict": false, 
+        "esModuleInterop": true,
+        "declaration": true,
+        "removeComments": false,
+        "sourceMap": false
     },
-    "include": [
-        "src/**/*"
-    ]    
+    "include": ["src/**/*"]
 }
