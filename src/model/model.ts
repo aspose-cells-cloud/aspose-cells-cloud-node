@@ -1233,177 +1233,6 @@ export class DocxSaveOptions  extends PaginatedSaveOptions  {
     } 
 }
    
-export class ImageOrPrintOptions  {
-    /**
-     * Attribute type map
-     */
-    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
-        {
-            name: "textCrossType",
-            baseName: "TextCrossType",
-            type: "string",
-        },
-        {
-            name: "gridlineType",
-            baseName: "GridlineType",
-            type: "string",
-        },
-        {
-            name: "outputBlankPageWhenNothingToPrint",
-            baseName: "OutputBlankPageWhenNothingToPrint",
-            type: "boolean",
-        },
-        {
-            name: "checkWorkbookDefaultFont",
-            baseName: "CheckWorkbookDefaultFont",
-            type: "boolean",
-        },
-        {
-            name: "defaultFont",
-            baseName: "DefaultFont",
-            type: "string",
-        },
-        {
-            name: "isOptimized",
-            baseName: "IsOptimized",
-            type: "boolean",
-        },
-        {
-            name: "pageCount",
-            baseName: "PageCount",
-            type: "number",
-        },
-        {
-            name: "pageIndex",
-            baseName: "PageIndex",
-            type: "number",
-        },
-        {
-            name: "isFontSubstitutionCharGranularity",
-            baseName: "IsFontSubstitutionCharGranularity",
-            type: "boolean",
-        },
-        {
-            name: "transparent",
-            baseName: "Transparent",
-            type: "boolean",
-        },
-        {
-            name: "onlyArea",
-            baseName: "OnlyArea",
-            type: "boolean",
-        },
-        {
-            name: "sVGFitToViewPort",
-            baseName: "SVGFitToViewPort",
-            type: "boolean",
-        },
-        {
-            name: "embededImageNameInSvg",
-            baseName: "EmbededImageNameInSvg",
-            type: "string",
-        },
-        {
-            name: "allColumnsInOnePagePerSheet",
-            baseName: "AllColumnsInOnePagePerSheet",
-            type: "boolean",
-        },
-        {
-            name: "printWithStatusDialog",
-            baseName: "PrintWithStatusDialog",
-            type: "boolean",
-        },
-        {
-            name: "horizontalResolution",
-            baseName: "HorizontalResolution",
-            type: "number",
-        },
-        {
-            name: "verticalResolution",
-            baseName: "VerticalResolution",
-            type: "number",
-        },
-        {
-            name: "defaultEditLanguage",
-            baseName: "DefaultEditLanguage",
-            type: "string",
-        },
-        {
-            name: "tiffColorDepth",
-            baseName: "TiffColorDepth",
-            type: "string",
-        },
-        {
-            name: "tiffCompression",
-            baseName: "TiffCompression",
-            type: "string",
-        },
-        {
-            name: "printingPage",
-            baseName: "PrintingPage",
-            type: "string",
-        },
-        {
-            name: "quality",
-            baseName: "Quality",
-            type: "number",
-        },
-        {
-            name: "imageType",
-            baseName: "ImageType",
-            type: "string",
-        },
-        {
-            name: "onePagePerSheet",
-            baseName: "OnePagePerSheet",
-            type: "boolean",
-        },
-        {
-            name: "tiffBinarizationMethod",
-            baseName: "TiffBinarizationMethod",
-            type: "string",
-        }
-    ];
-    /**
-     * Returns attribute type map
-     */
-    public static getAttributeTypeMap() {
-        return  ImageOrPrintOptions.attributeTypeMap;
-
-    }
-
-    public textCrossType!: string;
-    public gridlineType!: string;
-    public outputBlankPageWhenNothingToPrint!: boolean;
-    public checkWorkbookDefaultFont!: boolean;
-    public defaultFont!: string;
-    public isOptimized!: boolean;
-    public pageCount!: number;
-    public pageIndex!: number;
-    public isFontSubstitutionCharGranularity!: boolean;
-    public transparent!: boolean;
-    public onlyArea!: boolean;
-    public sVGFitToViewPort!: boolean;
-    public embededImageNameInSvg!: string;
-    public allColumnsInOnePagePerSheet!: boolean;
-    public printWithStatusDialog!: boolean;
-    public horizontalResolution!: number;
-    public verticalResolution!: number;
-    public defaultEditLanguage!: string;
-    public tiffColorDepth!: string;
-    public tiffCompression!: string;
-    public printingPage!: string;
-    public quality!: number;
-    public imageType!: string;
-    public onePagePerSheet!: boolean;
-    public tiffBinarizationMethod!: string;
-
-    public constructor(init?: Partial< ImageOrPrintOptions >) {  
-    
-        Object.assign(this, init);
-    } 
-}
-   
 export class HtmlSaveOptions  extends SaveOptions  {
     /**
      * Attribute type map
@@ -1654,6 +1483,198 @@ export class HtmlSaveOptions  extends SaveOptions  {
     public cellNameAttribute!: string;
 
     public constructor(init?: Partial< HtmlSaveOptions >) {  
+         super(init);     
+        Object.assign(this, init);
+    } 
+}
+   
+export class ImageOrPrintOptions  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "textCrossType",
+            baseName: "TextCrossType",
+            type: "string",
+        },
+        {
+            name: "gridlineType",
+            baseName: "GridlineType",
+            type: "string",
+        },
+        {
+            name: "outputBlankPageWhenNothingToPrint",
+            baseName: "OutputBlankPageWhenNothingToPrint",
+            type: "boolean",
+        },
+        {
+            name: "checkWorkbookDefaultFont",
+            baseName: "CheckWorkbookDefaultFont",
+            type: "boolean",
+        },
+        {
+            name: "defaultFont",
+            baseName: "DefaultFont",
+            type: "string",
+        },
+        {
+            name: "isOptimized",
+            baseName: "IsOptimized",
+            type: "boolean",
+        },
+        {
+            name: "pageCount",
+            baseName: "PageCount",
+            type: "number",
+        },
+        {
+            name: "pageIndex",
+            baseName: "PageIndex",
+            type: "number",
+        },
+        {
+            name: "isFontSubstitutionCharGranularity",
+            baseName: "IsFontSubstitutionCharGranularity",
+            type: "boolean",
+        },
+        {
+            name: "transparent",
+            baseName: "Transparent",
+            type: "boolean",
+        },
+        {
+            name: "onlyArea",
+            baseName: "OnlyArea",
+            type: "boolean",
+        },
+        {
+            name: "sVGFitToViewPort",
+            baseName: "SVGFitToViewPort",
+            type: "boolean",
+        },
+        {
+            name: "embededImageNameInSvg",
+            baseName: "EmbededImageNameInSvg",
+            type: "string",
+        },
+        {
+            name: "allColumnsInOnePagePerSheet",
+            baseName: "AllColumnsInOnePagePerSheet",
+            type: "boolean",
+        },
+        {
+            name: "printWithStatusDialog",
+            baseName: "PrintWithStatusDialog",
+            type: "boolean",
+        },
+        {
+            name: "horizontalResolution",
+            baseName: "HorizontalResolution",
+            type: "number",
+        },
+        {
+            name: "verticalResolution",
+            baseName: "VerticalResolution",
+            type: "number",
+        },
+        {
+            name: "defaultEditLanguage",
+            baseName: "DefaultEditLanguage",
+            type: "string",
+        },
+        {
+            name: "tiffColorDepth",
+            baseName: "TiffColorDepth",
+            type: "string",
+        },
+        {
+            name: "tiffCompression",
+            baseName: "TiffCompression",
+            type: "string",
+        },
+        {
+            name: "printingPage",
+            baseName: "PrintingPage",
+            type: "string",
+        },
+        {
+            name: "quality",
+            baseName: "Quality",
+            type: "number",
+        },
+        {
+            name: "imageType",
+            baseName: "ImageType",
+            type: "string",
+        },
+        {
+            name: "onePagePerSheet",
+            baseName: "OnePagePerSheet",
+            type: "boolean",
+        },
+        {
+            name: "tiffBinarizationMethod",
+            baseName: "TiffBinarizationMethod",
+            type: "string",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return  ImageOrPrintOptions.attributeTypeMap;
+
+    }
+
+    public textCrossType!: string;
+    public gridlineType!: string;
+    public outputBlankPageWhenNothingToPrint!: boolean;
+    public checkWorkbookDefaultFont!: boolean;
+    public defaultFont!: string;
+    public isOptimized!: boolean;
+    public pageCount!: number;
+    public pageIndex!: number;
+    public isFontSubstitutionCharGranularity!: boolean;
+    public transparent!: boolean;
+    public onlyArea!: boolean;
+    public sVGFitToViewPort!: boolean;
+    public embededImageNameInSvg!: string;
+    public allColumnsInOnePagePerSheet!: boolean;
+    public printWithStatusDialog!: boolean;
+    public horizontalResolution!: number;
+    public verticalResolution!: number;
+    public defaultEditLanguage!: string;
+    public tiffColorDepth!: string;
+    public tiffCompression!: string;
+    public printingPage!: string;
+    public quality!: number;
+    public imageType!: string;
+    public onePagePerSheet!: boolean;
+    public tiffBinarizationMethod!: string;
+
+    public constructor(init?: Partial< ImageOrPrintOptions >) {  
+    
+        Object.assign(this, init);
+    } 
+}
+   
+export class EbookSaveOptions  extends HtmlSaveOptions  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return super.getAttributeTypeMap().concat(EbookSaveOptions.attributeTypeMap) ;
+
+    }
+
+
+    public constructor(init?: Partial< EbookSaveOptions >) {  
          super(init);     
         Object.assign(this, init);
     } 
@@ -22193,6 +22214,7 @@ const typeMap = {
     DbfSaveOptions,
     DifSaveOptions,
     DocxSaveOptions,
+    EbookSaveOptions,
     HtmlSaveOptions,
     ImageSaveOptions,
     JsonSaveOptions,
@@ -26879,6 +26901,111 @@ export class AcceptAllRevisionsInRemoteSpreadsheetRequest  {
     }
 
 }
+/// Structurally convert the core metadata, worksheets, tables, pivot tables, charts, shapes, and other information of an Excel workbook into a JObject type JSON object, for scenarios such as data export, API responses, and log recording.   
+export class GetSpreadsheetStructureRequest  {
+    /// Upload spreadsheet file.  
+    public spreadsheet!: any;
+    /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
+    public region!: string;
+    /// The password for opening spreadsheet file.  
+    public password!: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< GetSpreadsheetStructureRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/spreadsheet/structure";
+        const queryParameters: any = {};
+        const formParams: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+        if (this.spreadsheet !== undefined) {
+            if (typeof this.spreadsheet === 'string') {
+                if (fs.existsSync(this.spreadsheet)) {
+                    const fileName = path.basename( this.spreadsheet)
+                    formParams[fileName] = fs.createReadStream(this.spreadsheet)
+                }
+            }
+            else {
+                for (var key in this.spreadsheet){
+                    formParams[key] = this.spreadsheet[key];
+                }
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        (requestOptions as any).formData = formParams;        
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Structurally convert the core metadata, worksheets, tables, pivot tables, charts, shapes, and other information of an Excel workbook into a JObject type JSON object, for scenarios such as data export, API responses, and log recording.   
+export class GetStructureInRemoteSpreadsheetRequest  {
+      
+    public name!: string;
+      
+    public folder!: string;
+    /// (Optional) The name of the storage if using custom cloud storage. Use default storage if omitted.  
+    public storageName!: string;
+    /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
+    public region!: string;
+    /// The password for opening spreadsheet file.  
+    public password!: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< GetStructureInRemoteSpreadsheetRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/{name}/structure".replace("{" + "name" + "}", String(this.name));
+        const queryParameters: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "GET",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
 /// Applies dual-layer password protection to Excel spreadsheets, supporting both open and modify passwords with encryption.   
 export class ProtectSpreadsheetRequest  {
     /// Upload spreadsheet file.  
@@ -28051,6 +28178,79 @@ export class CodegenSpecRequest  {
 
 }
 /// The TrimSpreadsheetContent API is designed to process and trim content within a spreadsheet. This API allows users to remove extra spaces, line breaks, or other unnecessary characters from the content of selected cells. It is particularly useful for cleaning up data entries and ensuring consistency in spreadsheet formatting   
+export class TrimCharacterInRemoteSpreadsheetRequest  {
+    /// Specify the spreadsheet name on remote server.  
+    public name!: string;
+    /// Specify the worksheet of spreadsheet.  
+    public worksheet!: string;
+    /// Specify the worksheet range of spreadsheet.  
+    public range!: string;
+    /// Specify the trim content.  
+    public trimContent!: string;
+    /// Specify to trim content from the beginning.  
+    public trimLeading!: boolean;
+    /// Specify to trim content from the end.  
+    public trimTrailing!: boolean;
+    /// Remove excess spaces between words within a cell.  
+    public trimSpaceBetweenWordTo1!: boolean;
+    /// Remove non-breaking spaces.  
+    public trimNonBreakingSpaces!: boolean;
+    /// Remove extra line breaks.  
+    public removeExtraLineBreaks!: boolean;
+    /// Remove all line breaks.  
+    public removeAllLineBreaks!: boolean;
+    /// Specify the spreadsheet storage position on remote server  
+    public folder!: string;
+    /// (Optional) The name of the storage if using custom cloud storage. Use default storage if omitted.  
+    public storageName!: string;
+    /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
+    public region!: string;
+    /// The password for opening spreadsheet file.  
+    public password!: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< TrimCharacterInRemoteSpreadsheetRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/{name}/worksheets/{worksheet}/range/{range}/content/trim".replace("{" + "name" + "}", String(this.name)).replace("{" + "worksheet" + "}", String(this.worksheet)).replace("{" + "range" + "}", String(this.range));
+        const queryParameters: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "trimContent", this.trimContent);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "trimLeading", this.trimLeading);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "trimTrailing", this.trimTrailing);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "trimSpaceBetweenWordTo1", this.trimSpaceBetweenWordTo1);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "trimNonBreakingSpaces", this.trimNonBreakingSpaces);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "removeExtraLineBreaks", this.removeExtraLineBreaks);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "removeAllLineBreaks", this.removeAllLineBreaks);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// The TrimSpreadsheetContent API is designed to process and trim content within a remote spreadsheet. This API allows users to remove extra spaces, line breaks, or other unnecessary characters from the content of selected cells. It is particularly useful for cleaning up data entries and ensuring consistency in spreadsheet formatting   
 export class TrimCharacterRequest  {
     /// Upload spreadsheet file.  
     public spreadsheet!: any;
@@ -28217,6 +28417,66 @@ export class UpdateWordCaseRequest  {
     }
 
 }
+/// Specify changing the text case in a remote spreadsheet to switch between uppercase, lowercase, capitalizing the first letter of each word, or capitalizing the first letter of a sentence, and adjust the text according to specific needs.   
+export class UpdateWordCaseInRemoteSpreadsheetRequest  {
+    /// (Required) The name of the workbook file to be retrieved.  
+    public name!: string;
+    /// Specify the worksheet of spreadsheet.  
+    public worksheet!: string;
+    /// Specify the worksheet range of spreadsheet.  
+    public range!: string;
+    /// Specify text case: Upper Case, Lower Case, Proper Case, Sentence Case.  
+    public wordCaseType!: string;
+    /// (Optional) The folder path where the workbook is stored. The default is null.  
+    public folder!: string;
+    /// (Optional) The name of the storage if using custom cloud storage. Use default storage if omitted.  
+    public storageName!: string;
+    /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
+    public region!: string;
+    /// The password for opening spreadsheet file.  
+    public password!: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< UpdateWordCaseInRemoteSpreadsheetRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/{name}/worksheets/{worksheet}/range/{range}/content/wordcase".replace("{" + "name" + "}", String(this.name)).replace("{" + "worksheet" + "}", String(this.worksheet)).replace("{" + "range" + "}", String(this.range));
+        const queryParameters: any = {};
+        /// Specify text case: Upper Case, Lower Case, Proper Case, Sentence Case. 
+        // verify required parameter 'wordCaseType' is not null or undefined
+        if (this.wordCaseType === null || this.wordCaseType === undefined) {
+            throw new Error('Required parameter "wordCaseType" was null or undefined when calling UpdateWordCaseInRemoteSpreadsheet.');
+        }
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "wordCaseType", this.wordCaseType);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
 /// Deletes user-defined characters, predefined symbol sets, or any substring from every cell in the chosen range while preserving formulas, formatting and data-validation.   
 export class RemoveCharactersRequest  {
     /// Upload spreadsheet file.  
@@ -28227,7 +28487,7 @@ export class RemoveCharactersRequest  {
     public characterSets!: string;
     /// Specify the remove custom value.  
     public removeCustomValue!: string;
-      
+    /// affects `Substring` mode and `CustomChars` when enabled    
     public caseSensitive!: boolean;
     /// Specify the worksheet of spreadsheet.  
     public worksheet!: string;
@@ -28298,6 +28558,70 @@ export class RemoveCharactersRequest  {
     }
 
 }
+/// Deletes user-defined characters, predefined symbol sets, or any substring from every cell in the chosen range while preserving formulas, formatting and data-validation for a remote spreadsheet.   
+export class RemoveCharactersInRemoteSpreadsheetRequest  {
+    /// (Required) The name of the workbook file to be retrieved.  
+    public name!: string;
+    /// Specify the worksheet of spreadsheet.  
+    public worksheet!: string;
+    /// Specify the worksheet range of spreadsheet.  
+    public range!: string;
+    /// Specify the removal of text method type.  
+    public removeTextMethod!: string;
+    /// Specify the character sets.  
+    public characterSets!: string;
+    /// Specify the remove custom value.  
+    public removeCustomValue!: string;
+    /// Affects `Substring` mode and `CustomChars` when enabled.  
+    public caseSensitive!: boolean;
+    /// (Optional) The folder path where the workbook is stored. The default is null.  
+    public folder!: string;
+    /// (Optional) The name of the storage if using custom cloud storage. Use default storage if omitted.  
+    public storageName!: string;
+    /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
+    public region!: string;
+    /// The password for opening spreadsheet file.  
+    public password!: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< RemoveCharactersInRemoteSpreadsheetRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/{name}/worksheets/{worksheet}/range/{range}/content/remove/characters".replace("{" + "name" + "}", String(this.name)).replace("{" + "worksheet" + "}", String(this.worksheet)).replace("{" + "range" + "}", String(this.range));
+        const queryParameters: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "removeTextMethod", this.removeTextMethod);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "characterSets", this.characterSets);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "removeCustomValue", this.removeCustomValue);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "caseSensitive", this.caseSensitive);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
 /// Deletes characters from every cell in the target range by position (first/last N, before/after a substring, or between two delimiters) while preserving formulas, formatting and data-validation.   
 export class RemoveCharactersByPositionRequest  {
     /// Upload spreadsheet file.  
@@ -28310,7 +28634,7 @@ export class RemoveCharactersByPositionRequest  {
     public allCharactersBeforeText!: string;
     /// Specify using targeted removal options to delete text that is located after certain characters.  
     public allCharactersAfterText!: string;
-      
+    /// Affects `Substring` mode and `CustomChars` when enabled.  
     public caseSensitive!: boolean;
     /// Specify the worksheet of spreadsheet.  
     public worksheet!: string;
@@ -28382,6 +28706,73 @@ export class RemoveCharactersByPositionRequest  {
     }
 
 }
+/// Deletes characters from every cell in the target range by position (first/last N, before/after a substring, or between two delimiters) while preserving formulas, formatting and data-validation.   
+export class RemoveCharactersByPositionInRemoteSpreadsheetRequest  {
+    /// (Required) The name of the workbook file to be retrieved.  
+    public name!: string;
+    /// Specify the worksheet of spreadsheet.  
+    public worksheet!: string;
+    /// Specify the worksheet range of spreadsheet.  
+    public range!: string;
+      
+    public theFirstNCharacters!: number;
+      
+    public theLastNCharacters!: number;
+      
+    public allCharactersBeforeText!: string;
+      
+    public allCharactersAfterText!: string;
+      
+    public caseSensitive!: boolean;
+    /// (Optional) The folder path where the workbook is stored. The default is null.  
+    public folder!: string;
+    /// (Optional) The name of the storage if using custom cloud storage. Use default storage if omitted.  
+    public storageName!: string;
+    /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
+    public region!: string;
+    /// The password for opening spreadsheet file.  
+    public password!: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< RemoveCharactersByPositionInRemoteSpreadsheetRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/{name}/worksheets/{worksheet}/range/{range}/content/remove/characters-by-position".replace("{" + "name" + "}", String(this.name)).replace("{" + "worksheet" + "}", String(this.worksheet)).replace("{" + "range" + "}", String(this.range));
+        const queryParameters: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "theFirstNCharacters", this.theFirstNCharacters);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "theLastNCharacters", this.theLastNCharacters);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "allCharactersBeforeText", this.allCharactersBeforeText);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "allCharactersAfterText", this.allCharactersAfterText);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "caseSensitive", this.caseSensitive);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
 /// Finds and removes repeated substrings inside every cell of the chosen range, using user-defined or preset delimiters, while preserving formulas, formatting and data-validation.   
 export class RemoveDuplicateSubstringsRequest  {
     /// Upload spreadsheet file.  
@@ -28392,9 +28783,9 @@ export class RemoveDuplicateSubstringsRequest  {
     public treatConsecutiveDelimitersAsOne!: boolean;
       
     public caseSensitive!: boolean;
-      
+    /// Specify the worksheet of spreadsheet.  
     public worksheet!: string;
-      
+    /// Specify the worksheet range of spreadsheet.  
     public range!: string;
     /// (Optional) The folder path where the workbook is stored. The default is null.  
     public outPath!: string;
@@ -28460,6 +28851,72 @@ export class RemoveDuplicateSubstringsRequest  {
         };
 
         (requestOptions as any).formData = formParams;        
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Finds and removes repeated substrings inside every cell of the chosen range, using user-defined or preset delimiters, while preserving formulas, formatting and data-validation.   
+export class RemoveDuplicateSubstringsInRemoteSpreadsheetRequest  {
+    /// (Required) The name of the workbook file to be retrieved.  
+    public name!: string;
+    /// Specify the worksheet of spreadsheet.  
+    public worksheet!: string;
+    /// Specify the worksheet range of spreadsheet.  
+    public range!: string;
+    /// comma, semicolon, space, tab, line-break   
+    public delimiters!: string;
+    /// collapse adjacent delimiters into a single separator.  
+    public treatConsecutiveDelimitersAsOne!: boolean;
+      
+    public caseSensitive!: boolean;
+    /// (Optional) The folder path where the workbook is stored. The default is null.  
+    public folder!: string;
+    /// (Optional) The name of the storage if using custom cloud storage. Use default storage if omitted.  
+    public storageName!: string;
+    /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
+    public region!: string;
+    /// The password for opening spreadsheet file.  
+    public password!: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< RemoveDuplicateSubstringsInRemoteSpreadsheetRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/{name}/worksheets/{worksheet}/range/{range}/content/remove/duplicate-substrings".replace("{" + "name" + "}", String(this.name)).replace("{" + "worksheet" + "}", String(this.worksheet)).replace("{" + "range" + "}", String(this.range));
+        const queryParameters: any = {};
+        /// comma, semicolon, space, tab, line-break  
+        // verify required parameter 'delimiters' is not null or undefined
+        if (this.delimiters === null || this.delimiters === undefined) {
+            throw new Error('Required parameter "delimiters" was null or undefined when calling RemoveDuplicateSubstringsInRemoteSpreadsheet.');
+        }
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "delimiters", this.delimiters);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "treatConsecutiveDelimitersAsOne", this.treatConsecutiveDelimitersAsOne);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "caseSensitive", this.caseSensitive);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
         return Promise.resolve(requestOptions);
 
     }
@@ -28556,6 +29013,80 @@ export class AddTextRequest  {
     }
 
 }
+/// Specify appending text to multiple cells at once, allowing you to add prefixes, suffixes, labels, or any specific characters. You can choose the exact position of the text—in the beginning, at the end, or before or after certain characters in the cell.   
+export class AddTextInRemoteSpreadsheetRequest  {
+    /// (Required) The name of the workbook file to be retrieved.  
+    public name!: string;
+    /// Specify the worksheet of spreadsheet.  
+    public worksheet!: string;
+    /// Specify the worksheet range of spreadsheet.  
+    public range!: string;
+    /// Specify the added text content.  
+    public text!: string;
+    /// Indicates the specific location for adding text content.None, AtTheBeginning, AtTheEnd, BeforeText, AfterText.  
+    public position!: string;
+    /// Indicates selecting the specific position to add text based on the content of the text.  
+    public selectText!: string;
+    /// Indicates skip empty cells.  
+    public skipEmptyCells!: boolean;
+    /// (Optional) The folder path where the workbook is stored. The default is null.  
+    public folder!: string;
+    /// (Optional) The name of the storage if using custom cloud storage. Use default storage if omitted.  
+    public storageName!: string;
+    /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
+    public region!: string;
+    /// The password for opening spreadsheet file.  
+    public password!: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< AddTextInRemoteSpreadsheetRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/{name}/worksheets/{worksheet}/range/{range}/content/add/text".replace("{" + "name" + "}", String(this.name)).replace("{" + "worksheet" + "}", String(this.worksheet)).replace("{" + "range" + "}", String(this.range));
+        const queryParameters: any = {};
+        /// Specify the added text content. 
+        // verify required parameter 'text' is not null or undefined
+        if (this.text === null || this.text === undefined) {
+            throw new Error('Required parameter "text" was null or undefined when calling AddTextInRemoteSpreadsheet.');
+        }
+        /// Indicates the specific location for adding text content.None, AtTheBeginning, AtTheEnd, BeforeText, AfterText. 
+        // verify required parameter 'position' is not null or undefined
+        if (this.position === null || this.position === undefined) {
+            throw new Error('Required parameter "position" was null or undefined when calling AddTextInRemoteSpreadsheet.');
+        }
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "text", this.text);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "position", this.position);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "selectText", this.selectText);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "skipEmptyCells", this.skipEmptyCells);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
 /// Indicates converting the numbers stored as text into the correct number format, replacing unwanted characters and line breaks with the desired characters, and converting accented characters to their equivalent characters without accents.   
 export class ConvertTextRequest  {
     /// Upload spreadsheet file.  
@@ -28634,6 +29165,72 @@ export class ConvertTextRequest  {
         };
 
         (requestOptions as any).formData = formParams;        
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Indicates converting the numbers stored as text into the correct number format, replacing unwanted characters and line breaks with the desired characters, and converting accented characters to their equivalent characters without accents.   
+export class ConvertTextInRemoteSpreadsheetRequest  {
+    /// (Required) The name of the workbook file to be retrieved.  
+    public name!: string;
+    /// Specify the worksheet of spreadsheet.  
+    public worksheet!: string;
+    /// Specify the worksheet range of spreadsheet.  
+    public range!: string;
+    /// Indicates the conversion of text type.  
+    public convertTextType!: string;
+    /// Indicates the source characters.  
+    public sourceCharacters!: string;
+    /// Indicates the target characters.  
+    public targetCharacters!: string;
+    /// (Optional) The folder path where the workbook is stored. The default is null.  
+    public folder!: string;
+    /// (Optional) The name of the storage if using custom cloud storage. Use default storage if omitted.  
+    public storageName!: string;
+    /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
+    public region!: string;
+    /// The password for opening spreadsheet file.  
+    public password!: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< ConvertTextInRemoteSpreadsheetRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/{name}/worksheets/{worksheet}/range/{range}/content/convert/text".replace("{" + "name" + "}", String(this.name)).replace("{" + "worksheet" + "}", String(this.worksheet)).replace("{" + "range" + "}", String(this.range));
+        const queryParameters: any = {};
+        /// Indicates the conversion of text type. 
+        // verify required parameter 'convertTextType' is not null or undefined
+        if (this.convertTextType === null || this.convertTextType === undefined) {
+            throw new Error('Required parameter "convertTextType" was null or undefined when calling ConvertTextInRemoteSpreadsheet.');
+        }
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "convertTextType", this.convertTextType);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "sourceCharacters", this.sourceCharacters);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "targetCharacters", this.targetCharacters);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "folder", this.folder);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "storageName", this.storageName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
         return Promise.resolve(requestOptions);
 
     }

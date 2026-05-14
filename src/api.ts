@@ -995,6 +995,38 @@ export class CellsApi {
     }
 
     /// <summary>
+    /// Structurally convert the core metadata, worksheets, tables, pivot tables, charts, shapes, and other information of an Excel workbook into a JObject type JSON object, for scenarios such as data export, API responses, and log recording.
+    /// </summary>
+    /// <param name="request">Request. <see cref="GetSpreadsheetStructureRequest" /></param>
+    public async getSpreadsheetStructure(requestObj:model.GetSpreadsheetStructureRequest ): Promise<{response: http.ClientResponse, body: string}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling getSpreadsheetStructure.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "string");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// Structurally convert the core metadata, worksheets, tables, pivot tables, charts, shapes, and other information of an Excel workbook into a JObject type JSON object, for scenarios such as data export, API responses, and log recording.
+    /// </summary>
+    /// <param name="request">Request. <see cref="GetStructureInRemoteSpreadsheetRequest" /></param>
+    public async getStructureInRemoteSpreadsheet(requestObj:model.GetStructureInRemoteSpreadsheetRequest ): Promise<{response: http.ClientResponse, body: string}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling getStructureInRemoteSpreadsheet.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "string");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
     /// Applies dual-layer password protection to Excel spreadsheets, supporting both open and modify passwords with encryption.
     /// </summary>
     /// <param name="request">Request. <see cref="ProtectSpreadsheetRequest" /></param>
@@ -1299,6 +1331,22 @@ export class CellsApi {
     /// <summary>
     /// The TrimSpreadsheetContent API is designed to process and trim content within a spreadsheet. This API allows users to remove extra spaces, line breaks, or other unnecessary characters from the content of selected cells. It is particularly useful for cleaning up data entries and ensuring consistency in spreadsheet formatting
     /// </summary>
+    /// <param name="request">Request. <see cref="TrimCharacterInRemoteSpreadsheetRequest" /></param>
+    public async trimCharacterInRemoteSpreadsheet(requestObj:model.TrimCharacterInRemoteSpreadsheetRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling trimCharacterInRemoteSpreadsheet.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "CellsCloudResponse");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// The TrimSpreadsheetContent API is designed to process and trim content within a remote spreadsheet. This API allows users to remove extra spaces, line breaks, or other unnecessary characters from the content of selected cells. It is particularly useful for cleaning up data entries and ensuring consistency in spreadsheet formatting
+    /// </summary>
     /// <param name="request">Request. <see cref="TrimCharacterRequest" /></param>
     public async trimCharacter(requestObj:model.TrimCharacterRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
     {
@@ -1329,6 +1377,22 @@ export class CellsApi {
     }
 
     /// <summary>
+    /// Specify changing the text case in a remote spreadsheet to switch between uppercase, lowercase, capitalizing the first letter of each word, or capitalizing the first letter of a sentence, and adjust the text according to specific needs.
+    /// </summary>
+    /// <param name="request">Request. <see cref="UpdateWordCaseInRemoteSpreadsheetRequest" /></param>
+    public async updateWordCaseInRemoteSpreadsheet(requestObj:model.UpdateWordCaseInRemoteSpreadsheetRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling updateWordCaseInRemoteSpreadsheet.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "CellsCloudResponse");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
     /// Deletes user-defined characters, predefined symbol sets, or any substring from every cell in the chosen range while preserving formulas, formatting and data-validation.
     /// </summary>
     /// <param name="request">Request. <see cref="RemoveCharactersRequest" /></param>
@@ -1341,6 +1405,22 @@ export class CellsApi {
         const requestOptions = await requestObj.createRequestOptions(this.configuration);
         const response = await invokeApiMethod(requestOptions, this.configuration);
         const result =  ObjectSerializer.deserialize(response.body, "Buffer");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// Deletes user-defined characters, predefined symbol sets, or any substring from every cell in the chosen range while preserving formulas, formatting and data-validation for a remote spreadsheet.
+    /// </summary>
+    /// <param name="request">Request. <see cref="RemoveCharactersInRemoteSpreadsheetRequest" /></param>
+    public async removeCharactersInRemoteSpreadsheet(requestObj:model.RemoveCharactersInRemoteSpreadsheetRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling removeCharactersInRemoteSpreadsheet.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "CellsCloudResponse");
         return Promise.resolve({body: result, response});
     }
 
@@ -1361,6 +1441,22 @@ export class CellsApi {
     }
 
     /// <summary>
+    /// Deletes characters from every cell in the target range by position (first/last N, before/after a substring, or between two delimiters) while preserving formulas, formatting and data-validation.
+    /// </summary>
+    /// <param name="request">Request. <see cref="RemoveCharactersByPositionInRemoteSpreadsheetRequest" /></param>
+    public async removeCharactersByPositionInRemoteSpreadsheet(requestObj:model.RemoveCharactersByPositionInRemoteSpreadsheetRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling removeCharactersByPositionInRemoteSpreadsheet.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "CellsCloudResponse");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
     /// Finds and removes repeated substrings inside every cell of the chosen range, using user-defined or preset delimiters, while preserving formulas, formatting and data-validation.
     /// </summary>
     /// <param name="request">Request. <see cref="RemoveDuplicateSubstringsRequest" /></param>
@@ -1373,6 +1469,22 @@ export class CellsApi {
         const requestOptions = await requestObj.createRequestOptions(this.configuration);
         const response = await invokeApiMethod(requestOptions, this.configuration);
         const result =  ObjectSerializer.deserialize(response.body, "Buffer");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// Finds and removes repeated substrings inside every cell of the chosen range, using user-defined or preset delimiters, while preserving formulas, formatting and data-validation.
+    /// </summary>
+    /// <param name="request">Request. <see cref="RemoveDuplicateSubstringsInRemoteSpreadsheetRequest" /></param>
+    public async removeDuplicateSubstringsInRemoteSpreadsheet(requestObj:model.RemoveDuplicateSubstringsInRemoteSpreadsheetRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling removeDuplicateSubstringsInRemoteSpreadsheet.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "CellsCloudResponse");
         return Promise.resolve({body: result, response});
     }
 
@@ -1393,6 +1505,22 @@ export class CellsApi {
     }
 
     /// <summary>
+    /// Specify appending text to multiple cells at once, allowing you to add prefixes, suffixes, labels, or any specific characters. You can choose the exact position of the text—in the beginning, at the end, or before or after certain characters in the cell.
+    /// </summary>
+    /// <param name="request">Request. <see cref="AddTextInRemoteSpreadsheetRequest" /></param>
+    public async addTextInRemoteSpreadsheet(requestObj:model.AddTextInRemoteSpreadsheetRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling addTextInRemoteSpreadsheet.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "CellsCloudResponse");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
     /// Indicates converting the numbers stored as text into the correct number format, replacing unwanted characters and line breaks with the desired characters, and converting accented characters to their equivalent characters without accents.
     /// </summary>
     /// <param name="request">Request. <see cref="ConvertTextRequest" /></param>
@@ -1405,6 +1533,22 @@ export class CellsApi {
         const requestOptions = await requestObj.createRequestOptions(this.configuration);
         const response = await invokeApiMethod(requestOptions, this.configuration);
         const result =  ObjectSerializer.deserialize(response.body, "Buffer");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// Indicates converting the numbers stored as text into the correct number format, replacing unwanted characters and line breaks with the desired characters, and converting accented characters to their equivalent characters without accents.
+    /// </summary>
+    /// <param name="request">Request. <see cref="ConvertTextInRemoteSpreadsheetRequest" /></param>
+    public async convertTextInRemoteSpreadsheet(requestObj:model.ConvertTextInRemoteSpreadsheetRequest ): Promise<{response: http.ClientResponse, body: model.CellsCloudResponse}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling convertTextInRemoteSpreadsheet.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "CellsCloudResponse");
         return Promise.resolve({body: result, response});
     }
 
