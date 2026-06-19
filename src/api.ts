@@ -101,6 +101,37 @@ export class CellsApi {
     }
 
     /// <summary>
+    /// </summary>
+    /// <param name="request">Request. <see cref="ReportAIAnalysisRequest" /></param>
+    public async reportAIAnalysis(requestObj:model.ReportAIAnalysisRequest ): Promise<{response: http.ClientResponse, body: any}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling reportAIAnalysis.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "any");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// Summarizes spreadsheet content using AI and returns the summary as a downloadable text file.
+    /// </summary>
+    /// <param name="request">Request. <see cref="SummarizeSpreadsheetRequest" /></param>
+    public async summarizeSpreadsheet(requestObj:model.SummarizeSpreadsheetRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling summarizeSpreadsheet.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "Buffer");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
     /// The Aggregate by Color API provides a convenient way to perform calculations on cells that share the same fill or font color. This API supports a range of aggregate operations, including count, sum, maximum value, minimum value, and average value, enabling you to analyze and summarize data based on color distinctions.
     /// </summary>
     /// <param name="request">Request. <see cref="AggregateCellsByColorRequest" /></param>

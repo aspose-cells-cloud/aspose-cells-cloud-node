@@ -22815,6 +22815,120 @@ export class TranslateTextFileRequest  {
     }
 
 }
+   
+export class ReportAIAnalysisRequest  {
+    /// Upload spreadsheet file.  
+    public spreadsheet!: any;
+    /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
+    public region!: string;
+    /// The password for opening spreadsheet file.  
+    public password!: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< ReportAIAnalysisRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/ai/report/analysis";
+        const queryParameters: any = {};
+        const formParams: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+        if (this.spreadsheet !== undefined) {
+            if (typeof this.spreadsheet === 'string') {
+                if (fs.existsSync(this.spreadsheet)) {
+                    const fileName = path.basename( this.spreadsheet)
+                    formParams[fileName] = fs.createReadStream(this.spreadsheet)
+                }
+            }
+            else {
+                for (var key in this.spreadsheet){
+                    formParams[key] = this.spreadsheet[key];
+                }
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        (requestOptions as any).formData = formParams;        
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+/// Summarizes spreadsheet content using AI and returns the summary as a downloadable text file.   
+export class SummarizeSpreadsheetRequest  {
+    /// Upload spreadsheet file.  
+    public spreadsheet!: any;
+    /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
+    public region!: string;
+    /// The password for opening spreadsheet file.  
+    public password!: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< SummarizeSpreadsheetRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/ai/summarize/spreadsheet";
+        const queryParameters: any = {};
+        const formParams: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+        if (this.spreadsheet !== undefined) {
+            if (typeof this.spreadsheet === 'string') {
+                if (fs.existsSync(this.spreadsheet)) {
+                    const fileName = path.basename( this.spreadsheet)
+                    formParams[fileName] = fs.createReadStream(this.spreadsheet)
+                }
+            }
+            else {
+                for (var key in this.spreadsheet){
+                    formParams[key] = this.spreadsheet[key];
+                }
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        (requestOptions as any).formData = formParams;        
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
 /// The Aggregate by Color API provides a convenient way to perform calculations on cells that share the same fill or font color. This API supports a range of aggregate operations, including count, sum, maximum value, minimum value, and average value, enabling you to analyze and summarize data based on color distinctions.   
 export class AggregateCellsByColorRequest  {
     /// Upload spreadsheet file.  
@@ -23082,6 +23196,10 @@ export class ExportSpreadsheetAsFormatRequest  {
     public outStorageName!: string;
     /// Use Custom fonts.  
     public fontsLocation!: string;
+    /// (Optional) Autofits all rows in worksheets.  
+    public autoRowsFit!: string;
+    /// (Optional) Autofits all columns in worksheets.  
+    public autoColumnsFit!: string;
     /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
     public region!: string;
     /// The password for opening spreadsheet file.  
@@ -23108,6 +23226,8 @@ export class ExportSpreadsheetAsFormatRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fontsLocation", this.fontsLocation);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "autoRowsFit", this.autoRowsFit);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "autoColumnsFit", this.autoColumnsFit);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         if(this.extendQueryParameterMap !== undefined){
@@ -23149,6 +23269,10 @@ export class ExportWorksheetAsFormatRequest  {
     public outStorageName!: string;
     /// Use Custom fonts.  
     public fontsLocation!: string;
+    /// (Optional) Autofits all rows in worksheets.  
+    public autoRowsFit!: string;
+    /// (Optional) Autofits all columns in worksheets.  
+    public autoColumnsFit!: string;
     /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
     public region!: string;
     /// The password for opening spreadsheet file.  
@@ -23175,6 +23299,8 @@ export class ExportWorksheetAsFormatRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fontsLocation", this.fontsLocation);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "autoRowsFit", this.autoRowsFit);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "autoColumnsFit", this.autoColumnsFit);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         if(this.extendQueryParameterMap !== undefined){
@@ -23287,6 +23413,10 @@ export class ExportTableAsFormatRequest  {
     public outStorageName!: string;
     /// Use Custom fonts.  
     public fontsLocation!: string;
+    /// (Optional) Autofits all rows in worksheets.  
+    public autoRowsFit!: string;
+    /// (Optional) Autofits all columns in worksheets.  
+    public autoColumnsFit!: string;
     /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
     public region!: string;
     /// The password for opening spreadsheet file.  
@@ -23313,6 +23443,8 @@ export class ExportTableAsFormatRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fontsLocation", this.fontsLocation);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "autoRowsFit", this.autoRowsFit);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "autoColumnsFit", this.autoColumnsFit);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         if(this.extendQueryParameterMap !== undefined){
@@ -23356,6 +23488,10 @@ export class ExportRangeAsFormatRequest  {
     public outStorageName!: string;
     /// Use Custom fonts.  
     public fontsLocation!: string;
+    /// (Optional) Autofits all rows in worksheets.  
+    public autoRowsFit!: string;
+    /// (Optional) Autofits all columns in worksheets.  
+    public autoColumnsFit!: string;
     /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
     public region!: string;
     /// The password for opening spreadsheet file.  
@@ -23382,6 +23518,8 @@ export class ExportRangeAsFormatRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fontsLocation", this.fontsLocation);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "autoRowsFit", this.autoRowsFit);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "autoColumnsFit", this.autoColumnsFit);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         if(this.extendQueryParameterMap !== undefined){
@@ -23417,6 +23555,10 @@ export class ConvertSpreadsheetRequest  {
     public outStorageName!: string;
     /// Use Custom fonts.  
     public fontsLocation!: string;
+    /// (Optional) Autofits all rows in worksheets.  
+    public autoRowsFit!: string;
+    /// (Optional) Autofits all columns in worksheets.  
+    public autoColumnsFit!: string;
     /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
     public region!: string;
     /// The password for opening spreadsheet file.  
@@ -23442,6 +23584,8 @@ export class ConvertSpreadsheetRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fontsLocation", this.fontsLocation);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "autoRowsFit", this.autoRowsFit);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "autoColumnsFit", this.autoColumnsFit);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         if(this.extendQueryParameterMap !== undefined){
@@ -23489,6 +23633,10 @@ export class ConvertSpreadsheetToPdfRequest  {
     public outStorageName!: string;
     /// Use Custom fonts.  
     public fontsLocation!: string;
+    /// (Optional) Autofits all rows in worksheets.  
+    public autoRowsFit!: string;
+    /// (Optional) Autofits all columns in worksheets.  
+    public autoColumnsFit!: string;
     /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
     public region!: string;
     /// The password for opening spreadsheet file.  
@@ -23508,6 +23656,8 @@ export class ConvertSpreadsheetToPdfRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fontsLocation", this.fontsLocation);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "autoRowsFit", this.autoRowsFit);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "autoColumnsFit", this.autoColumnsFit);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         if(this.extendQueryParameterMap !== undefined){
@@ -23555,6 +23705,10 @@ export class ConvertSpreadsheetToJsonRequest  {
     public outStorageName!: string;
     /// Use Custom fonts.  
     public fontsLocation!: string;
+    /// (Optional) Autofits all rows in worksheets.  
+    public autoRowsFit!: string;
+    /// (Optional) Autofits all columns in worksheets.  
+    public autoColumnsFit!: string;
     /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
     public region!: string;
     /// The password for opening spreadsheet file.  
@@ -23574,6 +23728,8 @@ export class ConvertSpreadsheetToJsonRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fontsLocation", this.fontsLocation);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "autoRowsFit", this.autoRowsFit);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "autoColumnsFit", this.autoColumnsFit);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         if(this.extendQueryParameterMap !== undefined){
@@ -23621,6 +23777,10 @@ export class ConvertSpreadsheetToCsvRequest  {
     public outStorageName!: string;
     /// Use Custom fonts.  
     public fontsLocation!: string;
+    /// (Optional) Autofits all rows in worksheets.  
+    public autoRowsFit!: string;
+    /// (Optional) Autofits all columns in worksheets.  
+    public autoColumnsFit!: string;
     /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
     public region!: string;
     /// The password for opening spreadsheet file.  
@@ -23640,6 +23800,8 @@ export class ConvertSpreadsheetToCsvRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fontsLocation", this.fontsLocation);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "autoRowsFit", this.autoRowsFit);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "autoColumnsFit", this.autoColumnsFit);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         if(this.extendQueryParameterMap !== undefined){
@@ -23691,6 +23853,10 @@ export class ConvertWorksheetToImageRequest  {
     public outStorageName!: string;
     /// Use Custom fonts.  
     public fontsLocation!: string;
+    /// (Optional) Autofits all rows in worksheets.  
+    public autoRowsFit!: string;
+    /// (Optional) Autofits all columns in worksheets.  
+    public autoColumnsFit!: string;
     /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
     public region!: string;
     /// The password for opening spreadsheet file.  
@@ -23722,6 +23888,8 @@ export class ConvertWorksheetToImageRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fontsLocation", this.fontsLocation);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "autoRowsFit", this.autoRowsFit);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "autoColumnsFit", this.autoColumnsFit);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         if(this.extendQueryParameterMap !== undefined){
@@ -23771,6 +23939,10 @@ export class ConvertWorksheetToPdfRequest  {
     public outStorageName!: string;
     /// Use Custom fonts.  
     public fontsLocation!: string;
+    /// (Optional) Autofits all rows in worksheets.  
+    public autoRowsFit!: string;
+    /// (Optional) Autofits all columns in worksheets.  
+    public autoColumnsFit!: string;
     /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
     public region!: string;
     /// The password for opening spreadsheet file.  
@@ -23796,6 +23968,8 @@ export class ConvertWorksheetToPdfRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fontsLocation", this.fontsLocation);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "autoRowsFit", this.autoRowsFit);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "autoColumnsFit", this.autoColumnsFit);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         if(this.extendQueryParameterMap !== undefined){
@@ -23845,6 +24019,10 @@ export class ConvertWorksheetToJsonRequest  {
     public outStorageName!: string;
     /// Use Custom fonts.  
     public fontsLocation!: string;
+    /// (Optional) Autofits all rows in worksheets.  
+    public autoRowsFit!: string;
+    /// (Optional) Autofits all columns in worksheets.  
+    public autoColumnsFit!: string;
     /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
     public region!: string;
     /// The password for opening spreadsheet file.  
@@ -23870,6 +24048,8 @@ export class ConvertWorksheetToJsonRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fontsLocation", this.fontsLocation);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "autoRowsFit", this.autoRowsFit);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "autoColumnsFit", this.autoColumnsFit);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         if(this.extendQueryParameterMap !== undefined){
@@ -23919,6 +24099,10 @@ export class ConvertWorksheetToCsvRequest  {
     public outStorageName!: string;
     /// Use Custom fonts.  
     public fontsLocation!: string;
+    /// (Optional) Autofits all rows in worksheets.  
+    public autoRowsFit!: string;
+    /// (Optional) Autofits all columns in worksheets.  
+    public autoColumnsFit!: string;
     /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
     public region!: string;
     /// The password for opening spreadsheet file.  
@@ -23944,6 +24128,8 @@ export class ConvertWorksheetToCsvRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fontsLocation", this.fontsLocation);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "autoRowsFit", this.autoRowsFit);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "autoColumnsFit", this.autoColumnsFit);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         if(this.extendQueryParameterMap !== undefined){
@@ -23993,6 +24179,10 @@ export class ConvertWorksheetToHtmlRequest  {
     public outStorageName!: string;
     /// Use Custom fonts.  
     public fontsLocation!: string;
+    /// (Optional) Autofits all rows in worksheets.  
+    public autoRowsFit!: string;
+    /// (Optional) Autofits all columns in worksheets.  
+    public autoColumnsFit!: string;
     /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
     public region!: string;
     /// The password for opening spreadsheet file.  
@@ -24018,6 +24208,8 @@ export class ConvertWorksheetToHtmlRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fontsLocation", this.fontsLocation);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "autoRowsFit", this.autoRowsFit);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "autoColumnsFit", this.autoColumnsFit);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         if(this.extendQueryParameterMap !== undefined){
@@ -24136,6 +24328,10 @@ export class ConvertTableToImageRequest  {
     public outStorageName!: string;
     /// Use Custom fonts.  
     public fontsLocation!: string;
+    /// (Optional) Autofits all rows in worksheets.  
+    public autoRowsFit!: string;
+    /// (Optional) Autofits all columns in worksheets.  
+    public autoColumnsFit!: string;
     /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
     public region!: string;
     /// The password for opening spreadsheet file.  
@@ -24173,6 +24369,8 @@ export class ConvertTableToImageRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fontsLocation", this.fontsLocation);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "autoRowsFit", this.autoRowsFit);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "autoColumnsFit", this.autoColumnsFit);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         if(this.extendQueryParameterMap !== undefined){
@@ -24224,6 +24422,10 @@ export class ConvertTableToPdfRequest  {
     public outStorageName!: string;
     /// Use Custom fonts.  
     public fontsLocation!: string;
+    /// (Optional) Autofits all rows in worksheets.  
+    public autoRowsFit!: string;
+    /// (Optional) Autofits all columns in worksheets.  
+    public autoColumnsFit!: string;
     /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
     public region!: string;
     /// The password for opening spreadsheet file.  
@@ -24255,6 +24457,8 @@ export class ConvertTableToPdfRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fontsLocation", this.fontsLocation);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "autoRowsFit", this.autoRowsFit);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "autoColumnsFit", this.autoColumnsFit);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         if(this.extendQueryParameterMap !== undefined){
@@ -24306,6 +24510,10 @@ export class ConvertTableToCsvRequest  {
     public outStorageName!: string;
     /// Use Custom fonts.  
     public fontsLocation!: string;
+    /// (Optional) Autofits all rows in worksheets.  
+    public autoRowsFit!: string;
+    /// (Optional) Autofits all columns in worksheets.  
+    public autoColumnsFit!: string;
     /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
     public region!: string;
     /// The password for opening spreadsheet file.  
@@ -24337,6 +24545,8 @@ export class ConvertTableToCsvRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fontsLocation", this.fontsLocation);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "autoRowsFit", this.autoRowsFit);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "autoColumnsFit", this.autoColumnsFit);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         if(this.extendQueryParameterMap !== undefined){
@@ -24388,6 +24598,10 @@ export class ConvertTableToHtmlRequest  {
     public outStorageName!: string;
     /// Use Custom fonts.  
     public fontsLocation!: string;
+    /// (Optional) Autofits all rows in worksheets.  
+    public autoRowsFit!: string;
+    /// (Optional) Autofits all columns in worksheets.  
+    public autoColumnsFit!: string;
     /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
     public region!: string;
     /// The password for opening spreadsheet file.  
@@ -24419,6 +24633,8 @@ export class ConvertTableToHtmlRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fontsLocation", this.fontsLocation);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "autoRowsFit", this.autoRowsFit);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "autoColumnsFit", this.autoColumnsFit);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         if(this.extendQueryParameterMap !== undefined){
@@ -24470,6 +24686,10 @@ export class ConvertTableToJsonRequest  {
     public outStorageName!: string;
     /// Use Custom fonts.  
     public fontsLocation!: string;
+    /// (Optional) Autofits all rows in worksheets.  
+    public autoRowsFit!: string;
+    /// (Optional) Autofits all columns in worksheets.  
+    public autoColumnsFit!: string;
     /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
     public region!: string;
     /// The password for opening spreadsheet file.  
@@ -24501,6 +24721,8 @@ export class ConvertTableToJsonRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fontsLocation", this.fontsLocation);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "autoRowsFit", this.autoRowsFit);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "autoColumnsFit", this.autoColumnsFit);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         if(this.extendQueryParameterMap !== undefined){
@@ -24556,6 +24778,10 @@ export class ConvertRangeToImageRequest  {
     public outStorageName!: string;
     /// Use Custom fonts.  
     public fontsLocation!: string;
+    /// (Optional) Autofits all rows in worksheets.  
+    public autoRowsFit!: string;
+    /// (Optional) Autofits all columns in worksheets.  
+    public autoColumnsFit!: string;
     /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
     public region!: string;
     /// The password for opening spreadsheet file.  
@@ -24594,6 +24820,8 @@ export class ConvertRangeToImageRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fontsLocation", this.fontsLocation);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "autoRowsFit", this.autoRowsFit);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "autoColumnsFit", this.autoColumnsFit);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         if(this.extendQueryParameterMap !== undefined){
@@ -24645,6 +24873,10 @@ export class ConvertRangeToPdfRequest  {
     public outStorageName!: string;
     /// Use Custom fonts.  
     public fontsLocation!: string;
+    /// (Optional) Autofits all rows in worksheets.  
+    public autoRowsFit!: string;
+    /// (Optional) Autofits all columns in worksheets.  
+    public autoColumnsFit!: string;
     /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
     public region!: string;
     /// The password for opening spreadsheet file.  
@@ -24676,6 +24908,8 @@ export class ConvertRangeToPdfRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fontsLocation", this.fontsLocation);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "autoRowsFit", this.autoRowsFit);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "autoColumnsFit", this.autoColumnsFit);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         if(this.extendQueryParameterMap !== undefined){
@@ -24727,6 +24961,10 @@ export class ConvertRangeToCsvRequest  {
     public outStorageName!: string;
     /// Use Custom fonts.  
     public fontsLocation!: string;
+    /// (Optional) Autofits all rows in worksheets.  
+    public autoRowsFit!: string;
+    /// (Optional) Autofits all columns in worksheets.  
+    public autoColumnsFit!: string;
     /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
     public region!: string;
     /// The password for opening spreadsheet file.  
@@ -24758,6 +24996,8 @@ export class ConvertRangeToCsvRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fontsLocation", this.fontsLocation);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "autoRowsFit", this.autoRowsFit);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "autoColumnsFit", this.autoColumnsFit);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         if(this.extendQueryParameterMap !== undefined){
@@ -24809,6 +25049,10 @@ export class ConvertRangeToHtmlRequest  {
     public outStorageName!: string;
     /// Use Custom fonts.  
     public fontsLocation!: string;
+    /// (Optional) Autofits all rows in worksheets.  
+    public autoRowsFit!: string;
+    /// (Optional) Autofits all columns in worksheets.  
+    public autoColumnsFit!: string;
     /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
     public region!: string;
     /// The password for opening spreadsheet file.  
@@ -24840,6 +25084,8 @@ export class ConvertRangeToHtmlRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fontsLocation", this.fontsLocation);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "autoRowsFit", this.autoRowsFit);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "autoColumnsFit", this.autoColumnsFit);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         if(this.extendQueryParameterMap !== undefined){
@@ -24891,6 +25137,10 @@ export class ConvertRangeToJsonRequest  {
     public outStorageName!: string;
     /// Use Custom fonts.  
     public fontsLocation!: string;
+    /// (Optional) Autofits all rows in worksheets.  
+    public autoRowsFit!: string;
+    /// (Optional) Autofits all columns in worksheets.  
+    public autoColumnsFit!: string;
     /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
     public region!: string;
     /// The password for opening spreadsheet file.  
@@ -24922,6 +25172,8 @@ export class ConvertRangeToJsonRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fontsLocation", this.fontsLocation);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "autoRowsFit", this.autoRowsFit);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "autoColumnsFit", this.autoColumnsFit);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         if(this.extendQueryParameterMap !== undefined){
@@ -25149,6 +25401,10 @@ export class SaveSpreadsheetAsRequest  {
     public outStorageName!: string;
     /// Use Custom fonts.  
     public fontsLocation!: string;
+    /// (Optional) Autofits all rows in worksheets.  
+    public autoRowsFit!: string;
+    /// (Optional) Autofits all columns in worksheets.  
+    public autoColumnsFit!: string;
     /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
     public region!: string;
     /// The password for opening spreadsheet file.  
@@ -25175,6 +25431,8 @@ export class SaveSpreadsheetAsRequest  {
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outPath", this.outPath);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "outStorageName", this.outStorageName);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "fontsLocation", this.fontsLocation);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "autoRowsFit", this.autoRowsFit);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "autoColumnsFit", this.autoColumnsFit);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
         localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
         if(this.extendQueryParameterMap !== undefined){
