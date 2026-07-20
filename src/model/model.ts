@@ -3108,6 +3108,45 @@ export class CellsCloudPublicKeyResponse  extends CellsCloudResponse  {
     } 
 }
    
+export class FormulaCalculateResultResponse  extends CellsCloudResponse  {
+    /**
+     * Attribute type map
+     */
+    public static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
+        {
+            name: "worksheet",
+            baseName: "Worksheet",
+            type: "string",
+        },
+        {
+            name: "formula",
+            baseName: "Formula",
+            type: "string",
+        },
+        {
+            name: "result",
+            baseName: "Result",
+            type: "Object",
+        }
+    ];
+    /**
+     * Returns attribute type map
+     */
+    public static getAttributeTypeMap() {
+        return super.getAttributeTypeMap().concat(FormulaCalculateResultResponse.attributeTypeMap) ;
+
+    }
+
+    public worksheet!: string;
+    public formula!: string;
+    public result!: Object;
+
+    public constructor(init?: Partial< FormulaCalculateResultResponse >) {  
+         super(init);     
+        Object.assign(this, init);
+    } 
+}
+   
 export class SaveResponse  extends CellsCloudResponse  {
     /**
      * Attribute type map
@@ -22240,6 +22279,7 @@ const typeMap = {
     CellsCloudFileInfoResponse,
     CellsCloudPublicKeyResponse,
     CellsCloudResponse,
+    FormulaCalculateResultResponse,
     SaveResponse,
     SearchResponse,
     ImageOrPrintOptions,
@@ -22815,7 +22855,7 @@ export class TranslateTextFileRequest  {
     }
 
 }
-   
+/// Intelligently analyzes spreadsheet data, identifies business scenarios, and generates professional data analysis reports.   
 export class ReportAIAnalysisRequest  {
     /// Upload spreadsheet file.  
     public spreadsheet!: any;
@@ -23077,6 +23117,79 @@ export class MathCalculateRequest  {
     }
 
 }
+   
+export class CalculationFormulaRequest  {
+    /// Upload spreadsheet file.  
+    public spreadsheet!: any;
+      
+    public worksheet!: string;
+      
+    public formula!: string;
+    /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
+    public region!: string;
+    /// The password for opening spreadsheet file.  
+    public password!: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< CalculationFormulaRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/calculate/formula";
+        const queryParameters: any = {};
+        const formParams: any = {};
+         
+        // verify required parameter 'worksheet' is not null or undefined
+        if (this.worksheet === null || this.worksheet === undefined) {
+            throw new Error('Required parameter "worksheet" was null or undefined when calling CalculationFormula.');
+        }
+         
+        // verify required parameter 'formula' is not null or undefined
+        if (this.formula === null || this.formula === undefined) {
+            throw new Error('Required parameter "formula" was null or undefined when calling CalculationFormula.');
+        }
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "worksheet", this.worksheet);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "formula", this.formula);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+        if (this.spreadsheet !== undefined) {
+            if (typeof this.spreadsheet === 'string') {
+                if (fs.existsSync(this.spreadsheet)) {
+                    const fileName = path.basename( this.spreadsheet)
+                    formParams[fileName] = fs.createReadStream(this.spreadsheet)
+                }
+            }
+            else {
+                for (var key in this.spreadsheet){
+                    formParams[key] = this.spreadsheet[key];
+                }
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        (requestOptions as any).formData = formParams;        
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
 /// Get Access Token Result: The Cells Cloud Get Token API acts as a proxy service,
 /// forwarding user requests to the Aspose Cloud authentication server and returning the resulting access token to the client.   
 export class PostAccessTokenRequest  {
@@ -23197,9 +23310,9 @@ export class ExportSpreadsheetAsFormatRequest  {
     /// Use Custom fonts.  
     public fontsLocation!: string;
     /// (Optional) Autofits all rows in worksheets.  
-    public autoRowsFit!: string;
+    public autoRowsFit!: boolean;
     /// (Optional) Autofits all columns in worksheets.  
-    public autoColumnsFit!: string;
+    public autoColumnsFit!: boolean;
     /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
     public region!: string;
     /// The password for opening spreadsheet file.  
@@ -23270,9 +23383,9 @@ export class ExportWorksheetAsFormatRequest  {
     /// Use Custom fonts.  
     public fontsLocation!: string;
     /// (Optional) Autofits all rows in worksheets.  
-    public autoRowsFit!: string;
+    public autoRowsFit!: boolean;
     /// (Optional) Autofits all columns in worksheets.  
-    public autoColumnsFit!: string;
+    public autoColumnsFit!: boolean;
     /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
     public region!: string;
     /// The password for opening spreadsheet file.  
@@ -23414,9 +23527,9 @@ export class ExportTableAsFormatRequest  {
     /// Use Custom fonts.  
     public fontsLocation!: string;
     /// (Optional) Autofits all rows in worksheets.  
-    public autoRowsFit!: string;
+    public autoRowsFit!: boolean;
     /// (Optional) Autofits all columns in worksheets.  
-    public autoColumnsFit!: string;
+    public autoColumnsFit!: boolean;
     /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
     public region!: string;
     /// The password for opening spreadsheet file.  
@@ -23489,9 +23602,9 @@ export class ExportRangeAsFormatRequest  {
     /// Use Custom fonts.  
     public fontsLocation!: string;
     /// (Optional) Autofits all rows in worksheets.  
-    public autoRowsFit!: string;
+    public autoRowsFit!: boolean;
     /// (Optional) Autofits all columns in worksheets.  
-    public autoColumnsFit!: string;
+    public autoColumnsFit!: boolean;
     /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
     public region!: string;
     /// The password for opening spreadsheet file.  
@@ -23556,9 +23669,9 @@ export class ConvertSpreadsheetRequest  {
     /// Use Custom fonts.  
     public fontsLocation!: string;
     /// (Optional) Autofits all rows in worksheets.  
-    public autoRowsFit!: string;
+    public autoRowsFit!: boolean;
     /// (Optional) Autofits all columns in worksheets.  
-    public autoColumnsFit!: string;
+    public autoColumnsFit!: boolean;
     /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
     public region!: string;
     /// The password for opening spreadsheet file.  
@@ -23634,9 +23747,9 @@ export class ConvertSpreadsheetToPdfRequest  {
     /// Use Custom fonts.  
     public fontsLocation!: string;
     /// (Optional) Autofits all rows in worksheets.  
-    public autoRowsFit!: string;
+    public autoRowsFit!: boolean;
     /// (Optional) Autofits all columns in worksheets.  
-    public autoColumnsFit!: string;
+    public autoColumnsFit!: boolean;
     /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
     public region!: string;
     /// The password for opening spreadsheet file.  
@@ -23706,9 +23819,9 @@ export class ConvertSpreadsheetToJsonRequest  {
     /// Use Custom fonts.  
     public fontsLocation!: string;
     /// (Optional) Autofits all rows in worksheets.  
-    public autoRowsFit!: string;
+    public autoRowsFit!: boolean;
     /// (Optional) Autofits all columns in worksheets.  
-    public autoColumnsFit!: string;
+    public autoColumnsFit!: boolean;
     /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
     public region!: string;
     /// The password for opening spreadsheet file.  
@@ -23778,9 +23891,9 @@ export class ConvertSpreadsheetToCsvRequest  {
     /// Use Custom fonts.  
     public fontsLocation!: string;
     /// (Optional) Autofits all rows in worksheets.  
-    public autoRowsFit!: string;
+    public autoRowsFit!: boolean;
     /// (Optional) Autofits all columns in worksheets.  
-    public autoColumnsFit!: string;
+    public autoColumnsFit!: boolean;
     /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
     public region!: string;
     /// The password for opening spreadsheet file.  
@@ -23854,9 +23967,9 @@ export class ConvertWorksheetToImageRequest  {
     /// Use Custom fonts.  
     public fontsLocation!: string;
     /// (Optional) Autofits all rows in worksheets.  
-    public autoRowsFit!: string;
+    public autoRowsFit!: boolean;
     /// (Optional) Autofits all columns in worksheets.  
-    public autoColumnsFit!: string;
+    public autoColumnsFit!: boolean;
     /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
     public region!: string;
     /// The password for opening spreadsheet file.  
@@ -23940,9 +24053,9 @@ export class ConvertWorksheetToPdfRequest  {
     /// Use Custom fonts.  
     public fontsLocation!: string;
     /// (Optional) Autofits all rows in worksheets.  
-    public autoRowsFit!: string;
+    public autoRowsFit!: boolean;
     /// (Optional) Autofits all columns in worksheets.  
-    public autoColumnsFit!: string;
+    public autoColumnsFit!: boolean;
     /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
     public region!: string;
     /// The password for opening spreadsheet file.  
@@ -24020,9 +24133,9 @@ export class ConvertWorksheetToJsonRequest  {
     /// Use Custom fonts.  
     public fontsLocation!: string;
     /// (Optional) Autofits all rows in worksheets.  
-    public autoRowsFit!: string;
+    public autoRowsFit!: boolean;
     /// (Optional) Autofits all columns in worksheets.  
-    public autoColumnsFit!: string;
+    public autoColumnsFit!: boolean;
     /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
     public region!: string;
     /// The password for opening spreadsheet file.  
@@ -24100,9 +24213,9 @@ export class ConvertWorksheetToCsvRequest  {
     /// Use Custom fonts.  
     public fontsLocation!: string;
     /// (Optional) Autofits all rows in worksheets.  
-    public autoRowsFit!: string;
+    public autoRowsFit!: boolean;
     /// (Optional) Autofits all columns in worksheets.  
-    public autoColumnsFit!: string;
+    public autoColumnsFit!: boolean;
     /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
     public region!: string;
     /// The password for opening spreadsheet file.  
@@ -24180,9 +24293,9 @@ export class ConvertWorksheetToHtmlRequest  {
     /// Use Custom fonts.  
     public fontsLocation!: string;
     /// (Optional) Autofits all rows in worksheets.  
-    public autoRowsFit!: string;
+    public autoRowsFit!: boolean;
     /// (Optional) Autofits all columns in worksheets.  
-    public autoColumnsFit!: string;
+    public autoColumnsFit!: boolean;
     /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
     public region!: string;
     /// The password for opening spreadsheet file.  
@@ -24329,9 +24442,9 @@ export class ConvertTableToImageRequest  {
     /// Use Custom fonts.  
     public fontsLocation!: string;
     /// (Optional) Autofits all rows in worksheets.  
-    public autoRowsFit!: string;
+    public autoRowsFit!: boolean;
     /// (Optional) Autofits all columns in worksheets.  
-    public autoColumnsFit!: string;
+    public autoColumnsFit!: boolean;
     /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
     public region!: string;
     /// The password for opening spreadsheet file.  
@@ -24423,9 +24536,9 @@ export class ConvertTableToPdfRequest  {
     /// Use Custom fonts.  
     public fontsLocation!: string;
     /// (Optional) Autofits all rows in worksheets.  
-    public autoRowsFit!: string;
+    public autoRowsFit!: boolean;
     /// (Optional) Autofits all columns in worksheets.  
-    public autoColumnsFit!: string;
+    public autoColumnsFit!: boolean;
     /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
     public region!: string;
     /// The password for opening spreadsheet file.  
@@ -24511,9 +24624,9 @@ export class ConvertTableToCsvRequest  {
     /// Use Custom fonts.  
     public fontsLocation!: string;
     /// (Optional) Autofits all rows in worksheets.  
-    public autoRowsFit!: string;
+    public autoRowsFit!: boolean;
     /// (Optional) Autofits all columns in worksheets.  
-    public autoColumnsFit!: string;
+    public autoColumnsFit!: boolean;
     /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
     public region!: string;
     /// The password for opening spreadsheet file.  
@@ -24599,9 +24712,9 @@ export class ConvertTableToHtmlRequest  {
     /// Use Custom fonts.  
     public fontsLocation!: string;
     /// (Optional) Autofits all rows in worksheets.  
-    public autoRowsFit!: string;
+    public autoRowsFit!: boolean;
     /// (Optional) Autofits all columns in worksheets.  
-    public autoColumnsFit!: string;
+    public autoColumnsFit!: boolean;
     /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
     public region!: string;
     /// The password for opening spreadsheet file.  
@@ -24687,9 +24800,9 @@ export class ConvertTableToJsonRequest  {
     /// Use Custom fonts.  
     public fontsLocation!: string;
     /// (Optional) Autofits all rows in worksheets.  
-    public autoRowsFit!: string;
+    public autoRowsFit!: boolean;
     /// (Optional) Autofits all columns in worksheets.  
-    public autoColumnsFit!: string;
+    public autoColumnsFit!: boolean;
     /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
     public region!: string;
     /// The password for opening spreadsheet file.  
@@ -24779,9 +24892,9 @@ export class ConvertRangeToImageRequest  {
     /// Use Custom fonts.  
     public fontsLocation!: string;
     /// (Optional) Autofits all rows in worksheets.  
-    public autoRowsFit!: string;
+    public autoRowsFit!: boolean;
     /// (Optional) Autofits all columns in worksheets.  
-    public autoColumnsFit!: string;
+    public autoColumnsFit!: boolean;
     /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
     public region!: string;
     /// The password for opening spreadsheet file.  
@@ -24874,9 +24987,9 @@ export class ConvertRangeToPdfRequest  {
     /// Use Custom fonts.  
     public fontsLocation!: string;
     /// (Optional) Autofits all rows in worksheets.  
-    public autoRowsFit!: string;
+    public autoRowsFit!: boolean;
     /// (Optional) Autofits all columns in worksheets.  
-    public autoColumnsFit!: string;
+    public autoColumnsFit!: boolean;
     /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
     public region!: string;
     /// The password for opening spreadsheet file.  
@@ -24962,9 +25075,9 @@ export class ConvertRangeToCsvRequest  {
     /// Use Custom fonts.  
     public fontsLocation!: string;
     /// (Optional) Autofits all rows in worksheets.  
-    public autoRowsFit!: string;
+    public autoRowsFit!: boolean;
     /// (Optional) Autofits all columns in worksheets.  
-    public autoColumnsFit!: string;
+    public autoColumnsFit!: boolean;
     /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
     public region!: string;
     /// The password for opening spreadsheet file.  
@@ -25050,9 +25163,9 @@ export class ConvertRangeToHtmlRequest  {
     /// Use Custom fonts.  
     public fontsLocation!: string;
     /// (Optional) Autofits all rows in worksheets.  
-    public autoRowsFit!: string;
+    public autoRowsFit!: boolean;
     /// (Optional) Autofits all columns in worksheets.  
-    public autoColumnsFit!: string;
+    public autoColumnsFit!: boolean;
     /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
     public region!: string;
     /// The password for opening spreadsheet file.  
@@ -25138,9 +25251,9 @@ export class ConvertRangeToJsonRequest  {
     /// Use Custom fonts.  
     public fontsLocation!: string;
     /// (Optional) Autofits all rows in worksheets.  
-    public autoRowsFit!: string;
+    public autoRowsFit!: boolean;
     /// (Optional) Autofits all columns in worksheets.  
-    public autoColumnsFit!: string;
+    public autoColumnsFit!: boolean;
     /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
     public region!: string;
     /// The password for opening spreadsheet file.  
@@ -25402,9 +25515,9 @@ export class SaveSpreadsheetAsRequest  {
     /// Use Custom fonts.  
     public fontsLocation!: string;
     /// (Optional) Autofits all rows in worksheets.  
-    public autoRowsFit!: string;
+    public autoRowsFit!: boolean;
     /// (Optional) Autofits all columns in worksheets.  
-    public autoColumnsFit!: string;
+    public autoColumnsFit!: boolean;
     /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
     public region!: string;
     /// The password for opening spreadsheet file.  
@@ -27479,6 +27592,46 @@ export class SpreadsheetDigitalsignatureRequest  {
         };
 
         (requestOptions as any).formData = formParams;        
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
+   
+export class SmartMarkerTemplateRequest  {
+    /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
+    public region!: string;
+    /// The password for opening spreadsheet file.  
+    public password!: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< SmartMarkerTemplateRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/report/smart/template";
+        const queryParameters: any = {};
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
         return Promise.resolve(requestOptions);
 
     }

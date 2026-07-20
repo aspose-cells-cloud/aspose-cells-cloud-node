@@ -1,5 +1,14 @@
 # Release History Version
 
+## Features and Enhancements in Version v26.6
+
+| **Summary**                                                                                                   | **Category** |
+| :------------------------------------------------------------------------------------------------------------ | :----------- |
+| New Web API: Enable AI-Powered Data Analysis. | New Feature |
+| Add Auto-fit function to the format conversion feature. | Improvement |
+| AI development API summary | New Feature |
+| Fix the bug about Object reference not set to an instance of an object. | Bug |
+
 ## Features and Enhancements in Version v26.5.0
 
 | **Summary**                                                                                                   | **Category** |

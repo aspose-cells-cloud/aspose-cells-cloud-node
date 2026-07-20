@@ -101,6 +101,7 @@ export class CellsApi {
     }
 
     /// <summary>
+    /// Intelligently analyzes spreadsheet data, identifies business scenarios, and generates professional data analysis reports.
     /// </summary>
     /// <param name="request">Request. <see cref="ReportAIAnalysisRequest" /></param>
     public async reportAIAnalysis(requestObj:model.ReportAIAnalysisRequest ): Promise<{response: http.ClientResponse, body: any}>
@@ -154,6 +155,21 @@ export class CellsApi {
     {
         if (requestObj === null || requestObj === undefined) {
             throw new Error('Required parameter "requestObj" was null or undefined when calling mathCalculate.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "Buffer");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// </summary>
+    /// <param name="request">Request. <see cref="CalculationFormulaRequest" /></param>
+    public async calculationFormula(requestObj:model.CalculationFormulaRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling calculationFormula.');
         }
 
         const requestOptions = await requestObj.createRequestOptions(this.configuration);
@@ -1096,6 +1112,21 @@ export class CellsApi {
     {
         if (requestObj === null || requestObj === undefined) {
             throw new Error('Required parameter "requestObj" was null or undefined when calling spreadsheetDigitalsignature.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "Buffer");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
+    /// </summary>
+    /// <param name="request">Request. <see cref="SmartMarkerTemplateRequest" /></param>
+    public async smartMarkerTemplate(requestObj:model.SmartMarkerTemplateRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling smartMarkerTemplate.');
         }
 
         const requestOptions = await requestObj.createRequestOptions(this.configuration);
