@@ -22969,6 +22969,77 @@ export class SummarizeSpreadsheetRequest  {
     }
 
 }
+/// AI-powered data categorization: Automatically classifies spreadsheet column data into logical groups.   
+export class CategorizeSpreadsheetRequest  {
+    /// Upload spreadsheet file.  
+    public spreadsheet!: any;
+    /// The column name to categorize (e.g., "Expense Item", "Product Name"). Required.  
+    public targetColumn!: string;
+    /// Optional: The worksheet name to process. If not specified, all worksheets will be processed.  
+    public sheetName!: string;
+    /// Optional: Name for the new categorization column (default: "AI Category").  
+    public newColumnName!: string;
+    /// Spreadsheet region/language setting (e.g., `en-US`, `fr-FR`). Influences number formatting, date parsing, and locale‑specific behavior.  
+    public region!: string;
+    /// The password for opening spreadsheet file.  
+    public password!: string;
+    /// extend query parameter
+    public extendQueryParameterMap: any;
+
+    public constructor(init?: Partial< CategorizeSpreadsheetRequest >) {  
+        Object.assign(this, init);
+    } 
+
+    public async createRequestOptions(configuration: Configuration) : Promise<request.Options> {
+
+        let localVarPath = configuration.getApiBaseUrl() + "v4.0/cells/ai/categorize/spreadsheet";
+        const queryParameters: any = {};
+        const formParams: any = {};
+        /// The column name to categorize (e.g., "Expense Item", "Product Name"). Required. 
+        // verify required parameter 'targetColumn' is not null or undefined
+        if (this.targetColumn === null || this.targetColumn === undefined) {
+            throw new Error('Required parameter "targetColumn" was null or undefined when calling CategorizeSpreadsheet.');
+        }
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "targetColumn", this.targetColumn);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "sheetName", this.sheetName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "newColumnName", this.newColumnName);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "region", this.region);
+        localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, "password", this.password);
+        if(this.extendQueryParameterMap !== undefined){
+            for (var key in this.extendQueryParameterMap){
+                localVarPath = addQueryParameterToUrl(localVarPath, queryParameters, key, this.extendQueryParameterMap[key]);
+            }
+        }
+        if (this.spreadsheet !== undefined) {
+            if (typeof this.spreadsheet === 'string') {
+                if (fs.existsSync(this.spreadsheet)) {
+                    const fileName = path.basename( this.spreadsheet)
+                    formParams[fileName] = fs.createReadStream(this.spreadsheet)
+                }
+            }
+            else {
+                for (var key in this.spreadsheet){
+                    formParams[key] = this.spreadsheet[key];
+                }
+            }
+        }
+
+
+        // const bodyParameter = null;
+
+        const requestOptions: request.Options = {
+            method: "PUT",
+            qs: queryParameters,
+            uri: localVarPath,
+            json: true,
+        };
+
+        (requestOptions as any).formData = formParams;        
+        return Promise.resolve(requestOptions);
+
+    }
+
+}
 /// The Aggregate by Color API provides a convenient way to perform calculations on cells that share the same fill or font color. This API supports a range of aggregate operations, including count, sum, maximum value, minimum value, and average value, enabling you to analyze and summarize data based on color distinctions.   
 export class AggregateCellsByColorRequest  {
     /// Upload spreadsheet file.  

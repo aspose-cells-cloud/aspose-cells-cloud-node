@@ -133,6 +133,22 @@ export class CellsApi {
     }
 
     /// <summary>
+    /// AI-powered data categorization: Automatically classifies spreadsheet column data into logical groups.
+    /// </summary>
+    /// <param name="request">Request. <see cref="CategorizeSpreadsheetRequest" /></param>
+    public async categorizeSpreadsheet(requestObj:model.CategorizeSpreadsheetRequest ): Promise<{response: http.ClientResponse, body: Buffer}>
+    {
+        if (requestObj === null || requestObj === undefined) {
+            throw new Error('Required parameter "requestObj" was null or undefined when calling categorizeSpreadsheet.');
+        }
+
+        const requestOptions = await requestObj.createRequestOptions(this.configuration);
+        const response = await invokeApiMethod(requestOptions, this.configuration);
+        const result =  ObjectSerializer.deserialize(response.body, "Buffer");
+        return Promise.resolve({body: result, response});
+    }
+
+    /// <summary>
     /// The Aggregate by Color API provides a convenient way to perform calculations on cells that share the same fill or font color. This API supports a range of aggregate operations, including count, sum, maximum value, minimum value, and average value, enabling you to analyze and summarize data based on color distinctions.
     /// </summary>
     /// <param name="request">Request. <see cref="AggregateCellsByColorRequest" /></param>
